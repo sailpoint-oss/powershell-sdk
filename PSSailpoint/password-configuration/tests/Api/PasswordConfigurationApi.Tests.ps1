@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.PasswordConfiguration' -name 'PasswordConfigurationApi' {
     Context 'New-PasswordOrgConfigV1' {
         It 'Test New-PasswordOrgConfigV1' {
-            #$TestResult = New-PasswordOrgConfigV1 -Passwordorgconfig "TEST_VALUE"
+            #$TestResult = New-PasswordOrgConfigV1 -PasswordOrgConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.PasswordConfiguration' -name 'PasswordConfigurationAp
 
     Context 'Send-PasswordOrgConfigV1' {
         It 'Test Send-PasswordOrgConfigV1' {
-            #$TestResult = Send-PasswordOrgConfigV1 -Passwordorgconfig "TEST_VALUE"
+            #$TestResult = Send-PasswordOrgConfigV1 -PasswordOrgConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

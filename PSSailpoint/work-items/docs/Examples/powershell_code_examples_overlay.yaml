@@ -64,18 +64,22 @@
       label: SDK_tools/sdk/powershell/workitems/methods/work-items#forward-work-item-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-        $Workitemforward = @"
-        
+        $WorkItemForward = @"
+        {
+          "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
+          "comment" : "I'm going on vacation.",
+          "sendNotifications" : true
+        }
         "@
         
         # Forward a work item
         
         try {
-            $Result = ConvertFrom-JsonToWorkitemforward -Json $Workitemforward
-            Invoke-ForwardWorkItemV1 -Id $Id -Workitemforward $Result 
+            $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
+            Invoke-ForwardWorkItemV1 -Id $Id -WorkItemForward $Result 
     
             # Below is a request that includes all optional parameters
-            # Invoke-ForwardWorkItemV1 -Id $Id -Workitemforward $Result   
+            # Invoke-ForwardWorkItemV1 -Id $Id -WorkItemForward $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ForwardWorkItemV1"
             Write-Host $_.ErrorDetails

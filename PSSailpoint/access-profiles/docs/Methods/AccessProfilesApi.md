@@ -72,20 +72,20 @@ The maximum supported length for the description field is 2000 characters. Longe
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Accessprofile | [**Accessprofile**](../models/accessprofile) | True  | 
+ Body  | AccessProfile | [**AccessProfile**](../models/access-profile) | True  | 
 
 ### Return type
-[**Accessprofile**](../models/accessprofile)
+[**AccessProfile**](../models/access-profile)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Access profile created. | Accessprofile
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Access profile created. | AccessProfile
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -93,16 +93,131 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Accessprofile = @""@
+$AccessProfile = @"{
+  "owner" : {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "entitlements" : [ {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  }, {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  } ],
+  "created" : "2021-03-01T22:32:58.104Z",
+  "description" : "Collection of entitlements to read/write the employee database",
+  "source" : {
+    "name" : "ODS-AD-SOURCE",
+    "id" : "2c91809773dee3610173fdb0b6061ef4",
+    "type" : "SOURCE"
+  },
+  "enabled" : true,
+  "additionalOwners" : [ {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  }, {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  } ],
+  "revocationRequestConfig" : {
+    "approvalSchemes" : [ {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ]
+  },
+  "segments" : [ "f7b1b8a3-5fed-4fd4-ad29-82014e137e19", "29cb6c06-1da8-43ea-8be4-b3125f248f2a" ],
+  "accessRequestConfig" : {
+    "commentsRequired" : true,
+    "reauthorizationRequired" : true,
+    "approvalSchemes" : [ {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "denialCommentsRequired" : true,
+    "requireEndDate" : true,
+    "maxPermittedAccessDuration" : {
+      "value" : 6,
+      "timeUnit" : "MONTHS"
+    }
+  },
+  "name" : "Employee-database-read-write",
+  "provisioningCriteria" : {
+    "children" : [ {
+      "children" : [ {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      }, {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      } ],
+      "attribute" : "email",
+      "operation" : "EQUALS",
+      "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+    }, {
+      "children" : [ {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      }, {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      } ],
+      "attribute" : "email",
+      "operation" : "EQUALS",
+      "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+    } ],
+    "attribute" : "email",
+    "operation" : "EQUALS",
+    "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+  },
+  "modified" : "2021-03-02T20:22:28.104Z",
+  "accessModelMetadata" : {
+    "attributes" : [ {
+      "key" : "iscPrivacy",
+      "name" : "Privacy",
+      "multiselect" : false,
+      "status" : "active",
+      "type" : "governance",
+      "objectTypes" : [ "all" ],
+      "description" : "Specifies the level of privacy associated with an access item.",
+      "values" : [ {
+        "value" : "public",
+        "name" : "Public",
+        "status" : "active"
+      } ]
+    } ]
+  },
+  "id" : "2c91808a7190d06e01719938fcd20792",
+  "requestable" : true
+}"@
 
 # Create access profile
 
 try {
-    $Result = ConvertFrom-JsonToAccessprofile -Json $Accessprofile
-    New-AccessProfileV1 -Accessprofile $Result 
+    $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
+    New-AccessProfileV1 -AccessProfile $Result 
     
     # Below is a request that includes all optional parameters
-    # New-AccessProfileV1 -Accessprofile $Result  
+    # New-AccessProfileV1 -AccessProfile $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessProfileV1"
     Write-Host $_.ErrorDetails
@@ -131,11 +246,11 @@ Path   | Id | **String** | True  | ID of the Access Profile to delete
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Returned when an access profile cannot be deleted as it&#39;s being used. | Errorresponsedto
+400 | Returned when an access profile cannot be deleted as it&#39;s being used. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -171,21 +286,21 @@ A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles asso
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Accessprofilebulkdeleterequest | [**Accessprofilebulkdeleterequest**](../models/accessprofilebulkdeleterequest) | True  | 
+ Body  | AccessProfileBulkDeleteRequest | [**AccessProfileBulkDeleteRequest**](../models/access-profile-bulk-delete-request) | True  | 
 
 ### Return type
-[**Accessprofilebulkdeleteresponse**](../models/accessprofilebulkdeleteresponse)
+[**AccessProfileBulkDeleteResponse**](../models/access-profile-bulk-delete-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returned only if **bestEffortOnly** is **false**, and one or more Access Profiles are in use. | Accessprofilebulkdeleteresponse
-202 | Returned if at least one deletion will be performed. | Accessprofilebulkdeleteresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Returned only if **bestEffortOnly** is **false**, and one or more Access Profiles are in use. | AccessProfileBulkDeleteResponse
+202 | Returned if at least one deletion will be performed. | AccessProfileBulkDeleteResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -193,16 +308,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Accessprofilebulkdeleterequest = @"{"bestEffortOnly":true,"accessProfileIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}"@
+$AccessProfileBulkDeleteRequest = @"{
+  "accessProfileIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ],
+  "bestEffortOnly" : true
+}"@
 
 # Delete access profile(s)
 
 try {
-    $Result = ConvertFrom-JsonToAccessprofilebulkdeleterequest -Json $Accessprofilebulkdeleterequest
-    Remove-AccessProfilesInBulkV1 -Accessprofilebulkdeleterequest $Result 
+    $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
+    Remove-AccessProfilesInBulkV1 -AccessProfileBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-AccessProfilesInBulkV1 -Accessprofilebulkdeleterequest $Result  
+    # Remove-AccessProfilesInBulkV1 -AccessProfileBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessProfilesInBulkV1"
     Write-Host $_.ErrorDetails
@@ -234,11 +352,11 @@ Path   | Id | **String** | True  | ID of the access profile containing the entit
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of entitlements. | Entitlement[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -278,17 +396,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Access Profile
 
 ### Return type
-[**Accessprofile**](../models/accessprofile)
+[**AccessProfile**](../models/access-profile)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An AccessProfile | Accessprofile
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | An AccessProfile | AccessProfile
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -331,17 +449,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error.
 
 ### Return type
-[**Accessprofile[]**](../models/accessprofile)
+[**AccessProfile[]**](../models/access-profile)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of access profiles. | Accessprofile[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of access profiles. | AccessProfile[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -412,20 +530,20 @@ A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Access Profile to patch
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
-[**Accessprofile**](../models/accessprofile)
+[**AccessProfile**](../models/access-profile)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Responds with the Access Profile as updated. | Accessprofile
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Responds with the Access Profile as updated. | AccessProfile
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -434,17 +552,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to patch
- $Jsonpatchoperation = @"[{"op":"add","path":"/entitlements","value":[{"id":"2c9180857725c14301772a93bb77242d","type":"ENTITLEMENT","name":"AD User Group"}]}]"@ # Jsonpatchoperation[] | 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | 
  
 
 # Patch a specified access profile
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-AccessProfileV1 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-AccessProfileV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AccessProfileV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-AccessProfileV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfileV1"
     Write-Host $_.ErrorDetails
@@ -470,21 +592,21 @@ This API initiates a bulk update of field requestable for one or more Access Pro
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | AccessprofilebulkupdaterequestInner | [**[]AccessprofilebulkupdaterequestInner**](../models/accessprofilebulkupdaterequest-inner) | True  | 
+ Body  | AccessProfileBulkUpdateRequestInner | [**[]AccessProfileBulkUpdateRequestInner**](../models/access-profile-bulk-update-request-inner) | True  | 
 
 ### Return type
-[**Accessprofileupdateitem[]**](../models/accessprofileupdateitem)
+[**AccessProfileUpdateItem[]**](../models/access-profile-update-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-207 | List of updated and not updated Access Profiles. | Accessprofileupdateitem[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+207 | List of updated and not updated Access Profiles. | AccessProfileUpdateItem[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 412 | Precondition Failed - Returned in response if API/Feature not enabled for an organization. | UpdateAccessProfilesInBulkV1412Response
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -493,17 +615,17 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- $AccessprofilebulkupdaterequestInner = @"[{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]"@ # AccessprofilebulkupdaterequestInner[] | 
+ $AccessProfileBulkUpdateRequestInner = @"[{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]"@ # AccessProfileBulkUpdateRequestInner[] | 
  
 
 # Update access profile(s) requestable field.
 
 try {
-    $Result = ConvertFrom-JsonToAccessprofilebulkupdaterequestInner -Json $AccessprofilebulkupdaterequestInner
-    Update-AccessProfilesInBulkV1 -XSailPointExperimental $XSailPointExperimental -AccessprofilebulkupdaterequestInner $Result 
+    $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
+    Update-AccessProfilesInBulkV1 -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AccessProfilesInBulkV1 -XSailPointExperimental $XSailPointExperimental -AccessprofilebulkupdaterequestInner $Result  
+    # Update-AccessProfilesInBulkV1 -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesInBulkV1"
     Write-Host $_.ErrorDetails

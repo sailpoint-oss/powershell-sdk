@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Jitactivationconfigresponse
+JITActivationConfigResponse
 #>
 function Get-JitActivationConfigV1 {
     [CmdletBinding()]
@@ -67,7 +67,7 @@ function Get-JitActivationConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Jitactivationconfigresponse" `
+                                -ReturnType "JITActivationConfigResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -90,7 +90,7 @@ Updates the tenant's JIT activation policy configuration by applying one or more
 .PARAMETER ConfigType
 Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
 
-.PARAMETER Jitaccessoperationrequest
+.PARAMETER JitAccessOperationRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -99,7 +99,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Jitactivationconfigresponse
+JITActivationConfigResponse
 #>
 function Update-JitActivationConfigV1 {
     [CmdletBinding()]
@@ -110,7 +110,7 @@ function Update-JitActivationConfigV1 {
         ${ConfigType},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jitaccessoperationrequest},
+        ${JitAccessOperationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -140,14 +140,14 @@ function Update-JitActivationConfigV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{configType}', [System.Web.HTTPUtility]::UrlEncode($ConfigType))
 
-        if (!$Jitaccessoperationrequest) {
-            throw "Error! The required parameter `Jitaccessoperationrequest` missing when calling patchJitActivationConfigV1."
+        if (!$JitAccessOperationRequest) {
+            throw "Error! The required parameter `JitAccessOperationRequest` missing when calling patchJitActivationConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jitaccessoperationrequest -is [array])) {
-            $LocalVarBodyParameter = $Jitaccessoperationrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JitAccessOperationRequest -is [array])) {
+            $LocalVarBodyParameter = $JitAccessOperationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jitaccessoperationrequest | ForEach-Object {
+            $LocalVarBodyParameter = $JitAccessOperationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -166,7 +166,7 @@ function Update-JitActivationConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Jitactivationconfigresponse" `
+                                -ReturnType "JITActivationConfigResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

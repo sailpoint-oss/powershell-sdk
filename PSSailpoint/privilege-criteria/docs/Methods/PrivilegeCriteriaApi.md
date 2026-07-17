@@ -33,20 +33,20 @@ Use this API to create a custom privilege criteria
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Createprivilegecriteriarequest | [**Createprivilegecriteriarequest**](../models/createprivilegecriteriarequest) | True  | Create custom privilege criteria request body.
+ Body  | CreatePrivilegeCriteriaRequest | [**CreatePrivilegeCriteriaRequest**](../models/create-privilege-criteria-request) | True  | Create custom privilege criteria request body.
 
 ### Return type
-[**Privilegecriteriadto**](../models/privilegecriteriadto)
+[**PrivilegeCriteriaDTO**](../models/privilege-criteria-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Custom privilege criteria created | Privilegecriteriadto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Custom privilege criteria created | PrivilegeCriteriaDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPrivilegeCriteriaV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPrivilegeCriteriaV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -54,16 +54,48 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Createprivilegecriteriarequest = @""@
+$CreatePrivilegeCriteriaRequest = @"{
+  "sourceId" : "c42c45d8d7c04d2da64d215cd8c32f21",
+  "privilegeLevel" : "HIGH",
+  "groups" : [ {
+    "criteriaItems" : [ {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "targetType" : "group",
+      "operator" : "displayName"
+    }, {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "targetType" : "group",
+      "operator" : "displayName"
+    } ],
+    "operator" : "AND"
+  }, {
+    "criteriaItems" : [ {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "targetType" : "group",
+      "operator" : "displayName"
+    }, {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "targetType" : "group",
+      "operator" : "displayName"
+    } ],
+    "operator" : "AND"
+  } ],
+  "type" : "CUSTOM",
+  "operator" : "AND"
+}"@
 
 # Create custom privilege criteria
 
 try {
-    $Result = ConvertFrom-JsonToCreateprivilegecriteriarequest -Json $Createprivilegecriteriarequest
-    New-CustomPrivilegeCriteriaV1 -Createprivilegecriteriarequest $Result 
+    $Result = ConvertFrom-JsonToCreatePrivilegeCriteriaRequest -Json $CreatePrivilegeCriteriaRequest
+    New-CustomPrivilegeCriteriaV1 -CreatePrivilegeCriteriaRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-CustomPrivilegeCriteriaV1 -Createprivilegecriteriarequest $Result  
+    # New-CustomPrivilegeCriteriaV1 -CreatePrivilegeCriteriaRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CustomPrivilegeCriteriaV1"
     Write-Host $_.ErrorDetails
@@ -88,11 +120,11 @@ Path   | CriteriaId | **String** | True  | The Id of the custom privilege criter
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | Success | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPrivilegeCriteriaV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPrivilegeCriteriaV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -127,17 +159,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | CriteriaId | **String** | True  | The Id of the privilege criteria record to return.
 
 ### Return type
-[**Privilegecriteriadto**](../models/privilegecriteriadto)
+[**PrivilegeCriteriaDTO**](../models/privilege-criteria-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK | Privilegecriteriadto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK | PrivilegeCriteriaDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPrivilegeCriteriaV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPrivilegeCriteriaV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -172,17 +204,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** | True  | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq*  **sourceId**: *eq*  **privilegeLevel**: *eq*  **Supported composite operators**: *and*  All filter values are case-sensitive for this API.  For example, the following is valid: `?filters=type eq ""CUSTOM"" and sourceId eq ""2c91809175e6c63f0175fb5570220569""`
 
 ### Return type
-[**Privilegecriteriadto[]**](../models/privilegecriteriadto)
+[**PrivilegeCriteriaDTO[]**](../models/privilege-criteria-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK | Privilegecriteriadto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK | PrivilegeCriteriaDTO[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPrivilegeCriteriaV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPrivilegeCriteriaV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -215,20 +247,20 @@ Use this API to update a specific custom privilege criteria by overwriting the i
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | CriteriaId | **String** | True  | The Id of the privilege criteria record to return.
- Body  | Privilegecriteriadto | [**Privilegecriteriadto**](../models/privilegecriteriadto) | True  | The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
+ Body  | PrivilegeCriteriaDTO | [**PrivilegeCriteriaDTO**](../models/privilege-criteria-dto) | True  | The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
 
 ### Return type
-[**Privilegecriteriadto**](../models/privilegecriteriadto)
+[**PrivilegeCriteriaDTO**](../models/privilege-criteria-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK | Privilegecriteriadto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK | PrivilegeCriteriaDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPrivilegeCriteriaV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPrivilegeCriteriaV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -237,16 +269,53 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $CriteriaId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the privilege criteria record to return.
-$Privilegecriteriadto = @""@
+$PrivilegeCriteriaDTO = @"{
+  "sourceId" : "c42c45d8d7c04d2da64d215cd8c32f21",
+  "privilegeLevel" : "HIGH",
+  "groups" : [ {
+    "criteriaItems" : [ {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "property" : "displayName",
+      "targetType" : "group",
+      "operator" : "IN"
+    }, {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "property" : "displayName",
+      "targetType" : "group",
+      "operator" : "IN"
+    } ],
+    "operator" : "AND"
+  }, {
+    "criteriaItems" : [ {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "property" : "displayName",
+      "targetType" : "group",
+      "operator" : "IN"
+    }, {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "property" : "displayName",
+      "targetType" : "group",
+      "operator" : "IN"
+    } ],
+    "operator" : "AND"
+  } ],
+  "id" : "2c9180867817ac4d017817c491119a20",
+  "type" : "CUSTOM",
+  "operator" : "AND"
+}"@
 
 # Update privilege criteria
 
 try {
-    $Result = ConvertFrom-JsonToPrivilegecriteriadto -Json $Privilegecriteriadto
-    Send-CustomPrivilegeCriteriaValueV1 -CriteriaId $CriteriaId -Privilegecriteriadto $Result 
+    $Result = ConvertFrom-JsonToPrivilegeCriteriaDTO -Json $PrivilegeCriteriaDTO
+    Send-CustomPrivilegeCriteriaValueV1 -CriteriaId $CriteriaId -PrivilegeCriteriaDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-CustomPrivilegeCriteriaValueV1 -CriteriaId $CriteriaId -Privilegecriteriadto $Result  
+    # Send-CustomPrivilegeCriteriaValueV1 -CriteriaId $CriteriaId -PrivilegeCriteriaDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-CustomPrivilegeCriteriaValueV1"
     Write-Host $_.ErrorDetails

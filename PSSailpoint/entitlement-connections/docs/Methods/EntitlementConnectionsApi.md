@@ -44,19 +44,19 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, identity.id, identity.name, source.id, source.name, account.id, account.name, entitlement.id, entitlement.displayName, entitlement.attribute, entitlement.privilegeLevel.effective, type, state.value, standalone, jit.activation, jit.provision, jit.deactivation, jit.deprovision, jit.expiration** 
 
 ### Return type
-[**Entitlementconnectionsearchhit[]**](../models/entitlementconnectionsearchhit)
+[**EntitlementConnectionSearchHit[]**](../models/entitlement-connection-search-hit)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of entitlement connections for the current identity. | Entitlementconnectionsearchhit[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of entitlement connections for the current identity. | EntitlementConnectionSearchHit[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementConnectionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 412 | Precondition Failed - Returned in response if API/Feature not enabled for an organization. | ListEntitlementConnectionsV1412Response
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementConnectionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -105,19 +105,19 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, identity.id, identity.name, source.id, source.name, account.id, account.name, entitlement.id, entitlement.displayName, entitlement.attribute, entitlement.privilegeLevel.effective, type, state.value, standalone, jit.activation, jit.provision, jit.deactivation, jit.deprovision, jit.expiration**  Prefix a field with `-` for descending order. 
 
 ### Return type
-[**Entitlementconnectionsearchhit[]**](../models/entitlementconnectionsearchhit)
+[**EntitlementConnectionSearchHit[]**](../models/entitlement-connection-search-hit)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of entitlement connections. | Entitlementconnectionsearchhit[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of entitlement connections. | EntitlementConnectionSearchHit[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementConnectionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 412 | Precondition Failed - Returned in response if API/Feature not enabled for an organization. | ListEntitlementConnectionsV1412Response
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementConnectionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -156,22 +156,22 @@ Applies JSON Patch operations to an entitlement connection selected by `connecti
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | ConnectionId | **String** | True  | Connection ID (UUID with or without hyphens).
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
-[**Entitlementconnection**](../models/entitlementconnection)
+[**EntitlementConnection**](../models/entitlement-connection)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated entitlement connection. | Entitlementconnection
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated entitlement connection. | EntitlementConnection
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementConnectionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 412 | Precondition Failed - Returned in response if API/Feature not enabled for an organization. | ListEntitlementConnectionsV1412Response
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementConnectionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -180,17 +180,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $ConnectionId = "6c692d9972f8400ca4560a68f62c4c5f" # String | Connection ID (UUID with or without hyphens).
- $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | 
  
 
 # Update entitlement connection
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-EntitlementConnectionByIdV1 -ConnectionId $ConnectionId -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-EntitlementConnectionByIdV1 -ConnectionId $ConnectionId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-EntitlementConnectionByIdV1 -ConnectionId $ConnectionId -Jsonpatchoperation $Result  
+    # Update-EntitlementConnectionByIdV1 -ConnectionId $ConnectionId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementConnectionByIdV1"
     Write-Host $_.ErrorDetails
@@ -211,22 +215,22 @@ Param Type | Name | Data Type | Required  | Description
   Query | EntitlementId | **String** | True  | Entitlement ID (UUID with or without hyphens).
   Query | IdentityId | **String** | True  | Identity ID (UUID with or without hyphens).
   Query | AccountId | **String** | True  | Account ID (UUID with or without hyphens).
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
-[**Entitlementconnection**](../models/entitlementconnection)
+[**EntitlementConnection**](../models/entitlement-connection)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated entitlement connection. | Entitlementconnection
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated entitlement connection. | EntitlementConnection
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementConnectionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 412 | Precondition Failed - Returned in response if API/Feature not enabled for an organization. | ListEntitlementConnectionsV1412Response
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementConnectionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -237,17 +241,21 @@ Code | Description  | Data Type
 $EntitlementId = "dcfd09e551644ad5aa162ce977862031" # String | Entitlement ID (UUID with or without hyphens).
 $IdentityId = "5470d8d4817a4207a8020bf533187da9" # String | Identity ID (UUID with or without hyphens).
 $AccountId = "323bfddfb3dd4197b8f10f7735307d27" # String | Account ID (UUID with or without hyphens).
- $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | 
  
 
 # Update connection by query
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-EntitlementConnectionByQueryV1 -EntitlementId $EntitlementId -IdentityId $IdentityId -AccountId $AccountId -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-EntitlementConnectionByQueryV1 -EntitlementId $EntitlementId -IdentityId $IdentityId -AccountId $AccountId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-EntitlementConnectionByQueryV1 -EntitlementId $EntitlementId -IdentityId $IdentityId -AccountId $AccountId -Jsonpatchoperation $Result  
+    # Update-EntitlementConnectionByQueryV1 -EntitlementId $EntitlementId -IdentityId $IdentityId -AccountId $AccountId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementConnectionByQueryV1"
     Write-Host $_.ErrorDetails
@@ -265,20 +273,20 @@ The API returns per-item results in a 207 Multi-Status response.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Entitlementconnectionbulkupdateitem | [**[]Entitlementconnectionbulkupdateitem**](../models/entitlementconnectionbulkupdateitem) | True  | 
+ Body  | EntitlementConnectionBulkUpdateItem | [**[]EntitlementConnectionBulkUpdateItem**](../models/entitlement-connection-bulk-update-item) | True  | 
 
 ### Return type
-[**Entitlementconnectionbulkupdateresultitem[]**](../models/entitlementconnectionbulkupdateresultitem)
+[**EntitlementConnectionBulkUpdateResultItem[]**](../models/entitlement-connection-bulk-update-result-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-207 | Per-item bulk update results. | Entitlementconnectionbulkupdateresultitem[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+207 | Per-item bulk update results. | EntitlementConnectionBulkUpdateResultItem[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementConnectionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementConnectionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -286,17 +294,20 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
- $Entitlementconnectionbulkupdateitem = @"[{"connectionId":"d532fa5cb15748e2873c6a01e5923ec4","type":"JIT"},{"connectionId":"57bdbfcab8a34afb91c0a9fb4dba52b8","type":"STANDING"},{"connectionId":"0f571cefc8a2411790e0ee09f77e25a3","type":"STANDING"},{"connectionId":"025542c7e42144258c6f2325b6feeba8","type":"JIT"},{"connectionId":"6bccbc42381f49028dac9bfe68dbad2e","type":"JIT"}]"@ # Entitlementconnectionbulkupdateitem[] | 
+ $EntitlementConnectionBulkUpdateItem = @"{
+  "connectionId" : "d532fa5cb15748e2873c6a01e5923ec4",
+  "type" : "JIT"
+}"@ # EntitlementConnectionBulkUpdateItem[] | 
  
 
 # Update connections in bulk
 
 try {
-    $Result = ConvertFrom-JsonToEntitlementconnectionbulkupdateitem -Json $Entitlementconnectionbulkupdateitem
-    Update-EntitlementConnectionsBulkV1 -Entitlementconnectionbulkupdateitem $Result 
+    $Result = ConvertFrom-JsonToEntitlementConnectionBulkUpdateItem -Json $EntitlementConnectionBulkUpdateItem
+    Update-EntitlementConnectionsBulkV1 -EntitlementConnectionBulkUpdateItem $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-EntitlementConnectionsBulkV1 -Entitlementconnectionbulkupdateitem $Result  
+    # Update-EntitlementConnectionsBulkV1 -EntitlementConnectionBulkUpdateItem $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementConnectionsBulkV1"
     Write-Host $_.ErrorDetails

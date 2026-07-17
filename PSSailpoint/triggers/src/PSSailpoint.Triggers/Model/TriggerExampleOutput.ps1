@@ -39,52 +39,52 @@ function ConvertFrom-JsonToTriggerExampleOutput {
             return [PSCustomObject]@{
                 "ActualType" = $null
                 "ActualInstance" = $null
-                "OneOfSchemas" = @("Accessrequestdynamicapprover2", "Accessrequestpreapproval2")
+                "OneOfSchemas" = @("AccessRequestDynamicApprover2", "AccessRequestPreApproval2")
             }
         }
 
-        # try to match Accessrequestdynamicapprover2 defined in the oneOf schemas
+        # try to match AccessRequestDynamicApprover2 defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccessrequestdynamicapprover2 $Json
+            $matchInstance = ConvertFrom-JsonToAccessRequestDynamicApprover2 $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accessrequestdynamicapprover2"
+                    $matchType = "AccessRequestDynamicApprover2"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accessrequestdynamicapprover2' defined in oneOf (TriggerExampleOutput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccessRequestDynamicApprover2' defined in oneOf (TriggerExampleOutput). Proceeding to the next one if any."
         }
 
-        # try to match Accessrequestpreapproval2 defined in the oneOf schemas
+        # try to match AccessRequestPreApproval2 defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccessrequestpreapproval2 $Json
+            $matchInstance = ConvertFrom-JsonToAccessRequestPreApproval2 $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accessrequestpreapproval2"
+                    $matchType = "AccessRequestPreApproval2"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accessrequestpreapproval2' defined in oneOf (TriggerExampleOutput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccessRequestPreApproval2' defined in oneOf (TriggerExampleOutput). Proceeding to the next one if any."
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([Accessrequestdynamicapprover2, Accessrequestpreapproval2]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessRequestDynamicApprover2, AccessRequestPreApproval2]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("Accessrequestdynamicapprover2", "Accessrequestpreapproval2")
+                "OneOfSchemas" = @("AccessRequestDynamicApprover2", "AccessRequestPreApproval2")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([Accessrequestdynamicapprover2, Accessrequestpreapproval2]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessRequestDynamicApprover2, AccessRequestPreApproval2]). JSON Payload: $($Json)"
         }
     }
 }

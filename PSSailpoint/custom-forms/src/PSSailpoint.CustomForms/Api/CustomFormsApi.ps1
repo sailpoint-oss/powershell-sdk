@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Formdefinitiondynamicschemaresponse
+FormDefinitionDynamicSchemaResponse
 #>
 function New-FormDefinitionDynamicSchemaV1 {
     [CmdletBinding()]
@@ -78,7 +78,7 @@ function New-FormDefinitionDynamicSchemaV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Formdefinitiondynamicschemaresponse" `
+                                -ReturnType "FormDefinitionDynamicSchemaResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -110,7 +110,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Formdefinitionfileuploadresponse
+FormDefinitionFileUploadResponse
 #>
 function New-FormDefinitionFileRequestV1 {
     [CmdletBinding()]
@@ -164,7 +164,7 @@ function New-FormDefinitionFileRequestV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Formdefinitionfileuploadresponse" `
+                                -ReturnType "FormDefinitionFileUploadResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -193,7 +193,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Formdefinitionresponse
+FormDefinitionResponse
 #>
 function New-FormDefinitionV1 {
     [CmdletBinding()]
@@ -248,7 +248,7 @@ function New-FormDefinitionV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Formdefinitionresponse" `
+                                -ReturnType "FormDefinitionResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -277,7 +277,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Forminstanceresponse
+FormInstanceResponse
 #>
 function New-FormInstanceV1 {
     [CmdletBinding()]
@@ -332,7 +332,7 @@ function New-FormInstanceV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Forminstanceresponse" `
+                                -ReturnType "FormInstanceResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -629,7 +629,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Formdefinitionresponse
+FormDefinitionResponse
 #>
 function Get-FormDefinitionByKeyV1 {
     [CmdletBinding()]
@@ -672,7 +672,7 @@ function Get-FormDefinitionByKeyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Formdefinitionresponse" `
+                                -ReturnType "FormDefinitionResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -701,7 +701,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Forminstanceresponse
+FormInstanceResponse
 #>
 function Get-FormInstanceByKeyV1 {
     [CmdletBinding()]
@@ -744,7 +744,7 @@ function Get-FormInstanceByKeyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Forminstanceresponse" `
+                                -ReturnType "FormInstanceResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -954,7 +954,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Formdefinitionresponse
+FormDefinitionResponse
 #>
 function Update-FormDefinitionV1 {
     [CmdletBinding()]
@@ -1016,7 +1016,7 @@ function Update-FormDefinitionV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Formdefinitionresponse" `
+                                -ReturnType "FormDefinitionResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1048,7 +1048,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Forminstanceresponse
+FormInstanceResponse
 #>
 function Update-FormInstanceV1 {
     [CmdletBinding()]
@@ -1110,7 +1110,7 @@ function Update-FormInstanceV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Forminstanceresponse" `
+                                -ReturnType "FormInstanceResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1148,7 +1148,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Listformdefinitionsbytenantresponse
+ListFormDefinitionsByTenantResponse
 #>
 function Search-FormDefinitionsByTenantV1 {
     [CmdletBinding()]
@@ -1212,7 +1212,7 @@ function Search-FormDefinitionsByTenantV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Listformdefinitionsbytenantresponse" `
+                                -ReturnType "ListFormDefinitionsByTenantResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1253,7 +1253,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Listformelementdatabyelementidresponse
+ListFormElementDataByElementIDResponse
 #>
 function Search-FormElementDataByElementIDV1 {
     [CmdletBinding()]
@@ -1324,7 +1324,7 @@ function Search-FormElementDataByElementIDV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Listformelementdatabyelementidresponse" `
+                                -ReturnType "ListFormElementDataByElementIDResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1359,7 +1359,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Listforminstancesbytenantresponse[]
+ListFormInstancesByTenantResponse[]
 #>
 function Search-FormInstancesByTenantV1 {
     [CmdletBinding()]
@@ -1416,7 +1416,7 @@ function Search-FormInstancesByTenantV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Listforminstancesbytenantresponse[]" `
+                                -ReturnType "ListFormInstancesByTenantResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1442,7 +1442,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Listpredefinedselectoptionsresponse
+ListPredefinedSelectOptionsResponse
 #>
 function Search-PreDefinedSelectOptionsV1 {
     [CmdletBinding()]
@@ -1478,7 +1478,7 @@ function Search-PreDefinedSelectOptionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Listpredefinedselectoptionsresponse" `
+                                -ReturnType "ListPredefinedSelectOptionsResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1510,7 +1510,7 @@ Filter results using the standard syntax described in [V3 API Standard Collectio
 .PARAMETER Query
 String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a ""starts with"" filter against  several fields.
 
-.PARAMETER Formelementpreviewrequest
+.PARAMETER FormElementPreviewRequest
 Body is the request payload to create a form definition dynamic schema
 
 .PARAMETER WithHttpInfo
@@ -1519,7 +1519,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Previewdatasourceresponse
+PreviewDataSourceResponse
 #>
 function Show-PreviewDataSourceV1 {
     [CmdletBinding()]
@@ -1538,7 +1538,7 @@ function Show-PreviewDataSourceV1 {
         ${Query},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Formelementpreviewrequest},
+        ${FormElementPreviewRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1580,10 +1580,10 @@ function Show-PreviewDataSourceV1 {
             $LocalVarQueryParameters['query'] = $Query
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Formelementpreviewrequest -is [array])) {
-            $LocalVarBodyParameter = $Formelementpreviewrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($FormElementPreviewRequest -is [array])) {
+            $LocalVarBodyParameter = $FormElementPreviewRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Formelementpreviewrequest | ForEach-Object {
+            $LocalVarBodyParameter = $FormElementPreviewRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1602,7 +1602,7 @@ function Show-PreviewDataSourceV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Previewdatasourceresponse" `
+                                -ReturnType "PreviewDataSourceResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

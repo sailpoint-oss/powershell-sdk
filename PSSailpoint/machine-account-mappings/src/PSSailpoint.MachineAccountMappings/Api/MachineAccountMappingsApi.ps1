@@ -17,7 +17,7 @@ Creates Machine Account Mappings for both identities and accounts for a source. 
 .PARAMETER SourceId
 Source ID.
 
-.PARAMETER Attributemappings
+.PARAMETER AttributeMappings
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attributemappings[]
+AttributeMappings[]
 #>
 function New-MachineAccountMappingsV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-MachineAccountMappingsV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Attributemappings},
+        ${AttributeMappings},
         [Switch]
         $WithHttpInfo
     )
@@ -66,14 +66,14 @@ function New-MachineAccountMappingsV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Attributemappings) {
-            throw "Error! The required parameter `Attributemappings` missing when calling createMachineAccountMappingsV1."
+        if (!$AttributeMappings) {
+            throw "Error! The required parameter `AttributeMappings` missing when calling createMachineAccountMappingsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Attributemappings -is [array])) {
-            $LocalVarBodyParameter = $Attributemappings | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AttributeMappings -is [array])) {
+            $LocalVarBodyParameter = $AttributeMappings | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Attributemappings | ForEach-Object {
+            $LocalVarBodyParameter = $AttributeMappings | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -92,7 +92,7 @@ function New-MachineAccountMappingsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attributemappings[]" `
+                                -ReturnType "AttributeMappings[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -199,7 +199,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attributemappings[]
+AttributeMappings[]
 #>
 function Get-MachineAccountMappingsV1 {
     [CmdletBinding()]
@@ -256,7 +256,7 @@ function Get-MachineAccountMappingsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attributemappings[]" `
+                                -ReturnType "AttributeMappings[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -279,7 +279,7 @@ Use this API to update Machine Account Attribute Mapping for a Source. A token w
 .PARAMETER SourceId
 Source ID.
 
-.PARAMETER Attributemappings
+.PARAMETER AttributeMappings
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -288,7 +288,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attributemappings[]
+AttributeMappings[]
 #>
 function Set-MachineAccountMappingsV1 {
     [CmdletBinding()]
@@ -298,7 +298,7 @@ function Set-MachineAccountMappingsV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Attributemappings},
+        ${AttributeMappings},
         [Switch]
         $WithHttpInfo
     )
@@ -328,14 +328,14 @@ function Set-MachineAccountMappingsV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Attributemappings) {
-            throw "Error! The required parameter `Attributemappings` missing when calling setMachineAccountMappingsV1."
+        if (!$AttributeMappings) {
+            throw "Error! The required parameter `AttributeMappings` missing when calling setMachineAccountMappingsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Attributemappings -is [array])) {
-            $LocalVarBodyParameter = $Attributemappings | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AttributeMappings -is [array])) {
+            $LocalVarBodyParameter = $AttributeMappings | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Attributemappings | ForEach-Object {
+            $LocalVarBodyParameter = $AttributeMappings | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -354,7 +354,7 @@ function Set-MachineAccountMappingsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attributemappings[]" `
+                                -ReturnType "AttributeMappings[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

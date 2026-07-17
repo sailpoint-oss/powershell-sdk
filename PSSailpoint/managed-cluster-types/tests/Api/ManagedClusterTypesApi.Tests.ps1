@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.ManagedClusterTypes' -name 'ManagedClusterTypesApi' {
     Context 'New-ManagedClusterTypeV1' {
         It 'Test New-ManagedClusterTypeV1' {
-            #$TestResult = New-ManagedClusterTypeV1 -Managedclustertype "TEST_VALUE"
+            #$TestResult = New-ManagedClusterTypeV1 -ManagedClusterType "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.ManagedClusterTypes' -name 'ManagedClusterTypesApi' {
 
     Context 'Update-ManagedClusterTypeV1' {
         It 'Test Update-ManagedClusterTypeV1' {
-            #$TestResult = Update-ManagedClusterTypeV1 -Id "TEST_VALUE" -Jsonpatch "TEST_VALUE"
+            #$TestResult = Update-ManagedClusterTypeV1 -Id "TEST_VALUE" -JsonPatch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

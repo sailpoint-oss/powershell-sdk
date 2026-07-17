@@ -34,96 +34,96 @@ function ConvertFrom-JsonToListIdentitySnapshotAccessItemsV1200ResponseInner {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match Accessitemaccessprofileresponse defined in the oneOf schemas
+        # try to match AccessItemAccessProfileResponse defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccessitemaccessprofileresponse $Json
+            $matchInstance = ConvertFrom-JsonToAccessItemAccessProfileResponse $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accessitemaccessprofileresponse"
+                    $matchType = "AccessItemAccessProfileResponse"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accessitemaccessprofileresponse' defined in oneOf (ListIdentitySnapshotAccessItemsV1200ResponseInner). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccessItemAccessProfileResponse' defined in oneOf (ListIdentitySnapshotAccessItemsV1200ResponseInner). Proceeding to the next one if any."
         }
 
-        # try to match Accessitemaccountresponse defined in the oneOf schemas
+        # try to match AccessItemAccountResponse defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccessitemaccountresponse $Json
+            $matchInstance = ConvertFrom-JsonToAccessItemAccountResponse $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accessitemaccountresponse"
+                    $matchType = "AccessItemAccountResponse"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accessitemaccountresponse' defined in oneOf (ListIdentitySnapshotAccessItemsV1200ResponseInner). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccessItemAccountResponse' defined in oneOf (ListIdentitySnapshotAccessItemsV1200ResponseInner). Proceeding to the next one if any."
         }
 
-        # try to match Accessitemappresponse defined in the oneOf schemas
+        # try to match AccessItemAppResponse defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccessitemappresponse $Json
+            $matchInstance = ConvertFrom-JsonToAccessItemAppResponse $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accessitemappresponse"
+                    $matchType = "AccessItemAppResponse"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accessitemappresponse' defined in oneOf (ListIdentitySnapshotAccessItemsV1200ResponseInner). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccessItemAppResponse' defined in oneOf (ListIdentitySnapshotAccessItemsV1200ResponseInner). Proceeding to the next one if any."
         }
 
-        # try to match Accessitementitlementresponse defined in the oneOf schemas
+        # try to match AccessItemEntitlementResponse defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccessitementitlementresponse $Json
+            $matchInstance = ConvertFrom-JsonToAccessItemEntitlementResponse $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accessitementitlementresponse"
+                    $matchType = "AccessItemEntitlementResponse"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accessitementitlementresponse' defined in oneOf (ListIdentitySnapshotAccessItemsV1200ResponseInner). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccessItemEntitlementResponse' defined in oneOf (ListIdentitySnapshotAccessItemsV1200ResponseInner). Proceeding to the next one if any."
         }
 
-        # try to match Accessitemroleresponse defined in the oneOf schemas
+        # try to match AccessItemRoleResponse defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccessitemroleresponse $Json
+            $matchInstance = ConvertFrom-JsonToAccessItemRoleResponse $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accessitemroleresponse"
+                    $matchType = "AccessItemRoleResponse"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accessitemroleresponse' defined in oneOf (ListIdentitySnapshotAccessItemsV1200ResponseInner). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccessItemRoleResponse' defined in oneOf (ListIdentitySnapshotAccessItemsV1200ResponseInner). Proceeding to the next one if any."
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([Accessitemaccessprofileresponse, Accessitemaccountresponse, Accessitemappresponse, Accessitementitlementresponse, Accessitemroleresponse]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessItemAccessProfileResponse, AccessItemAccountResponse, AccessItemAppResponse, AccessItemEntitlementResponse, AccessItemRoleResponse]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("Accessitemaccessprofileresponse", "Accessitemaccountresponse", "Accessitemappresponse", "Accessitementitlementresponse", "Accessitemroleresponse")
+                "OneOfSchemas" = @("AccessItemAccessProfileResponse", "AccessItemAccountResponse", "AccessItemAppResponse", "AccessItemEntitlementResponse", "AccessItemRoleResponse")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([Accessitemaccessprofileresponse, Accessitemaccountresponse, Accessitemappresponse, Accessitementitlementresponse, Accessitemroleresponse]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessItemAccessProfileResponse, AccessItemAccountResponse, AccessItemAppResponse, AccessItemEntitlementResponse, AccessItemRoleResponse]). JSON Payload: $($Json)"
         }
     }
 }

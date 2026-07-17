@@ -17,7 +17,7 @@ This API generates a create policy/template based on field value transforms. Thi
 .PARAMETER SourceId
 The Source id
 
-.PARAMETER Provisioningpolicydto
+.PARAMETER ProvisioningPolicyDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Provisioningpolicydto
+ProvisioningPolicyDto
 #>
 function New-ProvisioningPolicyV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-ProvisioningPolicyV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Provisioningpolicydto},
+        ${ProvisioningPolicyDto},
         [Switch]
         $WithHttpInfo
     )
@@ -66,14 +66,14 @@ function New-ProvisioningPolicyV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Provisioningpolicydto) {
-            throw "Error! The required parameter `Provisioningpolicydto` missing when calling createProvisioningPolicyV1."
+        if (!$ProvisioningPolicyDto) {
+            throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling createProvisioningPolicyV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Provisioningpolicydto -is [array])) {
-            $LocalVarBodyParameter = $Provisioningpolicydto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ProvisioningPolicyDto -is [array])) {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Provisioningpolicydto | ForEach-Object {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -92,7 +92,7 @@ function New-ProvisioningPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Provisioningpolicydto" `
+                                -ReturnType "ProvisioningPolicyDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -118,7 +118,7 @@ The Source id
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Provisioningpolicydtov2
+.PARAMETER ProvisioningPolicyDtoV2
 No description available.
 
 .PARAMETER UseDefaultFields
@@ -130,7 +130,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Provisioningpolicydtov2
+ProvisioningPolicyDtoV2
 #>
 function New-ProvisioningPolicyV2 {
     [CmdletBinding()]
@@ -143,7 +143,7 @@ function New-ProvisioningPolicyV2 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Provisioningpolicydtov2},
+        ${ProvisioningPolicyDtoV2},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${UseDefaultFields},
@@ -185,14 +185,14 @@ function New-ProvisioningPolicyV2 {
             $LocalVarQueryParameters['useDefaultFields'] = $UseDefaultFields
         }
 
-        if (!$Provisioningpolicydtov2) {
-            throw "Error! The required parameter `Provisioningpolicydtov2` missing when calling createProvisioningPolicyV2."
+        if (!$ProvisioningPolicyDtoV2) {
+            throw "Error! The required parameter `ProvisioningPolicyDtoV2` missing when calling createProvisioningPolicyV2."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Provisioningpolicydtov2 -is [array])) {
-            $LocalVarBodyParameter = $Provisioningpolicydtov2 | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ProvisioningPolicyDtoV2 -is [array])) {
+            $LocalVarBodyParameter = $ProvisioningPolicyDtoV2 | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Provisioningpolicydtov2 | ForEach-Object {
+            $LocalVarBodyParameter = $ProvisioningPolicyDtoV2 | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -211,7 +211,7 @@ function New-ProvisioningPolicyV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Provisioningpolicydtov2" `
+                                -ReturnType "ProvisioningPolicyDtoV2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -534,7 +534,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskresultdto
+TaskResultDto
 #>
 function Remove-AccountsAsyncV1 {
     [CmdletBinding()]
@@ -577,7 +577,7 @@ function Remove-AccountsAsyncV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskresultdto" `
+                                -ReturnType "TaskResultDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1090,7 +1090,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountdeleteconfigdto
+AccountDeleteConfigDto
 #>
 function Get-AccountDeleteApprovalConfigV1 {
     [CmdletBinding()]
@@ -1133,7 +1133,7 @@ function Get-AccountDeleteApprovalConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountdeleteconfigdto" `
+                                -ReturnType "AccountDeleteConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1246,7 +1246,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Correlationconfig
+CorrelationConfig
 #>
 function Get-CorrelationConfigV1 {
     [CmdletBinding()]
@@ -1289,7 +1289,7 @@ function Get-CorrelationConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Correlationconfig" `
+                                -ReturnType "CorrelationConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1412,7 +1412,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountdeleteconfigdto
+AccountDeleteConfigDto
 #>
 function Get-MachineAccountDeletionApprovalConfigBySourceV1 {
     [CmdletBinding()]
@@ -1455,7 +1455,7 @@ function Get-MachineAccountDeletionApprovalConfigBySourceV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountdeleteconfigdto" `
+                                -ReturnType "AccountDeleteConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1484,7 +1484,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nativechangedetectionconfig
+NativeChangeDetectionConfig
 #>
 function Get-NativeChangeDetectionConfigV1 {
     [CmdletBinding()]
@@ -1527,7 +1527,7 @@ function Get-NativeChangeDetectionConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nativechangedetectionconfig" `
+                                -ReturnType "NativeChangeDetectionConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1559,7 +1559,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Provisioningpolicydto
+ProvisioningPolicyDto
 #>
 function Get-ProvisioningPolicyV1 {
     [CmdletBinding()]
@@ -1609,7 +1609,7 @@ function Get-ProvisioningPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Provisioningpolicydto" `
+                                -ReturnType "ProvisioningPolicyDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1644,7 +1644,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Provisioningpolicydtov2
+ProvisioningPolicyDtoV2
 #>
 function Get-ProvisioningPolicyV2 {
     [CmdletBinding()]
@@ -1702,7 +1702,7 @@ function Get-ProvisioningPolicyV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Provisioningpolicydtov2" `
+                                -ReturnType "ProvisioningPolicyDtoV2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1734,7 +1734,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attrsyncsourceconfig
+AttrSyncSourceConfig
 #>
 function Get-SourceAttrSyncConfigV1 {
     [CmdletBinding()]
@@ -1785,7 +1785,7 @@ function Get-SourceAttrSyncConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attrsyncsourceconfig" `
+                                -ReturnType "AttrSyncSourceConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1817,7 +1817,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectordetail
+ConnectorDetail
 #>
 function Get-SourceConfigV1 {
     [CmdletBinding()]
@@ -1868,7 +1868,7 @@ function Get-SourceConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectordetail" `
+                                -ReturnType "ConnectorDetail" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1897,7 +1897,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceconnectionsdto
+SourceConnectionsDto
 #>
 function Get-SourceConnectionsV1 {
     [CmdletBinding()]
@@ -1940,7 +1940,7 @@ function Get-SourceConnectionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceconnectionsdto" `
+                                -ReturnType "SourceConnectionsDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1972,7 +1972,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceentitlementrequestconfig
+SourceEntitlementRequestConfig
 #>
 function Get-SourceEntitlementRequestConfigV1 {
     [CmdletBinding()]
@@ -2023,7 +2023,7 @@ function Get-SourceEntitlementRequestConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceentitlementrequestconfig" `
+                                -ReturnType "SourceEntitlementRequestConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2052,7 +2052,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcehealthdto
+SourceHealthDto
 #>
 function Get-SourceHealthV1 {
     [CmdletBinding()]
@@ -2095,7 +2095,7 @@ function Get-SourceHealthV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcehealthdto" `
+                                -ReturnType "SourceHealthDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2617,7 +2617,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Loadaccountstask
+LoadAccountsTask
 #>
 function Import-AccountsV1 {
     [CmdletBinding()]
@@ -2677,7 +2677,7 @@ function Import-AccountsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Loadaccountstask" `
+                                -ReturnType "LoadAccountsTask" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2889,7 +2889,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Loadentitlementtask
+LoadEntitlementTask
 #>
 function Import-EntitlementsV1 {
     [CmdletBinding()]
@@ -2942,7 +2942,7 @@ function Import-EntitlementsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Loadentitlementtask" `
+                                -ReturnType "LoadEntitlementTask" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2974,7 +2974,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Loaduncorrelatedaccountstask
+LoadUncorrelatedAccountsTask
 #>
 function Import-UncorrelatedAccountsV1 {
     [CmdletBinding()]
@@ -3027,7 +3027,7 @@ function Import-UncorrelatedAccountsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Loaduncorrelatedaccountstask" `
+                                -ReturnType "LoadUncorrelatedAccountsTask" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -3065,7 +3065,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-PasswordpolicyholdersdtoInner[]
+PasswordPolicyHoldersDtoInner[]
 #>
 function Get-PasswordPolicyHoldersOnSourceV1 {
     [CmdletBinding()]
@@ -3129,7 +3129,7 @@ function Get-PasswordPolicyHoldersOnSourceV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "PasswordpolicyholdersdtoInner[]" `
+                                -ReturnType "PasswordPolicyHoldersDtoInner[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -3164,7 +3164,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Provisioningpolicydto[]
+ProvisioningPolicyDto[]
 #>
 function Get-ProvisioningPoliciesV1 {
     [CmdletBinding()]
@@ -3221,7 +3221,7 @@ function Get-ProvisioningPoliciesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Provisioningpolicydto[]" `
+                                -ReturnType "ProvisioningPolicyDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -3262,7 +3262,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Provisioningpolicydtov2[]
+ProvisioningPolicyDtoV2[]
 #>
 function Get-ProvisioningPoliciesV2 {
     [CmdletBinding()]
@@ -3334,7 +3334,7 @@ function Get-ProvisioningPoliciesV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Provisioningpolicydtov2[]" `
+                                -ReturnType "ProvisioningPolicyDtoV2[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -3495,7 +3495,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Statusresponse
+StatusResponse
 #>
 function Ping-ClusterV1 {
     [CmdletBinding()]
@@ -3538,7 +3538,7 @@ function Ping-ClusterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Statusresponse" `
+                                -ReturnType "StatusResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -3561,7 +3561,7 @@ Replaces the correlation configuration for the source specified by the given ID 
 .PARAMETER Id
 The source id
 
-.PARAMETER Correlationconfig
+.PARAMETER CorrelationConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -3570,7 +3570,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Correlationconfig
+CorrelationConfig
 #>
 function Send-CorrelationConfigV1 {
     [CmdletBinding()]
@@ -3580,7 +3580,7 @@ function Send-CorrelationConfigV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Correlationconfig},
+        ${CorrelationConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -3610,14 +3610,14 @@ function Send-CorrelationConfigV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Correlationconfig) {
-            throw "Error! The required parameter `Correlationconfig` missing when calling putCorrelationConfigV1."
+        if (!$CorrelationConfig) {
+            throw "Error! The required parameter `CorrelationConfig` missing when calling putCorrelationConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Correlationconfig -is [array])) {
-            $LocalVarBodyParameter = $Correlationconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CorrelationConfig -is [array])) {
+            $LocalVarBodyParameter = $CorrelationConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Correlationconfig | ForEach-Object {
+            $LocalVarBodyParameter = $CorrelationConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -3636,7 +3636,7 @@ function Send-CorrelationConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Correlationconfig" `
+                                -ReturnType "CorrelationConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -3659,7 +3659,7 @@ Replaces the native change detection configuration for the source specified by t
 .PARAMETER SourceId
 The source id
 
-.PARAMETER Nativechangedetectionconfig
+.PARAMETER NativeChangeDetectionConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -3668,7 +3668,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nativechangedetectionconfig
+NativeChangeDetectionConfig
 #>
 function Send-NativeChangeDetectionConfigV1 {
     [CmdletBinding()]
@@ -3678,7 +3678,7 @@ function Send-NativeChangeDetectionConfigV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Nativechangedetectionconfig},
+        ${NativeChangeDetectionConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -3708,14 +3708,14 @@ function Send-NativeChangeDetectionConfigV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Nativechangedetectionconfig) {
-            throw "Error! The required parameter `Nativechangedetectionconfig` missing when calling putNativeChangeDetectionConfigV1."
+        if (!$NativeChangeDetectionConfig) {
+            throw "Error! The required parameter `NativeChangeDetectionConfig` missing when calling putNativeChangeDetectionConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Nativechangedetectionconfig -is [array])) {
-            $LocalVarBodyParameter = $Nativechangedetectionconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NativeChangeDetectionConfig -is [array])) {
+            $LocalVarBodyParameter = $NativeChangeDetectionConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Nativechangedetectionconfig | ForEach-Object {
+            $LocalVarBodyParameter = $NativeChangeDetectionConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -3734,7 +3734,7 @@ function Send-NativeChangeDetectionConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nativechangedetectionconfig" `
+                                -ReturnType "NativeChangeDetectionConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -3760,7 +3760,7 @@ The Source ID.
 .PARAMETER UsageType
 The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
 
-.PARAMETER Provisioningpolicydto
+.PARAMETER ProvisioningPolicyDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -3769,7 +3769,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Provisioningpolicydto
+ProvisioningPolicyDto
 #>
 function Send-ProvisioningPolicyV1 {
     [CmdletBinding()]
@@ -3782,7 +3782,7 @@ function Send-ProvisioningPolicyV1 {
         ${UsageType},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Provisioningpolicydto},
+        ${ProvisioningPolicyDto},
         [Switch]
         $WithHttpInfo
     )
@@ -3816,14 +3816,14 @@ function Send-ProvisioningPolicyV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{usageType}', [System.Web.HTTPUtility]::UrlEncode($UsageType))
 
-        if (!$Provisioningpolicydto) {
-            throw "Error! The required parameter `Provisioningpolicydto` missing when calling putProvisioningPolicyV1."
+        if (!$ProvisioningPolicyDto) {
+            throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling putProvisioningPolicyV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Provisioningpolicydto -is [array])) {
-            $LocalVarBodyParameter = $Provisioningpolicydto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ProvisioningPolicyDto -is [array])) {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Provisioningpolicydto | ForEach-Object {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -3842,7 +3842,7 @@ function Send-ProvisioningPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Provisioningpolicydto" `
+                                -ReturnType "ProvisioningPolicyDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -3871,7 +3871,7 @@ The provisioning policy ID.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Provisioningpolicydtov2
+.PARAMETER ProvisioningPolicyDtoV2
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -3880,7 +3880,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Provisioningpolicydtov2
+ProvisioningPolicyDtoV2
 #>
 function Send-ProvisioningPolicyV2 {
     [CmdletBinding()]
@@ -3896,7 +3896,7 @@ function Send-ProvisioningPolicyV2 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Provisioningpolicydtov2},
+        ${ProvisioningPolicyDtoV2},
         [Switch]
         $WithHttpInfo
     )
@@ -3935,14 +3935,14 @@ function Send-ProvisioningPolicyV2 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Provisioningpolicydtov2) {
-            throw "Error! The required parameter `Provisioningpolicydtov2` missing when calling putProvisioningPolicyV2."
+        if (!$ProvisioningPolicyDtoV2) {
+            throw "Error! The required parameter `ProvisioningPolicyDtoV2` missing when calling putProvisioningPolicyV2."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Provisioningpolicydtov2 -is [array])) {
-            $LocalVarBodyParameter = $Provisioningpolicydtov2 | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ProvisioningPolicyDtoV2 -is [array])) {
+            $LocalVarBodyParameter = $ProvisioningPolicyDtoV2 | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Provisioningpolicydtov2 | ForEach-Object {
+            $LocalVarBodyParameter = $ProvisioningPolicyDtoV2 | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -3961,7 +3961,7 @@ function Send-ProvisioningPolicyV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Provisioningpolicydtov2" `
+                                -ReturnType "ProvisioningPolicyDtoV2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -3987,7 +3987,7 @@ The source id
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Attrsyncsourceconfig
+.PARAMETER AttrSyncSourceConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -3996,7 +3996,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attrsyncsourceconfig
+AttrSyncSourceConfig
 #>
 function Send-SourceAttrSyncConfigV1 {
     [CmdletBinding()]
@@ -4009,7 +4009,7 @@ function Send-SourceAttrSyncConfigV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Attrsyncsourceconfig},
+        ${AttrSyncSourceConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -4044,14 +4044,14 @@ function Send-SourceAttrSyncConfigV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Attrsyncsourceconfig) {
-            throw "Error! The required parameter `Attrsyncsourceconfig` missing when calling putSourceAttrSyncConfigV1."
+        if (!$AttrSyncSourceConfig) {
+            throw "Error! The required parameter `AttrSyncSourceConfig` missing when calling putSourceAttrSyncConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Attrsyncsourceconfig -is [array])) {
-            $LocalVarBodyParameter = $Attrsyncsourceconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AttrSyncSourceConfig -is [array])) {
+            $LocalVarBodyParameter = $AttrSyncSourceConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Attrsyncsourceconfig | ForEach-Object {
+            $LocalVarBodyParameter = $AttrSyncSourceConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -4070,7 +4070,7 @@ function Send-SourceAttrSyncConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attrsyncsourceconfig" `
+                                -ReturnType "AttrSyncSourceConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -4299,7 +4299,7 @@ Retrieves a sample of data returned from account and group aggregation requests.
 .PARAMETER SourceId
 The ID of the Source
 
-.PARAMETER Resourceobjectsrequest
+.PARAMETER ResourceObjectsRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -4308,7 +4308,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Resourceobjectsresponse
+ResourceObjectsResponse
 #>
 function Search-ResourceObjectsV1 {
     [CmdletBinding()]
@@ -4318,7 +4318,7 @@ function Search-ResourceObjectsV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Resourceobjectsrequest},
+        ${ResourceObjectsRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -4348,14 +4348,14 @@ function Search-ResourceObjectsV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Resourceobjectsrequest) {
-            throw "Error! The required parameter `Resourceobjectsrequest` missing when calling searchResourceObjectsV1."
+        if (!$ResourceObjectsRequest) {
+            throw "Error! The required parameter `ResourceObjectsRequest` missing when calling searchResourceObjectsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Resourceobjectsrequest -is [array])) {
-            $LocalVarBodyParameter = $Resourceobjectsrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ResourceObjectsRequest -is [array])) {
+            $LocalVarBodyParameter = $ResourceObjectsRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Resourceobjectsrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ResourceObjectsRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -4374,7 +4374,7 @@ function Search-ResourceObjectsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Resourceobjectsresponse" `
+                                -ReturnType "ResourceObjectsResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -4406,7 +4406,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcesyncjob
+SourceSyncJob
 #>
 function Sync-AttributesForSourceV1 {
     [CmdletBinding()]
@@ -4457,7 +4457,7 @@ function Sync-AttributesForSourceV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcesyncjob" `
+                                -ReturnType "SourceSyncJob" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -4486,7 +4486,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Statusresponse
+StatusResponse
 #>
 function Test-SourceConfigurationV1 {
     [CmdletBinding()]
@@ -4529,7 +4529,7 @@ function Test-SourceConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Statusresponse" `
+                                -ReturnType "StatusResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -4558,7 +4558,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Statusresponse
+StatusResponse
 #>
 function Test-SourceConnectionV1 {
     [CmdletBinding()]
@@ -4601,7 +4601,7 @@ function Test-SourceConnectionV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Statusresponse" `
+                                -ReturnType "StatusResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -4624,7 +4624,7 @@ Updates the approval configuration for deleting human accounts for a specific so
 .PARAMETER SourceId
 Human account source ID.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the object.
 
 .PARAMETER WithHttpInfo
@@ -4633,7 +4633,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountdeleteconfigdto
+AccountDeleteConfigDto
 #>
 function Update-AccountDeletionApprovalConfigV1 {
     [CmdletBinding()]
@@ -4643,7 +4643,7 @@ function Update-AccountDeletionApprovalConfigV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -4673,14 +4673,14 @@ function Update-AccountDeletionApprovalConfigV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateAccountDeletionApprovalConfigV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateAccountDeletionApprovalConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -4699,7 +4699,7 @@ function Update-AccountDeletionApprovalConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountdeleteconfigdto" `
+                                -ReturnType "AccountDeleteConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -4722,7 +4722,7 @@ Use this endpoint to update the machine account deletion approval configuration 
 .PARAMETER SourceId
 machine account source ID.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the object.
 
 .PARAMETER WithHttpInfo
@@ -4731,7 +4731,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountdeleteconfigdto
+AccountDeleteConfigDto
 #>
 function Update-MachineAccountDeletionApprovalConfigV1 {
     [CmdletBinding()]
@@ -4741,7 +4741,7 @@ function Update-MachineAccountDeletionApprovalConfigV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -4771,14 +4771,14 @@ function Update-MachineAccountDeletionApprovalConfigV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateMachineAccountDeletionApprovalConfigV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateMachineAccountDeletionApprovalConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -4797,7 +4797,7 @@ function Update-MachineAccountDeletionApprovalConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountdeleteconfigdto" `
+                                -ReturnType "AccountDeleteConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -4820,7 +4820,7 @@ This API can be used to set up or update Password Policy in IdentityNow for the 
 .PARAMETER SourceId
 The Source id
 
-.PARAMETER PasswordpolicyholdersdtoInner
+.PARAMETER PasswordPolicyHoldersDtoInner
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -4829,7 +4829,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-PasswordpolicyholdersdtoInner[]
+PasswordPolicyHoldersDtoInner[]
 #>
 function Update-PasswordPolicyHoldersV1 {
     [CmdletBinding()]
@@ -4839,7 +4839,7 @@ function Update-PasswordPolicyHoldersV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${PasswordpolicyholdersdtoInner},
+        ${PasswordPolicyHoldersDtoInner},
         [Switch]
         $WithHttpInfo
     )
@@ -4869,14 +4869,14 @@ function Update-PasswordPolicyHoldersV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$PasswordpolicyholdersdtoInner) {
-            throw "Error! The required parameter `PasswordpolicyholdersdtoInner` missing when calling updatePasswordPolicyHoldersV1."
+        if (!$PasswordPolicyHoldersDtoInner) {
+            throw "Error! The required parameter `PasswordPolicyHoldersDtoInner` missing when calling updatePasswordPolicyHoldersV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordpolicyholdersdtoInner -is [array])) {
-            $LocalVarBodyParameter = $PasswordpolicyholdersdtoInner | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordPolicyHoldersDtoInner -is [array])) {
+            $LocalVarBodyParameter = $PasswordPolicyHoldersDtoInner | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $PasswordpolicyholdersdtoInner | ForEach-Object {
+            $LocalVarBodyParameter = $PasswordPolicyHoldersDtoInner | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -4895,7 +4895,7 @@ function Update-PasswordPolicyHoldersV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "PasswordpolicyholdersdtoInner[]" `
+                                -ReturnType "PasswordPolicyHoldersDtoInner[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -4918,7 +4918,7 @@ This end-point updates a list of provisioning policies on the specified source i
 .PARAMETER SourceId
 The Source id.
 
-.PARAMETER Provisioningpolicydto
+.PARAMETER ProvisioningPolicyDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -4927,7 +4927,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Provisioningpolicydto[]
+ProvisioningPolicyDto[]
 #>
 function Update-ProvisioningPoliciesInBulkV1 {
     [CmdletBinding()]
@@ -4937,7 +4937,7 @@ function Update-ProvisioningPoliciesInBulkV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Provisioningpolicydto},
+        ${ProvisioningPolicyDto},
         [Switch]
         $WithHttpInfo
     )
@@ -4967,14 +4967,14 @@ function Update-ProvisioningPoliciesInBulkV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Provisioningpolicydto) {
-            throw "Error! The required parameter `Provisioningpolicydto` missing when calling updateProvisioningPoliciesInBulkV1."
+        if (!$ProvisioningPolicyDto) {
+            throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling updateProvisioningPoliciesInBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Provisioningpolicydto -is [array])) {
-            $LocalVarBodyParameter = $Provisioningpolicydto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ProvisioningPolicyDto -is [array])) {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Provisioningpolicydto | ForEach-Object {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -4993,7 +4993,7 @@ function Update-ProvisioningPoliciesInBulkV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Provisioningpolicydto[]" `
+                                -ReturnType "ProvisioningPolicyDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -5019,7 +5019,7 @@ The Source id.
 .PARAMETER UsageType
 The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the schema.
 
 .PARAMETER WithHttpInfo
@@ -5028,7 +5028,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Provisioningpolicydto
+ProvisioningPolicyDto
 #>
 function Update-ProvisioningPolicyV1 {
     [CmdletBinding()]
@@ -5041,7 +5041,7 @@ function Update-ProvisioningPolicyV1 {
         ${UsageType},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -5075,14 +5075,14 @@ function Update-ProvisioningPolicyV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{usageType}', [System.Web.HTTPUtility]::UrlEncode($UsageType))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateProvisioningPolicyV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateProvisioningPolicyV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -5101,7 +5101,7 @@ function Update-ProvisioningPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Provisioningpolicydto" `
+                                -ReturnType "ProvisioningPolicyDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -5130,7 +5130,7 @@ The provisioning policy ID.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the schema.
 
 .PARAMETER WithHttpInfo
@@ -5139,7 +5139,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Provisioningpolicydtov2
+ProvisioningPolicyDtoV2
 #>
 function Update-ProvisioningPolicyV2 {
     [CmdletBinding()]
@@ -5155,7 +5155,7 @@ function Update-ProvisioningPolicyV2 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -5194,14 +5194,14 @@ function Update-ProvisioningPolicyV2 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateProvisioningPolicyV2."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateProvisioningPolicyV2."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -5220,7 +5220,7 @@ function Update-ProvisioningPolicyV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Provisioningpolicydtov2" `
+                                -ReturnType "ProvisioningPolicyDtoV2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -5246,7 +5246,7 @@ The Source id
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Sourceentitlementrequestconfig
+.PARAMETER SourceEntitlementRequestConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -5255,7 +5255,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceentitlementrequestconfig
+SourceEntitlementRequestConfig
 #>
 function Update-SourceEntitlementRequestConfigV1 {
     [CmdletBinding()]
@@ -5268,7 +5268,7 @@ function Update-SourceEntitlementRequestConfigV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Sourceentitlementrequestconfig},
+        ${SourceEntitlementRequestConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -5303,14 +5303,14 @@ function Update-SourceEntitlementRequestConfigV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Sourceentitlementrequestconfig) {
-            throw "Error! The required parameter `Sourceentitlementrequestconfig` missing when calling updateSourceEntitlementRequestConfigV1."
+        if (!$SourceEntitlementRequestConfig) {
+            throw "Error! The required parameter `SourceEntitlementRequestConfig` missing when calling updateSourceEntitlementRequestConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sourceentitlementrequestconfig -is [array])) {
-            $LocalVarBodyParameter = $Sourceentitlementrequestconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SourceEntitlementRequestConfig -is [array])) {
+            $LocalVarBodyParameter = $SourceEntitlementRequestConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sourceentitlementrequestconfig | ForEach-Object {
+            $LocalVarBodyParameter = $SourceEntitlementRequestConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -5329,7 +5329,7 @@ function Update-SourceEntitlementRequestConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceentitlementrequestconfig" `
+                                -ReturnType "SourceEntitlementRequestConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -5355,7 +5355,7 @@ The Source id.
 .PARAMETER ScheduleType
 The Schedule type.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the schedule.
 
 .PARAMETER WithHttpInfo
@@ -5378,7 +5378,7 @@ function Update-SourceScheduleV1 {
         ${ScheduleType},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -5412,14 +5412,14 @@ function Update-SourceScheduleV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{scheduleType}', [System.Web.HTTPUtility]::UrlEncode($ScheduleType))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateSourceScheduleV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateSourceScheduleV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -5464,7 +5464,7 @@ The Source id.
 .PARAMETER SchemaId
 The Schema id.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the schema.
 
 .PARAMETER WithHttpInfo
@@ -5486,7 +5486,7 @@ function Update-SourceSchemaV1 {
         ${SchemaId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -5520,14 +5520,14 @@ function Update-SourceSchemaV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{schemaId}', [System.Web.HTTPUtility]::UrlEncode($SchemaId))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateSourceSchemaV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateSourceSchemaV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -5569,7 +5569,7 @@ Use this API to partially update a source in Identity Security Cloud (ISC), usin
 .PARAMETER Id
 Source ID.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
 
 .PARAMETER WithHttpInfo
@@ -5588,7 +5588,7 @@ function Update-SourceV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -5618,14 +5618,14 @@ function Update-SourceV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateSourceV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateSourceV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

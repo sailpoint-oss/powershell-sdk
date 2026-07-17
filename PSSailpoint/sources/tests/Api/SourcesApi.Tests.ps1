@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
     Context 'New-ProvisioningPolicyV1' {
         It 'Test New-ProvisioningPolicyV1' {
-            #$TestResult = New-ProvisioningPolicyV1 -SourceId "TEST_VALUE" -Provisioningpolicydto "TEST_VALUE"
+            #$TestResult = New-ProvisioningPolicyV1 -SourceId "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'New-ProvisioningPolicyV2' {
         It 'Test New-ProvisioningPolicyV2' {
-            #$TestResult = New-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Provisioningpolicydtov2 "TEST_VALUE" -UseDefaultFields "TEST_VALUE"
+            #$TestResult = New-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -ProvisioningPolicyDtoV2 "TEST_VALUE" -UseDefaultFields "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -336,7 +336,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Send-CorrelationConfigV1' {
         It 'Test Send-CorrelationConfigV1' {
-            #$TestResult = Send-CorrelationConfigV1 -Id "TEST_VALUE" -Correlationconfig "TEST_VALUE"
+            #$TestResult = Send-CorrelationConfigV1 -Id "TEST_VALUE" -CorrelationConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -344,7 +344,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Send-NativeChangeDetectionConfigV1' {
         It 'Test Send-NativeChangeDetectionConfigV1' {
-            #$TestResult = Send-NativeChangeDetectionConfigV1 -SourceId "TEST_VALUE" -Nativechangedetectionconfig "TEST_VALUE"
+            #$TestResult = Send-NativeChangeDetectionConfigV1 -SourceId "TEST_VALUE" -NativeChangeDetectionConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -352,7 +352,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Send-ProvisioningPolicyV1' {
         It 'Test Send-ProvisioningPolicyV1' {
-            #$TestResult = Send-ProvisioningPolicyV1 -SourceId "TEST_VALUE" -UsageType "TEST_VALUE" -Provisioningpolicydto "TEST_VALUE"
+            #$TestResult = Send-ProvisioningPolicyV1 -SourceId "TEST_VALUE" -UsageType "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -360,7 +360,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Send-ProvisioningPolicyV2' {
         It 'Test Send-ProvisioningPolicyV2' {
-            #$TestResult = Send-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Provisioningpolicydtov2 "TEST_VALUE"
+            #$TestResult = Send-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -ProvisioningPolicyDtoV2 "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -368,7 +368,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Send-SourceAttrSyncConfigV1' {
         It 'Test Send-SourceAttrSyncConfigV1' {
-            #$TestResult = Send-SourceAttrSyncConfigV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Attrsyncsourceconfig "TEST_VALUE"
+            #$TestResult = Send-SourceAttrSyncConfigV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -AttrSyncSourceConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -392,7 +392,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Search-ResourceObjectsV1' {
         It 'Test Search-ResourceObjectsV1' {
-            #$TestResult = Search-ResourceObjectsV1 -SourceId "TEST_VALUE" -Resourceobjectsrequest "TEST_VALUE"
+            #$TestResult = Search-ResourceObjectsV1 -SourceId "TEST_VALUE" -ResourceObjectsRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -424,7 +424,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Update-AccountDeletionApprovalConfigV1' {
         It 'Test Update-AccountDeletionApprovalConfigV1' {
-            #$TestResult = Update-AccountDeletionApprovalConfigV1 -SourceId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-AccountDeletionApprovalConfigV1 -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -432,7 +432,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Update-MachineAccountDeletionApprovalConfigV1' {
         It 'Test Update-MachineAccountDeletionApprovalConfigV1' {
-            #$TestResult = Update-MachineAccountDeletionApprovalConfigV1 -SourceId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-MachineAccountDeletionApprovalConfigV1 -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -440,7 +440,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Update-PasswordPolicyHoldersV1' {
         It 'Test Update-PasswordPolicyHoldersV1' {
-            #$TestResult = Update-PasswordPolicyHoldersV1 -SourceId "TEST_VALUE" -PasswordpolicyholdersdtoInner "TEST_VALUE"
+            #$TestResult = Update-PasswordPolicyHoldersV1 -SourceId "TEST_VALUE" -PasswordPolicyHoldersDtoInner "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -448,7 +448,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Update-ProvisioningPoliciesInBulkV1' {
         It 'Test Update-ProvisioningPoliciesInBulkV1' {
-            #$TestResult = Update-ProvisioningPoliciesInBulkV1 -SourceId "TEST_VALUE" -Provisioningpolicydto "TEST_VALUE"
+            #$TestResult = Update-ProvisioningPoliciesInBulkV1 -SourceId "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -456,7 +456,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Update-ProvisioningPolicyV1' {
         It 'Test Update-ProvisioningPolicyV1' {
-            #$TestResult = Update-ProvisioningPolicyV1 -SourceId "TEST_VALUE" -UsageType "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-ProvisioningPolicyV1 -SourceId "TEST_VALUE" -UsageType "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -464,7 +464,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Update-ProvisioningPolicyV2' {
         It 'Test Update-ProvisioningPolicyV2' {
-            #$TestResult = Update-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -472,7 +472,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Update-SourceEntitlementRequestConfigV1' {
         It 'Test Update-SourceEntitlementRequestConfigV1' {
-            #$TestResult = Update-SourceEntitlementRequestConfigV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Sourceentitlementrequestconfig "TEST_VALUE"
+            #$TestResult = Update-SourceEntitlementRequestConfigV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SourceEntitlementRequestConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -480,7 +480,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Update-SourceScheduleV1' {
         It 'Test Update-SourceScheduleV1' {
-            #$TestResult = Update-SourceScheduleV1 -SourceId "TEST_VALUE" -ScheduleType "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-SourceScheduleV1 -SourceId "TEST_VALUE" -ScheduleType "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -488,7 +488,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Update-SourceSchemaV1' {
         It 'Test Update-SourceSchemaV1' {
-            #$TestResult = Update-SourceSchemaV1 -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-SourceSchemaV1 -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -496,7 +496,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Update-SourceV1' {
         It 'Test Update-SourceV1' {
-            #$TestResult = Update-SourceV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-SourceV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

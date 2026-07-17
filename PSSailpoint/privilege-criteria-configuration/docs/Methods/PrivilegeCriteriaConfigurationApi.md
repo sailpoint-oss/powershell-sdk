@@ -60,17 +60,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | CriteriaConfigId | **String** | True  | The Id of the privilege criteria configuration record to retrieve.
 
 ### Return type
-[**Privilegecriteriaconfigdto**](../models/privilegecriteriaconfigdto)
+[**PrivilegeCriteriaConfigDTO**](../models/privilege-criteria-config-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK | Privilegecriteriaconfigdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK | PrivilegeCriteriaConfigDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPrivilegeCriteriaConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPrivilegeCriteriaConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -105,17 +105,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** | True  | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  All filter values are case-sensitive for this API.  For example, the following is valid: `?filters=sourceId eq ""2c91809175e6c63f0175fb5570220569""`
 
 ### Return type
-[**Privilegecriteriaconfigdto[]**](../models/privilegecriteriaconfigdto)
+[**PrivilegeCriteriaConfigDTO[]**](../models/privilege-criteria-config-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK | Privilegecriteriaconfigdto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK | PrivilegeCriteriaConfigDTO[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPrivilegeCriteriaConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPrivilegeCriteriaConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -151,17 +151,17 @@ Path   | CriteriaConfigId | **String** | True  | The Id of the privilege criteri
  Body  | RequestBody | [**[]SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) | True  | A list of criteria configuration operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-[**Privilegecriteriaconfigdto**](../models/privilegecriteriaconfigdto)
+[**PrivilegeCriteriaConfigDTO**](../models/privilege-criteria-config-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK | Privilegecriteriaconfigdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK | PrivilegeCriteriaConfigDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPrivilegeCriteriaConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPrivilegeCriteriaConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json

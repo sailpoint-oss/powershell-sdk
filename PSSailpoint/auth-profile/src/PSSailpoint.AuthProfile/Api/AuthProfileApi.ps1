@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Authprofilesummary[]
+AuthProfileSummary[]
 #>
 function Get-ProfileConfigListV1 {
     [CmdletBinding()]
@@ -67,7 +67,7 @@ function Get-ProfileConfigListV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Authprofilesummary[]" `
+                                -ReturnType "AuthProfileSummary[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -99,7 +99,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Authprofile
+AuthProfile
 #>
 function Get-ProfileConfigV1 {
     [CmdletBinding()]
@@ -150,7 +150,7 @@ function Get-ProfileConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Authprofile" `
+                                -ReturnType "AuthProfile" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -176,7 +176,7 @@ ID of the Auth Profile to patch.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -185,7 +185,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Authprofile
+AuthProfile
 #>
 function Update-ProfileConfigV1 {
     [CmdletBinding()]
@@ -198,7 +198,7 @@ function Update-ProfileConfigV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -233,14 +233,14 @@ function Update-ProfileConfigV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchProfileConfigV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchProfileConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -259,7 +259,7 @@ function Update-ProfileConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Authprofile" `
+                                -ReturnType "AuthProfile" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -52,7 +52,7 @@ Use this endpoint to approve an access request approval. Only the owner of the a
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | ApprovalId | **String** | True  | Approval ID.
- Body  | Commentdto | [**Commentdto**](../models/commentdto) |   (optional) | Reviewer's comment.
+ Body  | CommentDto | [**CommentDto**](../models/comment-dto) |   (optional) | Reviewer's comment.
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -61,12 +61,12 @@ Path   | ApprovalId | **String** | True  | Approval ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPendingApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPendingApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -75,7 +75,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
-$Commentdto = @""@
+$CommentDto = @"{
+  "created" : "2017-07-11T18:45:37.098Z",
+  "author" : {
+    "name" : "john.doe",
+    "id" : "2c9180847e25f377017e2ae8cae4650b",
+    "type" : "IDENTITY"
+  },
+  "comment" : "This is a comment."
+}"@
 
 # Approve access request approval
 
@@ -83,7 +91,7 @@ try {
     Approve-AccessRequestV1 -ApprovalId $ApprovalId 
     
     # Below is a request that includes all optional parameters
-    # Approve-AccessRequestV1 -ApprovalId $ApprovalId -Commentdto $Result  
+    # Approve-AccessRequestV1 -ApprovalId $ApprovalId -CommentDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-AccessRequestV1"
     Write-Host $_.ErrorDetails
@@ -100,7 +108,7 @@ Use this API to forward an access request approval to a new owner. Only the owne
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | ApprovalId | **String** | True  | Approval ID.
- Body  | Forwardapprovaldto | [**Forwardapprovaldto**](../models/forwardapprovaldto) | True  | Information about the forwarded approval.
+ Body  | ForwardApprovalDto | [**ForwardApprovalDto**](../models/forward-approval-dto) | True  | Information about the forwarded approval.
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -109,12 +117,12 @@ Path   | ApprovalId | **String** | True  | Approval ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPendingApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPendingApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -123,16 +131,19 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
-$Forwardapprovaldto = @""@
+$ForwardApprovalDto = @"{
+  "newOwnerId" : "2c91808568c529c60168cca6f90c1314",
+  "comment" : "2c91808568c529c60168cca6f90c1313"
+}"@
 
 # Forward access request approval
 
 try {
-    $Result = ConvertFrom-JsonToForwardapprovaldto -Json $Forwardapprovaldto
-    Invoke-ForwardAccessRequestV1 -ApprovalId $ApprovalId -Forwardapprovaldto $Result 
+    $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
+    Invoke-ForwardAccessRequestV1 -ApprovalId $ApprovalId -ForwardApprovalDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-ForwardAccessRequestV1 -ApprovalId $ApprovalId -Forwardapprovaldto $Result  
+    # Invoke-ForwardAccessRequestV1 -ApprovalId $ApprovalId -ForwardApprovalDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ForwardAccessRequestV1"
     Write-Host $_.ErrorDetails
@@ -152,17 +163,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | FromDate | **String** |   (optional) | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format.
 
 ### Return type
-[**Approvalsummary**](../models/approvalsummary)
+[**ApprovalSummary**](../models/approval-summary)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Number of pending, approved, rejected access request approvals. | Approvalsummary
-400 | Client Error - Returned if the query parameter is invalid. | Errorresponsedto
+200 | Number of pending, approved, rejected access request approvals. | ApprovalSummary
+400 | Client Error - Returned if the query parameter is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPendingApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPendingApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -202,18 +213,18 @@ Path   | AccessRequestId | **String** | True  | Access Request ID.
   Query | Count | **Boolean** |   (optional) (default to $false) | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored.
 
 ### Return type
-[**Accessrequestapproverslistresponse[]**](../models/accessrequestapproverslistresponse)
+[**AccessRequestApproversListResponse[]**](../models/access-request-approvers-list-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Approvers. | Accessrequestapproverslistresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of Approvers. | AccessRequestApproversListResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPendingApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPendingApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -256,17 +267,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
 
 ### Return type
-[**Completedapproval[]**](../models/completedapproval)
+[**CompletedApproval[]**](../models/completed-approval)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Completed Approvals. | Completedapproval[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of Completed Approvals. | CompletedApproval[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPendingApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPendingApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -311,17 +322,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
 
 ### Return type
-[**Pendingapproval[]**](../models/pendingapproval)
+[**PendingApproval[]**](../models/pending-approval)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Pending Approvals. | Pendingapproval[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of Pending Approvals. | PendingApproval[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPendingApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPendingApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -359,7 +370,7 @@ Use this API to reject an access request approval. Only the owner of the approva
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | ApprovalId | **String** | True  | Approval ID.
- Body  | Commentdto | [**Commentdto**](../models/commentdto) | True  | Reviewer's comment.
+ Body  | CommentDto | [**CommentDto**](../models/comment-dto) | True  | Reviewer's comment.
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -368,12 +379,12 @@ Path   | ApprovalId | **String** | True  | Approval ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListPendingApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListPendingApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -382,16 +393,24 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
-$Commentdto = @""@
+$CommentDto = @"{
+  "created" : "2017-07-11T18:45:37.098Z",
+  "author" : {
+    "name" : "john.doe",
+    "id" : "2c9180847e25f377017e2ae8cae4650b",
+    "type" : "IDENTITY"
+  },
+  "comment" : "This is a comment."
+}"@
 
 # Reject access request approval
 
 try {
-    $Result = ConvertFrom-JsonToCommentdto -Json $Commentdto
-    Deny-AccessRequestV1 -ApprovalId $ApprovalId -Commentdto $Result 
+    $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
+    Deny-AccessRequestV1 -ApprovalId $ApprovalId -CommentDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Deny-AccessRequestV1 -ApprovalId $ApprovalId -Commentdto $Result  
+    # Deny-AccessRequestV1 -ApprovalId $ApprovalId -CommentDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-AccessRequestV1"
     Write-Host $_.ErrorDetails

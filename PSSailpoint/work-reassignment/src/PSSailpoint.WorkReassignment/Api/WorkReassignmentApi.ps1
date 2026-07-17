@@ -17,7 +17,7 @@ Creates a new Reassignment Configuration for the specified identity.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Configurationitemrequest
+.PARAMETER ConfigurationItemRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Configurationitemresponse
+ConfigurationItemResponse
 #>
 function New-ReassignmentConfigurationV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-ReassignmentConfigurationV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Configurationitemrequest},
+        ${ConfigurationItemRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-ReassignmentConfigurationV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Configurationitemrequest) {
-            throw "Error! The required parameter `Configurationitemrequest` missing when calling createReassignmentConfigurationV1."
+        if (!$ConfigurationItemRequest) {
+            throw "Error! The required parameter `ConfigurationItemRequest` missing when calling createReassignmentConfigurationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Configurationitemrequest -is [array])) {
-            $LocalVarBodyParameter = $Configurationitemrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ConfigurationItemRequest -is [array])) {
+            $LocalVarBodyParameter = $ConfigurationItemRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Configurationitemrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ConfigurationItemRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -93,7 +93,7 @@ function New-ReassignmentConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Configurationitemresponse" `
+                                -ReturnType "ConfigurationItemResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -224,7 +224,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Evaluateresponse[]
+EvaluateResponse[]
 #>
 function Get-EvaluateReassignmentConfigurationV1 {
     [CmdletBinding()]
@@ -289,7 +289,7 @@ function Get-EvaluateReassignmentConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Evaluateresponse[]" `
+                                -ReturnType "EvaluateResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -318,7 +318,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Configtype[]
+ConfigType[]
 #>
 function Get-ReassignmentConfigTypesV1 {
     [CmdletBinding()]
@@ -362,7 +362,7 @@ function Get-ReassignmentConfigTypesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Configtype[]" `
+                                -ReturnType "ConfigType[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -394,7 +394,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Configurationresponse
+ConfigurationResponse
 #>
 function Get-ReassignmentConfigurationV1 {
     [CmdletBinding()]
@@ -445,7 +445,7 @@ function Get-ReassignmentConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Configurationresponse" `
+                                -ReturnType "ConfigurationResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -474,7 +474,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Tenantconfigurationresponse
+TenantConfigurationResponse
 #>
 function Get-TenantConfigConfigurationV1 {
     [CmdletBinding()]
@@ -518,7 +518,7 @@ function Get-TenantConfigConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Tenantconfigurationresponse" `
+                                -ReturnType "TenantConfigurationResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -547,7 +547,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Configurationresponse[]
+ConfigurationResponse[]
 #>
 function Get-ReassignmentConfigurationsV1 {
     [CmdletBinding()]
@@ -591,7 +591,7 @@ function Get-ReassignmentConfigurationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Configurationresponse[]" `
+                                -ReturnType "ConfigurationResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -617,7 +617,7 @@ unique identity id
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Configurationitemrequest
+.PARAMETER ConfigurationItemRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -626,7 +626,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Configurationitemresponse
+ConfigurationItemResponse
 #>
 function Send-ReassignmentConfigV1 {
     [CmdletBinding()]
@@ -639,7 +639,7 @@ function Send-ReassignmentConfigV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Configurationitemrequest},
+        ${ConfigurationItemRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -674,14 +674,14 @@ function Send-ReassignmentConfigV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Configurationitemrequest) {
-            throw "Error! The required parameter `Configurationitemrequest` missing when calling putReassignmentConfigV1."
+        if (!$ConfigurationItemRequest) {
+            throw "Error! The required parameter `ConfigurationItemRequest` missing when calling putReassignmentConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Configurationitemrequest -is [array])) {
-            $LocalVarBodyParameter = $Configurationitemrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ConfigurationItemRequest -is [array])) {
+            $LocalVarBodyParameter = $ConfigurationItemRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Configurationitemrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ConfigurationItemRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -700,7 +700,7 @@ function Send-ReassignmentConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Configurationitemresponse" `
+                                -ReturnType "ConfigurationItemResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -723,7 +723,7 @@ Replaces existing Tenant-wide Reassignment Configuration settings with the newly
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Tenantconfigurationrequest
+.PARAMETER TenantConfigurationRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -732,7 +732,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Tenantconfigurationresponse
+TenantConfigurationResponse
 #>
 function Send-TenantConfigurationV1 {
     [CmdletBinding()]
@@ -742,7 +742,7 @@ function Send-TenantConfigurationV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Tenantconfigurationrequest},
+        ${TenantConfigurationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -773,14 +773,14 @@ function Send-TenantConfigurationV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Tenantconfigurationrequest) {
-            throw "Error! The required parameter `Tenantconfigurationrequest` missing when calling putTenantConfigurationV1."
+        if (!$TenantConfigurationRequest) {
+            throw "Error! The required parameter `TenantConfigurationRequest` missing when calling putTenantConfigurationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Tenantconfigurationrequest -is [array])) {
-            $LocalVarBodyParameter = $Tenantconfigurationrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TenantConfigurationRequest -is [array])) {
+            $LocalVarBodyParameter = $TenantConfigurationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Tenantconfigurationrequest | ForEach-Object {
+            $LocalVarBodyParameter = $TenantConfigurationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -799,7 +799,7 @@ function Send-TenantConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Tenantconfigurationresponse" `
+                                -ReturnType "TenantConfigurationResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

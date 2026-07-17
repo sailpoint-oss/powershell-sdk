@@ -20,7 +20,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Publicidentityconfig
+PublicIdentityConfig
 #>
 function Get-PublicIdentityConfigV1 {
     [CmdletBinding()]
@@ -56,7 +56,7 @@ function Get-PublicIdentityConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Publicidentityconfig" `
+                                -ReturnType "PublicIdentityConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -76,7 +76,7 @@ Update the public identities configuration
 
 Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
 
-.PARAMETER Publicidentityconfig
+.PARAMETER PublicIdentityConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -85,14 +85,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Publicidentityconfig
+PublicIdentityConfig
 #>
 function Update-PublicIdentityConfigV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Publicidentityconfig},
+        ${PublicIdentityConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -118,14 +118,14 @@ function Update-PublicIdentityConfigV1 {
 
         $LocalVarUri = '/public-identities-config/v1'
 
-        if (!$Publicidentityconfig) {
-            throw "Error! The required parameter `Publicidentityconfig` missing when calling updatePublicIdentityConfigV1."
+        if (!$PublicIdentityConfig) {
+            throw "Error! The required parameter `PublicIdentityConfig` missing when calling updatePublicIdentityConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Publicidentityconfig -is [array])) {
-            $LocalVarBodyParameter = $Publicidentityconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PublicIdentityConfig -is [array])) {
+            $LocalVarBodyParameter = $PublicIdentityConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Publicidentityconfig | ForEach-Object {
+            $LocalVarBodyParameter = $PublicIdentityConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -144,7 +144,7 @@ function Update-PublicIdentityConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Publicidentityconfig" `
+                                -ReturnType "PublicIdentityConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

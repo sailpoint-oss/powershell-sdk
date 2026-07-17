@@ -9,8 +9,14 @@
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $MinEntitlementPopularity = 56 # Int32 | Minimum popularity required for an entitlement to be included in the provisioned role. (optional) (default to 0)
         $IncludeCommonAccess = $true # Boolean | Boolean determining whether common access entitlements will be included in the provisioned role. (optional) (default to $true)
-        $Roleminingpotentialroleprovisionrequest = @"
-        
+        $RoleMiningPotentialRoleProvisionRequest = @"
+        {
+          "includeIdentities" : true,
+          "roleName" : "Finance - Accounting",
+          "ownerId" : "2b568c65bc3c4c57a43bd97e3a8e41",
+          "roleDescription" : "General access for accounting department",
+          "directlyAssignedEntitlements" : false
+        }
         "@
         
         # Create request to provision a potential role into an actual role.
@@ -19,7 +25,7 @@
             New-PotentialRoleProvisionRequestV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # New-PotentialRoleProvisionRequestV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -Roleminingpotentialroleprovisionrequest $Result   
+            # New-PotentialRoleProvisionRequestV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -RoleMiningPotentialRoleProvisionRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PotentialRoleProvisionRequestV1"
             Write-Host $_.ErrorDetails
@@ -31,18 +37,49 @@
       label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#create-role-mining-sessions-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Roleminingsessiondto = @"
-        
+        $RoleMiningSessionDto = @"
+        {
+          "emailRecipientId" : "2c918090761a5aac0176215c46a62d58",
+          "prescribedPruneThreshold" : 10,
+          "pruneThreshold" : 50,
+          "saved" : true,
+          "potentialRolesReadyCount" : 0,
+          "scope" : {
+            "identityIds" : [ "2c918090761a5aac0176215c46a62d58", "2c918090761a5aac01722015c46a62d42" ],
+            "attributeFilterCriteria" : {
+              "displayName" : {
+                "untranslated" : "Location: Miami"
+              },
+              "ariaLabel" : {
+                "untranslated" : "Location: Miami"
+              },
+              "data" : {
+                "displayName" : {
+                  "translateKey" : "IDN.IDENTITY_ATTRIBUTES.LOCATION"
+                },
+                "name" : "location",
+                "operator" : "EQUALS",
+                "values" : [ "Miami" ]
+              }
+            },
+            "criteria" : "source.name:DataScienceDataset"
+          },
+          "potentialRoleCount" : 0,
+          "name" : "Saved RM Session - 07/10",
+          "minNumIdentitiesInPotentialRole" : 20,
+          "identityCount" : 0,
+          "type" : "SPECIALIZED"
+        }
         "@
         
         # Create a role mining session
         
         try {
-            $Result = ConvertFrom-JsonToRoleminingsessiondto -Json $Roleminingsessiondto
-            New-RoleMiningSessionsV1 -XSailPointExperimental $XSailPointExperimental -Roleminingsessiondto $Result 
+            $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
+            New-RoleMiningSessionsV1 -XSailPointExperimental $XSailPointExperimental -RoleMiningSessionDto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-RoleMiningSessionsV1 -XSailPointExperimental $XSailPointExperimental -Roleminingsessiondto $Result   
+            # New-RoleMiningSessionsV1 -XSailPointExperimental $XSailPointExperimental -RoleMiningSessionDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-RoleMiningSessionsV1"
             Write-Host $_.ErrorDetails
@@ -78,8 +115,11 @@
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "278359a6-04b7-4669-9468-924cf580964a" # String | A potential role id in a role mining session
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Roleminingpotentialroleexportrequest = @"
-        
+        $RoleMiningPotentialRoleExportRequest = @"
+        {
+          "minEntitlementPopularity" : 0,
+          "includeCommonAccess" : true
+        }
         "@
         
         # Asynchronously export details for a potential role in a role mining session and upload to S3
@@ -88,7 +128,7 @@
             Export-RoleMiningPotentialRoleAsyncV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Export-RoleMiningPotentialRoleAsyncV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Roleminingpotentialroleexportrequest $Result   
+            # Export-RoleMiningPotentialRoleAsyncV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -RoleMiningPotentialRoleExportRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-RoleMiningPotentialRoleAsyncV1"
             Write-Host $_.ErrorDetails
@@ -498,17 +538,21 @@
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Jsonpatchoperationrolemining = @"[{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]"@ 
+        $JsonPatchOperationRoleMining = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update a potential role session
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperationrolemining -Json $Jsonpatchoperationrolemining
-            Update-PotentialRoleSessionV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperationrolemining $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperationRoleMining -Json $JsonPatchOperationRoleMining
+            Update-PotentialRoleSessionV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-PotentialRoleSessionV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperationrolemining $Result   
+            # Update-PotentialRoleSessionV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PotentialRoleSessionV1"
             Write-Host $_.ErrorDetails
@@ -522,17 +566,21 @@
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Jsonpatchoperationrolemining = @"[{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]"@ 
+        $JsonPatchOperationRoleMining = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update a potential role
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperationrolemining -Json $Jsonpatchoperationrolemining
-            Update-PotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperationrolemining $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperationRoleMining -Json $JsonPatchOperationRoleMining
+            Update-PotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-PotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperationrolemining $Result   
+            # Update-PotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PotentialRoleV1"
             Write-Host $_.ErrorDetails
@@ -545,17 +593,21 @@
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id to be patched
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/pruneThreshold","value":"83"},{"op":"replace","path":"/minNumIdentitiesInPotentialRole","value":"10"},{"op":"replace","path":"/saved","value":"false"},{"op":"replace","path":"/name","value":"RM Session - 07/10/22"},{"op":"add","path":"/name","value":"RM Session - 07/10/22"}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch a role mining session
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-RoleMiningSessionV1 -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-RoleMiningSessionV1 -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-RoleMiningSessionV1 -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result   
+            # Update-RoleMiningSessionV1 -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RoleMiningSessionV1"
             Write-Host $_.ErrorDetails
@@ -569,18 +621,21 @@
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Roleminingpotentialroleeditentitlements = @"
-        
+        $RoleMiningPotentialRoleEditEntitlements = @"
+        {
+          "ids" : [ "entId1", "entId2" ],
+          "exclude" : true
+        }
         "@
         
         # Edit entitlements for a potential role to exclude some entitlements
         
         try {
-            $Result = ConvertFrom-JsonToRoleminingpotentialroleeditentitlements -Json $Roleminingpotentialroleeditentitlements
-            Update-EntitlementsPotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Roleminingpotentialroleeditentitlements $Result 
+            $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
+            Update-EntitlementsPotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -RoleMiningPotentialRoleEditEntitlements $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-EntitlementsPotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Roleminingpotentialroleeditentitlements $Result   
+            # Update-EntitlementsPotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -RoleMiningPotentialRoleEditEntitlements $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsPotentialRoleV1"
             Write-Host $_.ErrorDetails

@@ -95,7 +95,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineclassificationconfig
+MachineClassificationConfig
 #>
 function Get-MachineClassificationConfigV1 {
     [CmdletBinding()]
@@ -138,7 +138,7 @@ function Get-MachineClassificationConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineclassificationconfig" `
+                                -ReturnType "MachineClassificationConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -161,7 +161,7 @@ Use this API to update Classification Config for a Source. A token with ORG_ADMI
 .PARAMETER SourceId
 Source ID.
 
-.PARAMETER Machineclassificationconfig
+.PARAMETER MachineClassificationConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -170,7 +170,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineclassificationconfig
+MachineClassificationConfig
 #>
 function Set-MachineClassificationConfigV1 {
     [CmdletBinding()]
@@ -180,7 +180,7 @@ function Set-MachineClassificationConfigV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Machineclassificationconfig},
+        ${MachineClassificationConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -210,14 +210,14 @@ function Set-MachineClassificationConfigV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Machineclassificationconfig) {
-            throw "Error! The required parameter `Machineclassificationconfig` missing when calling setMachineClassificationConfigV1."
+        if (!$MachineClassificationConfig) {
+            throw "Error! The required parameter `MachineClassificationConfig` missing when calling setMachineClassificationConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Machineclassificationconfig -is [array])) {
-            $LocalVarBodyParameter = $Machineclassificationconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MachineClassificationConfig -is [array])) {
+            $LocalVarBodyParameter = $MachineClassificationConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Machineclassificationconfig | ForEach-Object {
+            $LocalVarBodyParameter = $MachineClassificationConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -236,7 +236,7 @@ function Set-MachineClassificationConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineclassificationconfig" `
+                                -ReturnType "MachineClassificationConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

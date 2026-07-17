@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.PrivilegeCriteria' -name 'PrivilegeCriteriaApi' {
     Context 'New-CustomPrivilegeCriteriaV1' {
         It 'Test New-CustomPrivilegeCriteriaV1' {
-            #$TestResult = New-CustomPrivilegeCriteriaV1 -Createprivilegecriteriarequest "TEST_VALUE"
+            #$TestResult = New-CustomPrivilegeCriteriaV1 -CreatePrivilegeCriteriaRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.PrivilegeCriteria' -name 'PrivilegeCriteriaApi' {
 
     Context 'Send-CustomPrivilegeCriteriaValueV1' {
         It 'Test Send-CustomPrivilegeCriteriaValueV1' {
-            #$TestResult = Send-CustomPrivilegeCriteriaValueV1 -CriteriaId "TEST_VALUE" -Privilegecriteriadto "TEST_VALUE"
+            #$TestResult = Send-CustomPrivilegeCriteriaValueV1 -CriteriaId "TEST_VALUE" -PrivilegeCriteriaDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

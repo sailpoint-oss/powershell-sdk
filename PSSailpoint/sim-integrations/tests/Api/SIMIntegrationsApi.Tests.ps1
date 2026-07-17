@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.SimIntegrations' -name 'SIMIntegrationsApi' {
     Context 'New-SIMIntegrationV1' {
         It 'Test New-SIMIntegrationV1' {
-            #$TestResult = New-SIMIntegrationV1 -XSailPointExperimental "TEST_VALUE" -Simintegrationdetails "TEST_VALUE"
+            #$TestResult = New-SIMIntegrationV1 -XSailPointExperimental "TEST_VALUE" -SimIntegrationDetails "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.SimIntegrations' -name 'SIMIntegrationsApi' {
 
     Context 'Update-BeforeProvisioningRuleV1' {
         It 'Test Update-BeforeProvisioningRuleV1' {
-            #$TestResult = Update-BeforeProvisioningRuleV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Jsonpatch "TEST_VALUE"
+            #$TestResult = Update-BeforeProvisioningRuleV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.SimIntegrations' -name 'SIMIntegrationsApi' {
 
     Context 'Update-SIMAttributesV1' {
         It 'Test Update-SIMAttributesV1' {
-            #$TestResult = Update-SIMAttributesV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Jsonpatch "TEST_VALUE"
+            #$TestResult = Update-SIMAttributesV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.SimIntegrations' -name 'SIMIntegrationsApi' {
 
     Context 'Send-SIMIntegrationV1' {
         It 'Test Send-SIMIntegrationV1' {
-            #$TestResult = Send-SIMIntegrationV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Simintegrationdetails "TEST_VALUE"
+            #$TestResult = Send-SIMIntegrationV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SimIntegrationDetails "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

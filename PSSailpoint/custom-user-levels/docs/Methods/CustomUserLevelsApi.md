@@ -46,21 +46,21 @@ Creates a new custom user level for the tenant.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Userlevelrequest | [**Userlevelrequest**](../models/userlevelrequest) | True  | Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
+ Body  | UserLevelRequest | [**UserLevelRequest**](../models/user-level-request) | True  | Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 
 ### Return type
-[**Userlevelsummarydto**](../models/userlevelsummarydto)
+[**UserLevelSummaryDTO**](../models/user-level-summary-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The user level summary. | Userlevelsummarydto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The user level summary. | UserLevelSummaryDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListUserLevelsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListUserLevelsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -69,16 +69,42 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Userlevelrequest = @"{"name":"Identity And Access Management","description":"This is a description of the custom user level.","owner":{"id":"29b9da8273b441239238bc041c386817","name":"John Doe"},"rightSets":["idn:ui-identity-manage-example","idn:ui-identity-manage-child-one-example"]}"@
+$UserLevelRequest = @"{
+  "owner" : {
+    "manager" : {
+      "name" : "Thomas Edison",
+      "id" : "2c9180a46faadee4016fb4e018c20639",
+      "type" : "IDENTITY"
+    },
+    "name" : "Alison Ferguso",
+    "alias" : "alison.ferguso",
+    "attributes" : [ {
+      "name" : "Country",
+      "value" : "US",
+      "key" : "country"
+    }, {
+      "name" : "Country",
+      "value" : "US",
+      "key" : "country"
+    } ],
+    "id" : "2c9180857182305e0171993735622948",
+    "identityState" : "ACTIVE",
+    "email" : "alison.ferguso@acme-solar.com",
+    "status" : "Active"
+  },
+  "rightSets" : [ "idn:ui-right-set-list-read-example", "idn:ui-right-set-write-example" ],
+  "name" : "Custom User Level Name",
+  "description" : "This is a description of the custom user level."
+}"@
 
 # Create a custom user level
 
 try {
-    $Result = ConvertFrom-JsonToUserlevelrequest -Json $Userlevelrequest
-    New-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -Userlevelrequest $Result 
+    $Result = ConvertFrom-JsonToUserLevelRequest -Json $UserLevelRequest
+    New-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -UserLevelRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -Userlevelrequest $Result  
+    # New-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -UserLevelRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CustomUserLevelV1"
     Write-Host $_.ErrorDetails
@@ -107,12 +133,12 @@ Path   | Id | **String** | True  | The unique identifier of the user level.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListUserLevelsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListUserLevelsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -152,18 +178,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The unique identifier of the user level.
 
 ### Return type
-[**Userlevelsummarydto**](../models/userlevelsummarydto)
+[**UserLevelSummaryDTO**](../models/user-level-summary-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Successfully retrieved the user level details. | Userlevelsummarydto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Successfully retrieved the user level details. | UserLevelSummaryDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListUserLevelsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListUserLevelsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -206,18 +232,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Hierarchicalrightset[]**](../models/hierarchicalrightset)
+[**HierarchicalRightSet[]**](../models/hierarchical-right-set)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Successfully retrieved the list of authorization assignable right sets. | Hierarchicalrightset[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Successfully retrieved the list of authorization assignable right sets. | HierarchicalRightSet[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListUserLevelsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListUserLevelsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -264,18 +290,18 @@ Path   | Id | **String** | True  | The unique identifier of the user level.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Authuserslimresponse[]**](../models/authuserslimresponse)
+[**AuthUserSlimResponse[]**](../models/auth-user-slim-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of identities associated with a user level. | Authuserslimresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of identities associated with a user level. | AuthUserSlimResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListUserLevelsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListUserLevelsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -323,18 +349,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Userlevelsummarydto[]**](../models/userlevelsummarydto)
+[**UserLevelSummaryDTO[]**](../models/user-level-summary-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Successfully retrieved the list of user levels. | Userlevelsummarydto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Successfully retrieved the list of user levels. | UserLevelSummaryDTO[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListUserLevelsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListUserLevelsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -378,18 +404,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The unique identifier of the user level to publish.
 
 ### Return type
-[**Userlevelpublishsummary**](../models/userlevelpublishsummary)
+[**UserLevelPublishSummary**](../models/user-level-publish-summary)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The publish status summary for current user level. | Userlevelpublishsummary
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The publish status summary for current user level. | UserLevelPublishSummary
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListUserLevelsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListUserLevelsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -429,18 +455,18 @@ Param Type | Name | Data Type | Required  | Description
  Body  | RequestBody | **[]String** | True  | List of user level ids. Max 50 identifiers can be passed in a single request.
 
 ### Return type
-[**Authuserlevelsidentitycount[]**](../models/authuserlevelsidentitycount)
+[**AuthUserLevelsIdentityCount[]**](../models/auth-user-levels-identity-count)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of user levels along with the number of identities associated to it. | Authuserlevelsidentitycount[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of user levels along with the number of identities associated to it. | AuthUserLevelsIdentityCount[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListUserLevelsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListUserLevelsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -481,21 +507,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | Id | **String** | True  | The unique identifier of the user level.
- Body  | Jsonpatch | [**Jsonpatch**](../models/jsonpatch) | True  | JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
+ Body  | JsonPatch | [**JsonPatch**](../models/json-patch) | True  | JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 
 ### Return type
-[**Userlevelsummarydto**](../models/userlevelsummarydto)
+[**UserLevelSummaryDTO**](../models/user-level-summary-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Successfully updated the user level. | Userlevelsummarydto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Successfully updated the user level. | UserLevelSummaryDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListUserLevelsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListUserLevelsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -505,16 +531,26 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Id = "6e110911-5984-491b-be74-2707980a46a7" # String | The unique identifier of the user level.
-$Jsonpatch = @"[{"op":"replace","path":"/rightSets","value":["idn:ui-identity-manage-example"]}]"@
+$JsonPatch = @"{
+  "operations" : [ {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  }, {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  } ]
+}"@
 
 # Update a user level
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatch -Json $Jsonpatch
-    Update-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Jsonpatch $Result 
+    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    Update-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Jsonpatch $Result  
+    # Update-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-UserLevelV1"
     Write-Host $_.ErrorDetails

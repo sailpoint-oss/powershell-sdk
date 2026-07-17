@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.MachineAccountSubtypes.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -81,27 +81,27 @@ FunctionsToExport = 'New-SourceSubtypeV1', 'Remove-MachineAccountSubtypeV1',
                'ConvertFrom-JsonToArrayInner', 
                'Initialize-CreateSourceSubtypeV1Request', 
                'ConvertFrom-JsonToCreateSourceSubtypeV1Request', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 
                'Initialize-LoadBulkSourceSubtypesV1401Response', 
                'ConvertFrom-JsonToLoadBulkSourceSubtypesV1401Response', 
                'Initialize-LoadBulkSourceSubtypesV1429Response', 
                'ConvertFrom-JsonToLoadBulkSourceSubtypesV1429Response', 
-               'Initialize-Machineaccountsubtypeconfigdto', 
-               'ConvertFrom-JsonToMachineaccountsubtypeconfigdto', 
-               'Initialize-MachineaccountsubtypeconfigdtoMachineAccountCreate', 
-               'ConvertFrom-JsonToMachineaccountsubtypeconfigdtoMachineAccountCreate', 
-               'Initialize-MachineaccountsubtypeconfigdtoMachineAccountDelete', 
-               'ConvertFrom-JsonToMachineaccountsubtypeconfigdtoMachineAccountDelete', 
-               'Initialize-Machinesubtypeapprovalconfig', 
-               'ConvertFrom-JsonToMachinesubtypeapprovalconfig', 
-               'Initialize-Sourcesubtypewithsource', 
-               'ConvertFrom-JsonToSourcesubtypewithsource', 
-               'Initialize-SourcesubtypewithsourceSource', 
-               'ConvertFrom-JsonToSourcesubtypewithsourceSource'
+               'Initialize-MachineAccountSubtypeConfigDto', 
+               'ConvertFrom-JsonToMachineAccountSubtypeConfigDto', 
+               'Initialize-MachineAccountSubtypeConfigDtoMachineAccountCreate', 
+               'ConvertFrom-JsonToMachineAccountSubtypeConfigDtoMachineAccountCreate', 
+               'Initialize-MachineAccountSubtypeConfigDtoMachineAccountDelete', 
+               'ConvertFrom-JsonToMachineAccountSubtypeConfigDtoMachineAccountDelete', 
+               'Initialize-MachineSubtypeApprovalConfig', 
+               'ConvertFrom-JsonToMachineSubtypeApprovalConfig', 
+               'Initialize-SourceSubtypeWithSource', 
+               'ConvertFrom-JsonToSourceSubtypeWithSource', 
+               'Initialize-SourceSubtypeWithSourceSource', 
+               'ConvertFrom-JsonToSourceSubtypeWithSourceSource'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

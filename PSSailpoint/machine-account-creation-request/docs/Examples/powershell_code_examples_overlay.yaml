@@ -5,18 +5,30 @@
       label: SDK_tools/sdk/powershell/machineaccountcreationrequest/methods/machine-account-creation-request#create-machine-account-request-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Machineaccountcreaterequestinput = @"
-        
+        $MachineAccountCreateRequestInput = @"
+        {
+          "formId" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
+          "entitlementIds" : [ "6d28b7c1620c49c6b6d5cbf81eb4b5fa", "2c91808a7624751a01762f19d67c220e" ],
+          "environment" : "Dev",
+          "description" : "Requesting machine account for tracking the inventory.",
+          "machineIdentityId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+          "ownerIdentityId" : "18104e7e499b4e23882d6323344ab6bc",
+          "userInput" : {
+            "target" : "AD Source",
+            "description" : "Inventory tracking"
+          },
+          "subtypeId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+        }
         "@
         
         # Submit Machine Account Creation Request
         
         try {
-            $Result = ConvertFrom-JsonToMachineaccountcreaterequestinput -Json $Machineaccountcreaterequestinput
-            New-MachineAccountRequestV1 -XSailPointExperimental $XSailPointExperimental -Machineaccountcreaterequestinput $Result 
+            $Result = ConvertFrom-JsonToMachineAccountCreateRequestInput -Json $MachineAccountCreateRequestInput
+            New-MachineAccountRequestV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountCreateRequestInput $Result 
     
             # Below is a request that includes all optional parameters
-            # New-MachineAccountRequestV1 -XSailPointExperimental $XSailPointExperimental -Machineaccountcreaterequestinput $Result   
+            # New-MachineAccountRequestV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountCreateRequestInput $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountRequestV1"
             Write-Host $_.ErrorDetails

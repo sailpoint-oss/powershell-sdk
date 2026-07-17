@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcesubtypewithsource
+SourceSubtypeWithSource
 #>
 function New-SourceSubtypeV1 {
     [CmdletBinding()]
@@ -93,7 +93,7 @@ function New-SourceSubtypeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcesubtypewithsource" `
+                                -ReturnType "SourceSubtypeWithSource" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -208,7 +208,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineaccountsubtypeconfigdto
+MachineAccountSubtypeConfigDto
 #>
 function Get-MachineAccountSubtypeApprovalConfigV1 {
     [CmdletBinding()]
@@ -259,7 +259,7 @@ function Get-MachineAccountSubtypeApprovalConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineaccountsubtypeconfigdto" `
+                                -ReturnType "MachineAccountSubtypeConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -291,7 +291,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcesubtypewithsource
+SourceSubtypeWithSource
 #>
 function Get-SourceSubtypeByIdV1 {
     [CmdletBinding()]
@@ -342,7 +342,7 @@ function Get-SourceSubtypeByIdV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcesubtypewithsource" `
+                                -ReturnType "SourceSubtypeWithSource" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -386,7 +386,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcesubtypewithsource[]
+SourceSubtypeWithSource[]
 #>
 function Get-SourceSubtypesV1 {
     [CmdletBinding()]
@@ -465,7 +465,7 @@ function Get-SourceSubtypesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcesubtypewithsource[]" `
+                                -ReturnType "SourceSubtypeWithSource[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -497,7 +497,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcesubtypewithsource[]
+SourceSubtypeWithSource[]
 #>
 function Invoke-LoadBulkSourceSubtypesV1 {
     [CmdletBinding()]
@@ -564,7 +564,7 @@ function Invoke-LoadBulkSourceSubtypesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcesubtypewithsource[]" `
+                                -ReturnType "SourceSubtypeWithSource[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -599,7 +599,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcesubtypewithsource
+SourceSubtypeWithSource
 #>
 function Update-MachineAccountSubtypeV1 {
     [CmdletBinding()]
@@ -673,7 +673,7 @@ function Update-MachineAccountSubtypeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcesubtypewithsource" `
+                                -ReturnType "SourceSubtypeWithSource" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -699,7 +699,7 @@ Use this header to enable this experimental API.
 .PARAMETER SubtypeId
 machine account subtype ID.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the object.
 
 .PARAMETER WithHttpInfo
@@ -708,7 +708,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineaccountsubtypeconfigdto
+MachineAccountSubtypeConfigDto
 #>
 function Update-MachineAccountSubtypeApprovalConfigV1 {
     [CmdletBinding()]
@@ -721,7 +721,7 @@ function Update-MachineAccountSubtypeApprovalConfigV1 {
         ${SubtypeId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -756,14 +756,14 @@ function Update-MachineAccountSubtypeApprovalConfigV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateMachineAccountSubtypeApprovalConfigV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateMachineAccountSubtypeApprovalConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -782,7 +782,7 @@ function Update-MachineAccountSubtypeApprovalConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineaccountsubtypeconfigdto" `
+                                -ReturnType "MachineAccountSubtypeConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
     Context 'New-AccessProfileV1' {
         It 'Test New-AccessProfileV1' {
-            #$TestResult = New-AccessProfileV1 -Accessprofile "TEST_VALUE"
+            #$TestResult = New-AccessProfileV1 -AccessProfile "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
 
     Context 'Remove-AccessProfilesInBulkV1' {
         It 'Test Remove-AccessProfilesInBulkV1' {
-            #$TestResult = Remove-AccessProfilesInBulkV1 -Accessprofilebulkdeleterequest "TEST_VALUE"
+            #$TestResult = Remove-AccessProfilesInBulkV1 -AccessProfileBulkDeleteRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
 
     Context 'Update-AccessProfileV1' {
         It 'Test Update-AccessProfileV1' {
-            #$TestResult = Update-AccessProfileV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-AccessProfileV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
 
     Context 'Update-AccessProfilesInBulkV1' {
         It 'Test Update-AccessProfilesInBulkV1' {
-            #$TestResult = Update-AccessProfilesInBulkV1 -XSailPointExperimental "TEST_VALUE" -AccessprofilebulkupdaterequestInner "TEST_VALUE"
+            #$TestResult = Update-AccessProfilesInBulkV1 -XSailPointExperimental "TEST_VALUE" -AccessProfileBulkUpdateRequestInner "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

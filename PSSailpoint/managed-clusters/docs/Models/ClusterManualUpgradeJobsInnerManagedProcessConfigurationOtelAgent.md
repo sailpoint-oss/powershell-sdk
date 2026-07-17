@@ -1,0 +1,41 @@
+---
+id: cluster-manual-upgrade-jobs-inner-managed-process-configuration-otel-agent
+title: ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent
+pagination_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent
+sidebar_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent'] 
+slug: /tools/sdk/powershell/managedclusters/models/cluster-manual-upgrade-jobs-inner-managed-process-configuration-otel-agent
+tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent']
+---
+
+
+# ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Version** | **String** | Version of the 'otel_agent' process. | [required]
+**Path** | **String** | Path to the 'otel_agent' process. | [required]
+**Description** | **String** | A brief description of the 'otel_agent' process. | [required]
+**RestartNeeded** | **Boolean** | Indicates whether the process needs to be restarted. | [required]
+
+## Examples
+
+- Prepare the resource
+```powershell
+$ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent = Initialize-ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent  -Version 3003 `
+ -Path sailpoint/otel_agent `
+ -Description version of otel_agent used by the va `
+ -RestartNeeded true
+```
+
+- Convert the resource to JSON
+```powershell
+$ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

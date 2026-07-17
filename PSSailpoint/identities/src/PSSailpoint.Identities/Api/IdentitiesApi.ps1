@@ -106,7 +106,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityownershipassociationdetails
+IdentityOwnershipAssociationDetails
 #>
 function Get-IdentityOwnershipDetailsV1 {
     [CmdletBinding()]
@@ -149,7 +149,7 @@ function Get-IdentityOwnershipDetailsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityownershipassociationdetails" `
+                                -ReturnType "IdentityOwnershipAssociationDetails" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -253,7 +253,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleassignmentdto
+RoleAssignmentDto
 #>
 function Get-RoleAssignmentV1 {
     [CmdletBinding()]
@@ -303,7 +303,7 @@ function Get-RoleAssignmentV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleassignmentdto" `
+                                -ReturnType "RoleAssignmentDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -433,7 +433,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityentitlements[]
+IdentityEntitlements[]
 #>
 function Get-EntitlementsByIdentityV1 {
     [CmdletBinding()]
@@ -497,7 +497,7 @@ function Get-EntitlementsByIdentityV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityentitlements[]" `
+                                -ReturnType "IdentityEntitlements[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -718,7 +718,7 @@ Use this header to enable this experimental API.
 .PARAMETER Id
 Identity ID
 
-.PARAMETER Sendaccountverificationrequest
+.PARAMETER SendAccountVerificationRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -740,7 +740,7 @@ function Send-IdentityVerificationAccountTokenV1 {
         ${Id},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Sendaccountverificationrequest},
+        ${SendAccountVerificationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -775,14 +775,14 @@ function Send-IdentityVerificationAccountTokenV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Sendaccountverificationrequest) {
-            throw "Error! The required parameter `Sendaccountverificationrequest` missing when calling sendIdentityVerificationAccountTokenV1."
+        if (!$SendAccountVerificationRequest) {
+            throw "Error! The required parameter `SendAccountVerificationRequest` missing when calling sendIdentityVerificationAccountTokenV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sendaccountverificationrequest -is [array])) {
-            $LocalVarBodyParameter = $Sendaccountverificationrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SendAccountVerificationRequest -is [array])) {
+            $LocalVarBodyParameter = $SendAccountVerificationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sendaccountverificationrequest | ForEach-Object {
+            $LocalVarBodyParameter = $SendAccountVerificationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -824,7 +824,7 @@ This API submits a task for inviting given identities via email to complete regi
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Inviteidentitiesrequest
+.PARAMETER InviteIdentitiesRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -833,7 +833,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskstatus
+TaskStatus
 #>
 function Start-IdentitiesInviteV1 {
     [CmdletBinding()]
@@ -843,7 +843,7 @@ function Start-IdentitiesInviteV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Inviteidentitiesrequest},
+        ${InviteIdentitiesRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -874,14 +874,14 @@ function Start-IdentitiesInviteV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Inviteidentitiesrequest) {
-            throw "Error! The required parameter `Inviteidentitiesrequest` missing when calling startIdentitiesInviteV1."
+        if (!$InviteIdentitiesRequest) {
+            throw "Error! The required parameter `InviteIdentitiesRequest` missing when calling startIdentitiesInviteV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Inviteidentitiesrequest -is [array])) {
-            $LocalVarBodyParameter = $Inviteidentitiesrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($InviteIdentitiesRequest -is [array])) {
+            $LocalVarBodyParameter = $InviteIdentitiesRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Inviteidentitiesrequest | ForEach-Object {
+            $LocalVarBodyParameter = $InviteIdentitiesRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -900,7 +900,7 @@ function Start-IdentitiesInviteV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskstatus" `
+                                -ReturnType "TaskStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -923,7 +923,7 @@ This operation should not be used to schedule your own identity processing or to
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Processidentitiesrequest
+.PARAMETER ProcessIdentitiesRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -932,7 +932,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskresultresponse
+TaskResultResponse
 #>
 function Start-IdentityProcessingV1 {
     [CmdletBinding()]
@@ -942,7 +942,7 @@ function Start-IdentityProcessingV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Processidentitiesrequest},
+        ${ProcessIdentitiesRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -973,14 +973,14 @@ function Start-IdentityProcessingV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Processidentitiesrequest) {
-            throw "Error! The required parameter `Processidentitiesrequest` missing when calling startIdentityProcessingV1."
+        if (!$ProcessIdentitiesRequest) {
+            throw "Error! The required parameter `ProcessIdentitiesRequest` missing when calling startIdentityProcessingV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Processidentitiesrequest -is [array])) {
-            $LocalVarBodyParameter = $Processidentitiesrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ProcessIdentitiesRequest -is [array])) {
+            $LocalVarBodyParameter = $ProcessIdentitiesRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Processidentitiesrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ProcessIdentitiesRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -999,7 +999,7 @@ function Start-IdentityProcessingV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskresultresponse" `
+                                -ReturnType "TaskResultResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1031,7 +1031,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identitysyncjob
+IdentitySyncJob
 #>
 function Sync-hronizeAttributesForIdentityV1 {
     [CmdletBinding()]
@@ -1082,7 +1082,7 @@ function Sync-hronizeAttributesForIdentityV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identitysyncjob" `
+                                -ReturnType "IdentitySyncJob" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

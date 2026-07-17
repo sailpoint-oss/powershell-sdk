@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **Privileged** | **Boolean** | indicates whether the entitlement is privileged | [required]
 **CloudGoverned** | **Boolean** | indicates whether the entitlement is cloud governed | [required]
 **EntitlementCount** | **Int32** | the number of entitlements the account will create | [required]
-**AppRefs** | [**[]AccessitemaccessprofileresponseAppRefsInner**](accessitemaccessprofileresponse-app-refs-inner) | the list of app ids associated with the access profile | [required]
+**AppRefs** | [**[]AccessItemAccessProfileResponseAppRefsInner**](access-item-access-profile-response-app-refs-inner) | the list of app ids associated with the access profile | [required]
 **StartDate** | **String** | the date the access profile will be assigned to the specified identity, in case requested with a future start date | [optional] 
 **RemoveDate** | **String** | the date the role is no longer assigned to the specified identity | [optional] 
 **Revocable** | **Boolean** | indicates whether the role is revocable | [required]

@@ -5,7 +5,27 @@
       label: SDK_tools/sdk/powershell/transforms/methods/transforms#create-transform-v1
       source: |
         $Transform = @"
-        {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM dd yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}
+        {
+          "name" : "Timestamp To Date",
+          "attributes" : {
+            "input" : {
+              "type" : "accountAttribute",
+              "attributes" : {
+                "attributeName" : "first_name",
+                "sourceName" : "Source"
+              }
+            },
+            "accountSortAttribute" : "created",
+            "accountReturnFirstLink" : false,
+            "requiresPeriodicRefresh" : false,
+            "accountPropertyFilter" : "(groups.containsAll({'Admin'}) || location == 'Austin')",
+            "attributeName" : "DEPARTMENT",
+            "accountSortDescending" : false,
+            "sourceName" : "Workday",
+            "accountFilter" : "!(nativeIdentity.startsWith(\"*DELETED*\"))"
+          },
+          "type" : "dateFormat"
+        }
         "@
         
         # Create transform
@@ -89,7 +109,27 @@
       source: |
         $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to update
         $Transform = @"
-        {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM-dd-yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}
+        {
+          "name" : "Timestamp To Date",
+          "attributes" : {
+            "input" : {
+              "type" : "accountAttribute",
+              "attributes" : {
+                "attributeName" : "first_name",
+                "sourceName" : "Source"
+              }
+            },
+            "accountSortAttribute" : "created",
+            "accountReturnFirstLink" : false,
+            "requiresPeriodicRefresh" : false,
+            "accountPropertyFilter" : "(groups.containsAll({'Admin'}) || location == 'Austin')",
+            "attributeName" : "DEPARTMENT",
+            "accountSortDescending" : false,
+            "sourceName" : "Workday",
+            "accountFilter" : "!(nativeIdentity.startsWith(\"*DELETED*\"))"
+          },
+          "type" : "dateFormat"
+        }
         "@
         
         # Update a transform

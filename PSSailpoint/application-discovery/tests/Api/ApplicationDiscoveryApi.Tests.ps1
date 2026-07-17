@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.ApplicationDiscovery' -name 'ApplicationDiscoveryApi'
 
     Context 'Start-ApplicationDiscoveryV1' {
         It 'Test Start-ApplicationDiscoveryV1' {
-            #$TestResult = Start-ApplicationDiscoveryV1 -XSailPointExperimental "TEST_VALUE" -SourceId "TEST_VALUE" -Applicationdiscoveryrequest "TEST_VALUE"
+            #$TestResult = Start-ApplicationDiscoveryV1 -XSailPointExperimental "TEST_VALUE" -SourceId "TEST_VALUE" -ApplicationDiscoveryRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

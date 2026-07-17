@@ -17,16 +17,16 @@ tags: ['SDK', 'Software Development Kit', 'GetRoleAssignmentsV1200ResponseInner'
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Assignment Id | [optional] 
-**Role** | [**Basereferencedto**](basereferencedto) |  | [optional] 
+**Role** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **AddedDate** | **System.DateTime** | Date that the assignment was added | [optional] 
 **StartDate** | **System.DateTime** | Date when assignment will be active, if access was requested with a future start date. If null, assignment is active immediately | [optional] 
 **RemoveDate** | **System.DateTime** | Date that the assignment will be removed | [optional] 
 **Comments** | **String** | Comments added by the user when the assignment was made | [optional] 
 **AssignmentSource** | **String** | Source describing how this assignment was made | [optional] 
-**Assigner** | [**RoleassignmentdtoAssigner**](roleassignmentdto-assigner) |  | [optional] 
-**AssignedDimensions** | [**[]Basereferencedto**](basereferencedto) | Dimensions assigned related to this role | [optional] 
-**AssignmentContext** | [**RoleassignmentdtoAssignmentContext**](roleassignmentdto-assignment-context) |  | [optional] 
-**AccountTargets** | [**[]Roletargetdto**](roletargetdto) |  | [optional] 
+**Assigner** | [**RoleAssignmentDtoAssigner**](role-assignment-dto-assigner) |  | [optional] 
+**AssignedDimensions** | [**[]BaseReferenceDto**](base-reference-dto) | Dimensions assigned related to this role | [optional] 
+**AssignmentContext** | [**RoleAssignmentDtoAssignmentContext**](role-assignment-dto-assignment-context) |  | [optional] 
+**AccountTargets** | [**[]RoleTargetDto**](role-target-dto) |  | [optional] 
 
 ## Examples
 

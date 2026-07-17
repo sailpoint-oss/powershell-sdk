@@ -66,18 +66,20 @@
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SourceId = "MySourceId" # String | The sourceId.
-        $Applicationdiscoveryrequest = @"
-        
+        $ApplicationDiscoveryRequest = @"
+        {
+          "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ]
+        }
         "@
         
         # Start Application Discovery
         
         try {
-            $Result = ConvertFrom-JsonToApplicationdiscoveryrequest -Json $Applicationdiscoveryrequest
-            Start-ApplicationDiscoveryV1 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -Applicationdiscoveryrequest $Result 
+            $Result = ConvertFrom-JsonToApplicationDiscoveryRequest -Json $ApplicationDiscoveryRequest
+            Start-ApplicationDiscoveryV1 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -ApplicationDiscoveryRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-ApplicationDiscoveryV1 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -Applicationdiscoveryrequest $Result   
+            # Start-ApplicationDiscoveryV1 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -ApplicationDiscoveryRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ApplicationDiscoveryV1"
             Write-Host $_.ErrorDetails

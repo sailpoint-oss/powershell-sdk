@@ -5,18 +5,44 @@
       label: SDK_tools/sdk/powershell/customuserlevels/methods/custom-user-levels#create-custom-user-level-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Userlevelrequest = @"
-        {"name":"Identity And Access Management","description":"This is a description of the custom user level.","owner":{"id":"29b9da8273b441239238bc041c386817","name":"John Doe"},"rightSets":["idn:ui-identity-manage-example","idn:ui-identity-manage-child-one-example"]}
+        $UserLevelRequest = @"
+        {
+          "owner" : {
+            "manager" : {
+              "name" : "Thomas Edison",
+              "id" : "2c9180a46faadee4016fb4e018c20639",
+              "type" : "IDENTITY"
+            },
+            "name" : "Alison Ferguso",
+            "alias" : "alison.ferguso",
+            "attributes" : [ {
+              "name" : "Country",
+              "value" : "US",
+              "key" : "country"
+            }, {
+              "name" : "Country",
+              "value" : "US",
+              "key" : "country"
+            } ],
+            "id" : "2c9180857182305e0171993735622948",
+            "identityState" : "ACTIVE",
+            "email" : "alison.ferguso@acme-solar.com",
+            "status" : "Active"
+          },
+          "rightSets" : [ "idn:ui-right-set-list-read-example", "idn:ui-right-set-write-example" ],
+          "name" : "Custom User Level Name",
+          "description" : "This is a description of the custom user level."
+        }
         "@
         
         # Create a custom user level
         
         try {
-            $Result = ConvertFrom-JsonToUserlevelrequest -Json $Userlevelrequest
-            New-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -Userlevelrequest $Result 
+            $Result = ConvertFrom-JsonToUserLevelRequest -Json $UserLevelRequest
+            New-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -UserLevelRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -Userlevelrequest $Result   
+            # New-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -UserLevelRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CustomUserLevelV1"
             Write-Host $_.ErrorDetails
@@ -183,18 +209,28 @@
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Id = "6e110911-5984-491b-be74-2707980a46a7" # String | The unique identifier of the user level.
-        $Jsonpatch = @"
-        [{"op":"replace","path":"/rightSets","value":["idn:ui-identity-manage-example"]}]
+        $JsonPatch = @"
+        {
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        }
         "@
         
         # Update a user level
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatch -Json $Jsonpatch
-            Update-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Jsonpatch $Result 
+            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            Update-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatch $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Jsonpatch $Result   
+            # Update-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatch $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-UserLevelV1"
             Write-Host $_.ErrorDetails

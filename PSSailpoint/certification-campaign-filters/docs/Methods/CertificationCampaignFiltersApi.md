@@ -59,20 +59,20 @@ Use this API to create a campaign filter based on filter details and criteria.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Campaignfilterdetails | [**Campaignfilterdetails**](../models/campaignfilterdetails) | True  | 
+ Body  | CampaignFilterDetails | [**CampaignFilterDetails**](../models/campaign-filter-details) | True  | 
 
 ### Return type
-[**Campaignfilterdetails**](../models/campaignfilterdetails)
+[**CampaignFilterDetails**](../models/campaign-filter-details)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Created successfully. | Campaignfilterdetails
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Created successfully. | CampaignFilterDetails
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListCampaignFiltersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListCampaignFiltersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -80,16 +80,35 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Campaignfilterdetails = @""@
+$CampaignFilterDetails = @"{
+  "owner" : "SailPoint Support",
+  "mode" : "INCLUSION",
+  "isSystemFilter" : false,
+  "name" : "Identity Attribute Campaign Filter",
+  "description" : "Campaign filter to certify data based on an identity attribute's specified property.",
+  "id" : "5ec18cef39020d6fd7a60ad3970aba61",
+  "criteriaList" : [ {
+    "type" : "IDENTITY_ATTRIBUTE",
+    "property" : "displayName",
+    "value" : "support",
+    "operation" : "CONTAINS",
+    "negateResult" : false,
+    "shortCircuit" : false,
+    "recordChildMatches" : false,
+    "id" : null,
+    "suppressMatchedItems" : false,
+    "children" : null
+  } ]
+}"@
 
 # Create campaign filter
 
 try {
-    $Result = ConvertFrom-JsonToCampaignfilterdetails -Json $Campaignfilterdetails
-    New-CampaignFilterV1 -Campaignfilterdetails $Result 
+    $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
+    New-CampaignFilterV1 -CampaignFilterDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # New-CampaignFilterV1 -Campaignfilterdetails $Result  
+    # New-CampaignFilterV1 -CampaignFilterDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CampaignFilterV1"
     Write-Host $_.ErrorDetails
@@ -114,12 +133,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListCampaignFiltersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListCampaignFiltersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -157,18 +176,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the campaign filter to be retrieved.
 
 ### Return type
-[**Campaignfilterdetails**](../models/campaignfilterdetails)
+[**CampaignFilterDetails**](../models/campaign-filter-details)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A campaign filter object. | Campaignfilterdetails
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A campaign filter object. | CampaignFilterDetails
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListCampaignFiltersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListCampaignFiltersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -211,11 +230,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of campaign filter objects. | ListCampaignFiltersV1200Response
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListCampaignFiltersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListCampaignFiltersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -250,20 +269,20 @@ Updates an existing campaign filter using the filter's ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the campaign filter being modified.
- Body  | Campaignfilterdetails | [**Campaignfilterdetails**](../models/campaignfilterdetails) | True  | A campaign filter details with updated field values.
+ Body  | CampaignFilterDetails | [**CampaignFilterDetails**](../models/campaign-filter-details) | True  | A campaign filter details with updated field values.
 
 ### Return type
-[**Campaignfilterdetails**](../models/campaignfilterdetails)
+[**CampaignFilterDetails**](../models/campaign-filter-details)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Created successfully. | Campaignfilterdetails
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Created successfully. | CampaignFilterDetails
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListCampaignFiltersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListCampaignFiltersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -272,16 +291,35 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filter being modified.
-$Campaignfilterdetails = @""@
+$CampaignFilterDetails = @"{
+  "owner" : "SailPoint Support",
+  "mode" : "INCLUSION",
+  "isSystemFilter" : false,
+  "name" : "Identity Attribute Campaign Filter",
+  "description" : "Campaign filter to certify data based on an identity attribute's specified property.",
+  "id" : "5ec18cef39020d6fd7a60ad3970aba61",
+  "criteriaList" : [ {
+    "type" : "IDENTITY_ATTRIBUTE",
+    "property" : "displayName",
+    "value" : "support",
+    "operation" : "CONTAINS",
+    "negateResult" : false,
+    "shortCircuit" : false,
+    "recordChildMatches" : false,
+    "id" : null,
+    "suppressMatchedItems" : false,
+    "children" : null
+  } ]
+}"@
 
 # Updates a campaign filter
 
 try {
-    $Result = ConvertFrom-JsonToCampaignfilterdetails -Json $Campaignfilterdetails
-    Update-CampaignFilterV1 -Id $Id -Campaignfilterdetails $Result 
+    $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
+    Update-CampaignFilterV1 -Id $Id -CampaignFilterDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-CampaignFilterV1 -Id $Id -Campaignfilterdetails $Result  
+    # Update-CampaignFilterV1 -Id $Id -CampaignFilterDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CampaignFilterV1"
     Write-Host $_.ErrorDetails

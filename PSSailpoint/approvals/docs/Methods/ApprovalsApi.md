@@ -45,7 +45,7 @@ Bulk Approves specified approval requests on behalf of the caller
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Bulkapproverequestdto | [**Bulkapproverequestdto**](../models/bulkapproverequestdto) | True  | 
+ Body  | BulkApproveRequestDTO | [**BulkApproveRequestDTO**](../models/bulk-approve-request-dto) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -54,12 +54,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -67,16 +67,23 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Bulkapproverequestdto = @""@
+$BulkApproveRequestDTO = @"{
+  "comment" : "Bulk approved by admin for monthly review",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ],
+  "additionalAttributes" : {
+    "source" : "automation",
+    "urgency" : "high"
+  }
+}"@
 
 # Post Bulk Approve Approvals
 
 try {
-    $Result = ConvertFrom-JsonToBulkapproverequestdto -Json $Bulkapproverequestdto
-    Approve-ApprovalInBulkV1 -Bulkapproverequestdto $Result 
+    $Result = ConvertFrom-JsonToBulkApproveRequestDTO -Json $BulkApproveRequestDTO
+    Approve-ApprovalInBulkV1 -BulkApproveRequestDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-ApprovalInBulkV1 -Bulkapproverequestdto $Result  
+    # Approve-ApprovalInBulkV1 -BulkApproveRequestDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-ApprovalInBulkV1"
     Write-Host $_.ErrorDetails
@@ -94,7 +101,7 @@ If called by an admin and the admin is not listed as an approver, the approval r
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Approval ID that correlates to an existing approval request that a user wants to approve.
- Body  | Approvalapproverequest | [**Approvalapproverequest**](../models/approvalapproverequest) |   (optional) | 
+ Body  | ApprovalApproveRequest | [**ApprovalApproveRequest**](../models/approval-approve-request) |   (optional) | 
 
 ### Return type
 [**Approval2**](../models/approval2)
@@ -103,12 +110,12 @@ Path   | Id | **String** | True  | Approval ID that correlates to an existing ap
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Approval object | Approval2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -117,7 +124,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to approve.
-$Approvalapproverequest = @""@
+$ApprovalApproveRequest = @"{
+  "comment" : "comment",
+  "additionalAttributes" : {
+    "additionalProp1" : "string",
+    "additionalProp2" : "string",
+    "additionalProp3" : "string"
+  }
+}"@
 
 # Post Approvals Approve
 
@@ -125,7 +139,7 @@ try {
     Approve-ApprovalV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Approve-ApprovalV1 -Id $Id -Approvalapproverequest $Result  
+    # Approve-ApprovalV1 -Id $Id -ApprovalApproveRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-ApprovalV1"
     Write-Host $_.ErrorDetails
@@ -144,7 +158,7 @@ Note: This endpoint does not support access request IDs. To cancel access reques
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the approval request to cancel.
- Body  | Approvalcancelrequest | [**Approvalcancelrequest**](../models/approvalcancelrequest) |   (optional) | 
+ Body  | ApprovalCancelRequest | [**ApprovalCancelRequest**](../models/approval-cancel-request) |   (optional) | 
 
 ### Return type
  (empty response body)
@@ -153,12 +167,12 @@ Path   | Id | **String** | True  | ID of the approval request to cancel.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -167,7 +181,9 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval request to cancel.
-$Approvalcancelrequest = @""@
+$ApprovalCancelRequest = @"{
+  "comment" : "Cancelled by administrator"
+}"@
 
 # Post Approval Cancel
 
@@ -175,7 +191,7 @@ try {
     Suspend-ApprovalByIdV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Suspend-ApprovalByIdV1 -Id $Id -Approvalcancelrequest $Result  
+    # Suspend-ApprovalByIdV1 -Id $Id -ApprovalCancelRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-ApprovalByIdV1"
     Write-Host $_.ErrorDetails
@@ -193,7 +209,7 @@ Note: To bulk cancel access request approvals, please use the following:
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Bulkcancelrequestdto | [**Bulkcancelrequestdto**](../models/bulkcancelrequestdto) | True  | 
+ Body  | BulkCancelRequestDTO | [**BulkCancelRequestDTO**](../models/bulk-cancel-request-dto) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -202,12 +218,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -215,16 +231,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Bulkcancelrequestdto = @""@
+$BulkCancelRequestDTO = @"{
+  "comment" : "Bulk cancellation by admin",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+}"@
 
 # Post Bulk Cancel Approvals
 
 try {
-    $Result = ConvertFrom-JsonToBulkcancelrequestdto -Json $Bulkcancelrequestdto
-    Suspend-ApprovalV1 -Bulkcancelrequestdto $Result 
+    $Result = ConvertFrom-JsonToBulkCancelRequestDTO -Json $BulkCancelRequestDTO
+    Suspend-ApprovalV1 -BulkCancelRequestDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Suspend-ApprovalV1 -Bulkcancelrequestdto $Result  
+    # Suspend-ApprovalV1 -BulkCancelRequestDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-ApprovalV1"
     Write-Host $_.ErrorDetails
@@ -251,12 +270,12 @@ Path   | Scope | **String** | True  | The scope of the field, where [[id]]:[[sco
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -299,11 +318,11 @@ Path   | Id | **String** | True  | ID of the approval that is to be returned
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Approval object | Approval2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -338,17 +357,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", ""ACCOUNT_CREATE_APPROVAL_REQUEST"", ""ACCOUNT_DELETE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST"", (tenantID)]
 
 ### Return type
-[**Approvalconfig**](../models/approvalconfig)
+[**ApprovalConfig**](../models/approval-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Approval object | Approvalconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Approval object | ApprovalConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -410,11 +429,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of approvals. | Approval2[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -458,7 +477,7 @@ Bulk reassigns specified approval requests on behalf of the caller
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Bulkreassignrequestdto | [**Bulkreassignrequestdto**](../models/bulkreassignrequestdto) | True  | 
+ Body  | BulkReassignRequestDTO | [**BulkReassignRequestDTO**](../models/bulk-reassign-request-dto) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -467,12 +486,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -480,16 +499,21 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Bulkreassignrequestdto = @""@
+$BulkReassignRequestDTO = @"{
+  "reassignTo" : "32454251-6ce2-5d8f-df93-5ce19e295238",
+  "comment" : "Bulk reassignment by admin",
+  "reassignFrom" : "12353251-6be2-5f8f-df93-5ce19b6e5837",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+}"@
 
 # Post Bulk Reassign Approvals
 
 try {
-    $Result = ConvertFrom-JsonToBulkreassignrequestdto -Json $Bulkreassignrequestdto
-    Move-ApprovalV1 -Bulkreassignrequestdto $Result 
+    $Result = ConvertFrom-JsonToBulkReassignRequestDTO -Json $BulkReassignRequestDTO
+    Move-ApprovalV1 -BulkReassignRequestDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Move-ApprovalV1 -Bulkreassignrequestdto $Result  
+    # Move-ApprovalV1 -BulkReassignRequestDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-ApprovalV1"
     Write-Host $_.ErrorDetails
@@ -508,21 +532,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 Path   | Scope | **String** | True  | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
- Body  | Approvalconfig | [**Approvalconfig**](../models/approvalconfig) | True  | 
+ Body  | ApprovalConfig | [**ApprovalConfig**](../models/approval-config) | True  | 
 
 ### Return type
-[**Approvalconfig**](../models/approvalconfig)
+[**ApprovalConfig**](../models/approval-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Verified Email Status | Approvalconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Verified Email Status | ApprovalConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -532,16 +556,63 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 $Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-$Approvalconfig = @""@
+$ApprovalConfig = @"{
+  "timeoutConfig" : {
+    "daysUntilTimeout" : 2,
+    "enabled" : true,
+    "timeoutResult" : "EXPIRED"
+  },
+  "requiresComment" : "ALL",
+  "cronTimezone" : {
+    "offset" : "",
+    "location" : "America/New_York"
+  },
+  "fallbackApprover" : {
+    "identityID" : "fdfda352157d4cc79bb749953131b457",
+    "type" : "MANAGER_OF"
+  },
+  "reminderConfig" : {
+    "reminderCronSchedule" : "1 1 1 1 1",
+    "daysUntilFirstReminder" : 0,
+    "maxReminders" : 5,
+    "enabled" : false
+  },
+  "circumventApprovalProcess" : false,
+  "escalationConfig" : {
+    "escalationCronSchedule" : "*/5 * * * *",
+    "escalationChain" : [ {
+      "tier" : 1,
+      "identityType" : "IDENTITY",
+      "identityId" : "fdfda352157d4cc79bb749953131b457"
+    }, {
+      "tier" : 1,
+      "identityType" : "IDENTITY",
+      "identityId" : "fdfda352157d4cc79bb749953131b457"
+    } ],
+    "daysUntilFirstEscalation" : 2,
+    "enabled" : true
+  },
+  "serialChain" : [ {
+    "tier" : 1,
+    "identityType" : "IDENTITY",
+    "identityId" : "2c9180858090ea8801809a0465e829da"
+  }, {
+    "tier" : 1,
+    "identityType" : "IDENTITY",
+    "identityId" : "2c9180858090ea8801809a0465e829da"
+  } ],
+  "machineIdentityManagerAssignment" : "MACHINE_IDENTITY_OWNER",
+  "autoApprove" : "OFF"
+}"@
 
 # Put Approval Config
 
 try {
-    $Result = ConvertFrom-JsonToApprovalconfig -Json $Approvalconfig
-    Send-ApprovalsConfigV1 -Id $Id -Scope $Scope -Approvalconfig $Result 
+    $Result = ConvertFrom-JsonToApprovalConfig -Json $ApprovalConfig
+    Send-ApprovalsConfigV1 -Id $Id -Scope $Scope -ApprovalConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-ApprovalsConfigV1 -Id $Id -Scope $Scope -Approvalconfig $Result  
+    # Send-ApprovalsConfigV1 -Id $Id -Scope $Scope -ApprovalConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ApprovalsConfigV1"
     Write-Host $_.ErrorDetails
@@ -557,7 +628,7 @@ Bulk reject specified approval requests on behalf of the caller
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Bulkrejectrequestdto | [**Bulkrejectrequestdto**](../models/bulkrejectrequestdto) | True  | 
+ Body  | BulkRejectRequestDTO | [**BulkRejectRequestDTO**](../models/bulk-reject-request-dto) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -566,12 +637,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -579,16 +650,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Bulkrejectrequestdto = @""@
+$BulkRejectRequestDTO = @"{
+  "comment" : "Bulk reject by admin",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+}"@
 
 # Post Bulk Reject Approvals
 
 try {
-    $Result = ConvertFrom-JsonToBulkrejectrequestdto -Json $Bulkrejectrequestdto
-    Deny-ApprovalInBulkV1 -Bulkrejectrequestdto $Result 
+    $Result = ConvertFrom-JsonToBulkRejectRequestDTO -Json $BulkRejectRequestDTO
+    Deny-ApprovalInBulkV1 -BulkRejectRequestDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Deny-ApprovalInBulkV1 -Bulkrejectrequestdto $Result  
+    # Deny-ApprovalInBulkV1 -BulkRejectRequestDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-ApprovalInBulkV1"
     Write-Host $_.ErrorDetails
@@ -606,7 +680,7 @@ If called by an admin and the admin is not listed as an approver, the approval r
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Approval ID that correlates to an existing approval request that a user wants to reject.
- Body  | Approvalrejectrequest | [**Approvalrejectrequest**](../models/approvalrejectrequest) |   (optional) | 
+ Body  | ApprovalRejectRequest | [**ApprovalRejectRequest**](../models/approval-reject-request) |   (optional) | 
 
 ### Return type
  (empty response body)
@@ -615,12 +689,12 @@ Path   | Id | **String** | True  | Approval ID that correlates to an existing ap
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -629,7 +703,9 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to reject.
-$Approvalrejectrequest = @""@
+$ApprovalRejectRequest = @"{
+  "comment" : "string"
+}"@
 
 # Post Approvals Reject
 
@@ -637,7 +713,7 @@ try {
     Deny-ApprovalV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Deny-ApprovalV1 -Id $Id -Approvalrejectrequest $Result  
+    # Deny-ApprovalV1 -Id $Id -ApprovalRejectRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-ApprovalV1"
     Write-Host $_.ErrorDetails
@@ -654,7 +730,7 @@ Allows for the edit/addition/removal of the key/value pair additional attributes
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Approval ID that correlates to an existing approval request that a user wants to change the attributes of.
- Body  | Approvalattributesrequest | [**Approvalattributesrequest**](../models/approvalattributesrequest) | True  | 
+ Body  | ApprovalAttributesRequest | [**ApprovalAttributesRequest**](../models/approval-attributes-request) | True  | 
 
 ### Return type
 [**Approval2**](../models/approval2)
@@ -663,12 +739,12 @@ Path   | Id | **String** | True  | Approval ID that correlates to an existing ap
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Approval object | Approval2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -677,16 +753,24 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to change the attributes of.
-$Approvalattributesrequest = @""@
+$ApprovalAttributesRequest = @"{
+  "removeAttributeKeys" : [ "string" ],
+  "comment" : "comment",
+  "additionalAttributes" : {
+    "additionalProp1" : "string",
+    "additionalProp2" : "string",
+    "additionalProp3" : "string"
+  }
+}"@
 
 # Post Approvals Attributes
 
 try {
-    $Result = ConvertFrom-JsonToApprovalattributesrequest -Json $Approvalattributesrequest
-    Update-ApprovalsAttributesV1 -Id $Id -Approvalattributesrequest $Result 
+    $Result = ConvertFrom-JsonToApprovalAttributesRequest -Json $ApprovalAttributesRequest
+    Update-ApprovalsAttributesV1 -Id $Id -ApprovalAttributesRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ApprovalsAttributesV1 -Id $Id -Approvalattributesrequest $Result  
+    # Update-ApprovalsAttributesV1 -Id $Id -ApprovalAttributesRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ApprovalsAttributesV1"
     Write-Host $_.ErrorDetails
@@ -703,7 +787,7 @@ Adds comments to a specified approval request. This endpoint does not support ac
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Approval ID that correlates to an existing approval request that a user wants to add a comment to.
- Body  | Approvalcommentsrequest | [**Approvalcommentsrequest**](../models/approvalcommentsrequest) | True  | 
+ Body  | ApprovalCommentsRequest | [**ApprovalCommentsRequest**](../models/approval-comments-request) | True  | 
 
 ### Return type
 [**Approval2**](../models/approval2)
@@ -712,12 +796,12 @@ Path   | Id | **String** | True  | Approval ID that correlates to an existing ap
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Approval object | Approval2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -726,16 +810,18 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to add a comment to.
-$Approvalcommentsrequest = @""@
+$ApprovalCommentsRequest = @"{
+  "comment" : "Approval comment."
+}"@
 
 # Post Approvals Comments
 
 try {
-    $Result = ConvertFrom-JsonToApprovalcommentsrequest -Json $Approvalcommentsrequest
-    Update-ApprovalsCommentsV1 -Id $Id -Approvalcommentsrequest $Result 
+    $Result = ConvertFrom-JsonToApprovalCommentsRequest -Json $ApprovalCommentsRequest
+    Update-ApprovalsCommentsV1 -Id $Id -ApprovalCommentsRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ApprovalsCommentsV1 -Id $Id -Approvalcommentsrequest $Result  
+    # Update-ApprovalsCommentsV1 -Id $Id -ApprovalCommentsRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ApprovalsCommentsV1"
     Write-Host $_.ErrorDetails
@@ -752,7 +838,7 @@ Reassigns an approval request to another identity resulting in that identity bei
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Approval ID that correlates to an existing approval request that a user wants to reassign.
- Body  | Approvalreassignrequest | [**Approvalreassignrequest**](../models/approvalreassignrequest) | True  | 
+ Body  | ApprovalReassignRequest | [**ApprovalReassignRequest**](../models/approval-reassign-request) | True  | 
 
 ### Return type
  (empty response body)
@@ -761,12 +847,12 @@ Path   | Id | **String** | True  | Approval ID that correlates to an existing ap
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetApprovalsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetApprovalsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -775,16 +861,20 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to reassign.
-$Approvalreassignrequest = @""@
+$ApprovalReassignRequest = @"{
+  "reassignTo" : "152354832eb6f8f539fd738592e19ec5",
+  "comment" : "comment",
+  "reassignFrom" : "384532516be25f8fdf935ce19e295837"
+}"@
 
 # Post Approvals Reassign
 
 try {
-    $Result = ConvertFrom-JsonToApprovalreassignrequest -Json $Approvalreassignrequest
-    Update-ApprovalsReassignV1 -Id $Id -Approvalreassignrequest $Result 
+    $Result = ConvertFrom-JsonToApprovalReassignRequest -Json $ApprovalReassignRequest
+    Update-ApprovalsReassignV1 -Id $Id -ApprovalReassignRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ApprovalsReassignV1 -Id $Id -Approvalreassignrequest $Result  
+    # Update-ApprovalsReassignV1 -Id $Id -ApprovalReassignRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ApprovalsReassignV1"
     Write-Host $_.ErrorDetails

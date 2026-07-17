@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.CustomUserLevels.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -78,33 +78,33 @@ FunctionsToExport = 'New-CustomUserLevelV1', 'Remove-UserLevelV1', 'Get-UserLeve
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
                'ConvertFrom-JsonToArrayInner', 
-               'Initialize-Authuserlevelsidentitycount', 
-               'ConvertFrom-JsonToAuthuserlevelsidentitycount', 
-               'Initialize-Authuserslimresponse', 
-               'ConvertFrom-JsonToAuthuserslimresponse', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Hierarchicalrightset', 
-               'ConvertFrom-JsonToHierarchicalrightset', 
-               'Initialize-Identityreference', 
-               'ConvertFrom-JsonToIdentityreference', 'Initialize-Jsonpatch', 
-               'ConvertFrom-JsonToJsonpatch', 'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 
+               'Initialize-AuthUserLevelsIdentityCount', 
+               'ConvertFrom-JsonToAuthUserLevelsIdentityCount', 
+               'Initialize-AuthUserSlimResponse', 
+               'ConvertFrom-JsonToAuthUserSlimResponse', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-HierarchicalRightSet', 
+               'ConvertFrom-JsonToHierarchicalRightSet', 
+               'Initialize-IdentityReference', 
+               'ConvertFrom-JsonToIdentityReference', 'Initialize-JsonPatch', 
+               'ConvertFrom-JsonToJsonPatch', 'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 
                'Initialize-ListUserLevelsV1401Response', 
                'ConvertFrom-JsonToListUserLevelsV1401Response', 
                'Initialize-ListUserLevelsV1429Response', 
                'ConvertFrom-JsonToListUserLevelsV1429Response', 
-               'Initialize-Nestedconfig', 'ConvertFrom-JsonToNestedconfig', 
-               'Initialize-Publicidentity', 'ConvertFrom-JsonToPublicidentity', 
-               'Initialize-PublicidentityAttributesInner', 
-               'ConvertFrom-JsonToPublicidentityAttributesInner', 
-               'Initialize-Rightsetdto', 'ConvertFrom-JsonToRightsetdto', 
-               'Initialize-Userlevelpublishsummary', 
-               'ConvertFrom-JsonToUserlevelpublishsummary', 
-               'Initialize-Userlevelrequest', 'ConvertFrom-JsonToUserlevelrequest', 
-               'Initialize-Userlevelsummarydto', 
-               'ConvertFrom-JsonToUserlevelsummarydto'
+               'Initialize-NestedConfig', 'ConvertFrom-JsonToNestedConfig', 
+               'Initialize-PublicIdentity', 'ConvertFrom-JsonToPublicIdentity', 
+               'Initialize-PublicIdentityAttributesInner', 
+               'ConvertFrom-JsonToPublicIdentityAttributesInner', 
+               'Initialize-RightSetDTO', 'ConvertFrom-JsonToRightSetDTO', 
+               'Initialize-UserLevelPublishSummary', 
+               'ConvertFrom-JsonToUserLevelPublishSummary', 
+               'Initialize-UserLevelRequest', 'ConvertFrom-JsonToUserLevelRequest', 
+               'Initialize-UserLevelSummaryDTO', 
+               'ConvertFrom-JsonToUserLevelSummaryDTO'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

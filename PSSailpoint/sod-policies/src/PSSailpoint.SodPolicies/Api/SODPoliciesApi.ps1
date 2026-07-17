@@ -14,7 +14,7 @@ Create sod policy
 
 This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
 
-.PARAMETER Sodpolicy
+.PARAMETER SodPolicy
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sodpolicy
+SodPolicy
 #>
 function New-SodPolicyV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Sodpolicy},
+        ${SodPolicy},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-SodPolicyV1 {
 
         $LocalVarUri = '/sod-policies/v1'
 
-        if (!$Sodpolicy) {
-            throw "Error! The required parameter `Sodpolicy` missing when calling createSodPolicyV1."
+        if (!$SodPolicy) {
+            throw "Error! The required parameter `SodPolicy` missing when calling createSodPolicyV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sodpolicy -is [array])) {
-            $LocalVarBodyParameter = $Sodpolicy | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SodPolicy -is [array])) {
+            $LocalVarBodyParameter = $SodPolicy | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sodpolicy | ForEach-Object {
+            $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-SodPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sodpolicy" `
+                                -ReturnType "SodPolicy" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -440,7 +440,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Reportresultreference
+ReportResultReference
 #>
 function Get-SodAllReportRunStatusV1 {
     [CmdletBinding()]
@@ -476,7 +476,7 @@ function Get-SodAllReportRunStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Reportresultreference" `
+                                -ReturnType "ReportResultReference" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -505,7 +505,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sodpolicyschedule
+SodPolicySchedule
 #>
 function Get-SodPolicyScheduleV1 {
     [CmdletBinding()]
@@ -548,7 +548,7 @@ function Get-SodPolicyScheduleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sodpolicyschedule" `
+                                -ReturnType "SodPolicySchedule" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -577,7 +577,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sodpolicy
+SodPolicy
 #>
 function Get-SodPolicyV1 {
     [CmdletBinding()]
@@ -620,7 +620,7 @@ function Get-SodPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sodpolicy" `
+                                -ReturnType "SodPolicy" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -649,7 +649,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Reportresultreference
+ReportResultReference
 #>
 function Get-SodViolationReportRunStatusV1 {
     [CmdletBinding()]
@@ -692,7 +692,7 @@ function Get-SodViolationReportRunStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Reportresultreference" `
+                                -ReturnType "ReportResultReference" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -721,7 +721,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Reportresultreference
+ReportResultReference
 #>
 function Get-SodViolationReportStatusV1 {
     [CmdletBinding()]
@@ -764,7 +764,7 @@ function Get-SodViolationReportStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Reportresultreference" `
+                                -ReturnType "ReportResultReference" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -805,7 +805,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sodpolicy[]
+SodPolicy[]
 #>
 function Get-SodPoliciesV1 {
     [CmdletBinding()]
@@ -876,7 +876,7 @@ function Get-SodPoliciesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sodpolicy[]" `
+                                -ReturnType "SodPolicy[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -899,7 +899,7 @@ Allows updating SOD Policy fields other than [""id"",""created"",""creatorId"","
 .PARAMETER Id
 The ID of the SOD policy being modified.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
 
 .PARAMETER WithHttpInfo
@@ -908,7 +908,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sodpolicy
+SodPolicy
 #>
 function Update-SodPolicyV1 {
     [CmdletBinding()]
@@ -918,7 +918,7 @@ function Update-SodPolicyV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -948,14 +948,14 @@ function Update-SodPolicyV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchSodPolicyV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchSodPolicyV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -974,7 +974,7 @@ function Update-SodPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sodpolicy" `
+                                -ReturnType "SodPolicy" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -997,7 +997,7 @@ This updates schedule for a specified SOD policy.
 .PARAMETER Id
 The ID of the SOD policy to update its schedule.
 
-.PARAMETER Sodpolicyschedule
+.PARAMETER SodPolicySchedule
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1006,7 +1006,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sodpolicyschedule
+SodPolicySchedule
 #>
 function Send-PolicyScheduleV1 {
     [CmdletBinding()]
@@ -1016,7 +1016,7 @@ function Send-PolicyScheduleV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Sodpolicyschedule},
+        ${SodPolicySchedule},
         [Switch]
         $WithHttpInfo
     )
@@ -1046,14 +1046,14 @@ function Send-PolicyScheduleV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Sodpolicyschedule) {
-            throw "Error! The required parameter `Sodpolicyschedule` missing when calling putPolicyScheduleV1."
+        if (!$SodPolicySchedule) {
+            throw "Error! The required parameter `SodPolicySchedule` missing when calling putPolicyScheduleV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sodpolicyschedule -is [array])) {
-            $LocalVarBodyParameter = $Sodpolicyschedule | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SodPolicySchedule -is [array])) {
+            $LocalVarBodyParameter = $SodPolicySchedule | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sodpolicyschedule | ForEach-Object {
+            $LocalVarBodyParameter = $SodPolicySchedule | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1072,7 +1072,7 @@ function Send-PolicyScheduleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sodpolicyschedule" `
+                                -ReturnType "SodPolicySchedule" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1095,7 +1095,7 @@ This updates a specified SOD policy. Requires role of ORG_ADMIN.
 .PARAMETER Id
 The ID of the SOD policy to update.
 
-.PARAMETER Sodpolicy
+.PARAMETER SodPolicy
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1104,7 +1104,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sodpolicy
+SodPolicy
 #>
 function Send-SodPolicyV1 {
     [CmdletBinding()]
@@ -1114,7 +1114,7 @@ function Send-SodPolicyV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Sodpolicy},
+        ${SodPolicy},
         [Switch]
         $WithHttpInfo
     )
@@ -1144,14 +1144,14 @@ function Send-SodPolicyV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Sodpolicy) {
-            throw "Error! The required parameter `Sodpolicy` missing when calling putSodPolicyV1."
+        if (!$SodPolicy) {
+            throw "Error! The required parameter `SodPolicy` missing when calling putSodPolicyV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sodpolicy -is [array])) {
-            $LocalVarBodyParameter = $Sodpolicy | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SodPolicy -is [array])) {
+            $LocalVarBodyParameter = $SodPolicy | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sodpolicy | ForEach-Object {
+            $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1170,7 +1170,7 @@ function Send-SodPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sodpolicy" `
+                                -ReturnType "SodPolicy" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1199,7 +1199,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Reportresultreference
+ReportResultReference
 #>
 function Start-EvaluateSodPolicyV1 {
     [CmdletBinding()]
@@ -1242,7 +1242,7 @@ function Start-EvaluateSodPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Reportresultreference" `
+                                -ReturnType "ReportResultReference" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1262,7 +1262,7 @@ Runs all policies for org
 
 Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
 
-.PARAMETER Multipolicyrequest
+.PARAMETER MultiPolicyRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1271,14 +1271,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Reportresultreference
+ReportResultReference
 #>
 function Start-SodAllPoliciesForOrgV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Multipolicyrequest},
+        ${MultiPolicyRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1304,10 +1304,10 @@ function Start-SodAllPoliciesForOrgV1 {
 
         $LocalVarUri = '/sod-violation-report/v1/run'
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Multipolicyrequest -is [array])) {
-            $LocalVarBodyParameter = $Multipolicyrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MultiPolicyRequest -is [array])) {
+            $LocalVarBodyParameter = $MultiPolicyRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Multipolicyrequest | ForEach-Object {
+            $LocalVarBodyParameter = $MultiPolicyRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1326,7 +1326,7 @@ function Start-SodAllPoliciesForOrgV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Reportresultreference" `
+                                -ReturnType "ReportResultReference" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1355,7 +1355,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Reportresultreference
+ReportResultReference
 #>
 function Start-SodPolicyV1 {
     [CmdletBinding()]
@@ -1398,7 +1398,7 @@ function Start-SodPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Reportresultreference" `
+                                -ReturnType "ReportResultReference" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

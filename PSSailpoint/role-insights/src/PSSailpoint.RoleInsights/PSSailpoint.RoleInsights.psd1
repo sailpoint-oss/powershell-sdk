@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.RoleInsights.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -84,22 +84,22 @@ FunctionsToExport = 'New-RoleInsightRequestsV1',
                'ConvertFrom-JsonToCreateRoleInsightRequestsV1401Response', 
                'Initialize-CreateRoleInsightRequestsV1429Response', 
                'ConvertFrom-JsonToCreateRoleInsightRequestsV1429Response', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Roleinsight', 'ConvertFrom-JsonToRoleinsight', 
-               'Initialize-Roleinsightsentitlement', 
-               'ConvertFrom-JsonToRoleinsightsentitlement', 
-               'Initialize-Roleinsightsentitlementchanges', 
-               'ConvertFrom-JsonToRoleinsightsentitlementchanges', 
-               'Initialize-Roleinsightsidentities', 
-               'ConvertFrom-JsonToRoleinsightsidentities', 
-               'Initialize-Roleinsightsinsight', 
-               'ConvertFrom-JsonToRoleinsightsinsight', 
-               'Initialize-Roleinsightsresponse', 
-               'ConvertFrom-JsonToRoleinsightsresponse', 
-               'Initialize-Roleinsightsrole', 'ConvertFrom-JsonToRoleinsightsrole', 
-               'Initialize-Roleinsightssummary', 
-               'ConvertFrom-JsonToRoleinsightssummary'
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-RoleInsight', 'ConvertFrom-JsonToRoleInsight', 
+               'Initialize-RoleInsightsEntitlement', 
+               'ConvertFrom-JsonToRoleInsightsEntitlement', 
+               'Initialize-RoleInsightsEntitlementChanges', 
+               'ConvertFrom-JsonToRoleInsightsEntitlementChanges', 
+               'Initialize-RoleInsightsIdentities', 
+               'ConvertFrom-JsonToRoleInsightsIdentities', 
+               'Initialize-RoleInsightsInsight', 
+               'ConvertFrom-JsonToRoleInsightsInsight', 
+               'Initialize-RoleInsightsResponse', 
+               'ConvertFrom-JsonToRoleInsightsResponse', 
+               'Initialize-RoleInsightsRole', 'ConvertFrom-JsonToRoleInsightsRole', 
+               'Initialize-RoleInsightsSummary', 
+               'ConvertFrom-JsonToRoleInsightsSummary'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

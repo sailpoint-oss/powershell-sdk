@@ -95,7 +95,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceclassificationstatus
+SourceClassificationStatus
 #>
 function Get-ClassifyMachineAccountFromSourceStatusV1 {
     [CmdletBinding()]
@@ -138,7 +138,7 @@ function Get-ClassifyMachineAccountFromSourceStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceclassificationstatus" `
+                                -ReturnType "SourceClassificationStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

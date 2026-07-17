@@ -45,21 +45,21 @@ Create a new SIM Integrations.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Simintegrationdetails | [**Simintegrationdetails**](../models/simintegrationdetails) | True  | DTO containing the details of the SIM integration
+ Body  | SimIntegrationDetails | [**SimIntegrationDetails**](../models/sim-integration-details) | True  | DTO containing the details of the SIM integration
 
 ### Return type
-[**Servicedeskintegrationdto**](../models/servicedeskintegrationdto)
+[**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | details of the created integration | Servicedeskintegrationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | details of the created integration | ServiceDeskIntegrationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSIMIntegrationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSIMIntegrationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -68,16 +68,33 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Simintegrationdetails = @""@
+$SimIntegrationDetails = @"{
+  "cluster" : "xyzzy999",
+  "statusMap" : "{\"closed_cancelled\":\"Failed\",\"closed_complete\":\"Committed\",\"closed_incomplete\":\"Failed\",\"closed_rejected\":\"Failed\",\"in_process\":\"Queued\",\"requested\":\"Queued\"}",
+  "request" : "{\"description\":\"SailPoint Access Request,\",\"req_description\":\"The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,\",\"req_short_description\":\"SailPoint New Access Request Created from IdentityNow,\",\"short_description\":\"SailPoint Access Request $!plan.arguments.identityRequestId\"}",
+  "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+  "created" : "2015-05-28T14:07:17Z",
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "description" : "Integration description",
+  "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
+  "id" : "id12345",
+  "type" : "ServiceNow Service Desk",
+  "beforeProvisioningRule" : {
+    "name" : "Example Rule",
+    "id" : "2c918085708c274401708c2a8a760001",
+    "type" : "IDENTITY"
+  }
+}"@
 
 # Create new sim integration
 
 try {
-    $Result = ConvertFrom-JsonToSimintegrationdetails -Json $Simintegrationdetails
-    New-SIMIntegrationV1 -XSailPointExperimental $XSailPointExperimental -Simintegrationdetails $Result 
+    $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+    New-SIMIntegrationV1 -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # New-SIMIntegrationV1 -XSailPointExperimental $XSailPointExperimental -Simintegrationdetails $Result  
+    # New-SIMIntegrationV1 -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SIMIntegrationV1"
     Write-Host $_.ErrorDetails
@@ -106,12 +123,12 @@ Path   | Id | **String** | True  | The id of the integration to delete.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | No content response | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSIMIntegrationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSIMIntegrationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -151,18 +168,18 @@ Path   | Id | **String** | True  | The id of the integration.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Servicedeskintegrationdto**](../models/servicedeskintegrationdto)
+[**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The DTO containing the details of the SIM integration | Servicedeskintegrationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The DTO containing the details of the SIM integration | ServiceDeskIntegrationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSIMIntegrationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSIMIntegrationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -201,18 +218,18 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Servicedeskintegrationdto[]**](../models/servicedeskintegrationdto)
+[**ServiceDeskIntegrationDto[]**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The DTO containing the details of the SIM integration | Servicedeskintegrationdto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The DTO containing the details of the SIM integration | ServiceDeskIntegrationDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSIMIntegrationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSIMIntegrationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -249,21 +266,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | SIM integration id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Jsonpatch | [**Jsonpatch**](../models/jsonpatch) | True  | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
+ Body  | JsonPatch | [**JsonPatch**](../models/json-patch) | True  | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
 
 ### Return type
-[**Servicedeskintegrationdto**](../models/servicedeskintegrationdto)
+[**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The updated DTO containing the details of the SIM integration. | Servicedeskintegrationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The updated DTO containing the details of the SIM integration. | ServiceDeskIntegrationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSIMIntegrationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSIMIntegrationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -273,16 +290,26 @@ Code | Description  | Data Type
 ```powershell
 $Id = "12345" # String | SIM integration id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Jsonpatch = @""@
+$JsonPatch = @"{
+  "operations" : [ {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  }, {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  } ]
+}"@
 
 # Patch a sim beforeprovisioningrule attribute.
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatch -Json $Jsonpatch
-    Update-BeforeProvisioningRuleV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatch $Result 
+    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    Update-BeforeProvisioningRuleV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BeforeProvisioningRuleV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatch $Result  
+    # Update-BeforeProvisioningRuleV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BeforeProvisioningRuleV1"
     Write-Host $_.ErrorDetails
@@ -303,21 +330,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | SIM integration id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Jsonpatch | [**Jsonpatch**](../models/jsonpatch) | True  | The JsonPatch object that describes the changes of SIM
+ Body  | JsonPatch | [**JsonPatch**](../models/json-patch) | True  | The JsonPatch object that describes the changes of SIM
 
 ### Return type
-[**Servicedeskintegrationdto**](../models/servicedeskintegrationdto)
+[**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The updated DTO containing the details of the SIM integration. | Servicedeskintegrationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The updated DTO containing the details of the SIM integration. | ServiceDeskIntegrationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSIMIntegrationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSIMIntegrationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -327,16 +354,26 @@ Code | Description  | Data Type
 ```powershell
 $Id = "12345" # String | SIM integration id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Jsonpatch = @""@
+$JsonPatch = @"{
+  "operations" : [ {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  }, {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  } ]
+}"@
 
 # Patch a sim attribute.
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatch -Json $Jsonpatch
-    Update-SIMAttributesV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatch $Result 
+    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    Update-SIMAttributesV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-SIMAttributesV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatch $Result  
+    # Update-SIMAttributesV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SIMAttributesV1"
     Write-Host $_.ErrorDetails
@@ -357,21 +394,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The id of the integration.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Simintegrationdetails | [**Simintegrationdetails**](../models/simintegrationdetails) | True  | The full DTO of the integration containing the updated model
+ Body  | SimIntegrationDetails | [**SimIntegrationDetails**](../models/sim-integration-details) | True  | The full DTO of the integration containing the updated model
 
 ### Return type
-[**Servicedeskintegrationdto**](../models/servicedeskintegrationdto)
+[**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | details of the updated integration | Servicedeskintegrationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | details of the updated integration | ServiceDeskIntegrationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSIMIntegrationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSIMIntegrationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -381,16 +418,33 @@ Code | Description  | Data Type
 ```powershell
 $Id = "12345" # String | The id of the integration.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Simintegrationdetails = @""@
+$SimIntegrationDetails = @"{
+  "cluster" : "xyzzy999",
+  "statusMap" : "{\"closed_cancelled\":\"Failed\",\"closed_complete\":\"Committed\",\"closed_incomplete\":\"Failed\",\"closed_rejected\":\"Failed\",\"in_process\":\"Queued\",\"requested\":\"Queued\"}",
+  "request" : "{\"description\":\"SailPoint Access Request,\",\"req_description\":\"The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,\",\"req_short_description\":\"SailPoint New Access Request Created from IdentityNow,\",\"short_description\":\"SailPoint Access Request $!plan.arguments.identityRequestId\"}",
+  "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+  "created" : "2015-05-28T14:07:17Z",
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "description" : "Integration description",
+  "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
+  "id" : "id12345",
+  "type" : "ServiceNow Service Desk",
+  "beforeProvisioningRule" : {
+    "name" : "Example Rule",
+    "id" : "2c918085708c274401708c2a8a760001",
+    "type" : "IDENTITY"
+  }
+}"@
 
 # Update an existing sim integration
 
 try {
-    $Result = ConvertFrom-JsonToSimintegrationdetails -Json $Simintegrationdetails
-    Send-SIMIntegrationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Simintegrationdetails $Result 
+    $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+    Send-SIMIntegrationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-SIMIntegrationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Simintegrationdetails $Result  
+    # Send-SIMIntegrationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SIMIntegrationV1"
     Write-Host $_.ErrorDetails

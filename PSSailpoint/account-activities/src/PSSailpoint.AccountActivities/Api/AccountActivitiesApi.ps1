@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountactivity
+AccountActivity
 #>
 function Get-AccountActivityV1 {
     [CmdletBinding()]
@@ -66,7 +66,7 @@ function Get-AccountActivityV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountactivity" `
+                                -ReturnType "AccountActivity" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -116,7 +116,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountactivity[]
+AccountActivity[]
 #>
 function Get-AccountActivitiesV1 {
     [CmdletBinding()]
@@ -208,7 +208,7 @@ function Get-AccountActivitiesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountactivity[]" `
+                                -ReturnType "AccountActivity[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

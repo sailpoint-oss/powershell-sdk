@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.TenantContext' -name 'TenantContextApi' {
 
     Context 'Update-TenantContextV1' {
         It 'Test Update-TenantContextV1' {
-            #$TestResult = Update-TenantContextV1 -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-TenantContextV1 -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

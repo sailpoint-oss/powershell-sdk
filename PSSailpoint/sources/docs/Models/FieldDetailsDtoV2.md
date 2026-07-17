@@ -1,0 +1,45 @@
+---
+id: field-details-dto-v2
+title: FieldDetailsDtoV2
+pagination_label: FieldDetailsDtoV2
+sidebar_label: FieldDetailsDtoV2
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'FieldDetailsDtoV2', 'FieldDetailsDtoV2'] 
+slug: /tools/sdk/powershell/sources/models/field-details-dto-v2
+tags: ['SDK', 'Software Development Kit', 'FieldDetailsDtoV2', 'FieldDetailsDtoV2']
+---
+
+
+# FieldDetailsDtoV2
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Name** | **String** | The name of the attribute. | [optional] 
+**Transform** | **SystemCollectionsHashtable** | The transform to apply to the field | [optional] 
+**Attributes** | **SystemCollectionsHashtable** | Attributes required for the transform | [optional] 
+**IsRequired** | **Boolean** | Flag indicating whether or not the attribute is required. | [optional] [readonly] [default to $false]
+**Type** |  **Enum** [  "string",    "int",    "long",    "date",    "boolean",    "secret" ] | The type of the attribute.  string: For text-based data.  int: For whole numbers.  long: For larger whole numbers.  date: For date and time values.  boolean: For true/false values.  secret: For sensitive data like passwords, which will be masked and encrypted.  | [optional] 
+**IsMultiValued** | **Boolean** | Flag indicating whether or not the attribute is multi-valued. | [optional] [default to $false]
+
+## Examples
+
+- Prepare the resource
+```powershell
+$FieldDetailsDtoV2 = Initialize-FieldDetailsDtoV2  -Name userName `
+ -Transform {"type":"rule","attributes":{"name":"Create Unique LDAP Attribute"}} `
+ -Attributes {"template":"firstname.lastname.uniqueCounter","cloudMaxUniqueChecks":"50","cloudMaxSize":"20","cloudRequired":"true"} `
+ -IsRequired false `
+ -Type string `
+ -IsMultiValued false
+```
+
+- Convert the resource to JSON
+```powershell
+$FieldDetailsDtoV2 | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

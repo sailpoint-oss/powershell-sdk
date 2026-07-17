@@ -14,7 +14,7 @@ Create multi-host integration
 
 This API is used to create Multi-Host Integration. Multi-host Integration holds similar types of sources.  A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-.PARAMETER Multihostintegrationscreate
+.PARAMETER MultiHostIntegrationsCreate
 The specifics of the Multi-Host Integration to create
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Multihostintegrations
+MultiHostIntegrations
 #>
 function New-MultiHostIntegrationV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Multihostintegrationscreate},
+        ${MultiHostIntegrationsCreate},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-MultiHostIntegrationV1 {
 
         $LocalVarUri = '/multihosts/v1'
 
-        if (!$Multihostintegrationscreate) {
-            throw "Error! The required parameter `Multihostintegrationscreate` missing when calling createMultiHostIntegrationV1."
+        if (!$MultiHostIntegrationsCreate) {
+            throw "Error! The required parameter `MultiHostIntegrationsCreate` missing when calling createMultiHostIntegrationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Multihostintegrationscreate -is [array])) {
-            $LocalVarBodyParameter = $Multihostintegrationscreate | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MultiHostIntegrationsCreate -is [array])) {
+            $LocalVarBodyParameter = $MultiHostIntegrationsCreate | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Multihostintegrationscreate | ForEach-Object {
+            $LocalVarBodyParameter = $MultiHostIntegrationsCreate | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-MultiHostIntegrationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Multihostintegrations" `
+                                -ReturnType "MultiHostIntegrations" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -105,7 +105,7 @@ This API is used to create sources within Multi-Host Integration. Multi-Host Int
 .PARAMETER MultihostId
 ID of the Multi-Host Integration.
 
-.PARAMETER Multihostintegrationscreatesources
+.PARAMETER MultiHostIntegrationsCreateSources
 The specifics of the sources to create within Multi-Host Integration.
 
 .PARAMETER WithHttpInfo
@@ -124,7 +124,7 @@ function New-SourcesWithinMultiHostV1 {
         ${MultihostId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Multihostintegrationscreatesources},
+        ${MultiHostIntegrationsCreateSources},
         [Switch]
         $WithHttpInfo
     )
@@ -154,14 +154,14 @@ function New-SourcesWithinMultiHostV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
 
-        if (!$Multihostintegrationscreatesources) {
-            throw "Error! The required parameter `Multihostintegrationscreatesources` missing when calling createSourcesWithinMultiHostV1."
+        if (!$MultiHostIntegrationsCreateSources) {
+            throw "Error! The required parameter `MultiHostIntegrationsCreateSources` missing when calling createSourcesWithinMultiHostV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Multihostintegrationscreatesources -is [array])) {
-            $LocalVarBodyParameter = $Multihostintegrationscreatesources | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MultiHostIntegrationsCreateSources -is [array])) {
+            $LocalVarBodyParameter = $MultiHostIntegrationsCreateSources | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Multihostintegrationscreatesources | ForEach-Object {
+            $LocalVarBodyParameter = $MultiHostIntegrationsCreateSources | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -385,7 +385,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Multihostintegrationsaggscheduleupdate[]
+MultiHostIntegrationsAggScheduleUpdate[]
 #>
 function Get-AcctAggregationGroupsV1 {
     [CmdletBinding()]
@@ -442,7 +442,7 @@ function Get-AcctAggregationGroupsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Multihostintegrationsaggscheduleupdate[]" `
+                                -ReturnType "MultiHostIntegrationsAggScheduleUpdate[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -477,7 +477,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Multihostintegrationsaggscheduleupdate[]
+MultiHostIntegrationsAggScheduleUpdate[]
 #>
 function Get-EntitlementAggregationGroupsV1 {
     [CmdletBinding()]
@@ -534,7 +534,7 @@ function Get-EntitlementAggregationGroupsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Multihostintegrationsaggscheduleupdate[]" `
+                                -ReturnType "MultiHostIntegrationsAggScheduleUpdate[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -578,7 +578,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Multihostintegrations[]
+MultiHostIntegrations[]
 #>
 function Get-MultiHostIntegrationsListV1 {
     [CmdletBinding()]
@@ -656,7 +656,7 @@ function Get-MultiHostIntegrationsListV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Multihostintegrations[]" `
+                                -ReturnType "MultiHostIntegrations[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -685,7 +685,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Multihostintegrations
+MultiHostIntegrations
 #>
 function Get-MultiHostIntegrationsV1 {
     [CmdletBinding()]
@@ -728,7 +728,7 @@ function Get-MultiHostIntegrationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Multihostintegrations" `
+                                -ReturnType "MultiHostIntegrations" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -757,7 +757,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcecreationerrors[]
+SourceCreationErrors[]
 #>
 function Get-MultiHostSourceCreationErrorsV1 {
     [CmdletBinding()]
@@ -800,7 +800,7 @@ function Get-MultiHostSourceCreationErrorsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcecreationerrors[]" `
+                                -ReturnType "SourceCreationErrors[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -826,7 +826,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Multihostintegrationtemplatetype[]
+MultiHostIntegrationTemplateType[]
 #>
 function Get-MultihostIntegrationTypesV1 {
     [CmdletBinding()]
@@ -862,7 +862,7 @@ function Get-MultihostIntegrationTypesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Multihostintegrationtemplatetype[]" `
+                                -ReturnType "MultiHostIntegrationTemplateType[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -906,7 +906,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Multihostsources[]
+MultiHostSources[]
 #>
 function Get-SourcesWithinMultiHostV1 {
     [CmdletBinding()]
@@ -984,7 +984,7 @@ function Get-SourcesWithinMultiHostV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Multihostsources[]" `
+                                -ReturnType "MultiHostSources[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

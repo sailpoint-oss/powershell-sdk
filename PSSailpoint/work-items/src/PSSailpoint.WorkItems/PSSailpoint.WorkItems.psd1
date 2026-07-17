@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.WorkItems.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -79,24 +79,24 @@ FunctionsToExport = 'Approve-ApprovalItemV1', 'Approve-ApprovalItemsInBulkV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Approvalitemdetails', 
-               'ConvertFrom-JsonToApprovalitemdetails', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Formdetails', 'ConvertFrom-JsonToFormdetails', 
-               'Initialize-Formitemdetails', 'ConvertFrom-JsonToFormitemdetails', 
+               'Initialize-ApprovalItemDetails', 
+               'ConvertFrom-JsonToApprovalItemDetails', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-FormDetails', 'ConvertFrom-JsonToFormDetails', 
+               'Initialize-FormItemDetails', 'ConvertFrom-JsonToFormItemDetails', 
                'Initialize-ListWorkItemsV1401Response', 
                'ConvertFrom-JsonToListWorkItemsV1401Response', 
                'Initialize-ListWorkItemsV1429Response', 
                'ConvertFrom-JsonToListWorkItemsV1429Response', 
-               'Initialize-Remediationitemdetails', 
-               'ConvertFrom-JsonToRemediationitemdetails', 
-               'Initialize-Sectiondetails', 'ConvertFrom-JsonToSectiondetails', 
-               'Initialize-Workitemforward', 'ConvertFrom-JsonToWorkitemforward', 
-               'Initialize-Workitems', 'ConvertFrom-JsonToWorkitems', 
-               'Initialize-Workitemscount', 'ConvertFrom-JsonToWorkitemscount', 
-               'Initialize-WorkitemsForm', 'ConvertFrom-JsonToWorkitemsForm', 
-               'Initialize-Workitemssummary', 'ConvertFrom-JsonToWorkitemssummary'
+               'Initialize-RemediationItemDetails', 
+               'ConvertFrom-JsonToRemediationItemDetails', 
+               'Initialize-SectionDetails', 'ConvertFrom-JsonToSectionDetails', 
+               'Initialize-WorkItemForward', 'ConvertFrom-JsonToWorkItemForward', 
+               'Initialize-WorkItems', 'ConvertFrom-JsonToWorkItems', 
+               'Initialize-WorkItemsCount', 'ConvertFrom-JsonToWorkItemsCount', 
+               'Initialize-WorkItemsForm', 'ConvertFrom-JsonToWorkItemsForm', 
+               'Initialize-WorkItemsSummary', 'ConvertFrom-JsonToWorkItemsSummary'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

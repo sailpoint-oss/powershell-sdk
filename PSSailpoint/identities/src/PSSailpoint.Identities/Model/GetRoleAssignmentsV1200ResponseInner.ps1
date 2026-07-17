@@ -35,38 +35,38 @@ function ConvertFrom-JsonToGetRoleAssignmentsV1200ResponseInner {
         $matchInstance = $null
 
         if ($match -ne 0) { # no match yet
-            # try to match Roleassignmentdto defined in the anyOf schemas
+            # try to match RoleAssignmentDto defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToRoleassignmentdto $Json
+                $matchInstance = ConvertFrom-JsonToRoleAssignmentDto $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Roleassignmentdto"
+                        $matchType = "RoleAssignmentDto"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Roleassignmentdto' defined in anyOf (GetRoleAssignmentsV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'RoleAssignmentDto' defined in anyOf (GetRoleAssignmentsV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
         if ($match -ne 0) { # no match yet
-            # try to match Roleassignmentref defined in the anyOf schemas
+            # try to match RoleAssignmentRef defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToRoleassignmentref $Json
+                $matchInstance = ConvertFrom-JsonToRoleAssignmentRef $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Roleassignmentref"
+                        $matchType = "RoleAssignmentRef"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Roleassignmentref' defined in anyOf (GetRoleAssignmentsV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'RoleAssignmentRef' defined in anyOf (GetRoleAssignmentsV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
@@ -74,10 +74,10 @@ function ConvertFrom-JsonToGetRoleAssignmentsV1200ResponseInner {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "anyOfSchemas" = @("Roleassignmentdto", "Roleassignmentref")
+                "anyOfSchemas" = @("RoleAssignmentDto", "RoleAssignmentRef")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([Roleassignmentdto, Roleassignmentref]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([RoleAssignmentDto, RoleAssignmentRef]). JSON Payload: $($Json)"
         }
     }
 }

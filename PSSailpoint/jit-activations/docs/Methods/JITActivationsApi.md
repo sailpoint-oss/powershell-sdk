@@ -35,20 +35,20 @@ The response is returned with HTTP 202 Accepted while the workflow initializes.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Jitactivationactivaterequest | [**Jitactivationactivaterequest**](../models/jitactivationactivaterequest) | True  | 
+ Body  | JitActivationActivateRequest | [**JitActivationActivateRequest**](../models/jit-activation-activate-request) | True  | 
 
 ### Return type
-[**Jitactivationactivateresponse**](../models/jitactivationactivateresponse)
+[**JitActivationActivateResponse**](../models/jit-activation-activate-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Accepted. The activation workflow was accepted and is running.  | Jitactivationactivateresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Accepted. The activation workflow was accepted and is running.  | JitActivationActivateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartActivateWorkflowV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartActivateWorkflowV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -56,16 +56,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Jitactivationactivaterequest = @""@
+$JitActivationActivateRequest = @"{
+  "activationPeriodMins" : 120,
+  "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+}"@
 
 # Start JIT activation workflow
 
 try {
-    $Result = ConvertFrom-JsonToJitactivationactivaterequest -Json $Jitactivationactivaterequest
-    Start-ActivateWorkflowV1 -Jitactivationactivaterequest $Result 
+    $Result = ConvertFrom-JsonToJitActivationActivateRequest -Json $JitActivationActivateRequest
+    Start-ActivateWorkflowV1 -JitActivationActivateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-ActivateWorkflowV1 -Jitactivationactivaterequest $Result  
+    # Start-ActivateWorkflowV1 -JitActivationActivateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ActivateWorkflowV1"
     Write-Host $_.ErrorDetails
@@ -87,21 +90,21 @@ The response is returned with HTTP 202 Accepted after the signal is sent.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Jitactivationdeactivaterequest | [**Jitactivationdeactivaterequest**](../models/jitactivationdeactivaterequest) | True  | 
+ Body  | JitActivationDeactivateRequest | [**JitActivationDeactivateRequest**](../models/jit-activation-deactivate-request) | True  | 
 
 ### Return type
-[**Jitactivationdeactivateresponse**](../models/jitactivationdeactivateresponse)
+[**JitActivationDeactivateResponse**](../models/jit-activation-deactivate-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Accepted. The deactivation signal was sent to the workflow.  | Jitactivationdeactivateresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Accepted. The deactivation signal was sent to the workflow.  | JitActivationDeactivateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartActivateWorkflowV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartActivateWorkflowV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -109,16 +112,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Jitactivationdeactivaterequest = @""@
+$JitActivationDeactivateRequest = @"{
+  "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+}"@
 
 # Deactivate JIT activation workflow
 
 try {
-    $Result = ConvertFrom-JsonToJitactivationdeactivaterequest -Json $Jitactivationdeactivaterequest
-    Start-DeactivateWorkflowV1 -Jitactivationdeactivaterequest $Result 
+    $Result = ConvertFrom-JsonToJitActivationDeactivateRequest -Json $JitActivationDeactivateRequest
+    Start-DeactivateWorkflowV1 -JitActivationDeactivateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-DeactivateWorkflowV1 -Jitactivationdeactivaterequest $Result  
+    # Start-DeactivateWorkflowV1 -JitActivationDeactivateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-DeactivateWorkflowV1"
     Write-Host $_.ErrorDetails
@@ -141,21 +146,21 @@ The response is returned with HTTP 202 Accepted after the signal is sent.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Jitactivationextendrequest | [**Jitactivationextendrequest**](../models/jitactivationextendrequest) | True  | 
+ Body  | JitActivationExtendRequest | [**JitActivationExtendRequest**](../models/jit-activation-extend-request) | True  | 
 
 ### Return type
-[**Jitactivationextendresponse**](../models/jitactivationextendresponse)
+[**JitActivationExtendResponse**](../models/jit-activation-extend-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Accepted. The extend signal was sent to the workflow.  | Jitactivationextendresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Accepted. The extend signal was sent to the workflow.  | JitActivationExtendResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartActivateWorkflowV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartActivateWorkflowV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -163,16 +168,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Jitactivationextendrequest = @""@
+$JitActivationExtendRequest = @"{
+  "activationPeriodExtensionMins" : 120,
+  "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+}"@
 
 # Extend JIT activation workflow
 
 try {
-    $Result = ConvertFrom-JsonToJitactivationextendrequest -Json $Jitactivationextendrequest
-    Start-ExtendWorkflowV1 -Jitactivationextendrequest $Result 
+    $Result = ConvertFrom-JsonToJitActivationExtendRequest -Json $JitActivationExtendRequest
+    Start-ExtendWorkflowV1 -JitActivationExtendRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-ExtendWorkflowV1 -Jitactivationextendrequest $Result  
+    # Start-ExtendWorkflowV1 -JitActivationExtendRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ExtendWorkflowV1"
     Write-Host $_.ErrorDetails

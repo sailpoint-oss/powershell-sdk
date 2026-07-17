@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.Launchers.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,8 +75,8 @@ FunctionsToExport = 'New-LauncherV1', 'Remove-LauncherV1', 'Get-LauncherV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetLaunchersV1200Response', 
                'ConvertFrom-JsonToGetLaunchersV1200Response', 
                'Initialize-GetLaunchersV1401Response', 
@@ -86,10 +86,10 @@ FunctionsToExport = 'New-LauncherV1', 'Remove-LauncherV1', 'Get-LauncherV1',
                'Initialize-Launcher', 'ConvertFrom-JsonToLauncher', 
                'Initialize-LauncherOwner', 'ConvertFrom-JsonToLauncherOwner', 
                'Initialize-LauncherReference', 
-               'ConvertFrom-JsonToLauncherReference', 'Initialize-Launcherrequest', 
-               'ConvertFrom-JsonToLauncherrequest', 
-               'Initialize-LauncherrequestReference', 
-               'ConvertFrom-JsonToLauncherrequestReference', 
+               'ConvertFrom-JsonToLauncherReference', 'Initialize-LauncherRequest', 
+               'ConvertFrom-JsonToLauncherRequest', 
+               'Initialize-LauncherRequestReference', 
+               'ConvertFrom-JsonToLauncherRequestReference', 
                'Initialize-StartLauncherV1200Response', 
                'ConvertFrom-JsonToStartLauncherV1200Response'
 

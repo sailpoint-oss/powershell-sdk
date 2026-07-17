@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.TenantContext.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,18 +74,18 @@ FunctionsToExport = 'Get-TenantContextV1', 'Update-TenantContextV1', 'Get-Config
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'ConvertFrom-JsonToArrayInner', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
+               'ConvertFrom-JsonToArrayInner', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetTenantContextV1200ResponseInner', 
                'ConvertFrom-JsonToGetTenantContextV1200ResponseInner', 
                'Initialize-GetTenantContextV1401Response', 
                'ConvertFrom-JsonToGetTenantContextV1401Response', 
                'Initialize-GetTenantContextV1429Response', 
                'ConvertFrom-JsonToGetTenantContextV1429Response', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue'
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

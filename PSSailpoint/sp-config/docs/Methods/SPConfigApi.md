@@ -35,21 +35,21 @@ For more information about the object types that currently support export functi
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Exportpayload | [**Exportpayload**](../models/exportpayload) | True  | Export options control what will be included in the export.
+ Body  | ExportPayload | [**ExportPayload**](../models/export-payload) | True  | Export options control what will be included in the export.
 
 ### Return type
-[**Spconfigexportjob**](../models/spconfigexportjob)
+[**SpConfigExportJob**](../models/sp-config-export-job)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Export job accepted and queued for processing. | Spconfigexportjob
-400 | Client Error - Returned if the request body is invalid.  | Errorresponsedto
+202 | Export job accepted and queued for processing. | SpConfigExportJob
+400 | Client Error - Returned if the request body is invalid.  | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ExportSpConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ExportSpConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -57,16 +57,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Exportpayload = @"{"description":"Export all available objects","excludeTypes":[],"includeTypes":["ACCESS_PROFILE","ACCESS_REQUEST_CONFIG","ATTR_SYNC_SOURCE_CONFIG","AUTH_ORG","CAMPAIGN_FILTER","CONNECTOR_RULE","FORM_DEFINITION","GOVERNANCE_GROUP","IDENTITY_OBJECT_CONFIG","IDENTITY_PROFILE","LIFECYCLE_STATE","NOTIFICATION_TEMPLATE","PASSWORD_POLICY","PASSWORD_SYNC_GROUP","PUBLIC_IDENTITIES_CONFIG","ROLE","RULE","SEGMENT","SERVICE_DESK_INTEGRATION","SOD_POLICY","SOURCE","TAG","TRANSFORM","TRIGGER_SUBSCRIPTION","WORKFLOW"],"objectOptions":{}}"@
+$ExportPayload = @"{
+  "description" : "Export Job 1 Test"
+}"@
 
 # Initiates configuration objects export job
 
 try {
-    $Result = ConvertFrom-JsonToExportpayload -Json $Exportpayload
-    Export-SpConfigV1 -Exportpayload $Result 
+    $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
+    Export-SpConfigV1 -ExportPayload $Result 
     
     # Below is a request that includes all optional parameters
-    # Export-SpConfigV1 -Exportpayload $Result  
+    # Export-SpConfigV1 -ExportPayload $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-SpConfigV1"
     Write-Host $_.ErrorDetails
@@ -87,18 +89,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the export job whose status will be returned.
 
 ### Return type
-[**Spconfigexportjobstatus**](../models/spconfigexportjobstatus)
+[**SpConfigExportJobStatus**](../models/sp-config-export-job-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Export job status successfully returned. | Spconfigexportjobstatus
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Export job status successfully returned. | SpConfigExportJobStatus
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ExportSpConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ExportSpConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -135,18 +137,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the export job whose results will be downloaded.
 
 ### Return type
-[**Spconfigexportresults**](../models/spconfigexportresults)
+[**SpConfigExportResults**](../models/sp-config-export-results)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Exported JSON objects. | Spconfigexportresults
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Exported JSON objects. | SpConfigExportResults
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ExportSpConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ExportSpConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -185,18 +187,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the import job whose status will be returned.
 
 ### Return type
-[**Spconfigimportjobstatus**](../models/spconfigimportjobstatus)
+[**SpConfigImportJobStatus**](../models/sp-config-import-job-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Import job status successfully returned. | Spconfigimportjobstatus
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Import job status successfully returned. | SpConfigImportJobStatus
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ExportSpConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ExportSpConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -233,18 +235,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the import job whose results will be downloaded.
 
 ### Return type
-[**Spconfigimportresults**](../models/spconfigimportresults)
+[**SpConfigImportResults**](../models/sp-config-import-results)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Import results JSON object, containing detailed results of the import operation. | Spconfigimportresults
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Import results JSON object, containing detailed results of the import operation. | SpConfigImportResults
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ExportSpConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ExportSpConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -288,21 +290,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | Data | **System.IO.FileInfo** | True  | JSON file containing the objects to be imported.
   Query | Preview | **Boolean** |   (optional) (default to $false) | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported. 
-   | Options | [**Importoptions**](../models/importoptions) |   (optional) | 
+   | Options | [**ImportOptions**](../models/import-options) |   (optional) | 
 
 ### Return type
-[**Spconfigjob**](../models/spconfigjob)
+[**SpConfigJob**](../models/sp-config-job)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Import job accepted and queued for processing. | Spconfigjob
-400 | Client Error - Returned if the request body is invalid.  | Errorresponsedto
+202 | Import job accepted and queued for processing. | SpConfigJob
+400 | Client Error - Returned if the request body is invalid.  | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ExportSpConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ExportSpConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: multipart/form-data
@@ -338,18 +340,18 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Spconfigobject[]**](../models/spconfigobject)
+[**SpConfigObject[]**](../models/sp-config-object)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Object configurations returned successfully. | Spconfigobject[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Object configurations returned successfully. | SpConfigObject[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ExportSpConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ExportSpConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined

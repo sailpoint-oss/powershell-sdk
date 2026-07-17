@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.MfaConfiguration' -name 'MFAConfigurationApi' {
 
     Context 'Set-MFADuoConfigV1' {
         It 'Test Set-MFADuoConfigV1' {
-            #$TestResult = Set-MFADuoConfigV1 -Mfaduoconfig "TEST_VALUE"
+            #$TestResult = Set-MFADuoConfigV1 -MfaDuoConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.MfaConfiguration' -name 'MFAConfigurationApi' {
 
     Context 'Set-MFAKBAConfigV1' {
         It 'Test Set-MFAKBAConfigV1' {
-            #$TestResult = Set-MFAKBAConfigV1 -Kbaanswerrequestitem "TEST_VALUE"
+            #$TestResult = Set-MFAKBAConfigV1 -KbaAnswerRequestItem "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.MfaConfiguration' -name 'MFAConfigurationApi' {
 
     Context 'Set-MFAOktaConfigV1' {
         It 'Test Set-MFAOktaConfigV1' {
-            #$TestResult = Set-MFAOktaConfigV1 -Mfaoktaconfig "TEST_VALUE"
+            #$TestResult = Set-MFAOktaConfigV1 -MfaOktaConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

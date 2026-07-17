@@ -14,7 +14,7 @@ Create new service desk integration
 
 Create a new Service Desk integration.
 
-.PARAMETER Servicedeskintegrationdto
+.PARAMETER ServiceDeskIntegrationDto
 The specifics of a new integration to create
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationdto
+ServiceDeskIntegrationDto
 #>
 function New-ServiceDeskIntegrationV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Servicedeskintegrationdto},
+        ${ServiceDeskIntegrationDto},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-ServiceDeskIntegrationV1 {
 
         $LocalVarUri = '/service-desk-integrations/v1'
 
-        if (!$Servicedeskintegrationdto) {
-            throw "Error! The required parameter `Servicedeskintegrationdto` missing when calling createServiceDeskIntegrationV1."
+        if (!$ServiceDeskIntegrationDto) {
+            throw "Error! The required parameter `ServiceDeskIntegrationDto` missing when calling createServiceDeskIntegrationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Servicedeskintegrationdto -is [array])) {
-            $LocalVarBodyParameter = $Servicedeskintegrationdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ServiceDeskIntegrationDto -is [array])) {
+            $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Servicedeskintegrationdto | ForEach-Object {
+            $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-ServiceDeskIntegrationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationdto" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -183,7 +183,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationtemplatedto
+ServiceDeskIntegrationTemplateDto
 #>
 function Get-ServiceDeskIntegrationTemplateV1 {
     [CmdletBinding()]
@@ -226,7 +226,7 @@ function Get-ServiceDeskIntegrationTemplateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationtemplatedto" `
+                                -ReturnType "ServiceDeskIntegrationTemplateDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -252,7 +252,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationtemplatetype[]
+ServiceDeskIntegrationTemplateType[]
 #>
 function Get-ServiceDeskIntegrationTypesV1 {
     [CmdletBinding()]
@@ -288,7 +288,7 @@ function Get-ServiceDeskIntegrationTypesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationtemplatetype[]" `
+                                -ReturnType "ServiceDeskIntegrationTemplateType[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -317,7 +317,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationdto
+ServiceDeskIntegrationDto
 #>
 function Get-ServiceDeskIntegrationV1 {
     [CmdletBinding()]
@@ -360,7 +360,7 @@ function Get-ServiceDeskIntegrationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationdto" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -401,7 +401,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationdto[]
+ServiceDeskIntegrationDto[]
 #>
 function Get-ServiceDeskIntegrationsV1 {
     [CmdletBinding()]
@@ -472,7 +472,7 @@ function Get-ServiceDeskIntegrationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationdto[]" `
+                                -ReturnType "ServiceDeskIntegrationDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -498,7 +498,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Queuedcheckconfigdetails
+QueuedCheckConfigDetails
 #>
 function Get-StatusCheckDetailsV1 {
     [CmdletBinding()]
@@ -534,7 +534,7 @@ function Get-StatusCheckDetailsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Queuedcheckconfigdetails" `
+                                -ReturnType "QueuedCheckConfigDetails" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -557,7 +557,7 @@ Update an existing Service Desk integration by ID with a PATCH request.
 .PARAMETER Id
 ID of the Service Desk integration to update
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
 .PARAMETER WithHttpInfo
@@ -566,7 +566,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationdto
+ServiceDeskIntegrationDto
 #>
 function Update-ServiceDeskIntegrationV1 {
     [CmdletBinding()]
@@ -576,7 +576,7 @@ function Update-ServiceDeskIntegrationV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -606,14 +606,14 @@ function Update-ServiceDeskIntegrationV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchServiceDeskIntegrationV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchServiceDeskIntegrationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -632,7 +632,7 @@ function Update-ServiceDeskIntegrationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationdto" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -655,7 +655,7 @@ Update an existing Service Desk integration by ID.
 .PARAMETER Id
 ID of the Service Desk integration to update
 
-.PARAMETER Servicedeskintegrationdto
+.PARAMETER ServiceDeskIntegrationDto
 The specifics of the integration to update
 
 .PARAMETER WithHttpInfo
@@ -664,7 +664,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationdto
+ServiceDeskIntegrationDto
 #>
 function Send-ServiceDeskIntegrationV1 {
     [CmdletBinding()]
@@ -674,7 +674,7 @@ function Send-ServiceDeskIntegrationV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Servicedeskintegrationdto},
+        ${ServiceDeskIntegrationDto},
         [Switch]
         $WithHttpInfo
     )
@@ -704,14 +704,14 @@ function Send-ServiceDeskIntegrationV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Servicedeskintegrationdto) {
-            throw "Error! The required parameter `Servicedeskintegrationdto` missing when calling putServiceDeskIntegrationV1."
+        if (!$ServiceDeskIntegrationDto) {
+            throw "Error! The required parameter `ServiceDeskIntegrationDto` missing when calling putServiceDeskIntegrationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Servicedeskintegrationdto -is [array])) {
-            $LocalVarBodyParameter = $Servicedeskintegrationdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ServiceDeskIntegrationDto -is [array])) {
+            $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Servicedeskintegrationdto | ForEach-Object {
+            $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -730,7 +730,7 @@ function Send-ServiceDeskIntegrationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationdto" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -750,7 +750,7 @@ Update the time check configuration
 
 Update the time check configuration of queued SDIM tickets.
 
-.PARAMETER Queuedcheckconfigdetails
+.PARAMETER QueuedCheckConfigDetails
 The modified time check configuration
 
 .PARAMETER WithHttpInfo
@@ -759,14 +759,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Queuedcheckconfigdetails
+QueuedCheckConfigDetails
 #>
 function Update-StatusCheckDetailsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Queuedcheckconfigdetails},
+        ${QueuedCheckConfigDetails},
         [Switch]
         $WithHttpInfo
     )
@@ -792,14 +792,14 @@ function Update-StatusCheckDetailsV1 {
 
         $LocalVarUri = '/service-desk-integrations/v1/status-check-configuration'
 
-        if (!$Queuedcheckconfigdetails) {
-            throw "Error! The required parameter `Queuedcheckconfigdetails` missing when calling updateStatusCheckDetailsV1."
+        if (!$QueuedCheckConfigDetails) {
+            throw "Error! The required parameter `QueuedCheckConfigDetails` missing when calling updateStatusCheckDetailsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Queuedcheckconfigdetails -is [array])) {
-            $LocalVarBodyParameter = $Queuedcheckconfigdetails | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($QueuedCheckConfigDetails -is [array])) {
+            $LocalVarBodyParameter = $QueuedCheckConfigDetails | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Queuedcheckconfigdetails | ForEach-Object {
+            $LocalVarBodyParameter = $QueuedCheckConfigDetails | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -818,7 +818,7 @@ function Update-StatusCheckDetailsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Queuedcheckconfigdetails" `
+                                -ReturnType "QueuedCheckConfigDetails" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

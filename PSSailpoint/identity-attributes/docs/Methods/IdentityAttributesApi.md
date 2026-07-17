@@ -33,21 +33,21 @@ Use this API to create a new identity attribute.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Identityattribute2 | [**Identityattribute2**](../models/identityattribute2) | True  | 
+ Body  | IdentityAttribute2 | [**IdentityAttribute2**](../models/identity-attribute2) | True  | 
 
 ### Return type
-[**Identityattribute2**](../models/identityattribute2)
+[**IdentityAttribute2**](../models/identity-attribute2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | The identity attribute was created successfully. | Identityattribute2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | The identity attribute was created successfully. | IdentityAttribute2
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityAttributesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityAttributesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -55,16 +55,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Identityattribute2 = @""@
+$IdentityAttribute2 = @""@
 
 # Create identity attribute
 
 try {
-    $Result = ConvertFrom-JsonToIdentityattribute2 -Json $Identityattribute2
-    New-IdentityAttributeV1 -Identityattribute2 $Result 
+    $Result = ConvertFrom-JsonToIdentityAttribute2 -Json $IdentityAttribute2
+    New-IdentityAttributeV1 -IdentityAttribute2 $Result 
     
     # Below is a request that includes all optional parameters
-    # New-IdentityAttributeV1 -Identityattribute2 $Result  
+    # New-IdentityAttributeV1 -IdentityAttribute2 $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-IdentityAttributeV1"
     Write-Host $_.ErrorDetails
@@ -89,12 +89,12 @@ Path   | Name | **String** | True  | The attribute's technical name.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityAttributesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityAttributesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -126,7 +126,7 @@ Use this API to bulk delete identity attributes for a given set of names. Attrib
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Identityattributenames | [**Identityattributenames**](../models/identityattributenames) | True  | 
+ Body  | IdentityAttributeNames | [**IdentityAttributeNames**](../models/identity-attribute-names) | True  | 
 
 ### Return type
  (empty response body)
@@ -135,12 +135,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityAttributesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityAttributesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -148,16 +148,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Identityattributenames = @""@
+$IdentityAttributeNames = @"{
+  "ids" : [ "name", "displayName" ]
+}"@
 
 # Bulk delete identity attributes
 
 try {
-    $Result = ConvertFrom-JsonToIdentityattributenames -Json $Identityattributenames
-    Remove-IdentityAttributesInBulkV1 -Identityattributenames $Result 
+    $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
+    Remove-IdentityAttributesInBulkV1 -IdentityAttributeNames $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-IdentityAttributesInBulkV1 -Identityattributenames $Result  
+    # Remove-IdentityAttributesInBulkV1 -IdentityAttributeNames $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IdentityAttributesInBulkV1"
     Write-Host $_.ErrorDetails
@@ -176,18 +178,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Name | **String** | True  | The attribute's technical name.
 
 ### Return type
-[**Identityattribute2**](../models/identityattribute2)
+[**IdentityAttribute2**](../models/identity-attribute2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The identity attribute with the given name | Identityattribute2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The identity attribute with the given name | IdentityAttribute2
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityAttributesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityAttributesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -225,17 +227,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Identityattribute2[]**](../models/identityattribute2)
+[**IdentityAttribute2[]**](../models/identity-attribute2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of identity attributes. | Identityattribute2[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of identity attributes. | IdentityAttribute2[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityAttributesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityAttributesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -271,21 +273,21 @@ This updates an existing identity attribute.  Making an attribute searchable req
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Name | **String** | True  | The attribute's technical name.
- Body  | Identityattribute2 | [**Identityattribute2**](../models/identityattribute2) | True  | 
+ Body  | IdentityAttribute2 | [**IdentityAttribute2**](../models/identity-attribute2) | True  | 
 
 ### Return type
-[**Identityattribute2**](../models/identityattribute2)
+[**IdentityAttribute2**](../models/identity-attribute2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The identity attribute was updated successfully | Identityattribute2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The identity attribute was updated successfully | IdentityAttribute2
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityAttributesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityAttributesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -294,16 +296,16 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Name = "displayName" # String | The attribute's technical name.
-$Identityattribute2 = @""@
+$IdentityAttribute2 = @""@
 
 # Update identity attribute
 
 try {
-    $Result = ConvertFrom-JsonToIdentityattribute2 -Json $Identityattribute2
-    Send-IdentityAttributeV1 -Name $Name -Identityattribute2 $Result 
+    $Result = ConvertFrom-JsonToIdentityAttribute2 -Json $IdentityAttribute2
+    Send-IdentityAttributeV1 -Name $Name -IdentityAttribute2 $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-IdentityAttributeV1 -Name $Name -Identityattribute2 $Result  
+    # Send-IdentityAttributeV1 -Name $Name -IdentityAttribute2 $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-IdentityAttributeV1"
     Write-Host $_.ErrorDetails

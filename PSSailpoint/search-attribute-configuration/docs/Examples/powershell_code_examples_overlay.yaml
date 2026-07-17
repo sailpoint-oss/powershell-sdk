@@ -5,18 +5,25 @@
       label: SDK_tools/sdk/powershell/searchattributeconfiguration/methods/search-attribute-configuration#create-search-attribute-config-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Searchattributeconfig = @"
-        {"name":"newMailAttribute","displayName":"New Mail Attribute","applicationAttributes":{"2c9180866166b5b0016167c32ef31a66":"mail","2c9180866166b5b0016167c32ef31a67":"mail"}}
+        $SearchAttributeConfig = @"
+        {
+          "displayName" : "New Mail Attribute",
+          "name" : "newMailAttribute",
+          "applicationAttributes" : {
+            "2c91808b79fd2422017a0b35d30f3968" : "employeeNumber",
+            "2c91808b79fd2422017a0b36008f396b" : "employeeNumber"
+          }
+        }
         "@
         
         # Create extended search attributes
         
         try {
-            $Result = ConvertFrom-JsonToSearchattributeconfig -Json $Searchattributeconfig
-            New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -Searchattributeconfig $Result 
+            $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
+            New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -Searchattributeconfig $Result   
+            # New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SearchAttributeConfigV1"
             Write-Host $_.ErrorDetails
@@ -90,17 +97,21 @@
       source: |
         $Name = "promotedMailAttribute" # String | Name of the search attribute configuration to patch.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"newAttributeName"},{"op":"replace","path":"/displayName","value":"new attribute display name"},{"op":"add","path":"/applicationAttributes","value":{"2c91808b79fd2422017a0b35d30f3968":"employeeNumber"}}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update extended search attribute
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result   
+            # Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SearchAttributeConfigV1"
             Write-Host $_.ErrorDetails

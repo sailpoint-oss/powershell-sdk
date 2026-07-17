@@ -35,20 +35,20 @@ This creates an OAuth client.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Createoauthclientrequest | [**Createoauthclientrequest**](../models/createoauthclientrequest) | True  | 
+ Body  | CreateOAuthClientRequest | [**CreateOAuthClientRequest**](../models/create-o-auth-client-request) | True  | 
 
 ### Return type
-[**Createoauthclientresponse**](../models/createoauthclientresponse)
+[**CreateOAuthClientResponse**](../models/create-o-auth-client-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Request succeeded. | Createoauthclientresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Request succeeded. | CreateOAuthClientResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListOauthClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListOauthClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -56,16 +56,32 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Createoauthclientrequest = @""@
+$CreateOAuthClientRequest = @"{
+  "internal" : false,
+  "businessName" : "Acme-Solar",
+  "description" : "An API client used for the authorization_code, refresh_token, and client_credentials flows",
+  "refreshTokenValiditySeconds" : 86400,
+  "type" : "CONFIDENTIAL",
+  "redirectUris" : [ "http://localhost:12345" ],
+  "enabled" : true,
+  "accessType" : "OFFLINE",
+  "grantTypes" : [ "AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "REFRESH_TOKEN" ],
+  "strongAuthSupported" : false,
+  "homepageUrl" : "http://localhost:12345",
+  "accessTokenValiditySeconds" : 750,
+  "scope" : [ "demo:api-client-scope:first", "demo:api-client-scope:second" ],
+  "name" : "Demo API Client",
+  "claimsSupported" : false
+}"@
 
 # Create oauth client
 
 try {
-    $Result = ConvertFrom-JsonToCreateoauthclientrequest -Json $Createoauthclientrequest
-    New-OauthClientV1 -Createoauthclientrequest $Result 
+    $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
+    New-OauthClientV1 -CreateOAuthClientRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-OauthClientV1 -Createoauthclientrequest $Result  
+    # New-OauthClientV1 -CreateOAuthClientRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-OauthClientV1"
     Write-Host $_.ErrorDetails
@@ -90,12 +106,12 @@ Path   | Id | **String** | True  | The OAuth client id
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListOauthClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListOauthClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -130,18 +146,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The OAuth client id
 
 ### Return type
-[**Getoauthclientresponse**](../models/getoauthclientresponse)
+[**GetOAuthClientResponse**](../models/get-o-auth-client-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Request succeeded. | Getoauthclientresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Request succeeded. | GetOAuthClientResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListOauthClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListOauthClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -176,17 +192,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
 
 ### Return type
-[**Getoauthclientresponse[]**](../models/getoauthclientresponse)
+[**GetOAuthClientResponse[]**](../models/get-o-auth-client-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of OAuth clients. | Getoauthclientresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of OAuth clients. | GetOAuthClientResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListOauthClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListOauthClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -219,21 +235,21 @@ This performs a targeted update to the field(s) of an OAuth client.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The OAuth client id
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
 
 ### Return type
-[**Getoauthclientresponse**](../models/getoauthclientresponse)
+[**GetOAuthClientResponse**](../models/get-o-auth-client-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Indicates the PATCH operation succeeded, and returns the OAuth client&#39;s new representation. | Getoauthclientresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Indicates the PATCH operation succeeded, and returns the OAuth client&#39;s new representation. | GetOAuthClientResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListOauthClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListOauthClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -242,17 +258,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
- $Jsonpatchoperation = @"[{"op":"replace","path":"/strongAuthSupported","value":true},{"op":"replace","path":"/businessName","value":"acme-solar"}]"@ # Jsonpatchoperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
  
 
 # Patch oauth client
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-OauthClientV1 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-OauthClientV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-OauthClientV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-OauthClientV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-OauthClientV1"
     Write-Host $_.ErrorDetails

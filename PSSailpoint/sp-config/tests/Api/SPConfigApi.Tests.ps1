@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.SpConfig' -name 'SPConfigApi' {
     Context 'Export-SpConfigV1' {
         It 'Test Export-SpConfigV1' {
-            #$TestResult = Export-SpConfigV1 -Exportpayload "TEST_VALUE"
+            #$TestResult = Export-SpConfigV1 -ExportPayload "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

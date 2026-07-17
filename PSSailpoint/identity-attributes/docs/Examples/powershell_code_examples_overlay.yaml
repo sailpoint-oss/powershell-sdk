@@ -4,18 +4,18 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/identityattributes/methods/identity-attributes#create-identity-attribute-v1
       source: |
-        $Identityattribute2 = @"
+        $IdentityAttribute2 = @"
         
         "@
         
         # Create identity attribute
         
         try {
-            $Result = ConvertFrom-JsonToIdentityattribute2 -Json $Identityattribute2
-            New-IdentityAttributeV1 -Identityattribute2 $Result 
+            $Result = ConvertFrom-JsonToIdentityAttribute2 -Json $IdentityAttribute2
+            New-IdentityAttributeV1 -IdentityAttribute2 $Result 
     
             # Below is a request that includes all optional parameters
-            # New-IdentityAttributeV1 -Identityattribute2 $Result   
+            # New-IdentityAttributeV1 -IdentityAttribute2 $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-IdentityAttributeV1"
             Write-Host $_.ErrorDetails
@@ -45,18 +45,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/identityattributes/methods/identity-attributes#delete-identity-attributes-in-bulk-v1
       source: |
-        $Identityattributenames = @"
-        
+        $IdentityAttributeNames = @"
+        {
+          "ids" : [ "name", "displayName" ]
+        }
         "@
         
         # Bulk delete identity attributes
         
         try {
-            $Result = ConvertFrom-JsonToIdentityattributenames -Json $Identityattributenames
-            Remove-IdentityAttributesInBulkV1 -Identityattributenames $Result 
+            $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
+            Remove-IdentityAttributesInBulkV1 -IdentityAttributeNames $Result 
     
             # Below is a request that includes all optional parameters
-            # Remove-IdentityAttributesInBulkV1 -Identityattributenames $Result   
+            # Remove-IdentityAttributesInBulkV1 -IdentityAttributeNames $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IdentityAttributesInBulkV1"
             Write-Host $_.ErrorDetails
@@ -109,18 +111,18 @@
       label: SDK_tools/sdk/powershell/identityattributes/methods/identity-attributes#put-identity-attribute-v1
       source: |
         $Name = "displayName" # String | The attribute's technical name.
-        $Identityattribute2 = @"
+        $IdentityAttribute2 = @"
         
         "@
         
         # Update identity attribute
         
         try {
-            $Result = ConvertFrom-JsonToIdentityattribute2 -Json $Identityattribute2
-            Send-IdentityAttributeV1 -Name $Name -Identityattribute2 $Result 
+            $Result = ConvertFrom-JsonToIdentityAttribute2 -Json $IdentityAttribute2
+            Send-IdentityAttributeV1 -Name $Name -IdentityAttribute2 $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-IdentityAttributeV1 -Name $Name -Identityattribute2 $Result   
+            # Send-IdentityAttributeV1 -Name $Name -IdentityAttribute2 $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-IdentityAttributeV1"
             Write-Host $_.ErrorDetails

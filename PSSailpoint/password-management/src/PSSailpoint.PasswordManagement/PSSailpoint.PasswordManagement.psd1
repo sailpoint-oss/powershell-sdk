@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.PasswordManagement.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,22 +75,22 @@ FunctionsToExport = 'New-DigitTokenV1', 'Get-PasswordChangeStatusV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Passwordchangerequest', 
-               'ConvertFrom-JsonToPasswordchangerequest', 
-               'Initialize-Passwordchangeresponse', 
-               'ConvertFrom-JsonToPasswordchangeresponse', 
-               'Initialize-Passworddigittoken', 
-               'ConvertFrom-JsonToPassworddigittoken', 
-               'Initialize-Passworddigittokenreset', 
-               'ConvertFrom-JsonToPassworddigittokenreset', 
-               'Initialize-Passwordinfo', 'ConvertFrom-JsonToPasswordinfo', 
-               'Initialize-Passwordinfoaccount', 
-               'ConvertFrom-JsonToPasswordinfoaccount', 
-               'Initialize-Passwordinfoquerydto', 
-               'ConvertFrom-JsonToPasswordinfoquerydto', 
-               'Initialize-Passwordstatus', 'ConvertFrom-JsonToPasswordstatus', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-PasswordChangeRequest', 
+               'ConvertFrom-JsonToPasswordChangeRequest', 
+               'Initialize-PasswordChangeResponse', 
+               'ConvertFrom-JsonToPasswordChangeResponse', 
+               'Initialize-PasswordDigitToken', 
+               'ConvertFrom-JsonToPasswordDigitToken', 
+               'Initialize-PasswordDigitTokenReset', 
+               'ConvertFrom-JsonToPasswordDigitTokenReset', 
+               'Initialize-PasswordInfo', 'ConvertFrom-JsonToPasswordInfo', 
+               'Initialize-PasswordInfoAccount', 
+               'ConvertFrom-JsonToPasswordInfoAccount', 
+               'Initialize-PasswordInfoQueryDTO', 
+               'ConvertFrom-JsonToPasswordInfoQueryDTO', 
+               'Initialize-PasswordStatus', 'ConvertFrom-JsonToPasswordStatus', 
                'Initialize-QueryPasswordInfoV1401Response', 
                'ConvertFrom-JsonToQueryPasswordInfoV1401Response', 
                'Initialize-QueryPasswordInfoV1429Response', 

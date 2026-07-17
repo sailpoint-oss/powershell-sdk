@@ -35,56 +35,56 @@ function ConvertFrom-JsonToListCompleteWorkflowLibraryV1200ResponseInner {
         $matchInstance = $null
 
         if ($match -ne 0) { # no match yet
-            # try to match Workflowlibraryaction defined in the anyOf schemas
+            # try to match WorkflowLibraryAction defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToWorkflowlibraryaction $Json
+                $matchInstance = ConvertFrom-JsonToWorkflowLibraryAction $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Workflowlibraryaction"
+                        $matchType = "WorkflowLibraryAction"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Workflowlibraryaction' defined in anyOf (ListCompleteWorkflowLibraryV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'WorkflowLibraryAction' defined in anyOf (ListCompleteWorkflowLibraryV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
         if ($match -ne 0) { # no match yet
-            # try to match Workflowlibraryoperator defined in the anyOf schemas
+            # try to match WorkflowLibraryOperator defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToWorkflowlibraryoperator $Json
+                $matchInstance = ConvertFrom-JsonToWorkflowLibraryOperator $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Workflowlibraryoperator"
+                        $matchType = "WorkflowLibraryOperator"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Workflowlibraryoperator' defined in anyOf (ListCompleteWorkflowLibraryV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'WorkflowLibraryOperator' defined in anyOf (ListCompleteWorkflowLibraryV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
         if ($match -ne 0) { # no match yet
-            # try to match Workflowlibrarytrigger defined in the anyOf schemas
+            # try to match WorkflowLibraryTrigger defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToWorkflowlibrarytrigger $Json
+                $matchInstance = ConvertFrom-JsonToWorkflowLibraryTrigger $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Workflowlibrarytrigger"
+                        $matchType = "WorkflowLibraryTrigger"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Workflowlibrarytrigger' defined in anyOf (ListCompleteWorkflowLibraryV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'WorkflowLibraryTrigger' defined in anyOf (ListCompleteWorkflowLibraryV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
@@ -92,10 +92,10 @@ function ConvertFrom-JsonToListCompleteWorkflowLibraryV1200ResponseInner {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "anyOfSchemas" = @("Workflowlibraryaction", "Workflowlibraryoperator", "Workflowlibrarytrigger")
+                "anyOfSchemas" = @("WorkflowLibraryAction", "WorkflowLibraryOperator", "WorkflowLibraryTrigger")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([Workflowlibraryaction, Workflowlibraryoperator, Workflowlibrarytrigger]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([WorkflowLibraryAction, WorkflowLibraryOperator, WorkflowLibraryTrigger]). JSON Payload: $($Json)"
         }
     }
 }

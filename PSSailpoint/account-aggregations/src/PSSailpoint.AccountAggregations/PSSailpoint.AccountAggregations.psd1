@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.AccountAggregations.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,10 +74,10 @@ FunctionsToExport = 'Get-AccountAggregationStatusV1', 'Get-Configuration',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Accountaggregationstatus', 
-               'ConvertFrom-JsonToAccountaggregationstatus', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-AccountAggregationStatus', 
+               'ConvertFrom-JsonToAccountAggregationStatus', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetAccountAggregationStatusV1400Response', 
                'ConvertFrom-JsonToGetAccountAggregationStatusV1400Response', 
                'Initialize-GetAccountAggregationStatusV1429Response', 

@@ -14,7 +14,7 @@ Create campaign filter
 
 Use this API to create a campaign filter based on filter details and criteria.
 
-.PARAMETER Campaignfilterdetails
+.PARAMETER CampaignFilterDetails
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Campaignfilterdetails
+CampaignFilterDetails
 #>
 function New-CampaignFilterV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Campaignfilterdetails},
+        ${CampaignFilterDetails},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-CampaignFilterV1 {
 
         $LocalVarUri = '/campaign-filters/v1'
 
-        if (!$Campaignfilterdetails) {
-            throw "Error! The required parameter `Campaignfilterdetails` missing when calling createCampaignFilterV1."
+        if (!$CampaignFilterDetails) {
+            throw "Error! The required parameter `CampaignFilterDetails` missing when calling createCampaignFilterV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Campaignfilterdetails -is [array])) {
-            $LocalVarBodyParameter = $Campaignfilterdetails | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignFilterDetails -is [array])) {
+            $LocalVarBodyParameter = $CampaignFilterDetails | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Campaignfilterdetails | ForEach-Object {
+            $LocalVarBodyParameter = $CampaignFilterDetails | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-CampaignFilterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Campaignfilterdetails" `
+                                -ReturnType "CampaignFilterDetails" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -199,7 +199,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Campaignfilterdetails
+CampaignFilterDetails
 #>
 function Get-CampaignFilterByIdV1 {
     [CmdletBinding()]
@@ -242,7 +242,7 @@ function Get-CampaignFilterByIdV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Campaignfilterdetails" `
+                                -ReturnType "CampaignFilterDetails" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -357,7 +357,7 @@ Updates an existing campaign filter using the filter's ID.
 .PARAMETER Id
 The ID of the campaign filter being modified.
 
-.PARAMETER Campaignfilterdetails
+.PARAMETER CampaignFilterDetails
 A campaign filter details with updated field values.
 
 .PARAMETER WithHttpInfo
@@ -366,7 +366,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Campaignfilterdetails
+CampaignFilterDetails
 #>
 function Update-CampaignFilterV1 {
     [CmdletBinding()]
@@ -376,7 +376,7 @@ function Update-CampaignFilterV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Campaignfilterdetails},
+        ${CampaignFilterDetails},
         [Switch]
         $WithHttpInfo
     )
@@ -406,14 +406,14 @@ function Update-CampaignFilterV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Campaignfilterdetails) {
-            throw "Error! The required parameter `Campaignfilterdetails` missing when calling updateCampaignFilterV1."
+        if (!$CampaignFilterDetails) {
+            throw "Error! The required parameter `CampaignFilterDetails` missing when calling updateCampaignFilterV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Campaignfilterdetails -is [array])) {
-            $LocalVarBodyParameter = $Campaignfilterdetails | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignFilterDetails -is [array])) {
+            $LocalVarBodyParameter = $CampaignFilterDetails | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Campaignfilterdetails | ForEach-Object {
+            $LocalVarBodyParameter = $CampaignFilterDetails | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -432,7 +432,7 @@ function Update-CampaignFilterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Campaignfilterdetails" `
+                                -ReturnType "CampaignFilterDetails" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

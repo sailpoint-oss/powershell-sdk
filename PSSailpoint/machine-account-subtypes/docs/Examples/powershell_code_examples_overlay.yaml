@@ -160,17 +160,21 @@
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SubtypeId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account subtype ID.
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Machine Subtype Approval Config
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-MachineAccountSubtypeApprovalConfigV1 -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-MachineAccountSubtypeApprovalConfigV1 -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-MachineAccountSubtypeApprovalConfigV1 -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -Jsonpatchoperation $Result   
+            # Update-MachineAccountSubtypeApprovalConfigV1 -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountSubtypeApprovalConfigV1"
             Write-Host $_.ErrorDetails

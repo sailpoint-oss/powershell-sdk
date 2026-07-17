@@ -45,17 +45,17 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Roleinsightsresponse**](../models/roleinsightsresponse)
+[**RoleInsightsResponse**](../models/role-insights-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Submitted a role insights generation request | Roleinsightsresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Submitted a role insights generation request | RoleInsightsResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | CreateRoleInsightRequestsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | CreateRoleInsightRequestsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -102,10 +102,10 @@ Path   | InsightId | **String** | True  | The role insight id
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Succeeded. Returns a csv file containing a list of entitlements to be added for a role. | String
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | CreateRoleInsightRequestsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -154,16 +154,16 @@ Path   | EntitlementId | **String** | True  | The entitlement id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*
 
 ### Return type
-[**Roleinsightsidentities[]**](../models/roleinsightsidentities)
+[**RoleInsightsIdentities[]**](../models/role-insights-identities)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of identities with or without the entitlement. | Roleinsightsidentities[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of identities with or without the entitlement. | RoleInsightsIdentities[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | CreateRoleInsightRequestsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -210,16 +210,16 @@ Path   | InsightId | **String** | True  | The role insight id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Roleinsight**](../models/roleinsight)
+[**RoleInsight**](../models/role-insight)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns information about insights for a single role. | Roleinsight
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns information about insights for a single role. | RoleInsight
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | CreateRoleInsightRequestsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -260,16 +260,16 @@ Path   | InsightId | **String** | True  | The role insight id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw*
 
 ### Return type
-[**Roleinsightsentitlement[]**](../models/roleinsightsentitlement)
+[**RoleInsightsEntitlement[]**](../models/role-insights-entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of current or pre-existing entitlements for a role. | Roleinsightsentitlement[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of current or pre-existing entitlements for a role. | RoleInsightsEntitlement[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | CreateRoleInsightRequestsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -312,16 +312,16 @@ Path   | InsightId | **String** | True  | The role insight id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw*
 
 ### Return type
-[**Roleinsightsentitlementchanges[]**](../models/roleinsightsentitlementchanges)
+[**RoleInsightsEntitlementChanges[]**](../models/role-insights-entitlement-changes)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of entitlements to be added for a role. | Roleinsightsentitlementchanges[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of entitlements to be added for a role. | RoleInsightsEntitlementChanges[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | CreateRoleInsightRequestsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -366,17 +366,17 @@ Path   | Id | **String** | True  | The role insights request id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Roleinsightsresponse**](../models/roleinsightsresponse)
+[**RoleInsightsResponse**](../models/role-insights-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns details of an earlier role insights request. | Roleinsightsresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns details of an earlier role insights request. | RoleInsightsResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | CreateRoleInsightRequestsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | CreateRoleInsightRequestsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -415,16 +415,16 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Roleinsightssummary**](../models/roleinsightssummary)
+[**RoleInsightsSummary**](../models/role-insights-summary)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns high level counts. | Roleinsightssummary
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns high level counts. | RoleInsightsSummary
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | CreateRoleInsightRequestsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -467,16 +467,16 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **ownerName**: *sw*  **description**: *sw*
 
 ### Return type
-[**Roleinsight[]**](../models/roleinsight)
+[**RoleInsight[]**](../models/role-insight)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of roles with information about insights for each role. | Roleinsight[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of roles with information about insights for each role. | RoleInsight[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | CreateRoleInsightRequestsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined

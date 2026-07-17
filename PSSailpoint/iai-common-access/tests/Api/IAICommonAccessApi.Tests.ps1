@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.IaiCommonAccess' -name 'IAICommonAccessApi' {
     Context 'New-CommonAccessV1' {
         It 'Test New-CommonAccessV1' {
-            #$TestResult = New-CommonAccessV1 -XSailPointExperimental "TEST_VALUE" -Commonaccessitemrequest "TEST_VALUE"
+            #$TestResult = New-CommonAccessV1 -XSailPointExperimental "TEST_VALUE" -CommonAccessItemRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.IaiCommonAccess' -name 'IAICommonAccessApi' {
 
     Context 'Update-CommonAccessStatusInBulkV1' {
         It 'Test Update-CommonAccessStatusInBulkV1' {
-            #$TestResult = Update-CommonAccessStatusInBulkV1 -XSailPointExperimental "TEST_VALUE" -Commonaccessidstatus "TEST_VALUE"
+            #$TestResult = Update-CommonAccessStatusInBulkV1 -XSailPointExperimental "TEST_VALUE" -CommonAccessIDStatus "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

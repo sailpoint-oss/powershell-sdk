@@ -34,64 +34,64 @@ function ConvertFrom-JsonToRule {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match Generaterandomstring defined in the oneOf schemas
+        # try to match GenerateRandomString defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToGeneraterandomstring $Json
+            $matchInstance = ConvertFrom-JsonToGenerateRandomString $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Generaterandomstring"
+                    $matchType = "GenerateRandomString"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Generaterandomstring' defined in oneOf (Rule). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'GenerateRandomString' defined in oneOf (Rule). Proceeding to the next one if any."
         }
 
-        # try to match Getreferenceidentityattribute defined in the oneOf schemas
+        # try to match GetReferenceIdentityAttribute defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToGetreferenceidentityattribute $Json
+            $matchInstance = ConvertFrom-JsonToGetReferenceIdentityAttribute $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Getreferenceidentityattribute"
+                    $matchType = "GetReferenceIdentityAttribute"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Getreferenceidentityattribute' defined in oneOf (Rule). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'GetReferenceIdentityAttribute' defined in oneOf (Rule). Proceeding to the next one if any."
         }
 
-        # try to match Transformrule defined in the oneOf schemas
+        # try to match TransformRule defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToTransformrule $Json
+            $matchInstance = ConvertFrom-JsonToTransformRule $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Transformrule"
+                    $matchType = "TransformRule"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Transformrule' defined in oneOf (Rule). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'TransformRule' defined in oneOf (Rule). Proceeding to the next one if any."
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([Generaterandomstring, Getreferenceidentityattribute, Transformrule]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([GenerateRandomString, GetReferenceIdentityAttribute, TransformRule]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("Generaterandomstring", "Getreferenceidentityattribute", "Transformrule")
+                "OneOfSchemas" = @("GenerateRandomString", "GetReferenceIdentityAttribute", "TransformRule")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([Generaterandomstring, Getreferenceidentityattribute, Transformrule]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([GenerateRandomString, GetReferenceIdentityAttribute, TransformRule]). JSON Payload: $($Json)"
         }
     }
 }

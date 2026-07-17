@@ -33,20 +33,20 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
- Body  | Attributemappings | [**Attributemappings**](../models/attributemappings) | True  | 
+ Body  | AttributeMappings | [**AttributeMappings**](../models/attribute-mappings) | True  | 
 
 ### Return type
-[**Attributemappings[]**](../models/attributemappings)
+[**AttributeMappings[]**](../models/attribute-mappings)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Newly created Attribute Mapping Object | Attributemappings[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Newly created Attribute Mapping Object | AttributeMappings[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -55,16 +55,36 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
-$Attributemappings = @""@
+$AttributeMappings = @"{
+  "transformDefinition" : {
+    "attributes" : {
+      "input" : {
+        "attributes" : {
+          "name" : "8d3e0094e99445de98eef6c75e25jc04",
+          "attributeName" : "givenName",
+          "sourceName" : "delimited-src"
+        },
+        "type" : "accountAttribute"
+      }
+    },
+    "id" : "ToUpper",
+    "type" : "reference"
+  },
+  "target" : {
+    "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+    "attributeName" : "businessApplication",
+    "type" : "IDENTITY"
+  }
+}"@
 
 # Create machine account mappings
 
 try {
-    $Result = ConvertFrom-JsonToAttributemappings -Json $Attributemappings
-    New-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result 
+    $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+    New-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result 
     
     # Below is a request that includes all optional parameters
-    # New-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result  
+    # New-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountMappingsV1"
     Write-Host $_.ErrorDetails
@@ -90,12 +110,12 @@ Path   | SourceId | **String** | True  | source ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -132,18 +152,18 @@ Path   | SourceId | **String** | True  | Source ID
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Attributemappings[]**](../models/attributemappings)
+[**AttributeMappings[]**](../models/attribute-mappings)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An array of Attribute Mapping Objects | Attributemappings[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | An array of Attribute Mapping Objects | AttributeMappings[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -178,21 +198,21 @@ Use this API to update Machine Account Attribute Mapping for a Source. A token w
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
- Body  | Attributemappings | [**Attributemappings**](../models/attributemappings) | True  | 
+ Body  | AttributeMappings | [**AttributeMappings**](../models/attribute-mappings) | True  | 
 
 ### Return type
-[**Attributemappings[]**](../models/attributemappings)
+[**AttributeMappings[]**](../models/attribute-mappings)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated Machine Account Attributes for a Source. | Attributemappings[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated Machine Account Attributes for a Source. | AttributeMappings[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -201,16 +221,36 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
-$Attributemappings = @""@
+$AttributeMappings = @"{
+  "transformDefinition" : {
+    "attributes" : {
+      "input" : {
+        "attributes" : {
+          "name" : "8d3e0094e99445de98eef6c75e25jc04",
+          "attributeName" : "givenName",
+          "sourceName" : "delimited-src"
+        },
+        "type" : "accountAttribute"
+      }
+    },
+    "id" : "ToUpper",
+    "type" : "reference"
+  },
+  "target" : {
+    "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+    "attributeName" : "businessApplication",
+    "type" : "IDENTITY"
+  }
+}"@
 
 # Update source's machine account mappings
 
 try {
-    $Result = ConvertFrom-JsonToAttributemappings -Json $Attributemappings
-    Set-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result 
+    $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+    Set-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result  
+    # Set-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MachineAccountMappingsV1"
     Write-Host $_.ErrorDetails

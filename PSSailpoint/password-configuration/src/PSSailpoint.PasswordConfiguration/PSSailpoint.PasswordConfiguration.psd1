@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.PasswordConfiguration.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,15 +74,15 @@ FunctionsToExport = 'New-PasswordOrgConfigV1', 'Get-PasswordOrgConfigV1',
                'Set-ConfigurationApiKey', 'Set-ConfigurationApiKeyPrefix', 
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
-               'Get-ConfigurationHttpSigning', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
+               'Get-ConfigurationHttpSigning', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetPasswordOrgConfigV1401Response', 
                'ConvertFrom-JsonToGetPasswordOrgConfigV1401Response', 
                'Initialize-GetPasswordOrgConfigV1429Response', 
                'ConvertFrom-JsonToGetPasswordOrgConfigV1429Response', 
-               'Initialize-Passwordorgconfig', 
-               'ConvertFrom-JsonToPasswordorgconfig'
+               'Initialize-PasswordOrgConfig', 
+               'ConvertFrom-JsonToPasswordOrgConfig'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

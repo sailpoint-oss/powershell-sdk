@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.GovernanceGroups.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -77,35 +77,35 @@ FunctionsToExport = 'New-WorkgroupV1', 'Remove-WorkgroupMembersV1', 'Remove-Work
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
                'Get-ConfigurationHttpSigning', 'ConvertFrom-JsonToArrayInner', 
-               'Initialize-BulkworkgroupmembersrequestInner', 
-               'ConvertFrom-JsonToBulkworkgroupmembersrequestInner', 
-               'Initialize-Connectedobject', 'ConvertFrom-JsonToConnectedobject', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 
+               'Initialize-BulkWorkgroupMembersRequestInner', 
+               'ConvertFrom-JsonToBulkWorkgroupMembersRequestInner', 
+               'Initialize-ConnectedObject', 'ConvertFrom-JsonToConnectedObject', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 
                'Initialize-ListWorkgroupMembersV1200ResponseInner', 
                'ConvertFrom-JsonToListWorkgroupMembersV1200ResponseInner', 
                'Initialize-ListWorkgroupsV1401Response', 
                'ConvertFrom-JsonToListWorkgroupsV1401Response', 
                'Initialize-ListWorkgroupsV1429Response', 
                'ConvertFrom-JsonToListWorkgroupsV1429Response', 
-               'Initialize-Ownerdto', 'ConvertFrom-JsonToOwnerdto', 
-               'Initialize-Workgroupbulkdeleterequest', 
-               'ConvertFrom-JsonToWorkgroupbulkdeleterequest', 
-               'Initialize-Workgroupconnectiondto', 
-               'ConvertFrom-JsonToWorkgroupconnectiondto', 
-               'Initialize-WorkgroupconnectiondtoObject', 
-               'ConvertFrom-JsonToWorkgroupconnectiondtoObject', 
-               'Initialize-Workgroupdeleteitem', 
-               'ConvertFrom-JsonToWorkgroupdeleteitem', 'Initialize-Workgroupdto', 
-               'ConvertFrom-JsonToWorkgroupdto', 'Initialize-WorkgroupdtoOwner', 
-               'ConvertFrom-JsonToWorkgroupdtoOwner', 
-               'Initialize-Workgroupmemberadditem', 
-               'ConvertFrom-JsonToWorkgroupmemberadditem', 
-               'Initialize-Workgroupmemberdeleteitem', 
-               'ConvertFrom-JsonToWorkgroupmemberdeleteitem'
+               'Initialize-OwnerDto', 'ConvertFrom-JsonToOwnerDto', 
+               'Initialize-WorkgroupBulkDeleteRequest', 
+               'ConvertFrom-JsonToWorkgroupBulkDeleteRequest', 
+               'Initialize-WorkgroupConnectionDto', 
+               'ConvertFrom-JsonToWorkgroupConnectionDto', 
+               'Initialize-WorkgroupConnectionDtoObject', 
+               'ConvertFrom-JsonToWorkgroupConnectionDtoObject', 
+               'Initialize-WorkgroupDeleteItem', 
+               'ConvertFrom-JsonToWorkgroupDeleteItem', 'Initialize-WorkgroupDto', 
+               'ConvertFrom-JsonToWorkgroupDto', 'Initialize-WorkgroupDtoOwner', 
+               'ConvertFrom-JsonToWorkgroupDtoOwner', 
+               'Initialize-WorkgroupMemberAddItem', 
+               'ConvertFrom-JsonToWorkgroupMemberAddItem', 
+               'Initialize-WorkgroupMemberDeleteItem', 
+               'ConvertFrom-JsonToWorkgroupMemberDeleteItem'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

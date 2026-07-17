@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.ApplicationDiscovery.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -77,25 +77,25 @@ FunctionsToExport = 'Get-DiscoveredApplicationsV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Applicationdiscoveryrequest', 
-               'ConvertFrom-JsonToApplicationdiscoveryrequest', 
-               'Initialize-Applicationdiscoveryresponse', 
-               'ConvertFrom-JsonToApplicationdiscoveryresponse', 
-               'Initialize-ApplicationdiscoveryresponseTarget', 
-               'ConvertFrom-JsonToApplicationdiscoveryresponseTarget', 
-               'Initialize-Basereferencedto', 'ConvertFrom-JsonToBasereferencedto', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Fulldiscoveredapplications', 
-               'ConvertFrom-JsonToFulldiscoveredapplications', 
+               'Initialize-ApplicationDiscoveryRequest', 
+               'ConvertFrom-JsonToApplicationDiscoveryRequest', 
+               'Initialize-ApplicationDiscoveryResponse', 
+               'ConvertFrom-JsonToApplicationDiscoveryResponse', 
+               'Initialize-ApplicationDiscoveryResponseTarget', 
+               'ConvertFrom-JsonToApplicationDiscoveryResponseTarget', 
+               'Initialize-BaseReferenceDto', 'ConvertFrom-JsonToBaseReferenceDto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-FullDiscoveredApplications', 
+               'ConvertFrom-JsonToFullDiscoveredApplications', 
                'ConvertFrom-JsonToGetDiscoveredApplicationsV1200ResponseInner', 
-               'Initialize-Localizedmessage', 'ConvertFrom-JsonToLocalizedmessage', 
-               'Initialize-Manualdiscoverapplications', 
-               'ConvertFrom-JsonToManualdiscoverapplications', 
-               'Initialize-Manualdiscoverapplicationstemplate', 
-               'ConvertFrom-JsonToManualdiscoverapplicationstemplate', 
-               'Initialize-Slimdiscoveredapplications', 
-               'ConvertFrom-JsonToSlimdiscoveredapplications', 
+               'Initialize-LocalizedMessage', 'ConvertFrom-JsonToLocalizedMessage', 
+               'Initialize-ManualDiscoverApplications', 
+               'ConvertFrom-JsonToManualDiscoverApplications', 
+               'Initialize-ManualDiscoverApplicationsTemplate', 
+               'ConvertFrom-JsonToManualDiscoverApplicationsTemplate', 
+               'Initialize-SlimDiscoveredApplications', 
+               'ConvertFrom-JsonToSlimDiscoveredApplications', 
                'Initialize-StartApplicationDiscoveryV1401Response', 
                'ConvertFrom-JsonToStartApplicationDiscoveryV1401Response', 
                'ConvertFrom-JsonToStartApplicationDiscoveryV1403Response', 
@@ -103,13 +103,13 @@ FunctionsToExport = 'Get-DiscoveredApplicationsV1',
                'ConvertFrom-JsonToStartApplicationDiscoveryV1403ResponseOneOf', 
                'Initialize-StartApplicationDiscoveryV1429Response', 
                'ConvertFrom-JsonToStartApplicationDiscoveryV1429Response', 
-               'Initialize-Taskdefinitionsummary', 
-               'ConvertFrom-JsonToTaskdefinitionsummary', 
-               'Initialize-Taskreturndetails', 
-               'ConvertFrom-JsonToTaskreturndetails', 
-               'Initialize-Taskstatusmessage', 
-               'ConvertFrom-JsonToTaskstatusmessage', 
-               'ConvertFrom-JsonToTaskstatusmessageParametersInner'
+               'Initialize-TaskDefinitionSummary', 
+               'ConvertFrom-JsonToTaskDefinitionSummary', 
+               'Initialize-TaskReturnDetails', 
+               'ConvertFrom-JsonToTaskReturnDetails', 
+               'Initialize-TaskStatusMessage', 
+               'ConvertFrom-JsonToTaskStatusMessage', 
+               'ConvertFrom-JsonToTaskStatusMessageParametersInner'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

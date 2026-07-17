@@ -35,110 +35,110 @@ function ConvertFrom-JsonToGetHistoricalIdentityEventsV1200ResponseInner {
         $matchInstance = $null
 
         if ($match -ne 0) { # no match yet
-            # try to match Accessitemassociated defined in the anyOf schemas
+            # try to match AccessItemAssociated defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToAccessitemassociated $Json
+                $matchInstance = ConvertFrom-JsonToAccessItemAssociated $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Accessitemassociated"
+                        $matchType = "AccessItemAssociated"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Accessitemassociated' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'AccessItemAssociated' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
         if ($match -ne 0) { # no match yet
-            # try to match Accessitemremoved defined in the anyOf schemas
+            # try to match AccessItemRemoved defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToAccessitemremoved $Json
+                $matchInstance = ConvertFrom-JsonToAccessItemRemoved $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Accessitemremoved"
+                        $matchType = "AccessItemRemoved"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Accessitemremoved' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'AccessItemRemoved' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
         if ($match -ne 0) { # no match yet
-            # try to match Accessrequested defined in the anyOf schemas
+            # try to match AccessRequested defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToAccessrequested $Json
+                $matchInstance = ConvertFrom-JsonToAccessRequested $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Accessrequested"
+                        $matchType = "AccessRequested"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Accessrequested' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'AccessRequested' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
         if ($match -ne 0) { # no match yet
-            # try to match Accountstatuschanged defined in the anyOf schemas
+            # try to match AccountStatusChanged defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToAccountstatuschanged $Json
+                $matchInstance = ConvertFrom-JsonToAccountStatusChanged $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Accountstatuschanged"
+                        $matchType = "AccountStatusChanged"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Accountstatuschanged' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'AccountStatusChanged' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
         if ($match -ne 0) { # no match yet
-            # try to match Attributeschanged defined in the anyOf schemas
+            # try to match AttributesChanged defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToAttributeschanged $Json
+                $matchInstance = ConvertFrom-JsonToAttributesChanged $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Attributeschanged"
+                        $matchType = "AttributesChanged"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Attributeschanged' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'AttributesChanged' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
         if ($match -ne 0) { # no match yet
-            # try to match Identitycertified defined in the anyOf schemas
+            # try to match IdentityCertified defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToIdentitycertified $Json
+                $matchInstance = ConvertFrom-JsonToIdentityCertified $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Identitycertified"
+                        $matchType = "IdentityCertified"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Identitycertified' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'IdentityCertified' defined in anyOf (GetHistoricalIdentityEventsV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
@@ -146,10 +146,10 @@ function ConvertFrom-JsonToGetHistoricalIdentityEventsV1200ResponseInner {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "anyOfSchemas" = @("Accessitemassociated", "Accessitemremoved", "Accessrequested", "Accountstatuschanged", "Attributeschanged", "Identitycertified")
+                "anyOfSchemas" = @("AccessItemAssociated", "AccessItemRemoved", "AccessRequested", "AccountStatusChanged", "AttributesChanged", "IdentityCertified")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([Accessitemassociated, Accessitemremoved, Accessrequested, Accountstatuschanged, Attributeschanged, Identitycertified]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([AccessItemAssociated, AccessItemRemoved, AccessRequested, AccountStatusChanged, AttributesChanged, IdentityCertified]). JSON Payload: $($Json)"
         }
     }
 }

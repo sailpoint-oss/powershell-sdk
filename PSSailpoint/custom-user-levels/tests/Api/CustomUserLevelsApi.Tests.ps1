@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.CustomUserLevels' -name 'CustomUserLevelsApi' {
     Context 'New-CustomUserLevelV1' {
         It 'Test New-CustomUserLevelV1' {
-            #$TestResult = New-CustomUserLevelV1 -XSailPointExperimental "TEST_VALUE" -Userlevelrequest "TEST_VALUE"
+            #$TestResult = New-CustomUserLevelV1 -XSailPointExperimental "TEST_VALUE" -UserLevelRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.CustomUserLevels' -name 'CustomUserLevelsApi' {
 
     Context 'Update-UserLevelV1' {
         It 'Test Update-UserLevelV1' {
-            #$TestResult = Update-UserLevelV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -Jsonpatch "TEST_VALUE"
+            #$TestResult = Update-UserLevelV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -JsonPatch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

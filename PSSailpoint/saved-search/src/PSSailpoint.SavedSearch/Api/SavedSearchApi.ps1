@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Savedsearch
+SavedSearch
 #>
 function New-SavedSearchV1 {
     [CmdletBinding()]
@@ -82,7 +82,7 @@ function New-SavedSearchV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Savedsearch" `
+                                -ReturnType "SavedSearch" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -177,7 +177,7 @@ Executes the specified saved search.
 .PARAMETER Id
 ID of the requested document.
 
-.PARAMETER Searcharguments
+.PARAMETER SearchArguments
 When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
 
 .PARAMETER WithHttpInfo
@@ -196,7 +196,7 @@ function Invoke-ExecuteSavedSearchV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Searcharguments},
+        ${SearchArguments},
         [Switch]
         $WithHttpInfo
     )
@@ -226,14 +226,14 @@ function Invoke-ExecuteSavedSearchV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Searcharguments) {
-            throw "Error! The required parameter `Searcharguments` missing when calling executeSavedSearchV1."
+        if (!$SearchArguments) {
+            throw "Error! The required parameter `SearchArguments` missing when calling executeSavedSearchV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Searcharguments -is [array])) {
-            $LocalVarBodyParameter = $Searcharguments | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SearchArguments -is [array])) {
+            $LocalVarBodyParameter = $SearchArguments | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Searcharguments | ForEach-Object {
+            $LocalVarBodyParameter = $SearchArguments | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -281,7 +281,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Savedsearch
+SavedSearch
 #>
 function Get-SavedSearchV1 {
     [CmdletBinding()]
@@ -324,7 +324,7 @@ function Get-SavedSearchV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Savedsearch" `
+                                -ReturnType "SavedSearch" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -362,7 +362,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Savedsearch[]
+SavedSearch[]
 #>
 function Get-SavedSearchesV1 {
     [CmdletBinding()]
@@ -426,7 +426,7 @@ function Get-SavedSearchesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Savedsearch[]" `
+                                -ReturnType "SavedSearch[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -449,7 +449,7 @@ Updates an existing saved search.   >**NOTE: You cannot update the `owner` of th
 .PARAMETER Id
 ID of the requested document.
 
-.PARAMETER Savedsearch
+.PARAMETER SavedSearch
 The saved search to persist.
 
 .PARAMETER WithHttpInfo
@@ -458,7 +458,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Savedsearch
+SavedSearch
 #>
 function Send-SavedSearchV1 {
     [CmdletBinding()]
@@ -468,7 +468,7 @@ function Send-SavedSearchV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Savedsearch},
+        ${SavedSearch},
         [Switch]
         $WithHttpInfo
     )
@@ -498,14 +498,14 @@ function Send-SavedSearchV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Savedsearch) {
-            throw "Error! The required parameter `Savedsearch` missing when calling putSavedSearchV1."
+        if (!$SavedSearch) {
+            throw "Error! The required parameter `SavedSearch` missing when calling putSavedSearchV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Savedsearch -is [array])) {
-            $LocalVarBodyParameter = $Savedsearch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SavedSearch -is [array])) {
+            $LocalVarBodyParameter = $SavedSearch | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Savedsearch | ForEach-Object {
+            $LocalVarBodyParameter = $SavedSearch | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -524,7 +524,7 @@ function Send-SavedSearchV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Savedsearch" `
+                                -ReturnType "SavedSearch" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -24,18 +24,22 @@
       label: SDK_tools/sdk/powershell/uimetadata/methods/ui-metadata#set-tenant-ui-metadata-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Tenantuimetadataitemupdaterequest = @"
-        
+        $TenantUiMetadataItemUpdateRequest = @"
+        {
+          "usernameEmptyText" : "Please provide your work email address...",
+          "usernameLabel" : "Email",
+          "iframeWhiteList" : "http://example.com http://example2.com"
+        }
         "@
         
         # Update tenant ui metadata
         
         try {
-            $Result = ConvertFrom-JsonToTenantuimetadataitemupdaterequest -Json $Tenantuimetadataitemupdaterequest
-            Set-TenantUiMetadataV1 -XSailPointExperimental $XSailPointExperimental -Tenantuimetadataitemupdaterequest $Result 
+            $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
+            Set-TenantUiMetadataV1 -XSailPointExperimental $XSailPointExperimental -TenantUiMetadataItemUpdateRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-TenantUiMetadataV1 -XSailPointExperimental $XSailPointExperimental -Tenantuimetadataitemupdaterequest $Result   
+            # Set-TenantUiMetadataV1 -XSailPointExperimental $XSailPointExperimental -TenantUiMetadataItemUpdateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-TenantUiMetadataV1"
             Write-Host $_.ErrorDetails

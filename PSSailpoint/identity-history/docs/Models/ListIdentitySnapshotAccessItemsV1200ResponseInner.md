@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **EntitlementCount** | **Int32** | the number of entitlements the account will create | [required]
 **Description** | **String** | the description for the role | [optional] 
 **SourceId** | **String** | the id of the source | [optional] 
-**AppRefs** | [**[]AccessitemaccessprofileresponseAppRefsInner**](accessitemaccessprofileresponse-app-refs-inner) | the list of app ids associated with the access profile | [required]
+**AppRefs** | [**[]AccessItemAccessProfileResponseAppRefsInner**](access-item-access-profile-response-app-refs-inner) | the list of app ids associated with the access profile | [required]
 **StartDate** | **String** | the date the access profile will be assigned to the specified identity, in case requested with a future start date | [optional] 
 **RemoveDate** | **String** | the date the role is no longer assigned to the specified identity | [optional] 
 **Standalone** | **Boolean** | indicates whether the entitlement is standalone | [required]

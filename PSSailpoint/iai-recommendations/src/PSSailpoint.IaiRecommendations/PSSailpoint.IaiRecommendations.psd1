@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.IaiRecommendations.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,30 +75,30 @@ FunctionsToExport = 'Get-RecommendationsConfigV1', 'Get-RecommendationsV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Accessitemref', 'ConvertFrom-JsonToAccessitemref', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Featurevaluedto', 'ConvertFrom-JsonToFeaturevaluedto', 
+               'Initialize-AccessItemRef', 'ConvertFrom-JsonToAccessItemRef', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-FeatureValueDto', 'ConvertFrom-JsonToFeatureValueDto', 
                'Initialize-GetRecommendationsV1401Response', 
                'ConvertFrom-JsonToGetRecommendationsV1401Response', 
                'Initialize-GetRecommendationsV1429Response', 
                'ConvertFrom-JsonToGetRecommendationsV1429Response', 
-               'Initialize-Recommendationconfigdto', 
-               'ConvertFrom-JsonToRecommendationconfigdto', 
-               'Initialize-Recommendationrequest', 
-               'ConvertFrom-JsonToRecommendationrequest', 
-               'Initialize-Recommendationrequestdto', 
-               'ConvertFrom-JsonToRecommendationrequestdto', 
-               'Initialize-Recommendationresponse', 
-               'ConvertFrom-JsonToRecommendationresponse', 
-               'Initialize-Recommendationresponsedto', 
-               'ConvertFrom-JsonToRecommendationresponsedto', 
-               'Initialize-Recommendercalculations', 
-               'ConvertFrom-JsonToRecommendercalculations', 
-               'Initialize-RecommendercalculationsIdentityAttributesValue', 
-               'ConvertFrom-JsonToRecommendercalculationsIdentityAttributesValue', 
-               'Initialize-Translationmessage', 
-               'ConvertFrom-JsonToTranslationmessage'
+               'Initialize-RecommendationConfigDto', 
+               'ConvertFrom-JsonToRecommendationConfigDto', 
+               'Initialize-RecommendationRequest', 
+               'ConvertFrom-JsonToRecommendationRequest', 
+               'Initialize-RecommendationRequestDto', 
+               'ConvertFrom-JsonToRecommendationRequestDto', 
+               'Initialize-RecommendationResponse', 
+               'ConvertFrom-JsonToRecommendationResponse', 
+               'Initialize-RecommendationResponseDto', 
+               'ConvertFrom-JsonToRecommendationResponseDto', 
+               'Initialize-RecommenderCalculations', 
+               'ConvertFrom-JsonToRecommenderCalculations', 
+               'Initialize-RecommenderCalculationsIdentityAttributesValue', 
+               'ConvertFrom-JsonToRecommenderCalculationsIdentityAttributesValue', 
+               'Initialize-TranslationMessage', 
+               'ConvertFrom-JsonToTranslationMessage'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

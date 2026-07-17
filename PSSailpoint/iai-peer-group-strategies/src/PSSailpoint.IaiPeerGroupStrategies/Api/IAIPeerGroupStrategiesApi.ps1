@@ -35,7 +35,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Peergroupmember[]
+PeerGroupMember[]
 #>
 function Get-PeerGroupOutliersV1 {
     [CmdletBinding()]
@@ -108,7 +108,7 @@ function Get-PeerGroupOutliersV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Peergroupmember[]" `
+                                -ReturnType "PeerGroupMember[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

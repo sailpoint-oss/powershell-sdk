@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.OauthClients' -name 'OAuthClientsApi' {
     Context 'New-OauthClientV1' {
         It 'Test New-OauthClientV1' {
-            #$TestResult = New-OauthClientV1 -Createoauthclientrequest "TEST_VALUE"
+            #$TestResult = New-OauthClientV1 -CreateOAuthClientRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.OauthClients' -name 'OAuthClientsApi' {
 
     Context 'Update-OauthClientV1' {
         It 'Test Update-OauthClientV1' {
-            #$TestResult = Update-OauthClientV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-OauthClientV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

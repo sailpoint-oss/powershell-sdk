@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportSpConfigV1Request', 'ImportSpCo
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **VarData** | **System.IO.FileInfo** | JSON file containing the objects to be imported. | [required]
-**Options** | [**Importoptions**](importoptions) |  | [optional] 
+**Options** | [**ImportOptions**](import-options) |  | [optional] 
 
 ## Examples
 

@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.ConnectorCustomizers.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,20 +76,20 @@ FunctionsToExport = 'New-ConnectorCustomizerV1', 'New-ConnectorCustomizerVersion
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Connectorcustomizercreaterequest', 
-               'ConvertFrom-JsonToConnectorcustomizercreaterequest', 
-               'Initialize-Connectorcustomizercreateresponse', 
-               'ConvertFrom-JsonToConnectorcustomizercreateresponse', 
-               'Initialize-Connectorcustomizersresponse', 
-               'ConvertFrom-JsonToConnectorcustomizersresponse', 
-               'Initialize-Connectorcustomizerupdaterequest', 
-               'ConvertFrom-JsonToConnectorcustomizerupdaterequest', 
-               'Initialize-Connectorcustomizerupdateresponse', 
-               'ConvertFrom-JsonToConnectorcustomizerupdateresponse', 
-               'Initialize-Connectorcustomizerversioncreateresponse', 
-               'ConvertFrom-JsonToConnectorcustomizerversioncreateresponse', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ConnectorCustomizerCreateRequest', 
+               'ConvertFrom-JsonToConnectorCustomizerCreateRequest', 
+               'Initialize-ConnectorCustomizerCreateResponse', 
+               'ConvertFrom-JsonToConnectorCustomizerCreateResponse', 
+               'Initialize-ConnectorCustomizersResponse', 
+               'ConvertFrom-JsonToConnectorCustomizersResponse', 
+               'Initialize-ConnectorCustomizerUpdateRequest', 
+               'ConvertFrom-JsonToConnectorCustomizerUpdateRequest', 
+               'Initialize-ConnectorCustomizerUpdateResponse', 
+               'ConvertFrom-JsonToConnectorCustomizerUpdateResponse', 
+               'Initialize-ConnectorCustomizerVersionCreateResponse', 
+               'ConvertFrom-JsonToConnectorCustomizerVersionCreateResponse', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-ListConnectorCustomizersV1401Response', 
                'ConvertFrom-JsonToListConnectorCustomizersV1401Response', 
                'Initialize-ListConnectorCustomizersV1429Response', 

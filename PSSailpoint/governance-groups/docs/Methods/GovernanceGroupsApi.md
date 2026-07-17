@@ -42,20 +42,20 @@ This API creates a new Governance Group.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Workgroupdto | [**Workgroupdto**](../models/workgroupdto) | True  | 
+ Body  | WorkgroupDto | [**WorkgroupDto**](../models/workgroup-dto) | True  | 
 
 ### Return type
-[**Workgroupdto**](../models/workgroupdto)
+[**WorkgroupDto**](../models/workgroup-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Governance Group object created. | Workgroupdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Governance Group object created. | WorkgroupDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkgroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkgroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -63,16 +63,31 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Workgroupdto = @""@
+$WorkgroupDto = @"{
+  "owner" : {
+    "emailAddress" : "support@sailpoint.com",
+    "displayName" : "Support",
+    "name" : "Support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "connectionCount" : 1641498673000,
+  "created" : "2022-01-06T19:51:13Z",
+  "memberCount" : 1641498673000,
+  "name" : "DB Access Governance Group",
+  "description" : "Description of the Governance Group",
+  "modified" : "2022-01-06T19:51:13Z",
+  "id" : "2c91808568c529c60168cca6f90c1313"
+}"@
 
 # Create a new governance group.
 
 try {
-    $Result = ConvertFrom-JsonToWorkgroupdto -Json $Workgroupdto
-    New-WorkgroupV1 -Workgroupdto $Result 
+    $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
+    New-WorkgroupV1 -WorkgroupDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-WorkgroupV1 -Workgroupdto $Result  
+    # New-WorkgroupV1 -WorkgroupDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-WorkgroupV1"
     Write-Host $_.ErrorDetails
@@ -92,20 +107,20 @@ This API removes one or more  members from a Governance Group.  A
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
- Body  | BulkworkgroupmembersrequestInner | [**[]BulkworkgroupmembersrequestInner**](../models/bulkworkgroupmembersrequest-inner) | True  | List of identities to be removed from  a Governance Group members list.
+ Body  | BulkWorkgroupMembersRequestInner | [**[]BulkWorkgroupMembersRequestInner**](../models/bulk-workgroup-members-request-inner) | True  | List of identities to be removed from  a Governance Group members list.
 
 ### Return type
-[**Workgroupmemberdeleteitem[]**](../models/workgroupmemberdeleteitem)
+[**WorkgroupMemberDeleteItem[]**](../models/workgroup-member-delete-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-207 | List of deleted and not deleted identities from Governance Group members list. | Workgroupmemberdeleteitem[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+207 | List of deleted and not deleted identities from Governance Group members list. | WorkgroupMemberDeleteItem[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkgroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkgroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -114,17 +129,17 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
- $BulkworkgroupmembersrequestInner = @""@ # BulkworkgroupmembersrequestInner[] | List of identities to be removed from  a Governance Group members list.
+ $BulkWorkgroupMembersRequestInner = @""@ # BulkWorkgroupMembersRequestInner[] | List of identities to be removed from  a Governance Group members list.
  
 
 # Remove members from governance group
 
 try {
-    $Result = ConvertFrom-JsonToBulkworkgroupmembersrequestInner -Json $BulkworkgroupmembersrequestInner
-    Remove-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result 
+    $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
+    Remove-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result  
+    # Remove-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-WorkgroupMembersV1"
     Write-Host $_.ErrorDetails
@@ -149,11 +164,11 @@ Path   | Id | **String** | True  | ID of the Governance Group
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkgroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkgroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -196,20 +211,20 @@ This API initiates a bulk deletion of one or more Governance Groups.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Workgroupbulkdeleterequest | [**Workgroupbulkdeleterequest**](../models/workgroupbulkdeleterequest) | True  | 
+ Body  | WorkgroupBulkDeleteRequest | [**WorkgroupBulkDeleteRequest**](../models/workgroup-bulk-delete-request) | True  | 
 
 ### Return type
-[**Workgroupdeleteitem[]**](../models/workgroupdeleteitem)
+[**WorkgroupDeleteItem[]**](../models/workgroup-delete-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-207 | Governance Group bulk delete response. | Workgroupdeleteitem[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+207 | Governance Group bulk delete response. | WorkgroupDeleteItem[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkgroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkgroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -217,16 +232,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Workgroupbulkdeleterequest = @"{"ids":["567a697e-885b-495a-afc5-d55e1c23a302","c7b0f7b2-1e78-4063-b294-a555333dacd2"]}"@
+$WorkgroupBulkDeleteRequest = @"{
+  "ids" : [ "567a697e-885b-495a-afc5-d55e1c23a302", "c7b0f7b2-1e78-4063-b294-a555333dacd2" ]
+}"@
 
 # Delete governance group(s)
 
 try {
-    $Result = ConvertFrom-JsonToWorkgroupbulkdeleterequest -Json $Workgroupbulkdeleterequest
-    Remove-WorkgroupsInBulkV1 -Workgroupbulkdeleterequest $Result 
+    $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
+    Remove-WorkgroupsInBulkV1 -WorkgroupBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-WorkgroupsInBulkV1 -Workgroupbulkdeleterequest $Result  
+    # Remove-WorkgroupsInBulkV1 -WorkgroupBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-WorkgroupsInBulkV1"
     Write-Host $_.ErrorDetails
@@ -245,17 +262,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Governance Group
 
 ### Return type
-[**Workgroupdto**](../models/workgroupdto)
+[**WorkgroupDto**](../models/workgroup-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A Governance Group | Workgroupdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A Governance Group | WorkgroupDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkgroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkgroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -294,17 +311,17 @@ Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
 
 ### Return type
-[**Workgroupconnectiondto[]**](../models/workgroupconnectiondto)
+[**WorkgroupConnectionDto[]**](../models/workgroup-connection-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List all connections associated with a Governance Group. | Workgroupconnectiondto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List all connections associated with a Governance Group. | WorkgroupConnectionDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkgroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkgroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -353,11 +370,11 @@ Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List all members associated with a Governance Group. | ListWorkgroupMembersV1200ResponseInner[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkgroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkgroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -400,17 +417,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description**
 
 ### Return type
-[**Workgroupdto[]**](../models/workgroupdto)
+[**WorkgroupDto[]**](../models/workgroup-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Governance Groups | Workgroupdto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of Governance Groups | WorkgroupDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkgroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkgroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -450,20 +467,20 @@ This API updates an existing governance group by ID. The following fields and ob
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Governance Group
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) |   (optional) | 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) |   (optional) | 
 
 ### Return type
-[**Workgroupdto**](../models/workgroupdto)
+[**WorkgroupDto**](../models/workgroup-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A Governance Group. | Workgroupdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A Governance Group. | WorkgroupDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkgroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkgroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -472,7 +489,11 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
- $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Governance Group new description."}]"@ # Jsonpatchoperation[] |  (optional)
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] |  (optional)
  
 
 # Patch a governance group
@@ -481,7 +502,7 @@ try {
     Update-WorkgroupV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-WorkgroupV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-WorkgroupV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-WorkgroupV1"
     Write-Host $_.ErrorDetails
@@ -502,20 +523,20 @@ This API adds one or more members to a Governance Group.  A token with API, ORG_
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
- Body  | BulkworkgroupmembersrequestInner | [**[]BulkworkgroupmembersrequestInner**](../models/bulkworkgroupmembersrequest-inner) | True  | List of identities to be added to a Governance Group members list.
+ Body  | BulkWorkgroupMembersRequestInner | [**[]BulkWorkgroupMembersRequestInner**](../models/bulk-workgroup-members-request-inner) | True  | List of identities to be added to a Governance Group members list.
 
 ### Return type
-[**Workgroupmemberadditem[]**](../models/workgroupmemberadditem)
+[**WorkgroupMemberAddItem[]**](../models/workgroup-member-add-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-207 | List of added and not added identities into  Governance Group members list. | Workgroupmemberadditem[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+207 | List of added and not added identities into  Governance Group members list. | WorkgroupMemberAddItem[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkgroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkgroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -524,17 +545,17 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
- $BulkworkgroupmembersrequestInner = @""@ # BulkworkgroupmembersrequestInner[] | List of identities to be added to a Governance Group members list.
+ $BulkWorkgroupMembersRequestInner = @""@ # BulkWorkgroupMembersRequestInner[] | List of identities to be added to a Governance Group members list.
  
 
 # Add members to governance group
 
 try {
-    $Result = ConvertFrom-JsonToBulkworkgroupmembersrequestInner -Json $BulkworkgroupmembersrequestInner
-    Update-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result 
+    $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
+    Update-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result  
+    # Update-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-WorkgroupMembersV1"
     Write-Host $_.ErrorDetails

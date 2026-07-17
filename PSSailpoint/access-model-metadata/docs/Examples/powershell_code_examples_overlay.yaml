@@ -4,18 +4,35 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#create-access-model-metadata-attribute-v1
       source: |
-        $Attributedto = @"
-        
+        $AttributeDTO = @"
+        {
+          "multiselect" : false,
+          "values" : [ {
+            "name" : "Public",
+            "value" : "public",
+            "status" : "active"
+          }, {
+            "name" : "Public",
+            "value" : "public",
+            "status" : "active"
+          } ],
+          "name" : "Privacy",
+          "description" : "Specifies the level of privacy associated with an access item.",
+          "type" : "governance",
+          "objectTypes" : [ "entitlement" ],
+          "key" : "iscPrivacy",
+          "status" : "active"
+        }
         "@
         
         # Create access model metadata attribute
         
         try {
-            $Result = ConvertFrom-JsonToAttributedto -Json $Attributedto
-            New-AccessModelMetadataAttributeV1 -Attributedto $Result 
+            $Result = ConvertFrom-JsonToAttributeDTO -Json $AttributeDTO
+            New-AccessModelMetadataAttributeV1 -AttributeDTO $Result 
     
             # Below is a request that includes all optional parameters
-            # New-AccessModelMetadataAttributeV1 -Attributedto $Result   
+            # New-AccessModelMetadataAttributeV1 -AttributeDTO $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessModelMetadataAttributeV1"
             Write-Host $_.ErrorDetails
@@ -27,18 +44,22 @@
       label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#create-access-model-metadata-attribute-value-v1
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
-        $Attributevaluedto = @"
-        
+        $AttributeValueDTO = @"
+        {
+          "name" : "Public",
+          "value" : "public",
+          "status" : "active"
+        }
         "@
         
         # Create access model metadata value
         
         try {
-            $Result = ConvertFrom-JsonToAttributevaluedto -Json $Attributevaluedto
-            New-AccessModelMetadataAttributeValueV1 -Key $Key -Attributevaluedto $Result 
+            $Result = ConvertFrom-JsonToAttributeValueDTO -Json $AttributeValueDTO
+            New-AccessModelMetadataAttributeValueV1 -Key $Key -AttributeValueDTO $Result 
     
             # Below is a request that includes all optional parameters
-            # New-AccessModelMetadataAttributeValueV1 -Key $Key -Attributevaluedto $Result   
+            # New-AccessModelMetadataAttributeValueV1 -Key $Key -AttributeValueDTO $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessModelMetadataAttributeValueV1"
             Write-Host $_.ErrorDetails
@@ -132,17 +153,21 @@
       label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#update-access-model-metadata-attribute-v1
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update access model metadata attribute
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-AccessModelMetadataAttributeV1 -Key $Key -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-AccessModelMetadataAttributeV1 -Key $Key -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AccessModelMetadataAttributeV1 -Key $Key -Jsonpatchoperation $Result   
+            # Update-AccessModelMetadataAttributeV1 -Key $Key -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessModelMetadataAttributeV1"
             Write-Host $_.ErrorDetails
@@ -155,17 +180,21 @@
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
         $Value = "public" # String | Technical name of the Attribute value.
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update access model metadata value
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value -Jsonpatchoperation $Result   
+            # Update-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessModelMetadataAttributeValueV1"
             Write-Host $_.ErrorDetails
@@ -176,18 +205,26 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#update-access-model-metadata-by-filter-v1
       source: |
-        $Entitlementattributebulkupdatefilterrequest = @"
-        
+        $EntitlementAttributeBulkUpdateFilterRequest = @"
+        {
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "filters" : "id eq 2c9180867817ac4d017817c491119a20",
+          "replaceScope" : "attribute",
+          "operation" : "add"
+        }
         "@
         
         # Metadata Attribute update by filter
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementattributebulkupdatefilterrequest -Json $Entitlementattributebulkupdatefilterrequest
-            Update-AccessModelMetadataByFilterV1 -Entitlementattributebulkupdatefilterrequest $Result 
+            $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateFilterRequest -Json $EntitlementAttributeBulkUpdateFilterRequest
+            Update-AccessModelMetadataByFilterV1 -EntitlementAttributeBulkUpdateFilterRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AccessModelMetadataByFilterV1 -Entitlementattributebulkupdatefilterrequest $Result   
+            # Update-AccessModelMetadataByFilterV1 -EntitlementAttributeBulkUpdateFilterRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessModelMetadataByFilterV1"
             Write-Host $_.ErrorDetails
@@ -198,18 +235,26 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#update-access-model-metadata-by-ids-v1
       source: |
-        $Entitlementattributebulkupdateidsrequest = @"
-        
+        $EntitlementAttributeBulkUpdateIdsRequest = @"
+        {
+          "entitlements" : [ "2c9180867817ac4d017817c491119a20", "2c9180867817ac4d017817c491119a21" ],
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "replaceScope" : "attribute",
+          "operation" : "add"
+        }
         "@
         
         # Metadata Attribute update by ids
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementattributebulkupdateidsrequest -Json $Entitlementattributebulkupdateidsrequest
-            Update-AccessModelMetadataByIdsV1 -Entitlementattributebulkupdateidsrequest $Result 
+            $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateIdsRequest -Json $EntitlementAttributeBulkUpdateIdsRequest
+            Update-AccessModelMetadataByIdsV1 -EntitlementAttributeBulkUpdateIdsRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AccessModelMetadataByIdsV1 -Entitlementattributebulkupdateidsrequest $Result   
+            # Update-AccessModelMetadataByIdsV1 -EntitlementAttributeBulkUpdateIdsRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessModelMetadataByIdsV1"
             Write-Host $_.ErrorDetails
@@ -220,18 +265,142 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#update-access-model-metadata-by-query-v1
       source: |
-        $Entitlementattributebulkupdatequeryrequest = @"
-        
+        $EntitlementAttributeBulkUpdateQueryRequest = @"
+        {
+          "query" : {
+            "queryDsl" : {
+              "match" : {
+                "name" : "john.doe"
+              }
+            },
+            "aggregationType" : "DSL",
+            "aggregationsVersion" : "",
+            "query" : {
+              "query" : "name:a*",
+              "timeZone" : "America/Chicago",
+              "fields" : "[\"firstName,lastName,email\"]",
+              "innerHit" : {
+                "query" : "source.name:\\\"Active Directory\\\"",
+                "type" : "access"
+              }
+            },
+            "aggregationsDsl" : { },
+            "sort" : [ "displayName", "+id" ],
+            "filters" : { },
+            "queryVersion" : "",
+            "queryType" : "SAILPOINT",
+            "includeNested" : true,
+            "queryResultFilter" : {
+              "excludes" : [ "stacktrace" ],
+              "includes" : [ "name", "displayName" ]
+            },
+            "indices" : [ "identities" ],
+            "typeAheadQuery" : {
+              "field" : "source.name",
+              "size" : 100,
+              "query" : "Work",
+              "sortByValue" : true,
+              "nestedType" : "access",
+              "sort" : "asc",
+              "maxExpansions" : 10
+            },
+            "textQuery" : {
+              "contains" : true,
+              "terms" : [ "The quick brown fox", "3141592", "7" ],
+              "matchAny" : false,
+              "fields" : [ "displayName", "employeeNumber", "roleCount" ]
+            },
+            "searchAfter" : [ "John Doe", "2c91808375d8e80a0175e1f88a575221" ],
+            "aggregations" : {
+              "filter" : {
+                "field" : "access.type",
+                "name" : "Entitlements",
+                "type" : "TERM",
+                "value" : "ENTITLEMENT"
+              },
+              "bucket" : {
+                "field" : "attributes.city",
+                "size" : 100,
+                "minDocCount" : 2,
+                "name" : "Identity Locations",
+                "type" : "TERMS"
+              },
+              "metric" : {
+                "field" : "@access.name",
+                "name" : "Access Name Count",
+                "type" : "COUNT"
+              },
+              "subAggregation" : {
+                "filter" : {
+                  "field" : "access.type",
+                  "name" : "Entitlements",
+                  "type" : "TERM",
+                  "value" : "ENTITLEMENT"
+                },
+                "bucket" : {
+                  "field" : "attributes.city",
+                  "size" : 100,
+                  "minDocCount" : 2,
+                  "name" : "Identity Locations",
+                  "type" : "TERMS"
+                },
+                "metric" : {
+                  "field" : "@access.name",
+                  "name" : "Access Name Count",
+                  "type" : "COUNT"
+                },
+                "subAggregation" : {
+                  "filter" : {
+                    "field" : "access.type",
+                    "name" : "Entitlements",
+                    "type" : "TERM",
+                    "value" : "ENTITLEMENT"
+                  },
+                  "bucket" : {
+                    "field" : "attributes.city",
+                    "size" : 100,
+                    "minDocCount" : 2,
+                    "name" : "Identity Locations",
+                    "type" : "TERMS"
+                  },
+                  "metric" : {
+                    "field" : "@access.name",
+                    "name" : "Access Name Count",
+                    "type" : "COUNT"
+                  },
+                  "nested" : {
+                    "name" : "id",
+                    "type" : "access"
+                  }
+                },
+                "nested" : {
+                  "name" : "id",
+                  "type" : "access"
+                }
+              },
+              "nested" : {
+                "name" : "id",
+                "type" : "access"
+              }
+            }
+          },
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "replaceScope" : "attribute",
+          "operation" : "add"
+        }
         "@
         
         # Metadata Attribute update by query
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementattributebulkupdatequeryrequest -Json $Entitlementattributebulkupdatequeryrequest
-            Update-AccessModelMetadataByQueryV1 -Entitlementattributebulkupdatequeryrequest $Result 
+            $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateQueryRequest -Json $EntitlementAttributeBulkUpdateQueryRequest
+            Update-AccessModelMetadataByQueryV1 -EntitlementAttributeBulkUpdateQueryRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AccessModelMetadataByQueryV1 -Entitlementattributebulkupdatequeryrequest $Result   
+            # Update-AccessModelMetadataByQueryV1 -EntitlementAttributeBulkUpdateQueryRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessModelMetadataByQueryV1"
             Write-Host $_.ErrorDetails

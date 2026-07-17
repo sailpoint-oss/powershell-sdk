@@ -65,18 +65,24 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/reportsdataextraction/methods/reports-data-extraction#start-report-v1
       source: |
-        $Reportdetails = @"
-        
+        $ReportDetails = @"
+        {
+          "reportType" : "ACCOUNTS",
+          "arguments" : {
+            "application" : "2c9180897e7742b2017e781782f705b9",
+            "sourceName" : "Active Directory"
+          }
+        }
         "@
         
         # Run report
         
         try {
-            $Result = ConvertFrom-JsonToReportdetails -Json $Reportdetails
-            Start-ReportV1 -Reportdetails $Result 
+            $Result = ConvertFrom-JsonToReportDetails -Json $ReportDetails
+            Start-ReportV1 -ReportDetails $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-ReportV1 -Reportdetails $Result   
+            # Start-ReportV1 -ReportDetails $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ReportV1"
             Write-Host $_.ErrorDetails

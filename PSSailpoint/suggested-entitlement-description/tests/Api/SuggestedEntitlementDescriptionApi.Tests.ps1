@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEntitlementDescriptionApi' {
     Context 'Approve-BulkEntitlementRecommendationsV1' {
         It 'Test Approve-BulkEntitlementRecommendationsV1' {
-            #$TestResult = Approve-BulkEntitlementRecommendationsV1 -Bulkapproveentitlementrecommendationrequest "TEST_VALUE"
+            #$TestResult = Approve-BulkEntitlementRecommendationsV1 -BulkApproveEntitlementRecommendationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'New-AutoWriteSettingsV1' {
         It 'Test New-AutoWriteSettingsV1' {
-            #$TestResult = New-AutoWriteSettingsV1 -Autowritesetting "TEST_VALUE"
+            #$TestResult = New-AutoWriteSettingsV1 -AutoWriteSetting "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'Update-EntitlementRecommendationV1' {
         It 'Test Update-EntitlementRecommendationV1' {
-            #$TestResult = Update-EntitlementRecommendationV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-EntitlementRecommendationV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'Update-SedV1' {
         It 'Test Update-SedV1' {
-            #$TestResult = Update-SedV1 -Id "TEST_VALUE" -Sedpatch "TEST_VALUE"
+            #$TestResult = Update-SedV1 -Id "TEST_VALUE" -SedPatch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'Submit-EntitlementRecommendationsAssignmentV1' {
         It 'Test Submit-EntitlementRecommendationsAssignmentV1' {
-            #$TestResult = Submit-EntitlementRecommendationsAssignmentV1 -Entitlementrecommendationassignrequest "TEST_VALUE"
+            #$TestResult = Submit-EntitlementRecommendationsAssignmentV1 -EntitlementRecommendationAssignRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'Submit-SedApprovalV1' {
         It 'Test Submit-SedApprovalV1' {
-            #$TestResult = Submit-SedApprovalV1 -Sedapproval "TEST_VALUE"
+            #$TestResult = Submit-SedApprovalV1 -SedApproval "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'Submit-SedAssignmentV1' {
         It 'Test Submit-SedAssignmentV1' {
-            #$TestResult = Submit-SedAssignmentV1 -Sedassignment "TEST_VALUE"
+            #$TestResult = Submit-SedAssignmentV1 -SedAssignment "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'Submit-SedBatchRequestV1' {
         It 'Test Submit-SedBatchRequestV1' {
-            #$TestResult = Submit-SedBatchRequestV1 -Sedbatchrequest "TEST_VALUE"
+            #$TestResult = Submit-SedBatchRequestV1 -SedBatchRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -120,7 +120,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'Update-AutoWriteSettingsV1' {
         It 'Test Update-AutoWriteSettingsV1' {
-            #$TestResult = Update-AutoWriteSettingsV1 -Autowritesettingpatch "TEST_VALUE"
+            #$TestResult = Update-AutoWriteSettingsV1 -AutoWriteSettingPatch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

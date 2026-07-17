@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.ManagedClients.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -77,29 +77,29 @@ FunctionsToExport = 'New-ManagedClientV1', 'Remove-ManagedClientV1',
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
                'Get-ConfigurationHttpSigning', 'ConvertFrom-JsonToArrayInner', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetManagedClientsV1401Response', 
                'ConvertFrom-JsonToGetManagedClientsV1401Response', 
                'Initialize-GetManagedClientsV1429Response', 
                'ConvertFrom-JsonToGetManagedClientsV1429Response', 
-               'Initialize-Healthevent', 'ConvertFrom-JsonToHealthevent', 
-               'Initialize-Healthindicatorcategory', 
-               'ConvertFrom-JsonToHealthindicatorcategory', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 
-               'Initialize-Managedclient', 'ConvertFrom-JsonToManagedclient', 
-               'Initialize-Managedclienthealthindicators', 
-               'ConvertFrom-JsonToManagedclienthealthindicators', 
-               'Initialize-ManagedclienthealthindicatorsBody', 
-               'ConvertFrom-JsonToManagedclienthealthindicatorsBody', 
-               'Initialize-ManagedclienthealthindicatorsBodyHealthIndicators', 
-               'ConvertFrom-JsonToManagedclienthealthindicatorsBodyHealthIndicators', 
-               'Initialize-Managedclientrequest', 
-               'ConvertFrom-JsonToManagedclientrequest', 
-               'Initialize-Managedclientstatus', 
-               'ConvertFrom-JsonToManagedclientstatus'
+               'Initialize-HealthEvent', 'ConvertFrom-JsonToHealthEvent', 
+               'Initialize-HealthIndicatorCategory', 
+               'ConvertFrom-JsonToHealthIndicatorCategory', 
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 
+               'Initialize-ManagedClient', 'ConvertFrom-JsonToManagedClient', 
+               'Initialize-ManagedClientHealthIndicators', 
+               'ConvertFrom-JsonToManagedClientHealthIndicators', 
+               'Initialize-ManagedClientHealthIndicatorsBody', 
+               'ConvertFrom-JsonToManagedClientHealthIndicatorsBody', 
+               'Initialize-ManagedClientHealthIndicatorsBodyHealthIndicators', 
+               'ConvertFrom-JsonToManagedClientHealthIndicatorsBodyHealthIndicators', 
+               'Initialize-ManagedClientRequest', 
+               'ConvertFrom-JsonToManagedClientRequest', 
+               'Initialize-ManagedClientStatus', 
+               'ConvertFrom-JsonToManagedClientStatus'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.ConnectorRuleManagement.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -77,25 +77,25 @@ FunctionsToExport = 'New-ConnectorRuleV1', 'Remove-ConnectorRuleV1',
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
                'Initialize-Argument', 'ConvertFrom-JsonToArgument', 
-               'Initialize-Connectorrulecreaterequest', 
-               'ConvertFrom-JsonToConnectorrulecreaterequest', 
-               'Initialize-ConnectorrulecreaterequestSignature', 
-               'ConvertFrom-JsonToConnectorrulecreaterequestSignature', 
-               'Initialize-Connectorruleresponse', 
-               'ConvertFrom-JsonToConnectorruleresponse', 
-               'Initialize-Connectorruleupdaterequest', 
-               'ConvertFrom-JsonToConnectorruleupdaterequest', 
-               'Initialize-Connectorrulevalidationresponse', 
-               'ConvertFrom-JsonToConnectorrulevalidationresponse', 
-               'Initialize-ConnectorrulevalidationresponseDetailsInner', 
-               'ConvertFrom-JsonToConnectorrulevalidationresponseDetailsInner', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ConnectorRuleCreateRequest', 
+               'ConvertFrom-JsonToConnectorRuleCreateRequest', 
+               'Initialize-ConnectorRuleCreateRequestSignature', 
+               'ConvertFrom-JsonToConnectorRuleCreateRequestSignature', 
+               'Initialize-ConnectorRuleResponse', 
+               'ConvertFrom-JsonToConnectorRuleResponse', 
+               'Initialize-ConnectorRuleUpdateRequest', 
+               'ConvertFrom-JsonToConnectorRuleUpdateRequest', 
+               'Initialize-ConnectorRuleValidationResponse', 
+               'ConvertFrom-JsonToConnectorRuleValidationResponse', 
+               'Initialize-ConnectorRuleValidationResponseDetailsInner', 
+               'ConvertFrom-JsonToConnectorRuleValidationResponseDetailsInner', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetConnectorRuleListV1401Response', 
                'ConvertFrom-JsonToGetConnectorRuleListV1401Response', 
                'Initialize-GetConnectorRuleListV1429Response', 
                'ConvertFrom-JsonToGetConnectorRuleListV1429Response', 
-               'Initialize-Sourcecode', 'ConvertFrom-JsonToSourcecode'
+               'Initialize-SourceCode', 'ConvertFrom-JsonToSourceCode'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

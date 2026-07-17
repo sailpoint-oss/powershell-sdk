@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.SourceUsages.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,15 +74,15 @@ FunctionsToExport = 'Get-StatusBySourceIdV1', 'Get-UsagesBySourceIdV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetStatusBySourceIdV1401Response', 
                'ConvertFrom-JsonToGetStatusBySourceIdV1401Response', 
                'Initialize-GetStatusBySourceIdV1429Response', 
                'ConvertFrom-JsonToGetStatusBySourceIdV1429Response', 
-               'Initialize-Sourceusage', 'ConvertFrom-JsonToSourceusage', 
-               'Initialize-Sourceusagestatus', 
-               'ConvertFrom-JsonToSourceusagestatus'
+               'Initialize-SourceUsage', 'ConvertFrom-JsonToSourceUsage', 
+               'Initialize-SourceUsageStatus', 
+               'ConvertFrom-JsonToSourceUsageStatus'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

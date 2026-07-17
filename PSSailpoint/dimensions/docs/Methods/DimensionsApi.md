@@ -49,11 +49,11 @@ Path   | RoleId | **String** | True  | Parent Role Id of the dimension.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 201 | Dimension created | Dimension
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListDimensionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListDimensionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -62,7 +62,93 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
-$Dimension = @""@
+$Dimension = @"{
+  "owner" : {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "entitlements" : [ {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  }, {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  } ],
+  "accessProfiles" : [ {
+    "name" : "Access Profile 2567",
+    "id" : "ff808081751e6e129f1518161919ecca",
+    "type" : "ACCESS_PROFILE"
+  }, {
+    "name" : "Access Profile 2567",
+    "id" : "ff808081751e6e129f1518161919ecca",
+    "type" : "ACCESS_PROFILE"
+  } ],
+  "created" : "2021-03-01T22:32:58.104Z",
+  "name" : "Dimension 2567",
+  "modified" : "2021-03-02T20:22:28.104Z",
+  "description" : "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor.",
+  "id" : "2c918086749d78830174a1a40e121518",
+  "membership" : {
+    "criteria" : {
+      "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+      "children" : [ {
+        "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+        "children" : [ {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "property" : "attribute.email",
+            "type" : "IDENTITY"
+          }
+        }, {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "property" : "attribute.email",
+            "type" : "IDENTITY"
+          }
+        } ],
+        "operation" : "EQUALS",
+        "key" : {
+          "property" : "attribute.email",
+          "type" : "IDENTITY"
+        }
+      }, {
+        "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+        "children" : [ {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "property" : "attribute.email",
+            "type" : "IDENTITY"
+          }
+        }, {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "property" : "attribute.email",
+            "type" : "IDENTITY"
+          }
+        } ],
+        "operation" : "EQUALS",
+        "key" : {
+          "property" : "attribute.email",
+          "type" : "IDENTITY"
+        }
+      } ],
+      "operation" : "EQUALS",
+      "key" : {
+        "property" : "attribute.email",
+        "type" : "IDENTITY"
+      }
+    },
+    "type" : "STANDARD"
+  },
+  "parentId" : "2c918086749d78830174a1a40e121518"
+}"@
 
 # Create a dimension
 
@@ -91,20 +177,20 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | RoleId | **String** | True  | Parent Role Id of the dimensions.
- Body  | Dimensionbulkdeleterequest | [**Dimensionbulkdeleterequest**](../models/dimensionbulkdeleterequest) | True  | 
+ Body  | DimensionBulkDeleteRequest | [**DimensionBulkDeleteRequest**](../models/dimension-bulk-delete-request) | True  | 
 
 ### Return type
-[**Taskresultdto**](../models/taskresultdto)
+[**TaskResultDto**](../models/task-result-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Returns an object with the id of the task performing the delete operation. | Taskresultdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Returns an object with the id of the task performing the delete operation. | TaskResultDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListDimensionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListDimensionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -113,16 +199,18 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimensions.
-$Dimensionbulkdeleterequest = @"{"dimensionIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}"@
+$DimensionBulkDeleteRequest = @"{
+  "dimensionIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
+}"@
 
 # Delete dimension(s)
 
 try {
-    $Result = ConvertFrom-JsonToDimensionbulkdeleterequest -Json $Dimensionbulkdeleterequest
-    Remove-BulkDimensionsV1 -RoleId $RoleId -Dimensionbulkdeleterequest $Result 
+    $Result = ConvertFrom-JsonToDimensionBulkDeleteRequest -Json $DimensionBulkDeleteRequest
+    Remove-BulkDimensionsV1 -RoleId $RoleId -DimensionBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BulkDimensionsV1 -RoleId $RoleId -Dimensionbulkdeleterequest $Result  
+    # Remove-BulkDimensionsV1 -RoleId $RoleId -DimensionBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BulkDimensionsV1"
     Write-Host $_.ErrorDetails
@@ -149,11 +237,11 @@ Path   | DimensionId | **String** | True  | Id of the Dimension
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListDimensionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListDimensionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -203,11 +291,11 @@ Path   | DimensionId | **String** | True  | Id of the Dimension
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of Entitlements | Entitlement[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListDimensionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListDimensionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -257,11 +345,11 @@ Path   | DimensionId | **String** | True  | Id of the Dimension
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Dimension | Dimension
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListDimensionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListDimensionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -305,18 +393,18 @@ Path   | DimensionId | **String** | True  | Id of the Dimension
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
 
 ### Return type
-[**Accessprofile[]**](../models/accessprofile)
+[**AccessProfile[]**](../models/access-profile)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Access Profiles | Accessprofile[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of Access Profiles | AccessProfile[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListDimensionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListDimensionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -371,11 +459,11 @@ Path   | RoleId | **String** | True  | Parent Role Id of the dimension.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of Dimensions | Dimension[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListDimensionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListDimensionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -419,7 +507,7 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | RoleId | **String** | True  | Parent Role Id of the dimension.
 Path   | DimensionId | **String** | True  | Id of the Dimension
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
 [**Dimension**](../models/dimension)
@@ -428,11 +516,11 @@ Path   | DimensionId | **String** | True  | Id of the Dimension
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Responds with the Dimension as updated. | Dimension
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListDimensionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListDimensionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -442,17 +530,21 @@ Code | Description  | Data Type
 ```powershell
 $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
 $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
- $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Test Description"},{"op":"replace","path":"/name","value":"new name"}]"@ # Jsonpatchoperation[] | 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | 
  
 
 # Patch a specified dimension
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-DimensionV1 -RoleId $RoleId -DimensionId $DimensionId -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-DimensionV1 -RoleId $RoleId -DimensionId $DimensionId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-DimensionV1 -RoleId $RoleId -DimensionId $DimensionId -Jsonpatchoperation $Result  
+    # Update-DimensionV1 -RoleId $RoleId -DimensionId $DimensionId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-DimensionV1"
     Write-Host $_.ErrorDetails

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.IaiAccessRequestRecommendations' -name 'IAIAccessRequestRecommendationsApi' {
     Context 'Add-AccessRequestRecommendationsIgnoredItemV1' {
         It 'Test Add-AccessRequestRecommendationsIgnoredItemV1' {
-            #$TestResult = Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental "TEST_VALUE" -Accessrequestrecommendationactionitemdto "TEST_VALUE"
+            #$TestResult = Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental "TEST_VALUE" -AccessRequestRecommendationActionItemDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.IaiAccessRequestRecommendations' -name 'IAIAccessRequ
 
     Context 'Add-AccessRequestRecommendationsRequestedItemV1' {
         It 'Test Add-AccessRequestRecommendationsRequestedItemV1' {
-            #$TestResult = Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental "TEST_VALUE" -Accessrequestrecommendationactionitemdto "TEST_VALUE"
+            #$TestResult = Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental "TEST_VALUE" -AccessRequestRecommendationActionItemDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.IaiAccessRequestRecommendations' -name 'IAIAccessRequ
 
     Context 'Add-AccessRequestRecommendationsViewedItemV1' {
         It 'Test Add-AccessRequestRecommendationsViewedItemV1' {
-            #$TestResult = Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental "TEST_VALUE" -Accessrequestrecommendationactionitemdto "TEST_VALUE"
+            #$TestResult = Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental "TEST_VALUE" -AccessRequestRecommendationActionItemDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.IaiAccessRequestRecommendations' -name 'IAIAccessRequ
 
     Context 'Add-AccessRequestRecommendationsViewedItemsV1' {
         It 'Test Add-AccessRequestRecommendationsViewedItemsV1' {
-            #$TestResult = Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental "TEST_VALUE" -Accessrequestrecommendationactionitemdto "TEST_VALUE"
+            #$TestResult = Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental "TEST_VALUE" -AccessRequestRecommendationActionItemDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.IaiAccessRequestRecommendations' -name 'IAIAccessRequ
 
     Context 'Set-AccessRequestRecommendationsConfigV1' {
         It 'Test Set-AccessRequestRecommendationsConfigV1' {
-            #$TestResult = Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental "TEST_VALUE" -Accessrequestrecommendationconfigdto "TEST_VALUE"
+            #$TestResult = Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental "TEST_VALUE" -AccessRequestRecommendationConfigDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

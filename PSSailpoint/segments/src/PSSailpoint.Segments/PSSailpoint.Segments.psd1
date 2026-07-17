@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.Segments.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,9 +74,9 @@ FunctionsToExport = 'New-SegmentV1', 'Remove-SegmentV1', 'Get-SegmentV1', 'Get-S
                'Set-ConfigurationApiKey', 'Set-ConfigurationApiKeyPrefix', 
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
-               'Get-ConfigurationHttpSigning', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 'Initialize-Expression', 
+               'Get-ConfigurationHttpSigning', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 'Initialize-Expression', 
                'ConvertFrom-JsonToExpression', 
                'Initialize-ExpressionChildrenInner', 
                'ConvertFrom-JsonToExpressionChildrenInner', 
@@ -84,12 +84,12 @@ FunctionsToExport = 'New-SegmentV1', 'Remove-SegmentV1', 'Get-SegmentV1', 'Get-S
                'ConvertFrom-JsonToListSegmentsV1401Response', 
                'Initialize-ListSegmentsV1429Response', 
                'ConvertFrom-JsonToListSegmentsV1429Response', 
-               'Initialize-Ownerreferencesegments', 
-               'ConvertFrom-JsonToOwnerreferencesegments', 'Initialize-Segment', 
+               'Initialize-OwnerReferenceSegments', 
+               'ConvertFrom-JsonToOwnerReferenceSegments', 'Initialize-Segment', 
                'ConvertFrom-JsonToSegment', 'Initialize-SegmentVisibilityCriteria', 
                'ConvertFrom-JsonToSegmentVisibilityCriteria', 'Initialize-Value', 
-               'ConvertFrom-JsonToValue', 'Initialize-Visibilitycriteria', 
-               'ConvertFrom-JsonToVisibilitycriteria'
+               'ConvertFrom-JsonToValue', 'Initialize-VisibilityCriteria', 
+               'ConvertFrom-JsonToVisibilityCriteria'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

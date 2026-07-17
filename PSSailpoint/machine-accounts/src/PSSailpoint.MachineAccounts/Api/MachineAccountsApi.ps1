@@ -29,7 +29,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcesubtype
+SourceSubtype
 #>
 function New-MachineAccountSubtypeV1 {
     [CmdletBinding()]
@@ -103,7 +103,7 @@ function New-MachineAccountSubtypeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcesubtype" `
+                                -ReturnType "SourceSubtype" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -228,7 +228,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcesubtype
+SourceSubtype
 #>
 function Get-MachineAccountSubtypeByIdV1 {
     [CmdletBinding()]
@@ -279,7 +279,7 @@ function Get-MachineAccountSubtypeByIdV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcesubtype" `
+                                -ReturnType "SourceSubtype" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -314,7 +314,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcesubtype
+SourceSubtype
 #>
 function Get-MachineAccountSubtypeByTechnicalNameV1 {
     [CmdletBinding()]
@@ -372,7 +372,7 @@ function Get-MachineAccountSubtypeByTechnicalNameV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcesubtype" `
+                                -ReturnType "SourceSubtype" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -404,7 +404,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineaccount
+MachineAccount
 #>
 function Get-MachineAccountV1 {
     [CmdletBinding()]
@@ -455,7 +455,7 @@ function Get-MachineAccountV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineaccount" `
+                                -ReturnType "MachineAccount" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -502,7 +502,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcesubtype[]
+SourceSubtype[]
 #>
 function Get-MachineAccountSubtypesV1 {
     [CmdletBinding()]
@@ -588,7 +588,7 @@ function Get-MachineAccountSubtypesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcesubtype[]" `
+                                -ReturnType "SourceSubtype[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -632,7 +632,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineaccount[]
+MachineAccount[]
 #>
 function Get-MachineAccountsV1 {
     [CmdletBinding()]
@@ -711,7 +711,7 @@ function Get-MachineAccountsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineaccount[]" `
+                                -ReturnType "MachineAccount[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -749,7 +749,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourcesubtype
+SourceSubtype
 #>
 function Update-MachineAccountSubtypeByTechnicalNameV1 {
     [CmdletBinding()]
@@ -830,7 +830,7 @@ function Update-MachineAccountSubtypeByTechnicalNameV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourcesubtype" `
+                                -ReturnType "SourceSubtype" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -865,7 +865,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineaccount
+MachineAccount
 #>
 function Update-MachineAccountV1 {
     [CmdletBinding()]
@@ -939,7 +939,7 @@ function Update-MachineAccountV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineaccount" `
+                                -ReturnType "MachineAccount" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceusagestatus
+SourceUsageStatus
 #>
 function Get-StatusBySourceIdV1 {
     [CmdletBinding()]
@@ -66,7 +66,7 @@ function Get-StatusBySourceIdV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceusagestatus" `
+                                -ReturnType "SourceUsageStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -107,7 +107,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceusage[]
+SourceUsage[]
 #>
 function Get-UsagesBySourceIdV1 {
     [CmdletBinding()]
@@ -178,7 +178,7 @@ function Get-UsagesBySourceIdV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceusage[]" `
+                                -ReturnType "SourceUsage[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

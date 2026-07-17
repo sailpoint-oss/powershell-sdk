@@ -52,20 +52,20 @@ Add a new parameter.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Parameterstoragenewparameter | [**Parameterstoragenewparameter**](../models/parameterstoragenewparameter) |   (optional) | The parameter to add to the store.
+ Body  | ParameterStorageNewParameter | [**ParameterStorageNewParameter**](../models/parameter-storage-new-parameter) |   (optional) | The parameter to add to the store.
 
 ### Return type
-[**Parameterstorageparameter**](../models/parameterstorageparameter)
+[**ParameterStorageParameter**](../models/parameter-storage-parameter)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Created Parameter. | Parameterstorageparameter
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Created Parameter. | ParameterStorageParameter
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAttestationDocumentV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAttestationDocumentV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -73,7 +73,14 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Parameterstoragenewparameter = @""@
+$ParameterStorageNewParameter = @"{
+  "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+  "name" : "Credentials for server.",
+  "description" : "Credentials for server.",
+  "publicFields" : "{\"username\": \"username\"}",
+  "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b",
+  "type" : "1.1"
+}"@
 
 # Add a new parameter.
 
@@ -81,7 +88,7 @@ try {
     New-ParameterV1 
     
     # Below is a request that includes all optional parameters
-    # New-ParameterV1 -Parameterstoragenewparameter $Result  
+    # New-ParameterV1 -ParameterStorageNewParameter $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ParameterV1"
     Write-Host $_.ErrorDetails
@@ -106,13 +113,13 @@ Path   | Id | **String** | True  | The ID of the parameter to be deleted.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Parameter deleted. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAttestationDocumentV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 409 | Conflict - Indicates that the request could not be processed because of conflict in the current state of the resource. | DeleteParameterV1409Response
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAttestationDocumentV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -147,17 +154,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Key | **String** | True  | Base64Url encoded NIST P-384 public key
 
 ### Return type
-[**Parameterstorageattestationdocument**](../models/parameterstorageattestationdocument)
+[**ParameterStorageAttestationDocument**](../models/parameter-storage-attestation-document)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns the attestation document. This contains the public key needed to add a parameter to the store. | Parameterstorageattestationdocument
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Returns the attestation document. This contains the public key needed to add a parameter to the store. | ParameterStorageAttestationDocument
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAttestationDocumentV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAttestationDocumentV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -195,18 +202,18 @@ Path   | Id | **String** | True  | The ID of the parameter which you want to fet
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Parameterstoragereference[]**](../models/parameterstoragereference)
+[**ParameterStorageReference[]**](../models/parameter-storage-reference)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Return references for given parameter. | Parameterstoragereference[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Return references for given parameter. | ParameterStorageReference[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAttestationDocumentV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAttestationDocumentV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -253,11 +260,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Returns the JSON spec in the language chosen. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAttestationDocumentV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAttestationDocumentV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -292,18 +299,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the parameter to be fetched
 
 ### Return type
-[**Parameterstorageparameter**](../models/parameterstorageparameter)
+[**ParameterStorageParameter**](../models/parameter-storage-parameter)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Return Parameter. | Parameterstorageparameter
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Return Parameter. | ParameterStorageParameter
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAttestationDocumentV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAttestationDocumentV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -341,17 +348,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Parameterstorageparameter[]**](../models/parameterstorageparameter)
+[**ParameterStorageParameter[]**](../models/parameter-storage-parameter)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Search returned results. | Parameterstorageparameter[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Search returned results. | ParameterStorageParameter[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAttestationDocumentV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAttestationDocumentV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -387,22 +394,22 @@ Update a parameter. You cannot change a parameter's type once set. Only the name
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the parameter to be updated.
- Body  | Parameterstorageupdateparameter | [**Parameterstorageupdateparameter**](../models/parameterstorageupdateparameter) |   (optional) | The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates.
+ Body  | ParameterStorageUpdateParameter | [**ParameterStorageUpdateParameter**](../models/parameter-storage-update-parameter) |   (optional) | The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates.
 
 ### Return type
-[**Parameterstorageparameter**](../models/parameterstorageparameter)
+[**ParameterStorageParameter**](../models/parameter-storage-parameter)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated Parameter. | Parameterstorageparameter
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated Parameter. | ParameterStorageParameter
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAttestationDocumentV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 409 | Conflict - Indicates that the request could not be processed because of conflict in the current state of the resource. | DeleteParameterV1409Response
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAttestationDocumentV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json, application/json-patch+json
@@ -411,7 +418,19 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "58de858b-83d9-4563-9e15-7393594c684a" # String | The ID of the parameter to be updated.
-$Parameterstorageupdateparameter = @""@
+$ParameterStorageUpdateParameter = @"{
+  "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+  "name" : "Credentials for server.",
+  "description" : "Credentials for server.",
+  "publicFields" : "{\"username\": \"username\"}",
+  "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+}{
+  "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+  "name" : "Credentials for server.",
+  "description" : "Credentials for server.",
+  "publicFields" : "{\"username\": \"username\"}",
+  "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+}"@
 
 # Update a parameter.
 
@@ -419,7 +438,7 @@ try {
     Update-ParameterV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-ParameterV1 -Id $Id -Parameterstorageupdateparameter $Result  
+    # Update-ParameterV1 -Id $Id -ParameterStorageUpdateParameter $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ParameterV1"
     Write-Host $_.ErrorDetails

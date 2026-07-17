@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.AccountDeletionRequests.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,34 +74,34 @@ FunctionsToExport = 'Remove-AccountRequestV1', 'Get-AccountDeletionRequestsV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Accountactionrequestdto', 
-               'ConvertFrom-JsonToAccountactionrequestdto', 
-               'Initialize-AccountactionrequestdtoAccountDetails', 
-               'ConvertFrom-JsonToAccountactionrequestdtoAccountDetails', 
-               'Initialize-AccountactionrequestdtoCorrelatedIdentity', 
-               'ConvertFrom-JsonToAccountactionrequestdtoCorrelatedIdentity', 
-               'Initialize-AccountactionrequestdtoRequester', 
-               'ConvertFrom-JsonToAccountactionrequestdtoRequester', 
-               'Initialize-Accountdeleterequestinput', 
-               'ConvertFrom-JsonToAccountdeleterequestinput', 
-               'Initialize-Accountdetails', 'ConvertFrom-JsonToAccountdetails', 
-               'Initialize-Accountrequestasyncresult', 
-               'ConvertFrom-JsonToAccountrequestasyncresult', 
-               'Initialize-Accountrequestphase', 
-               'ConvertFrom-JsonToAccountrequestphase', 
-               'Initialize-Approvaldetails', 'ConvertFrom-JsonToApprovaldetails', 
-               'Initialize-Approverdto', 'ConvertFrom-JsonToApproverdto', 
-               'Initialize-Approverreference', 
-               'ConvertFrom-JsonToApproverreference', 
-               'Initialize-Basereferencedto', 'ConvertFrom-JsonToBasereferencedto', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-AccountActionRequestDto', 
+               'ConvertFrom-JsonToAccountActionRequestDto', 
+               'Initialize-AccountActionRequestDtoAccountDetails', 
+               'ConvertFrom-JsonToAccountActionRequestDtoAccountDetails', 
+               'Initialize-AccountActionRequestDtoCorrelatedIdentity', 
+               'ConvertFrom-JsonToAccountActionRequestDtoCorrelatedIdentity', 
+               'Initialize-AccountActionRequestDtoRequester', 
+               'ConvertFrom-JsonToAccountActionRequestDtoRequester', 
+               'Initialize-AccountDeleteRequestInput', 
+               'ConvertFrom-JsonToAccountDeleteRequestInput', 
+               'Initialize-AccountDetails', 'ConvertFrom-JsonToAccountDetails', 
+               'Initialize-AccountRequestAsyncResult', 
+               'ConvertFrom-JsonToAccountRequestAsyncResult', 
+               'Initialize-AccountRequestPhase', 
+               'ConvertFrom-JsonToAccountRequestPhase', 
+               'Initialize-ApprovalDetails', 'ConvertFrom-JsonToApprovalDetails', 
+               'Initialize-ApproverDto', 'ConvertFrom-JsonToApproverDto', 
+               'Initialize-ApproverReference', 
+               'ConvertFrom-JsonToApproverReference', 
+               'Initialize-BaseReferenceDto', 'ConvertFrom-JsonToBaseReferenceDto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetAccountDeletionRequestsV1401Response', 
                'ConvertFrom-JsonToGetAccountDeletionRequestsV1401Response', 
                'Initialize-GetAccountDeletionRequestsV1429Response', 
                'ConvertFrom-JsonToGetAccountDeletionRequestsV1429Response', 
-               'Initialize-Identityreference', 
-               'ConvertFrom-JsonToIdentityreference'
+               'Initialize-IdentityReference', 
+               'ConvertFrom-JsonToIdentityReference'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

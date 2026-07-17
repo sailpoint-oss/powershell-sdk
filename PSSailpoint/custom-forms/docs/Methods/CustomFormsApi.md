@@ -53,15 +53,15 @@ Method | HTTP request | Description
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Body | [**Formdefinitiondynamicschemarequest**](../models/formdefinitiondynamicschemarequest) |   (optional) | Body is the request payload to create a form definition dynamic schema
+ Body  | Body | [**FormDefinitionDynamicSchemaRequest**](../models/form-definition-dynamic-schema-request) |   (optional) | Body is the request payload to create a form definition dynamic schema
 
 ### Return type
-[**Formdefinitiondynamicschemaresponse**](../models/formdefinitiondynamicschemaresponse)
+[**FormDefinitionDynamicSchemaResponse**](../models/form-definition-dynamic-schema-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns a form elements dynamic schema | Formdefinitiondynamicschemaresponse
+200 | Returns a form elements dynamic schema | FormDefinitionDynamicSchemaResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -75,7 +75,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Body = @"{"id":"sp:forms","attributes":{"formDefinitionId":"00000000-0000-0000-0000-000000000000"},"description":"AnotherDescription","type":"action","versionNumber":1}"@
+$Body = @"{
+  "description" : "A description",
+  "attributes" : {
+    "formDefinitionId" : "00000000-0000-0000-0000-000000000000"
+  },
+  "id" : "00000000-0000-0000-0000-000000000000",
+  "type" : "action",
+  "versionNumber" : 1
+}"@
 
 # Generate json schema dynamically.
 
@@ -103,12 +111,12 @@ Path   | FormDefinitionID | **String** | True  | FormDefinitionID  String specif
    | File | **System.IO.FileInfo** | True  | File specifying the multipart
 
 ### Return type
-[**Formdefinitionfileuploadresponse**](../models/formdefinitionfileuploadresponse)
+[**FormDefinitionFileUploadResponse**](../models/form-definition-file-upload-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Returns a new form definition file | Formdefinitionfileuploadresponse
+201 | Returns a new form definition file | FormDefinitionFileUploadResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -150,15 +158,15 @@ try {
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Body | [**Createformdefinitionrequest**](../models/createformdefinitionrequest) |   (optional) | Body is the request payload to create form definition request
+ Body  | Body | [**CreateFormDefinitionRequest**](../models/create-form-definition-request) |   (optional) | Body is the request payload to create form definition request
 
 ### Return type
-[**Formdefinitionresponse**](../models/formdefinitionresponse)
+[**FormDefinitionResponse**](../models/form-definition-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Returns a new form definition | Formdefinitionresponse
+201 | Returns a new form definition | FormDefinitionResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -171,7 +179,117 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Body = @"{"name":"my form","description":"my form description","owner":{"type":"IDENTITY","id":"00000000-0000-0000-0000-000000000000"},"formElements":[{"id":"000000000000","elementType":"SECTION","config":{"alignment":"LEFT","description":"elementType must be 'SECTION' for the root formElements,  child formElements must be within the 'config' attribute","label":"Section","labelStyle":"h2","showLabel":true,"formElements":[{"id":"0000000000000","key":"textField","elementType":"TEXT","config":{"default":"","description":"","helpText":"form element type text","label":"Text Field","placeholder":"","required":false},"validations":[]}]}}]}"@
+$Body = @"{
+  "owner" : {
+    "name" : "Grant Smith",
+    "id" : "2c9180867624cbd7017642d8c8c81f67",
+    "type" : "IDENTITY"
+  },
+  "formConditions" : [ {
+    "ruleOperator" : "AND",
+    "effects" : [ {
+      "config" : {
+        "defaultValueLabel" : "Access to Remove",
+        "element" : "8110662963316867"
+      },
+      "effectType" : "HIDE"
+    }, {
+      "config" : {
+        "defaultValueLabel" : "Access to Remove",
+        "element" : "8110662963316867"
+      },
+      "effectType" : "HIDE"
+    } ],
+    "rules" : [ {
+      "sourceType" : "ELEMENT",
+      "valueType" : "STRING",
+      "source" : "department",
+      "value" : "Engineering",
+      "operator" : "EQ"
+    }, {
+      "sourceType" : "ELEMENT",
+      "valueType" : "STRING",
+      "source" : "department",
+      "value" : "Engineering",
+      "operator" : "EQ"
+    } ]
+  }, {
+    "ruleOperator" : "AND",
+    "effects" : [ {
+      "config" : {
+        "defaultValueLabel" : "Access to Remove",
+        "element" : "8110662963316867"
+      },
+      "effectType" : "HIDE"
+    }, {
+      "config" : {
+        "defaultValueLabel" : "Access to Remove",
+        "element" : "8110662963316867"
+      },
+      "effectType" : "HIDE"
+    } ],
+    "rules" : [ {
+      "sourceType" : "ELEMENT",
+      "valueType" : "STRING",
+      "source" : "department",
+      "value" : "Engineering",
+      "operator" : "EQ"
+    }, {
+      "sourceType" : "ELEMENT",
+      "valueType" : "STRING",
+      "source" : "department",
+      "value" : "Engineering",
+      "operator" : "EQ"
+    } ]
+  } ],
+  "formInput" : [ {
+    "description" : "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic",
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "label" : "input1",
+    "type" : "STRING"
+  }, {
+    "description" : "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic",
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "label" : "input1",
+    "type" : "STRING"
+  } ],
+  "name" : "My form",
+  "description" : "My form description",
+  "usedBy" : [ {
+    "name" : "Access Request Form",
+    "id" : "61940a92-5484-42bc-bc10-b9982b218cdf",
+    "type" : "WORKFLOW"
+  }, {
+    "name" : "Access Request Form",
+    "id" : "61940a92-5484-42bc-bc10-b9982b218cdf",
+    "type" : "WORKFLOW"
+  } ],
+  "formElements" : [ {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "validations" : [ {
+      "validationType" : "REQUIRED"
+    }, {
+      "validationType" : "REQUIRED"
+    } ],
+    "elementType" : "TEXT",
+    "config" : {
+      "label" : "Department"
+    },
+    "key" : "department"
+  }, {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "validations" : [ {
+      "validationType" : "REQUIRED"
+    }, {
+      "validationType" : "REQUIRED"
+    } ],
+    "elementType" : "TEXT",
+    "config" : {
+      "label" : "Department"
+    },
+    "key" : "department"
+  } ]
+}"@
 
 # Creates a form definition.
 
@@ -195,15 +313,15 @@ try {
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Body | [**Createforminstancerequest**](../models/createforminstancerequest) |   (optional) | Body is the request payload to create a form instance
+ Body  | Body | [**CreateFormInstanceRequest**](../models/create-form-instance-request) |   (optional) | Body is the request payload to create a form instance
 
 ### Return type
-[**Forminstanceresponse**](../models/forminstanceresponse)
+[**FormInstanceResponse**](../models/form-instance-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Returns a new form instance | Forminstanceresponse
+201 | Returns a new form instance | FormInstanceResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -216,7 +334,27 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Body = @"{"expire":"2023-06-20T15:57:55.332882Z","formDefinitionId":"00000000-0000-0000-0000-000000000000","recipients":[{"type":"IDENTITY","id":"an-identity-id"}],"createdBy":{"type":"WORKFLOW_EXECUTION","id":"a-workflow-execution-id"}}"@
+$Body = @"{
+  "formInput" : {
+    "input1" : "Sales"
+  },
+  "standAloneForm" : false,
+  "createdBy" : {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "type" : "WORKFLOW_EXECUTION"
+  },
+  "recipients" : [ {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "type" : "IDENTITY"
+  }, {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "type" : "IDENTITY"
+  } ],
+  "expire" : "2023-08-12T20:14:57.74486Z",
+  "formDefinitionId" : "00000000-0000-0000-0000-000000000000",
+  "state" : "ASSIGNED",
+  "ttl" : 1571827560
+}"@
 
 # Creates a form instance.
 
@@ -389,12 +527,12 @@ Param Type | Name | Data Type | Required  | Description
 Path   | FormDefinitionID | **String** | True  | Form definition ID
 
 ### Return type
-[**Formdefinitionresponse**](../models/formdefinitionresponse)
+[**FormDefinitionResponse**](../models/form-definition-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns a form definition | Formdefinitionresponse
+200 | Returns a form definition | FormDefinitionResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -437,12 +575,12 @@ Param Type | Name | Data Type | Required  | Description
 Path   | FormInstanceID | **String** | True  | Form instance ID
 
 ### Return type
-[**Forminstanceresponse**](../models/forminstanceresponse)
+[**FormInstanceResponse**](../models/form-instance-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns a form instance by its key | Forminstanceresponse
+200 | Returns a form instance by its key | FormInstanceResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -585,12 +723,12 @@ Path   | FormDefinitionID | **String** | True  | Form definition ID
  Body  | Body | [**[]System.Collections.Hashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) |   (optional) | Body is the request payload to patch a form definition, check: https://jsonpatch.com
 
 ### Return type
-[**Formdefinitionresponse**](../models/formdefinitionresponse)
+[**FormDefinitionResponse**](../models/form-definition-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns the form definition updated | Formdefinitionresponse
+200 | Returns the form definition updated | FormDefinitionResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -637,12 +775,12 @@ Path   | FormInstanceID | **String** | True  | Form instance ID
  Body  | Body | [**[]System.Collections.Hashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) |   (optional) | Body is the request payload to patch a form instance, check: https://jsonpatch.com
 
 ### Return type
-[**Forminstanceresponse**](../models/forminstanceresponse)
+[**FormInstanceResponse**](../models/form-instance-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns the form instance updated | Forminstanceresponse
+200 | Returns the form instance updated | FormInstanceResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -690,12 +828,12 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) (default to "name") | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified**
 
 ### Return type
-[**Listformdefinitionsbytenantresponse**](../models/listformdefinitionsbytenantresponse)
+[**ListFormDefinitionsByTenantResponse**](../models/list-form-definitions-by-tenant-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns a list of form definitions by tenant | Listformdefinitionsbytenantresponse
+200 | Returns a list of form definitions by tenant | ListFormDefinitionsByTenantResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -743,12 +881,12 @@ Path   | FormElementID | **String** | True  | Form element ID
   Query | Query | **String** |   (optional) | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a ""starts with"" filter against  several fields.
 
 ### Return type
-[**Listformelementdatabyelementidresponse**](../models/listformelementdatabyelementidresponse)
+[**ListFormElementDataByElementIDResponse**](../models/list-form-element-data-by-element-id-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Retrieves dynamic data to aid in correctly completing a valid form by form element ID from data source configuration | Listformelementdatabyelementidresponse
+200 | Retrieves dynamic data to aid in correctly completing a valid form by form element ID from data source configuration | ListFormElementDataByElementIDResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -795,12 +933,12 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq*
 
 ### Return type
-[**Listforminstancesbytenantresponse[]**](../models/listforminstancesbytenantresponse)
+[**ListFormInstancesByTenantResponse[]**](../models/list-form-instances-by-tenant-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns a list of form instances by tenant | Listforminstancesbytenantresponse[]
+200 | Returns a list of form instances by tenant | ListFormInstancesByTenantResponse[]
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -841,12 +979,12 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Listpredefinedselectoptionsresponse**](../models/listpredefinedselectoptionsresponse)
+[**ListPredefinedSelectOptionsResponse**](../models/list-predefined-select-options-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns a list of available predefined select options | Listpredefinedselectoptionsresponse
+200 | Returns a list of available predefined select options | ListPredefinedSelectOptionsResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -886,15 +1024,15 @@ Path   | FormDefinitionID | **String** | True  | Form definition ID
   Query | Limit | **Int64** |   (optional) (default to 10) | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (""ID01"")`
   Query | Query | **String** |   (optional) | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a ""starts with"" filter against  several fields.
- Body  | Formelementpreviewrequest | [**Formelementpreviewrequest**](../models/formelementpreviewrequest) |   (optional) | Body is the request payload to create a form definition dynamic schema
+ Body  | FormElementPreviewRequest | [**FormElementPreviewRequest**](../models/form-element-preview-request) |   (optional) | Body is the request payload to create a form definition dynamic schema
 
 ### Return type
-[**Previewdatasourceresponse**](../models/previewdatasourceresponse)
+[**PreviewDataSourceResponse**](../models/preview-data-source-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns a preview of a form definition data source | Previewdatasourceresponse
+200 | Returns a preview of a form definition data source | PreviewDataSourceResponse
 400 | An error with the request occurred | SearchFormDefinitionsByTenantV1400Response
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenantV1400Response
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenantV1400Response
@@ -912,7 +1050,17 @@ $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form defin
 $Limit = 10 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 10)
 $Filters = 'value eq "ID01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (""ID01"')` (optional)
 $Query = "ac" # String | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a ""starts with"" filter against  several fields. (optional)
-$Formelementpreviewrequest = @""@
+$FormElementPreviewRequest = @"{
+  "dataSource" : {
+    "config" : {
+      "indices" : [ "identities" ],
+      "query" : "*",
+      "aggregationBucketField" : "attributes.cloudStatus.exact",
+      "objectType" : "IDENTITY"
+    },
+    "dataSourceType" : "STATIC"
+  }
+}"@
 
 # Preview form definition data source.
 
@@ -920,7 +1068,7 @@ try {
     Show-PreviewDataSourceV1 -FormDefinitionID $FormDefinitionID 
     
     # Below is a request that includes all optional parameters
-    # Show-PreviewDataSourceV1 -FormDefinitionID $FormDefinitionID -Limit $Limit -Filters $Filters -Query $Query -Formelementpreviewrequest $Result  
+    # Show-PreviewDataSourceV1 -FormDefinitionID $FormDefinitionID -Limit $Limit -Filters $Filters -Query $Query -FormElementPreviewRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-PreviewDataSourceV1"
     Write-Host $_.ErrorDetails

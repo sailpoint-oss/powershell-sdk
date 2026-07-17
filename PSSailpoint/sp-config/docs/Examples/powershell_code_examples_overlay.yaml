@@ -4,18 +4,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/spconfig/methods/sp-config#export-sp-config-v1
       source: |
-        $Exportpayload = @"
-        {"description":"Export all available objects","excludeTypes":[],"includeTypes":["ACCESS_PROFILE","ACCESS_REQUEST_CONFIG","ATTR_SYNC_SOURCE_CONFIG","AUTH_ORG","CAMPAIGN_FILTER","CONNECTOR_RULE","FORM_DEFINITION","GOVERNANCE_GROUP","IDENTITY_OBJECT_CONFIG","IDENTITY_PROFILE","LIFECYCLE_STATE","NOTIFICATION_TEMPLATE","PASSWORD_POLICY","PASSWORD_SYNC_GROUP","PUBLIC_IDENTITIES_CONFIG","ROLE","RULE","SEGMENT","SERVICE_DESK_INTEGRATION","SOD_POLICY","SOURCE","TAG","TRANSFORM","TRIGGER_SUBSCRIPTION","WORKFLOW"],"objectOptions":{}}
+        $ExportPayload = @"
+        {
+          "description" : "Export Job 1 Test"
+        }
         "@
         
         # Initiates configuration objects export job
         
         try {
-            $Result = ConvertFrom-JsonToExportpayload -Json $Exportpayload
-            Export-SpConfigV1 -Exportpayload $Result 
+            $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
+            Export-SpConfigV1 -ExportPayload $Result 
     
             # Below is a request that includes all optional parameters
-            # Export-SpConfigV1 -Exportpayload $Result   
+            # Export-SpConfigV1 -ExportPayload $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-SpConfigV1"
             Write-Host $_.ErrorDetails

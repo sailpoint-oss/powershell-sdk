@@ -5,8 +5,10 @@
       label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#complete-campaign-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
-        $Campaigncompleteoptions = @"
-        
+        $CampaignCompleteOptions = @"
+        {
+          "autoCompleteAction" : "REVOKE"
+        }
         "@
         
         # Complete a campaign
@@ -15,7 +17,7 @@
             Complete-CampaignV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Complete-CampaignV1 -Id $Id -Campaigncompleteoptions $Result   
+            # Complete-CampaignV1 -Id $Id -CampaignCompleteOptions $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-CampaignV1"
             Write-Host $_.ErrorDetails
@@ -26,18 +28,142 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#create-campaign-template-v1
       source: |
-        $Campaigntemplate = @"
-        
+        $CampaignTemplate = @"
+        {
+          "ownerRef" : {
+            "name" : "Mister Manager",
+            "id" : "2c918086676d3e0601677611dbde220f",
+            "type" : "IDENTITY",
+            "email" : "mr.manager@example.com"
+          },
+          "deadlineDuration" : "P2W",
+          "created" : "2020-03-05T22:44:00.364Z",
+          "scheduled" : false,
+          "name" : "Manager Campaign Template",
+          "description" : "Template for the annual manager campaign.",
+          "modified" : "2020-03-05T22:52:09.969Z",
+          "campaign" : {
+            "totalCertifications" : 100,
+            "sourcesWithOrphanEntitlements" : [ {
+              "name" : "Source with orphan entitlements",
+              "id" : "2c90ad2a70ace7d50170acf22ca90010",
+              "type" : "SOURCE"
+            }, {
+              "name" : "Source with orphan entitlements",
+              "id" : "2c90ad2a70ace7d50170acf22ca90010",
+              "type" : "SOURCE"
+            } ],
+            "recommendationsEnabled" : true,
+            "sunsetCommentsRequired" : true,
+            "created" : "2020-03-03T22:15:13.611Z",
+            "machineAccountCampaignInfo" : {
+              "reviewerType" : "ACCOUNT_OWNER",
+              "sourceIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ]
+            },
+            "description" : "Everyone needs to be reviewed by their manager",
+            "type" : "MANAGER",
+            "sourceOwnerCampaignInfo" : {
+              "sourceIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ]
+            },
+            "emailNotificationEnabled" : false,
+            "alerts" : [ {
+              "level" : "ERROR",
+              "localizations" : [ {
+                "localeOrigin" : "DEFAULT",
+                "text" : "The request was syntactically correct but its content is semantically invalid.",
+                "locale" : "en-US"
+              }, {
+                "localeOrigin" : "DEFAULT",
+                "text" : "The request was syntactically correct but its content is semantically invalid.",
+                "locale" : "en-US"
+              } ]
+            }, {
+              "level" : "ERROR",
+              "localizations" : [ {
+                "localeOrigin" : "DEFAULT",
+                "text" : "The request was syntactically correct but its content is semantically invalid.",
+                "locale" : "en-US"
+              }, {
+                "localeOrigin" : "DEFAULT",
+                "text" : "The request was syntactically correct but its content is semantically invalid.",
+                "locale" : "en-US"
+              } ]
+            } ],
+            "filter" : {
+              "name" : "Test Filter",
+              "id" : "0fbe863c063c4c88a35fd7f17e8a3df5",
+              "type" : "CAMPAIGN_FILTER"
+            },
+            "searchCampaignInfo" : {
+              "identityIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ],
+              "query" : "Search Campaign query description",
+              "description" : "Search Campaign description",
+              "reviewer" : {
+                "name" : "William Wilson",
+                "id" : "2c91808568c529c60168cca6f90c1313",
+                "type" : "IDENTITY"
+              },
+              "type" : "ACCESS",
+              "accessConstraints" : [ {
+                "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+                "type" : "ENTITLEMENT",
+                "operator" : "SELECTED"
+              }, {
+                "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+                "type" : "ENTITLEMENT",
+                "operator" : "SELECTED"
+              }, {
+                "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+                "type" : "ENTITLEMENT",
+                "operator" : "SELECTED"
+              }, {
+                "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+                "type" : "ENTITLEMENT",
+                "operator" : "SELECTED"
+              }, {
+                "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+                "type" : "ENTITLEMENT",
+                "operator" : "SELECTED"
+              } ]
+            },
+            "autoRevokeAllowed" : false,
+            "name" : "Manager Campaign",
+            "mandatoryCommentRequirement" : "NO_DECISIONS",
+            "modified" : "2020-03-03T22:20:12.674Z",
+            "roleCompositionCampaignInfo" : {
+              "remediatorRef" : {
+                "name" : "Role Admin",
+                "id" : "2c90ad2a70ace7d50170acf22ca90010",
+                "type" : "IDENTITY"
+              },
+              "reviewerId" : "2c91808568c529c60168cca6f90c1313",
+              "roleIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+              "query" : "Search Query",
+              "description" : "Role Composition Description",
+              "reviewer" : {
+                "name" : "William Wilson",
+                "id" : "2c91808568c529c60168cca6f90c1313",
+                "type" : "IDENTITY"
+              }
+            },
+            "completedCertifications" : 10,
+            "id" : "2c9079b270a266a60170a2779fcb0007",
+            "deadline" : "2020-03-15T10:00:01.456Z",
+            "status" : "ACTIVE",
+            "correlatedStatus" : "CORRELATED"
+          },
+          "id" : "2c9079b270a266a60170a277bb960008"
+        }
         "@
         
         # Create a campaign template
         
         try {
-            $Result = ConvertFrom-JsonToCampaigntemplate -Json $Campaigntemplate
-            New-CampaignTemplateV1 -Campaigntemplate $Result 
+            $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
+            New-CampaignTemplateV1 -CampaignTemplate $Result 
     
             # Below is a request that includes all optional parameters
-            # New-CampaignTemplateV1 -Campaigntemplate $Result   
+            # New-CampaignTemplateV1 -CampaignTemplate $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CampaignTemplateV1"
             Write-Host $_.ErrorDetails
@@ -108,18 +234,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#delete-campaigns-v1
       source: |
-        $Campaignsdeleterequest = @"
-        
+        $CampaignsDeleteRequest = @"
+        {
+          "ids" : [ "2c9180887335cee10173490db1776c26", "2c9180836a712436016a7125a90c0021" ]
+        }
         "@
         
         # Delete campaigns
         
         try {
-            $Result = ConvertFrom-JsonToCampaignsdeleterequest -Json $Campaignsdeleterequest
-            Remove-CampaignsV1 -Campaignsdeleterequest $Result 
+            $Result = ConvertFrom-JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
+            Remove-CampaignsV1 -CampaignsDeleteRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Remove-CampaignsV1 -Campaignsdeleterequest $Result   
+            # Remove-CampaignsV1 -CampaignsDeleteRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-CampaignsV1"
             Write-Host $_.ErrorDetails
@@ -273,18 +401,25 @@
       label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#move-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification campaign ID
-        $Adminreviewreassign = @"
-        
+        $AdminReviewReassign = @"
+        {
+          "certificationIds" : [ "af3859464779471211bb8424a563abc1", "af3859464779471211bb8424a563abc2", "af3859464779471211bb8424a563abc3" ],
+          "reason" : "reassigned for some reason",
+          "reassignTo" : {
+            "id" : "ef38f94347e94562b5bb8424a56397d8",
+            "type" : "IDENTITY"
+          }
+        }
         "@
         
         # Reassign certifications
         
         try {
-            $Result = ConvertFrom-JsonToAdminreviewreassign -Json $Adminreviewreassign
-            Move-V1 -Id $Id -Adminreviewreassign $Result 
+            $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
+            Move-V1 -Id $Id -AdminReviewReassign $Result 
     
             # Below is a request that includes all optional parameters
-            # Move-V1 -Id $Id -Adminreviewreassign $Result   
+            # Move-V1 -Id $Id -AdminReviewReassign $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-V1"
             Write-Host $_.ErrorDetails
@@ -296,17 +431,21 @@
       label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#patch-campaign-template-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being modified.
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Updated description!"},{"op":"replace","path":"/campaign/filter/id","value":"ff80818155fe8c080155fe8d925b0316"}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update a campaign template
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-CampaignTemplateV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-CampaignTemplateV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-CampaignTemplateV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-CampaignTemplateV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CampaignTemplateV1"
             Write-Host $_.ErrorDetails
@@ -317,18 +456,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#set-campaign-reports-config-v1
       source: |
-        $Campaignreportsconfig = @"
-        
+        $CampaignReportsConfig = @"
+        {
+          "identityAttributeColumns" : [ "firstname", "lastname" ]
+        }
         "@
         
         # Set campaign reports configuration
         
         try {
-            $Result = ConvertFrom-JsonToCampaignreportsconfig -Json $Campaignreportsconfig
-            Set-CampaignReportsConfigV1 -Campaignreportsconfig $Result 
+            $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
+            Set-CampaignReportsConfigV1 -CampaignReportsConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-CampaignReportsConfigV1 -Campaignreportsconfig $Result   
+            # Set-CampaignReportsConfigV1 -CampaignReportsConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-CampaignReportsConfigV1"
             Write-Host $_.ErrorDetails
@@ -381,7 +522,7 @@
       label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#start-campaign-report-v1
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the report is being run for.
-        $Type = "CAMPAIGN_COMPOSITION_REPORT" # Reporttype | Type of the report to run.
+        $Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of the report to run.
         
         # Run campaign report
         
@@ -401,8 +542,10 @@
       label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#start-campaign-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
-        $Activatecampaignoptions = @"
-        
+        $ActivateCampaignOptions = @"
+        {
+          "timeZone" : "-05:00"
+        }
         "@
         
         # Activate a campaign
@@ -411,7 +554,7 @@
             Start-CampaignV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Start-CampaignV1 -Id $Id -Activatecampaignoptions $Result   
+            # Start-CampaignV1 -Id $Id -ActivateCampaignOptions $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-CampaignV1"
             Write-Host $_.ErrorDetails
@@ -442,17 +585,21 @@
       label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#update-campaign-v1
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template being modified.
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"This field has been updated!"},{"op":"copy","from":"/name","path":"/description"}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update a campaign
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-CampaignV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-CampaignV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-CampaignV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-CampaignV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CampaignV1"
             Write-Host $_.ErrorDetails

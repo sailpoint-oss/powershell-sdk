@@ -4,18 +4,51 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#create-service-desk-integration-v1
       source: |
-        $Servicedeskintegrationdto = @"
-        
+        $ServiceDeskIntegrationDto = @"
+        {
+          "ownerRef" : "",
+          "cluster" : "xyzzy999",
+          "created" : "2024-01-17T18:45:25.994Z",
+          "description" : "A very nice Service Desk integration",
+          "clusterRef" : "",
+          "type" : "ServiceNowSDIM",
+          "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+          "provisioningConfig" : {
+            "managedResourceRefs" : [ {
+              "type" : "SOURCE",
+              "id" : "2c9180855d191c59015d291ceb051111",
+              "name" : "My Source 1"
+            }, {
+              "type" : "SOURCE",
+              "id" : "2c9180855d191c59015d291ceb052222",
+              "name" : "My Source 2"
+            } ],
+            "provisioningRequestExpiration" : 7,
+            "noProvisioningRequests" : true,
+            "universalManager" : true,
+            "planInitializerScript" : {
+              "source" : "<?xml version='1.0' encoding='UTF-8'?>\\r\\n<!DOCTYPE Rule PUBLIC \\\"sailpoint.dtd\\\" \\\"sailpoint.dtd\\\">\\r\\n<Rule name=\\\"Example Rule\\\" type=\\\"BeforeProvisioning\\\">\\r\\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\\r\\n  <Source><![CDATA[\\r\\nimport sailpoint.object.*;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\\r\\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\\r\\nimport sailpoint.object.ProvisioningPlan;\\r\\nimport sailpoint.object.ProvisioningPlan.Operation;\\r\\n\\r\\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n}\\r\\n\\r\\n  ]]></Source>\n"
+            }
+          },
+          "name" : "Service Desk Integration Name",
+          "modified" : "2024-02-18T18:45:25.994Z",
+          "attributes" : {
+            "property" : "value",
+            "key" : "value"
+          },
+          "id" : "62945a496ef440189b1f03e3623411c8",
+          "beforeProvisioningRule" : ""
+        }
         "@
         
         # Create new service desk integration
         
         try {
-            $Result = ConvertFrom-JsonToServicedeskintegrationdto -Json $Servicedeskintegrationdto
-            New-ServiceDeskIntegrationV1 -Servicedeskintegrationdto $Result 
+            $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+            New-ServiceDeskIntegrationV1 -ServiceDeskIntegrationDto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-ServiceDeskIntegrationV1 -Servicedeskintegrationdto $Result   
+            # New-ServiceDeskIntegrationV1 -ServiceDeskIntegrationDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ServiceDeskIntegrationV1"
             Write-Host $_.ErrorDetails
@@ -143,17 +176,21 @@
       label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#patch-service-desk-integration-v1
       source: |
         $Id = "anId" # String | ID of the Service Desk integration to update
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch a service desk integration
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-ServiceDeskIntegrationV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-ServiceDeskIntegrationV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-ServiceDeskIntegrationV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-ServiceDeskIntegrationV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ServiceDeskIntegrationV1"
             Write-Host $_.ErrorDetails
@@ -165,18 +202,51 @@
       label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#put-service-desk-integration-v1
       source: |
         $Id = "anId" # String | ID of the Service Desk integration to update
-        $Servicedeskintegrationdto = @"
-        
+        $ServiceDeskIntegrationDto = @"
+        {
+          "ownerRef" : "",
+          "cluster" : "xyzzy999",
+          "created" : "2024-01-17T18:45:25.994Z",
+          "description" : "A very nice Service Desk integration",
+          "clusterRef" : "",
+          "type" : "ServiceNowSDIM",
+          "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+          "provisioningConfig" : {
+            "managedResourceRefs" : [ {
+              "type" : "SOURCE",
+              "id" : "2c9180855d191c59015d291ceb051111",
+              "name" : "My Source 1"
+            }, {
+              "type" : "SOURCE",
+              "id" : "2c9180855d191c59015d291ceb052222",
+              "name" : "My Source 2"
+            } ],
+            "provisioningRequestExpiration" : 7,
+            "noProvisioningRequests" : true,
+            "universalManager" : true,
+            "planInitializerScript" : {
+              "source" : "<?xml version='1.0' encoding='UTF-8'?>\\r\\n<!DOCTYPE Rule PUBLIC \\\"sailpoint.dtd\\\" \\\"sailpoint.dtd\\\">\\r\\n<Rule name=\\\"Example Rule\\\" type=\\\"BeforeProvisioning\\\">\\r\\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\\r\\n  <Source><![CDATA[\\r\\nimport sailpoint.object.*;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\\r\\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\\r\\nimport sailpoint.object.ProvisioningPlan;\\r\\nimport sailpoint.object.ProvisioningPlan.Operation;\\r\\n\\r\\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n}\\r\\n\\r\\n  ]]></Source>\n"
+            }
+          },
+          "name" : "Service Desk Integration Name",
+          "modified" : "2024-02-18T18:45:25.994Z",
+          "attributes" : {
+            "property" : "value",
+            "key" : "value"
+          },
+          "id" : "62945a496ef440189b1f03e3623411c8",
+          "beforeProvisioningRule" : ""
+        }
         "@
         
         # Update a service desk integration
         
         try {
-            $Result = ConvertFrom-JsonToServicedeskintegrationdto -Json $Servicedeskintegrationdto
-            Send-ServiceDeskIntegrationV1 -Id $Id -Servicedeskintegrationdto $Result 
+            $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+            Send-ServiceDeskIntegrationV1 -Id $Id -ServiceDeskIntegrationDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-ServiceDeskIntegrationV1 -Id $Id -Servicedeskintegrationdto $Result   
+            # Send-ServiceDeskIntegrationV1 -Id $Id -ServiceDeskIntegrationDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ServiceDeskIntegrationV1"
             Write-Host $_.ErrorDetails
@@ -187,18 +257,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#update-status-check-details-v1
       source: |
-        $Queuedcheckconfigdetails = @"
-        
+        $QueuedCheckConfigDetails = @"
+        {
+          "provisioningStatusCheckIntervalMinutes" : "30",
+          "provisioningMaxStatusCheckDays" : "2"
+        }
         "@
         
         # Update the time check configuration
         
         try {
-            $Result = ConvertFrom-JsonToQueuedcheckconfigdetails -Json $Queuedcheckconfigdetails
-            Update-StatusCheckDetailsV1 -Queuedcheckconfigdetails $Result 
+            $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
+            Update-StatusCheckDetailsV1 -QueuedCheckConfigDetails $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-StatusCheckDetailsV1 -Queuedcheckconfigdetails $Result   
+            # Update-StatusCheckDetailsV1 -QueuedCheckConfigDetails $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-StatusCheckDetailsV1"
             Write-Host $_.ErrorDetails

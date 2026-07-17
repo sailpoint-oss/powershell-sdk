@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.LifecycleStates.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,21 +76,21 @@ FunctionsToExport = 'New-LifecycleStateV1', 'Remove-LifecycleStateV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Accessactionconfiguration', 
-               'ConvertFrom-JsonToAccessactionconfiguration', 
-               'Initialize-Accountaction', 'ConvertFrom-JsonToAccountaction', 
-               'ConvertFrom-JsonToArrayInner', 'Initialize-Basecommondto', 
-               'ConvertFrom-JsonToBasecommondto', 
-               'Initialize-Emailnotificationoption', 
-               'ConvertFrom-JsonToEmailnotificationoption', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 
-               'Initialize-Lifecyclestate', 'ConvertFrom-JsonToLifecyclestate', 
-               'Initialize-Lifecyclestatedeleted', 
-               'ConvertFrom-JsonToLifecyclestatedeleted', 
+               'Initialize-AccessActionConfiguration', 
+               'ConvertFrom-JsonToAccessActionConfiguration', 
+               'Initialize-AccountAction', 'ConvertFrom-JsonToAccountAction', 
+               'ConvertFrom-JsonToArrayInner', 'Initialize-BaseCommonDto', 
+               'ConvertFrom-JsonToBaseCommonDto', 
+               'Initialize-EmailNotificationOption', 
+               'ConvertFrom-JsonToEmailNotificationOption', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 
+               'Initialize-LifecycleState', 'ConvertFrom-JsonToLifecycleState', 
+               'Initialize-LifecyclestateDeleted', 
+               'ConvertFrom-JsonToLifecyclestateDeleted', 
                'Initialize-SetLifecycleStateV1200Response', 
                'ConvertFrom-JsonToSetLifecycleStateV1200Response', 
                'Initialize-SetLifecycleStateV1401Response', 

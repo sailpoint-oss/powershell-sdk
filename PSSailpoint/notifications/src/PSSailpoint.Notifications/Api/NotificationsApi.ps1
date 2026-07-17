@@ -14,7 +14,7 @@ Verify domain address via dkim
 
 Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
-.PARAMETER Domainaddress
+.PARAMETER DomainAddress
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Domainstatusdto
+DomainStatusDto
 #>
 function New-DomainDkimV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Domainaddress},
+        ${DomainAddress},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-DomainDkimV1 {
 
         $LocalVarUri = '/verified-domains/v1'
 
-        if (!$Domainaddress) {
-            throw "Error! The required parameter `Domainaddress` missing when calling createDomainDkimV1."
+        if (!$DomainAddress) {
+            throw "Error! The required parameter `DomainAddress` missing when calling createDomainDkimV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Domainaddress -is [array])) {
-            $LocalVarBodyParameter = $Domainaddress | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($DomainAddress -is [array])) {
+            $LocalVarBodyParameter = $DomainAddress | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Domainaddress | ForEach-Object {
+            $LocalVarBodyParameter = $DomainAddress | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-DomainDkimV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Domainstatusdto" `
+                                -ReturnType "DomainStatusDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -102,7 +102,7 @@ Create notification template
 
 This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
 
-.PARAMETER Templatedto
+.PARAMETER TemplateDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -111,14 +111,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Templatedto
+TemplateDto
 #>
 function New-NotificationTemplateV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Templatedto},
+        ${TemplateDto},
         [Switch]
         $WithHttpInfo
     )
@@ -144,14 +144,14 @@ function New-NotificationTemplateV1 {
 
         $LocalVarUri = '/notification-templates/v1'
 
-        if (!$Templatedto) {
-            throw "Error! The required parameter `Templatedto` missing when calling createNotificationTemplateV1."
+        if (!$TemplateDto) {
+            throw "Error! The required parameter `TemplateDto` missing when calling createNotificationTemplateV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Templatedto -is [array])) {
-            $LocalVarBodyParameter = $Templatedto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TemplateDto -is [array])) {
+            $LocalVarBodyParameter = $TemplateDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Templatedto | ForEach-Object {
+            $LocalVarBodyParameter = $TemplateDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -170,7 +170,7 @@ function New-NotificationTemplateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Templatedto" `
+                                -ReturnType "TemplateDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -190,7 +190,7 @@ Create verified from address
 
 Create a new sender email address and initiate verification process.
 
-.PARAMETER Emailstatusdto
+.PARAMETER EmailStatusDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -199,14 +199,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Emailstatusdto
+EmailStatusDto
 #>
 function New-VerifiedFromAddressV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Emailstatusdto},
+        ${EmailStatusDto},
         [Switch]
         $WithHttpInfo
     )
@@ -232,14 +232,14 @@ function New-VerifiedFromAddressV1 {
 
         $LocalVarUri = '/verified-from-addresses/v1'
 
-        if (!$Emailstatusdto) {
-            throw "Error! The required parameter `Emailstatusdto` missing when calling createVerifiedFromAddressV1."
+        if (!$EmailStatusDto) {
+            throw "Error! The required parameter `EmailStatusDto` missing when calling createVerifiedFromAddressV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Emailstatusdto -is [array])) {
-            $LocalVarBodyParameter = $Emailstatusdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EmailStatusDto -is [array])) {
+            $LocalVarBodyParameter = $EmailStatusDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Emailstatusdto | ForEach-Object {
+            $LocalVarBodyParameter = $EmailStatusDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -258,7 +258,7 @@ function New-VerifiedFromAddressV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Emailstatusdto" `
+                                -ReturnType "EmailStatusDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -278,7 +278,7 @@ Bulk delete notification templates
 
 This lets you bulk delete templates that you previously created for your site.
 
-.PARAMETER Templatebulkdeletedto
+.PARAMETER TemplateBulkDeleteDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -294,7 +294,7 @@ function Remove-NotificationTemplatesInBulkV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Templatebulkdeletedto},
+        ${TemplateBulkDeleteDto},
         [Switch]
         $WithHttpInfo
     )
@@ -320,14 +320,14 @@ function Remove-NotificationTemplatesInBulkV1 {
 
         $LocalVarUri = '/notification-templates/v1/bulk-delete'
 
-        if (!$Templatebulkdeletedto) {
-            throw "Error! The required parameter `Templatebulkdeletedto` missing when calling deleteNotificationTemplatesInBulkV1."
+        if (!$TemplateBulkDeleteDto) {
+            throw "Error! The required parameter `TemplateBulkDeleteDto` missing when calling deleteNotificationTemplatesInBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Templatebulkdeletedto -is [array])) {
-            $LocalVarBodyParameter = $Templatebulkdeletedto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TemplateBulkDeleteDto -is [array])) {
+            $LocalVarBodyParameter = $TemplateBulkDeleteDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Templatebulkdeletedto | ForEach-Object {
+            $LocalVarBodyParameter = $TemplateBulkDeleteDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -450,7 +450,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Dkimattributes[]
+DkimAttributes[]
 #>
 function Get-DkimAttributesV1 {
     [CmdletBinding()]
@@ -500,7 +500,7 @@ function Get-DkimAttributesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Dkimattributes[]" `
+                                -ReturnType "DkimAttributes[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -529,7 +529,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Mailfromattributes
+MailFromAttributes
 #>
 function Get-MailFromAttributesV1 {
     [CmdletBinding()]
@@ -572,7 +572,7 @@ function Get-MailFromAttributesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Mailfromattributes" `
+                                -ReturnType "MailFromAttributes" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -601,7 +601,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Preferencesdto
+PreferencesDto
 #>
 function Get-NotificationPreferencesV1 {
     [CmdletBinding()]
@@ -644,7 +644,7 @@ function Get-NotificationPreferencesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Preferencesdto" `
+                                -ReturnType "PreferencesDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -673,7 +673,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Templatedto
+TemplateDto
 #>
 function Get-NotificationTemplateV1 {
     [CmdletBinding()]
@@ -716,7 +716,7 @@ function Get-NotificationTemplateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Templatedto" `
+                                -ReturnType "TemplateDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -751,7 +751,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Templatevariablesdto
+TemplateVariablesDto
 #>
 function Get-NotificationTemplateVariablesV1 {
     [CmdletBinding()]
@@ -809,7 +809,7 @@ function Get-NotificationTemplateVariablesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Templatevariablesdto" `
+                                -ReturnType "TemplateVariablesDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -835,7 +835,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Notificationtemplatecontext
+NotificationTemplateContext
 #>
 function Get-NotificationsTemplateContextV1 {
     [CmdletBinding()]
@@ -871,7 +871,7 @@ function Get-NotificationsTemplateContextV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Notificationtemplatecontext" `
+                                -ReturnType "NotificationTemplateContext" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -912,7 +912,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Emailstatusdto[]
+EmailStatusDto[]
 #>
 function Get-FromAddressesV1 {
     [CmdletBinding()]
@@ -983,7 +983,7 @@ function Get-FromAddressesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Emailstatusdto[]" `
+                                -ReturnType "EmailStatusDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1018,7 +1018,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Templatedtodefault[]
+TemplateDtoDefault[]
 #>
 function Get-NotificationTemplateDefaultsV1 {
     [CmdletBinding()]
@@ -1075,7 +1075,7 @@ function Get-NotificationTemplateDefaultsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Templatedtodefault[]" `
+                                -ReturnType "TemplateDtoDefault[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1113,7 +1113,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Templatedto[]
+TemplateDto[]
 #>
 function Get-NotificationTemplatesV1 {
     [CmdletBinding()]
@@ -1177,7 +1177,7 @@ function Get-NotificationTemplatesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Templatedto[]" `
+                                -ReturnType "TemplateDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1197,7 +1197,7 @@ Change mail from domain
 
 Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
 
-.PARAMETER Mailfromattributesdto
+.PARAMETER MailFromAttributesDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1206,14 +1206,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Mailfromattributes
+MailFromAttributes
 #>
 function Send-MailFromAttributesV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Mailfromattributesdto},
+        ${MailFromAttributesDto},
         [Switch]
         $WithHttpInfo
     )
@@ -1239,14 +1239,14 @@ function Send-MailFromAttributesV1 {
 
         $LocalVarUri = '/mail-from-attributes/v1'
 
-        if (!$Mailfromattributesdto) {
-            throw "Error! The required parameter `Mailfromattributesdto` missing when calling putMailFromAttributesV1."
+        if (!$MailFromAttributesDto) {
+            throw "Error! The required parameter `MailFromAttributesDto` missing when calling putMailFromAttributesV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Mailfromattributesdto -is [array])) {
-            $LocalVarBodyParameter = $Mailfromattributesdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MailFromAttributesDto -is [array])) {
+            $LocalVarBodyParameter = $MailFromAttributesDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Mailfromattributesdto | ForEach-Object {
+            $LocalVarBodyParameter = $MailFromAttributesDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1265,7 +1265,7 @@ function Send-MailFromAttributesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Mailfromattributes" `
+                                -ReturnType "MailFromAttributes" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1285,7 +1285,7 @@ Send test notification
 
 Send a Test Notification
 
-.PARAMETER Sendtestnotificationrequestdto
+.PARAMETER SendTestNotificationRequestDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1301,7 +1301,7 @@ function Send-TestNotificationV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Sendtestnotificationrequestdto},
+        ${SendTestNotificationRequestDto},
         [Switch]
         $WithHttpInfo
     )
@@ -1327,14 +1327,14 @@ function Send-TestNotificationV1 {
 
         $LocalVarUri = '/send-test-notification/v1'
 
-        if (!$Sendtestnotificationrequestdto) {
-            throw "Error! The required parameter `Sendtestnotificationrequestdto` missing when calling sendTestNotificationV1."
+        if (!$SendTestNotificationRequestDto) {
+            throw "Error! The required parameter `SendTestNotificationRequestDto` missing when calling sendTestNotificationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sendtestnotificationrequestdto -is [array])) {
-            $LocalVarBodyParameter = $Sendtestnotificationrequestdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SendTestNotificationRequestDto -is [array])) {
+            $LocalVarBodyParameter = $SendTestNotificationRequestDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sendtestnotificationrequestdto | ForEach-Object {
+            $LocalVarBodyParameter = $SendTestNotificationRequestDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

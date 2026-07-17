@@ -91,20 +91,20 @@ Approves a non-employee approval request and notifies the next approver. The cur
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Non-Employee approval item id (UUID)
- Body  | Nonemployeeapprovaldecision | [**Nonemployeeapprovaldecision**](../models/nonemployeeapprovaldecision) | True  | 
+ Body  | NonEmployeeApprovalDecision | [**NonEmployeeApprovalDecision**](../models/non-employee-approval-decision) | True  | 
 
 ### Return type
-[**Nonemployeeapprovalitem**](../models/nonemployeeapprovalitem)
+[**NonEmployeeApprovalItem**](../models/non-employee-approval-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Non-Employee approval item object. | Nonemployeeapprovalitem
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Non-Employee approval item object. | NonEmployeeApprovalItem
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -113,16 +113,18 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
-$Nonemployeeapprovaldecision = @""@
+$NonEmployeeApprovalDecision = @"{
+  "comment" : "Approved by manager"
+}"@
 
 # Approve a non-employee request
 
 try {
-    $Result = ConvertFrom-JsonToNonemployeeapprovaldecision -Json $Nonemployeeapprovaldecision
-    Approve-NonEmployeeRequestV1 -Id $Id -Nonemployeeapprovaldecision $Result 
+    $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
+    Approve-NonEmployeeRequestV1 -Id $Id -NonEmployeeApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-NonEmployeeRequestV1 -Id $Id -Nonemployeeapprovaldecision $Result  
+    # Approve-NonEmployeeRequestV1 -Id $Id -NonEmployeeApprovalDecision $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-NonEmployeeRequestV1"
     Write-Host $_.ErrorDetails
@@ -139,20 +141,20 @@ Requires role context of `idn:nesr:create`
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Nonemployeerequestbody | [**Nonemployeerequestbody**](../models/nonemployeerequestbody) | True  | Non-Employee record creation request body.
+ Body  | NonEmployeeRequestBody | [**NonEmployeeRequestBody**](../models/non-employee-request-body) | True  | Non-Employee record creation request body.
 
 ### Return type
-[**Nonemployeerecord**](../models/nonemployeerecord)
+[**NonEmployeeRecord**](../models/non-employee-record)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Created non-employee record. | Nonemployeerecord
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Created non-employee record. | NonEmployeeRecord
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -160,16 +162,29 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Nonemployeerequestbody = @""@
+$NonEmployeeRequestBody = @"{
+  "sourceId" : "2c91808568c529c60168cca6f90c1313",
+  "firstName" : "William",
+  "lastName" : "Smith",
+  "manager" : "jane.doe",
+  "data" : {
+    "description" : "Auditing"
+  },
+  "accountName" : "william.smith",
+  "phone" : "5125555555",
+  "endDate" : "2021-03-25T00:00:00-05:00",
+  "email" : "william.smith@example.com",
+  "startDate" : "2020-03-24T00:00:00-05:00"
+}"@
 
 # Create non-employee record
 
 try {
-    $Result = ConvertFrom-JsonToNonemployeerequestbody -Json $Nonemployeerequestbody
-    New-NonEmployeeRecordV1 -Nonemployeerequestbody $Result 
+    $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+    New-NonEmployeeRecordV1 -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-NonEmployeeRecordV1 -Nonemployeerequestbody $Result  
+    # New-NonEmployeeRecordV1 -NonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeRecordV1"
     Write-Host $_.ErrorDetails
@@ -185,20 +200,20 @@ This request will create a non-employee request and notify the approver. Require
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Nonemployeerequestbody | [**Nonemployeerequestbody**](../models/nonemployeerequestbody) | True  | Non-Employee creation request body
+ Body  | NonEmployeeRequestBody | [**NonEmployeeRequestBody**](../models/non-employee-request-body) | True  | Non-Employee creation request body
 
 ### Return type
-[**Nonemployeerequest**](../models/nonemployeerequest)
+[**NonEmployeeRequest**](../models/non-employee-request)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Non-Employee request creation object | Nonemployeerequest
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Non-Employee request creation object | NonEmployeeRequest
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -206,16 +221,29 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Nonemployeerequestbody = @""@
+$NonEmployeeRequestBody = @"{
+  "sourceId" : "2c91808568c529c60168cca6f90c1313",
+  "firstName" : "William",
+  "lastName" : "Smith",
+  "manager" : "jane.doe",
+  "data" : {
+    "description" : "Auditing"
+  },
+  "accountName" : "william.smith",
+  "phone" : "5125555555",
+  "endDate" : "2021-03-25T00:00:00-05:00",
+  "email" : "william.smith@example.com",
+  "startDate" : "2020-03-24T00:00:00-05:00"
+}"@
 
 # Create non-employee request
 
 try {
-    $Result = ConvertFrom-JsonToNonemployeerequestbody -Json $Nonemployeerequestbody
-    New-NonEmployeeRequestV1 -Nonemployeerequestbody $Result 
+    $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+    New-NonEmployeeRequestV1 -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-NonEmployeeRequestV1 -Nonemployeerequestbody $Result  
+    # New-NonEmployeeRequestV1 -NonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeRequestV1"
     Write-Host $_.ErrorDetails
@@ -233,20 +261,20 @@ Requires role context of `idn:nesr:create`
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source id
- Body  | Nonemployeeschemaattributebody | [**Nonemployeeschemaattributebody**](../models/nonemployeeschemaattributebody) | True  | 
+ Body  | NonEmployeeSchemaAttributeBody | [**NonEmployeeSchemaAttributeBody**](../models/non-employee-schema-attribute-body) | True  | 
 
 ### Return type
-[**Nonemployeeschemaattribute**](../models/nonemployeeschemaattribute)
+[**NonEmployeeSchemaAttribute**](../models/non-employee-schema-attribute)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Schema Attribute created. | Nonemployeeschemaattribute
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Schema Attribute created. | NonEmployeeSchemaAttribute
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -255,16 +283,23 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
-$Nonemployeeschemaattributebody = @""@
+$NonEmployeeSchemaAttributeBody = @"{
+  "helpText" : "The unique identifier for the account",
+  "label" : "Account Name",
+  "placeholder" : "Enter a unique user name for this account.",
+  "type" : "TEXT",
+  "technicalName" : "account.name",
+  "required" : true
+}"@
 
 # Create a new schema attribute for non-employee source
 
 try {
-    $Result = ConvertFrom-JsonToNonemployeeschemaattributebody -Json $Nonemployeeschemaattributebody
-    New-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId -Nonemployeeschemaattributebody $Result 
+    $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
+    New-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId -Nonemployeeschemaattributebody $Result  
+    # New-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeSourceSchemaAttributesV1"
     Write-Host $_.ErrorDetails
@@ -280,20 +315,20 @@ Create a non-employee source.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Nonemployeesourcerequestbody | [**Nonemployeesourcerequestbody**](../models/nonemployeesourcerequestbody) | True  | Non-Employee source creation request body.
+ Body  | NonEmployeeSourceRequestBody | [**NonEmployeeSourceRequestBody**](../models/non-employee-source-request-body) | True  | Non-Employee source creation request body.
 
 ### Return type
-[**Nonemployeesourcewithcloudexternalid**](../models/nonemployeesourcewithcloudexternalid)
+[**NonEmployeeSourceWithCloudExternalId**](../models/non-employee-source-with-cloud-external-id)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Created non-employee source. | Nonemployeesourcewithcloudexternalid
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Created non-employee source. | NonEmployeeSourceWithCloudExternalId
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -301,16 +336,41 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Nonemployeesourcerequestbody = @""@
+$NonEmployeeSourceRequestBody = @"{
+  "owner" : {
+    "id" : "2c91808570313110017040b06f344ec9"
+  },
+  "managementWorkgroup" : "123299",
+  "accountManagers" : [ {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  } ],
+  "name" : "Retail",
+  "description" : "Source description",
+  "approvers" : [ {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  } ]
+}"@
 
 # Create non-employee source
 
 try {
-    $Result = ConvertFrom-JsonToNonemployeesourcerequestbody -Json $Nonemployeesourcerequestbody
-    New-NonEmployeeSourceV1 -Nonemployeesourcerequestbody $Result 
+    $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
+    New-NonEmployeeSourceV1 -NonEmployeeSourceRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-NonEmployeeSourceV1 -Nonemployeesourcerequestbody $Result  
+    # New-NonEmployeeSourceV1 -NonEmployeeSourceRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeSourceV1"
     Write-Host $_.ErrorDetails
@@ -336,11 +396,11 @@ Path   | Id | **String** | True  | Non-Employee record id (UUID)
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -381,11 +441,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -428,12 +488,12 @@ Path   | Id | **String** | True  | Non-Employee request id in the UUID format
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -477,11 +537,11 @@ Path   | SourceId | **String** | True  | The Source id
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -523,11 +583,11 @@ Path   | SourceId | **String** | True  | The Source id
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -568,11 +628,11 @@ Path   | SourceId | **String** | True  | Source Id
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -613,12 +673,12 @@ Path   | Id | **String** | True  | Source Id (UUID)
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Exported CSV | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -659,12 +719,12 @@ Path   | Id | **String** | True  | Source Id (UUID)
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Exported Source Schema Template | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -703,17 +763,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | RequestedFor | **String** | True  | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
 ### Return type
-[**Nonemployeeapprovalsummary**](../models/nonemployeeapprovalsummary)
+[**NonEmployeeApprovalSummary**](../models/non-employee-approval-summary)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | summary of non-employee approval requests | Nonemployeeapprovalsummary
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | summary of non-employee approval requests | NonEmployeeApprovalSummary
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -752,17 +812,17 @@ Path   | Id | **String** | True  | Non-Employee approval item id (UUID)
   Query | IncludeDetail | **Boolean** |   (optional) | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true*
 
 ### Return type
-[**Nonemployeeapprovalitemdetail**](../models/nonemployeeapprovalitemdetail)
+[**NonEmployeeApprovalItemDetail**](../models/non-employee-approval-item-detail)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Non-Employee approval item object. | Nonemployeeapprovalitemdetail
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Non-Employee approval item object. | NonEmployeeApprovalItemDetail
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -800,17 +860,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Source ID (UUID)
 
 ### Return type
-[**Nonemployeebulkuploadstatus**](../models/nonemployeebulkuploadstatus)
+[**NonEmployeeBulkUploadStatus**](../models/non-employee-bulk-upload-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Status of the newest bulk-upload job, if any. | Nonemployeebulkuploadstatus
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Status of the newest bulk-upload job, if any. | NonEmployeeBulkUploadStatus
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -846,17 +906,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Non-Employee record id (UUID)
 
 ### Return type
-[**Nonemployeerecord**](../models/nonemployeerecord)
+[**NonEmployeeRecord**](../models/non-employee-record)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Non-Employee record object | Nonemployeerecord
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Non-Employee record object | NonEmployeeRecord
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -895,17 +955,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | RequestedFor | **String** | True  | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
 ### Return type
-[**Nonemployeerequestsummary**](../models/nonemployeerequestsummary)
+[**NonEmployeeRequestSummary**](../models/non-employee-request-summary)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Non-Employee request summary object. | Nonemployeerequestsummary
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Non-Employee request summary object. | NonEmployeeRequestSummary
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -944,18 +1004,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Non-Employee request id (UUID)
 
 ### Return type
-[**Nonemployeerequest**](../models/nonemployeerequest)
+[**NonEmployeeRequest**](../models/non-employee-request)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Non-Employee request object. | Nonemployeerequest
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Non-Employee request object. | NonEmployeeRequest
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -991,17 +1051,17 @@ Path   | AttributeId | **String** | True  | The Schema Attribute Id (UUID)
 Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
-[**Nonemployeeschemaattribute**](../models/nonemployeeschemaattribute)
+[**NonEmployeeSchemaAttribute**](../models/non-employee-schema-attribute)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The Schema Attribute | Nonemployeeschemaattribute
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The Schema Attribute | NonEmployeeSchemaAttribute
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1038,18 +1098,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
-[**Nonemployeeschemaattribute[]**](../models/nonemployeeschemaattribute)
+[**NonEmployeeSchemaAttribute[]**](../models/non-employee-schema-attribute)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of Schema Attributes | Nonemployeeschemaattribute[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of Schema Attributes | NonEmployeeSchemaAttribute[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1088,17 +1148,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | Source Id
 
 ### Return type
-[**Nonemployeesource**](../models/nonemployeesource)
+[**NonEmployeeSource**](../models/non-employee-source)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Non-Employee source object. | Nonemployeesource
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Non-Employee source object. | NonEmployeeSource
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1134,18 +1194,18 @@ Path   | Id | **String** | True  | Source Id (UUID)
    | Data | **System.IO.FileInfo** | True  | 
 
 ### Return type
-[**Nonemployeebulkuploadjob**](../models/nonemployeebulkuploadjob)
+[**NonEmployeeBulkUploadJob**](../models/non-employee-bulk-upload-job)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | The CSV was accepted to be bulk inserted now or at a later time. | Nonemployeebulkuploadjob
-400 | Client Error - Returned if the request body is invalid. The response body will contain the list of specific errors with one on each line.  | Errorresponsedto
+202 | The CSV was accepted to be bulk inserted now or at a later time. | NonEmployeeBulkUploadJob
+400 | Client Error - Returned if the request body is invalid. The response body will contain the list of specific errors with one on each line.  | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: multipart/form-data
@@ -1190,17 +1250,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
 
 ### Return type
-[**Nonemployeeapprovalitem[]**](../models/nonemployeeapprovalitem)
+[**NonEmployeeApprovalItem[]**](../models/non-employee-approval-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of approval items. | Nonemployeeapprovalitem[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of approval items. | NonEmployeeApprovalItem[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1246,17 +1306,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*
 
 ### Return type
-[**Nonemployeerecord[]**](../models/nonemployeerecord)
+[**NonEmployeeRecord[]**](../models/non-employee-record)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Non-Employee record objects | Nonemployeerecord[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Non-Employee record objects | NonEmployeeRecord[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1304,17 +1364,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* 
 
 ### Return type
-[**Nonemployeerequest[]**](../models/nonemployeerequest)
+[**NonEmployeeRequest[]**](../models/non-employee-request)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of non-employee request objects. | Nonemployeerequest[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of non-employee request objects. | NonEmployeeRequest[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1361,17 +1421,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId**
 
 ### Return type
-[**Nonemployeesourcewithnecount[]**](../models/nonemployeesourcewithnecount)
+[**NonEmployeeSourceWithNECount[]**](../models/non-employee-source-with-ne-count)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of non-employee sources objects. | Nonemployeesourcewithnecount[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of non-employee sources objects. | NonEmployeeSourceWithNECount[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1413,21 +1473,21 @@ end date.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Non-employee record id (UUID)
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
 ### Return type
-[**Nonemployeerecord**](../models/nonemployeerecord)
+[**NonEmployeeRecord**](../models/non-employee-record)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A patched non-employee record. | Nonemployeerecord
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A patched non-employee record. | NonEmployeeRecord
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -1436,17 +1496,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID)
- $Jsonpatchoperation = @"[{"op":"replace","path":"/endDate","value":"2019-08-23T18:40:35.772Z"}]"@ # Jsonpatchoperation[] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
  
 
 # Patch non-employee record
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-NonEmployeeRecordV1 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-NonEmployeeRecordV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-NonEmployeeRecordV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-NonEmployeeRecordV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeRecordV1"
     Write-Host $_.ErrorDetails
@@ -1466,21 +1530,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | AttributeId | **String** | True  | The Schema Attribute Id (UUID)
 Path   | SourceId | **String** | True  | The Source id
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
 
 ### Return type
-[**Nonemployeeschemaattribute**](../models/nonemployeeschemaattribute)
+[**NonEmployeeSchemaAttribute**](../models/non-employee-schema-attribute)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The Schema Attribute was successfully patched. | Nonemployeeschemaattribute
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The Schema Attribute was successfully patched. | NonEmployeeSchemaAttribute
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -1490,17 +1554,21 @@ Code | Description  | Data Type
 ```powershell
 $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
- $Jsonpatchoperation = @"[{"op":"replace","path":"/label","value":{"new attribute label":null}}]"@ # Jsonpatchoperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
  
 
 # Patch a schema attribute for non-employee source
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId -Jsonpatchoperation $Result  
+    # Update-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeSchemaAttributeV1"
     Write-Host $_.ErrorDetails
@@ -1517,20 +1585,20 @@ patch a non-employee source. (partial update) <br/> Patchable field: **name, des
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source Id
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-[**Nonemployeesource**](../models/nonemployeesource)
+[**NonEmployeeSource**](../models/non-employee-source)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A patched non-employee source object. | Nonemployeesource
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A patched non-employee source object. | NonEmployeeSource
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -1539,17 +1607,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
- $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":{"new name":null}},{"op":"replace","path":"/approvers","value":["2c91809f703bb37a017040a2fe8748c7","48b1f463c9e8427db5a5071bd81914b8"]}]"@ # Jsonpatchoperation[] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
 # Patch a non-employee source
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-NonEmployeeSourceV1 -SourceId $SourceId -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-NonEmployeeSourceV1 -SourceId $SourceId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-NonEmployeeSourceV1 -SourceId $SourceId -Jsonpatchoperation $Result  
+    # Update-NonEmployeeSourceV1 -SourceId $SourceId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeSourceV1"
     Write-Host $_.ErrorDetails
@@ -1566,20 +1638,20 @@ This endpoint will reject an approval item request and notify user. The current 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Non-Employee approval item id (UUID)
- Body  | Nonemployeerejectapprovaldecision | [**Nonemployeerejectapprovaldecision**](../models/nonemployeerejectapprovaldecision) | True  | 
+ Body  | NonEmployeeRejectApprovalDecision | [**NonEmployeeRejectApprovalDecision**](../models/non-employee-reject-approval-decision) | True  | 
 
 ### Return type
-[**Nonemployeeapprovalitem**](../models/nonemployeeapprovalitem)
+[**NonEmployeeApprovalItem**](../models/non-employee-approval-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Non-Employee approval item object. | Nonemployeeapprovalitem
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Non-Employee approval item object. | NonEmployeeApprovalItem
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -1588,16 +1660,18 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
-$Nonemployeerejectapprovaldecision = @""@
+$NonEmployeeRejectApprovalDecision = @"{
+  "comment" : "approved"
+}"@
 
 # Reject a non-employee request
 
 try {
-    $Result = ConvertFrom-JsonToNonemployeerejectapprovaldecision -Json $Nonemployeerejectapprovaldecision
-    Deny-NonEmployeeRequestV1 -Id $Id -Nonemployeerejectapprovaldecision $Result 
+    $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
+    Deny-NonEmployeeRequestV1 -Id $Id -NonEmployeeRejectApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters
-    # Deny-NonEmployeeRequestV1 -Id $Id -Nonemployeerejectapprovaldecision $Result  
+    # Deny-NonEmployeeRequestV1 -Id $Id -NonEmployeeRejectApprovalDecision $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-NonEmployeeRequestV1"
     Write-Host $_.ErrorDetails
@@ -1618,21 +1692,21 @@ end date.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Non-employee record id (UUID)
- Body  | Nonemployeerequestbody | [**Nonemployeerequestbody**](../models/nonemployeerequestbody) | True  | Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+ Body  | NonEmployeeRequestBody | [**NonEmployeeRequestBody**](../models/non-employee-request-body) | True  | Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
 ### Return type
-[**Nonemployeerecord**](../models/nonemployeerecord)
+[**NonEmployeeRecord**](../models/non-employee-record)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An updated non-employee record. | Nonemployeerecord
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | An updated non-employee record. | NonEmployeeRecord
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListNonEmployeeRecordsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListNonEmployeeRecordsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -1641,16 +1715,29 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID)
-$Nonemployeerequestbody = @""@
+$NonEmployeeRequestBody = @"{
+  "sourceId" : "2c91808568c529c60168cca6f90c1313",
+  "firstName" : "William",
+  "lastName" : "Smith",
+  "manager" : "jane.doe",
+  "data" : {
+    "description" : "Auditing"
+  },
+  "accountName" : "william.smith",
+  "phone" : "5125555555",
+  "endDate" : "2021-03-25T00:00:00-05:00",
+  "email" : "william.smith@example.com",
+  "startDate" : "2020-03-24T00:00:00-05:00"
+}"@
 
 # Update non-employee record
 
 try {
-    $Result = ConvertFrom-JsonToNonemployeerequestbody -Json $Nonemployeerequestbody
-    Update-NonEmployeeRecordV1 -Id $Id -Nonemployeerequestbody $Result 
+    $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+    Update-NonEmployeeRecordV1 -Id $Id -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-NonEmployeeRecordV1 -Id $Id -Nonemployeerequestbody $Result  
+    # Update-NonEmployeeRecordV1 -Id $Id -NonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeRecordV1"
     Write-Host $_.ErrorDetails

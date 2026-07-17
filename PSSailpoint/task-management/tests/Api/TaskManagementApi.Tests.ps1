@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.TaskManagement' -name 'TaskManagementApi' {
 
     Context 'Update-TaskStatusV1' {
         It 'Test Update-TaskStatusV1' {
-            #$TestResult = Update-TaskStatusV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-TaskStatusV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

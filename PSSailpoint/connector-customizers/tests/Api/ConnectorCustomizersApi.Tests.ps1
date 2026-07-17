@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.ConnectorCustomizers' -name 'ConnectorCustomizersApi' {
     Context 'New-ConnectorCustomizerV1' {
         It 'Test New-ConnectorCustomizerV1' {
-            #$TestResult = New-ConnectorCustomizerV1 -Connectorcustomizercreaterequest "TEST_VALUE"
+            #$TestResult = New-ConnectorCustomizerV1 -ConnectorCustomizerCreateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.ConnectorCustomizers' -name 'ConnectorCustomizersApi'
 
     Context 'Send-ConnectorCustomizerV1' {
         It 'Test Send-ConnectorCustomizerV1' {
-            #$TestResult = Send-ConnectorCustomizerV1 -Id "TEST_VALUE" -Connectorcustomizerupdaterequest "TEST_VALUE"
+            #$TestResult = Send-ConnectorCustomizerV1 -Id "TEST_VALUE" -ConnectorCustomizerUpdateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

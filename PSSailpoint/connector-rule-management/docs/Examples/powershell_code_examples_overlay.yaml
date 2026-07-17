@@ -4,18 +4,43 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/connectorrulemanagement/methods/connector-rule-management#create-connector-rule-v1
       source: |
-        $Connectorrulecreaterequest = @"
-        
+        $ConnectorRuleCreateRequest = @"
+        {
+          "sourceCode" : {
+            "version" : "1.0",
+            "script" : "return \"Mr. \" + firstName;"
+          },
+          "signature" : {
+            "output" : {
+              "name" : "firstName",
+              "description" : "the first name of the identity",
+              "type" : "String"
+            },
+            "input" : [ {
+              "name" : "firstName",
+              "description" : "the first name of the identity",
+              "type" : "String"
+            }, {
+              "name" : "firstName",
+              "description" : "the first name of the identity",
+              "type" : "String"
+            } ]
+          },
+          "name" : "WebServiceBeforeOperationRule",
+          "description" : "This rule does that",
+          "attributes" : { },
+          "type" : "BuildMap"
+        }
         "@
         
         # Create connector rule
         
         try {
-            $Result = ConvertFrom-JsonToConnectorrulecreaterequest -Json $Connectorrulecreaterequest
-            New-ConnectorRuleV1 -Connectorrulecreaterequest $Result 
+            $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
+            New-ConnectorRuleV1 -ConnectorRuleCreateRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-ConnectorRuleV1 -Connectorrulecreaterequest $Result   
+            # New-ConnectorRuleV1 -ConnectorRuleCreateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ConnectorRuleV1"
             Write-Host $_.ErrorDetails
@@ -86,8 +111,34 @@
       label: SDK_tools/sdk/powershell/connectorrulemanagement/methods/connector-rule-management#put-connector-rule-v1
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to update.
-        $Connectorruleupdaterequest = @"
-        
+        $ConnectorRuleUpdateRequest = @"
+        {
+          "sourceCode" : {
+            "version" : "1.0",
+            "script" : "return \"Mr. \" + firstName;"
+          },
+          "signature" : {
+            "output" : {
+              "name" : "firstName",
+              "description" : "the first name of the identity",
+              "type" : "String"
+            },
+            "input" : [ {
+              "name" : "firstName",
+              "description" : "the first name of the identity",
+              "type" : "String"
+            }, {
+              "name" : "firstName",
+              "description" : "the first name of the identity",
+              "type" : "String"
+            } ]
+          },
+          "name" : "WebServiceBeforeOperationRule",
+          "description" : "This rule does that",
+          "attributes" : { },
+          "id" : "8113d48c0b914f17b4c6072d4dcb9dfe",
+          "type" : "BuildMap"
+        }
         "@
         
         # Update connector rule
@@ -96,7 +147,7 @@
             Send-ConnectorRuleV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Send-ConnectorRuleV1 -Id $Id -Connectorruleupdaterequest $Result   
+            # Send-ConnectorRuleV1 -Id $Id -ConnectorRuleUpdateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ConnectorRuleV1"
             Write-Host $_.ErrorDetails
@@ -107,18 +158,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/connectorrulemanagement/methods/connector-rule-management#test-connector-rule-v1
       source: |
-        $Sourcecode = @"
-        
+        $SourceCode = @"
+        {
+          "version" : "1.0",
+          "script" : "return \"Mr. \" + firstName;"
+        }
         "@
         
         # Validate connector rule
         
         try {
-            $Result = ConvertFrom-JsonToSourcecode -Json $Sourcecode
-            Test-ConnectorRuleV1 -Sourcecode $Result 
+            $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
+            Test-ConnectorRuleV1 -SourceCode $Result 
     
             # Below is a request that includes all optional parameters
-            # Test-ConnectorRuleV1 -Sourcecode $Result   
+            # Test-ConnectorRuleV1 -SourceCode $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-ConnectorRuleV1"
             Write-Host $_.ErrorDetails

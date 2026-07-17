@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.CertificationCampaignFilters.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,12 +75,12 @@ FunctionsToExport = 'New-CampaignFilterV1', 'Remove-CampaignFiltersV1',
                'Set-ConfigurationApiKey', 'Set-ConfigurationApiKeyPrefix', 
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
-               'Get-ConfigurationHttpSigning', 'Initialize-Campaignfilterdetails', 
-               'ConvertFrom-JsonToCampaignfilterdetails', 
-               'Initialize-CampaignfilterdetailsCriteriaListInner', 
-               'ConvertFrom-JsonToCampaignfilterdetailsCriteriaListInner', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Get-ConfigurationHttpSigning', 'Initialize-CampaignFilterDetails', 
+               'ConvertFrom-JsonToCampaignFilterDetails', 
+               'Initialize-CampaignFilterDetailsCriteriaListInner', 
+               'ConvertFrom-JsonToCampaignFilterDetailsCriteriaListInner', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-ListCampaignFiltersV1200Response', 
                'ConvertFrom-JsonToListCampaignFiltersV1200Response', 
                'Initialize-ListCampaignFiltersV1401Response', 

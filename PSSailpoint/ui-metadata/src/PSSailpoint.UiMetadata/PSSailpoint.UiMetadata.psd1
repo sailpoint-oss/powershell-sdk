@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.UiMetadata.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,16 +74,16 @@ FunctionsToExport = 'Get-TenantUiMetadataV1', 'Set-TenantUiMetadataV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetTenantUiMetadataV1401Response', 
                'ConvertFrom-JsonToGetTenantUiMetadataV1401Response', 
                'Initialize-GetTenantUiMetadataV1429Response', 
                'ConvertFrom-JsonToGetTenantUiMetadataV1429Response', 
-               'Initialize-Tenantuimetadataitemresponse', 
-               'ConvertFrom-JsonToTenantuimetadataitemresponse', 
-               'Initialize-Tenantuimetadataitemupdaterequest', 
-               'ConvertFrom-JsonToTenantuimetadataitemupdaterequest'
+               'Initialize-TenantUiMetadataItemResponse', 
+               'ConvertFrom-JsonToTenantUiMetadataItemResponse', 
+               'Initialize-TenantUiMetadataItemUpdateRequest', 
+               'ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

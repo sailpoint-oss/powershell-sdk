@@ -206,7 +206,11 @@
       label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#patch-entitlement-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to patch
-        $Jsonpatchoperation = @"[{"op":"add","path":"/segments/-","value":"f7b1b8a3-5fed-4fd4-ad29-82014e137e19"}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch an entitlement
@@ -215,7 +219,7 @@
             Update-EntitlementV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Update-EntitlementV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-EntitlementV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementV1"
             Write-Host $_.ErrorDetails
@@ -227,18 +231,45 @@
       label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#put-entitlement-request-config-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | Entitlement ID
-        $Entitlementrequestconfig = @"
-        
+        $EntitlementRequestConfig = @"
+        {
+          "accessRequestConfig" : {
+            "denialCommentRequired" : false,
+            "approvalSchemes" : [ {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            }, {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            } ],
+            "reauthorizationRequired" : false,
+            "requestCommentRequired" : true,
+            "requireEndDate" : true,
+            "maxPermittedAccessDuration" : {
+              "value" : 5,
+              "timeUnit" : "DAYS"
+            }
+          },
+          "revocationRequestConfig" : {
+            "approvalSchemes" : [ {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            }, {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            } ]
+          }
+        }
         "@
         
         # Replace entitlement request config
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementrequestconfig -Json $Entitlementrequestconfig
-            Send-EntitlementRequestConfigV1 -Id $Id -Entitlementrequestconfig $Result 
+            $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
+            Send-EntitlementRequestConfigV1 -Id $Id -EntitlementRequestConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-EntitlementRequestConfigV1 -Id $Id -Entitlementrequestconfig $Result   
+            # Send-EntitlementRequestConfigV1 -Id $Id -EntitlementRequestConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-EntitlementRequestConfigV1"
             Write-Host $_.ErrorDetails
@@ -268,18 +299,29 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#update-entitlements-in-bulk-v1
       source: |
-        $Entitlementbulkupdaterequest = @"
-        
+        $EntitlementBulkUpdateRequest = @"
+        {
+          "entitlementIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
+          "jsonPatch" : [ {
+            "op" : "replace",
+            "path" : "/requestable",
+            "value" : false
+          }, {
+            "op" : "replace",
+            "path" : "/privilegeOverride/level",
+            "value" : "HIGH"
+          } ]
+        }
         "@
         
         # Bulk update an entitlement list
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementbulkupdaterequest -Json $Entitlementbulkupdaterequest
-            Update-EntitlementsInBulkV1 -Entitlementbulkupdaterequest $Result 
+            $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
+            Update-EntitlementsInBulkV1 -EntitlementBulkUpdateRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-EntitlementsInBulkV1 -Entitlementbulkupdaterequest $Result   
+            # Update-EntitlementsInBulkV1 -EntitlementBulkUpdateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsInBulkV1"
             Write-Host $_.ErrorDetails

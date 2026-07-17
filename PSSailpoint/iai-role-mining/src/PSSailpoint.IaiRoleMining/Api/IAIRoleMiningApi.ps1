@@ -29,7 +29,7 @@ Minimum popularity required for an entitlement to be included in the provisioned
 .PARAMETER IncludeCommonAccess
 Boolean determining whether common access entitlements will be included in the provisioned role.
 
-.PARAMETER Roleminingpotentialroleprovisionrequest
+.PARAMETER RoleMiningPotentialRoleProvisionRequest
 Required information to create a new role
 
 .PARAMETER WithHttpInfo
@@ -38,7 +38,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingpotentialrolesummary
+RoleMiningPotentialRoleSummary
 #>
 function New-PotentialRoleProvisionRequestV1 {
     [CmdletBinding()]
@@ -60,7 +60,7 @@ function New-PotentialRoleProvisionRequestV1 {
         ${IncludeCommonAccess},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Roleminingpotentialroleprovisionrequest},
+        ${RoleMiningPotentialRoleProvisionRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -107,10 +107,10 @@ function New-PotentialRoleProvisionRequestV1 {
             $LocalVarQueryParameters['include-common-access'] = $IncludeCommonAccess
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Roleminingpotentialroleprovisionrequest -is [array])) {
-            $LocalVarBodyParameter = $Roleminingpotentialroleprovisionrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleMiningPotentialRoleProvisionRequest -is [array])) {
+            $LocalVarBodyParameter = $RoleMiningPotentialRoleProvisionRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Roleminingpotentialroleprovisionrequest | ForEach-Object {
+            $LocalVarBodyParameter = $RoleMiningPotentialRoleProvisionRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -129,7 +129,7 @@ function New-PotentialRoleProvisionRequestV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingpotentialrolesummary" `
+                                -ReturnType "RoleMiningPotentialRoleSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -152,7 +152,7 @@ This submits a create role mining session request to the role mining application
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Roleminingsessiondto
+.PARAMETER RoleMiningSessionDto
 Role mining session parameters
 
 .PARAMETER WithHttpInfo
@@ -161,7 +161,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingsessionresponse
+RoleMiningSessionResponse
 #>
 function New-RoleMiningSessionsV1 {
     [CmdletBinding()]
@@ -171,7 +171,7 @@ function New-RoleMiningSessionsV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Roleminingsessiondto},
+        ${RoleMiningSessionDto},
         [Switch]
         $WithHttpInfo
     )
@@ -202,14 +202,14 @@ function New-RoleMiningSessionsV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Roleminingsessiondto) {
-            throw "Error! The required parameter `Roleminingsessiondto` missing when calling createRoleMiningSessionsV1."
+        if (!$RoleMiningSessionDto) {
+            throw "Error! The required parameter `RoleMiningSessionDto` missing when calling createRoleMiningSessionsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Roleminingsessiondto -is [array])) {
-            $LocalVarBodyParameter = $Roleminingsessiondto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleMiningSessionDto -is [array])) {
+            $LocalVarBodyParameter = $RoleMiningSessionDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Roleminingsessiondto | ForEach-Object {
+            $LocalVarBodyParameter = $RoleMiningSessionDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -228,7 +228,7 @@ function New-RoleMiningSessionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingsessionresponse" `
+                                -ReturnType "RoleMiningSessionResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -372,7 +372,7 @@ A potential role id in a role mining session
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Roleminingpotentialroleexportrequest
+.PARAMETER RoleMiningPotentialRoleExportRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -381,7 +381,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingpotentialroleexportresponse
+RoleMiningPotentialRoleExportResponse
 #>
 function Export-RoleMiningPotentialRoleAsyncV1 {
     [CmdletBinding()]
@@ -397,7 +397,7 @@ function Export-RoleMiningPotentialRoleAsyncV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Roleminingpotentialroleexportrequest},
+        ${RoleMiningPotentialRoleExportRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -436,10 +436,10 @@ function Export-RoleMiningPotentialRoleAsyncV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Roleminingpotentialroleexportrequest -is [array])) {
-            $LocalVarBodyParameter = $Roleminingpotentialroleexportrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleMiningPotentialRoleExportRequest -is [array])) {
+            $LocalVarBodyParameter = $RoleMiningPotentialRoleExportRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Roleminingpotentialroleexportrequest | ForEach-Object {
+            $LocalVarBodyParameter = $RoleMiningPotentialRoleExportRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -458,7 +458,7 @@ function Export-RoleMiningPotentialRoleAsyncV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingpotentialroleexportresponse" `
+                                -ReturnType "RoleMiningPotentialRoleExportResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -496,7 +496,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingpotentialroleexportresponse
+RoleMiningPotentialRoleExportResponse
 #>
 function Export-RoleMiningPotentialRoleStatusV1 {
     [CmdletBinding()]
@@ -561,7 +561,7 @@ function Export-RoleMiningPotentialRoleStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingpotentialroleexportresponse" `
+                                -ReturnType "RoleMiningPotentialRoleExportResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -710,7 +710,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingpotentialrolesummary[]
+RoleMiningPotentialRoleSummary[]
 #>
 function Get-AllPotentialRoleSummariesV1 {
     [CmdletBinding()]
@@ -789,7 +789,7 @@ function Get-AllPotentialRoleSummariesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingpotentialrolesummary[]" `
+                                -ReturnType "RoleMiningPotentialRoleSummary[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -945,7 +945,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingentitlement[]
+RoleMiningEntitlement[]
 #>
 function Get-EntitlementsPotentialRoleV1 {
     [CmdletBinding()]
@@ -1045,7 +1045,7 @@ function Get-EntitlementsPotentialRoleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingentitlement[]" `
+                                -ReturnType "RoleMiningEntitlement[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1095,7 +1095,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingentitlement[]
+RoleMiningEntitlement[]
 #>
 function Get-ExcludedEntitlementsPotentialRoleV1 {
     [CmdletBinding()]
@@ -1188,7 +1188,7 @@ function Get-ExcludedEntitlementsPotentialRoleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingentitlement[]" `
+                                -ReturnType "RoleMiningEntitlement[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1238,7 +1238,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingidentity[]
+RoleMiningIdentity[]
 #>
 function Get-IdentitiesPotentialRoleV1 {
     [CmdletBinding()]
@@ -1331,7 +1331,7 @@ function Get-IdentitiesPotentialRoleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingidentity[]" `
+                                -ReturnType "RoleMiningIdentity[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1378,7 +1378,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingpotentialroleapplication[]
+RoleMiningPotentialRoleApplication[]
 #>
 function Get-PotentialRoleApplicationsV1 {
     [CmdletBinding()]
@@ -1464,7 +1464,7 @@ function Get-PotentialRoleApplicationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingpotentialroleapplication[]" `
+                                -ReturnType "RoleMiningPotentialRoleApplication[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1511,7 +1511,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingpotentialroleentitlements[]
+RoleMiningPotentialRoleEntitlements[]
 #>
 function Get-PotentialRoleEntitlementsV1 {
     [CmdletBinding()]
@@ -1597,7 +1597,7 @@ function Get-PotentialRoleEntitlementsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingpotentialroleentitlements[]" `
+                                -ReturnType "RoleMiningPotentialRoleEntitlements[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1644,7 +1644,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingpotentialrolesourceusage[]
+RoleMiningPotentialRoleSourceUsage[]
 #>
 function Get-PotentialRoleSourceIdentityUsageV1 {
     [CmdletBinding()]
@@ -1730,7 +1730,7 @@ function Get-PotentialRoleSourceIdentityUsageV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingpotentialrolesourceusage[]" `
+                                -ReturnType "RoleMiningPotentialRoleSourceUsage[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1777,7 +1777,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingpotentialrolesummary[]
+RoleMiningPotentialRoleSummary[]
 #>
 function Get-PotentialRoleSummariesV1 {
     [CmdletBinding()]
@@ -1863,7 +1863,7 @@ function Get-PotentialRoleSummariesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingpotentialrolesummary[]" `
+                                -ReturnType "RoleMiningPotentialRoleSummary[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1898,7 +1898,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingpotentialrole
+RoleMiningPotentialRole
 #>
 function Get-PotentialRoleV1 {
     [CmdletBinding()]
@@ -1956,7 +1956,7 @@ function Get-PotentialRoleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingpotentialrole" `
+                                -ReturnType "RoleMiningPotentialRole" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1988,7 +1988,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingpotentialrole
+RoleMiningPotentialRole
 #>
 function Get-RoleMiningPotentialRoleV1 {
     [CmdletBinding()]
@@ -2039,7 +2039,7 @@ function Get-RoleMiningPotentialRoleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingpotentialrole" `
+                                -ReturnType "RoleMiningPotentialRole" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2071,7 +2071,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingsessionstatus
+RoleMiningSessionStatus
 #>
 function Get-RoleMiningSessionStatusV1 {
     [CmdletBinding()]
@@ -2122,7 +2122,7 @@ function Get-RoleMiningSessionStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingsessionstatus" `
+                                -ReturnType "RoleMiningSessionStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2154,7 +2154,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingsessionresponse
+RoleMiningSessionResponse
 #>
 function Get-RoleMiningSessionV1 {
     [CmdletBinding()]
@@ -2205,7 +2205,7 @@ function Get-RoleMiningSessionV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingsessionresponse" `
+                                -ReturnType "RoleMiningSessionResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2249,7 +2249,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingsessiondto[]
+RoleMiningSessionDto[]
 #>
 function Get-RoleMiningSessionsV1 {
     [CmdletBinding()]
@@ -2328,7 +2328,7 @@ function Get-RoleMiningSessionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingsessiondto[]" `
+                                -ReturnType "RoleMiningSessionDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2369,7 +2369,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingsessiondraftroledto[]
+RoleMiningSessionDraftRoleDto[]
 #>
 function Get-SavedPotentialRolesV1 {
     [CmdletBinding()]
@@ -2441,7 +2441,7 @@ function Get-SavedPotentialRolesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingsessiondraftroledto[]" `
+                                -ReturnType "RoleMiningSessionDraftRoleDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2470,7 +2470,7 @@ The potential role summary id
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Jsonpatchoperationrolemining
+.PARAMETER JsonPatchOperationRoleMining
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -2495,7 +2495,7 @@ function Update-PotentialRoleSessionV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperationrolemining},
+        ${JsonPatchOperationRoleMining},
         [Switch]
         $WithHttpInfo
     )
@@ -2534,14 +2534,14 @@ function Update-PotentialRoleSessionV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Jsonpatchoperationrolemining) {
-            throw "Error! The required parameter `Jsonpatchoperationrolemining` missing when calling patchPotentialRoleSessionV1."
+        if (!$JsonPatchOperationRoleMining) {
+            throw "Error! The required parameter `JsonPatchOperationRoleMining` missing when calling patchPotentialRoleSessionV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperationrolemining -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperationrolemining | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperationRoleMining -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperationrolemining | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2589,7 +2589,7 @@ The potential role summary id
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Jsonpatchoperationrolemining
+.PARAMETER JsonPatchOperationRoleMining
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -2614,7 +2614,7 @@ function Update-PotentialRoleV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperationrolemining},
+        ${JsonPatchOperationRoleMining},
         [Switch]
         $WithHttpInfo
     )
@@ -2653,14 +2653,14 @@ function Update-PotentialRoleV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Jsonpatchoperationrolemining) {
-            throw "Error! The required parameter `Jsonpatchoperationrolemining` missing when calling patchPotentialRoleV1."
+        if (!$JsonPatchOperationRoleMining) {
+            throw "Error! The required parameter `JsonPatchOperationRoleMining` missing when calling patchPotentialRoleV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperationrolemining -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperationrolemining | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperationRoleMining -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperationrolemining | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2705,7 +2705,7 @@ The role mining session id to be patched
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
 
 .PARAMETER WithHttpInfo
@@ -2727,7 +2727,7 @@ function Update-RoleMiningSessionV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -2762,14 +2762,14 @@ function Update-RoleMiningSessionV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchRoleMiningSessionV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchRoleMiningSessionV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2817,7 +2817,7 @@ A potential role id in a role mining session
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Roleminingpotentialroleeditentitlements
+.PARAMETER RoleMiningPotentialRoleEditEntitlements
 Role mining session parameters
 
 .PARAMETER WithHttpInfo
@@ -2826,7 +2826,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleminingpotentialrole
+RoleMiningPotentialRole
 #>
 function Update-EntitlementsPotentialRoleV1 {
     [CmdletBinding()]
@@ -2842,7 +2842,7 @@ function Update-EntitlementsPotentialRoleV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Roleminingpotentialroleeditentitlements},
+        ${RoleMiningPotentialRoleEditEntitlements},
         [Switch]
         $WithHttpInfo
     )
@@ -2881,14 +2881,14 @@ function Update-EntitlementsPotentialRoleV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Roleminingpotentialroleeditentitlements) {
-            throw "Error! The required parameter `Roleminingpotentialroleeditentitlements` missing when calling updateEntitlementsPotentialRoleV1."
+        if (!$RoleMiningPotentialRoleEditEntitlements) {
+            throw "Error! The required parameter `RoleMiningPotentialRoleEditEntitlements` missing when calling updateEntitlementsPotentialRoleV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Roleminingpotentialroleeditentitlements -is [array])) {
-            $LocalVarBodyParameter = $Roleminingpotentialroleeditentitlements | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleMiningPotentialRoleEditEntitlements -is [array])) {
+            $LocalVarBodyParameter = $RoleMiningPotentialRoleEditEntitlements | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Roleminingpotentialroleeditentitlements | ForEach-Object {
+            $LocalVarBodyParameter = $RoleMiningPotentialRoleEditEntitlements | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2907,7 +2907,7 @@ function Update-EntitlementsPotentialRoleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleminingpotentialrole" `
+                                -ReturnType "RoleMiningPotentialRole" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -137,7 +137,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Manualdiscoverapplicationstemplate
+ManualDiscoverApplicationsTemplate
 #>
 function Get-ManualDiscoverApplicationsCsvTemplateV1 {
     [CmdletBinding()]
@@ -181,7 +181,7 @@ function Get-ManualDiscoverApplicationsCsvTemplateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Manualdiscoverapplicationstemplate" `
+                                -ReturnType "ManualDiscoverApplicationsTemplate" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -283,7 +283,7 @@ Use this header to enable this experimental API.
 .PARAMETER SourceId
 The sourceId.
 
-.PARAMETER Applicationdiscoveryrequest
+.PARAMETER ApplicationDiscoveryRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -292,7 +292,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Applicationdiscoveryresponse
+ApplicationDiscoveryResponse
 #>
 function Start-ApplicationDiscoveryV1 {
     [CmdletBinding()]
@@ -305,7 +305,7 @@ function Start-ApplicationDiscoveryV1 {
         ${SourceId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Applicationdiscoveryrequest},
+        ${ApplicationDiscoveryRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -340,14 +340,14 @@ function Start-ApplicationDiscoveryV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Applicationdiscoveryrequest) {
-            throw "Error! The required parameter `Applicationdiscoveryrequest` missing when calling startApplicationDiscoveryV1."
+        if (!$ApplicationDiscoveryRequest) {
+            throw "Error! The required parameter `ApplicationDiscoveryRequest` missing when calling startApplicationDiscoveryV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Applicationdiscoveryrequest -is [array])) {
-            $LocalVarBodyParameter = $Applicationdiscoveryrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApplicationDiscoveryRequest -is [array])) {
+            $LocalVarBodyParameter = $ApplicationDiscoveryRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Applicationdiscoveryrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ApplicationDiscoveryRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -366,7 +366,7 @@ function Start-ApplicationDiscoveryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Applicationdiscoveryresponse" `
+                                -ReturnType "ApplicationDiscoveryResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

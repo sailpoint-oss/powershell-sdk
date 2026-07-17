@@ -51,11 +51,11 @@ Path   | AttributeValue | **String** | True  | Technical name of the Attribute V
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 201 | Created | Entitlement
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -100,11 +100,11 @@ Path   | AttributeValue | **String** | True  | Technical name of the Attribute V
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | OK | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -141,18 +141,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Entitlement Id
 
 ### Return type
-[**Entitlementrequestconfig**](../models/entitlementrequestconfig)
+[**EntitlementRequestConfig**](../models/entitlement-request-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An Entitlement Request Config | Entitlementrequestconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | An Entitlement Request Config | EntitlementRequestConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -187,18 +187,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The entitlement ID
 
 ### Return type
-[**Entitlementv2**](../models/entitlementv2)
+[**EntitlementV2**](../models/entitlement-v2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An entitlement | Entitlementv2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | An entitlement | EntitlementV2
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -241,17 +241,17 @@ Path   | Id | **String** | True  | Source Id
    | CsvFile | **System.IO.FileInfo** |   (optional) | The CSV file containing the source entitlements to aggregate.
 
 ### Return type
-[**Loadentitlementtask**](../models/loadentitlementtask)
+[**LoadEntitlementTask**](../models/load-entitlement-task)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Aggregate Entitlements Task | Loadentitlementtask
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Aggregate Entitlements Task | LoadEntitlementTask
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: multipart/form-data
@@ -293,18 +293,18 @@ Path   | Id | **String** | True  | Entitlement Id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
 
 ### Return type
-[**Entitlementv2[]**](../models/entitlementv2)
+[**EntitlementV2[]**](../models/entitlement-v2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of entitlements children from an entitlement | Entitlementv2[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of entitlements children from an entitlement | EntitlementV2[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -351,18 +351,18 @@ Path   | Id | **String** | True  | Entitlement Id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
 
 ### Return type
-[**Entitlementv2[]**](../models/entitlementv2)
+[**EntitlementV2[]**](../models/entitlement-v2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of entitlements parents from an entitlement | Entitlementv2[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of entitlements parents from an entitlement | EntitlementV2[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -408,18 +408,18 @@ Path   | AccountId | **String** | True  | The account ID to get entitlements for
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
 
 ### Return type
-[**Entitlementv2[]**](../models/entitlementv2)
+[**EntitlementV2[]**](../models/entitlement-v2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of entitlements for the account | Entitlementv2[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of entitlements for the account | EntitlementV2[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -467,17 +467,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
 
 ### Return type
-[**Entitlementv2[]**](../models/entitlementv2)
+[**EntitlementV2[]**](../models/entitlement-v2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of entitlements | Entitlementv2[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of entitlements | EntitlementV2[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -522,21 +522,21 @@ When you're patching owner, only owner type and owner id must be provided. Owner
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the entitlement to patch
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) |   (optional) | 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) |   (optional) | 
 
 ### Return type
-[**Entitlementv2**](../models/entitlementv2)
+[**EntitlementV2**](../models/entitlement-v2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Responds with the entitlement as updated. | Entitlementv2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Responds with the entitlement as updated. | EntitlementV2
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -545,7 +545,11 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to patch
- $Jsonpatchoperation = @"[{"op":"add","path":"/segments/-","value":"f7b1b8a3-5fed-4fd4-ad29-82014e137e19"}]"@ # Jsonpatchoperation[] |  (optional)
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] |  (optional)
  
 
 # Patch an entitlement
@@ -554,7 +558,7 @@ try {
     Update-EntitlementV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-EntitlementV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-EntitlementV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementV1"
     Write-Host $_.ErrorDetails
@@ -571,21 +575,21 @@ This API replaces the entitlement request config for a specified entitlement.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Entitlement ID
- Body  | Entitlementrequestconfig | [**Entitlementrequestconfig**](../models/entitlementrequestconfig) | True  | 
+ Body  | EntitlementRequestConfig | [**EntitlementRequestConfig**](../models/entitlement-request-config) | True  | 
 
 ### Return type
-[**Entitlementrequestconfig**](../models/entitlementrequestconfig)
+[**EntitlementRequestConfig**](../models/entitlement-request-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Responds with the entitlement request config as updated. | Entitlementrequestconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Responds with the entitlement request config as updated. | EntitlementRequestConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -594,16 +598,43 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | Entitlement ID
-$Entitlementrequestconfig = @""@
+$EntitlementRequestConfig = @"{
+  "accessRequestConfig" : {
+    "denialCommentRequired" : false,
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "reauthorizationRequired" : false,
+    "requestCommentRequired" : true,
+    "requireEndDate" : true,
+    "maxPermittedAccessDuration" : {
+      "value" : 5,
+      "timeUnit" : "DAYS"
+    }
+  },
+  "revocationRequestConfig" : {
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ]
+  }
+}"@
 
 # Replace entitlement request config
 
 try {
-    $Result = ConvertFrom-JsonToEntitlementrequestconfig -Json $Entitlementrequestconfig
-    Send-EntitlementRequestConfigV1 -Id $Id -Entitlementrequestconfig $Result 
+    $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
+    Send-EntitlementRequestConfigV1 -Id $Id -EntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-EntitlementRequestConfigV1 -Id $Id -Entitlementrequestconfig $Result  
+    # Send-EntitlementRequestConfigV1 -Id $Id -EntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-EntitlementRequestConfigV1"
     Write-Host $_.ErrorDetails
@@ -623,17 +654,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of source for the entitlement reset
 
 ### Return type
-[**Entitlementsourceresetbasereferencedto**](../models/entitlementsourceresetbasereferencedto)
+[**EntitlementSourceResetBaseReferenceDto**](../models/entitlement-source-reset-base-reference-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Entitlement source reset task result | Entitlementsourceresetbasereferencedto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Entitlement source reset task result | EntitlementSourceResetBaseReferenceDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -677,7 +708,7 @@ A token with ORG_ADMIN or API authority is required to call this API.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Entitlementbulkupdaterequest | [**Entitlementbulkupdaterequest**](../models/entitlementbulkupdaterequest) | True  | 
+ Body  | EntitlementBulkUpdateRequest | [**EntitlementBulkUpdateRequest**](../models/entitlement-bulk-update-request) | True  | 
 
 ### Return type
  (empty response body)
@@ -686,12 +717,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -699,16 +730,27 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Entitlementbulkupdaterequest = @""@
+$EntitlementBulkUpdateRequest = @"{
+  "entitlementIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
+  "jsonPatch" : [ {
+    "op" : "replace",
+    "path" : "/requestable",
+    "value" : false
+  }, {
+    "op" : "replace",
+    "path" : "/privilegeOverride/level",
+    "value" : "HIGH"
+  } ]
+}"@
 
 # Bulk update an entitlement list
 
 try {
-    $Result = ConvertFrom-JsonToEntitlementbulkupdaterequest -Json $Entitlementbulkupdaterequest
-    Update-EntitlementsInBulkV1 -Entitlementbulkupdaterequest $Result 
+    $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
+    Update-EntitlementsInBulkV1 -EntitlementBulkUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-EntitlementsInBulkV1 -Entitlementbulkupdaterequest $Result  
+    # Update-EntitlementsInBulkV1 -EntitlementBulkUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsInBulkV1"
     Write-Host $_.ErrorDetails

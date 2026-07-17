@@ -40,20 +40,20 @@ Create a connector rule from the available types.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Connectorrulecreaterequest | [**Connectorrulecreaterequest**](../models/connectorrulecreaterequest) | True  | Connector rule to create.
+ Body  | ConnectorRuleCreateRequest | [**ConnectorRuleCreateRequest**](../models/connector-rule-create-request) | True  | Connector rule to create.
 
 ### Return type
-[**Connectorruleresponse**](../models/connectorruleresponse)
+[**ConnectorRuleResponse**](../models/connector-rule-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Created connector rule. | Connectorruleresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Created connector rule. | ConnectorRuleResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetConnectorRuleListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetConnectorRuleListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -61,16 +61,41 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Connectorrulecreaterequest = @""@
+$ConnectorRuleCreateRequest = @"{
+  "sourceCode" : {
+    "version" : "1.0",
+    "script" : "return \"Mr. \" + firstName;"
+  },
+  "signature" : {
+    "output" : {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    },
+    "input" : [ {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    }, {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    } ]
+  },
+  "name" : "WebServiceBeforeOperationRule",
+  "description" : "This rule does that",
+  "attributes" : { },
+  "type" : "BuildMap"
+}"@
 
 # Create connector rule
 
 try {
-    $Result = ConvertFrom-JsonToConnectorrulecreaterequest -Json $Connectorrulecreaterequest
-    New-ConnectorRuleV1 -Connectorrulecreaterequest $Result 
+    $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
+    New-ConnectorRuleV1 -ConnectorRuleCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ConnectorRuleV1 -Connectorrulecreaterequest $Result  
+    # New-ConnectorRuleV1 -ConnectorRuleCreateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ConnectorRuleV1"
     Write-Host $_.ErrorDetails
@@ -95,12 +120,12 @@ Path   | Id | **String** | True  | ID of the connector rule to delete.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetConnectorRuleListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetConnectorRuleListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -137,17 +162,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Connectorruleresponse[]**](../models/connectorruleresponse)
+[**ConnectorRuleResponse[]**](../models/connector-rule-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of connector rules. | Connectorruleresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of connector rules. | ConnectorRuleResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetConnectorRuleListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetConnectorRuleListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -184,18 +209,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the connector rule to get.
 
 ### Return type
-[**Connectorruleresponse**](../models/connectorruleresponse)
+[**ConnectorRuleResponse**](../models/connector-rule-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Connector rule with the given ID. | Connectorruleresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Connector rule with the given ID. | ConnectorRuleResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetConnectorRuleListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetConnectorRuleListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -228,21 +253,21 @@ Update an existing connector rule with the one provided in the request body. The
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the connector rule to update.
- Body  | Connectorruleupdaterequest | [**Connectorruleupdaterequest**](../models/connectorruleupdaterequest) |   (optional) | Connector rule with updated data.
+ Body  | ConnectorRuleUpdateRequest | [**ConnectorRuleUpdateRequest**](../models/connector-rule-update-request) |   (optional) | Connector rule with updated data.
 
 ### Return type
-[**Connectorruleresponse**](../models/connectorruleresponse)
+[**ConnectorRuleResponse**](../models/connector-rule-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated connector rule. | Connectorruleresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated connector rule. | ConnectorRuleResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetConnectorRuleListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetConnectorRuleListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -251,7 +276,33 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to update.
-$Connectorruleupdaterequest = @""@
+$ConnectorRuleUpdateRequest = @"{
+  "sourceCode" : {
+    "version" : "1.0",
+    "script" : "return \"Mr. \" + firstName;"
+  },
+  "signature" : {
+    "output" : {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    },
+    "input" : [ {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    }, {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    } ]
+  },
+  "name" : "WebServiceBeforeOperationRule",
+  "description" : "This rule does that",
+  "attributes" : { },
+  "id" : "8113d48c0b914f17b4c6072d4dcb9dfe",
+  "type" : "BuildMap"
+}"@
 
 # Update connector rule
 
@@ -259,7 +310,7 @@ try {
     Send-ConnectorRuleV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Send-ConnectorRuleV1 -Id $Id -Connectorruleupdaterequest $Result  
+    # Send-ConnectorRuleV1 -Id $Id -ConnectorRuleUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ConnectorRuleV1"
     Write-Host $_.ErrorDetails
@@ -275,20 +326,20 @@ Detect issues within the connector rule's code to fix and list them.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Sourcecode | [**Sourcecode**](../models/sourcecode) | True  | Code to validate.
+ Body  | SourceCode | [**SourceCode**](../models/source-code) | True  | Code to validate.
 
 ### Return type
-[**Connectorrulevalidationresponse**](../models/connectorrulevalidationresponse)
+[**ConnectorRuleValidationResponse**](../models/connector-rule-validation-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Status of the code&#39;s eligibility as a connector rule. | Connectorrulevalidationresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Status of the code&#39;s eligibility as a connector rule. | ConnectorRuleValidationResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetConnectorRuleListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetConnectorRuleListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -296,16 +347,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Sourcecode = @""@
+$SourceCode = @"{
+  "version" : "1.0",
+  "script" : "return \"Mr. \" + firstName;"
+}"@
 
 # Validate connector rule
 
 try {
-    $Result = ConvertFrom-JsonToSourcecode -Json $Sourcecode
-    Test-ConnectorRuleV1 -Sourcecode $Result 
+    $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
+    Test-ConnectorRuleV1 -SourceCode $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-ConnectorRuleV1 -Sourcecode $Result  
+    # Test-ConnectorRuleV1 -SourceCode $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-ConnectorRuleV1"
     Write-Host $_.ErrorDetails

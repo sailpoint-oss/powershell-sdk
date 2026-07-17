@@ -5,18 +5,22 @@
       label: SDK_tools/sdk/powershell/passwordmanagement/methods/password-management#create-digit-token-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Passworddigittokenreset = @"
-        {"userId":"Abby.Smith","length":8,"durationMinutes":5}
+        $PasswordDigitTokenReset = @"
+        {
+          "durationMinutes" : 5,
+          "length" : 8,
+          "userId" : "Abby.Smith"
+        }
         "@
         
         # Generate a digit token
         
         try {
-            $Result = ConvertFrom-JsonToPassworddigittokenreset -Json $Passworddigittokenreset
-            New-DigitTokenV1 -XSailPointExperimental $XSailPointExperimental -Passworddigittokenreset $Result 
+            $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
+            New-DigitTokenV1 -XSailPointExperimental $XSailPointExperimental -PasswordDigitTokenReset $Result 
     
             # Below is a request that includes all optional parameters
-            # New-DigitTokenV1 -XSailPointExperimental $XSailPointExperimental -Passworddigittokenreset $Result   
+            # New-DigitTokenV1 -XSailPointExperimental $XSailPointExperimental -PasswordDigitTokenReset $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-DigitTokenV1"
             Write-Host $_.ErrorDetails
@@ -46,18 +50,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/passwordmanagement/methods/password-management#query-password-info-v1
       source: |
-        $Passwordinfoquerydto = @"
-        
+        $PasswordInfoQueryDTO = @"
+        {
+          "sourceName" : "My-AD",
+          "userName" : "Abby.Smith"
+        }
         "@
         
         # Query password info
         
         try {
-            $Result = ConvertFrom-JsonToPasswordinfoquerydto -Json $Passwordinfoquerydto
-            Search-PasswordInfoV1 -Passwordinfoquerydto $Result 
+            $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
+            Search-PasswordInfoV1 -PasswordInfoQueryDTO $Result 
     
             # Below is a request that includes all optional parameters
-            # Search-PasswordInfoV1 -Passwordinfoquerydto $Result   
+            # Search-PasswordInfoV1 -PasswordInfoQueryDTO $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-PasswordInfoV1"
             Write-Host $_.ErrorDetails
@@ -68,18 +75,24 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/passwordmanagement/methods/password-management#set-password-v1
       source: |
-        $Passwordchangerequest = @"
-        
+        $PasswordChangeRequest = @"
+        {
+          "sourceId" : "8a807d4c73c545510173c545d4b60246",
+          "accountId" : "CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com",
+          "identityId" : "8a807d4c73c545510173c545f0a002ff",
+          "publicKeyId" : "YWQ2NjQ4MTItZjY0NC00MWExLWFjMjktOGNmMzU3Y2VlNjk2",
+          "encryptedPassword" : "XzN+YwKgr2C+InkMYFMBG3UtjMEw5ZIql/XFlXo8cJNeslmkplx6vn4kd4/43IF9STBk5RnzR6XmjpEO+FwHDoiBwYZAkAZK/Iswxk4OdybG6Y4MStJCOCiK8osKr35IMMSV/mbO4wAeltoCk7daTWzTGLiI6UaT5tf+F2EgdjJZ7YqM8W8r7aUWsm3p2Xt01Y46ZRx0QaM91QruiIx2rECFT2pUO0wr+7oQ77jypATyGWRtADsu3YcvCk/6U5MqCnXMzKBcRas7NnZdSL/d5H1GglVGz3VLPMaivG4/oL4chOMmFCRl/zVsGxZ9RhN8rxsRGFFKn+rhExTi+bax3A=="
+        }
         "@
         
         # Set identity's password
         
         try {
-            $Result = ConvertFrom-JsonToPasswordchangerequest -Json $Passwordchangerequest
-            Set-PasswordV1 -Passwordchangerequest $Result 
+            $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
+            Set-PasswordV1 -PasswordChangeRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-PasswordV1 -Passwordchangerequest $Result   
+            # Set-PasswordV1 -PasswordChangeRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-PasswordV1"
             Write-Host $_.ErrorDetails

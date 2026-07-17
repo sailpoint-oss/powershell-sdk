@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.LifecycleStates' -name 'LifecycleStatesApi' {
     Context 'New-LifecycleStateV1' {
         It 'Test New-LifecycleStateV1' {
-            #$TestResult = New-LifecycleStateV1 -IdentityProfileId "TEST_VALUE" -Lifecyclestate "TEST_VALUE"
+            #$TestResult = New-LifecycleStateV1 -IdentityProfileId "TEST_VALUE" -LifecycleState "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.LifecycleStates' -name 'LifecycleStatesApi' {
 
     Context 'Update-LifecycleStatesV1' {
         It 'Test Update-LifecycleStatesV1' {
-            #$TestResult = Update-LifecycleStatesV1 -IdentityProfileId "TEST_VALUE" -LifecycleStateId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-LifecycleStatesV1 -IdentityProfileId "TEST_VALUE" -LifecycleStateId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.IaiAccessRequestRecommendations.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -83,28 +83,28 @@ FunctionsToExport = 'Add-AccessRequestRecommendationsIgnoredItemV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Accessrecommendationmessage', 
-               'ConvertFrom-JsonToAccessrecommendationmessage', 
-               'Initialize-Accessrequestrecommendationactionitemdto', 
-               'ConvertFrom-JsonToAccessrequestrecommendationactionitemdto', 
-               'Initialize-Accessrequestrecommendationactionitemresponsedto', 
-               'ConvertFrom-JsonToAccessrequestrecommendationactionitemresponsedto', 
-               'Initialize-Accessrequestrecommendationconfigdto', 
-               'ConvertFrom-JsonToAccessrequestrecommendationconfigdto', 
-               'Initialize-Accessrequestrecommendationitem', 
-               'ConvertFrom-JsonToAccessrequestrecommendationitem', 
-               'Initialize-Accessrequestrecommendationitemdetail', 
-               'ConvertFrom-JsonToAccessrequestrecommendationitemdetail', 
-               'Initialize-AccessrequestrecommendationitemdetailAccess', 
-               'ConvertFrom-JsonToAccessrequestrecommendationitemdetailAccess', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-AccessRecommendationMessage', 
+               'ConvertFrom-JsonToAccessRecommendationMessage', 
+               'Initialize-AccessRequestRecommendationActionItemDto', 
+               'ConvertFrom-JsonToAccessRequestRecommendationActionItemDto', 
+               'Initialize-AccessRequestRecommendationActionItemResponseDto', 
+               'ConvertFrom-JsonToAccessRequestRecommendationActionItemResponseDto', 
+               'Initialize-AccessRequestRecommendationConfigDto', 
+               'ConvertFrom-JsonToAccessRequestRecommendationConfigDto', 
+               'Initialize-AccessRequestRecommendationItem', 
+               'ConvertFrom-JsonToAccessRequestRecommendationItem', 
+               'Initialize-AccessRequestRecommendationItemDetail', 
+               'ConvertFrom-JsonToAccessRequestRecommendationItemDetail', 
+               'Initialize-AccessRequestRecommendationItemDetailAccess', 
+               'ConvertFrom-JsonToAccessRequestRecommendationItemDetailAccess', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetAccessRequestRecommendationsV1401Response', 
                'ConvertFrom-JsonToGetAccessRequestRecommendationsV1401Response', 
                'Initialize-GetAccessRequestRecommendationsV1429Response', 
                'ConvertFrom-JsonToGetAccessRequestRecommendationsV1429Response', 
-               'Initialize-Translationmessage', 
-               'ConvertFrom-JsonToTranslationmessage'
+               'Initialize-TranslationMessage', 
+               'ConvertFrom-JsonToTranslationMessage'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

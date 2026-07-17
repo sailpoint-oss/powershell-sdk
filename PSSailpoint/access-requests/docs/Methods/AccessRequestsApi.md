@@ -40,7 +40,7 @@ This API endpoint allows approving pending access requests in bulk. Maximum of 5
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Bulkapproveaccessrequest | [**Bulkapproveaccessrequest**](../models/bulkapproveaccessrequest) | True  | 
+ Body  | BulkApproveAccessRequest | [**BulkApproveAccessRequest**](../models/bulk-approve-access-request) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -49,12 +49,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -62,16 +62,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Bulkapproveaccessrequest = @"{"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I approve these request items"}"@
+$BulkApproveAccessRequest = @"{
+  "comment" : "I approve these request items",
+  "approvalIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ]
+}"@
 
 # Bulk approve access request
 
 try {
-    $Result = ConvertFrom-JsonToBulkapproveaccessrequest -Json $Bulkapproveaccessrequest
-    Approve-BulkAccessRequestV1 -Bulkapproveaccessrequest $Result 
+    $Result = ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
+    Approve-BulkAccessRequestV1 -BulkApproveAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-BulkAccessRequestV1 -Bulkapproveaccessrequest $Result  
+    # Approve-BulkAccessRequestV1 -BulkApproveAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BulkAccessRequestV1"
     Write-Host $_.ErrorDetails
@@ -88,7 +91,7 @@ Only ORG_ADMIN or users with rights "idn:access-request-administration:write" ca
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Bulkcancelaccessrequest | [**Bulkcancelaccessrequest**](../models/bulkcancelaccessrequest) | True  | 
+ Body  | BulkCancelAccessRequest | [**BulkCancelAccessRequest**](../models/bulk-cancel-access-request) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -97,12 +100,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -110,16 +113,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Bulkcancelaccessrequest = @"{"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I requested this role by mistake."}"@
+$BulkCancelAccessRequest = @"{
+  "accessRequestIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ],
+  "comment" : "I requested this role by mistake."
+}"@
 
 # Bulk cancel access request
 
 try {
-    $Result = ConvertFrom-JsonToBulkcancelaccessrequest -Json $Bulkcancelaccessrequest
-    Suspend-AccessRequestInBulkV1 -Bulkcancelaccessrequest $Result 
+    $Result = ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
+    Suspend-AccessRequestInBulkV1 -BulkCancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Suspend-AccessRequestInBulkV1 -Bulkcancelaccessrequest $Result  
+    # Suspend-AccessRequestInBulkV1 -BulkCancelAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-AccessRequestInBulkV1"
     Write-Host $_.ErrorDetails
@@ -136,7 +142,7 @@ In addition to users with ORG_ADMIN, any user who originally submitted the acces
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Cancelaccessrequest | [**Cancelaccessrequest**](../models/cancelaccessrequest) | True  | 
+ Body  | CancelAccessRequest | [**CancelAccessRequest**](../models/cancel-access-request) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -145,12 +151,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -158,16 +164,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Cancelaccessrequest = @"{"accountActivityId":"2c91808568c529c60168cca6f90c1313","comment":"I requested this role by mistake."}"@
+$CancelAccessRequest = @"{
+  "accountActivityId" : "2c9180835d2e5168015d32f890ca1581",
+  "comment" : "I requested this role by mistake."
+}"@
 
 # Cancel access request
 
 try {
-    $Result = ConvertFrom-JsonToCancelaccessrequest -Json $Cancelaccessrequest
-    Suspend-AccessRequestV1 -Cancelaccessrequest $Result 
+    $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
+    Suspend-AccessRequestV1 -CancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Suspend-AccessRequestV1 -Cancelaccessrequest $Result  
+    # Suspend-AccessRequestV1 -CancelAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-AccessRequestV1"
     Write-Host $_.ErrorDetails
@@ -194,7 +203,7 @@ This API triggers the [Provisioning Completed event trigger](https://developer.s
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Closeaccessrequest | [**Closeaccessrequest**](../models/closeaccessrequest) | True  | 
+ Body  | CloseAccessRequest | [**CloseAccessRequest**](../models/close-access-request) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -203,11 +212,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -215,16 +224,21 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Closeaccessrequest = @"{"accessRequestIds":["2c90ad2a70ace7d50170acf22ca90010"],"executionStatus":"Terminated","completionStatus":"Failure","message":"The IdentityNow Administrator manually closed this request."}"@
+$CloseAccessRequest = @"{
+  "executionStatus" : "Terminated",
+  "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+  "completionStatus" : "Failure",
+  "message" : "The IdentityNow Administrator manually closed this request."
+}"@
 
 # Close access request
 
 try {
-    $Result = ConvertFrom-JsonToCloseaccessrequest -Json $Closeaccessrequest
-    Close-AccessRequestV1 -Closeaccessrequest $Result 
+    $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
+    Close-AccessRequestV1 -CloseAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Close-AccessRequestV1 -Closeaccessrequest $Result  
+    # Close-AccessRequestV1 -CloseAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Close-AccessRequestV1"
     Write-Host $_.ErrorDetails
@@ -290,20 +304,20 @@ __REVOKE_ACCESS__
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Accessrequest | [**Accessrequest**](../models/accessrequest) | True  | 
+ Body  | AccessRequest | [**AccessRequest**](../models/access-request) | True  | 
 
 ### Return type
-[**Accessrequestresponse**](../models/accessrequestresponse)
+[**AccessRequestResponse**](../models/access-request-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Access Request Response. | Accessrequestresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Access Request Response. | AccessRequestResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -311,16 +325,171 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Accessrequest = @""@
+$AccessRequest = @"{
+  "requestedFor" : "2c918084660f45d6016617daa9210584",
+  "clientMetadata" : {
+    "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
+    "requestedAppName" : "test-app"
+  },
+  "requestType" : "GRANT_ACCESS",
+  "requestedItems" : [ {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  } ],
+  "requestedForWithRequestedItems" : [ {
+    "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+    "requestedItems" : [ {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
+    }, {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
+    } ]
+  }, {
+    "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+    "requestedItems" : [ {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
+    }, {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
+    } ]
+  } ]
+}"@
 
 # Submit access request
 
 try {
-    $Result = ConvertFrom-JsonToAccessrequest -Json $Accessrequest
-    New-AccessRequestV1 -Accessrequest $Result 
+    $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
+    New-AccessRequestV1 -AccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-AccessRequestV1 -Accessrequest $Result  
+    # New-AccessRequestV1 -AccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessRequestV1"
     Write-Host $_.ErrorDetails
@@ -341,17 +510,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Accessrequestconfig**](../models/accessrequestconfig)
+[**AccessRequestConfig**](../models/access-request-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Access Request Configuration Details. | Accessrequestconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Access Request Configuration Details. | AccessRequestConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -384,17 +553,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Accessrequestconfigv2**](../models/accessrequestconfigv2)
+[**AccessRequestConfig2**](../models/access-request-config2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Access Request Configuration Details. | Accessrequestconfigv2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Access Request Configuration Details. | AccessRequestConfig2
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -429,18 +598,18 @@ Path   | IdentityId | **String** | True  | The identity ID.
 Path   | EntitlementId | **String** | True  | The entitlement ID
 
 ### Return type
-[**Identityentitlementdetails**](../models/identityentitlementdetails)
+[**IdentityEntitlementDetails**](../models/identity-entitlement-details)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Entitlement and Account Reference | Identityentitlementdetails
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Entitlement and Account Reference | IdentityEntitlementDetails
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -487,17 +656,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | RequestState | **String** |   (optional) | Filter the results by the state of the request. The only valid value is *EXECUTING*.
 
 ### Return type
-[**Requesteditemstatus[]**](../models/requesteditemstatus)
+[**RequestedItemStatus[]**](../models/requested-item-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of requested item statuses. | Requesteditemstatus[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of requested item statuses. | RequestedItemStatus[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -555,17 +724,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | RequestState | **String** |   (optional) | Filter the results by the state of the request. The only valid value is *EXECUTING*.
 
 ### Return type
-[**Accessrequestadminitemstatus[]**](../models/accessrequestadminitemstatus)
+[**AccessRequestAdminItemStatus[]**](../models/access-request-admin-item-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of requested item statuses. | Accessrequestadminitemstatus[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of requested item statuses. | AccessRequestAdminItemStatus[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -614,20 +783,20 @@ Used to fetch accountSelection for the AccessRequest prior to submitting for asy
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Accountsselectionrequest | [**Accountsselectionrequest**](../models/accountsselectionrequest) | True  | 
+ Body  | AccountsSelectionRequest | [**AccountsSelectionRequest**](../models/accounts-selection-request) | True  | 
 
 ### Return type
-[**Accountsselectionresponse**](../models/accountsselectionresponse)
+[**AccountsSelectionResponse**](../models/accounts-selection-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Accounts Selection Response | Accountsselectionresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Accounts Selection Response | AccountsSelectionResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -636,16 +805,84 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Accountsselectionrequest = @""@
+$AccountsSelectionRequest = @"{
+  "requestedFor" : "2c918084660f45d6016617daa9210584",
+  "clientMetadata" : {
+    "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
+    "requestedAppName" : "test-app"
+  },
+  "requestType" : "GRANT_ACCESS",
+  "requestedItems" : [ {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  } ]
+}"@
 
 # Get accounts selections for identity
 
 try {
-    $Result = ConvertFrom-JsonToAccountsselectionrequest -Json $Accountsselectionrequest
-    Invoke-LoadAccountSelectionsV1 -XSailPointExperimental $XSailPointExperimental -Accountsselectionrequest $Result 
+    $Result = ConvertFrom-JsonToAccountsSelectionRequest -Json $AccountsSelectionRequest
+    Invoke-LoadAccountSelectionsV1 -XSailPointExperimental $XSailPointExperimental -AccountsSelectionRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-LoadAccountSelectionsV1 -XSailPointExperimental $XSailPointExperimental -Accountsselectionrequest $Result  
+    # Invoke-LoadAccountSelectionsV1 -XSailPointExperimental $XSailPointExperimental -AccountsSelectionRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-LoadAccountSelectionsV1"
     Write-Host $_.ErrorDetails
@@ -664,20 +901,20 @@ This endpoint replaces the current access-request configuration.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Accessrequestconfig | [**Accessrequestconfig**](../models/accessrequestconfig) | True  | 
+ Body  | AccessRequestConfig | [**AccessRequestConfig**](../models/access-request-config) | True  | 
 
 ### Return type
-[**Accessrequestconfig**](../models/accessrequestconfig)
+[**AccessRequestConfig**](../models/access-request-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Access Request Configuration Details. | Accessrequestconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Access Request Configuration Details. | AccessRequestConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -685,16 +922,63 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Accessrequestconfig = @""@
+$AccessRequestConfig = @"{
+  "requestOnBehalfOfConfig" : {
+    "allowRequestOnBehalfOfEmployeeByManager" : true,
+    "allowRequestOnBehalfOfAnyoneByAnyone" : true
+  },
+  "approvalReminderAndEscalationConfig" : {
+    "fallbackApproverRef" : {
+      "name" : "Alison Ferguso",
+      "id" : "5168015d32f890ca15812c9180835d2e",
+      "type" : "IDENTITY",
+      "email" : "alison.ferguso@identitysoon.com"
+    },
+    "maxReminders" : 1,
+    "daysUntilEscalation" : 0,
+    "daysBetweenReminders" : 0
+  },
+  "autoApprovalEnabled" : true,
+  "entitlementRequestConfig" : {
+    "accessRequestConfig" : {
+      "denialCommentRequired" : false,
+      "approvalSchemes" : [ {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      }, {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      } ],
+      "reauthorizationRequired" : false,
+      "requestCommentRequired" : true,
+      "requireEndDate" : true,
+      "maxPermittedAccessDuration" : {
+        "value" : 5,
+        "timeUnit" : "DAYS"
+      }
+    },
+    "revocationRequestConfig" : {
+      "approvalSchemes" : [ {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      }, {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      } ]
+    }
+  },
+  "reauthorizationEnabled" : true,
+  "approvalsMustBeExternal" : true
+}"@
 
 # Update access request configuration
 
 try {
-    $Result = ConvertFrom-JsonToAccessrequestconfig -Json $Accessrequestconfig
-    Set-AccessRequestConfigV1 -Accessrequestconfig $Result 
+    $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
+    Set-AccessRequestConfigV1 -AccessRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-AccessRequestConfigV1 -Accessrequestconfig $Result  
+    # Set-AccessRequestConfigV1 -AccessRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestConfigV1"
     Write-Host $_.ErrorDetails
@@ -710,20 +994,20 @@ This endpoint replaces the current access-request configuration.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Accessrequestconfigv2 | [**Accessrequestconfigv2**](../models/accessrequestconfigv2) | True  | 
+ Body  | AccessRequestConfig2 | [**AccessRequestConfig2**](../models/access-request-config2) | True  | 
 
 ### Return type
-[**Accessrequestconfigv2**](../models/accessrequestconfigv2)
+[**AccessRequestConfig2**](../models/access-request-config2)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Access Request Configuration Details. | Accessrequestconfigv2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Access Request Configuration Details. | AccessRequestConfig2
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -731,16 +1015,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Accessrequestconfigv2 = @""@
+$AccessRequestConfig2 = @""@
 
 # Update access request configuration
 
 try {
-    $Result = ConvertFrom-JsonToAccessrequestconfigv2 -Json $Accessrequestconfigv2
-    Set-AccessRequestConfigV2 -Accessrequestconfigv2 $Result 
+    $Result = ConvertFrom-JsonToAccessRequestConfig2 -Json $AccessRequestConfig2
+    Set-AccessRequestConfigV2 -AccessRequestConfig2 $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-AccessRequestConfigV2 -Accessrequestconfigv2 $Result  
+    # Set-AccessRequestConfigV2 -AccessRequestConfig2 $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestConfigV2"
     Write-Host $_.ErrorDetails

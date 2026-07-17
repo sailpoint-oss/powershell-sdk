@@ -14,7 +14,7 @@ Start JIT activation workflow
 
 Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
 
-.PARAMETER Jitactivationactivaterequest
+.PARAMETER JitActivationActivateRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Jitactivationactivateresponse
+JitActivationActivateResponse
 #>
 function Start-ActivateWorkflowV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Jitactivationactivaterequest},
+        ${JitActivationActivateRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function Start-ActivateWorkflowV1 {
 
         $LocalVarUri = '/jit-activations/v1/activate'
 
-        if (!$Jitactivationactivaterequest) {
-            throw "Error! The required parameter `Jitactivationactivaterequest` missing when calling startActivateWorkflowV1."
+        if (!$JitActivationActivateRequest) {
+            throw "Error! The required parameter `JitActivationActivateRequest` missing when calling startActivateWorkflowV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jitactivationactivaterequest -is [array])) {
-            $LocalVarBodyParameter = $Jitactivationactivaterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JitActivationActivateRequest -is [array])) {
+            $LocalVarBodyParameter = $JitActivationActivateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jitactivationactivaterequest | ForEach-Object {
+            $LocalVarBodyParameter = $JitActivationActivateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function Start-ActivateWorkflowV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Jitactivationactivateresponse" `
+                                -ReturnType "JitActivationActivateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -102,7 +102,7 @@ Deactivate JIT activation workflow
 
 Sends a signal to a running JIT Privileged (JIT P) activation workflow to deactivate.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
 
-.PARAMETER Jitactivationdeactivaterequest
+.PARAMETER JitActivationDeactivateRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -111,14 +111,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Jitactivationdeactivateresponse
+JitActivationDeactivateResponse
 #>
 function Start-DeactivateWorkflowV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Jitactivationdeactivaterequest},
+        ${JitActivationDeactivateRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -144,14 +144,14 @@ function Start-DeactivateWorkflowV1 {
 
         $LocalVarUri = '/jit-activations/v1/deactivate'
 
-        if (!$Jitactivationdeactivaterequest) {
-            throw "Error! The required parameter `Jitactivationdeactivaterequest` missing when calling startDeactivateWorkflowV1."
+        if (!$JitActivationDeactivateRequest) {
+            throw "Error! The required parameter `JitActivationDeactivateRequest` missing when calling startDeactivateWorkflowV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jitactivationdeactivaterequest -is [array])) {
-            $LocalVarBodyParameter = $Jitactivationdeactivaterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JitActivationDeactivateRequest -is [array])) {
+            $LocalVarBodyParameter = $JitActivationDeactivateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jitactivationdeactivaterequest | ForEach-Object {
+            $LocalVarBodyParameter = $JitActivationDeactivateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -170,7 +170,7 @@ function Start-DeactivateWorkflowV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Jitactivationdeactivateresponse" `
+                                -ReturnType "JitActivationDeactivateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -190,7 +190,7 @@ Extend JIT activation workflow
 
 Sends a signal to a running JIT Privileged (JIT P) activation workflow to extend the activation period by the requested number of minutes.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
 
-.PARAMETER Jitactivationextendrequest
+.PARAMETER JitActivationExtendRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -199,14 +199,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Jitactivationextendresponse
+JitActivationExtendResponse
 #>
 function Start-ExtendWorkflowV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Jitactivationextendrequest},
+        ${JitActivationExtendRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -232,14 +232,14 @@ function Start-ExtendWorkflowV1 {
 
         $LocalVarUri = '/jit-activations/v1/extend'
 
-        if (!$Jitactivationextendrequest) {
-            throw "Error! The required parameter `Jitactivationextendrequest` missing when calling startExtendWorkflowV1."
+        if (!$JitActivationExtendRequest) {
+            throw "Error! The required parameter `JitActivationExtendRequest` missing when calling startExtendWorkflowV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jitactivationextendrequest -is [array])) {
-            $LocalVarBodyParameter = $Jitactivationextendrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JitActivationExtendRequest -is [array])) {
+            $LocalVarBodyParameter = $JitActivationExtendRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jitactivationextendrequest | ForEach-Object {
+            $LocalVarBodyParameter = $JitActivationExtendRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -258,7 +258,7 @@ function Start-ExtendWorkflowV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Jitactivationextendresponse" `
+                                -ReturnType "JitActivationExtendResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

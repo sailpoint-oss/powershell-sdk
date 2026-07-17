@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.PasswordManagement' -name 'PasswordManagementApi' {
     Context 'New-DigitTokenV1' {
         It 'Test New-DigitTokenV1' {
-            #$TestResult = New-DigitTokenV1 -XSailPointExperimental "TEST_VALUE" -Passworddigittokenreset "TEST_VALUE"
+            #$TestResult = New-DigitTokenV1 -XSailPointExperimental "TEST_VALUE" -PasswordDigitTokenReset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.PasswordManagement' -name 'PasswordManagementApi' {
 
     Context 'Search-PasswordInfoV1' {
         It 'Test Search-PasswordInfoV1' {
-            #$TestResult = Search-PasswordInfoV1 -Passwordinfoquerydto "TEST_VALUE"
+            #$TestResult = Search-PasswordInfoV1 -PasswordInfoQueryDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.PasswordManagement' -name 'PasswordManagementApi' {
 
     Context 'Set-PasswordV1' {
         It 'Test Set-PasswordV1' {
-            #$TestResult = Set-PasswordV1 -Passwordchangerequest "TEST_VALUE"
+            #$TestResult = Set-PasswordV1 -PasswordChangeRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

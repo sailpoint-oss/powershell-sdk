@@ -43,21 +43,21 @@ Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Domainaddress | [**Domainaddress**](../models/domainaddress) | True  | 
+ Body  | DomainAddress | [**DomainAddress**](../models/domain-address) | True  | 
 
 ### Return type
-[**Domainstatusdto**](../models/domainstatusdto)
+[**DomainStatusDto**](../models/domain-status-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of DKIM tokens required for the verification process. | Domainstatusdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of DKIM tokens required for the verification process. | DomainStatusDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 405 | Method Not Allowed - indicates that the server knows the request method, but the target resource doesn&#39;t support this method. | CreateDomainDkimV1405Response
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -65,16 +65,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Domainaddress = @""@
+$DomainAddress = @"{
+  "domain" : "sailpoint.com"
+}"@
 
 # Verify domain address via dkim
 
 try {
-    $Result = ConvertFrom-JsonToDomainaddress -Json $Domainaddress
-    New-DomainDkimV1 -Domainaddress $Result 
+    $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
+    New-DomainDkimV1 -DomainAddress $Result 
     
     # Below is a request that includes all optional parameters
-    # New-DomainDkimV1 -Domainaddress $Result  
+    # New-DomainDkimV1 -DomainAddress $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-DomainDkimV1"
     Write-Host $_.ErrorDetails
@@ -93,20 +95,20 @@ Modify the fields you want to change and submit the POST request when ready.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Templatedto | [**Templatedto**](../models/templatedto) | True  | 
+ Body  | TemplateDto | [**TemplateDto**](../models/template-dto) | True  | 
 
 ### Return type
-[**Templatedto**](../models/templatedto)
+[**TemplateDto**](../models/template-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A template object for your site | Templatedto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A template object for your site | TemplateDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -114,16 +116,79 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Templatedto = @""@
+$TemplateDto = @"{
+  "slackTemplate" : {
+    "isSubscription" : false,
+    "attachments" : "[]",
+    "blocks" : "blocks",
+    "requestId" : "requestId",
+    "autoApprovalData" : {
+      "itemId" : "itemId",
+      "itemType" : "itemType",
+      "autoApprovalMessageJSON" : "autoApprovalMessageJSON",
+      "isAutoApproved" : "isAutoApproved",
+      "autoApprovalTitle" : "autoApprovalTitle"
+    },
+    "customFields" : {
+      "requestType" : "requestType",
+      "campaignId" : "campaignId",
+      "campaignStatus" : "campaignStatus",
+      "containsDeny" : "containsDeny"
+    },
+    "requestedById" : "requestedById",
+    "approvalId" : "approvalId",
+    "text" : "You have a new approval request",
+    "notificationType" : "notificationType",
+    "key" : "key"
+  },
+  "footer" : "footer",
+  "teamsTemplate" : {
+    "isSubscription" : false,
+    "requestId" : "requestId",
+    "autoApprovalData" : {
+      "itemId" : "itemId",
+      "itemType" : "itemType",
+      "autoApprovalMessageJSON" : "autoApprovalMessageJSON",
+      "isAutoApproved" : "isAutoApproved",
+      "autoApprovalTitle" : "autoApprovalTitle"
+    },
+    "customFields" : {
+      "requestType" : "requestType",
+      "campaignId" : "campaignId",
+      "campaignStatus" : "campaignStatus",
+      "containsDeny" : "containsDeny"
+    },
+    "requestedById" : "requestedById",
+    "approvalId" : "approvalId",
+    "text" : "You have a new approval request",
+    "notificationType" : "notificationType",
+    "title" : "title",
+    "key" : "key",
+    "messageJSON" : "messageJSON"
+  },
+  "subject" : "You have $numberOfPendingTasks $taskTasks to complete in ${__global.productName}.",
+  "created" : "2020-01-01T00:00:00Z",
+  "description" : "Daily digest - sent if number of outstanding tasks for task owner > 0",
+  "medium" : "EMAIL",
+  "locale" : "en",
+  "body" : "Please go to the task manager",
+  "name" : "Task Manager Subscription",
+  "replyTo" : "$__global.emailFromAddress",
+  "header" : "header",
+  "modified" : "2020-01-01T00:00:00Z",
+  "from" : "$__global.emailFromAddress",
+  "id" : "c17bea3a-574d-453c-9e04-4365fbf5af0b",
+  "key" : "cloud_manual_work_item_summary"
+}"@
 
 # Create notification template
 
 try {
-    $Result = ConvertFrom-JsonToTemplatedto -Json $Templatedto
-    New-NotificationTemplateV1 -Templatedto $Result 
+    $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
+    New-NotificationTemplateV1 -TemplateDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-NotificationTemplateV1 -Templatedto $Result  
+    # New-NotificationTemplateV1 -TemplateDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NotificationTemplateV1"
     Write-Host $_.ErrorDetails
@@ -139,20 +204,20 @@ Create a new sender email address and initiate verification process.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Emailstatusdto | [**Emailstatusdto**](../models/emailstatusdto) | True  | 
+ Body  | EmailStatusDto | [**EmailStatusDto**](../models/email-status-dto) | True  | 
 
 ### Return type
-[**Emailstatusdto**](../models/emailstatusdto)
+[**EmailStatusDto**](../models/email-status-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | New Verified Email Status | Emailstatusdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | New Verified Email Status | EmailStatusDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -160,16 +225,22 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Emailstatusdto = @"{"email":"sender@example.com"}"@
+$EmailStatusDto = @"{
+  "isVerifiedByDomain" : false,
+  "verificationStatus" : "SUCCESS",
+  "id" : "id",
+  "region" : "us-east-1",
+  "email" : "sender@example.com"
+}"@
 
 # Create verified from address
 
 try {
-    $Result = ConvertFrom-JsonToEmailstatusdto -Json $Emailstatusdto
-    New-VerifiedFromAddressV1 -Emailstatusdto $Result 
+    $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
+    New-VerifiedFromAddressV1 -EmailStatusDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-VerifiedFromAddressV1 -Emailstatusdto $Result  
+    # New-VerifiedFromAddressV1 -EmailStatusDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-VerifiedFromAddressV1"
     Write-Host $_.ErrorDetails
@@ -185,7 +256,7 @@ This lets you bulk delete templates that you previously created for your site.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Templatebulkdeletedto | [**[]Templatebulkdeletedto**](../models/templatebulkdeletedto) | True  | 
+ Body  | TemplateBulkDeleteDto | [**[]TemplateBulkDeleteDto**](../models/template-bulk-delete-dto) | True  | 
 
 ### Return type
  (empty response body)
@@ -194,11 +265,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -206,17 +277,21 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
- $Templatebulkdeletedto = @""@ # Templatebulkdeletedto[] | 
+ $TemplateBulkDeleteDto = @"{
+  "medium" : "EMAIL",
+  "locale" : "en",
+  "key" : "cloud_manual_work_item_summary"
+}"@ # TemplateBulkDeleteDto[] | 
  
 
 # Bulk delete notification templates
 
 try {
-    $Result = ConvertFrom-JsonToTemplatebulkdeletedto -Json $Templatebulkdeletedto
-    Remove-NotificationTemplatesInBulkV1 -Templatebulkdeletedto $Result 
+    $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
+    Remove-NotificationTemplatesInBulkV1 -TemplateBulkDeleteDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-NotificationTemplatesInBulkV1 -Templatebulkdeletedto $Result  
+    # Remove-NotificationTemplatesInBulkV1 -TemplateBulkDeleteDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-NotificationTemplatesInBulkV1"
     Write-Host $_.ErrorDetails
@@ -241,12 +316,12 @@ Path   | Id | **String** | True  | Unique identifier of the verified sender addr
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -282,17 +357,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Dkimattributes[]**](../models/dkimattributes)
+[**DkimAttributes[]**](../models/dkim-attributes)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of DKIM Attributes | Dkimattributes[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of DKIM Attributes | DkimAttributes[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -328,17 +403,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Identity | **String** | True  | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 
 ### Return type
-[**Mailfromattributes**](../models/mailfromattributes)
+[**MailFromAttributes**](../models/mail-from-attributes)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | MAIL FROM Attributes object | Mailfromattributes
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | MAIL FROM Attributes object | MailFromAttributes
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -373,18 +448,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Key | **String** | True  | The key.
 
 ### Return type
-[**Preferencesdto**](../models/preferencesdto)
+[**PreferencesDto**](../models/preferences-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Return preference for the given notification key. | Preferencesdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Return preference for the given notification key. | PreferencesDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -419,17 +494,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Id of the Notification Template
 
 ### Return type
-[**Templatedto**](../models/templatedto)
+[**TemplateDto**](../models/template-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A template object for your site | Templatedto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A template object for your site | TemplateDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -469,18 +544,18 @@ Path   | Medium | **String** | True  | The notification template medium (e.g. EM
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, type, description**
 
 ### Return type
-[**Templatevariablesdto**](../models/templatevariablesdto)
+[**TemplateVariablesDto**](../models/template-variables-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Global and template-specific variables for the given key and medium. | Templatevariablesdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Global and template-specific variables for the given key and medium. | TemplateVariablesDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -517,17 +592,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Notificationtemplatecontext**](../models/notificationtemplatecontext)
+[**NotificationTemplateContext**](../models/notification-template-context)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Notification template context attributes for a specific tenant. | Notificationtemplatecontext
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Notification template context attributes for a specific tenant. | NotificationTemplateContext
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -565,17 +640,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email**
 
 ### Return type
-[**Emailstatusdto[]**](../models/emailstatusdto)
+[**EmailStatusDto[]**](../models/email-status-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Email Status | Emailstatusdto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of Email Status | EmailStatusDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -616,17 +691,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
 
 ### Return type
-[**Templatedtodefault[]**](../models/templatedtodefault)
+[**TemplateDtoDefault[]**](../models/template-dto-default)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of the default template objects | Templatedtodefault[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of the default template objects | TemplateDtoDefault[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -666,17 +741,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, medium**
 
 ### Return type
-[**Templatedto[]**](../models/templatedto)
+[**TemplateDto[]**](../models/template-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of template objects for your site | Templatedto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of template objects for your site | TemplateDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -711,20 +786,20 @@ Change the MAIL FROM domain of an AWS SES email identity and provide the MX and 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Mailfromattributesdto | [**Mailfromattributesdto**](../models/mailfromattributesdto) | True  | 
+ Body  | MailFromAttributesDto | [**MailFromAttributesDto**](../models/mail-from-attributes-dto) | True  | 
 
 ### Return type
-[**Mailfromattributes**](../models/mailfromattributes)
+[**MailFromAttributes**](../models/mail-from-attributes)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | MAIL FROM Attributes required to verify the change | Mailfromattributes
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | MAIL FROM Attributes required to verify the change | MailFromAttributes
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -732,16 +807,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Mailfromattributesdto = @"{"identity":"BobSmith@sailpoint.com","mailFromDomain":"example.sailpoint.com"}"@
+$MailFromAttributesDto = @"{
+  "identity" : "BobSmith@sailpoint.com",
+  "mailFromDomain" : "example.sailpoint.com"
+}"@
 
 # Change mail from domain
 
 try {
-    $Result = ConvertFrom-JsonToMailfromattributesdto -Json $Mailfromattributesdto
-    Send-MailFromAttributesV1 -Mailfromattributesdto $Result 
+    $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
+    Send-MailFromAttributesV1 -MailFromAttributesDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-MailFromAttributesV1 -Mailfromattributesdto $Result  
+    # Send-MailFromAttributesV1 -MailFromAttributesDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-MailFromAttributesV1"
     Write-Host $_.ErrorDetails
@@ -757,7 +835,7 @@ Send a Test Notification
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Sendtestnotificationrequestdto | [**Sendtestnotificationrequestdto**](../models/sendtestnotificationrequestdto) | True  | 
+ Body  | SendTestNotificationRequestDto | [**SendTestNotificationRequestDto**](../models/send-test-notification-request-dto) | True  | 
 
 ### Return type
  (empty response body)
@@ -766,12 +844,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -779,16 +857,27 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Sendtestnotificationrequestdto = @"{"key":"cloud_manual_work_item_summary","medium":"EMAIL","context":{"numberOfPendingTasks":"4","ownerId":"201327fda1c44704ac01181e963d463c"}}"@
+$SendTestNotificationRequestDto = @"{
+  "carbonCopy" : [ "cc@example.com" ],
+  "context" : {
+    "numberOfPendingTasks" : "4",
+    "taskTasks" : "tasks"
+  },
+  "blindCarbonCopy" : [ "bcc@example.com" ],
+  "medium" : "EMAIL",
+  "locale" : "en",
+  "recipientEmailList" : [ "test@example.com" ],
+  "key" : "cloud_manual_work_item_summary"
+}"@
 
 # Send test notification
 
 try {
-    $Result = ConvertFrom-JsonToSendtestnotificationrequestdto -Json $Sendtestnotificationrequestdto
-    Send-TestNotificationV1 -Sendtestnotificationrequestdto $Result 
+    $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
+    Send-TestNotificationV1 -SendTestNotificationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-TestNotificationV1 -Sendtestnotificationrequestdto $Result  
+    # Send-TestNotificationV1 -SendTestNotificationRequestDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TestNotificationV1"
     Write-Host $_.ErrorDetails

@@ -5,18 +5,20 @@
       label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#approve-non-employee-request-v1
       source: |
         $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
-        $Nonemployeeapprovaldecision = @"
-        
+        $NonEmployeeApprovalDecision = @"
+        {
+          "comment" : "Approved by manager"
+        }
         "@
         
         # Approve a non-employee request
         
         try {
-            $Result = ConvertFrom-JsonToNonemployeeapprovaldecision -Json $Nonemployeeapprovaldecision
-            Approve-NonEmployeeRequestV1 -Id $Id -Nonemployeeapprovaldecision $Result 
+            $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
+            Approve-NonEmployeeRequestV1 -Id $Id -NonEmployeeApprovalDecision $Result 
     
             # Below is a request that includes all optional parameters
-            # Approve-NonEmployeeRequestV1 -Id $Id -Nonemployeeapprovaldecision $Result   
+            # Approve-NonEmployeeRequestV1 -Id $Id -NonEmployeeApprovalDecision $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-NonEmployeeRequestV1"
             Write-Host $_.ErrorDetails
@@ -27,18 +29,31 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-record-v1
       source: |
-        $Nonemployeerequestbody = @"
-        
+        $NonEmployeeRequestBody = @"
+        {
+          "sourceId" : "2c91808568c529c60168cca6f90c1313",
+          "firstName" : "William",
+          "lastName" : "Smith",
+          "manager" : "jane.doe",
+          "data" : {
+            "description" : "Auditing"
+          },
+          "accountName" : "william.smith",
+          "phone" : "5125555555",
+          "endDate" : "2021-03-25T00:00:00-05:00",
+          "email" : "william.smith@example.com",
+          "startDate" : "2020-03-24T00:00:00-05:00"
+        }
         "@
         
         # Create non-employee record
         
         try {
-            $Result = ConvertFrom-JsonToNonemployeerequestbody -Json $Nonemployeerequestbody
-            New-NonEmployeeRecordV1 -Nonemployeerequestbody $Result 
+            $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+            New-NonEmployeeRecordV1 -NonEmployeeRequestBody $Result 
     
             # Below is a request that includes all optional parameters
-            # New-NonEmployeeRecordV1 -Nonemployeerequestbody $Result   
+            # New-NonEmployeeRecordV1 -NonEmployeeRequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeRecordV1"
             Write-Host $_.ErrorDetails
@@ -49,18 +64,31 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-request-v1
       source: |
-        $Nonemployeerequestbody = @"
-        
+        $NonEmployeeRequestBody = @"
+        {
+          "sourceId" : "2c91808568c529c60168cca6f90c1313",
+          "firstName" : "William",
+          "lastName" : "Smith",
+          "manager" : "jane.doe",
+          "data" : {
+            "description" : "Auditing"
+          },
+          "accountName" : "william.smith",
+          "phone" : "5125555555",
+          "endDate" : "2021-03-25T00:00:00-05:00",
+          "email" : "william.smith@example.com",
+          "startDate" : "2020-03-24T00:00:00-05:00"
+        }
         "@
         
         # Create non-employee request
         
         try {
-            $Result = ConvertFrom-JsonToNonemployeerequestbody -Json $Nonemployeerequestbody
-            New-NonEmployeeRequestV1 -Nonemployeerequestbody $Result 
+            $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+            New-NonEmployeeRequestV1 -NonEmployeeRequestBody $Result 
     
             # Below is a request that includes all optional parameters
-            # New-NonEmployeeRequestV1 -Nonemployeerequestbody $Result   
+            # New-NonEmployeeRequestV1 -NonEmployeeRequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeRequestV1"
             Write-Host $_.ErrorDetails
@@ -72,18 +100,25 @@
       label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-source-schema-attributes-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
-        $Nonemployeeschemaattributebody = @"
-        
+        $NonEmployeeSchemaAttributeBody = @"
+        {
+          "helpText" : "The unique identifier for the account",
+          "label" : "Account Name",
+          "placeholder" : "Enter a unique user name for this account.",
+          "type" : "TEXT",
+          "technicalName" : "account.name",
+          "required" : true
+        }
         "@
         
         # Create a new schema attribute for non-employee source
         
         try {
-            $Result = ConvertFrom-JsonToNonemployeeschemaattributebody -Json $Nonemployeeschemaattributebody
-            New-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId -Nonemployeeschemaattributebody $Result 
+            $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
+            New-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result 
     
             # Below is a request that includes all optional parameters
-            # New-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId -Nonemployeeschemaattributebody $Result   
+            # New-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeSourceSchemaAttributesV1"
             Write-Host $_.ErrorDetails
@@ -94,18 +129,43 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-source-v1
       source: |
-        $Nonemployeesourcerequestbody = @"
-        
+        $NonEmployeeSourceRequestBody = @"
+        {
+          "owner" : {
+            "id" : "2c91808570313110017040b06f344ec9"
+          },
+          "managementWorkgroup" : "123299",
+          "accountManagers" : [ {
+            "id" : "2c91808570313110017040b06f344ec9"
+          }, {
+            "id" : "2c91808570313110017040b06f344ec9"
+          }, {
+            "id" : "2c91808570313110017040b06f344ec9"
+          }, {
+            "id" : "2c91808570313110017040b06f344ec9"
+          }, {
+            "id" : "2c91808570313110017040b06f344ec9"
+          } ],
+          "name" : "Retail",
+          "description" : "Source description",
+          "approvers" : [ {
+            "id" : "2c91808570313110017040b06f344ec9"
+          }, {
+            "id" : "2c91808570313110017040b06f344ec9"
+          }, {
+            "id" : "2c91808570313110017040b06f344ec9"
+          } ]
+        }
         "@
         
         # Create non-employee source
         
         try {
-            $Result = ConvertFrom-JsonToNonemployeesourcerequestbody -Json $Nonemployeesourcerequestbody
-            New-NonEmployeeSourceV1 -Nonemployeesourcerequestbody $Result 
+            $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
+            New-NonEmployeeSourceV1 -NonEmployeeSourceRequestBody $Result 
     
             # Below is a request that includes all optional parameters
-            # New-NonEmployeeSourceV1 -Nonemployeesourcerequestbody $Result   
+            # New-NonEmployeeSourceV1 -NonEmployeeSourceRequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeSourceV1"
             Write-Host $_.ErrorDetails
@@ -561,17 +621,21 @@
       label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#patch-non-employee-record-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID)
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/endDate","value":"2019-08-23T18:40:35.772Z"}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch non-employee record
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-NonEmployeeRecordV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-NonEmployeeRecordV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-NonEmployeeRecordV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-NonEmployeeRecordV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeRecordV1"
             Write-Host $_.ErrorDetails
@@ -584,17 +648,21 @@
       source: |
         $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/label","value":{"new attribute label":null}}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch a schema attribute for non-employee source
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId -Jsonpatchoperation $Result   
+            # Update-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeSchemaAttributeV1"
             Write-Host $_.ErrorDetails
@@ -606,17 +674,21 @@
       label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#patch-non-employee-source-v1
       source: |
         $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":{"new name":null}},{"op":"replace","path":"/approvers","value":["2c91809f703bb37a017040a2fe8748c7","48b1f463c9e8427db5a5071bd81914b8"]}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch a non-employee source
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-NonEmployeeSourceV1 -SourceId $SourceId -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-NonEmployeeSourceV1 -SourceId $SourceId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-NonEmployeeSourceV1 -SourceId $SourceId -Jsonpatchoperation $Result   
+            # Update-NonEmployeeSourceV1 -SourceId $SourceId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeSourceV1"
             Write-Host $_.ErrorDetails
@@ -628,18 +700,20 @@
       label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#reject-non-employee-request-v1
       source: |
         $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
-        $Nonemployeerejectapprovaldecision = @"
-        
+        $NonEmployeeRejectApprovalDecision = @"
+        {
+          "comment" : "approved"
+        }
         "@
         
         # Reject a non-employee request
         
         try {
-            $Result = ConvertFrom-JsonToNonemployeerejectapprovaldecision -Json $Nonemployeerejectapprovaldecision
-            Deny-NonEmployeeRequestV1 -Id $Id -Nonemployeerejectapprovaldecision $Result 
+            $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
+            Deny-NonEmployeeRequestV1 -Id $Id -NonEmployeeRejectApprovalDecision $Result 
     
             # Below is a request that includes all optional parameters
-            # Deny-NonEmployeeRequestV1 -Id $Id -Nonemployeerejectapprovaldecision $Result   
+            # Deny-NonEmployeeRequestV1 -Id $Id -NonEmployeeRejectApprovalDecision $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-NonEmployeeRequestV1"
             Write-Host $_.ErrorDetails
@@ -651,18 +725,31 @@
       label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#update-non-employee-record-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID)
-        $Nonemployeerequestbody = @"
-        
+        $NonEmployeeRequestBody = @"
+        {
+          "sourceId" : "2c91808568c529c60168cca6f90c1313",
+          "firstName" : "William",
+          "lastName" : "Smith",
+          "manager" : "jane.doe",
+          "data" : {
+            "description" : "Auditing"
+          },
+          "accountName" : "william.smith",
+          "phone" : "5125555555",
+          "endDate" : "2021-03-25T00:00:00-05:00",
+          "email" : "william.smith@example.com",
+          "startDate" : "2020-03-24T00:00:00-05:00"
+        }
         "@
         
         # Update non-employee record
         
         try {
-            $Result = ConvertFrom-JsonToNonemployeerequestbody -Json $Nonemployeerequestbody
-            Update-NonEmployeeRecordV1 -Id $Id -Nonemployeerequestbody $Result 
+            $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+            Update-NonEmployeeRecordV1 -Id $Id -NonEmployeeRequestBody $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-NonEmployeeRecordV1 -Id $Id -Nonemployeerequestbody $Result   
+            # Update-NonEmployeeRecordV1 -Id $Id -NonEmployeeRequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeRecordV1"
             Write-Host $_.ErrorDetails

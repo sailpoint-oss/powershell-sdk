@@ -72,20 +72,20 @@ Use this endpoint to create a lifecycle state.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityProfileId | **String** | True  | Identity profile ID.
- Body  | Lifecyclestate | [**Lifecyclestate**](../models/lifecyclestate) | True  | Lifecycle state to be created.
+ Body  | LifecycleState | [**LifecycleState**](../models/lifecycle-state) | True  | Lifecycle state to be created.
 
 ### Return type
-[**Lifecyclestate**](../models/lifecyclestate)
+[**LifecycleState**](../models/lifecycle-state)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Created LifecycleState object. | Lifecyclestate
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Created LifecycleState object. | LifecycleState
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | SetLifecycleStateV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | SetLifecycleStateV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -94,16 +94,48 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
-$Lifecyclestate = @""@
+$LifecycleState = @"{
+  "accessActionConfiguration" : {
+    "removeAllAccessEnabled" : true
+  },
+  "accessProfileIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ],
+  "emailNotificationOption" : {
+    "notifyManagers" : true,
+    "notifySpecificUsers" : true,
+    "emailAddressList" : [ "test@test.com", "test2@test.com" ],
+    "notifyAllAdmins" : true
+  },
+  "created" : "2015-05-28T14:07:17Z",
+  "description" : "Lifecycle description",
+  "identityCount" : 42,
+  "priority" : 10,
+  "technicalName" : "Technical Name",
+  "identityState" : "INACTIVE_LONG_TERM",
+  "enabled" : true,
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "accountActions" : [ {
+    "allSources" : true,
+    "action" : "ENABLE",
+    "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
+    "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+  }, {
+    "allSources" : true,
+    "action" : "ENABLE",
+    "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
+    "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+  } ],
+  "id" : "id12345"
+}"@
 
 # Create lifecycle state
 
 try {
-    $Result = ConvertFrom-JsonToLifecyclestate -Json $Lifecyclestate
-    New-LifecycleStateV1 -IdentityProfileId $IdentityProfileId -Lifecyclestate $Result 
+    $Result = ConvertFrom-JsonToLifecycleState -Json $LifecycleState
+    New-LifecycleStateV1 -IdentityProfileId $IdentityProfileId -LifecycleState $Result 
     
     # Below is a request that includes all optional parameters
-    # New-LifecycleStateV1 -IdentityProfileId $IdentityProfileId -Lifecyclestate $Result  
+    # New-LifecycleStateV1 -IdentityProfileId $IdentityProfileId -LifecycleState $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-LifecycleStateV1"
     Write-Host $_.ErrorDetails
@@ -123,18 +155,18 @@ Path   | IdentityProfileId | **String** | True  | Identity profile ID.
 Path   | LifecycleStateId | **String** | True  | Lifecycle state ID.
 
 ### Return type
-[**Lifecyclestatedeleted**](../models/lifecyclestatedeleted)
+[**LifecyclestateDeleted**](../models/lifecyclestate-deleted)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | The request was successfully accepted into the system. | Lifecyclestatedeleted
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | The request was successfully accepted into the system. | LifecyclestateDeleted
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | SetLifecycleStateV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | SetLifecycleStateV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -171,18 +203,18 @@ Path   | IdentityProfileId | **String** | True  | Identity profile ID.
 Path   | LifecycleStateId | **String** | True  | Lifecycle state ID.
 
 ### Return type
-[**Lifecyclestate**](../models/lifecyclestate)
+[**LifecycleState**](../models/lifecycle-state)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The requested LifecycleState was successfully retrieved. | Lifecyclestate
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The requested LifecycleState was successfully retrieved. | LifecycleState
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | SetLifecycleStateV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | SetLifecycleStateV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -222,17 +254,17 @@ Path   | IdentityProfileId | **String** | True  | Identity profile ID.
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, priority, created, modified**
 
 ### Return type
-[**Lifecyclestate[]**](../models/lifecyclestate)
+[**LifecycleState[]**](../models/lifecycle-state)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of LifecycleState objects. | Lifecyclestate[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of LifecycleState objects. | LifecycleState[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | SetLifecycleStateV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | SetLifecycleStateV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -278,12 +310,12 @@ Path   | IdentityId | **String** | True  | ID of the identity to update.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | The request was successfully accepted into the system. | SetLifecycleStateV1200Response
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | SetLifecycleStateV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | SetLifecycleStateV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -319,21 +351,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityProfileId | **String** | True  | Identity profile ID.
 Path   | LifecycleStateId | **String** | True  | Lifecycle state ID.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
 
 ### Return type
-[**Lifecyclestate**](../models/lifecyclestate)
+[**LifecycleState**](../models/lifecycle-state)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The LifecycleState was successfully updated. | Lifecyclestate
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The LifecycleState was successfully updated. | LifecycleState
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | SetLifecycleStateV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | SetLifecycleStateV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -343,17 +375,21 @@ Code | Description  | Data Type
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
- $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Updated description!"},{"op":"replace","path":"/accessProfileIds","value":["2c918087742bab150174407a80f3125e","2c918087742bab150174407a80f3124f"]},{"op":"replace","path":"/accountActions","value":[{"action":"ENABLE","sourceIds":["2c9180846a2f82fb016a481c1b1560c5","2c9180846a2f82fb016a481c1b1560cc"],"excludeSourceIds":null,"allSources":false},{"action":"DISABLE","sourceIds":null,"excludeSourceIds":["3b551ccf5566478b9b77f37de25303aa"],"allSources":true},{"action":"DELETE","sourceIds":["3c9180846a2f82fb016a481c1b1560c5","8n9180846a2f82fb016a481c1b1560cc"],"excludeSourceIds":null,"allSources":false}]},{"op":"replace","path":"/emailNotificationOption","value":{"notifyManagers":true,"notifyAllAdmins":false,"notifySpecificUsers":false,"emailAddressList":[]}},{"op":"replace","path":"/accessActionConfiguration","value":{"removeAllAccessEnabled":true}}]"@ # Jsonpatchoperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
  
 
 # Update lifecycle state
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-LifecycleStatesV1 -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-LifecycleStatesV1 -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-LifecycleStatesV1 -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -Jsonpatchoperation $Result  
+    # Update-LifecycleStatesV1 -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-LifecycleStatesV1"
     Write-Host $_.ErrorDetails

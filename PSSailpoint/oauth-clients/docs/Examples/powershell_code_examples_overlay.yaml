@@ -4,18 +4,34 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/oauthclients/methods/o-auth-clients#create-oauth-client-v1
       source: |
-        $Createoauthclientrequest = @"
-        
+        $CreateOAuthClientRequest = @"
+        {
+          "internal" : false,
+          "businessName" : "Acme-Solar",
+          "description" : "An API client used for the authorization_code, refresh_token, and client_credentials flows",
+          "refreshTokenValiditySeconds" : 86400,
+          "type" : "CONFIDENTIAL",
+          "redirectUris" : [ "http://localhost:12345" ],
+          "enabled" : true,
+          "accessType" : "OFFLINE",
+          "grantTypes" : [ "AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "REFRESH_TOKEN" ],
+          "strongAuthSupported" : false,
+          "homepageUrl" : "http://localhost:12345",
+          "accessTokenValiditySeconds" : 750,
+          "scope" : [ "demo:api-client-scope:first", "demo:api-client-scope:second" ],
+          "name" : "Demo API Client",
+          "claimsSupported" : false
+        }
         "@
         
         # Create oauth client
         
         try {
-            $Result = ConvertFrom-JsonToCreateoauthclientrequest -Json $Createoauthclientrequest
-            New-OauthClientV1 -Createoauthclientrequest $Result 
+            $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
+            New-OauthClientV1 -CreateOAuthClientRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-OauthClientV1 -Createoauthclientrequest $Result   
+            # New-OauthClientV1 -CreateOAuthClientRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-OauthClientV1"
             Write-Host $_.ErrorDetails
@@ -84,17 +100,21 @@
       label: SDK_tools/sdk/powershell/oauthclients/methods/o-auth-clients#patch-oauth-client-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/strongAuthSupported","value":true},{"op":"replace","path":"/businessName","value":"acme-solar"}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch oauth client
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-OauthClientV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-OauthClientV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-OauthClientV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-OauthClientV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-OauthClientV1"
             Write-Host $_.ErrorDetails

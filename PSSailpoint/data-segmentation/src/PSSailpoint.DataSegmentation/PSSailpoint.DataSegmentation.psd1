@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.DataSegmentation.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -78,8 +78,8 @@ FunctionsToExport = 'New-DataSegmentV1', 'Remove-DataSegmentV1',
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
                'Initialize-DataSegment', 'ConvertFrom-JsonToDataSegment', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-Expression', 'ConvertFrom-JsonToExpression', 
                'Initialize-ExpressionChildrenInner', 
                'ConvertFrom-JsonToExpressionChildrenInner', 
@@ -88,10 +88,10 @@ FunctionsToExport = 'New-DataSegmentV1', 'Remove-DataSegmentV1',
                'Initialize-GetDataSegmentIdentityMembershipV1429Response', 
                'ConvertFrom-JsonToGetDataSegmentIdentityMembershipV1429Response', 
                'Initialize-Ref', 'ConvertFrom-JsonToRef', 'Initialize-Scope', 
-               'ConvertFrom-JsonToScope', 'Initialize-Segmentmembership', 
-               'ConvertFrom-JsonToSegmentmembership', 'Initialize-Value', 
-               'ConvertFrom-JsonToValue', 'Initialize-Visibilitycriteria', 
-               'ConvertFrom-JsonToVisibilitycriteria'
+               'ConvertFrom-JsonToScope', 'Initialize-SegmentMembership', 
+               'ConvertFrom-JsonToSegmentMembership', 'Initialize-Value', 
+               'ConvertFrom-JsonToValue', 'Initialize-VisibilityCriteria', 
+               'ConvertFrom-JsonToVisibilityCriteria'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

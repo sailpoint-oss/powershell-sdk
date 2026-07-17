@@ -5,18 +5,28 @@
       label: SDK_tools/sdk/powershell/iaicommonaccess/methods/iai-common-access#create-common-access-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Commonaccessitemrequest = @"
-        
+        $CommonAccessItemRequest = @"
+        {
+          "access" : {
+            "ownerName" : "ownerName",
+            "name" : "name",
+            "description" : "description",
+            "id" : "id",
+            "type" : "ACCESS_PROFILE",
+            "ownerId" : "ownerId"
+          },
+          "status" : "CONFIRMED"
+        }
         "@
         
         # Create common access items
         
         try {
-            $Result = ConvertFrom-JsonToCommonaccessitemrequest -Json $Commonaccessitemrequest
-            New-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessitemrequest $Result 
+            $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
+            New-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental -CommonAccessItemRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessitemrequest $Result   
+            # New-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental -CommonAccessItemRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CommonAccessV1"
             Write-Host $_.ErrorDetails
@@ -52,17 +62,20 @@
       label: SDK_tools/sdk/powershell/iaicommonaccess/methods/iai-common-access#update-common-access-status-in-bulk-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Commonaccessidstatus = @""@ 
+        $CommonAccessIDStatus = @"{
+          "confirmedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ],
+          "deniedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ]
+        }"@ 
         
         
         # Bulk update common access status
         
         try {
-            $Result = ConvertFrom-JsonToCommonaccessidstatus -Json $Commonaccessidstatus
-            Update-CommonAccessStatusInBulkV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessidstatus $Result 
+            $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
+            Update-CommonAccessStatusInBulkV1 -XSailPointExperimental $XSailPointExperimental -CommonAccessIDStatus $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-CommonAccessStatusInBulkV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessidstatus $Result   
+            # Update-CommonAccessStatusInBulkV1 -XSailPointExperimental $XSailPointExperimental -CommonAccessIDStatus $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CommonAccessStatusInBulkV1"
             Write-Host $_.ErrorDetails

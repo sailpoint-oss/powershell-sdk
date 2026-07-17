@@ -45,17 +45,21 @@
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch a specified auth profile
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-ProfileConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-ProfileConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-ProfileConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result   
+            # Update-ProfileConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ProfileConfigV1"
             Write-Host $_.ErrorDetails

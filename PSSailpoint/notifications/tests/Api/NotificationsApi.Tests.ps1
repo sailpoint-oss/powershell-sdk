@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.Notifications' -name 'NotificationsApi' {
     Context 'New-DomainDkimV1' {
         It 'Test New-DomainDkimV1' {
-            #$TestResult = New-DomainDkimV1 -Domainaddress "TEST_VALUE"
+            #$TestResult = New-DomainDkimV1 -DomainAddress "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.Notifications' -name 'NotificationsApi' {
 
     Context 'New-NotificationTemplateV1' {
         It 'Test New-NotificationTemplateV1' {
-            #$TestResult = New-NotificationTemplateV1 -Templatedto "TEST_VALUE"
+            #$TestResult = New-NotificationTemplateV1 -TemplateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.Notifications' -name 'NotificationsApi' {
 
     Context 'New-VerifiedFromAddressV1' {
         It 'Test New-VerifiedFromAddressV1' {
-            #$TestResult = New-VerifiedFromAddressV1 -Emailstatusdto "TEST_VALUE"
+            #$TestResult = New-VerifiedFromAddressV1 -EmailStatusDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.Notifications' -name 'NotificationsApi' {
 
     Context 'Remove-NotificationTemplatesInBulkV1' {
         It 'Test Remove-NotificationTemplatesInBulkV1' {
-            #$TestResult = Remove-NotificationTemplatesInBulkV1 -Templatebulkdeletedto "TEST_VALUE"
+            #$TestResult = Remove-NotificationTemplatesInBulkV1 -TemplateBulkDeleteDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -120,7 +120,7 @@ Describe -tag 'PSSailpoint.Notifications' -name 'NotificationsApi' {
 
     Context 'Send-MailFromAttributesV1' {
         It 'Test Send-MailFromAttributesV1' {
-            #$TestResult = Send-MailFromAttributesV1 -Mailfromattributesdto "TEST_VALUE"
+            #$TestResult = Send-MailFromAttributesV1 -MailFromAttributesDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -128,7 +128,7 @@ Describe -tag 'PSSailpoint.Notifications' -name 'NotificationsApi' {
 
     Context 'Send-TestNotificationV1' {
         It 'Test Send-TestNotificationV1' {
-            #$TestResult = Send-TestNotificationV1 -Sendtestnotificationrequestdto "TEST_VALUE"
+            #$TestResult = Send-TestNotificationV1 -SendTestNotificationRequestDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

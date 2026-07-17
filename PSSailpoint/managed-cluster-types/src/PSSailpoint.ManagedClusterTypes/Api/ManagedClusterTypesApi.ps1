@@ -14,7 +14,7 @@ Create new managed cluster type
 
 Create a new Managed Cluster Type.  The API returns a result that includes the Managed Cluster Type ID
 
-.PARAMETER Managedclustertype
+.PARAMETER ManagedClusterType
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedclustertype
+ManagedClusterType
 #>
 function New-ManagedClusterTypeV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Managedclustertype},
+        ${ManagedClusterType},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-ManagedClusterTypeV1 {
 
         $LocalVarUri = '/managed-cluster-types/v1'
 
-        if (!$Managedclustertype) {
-            throw "Error! The required parameter `Managedclustertype` missing when calling createManagedClusterTypeV1."
+        if (!$ManagedClusterType) {
+            throw "Error! The required parameter `ManagedClusterType` missing when calling createManagedClusterTypeV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Managedclustertype -is [array])) {
-            $LocalVarBodyParameter = $Managedclustertype | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ManagedClusterType -is [array])) {
+            $LocalVarBodyParameter = $ManagedClusterType | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Managedclustertype | ForEach-Object {
+            $LocalVarBodyParameter = $ManagedClusterType | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-ManagedClusterTypeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedclustertype" `
+                                -ReturnType "ManagedClusterType" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -183,7 +183,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedclustertype
+ManagedClusterType
 #>
 function Get-ManagedClusterTypeV1 {
     [CmdletBinding()]
@@ -226,7 +226,7 @@ function Get-ManagedClusterTypeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedclustertype" `
+                                -ReturnType "ManagedClusterType" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -267,7 +267,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedclustertype[]
+ManagedClusterType[]
 #>
 function Get-ManagedClusterTypesV1 {
     [CmdletBinding()]
@@ -338,7 +338,7 @@ function Get-ManagedClusterTypesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedclustertype[]" `
+                                -ReturnType "ManagedClusterType[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -361,7 +361,7 @@ Update an existing Managed Cluster Type.
 .PARAMETER Id
 The Managed Cluster Type ID
 
-.PARAMETER Jsonpatch
+.PARAMETER JsonPatch
 The JSONPatch payload used to update the schema.
 
 .PARAMETER WithHttpInfo
@@ -370,7 +370,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedclustertype
+ManagedClusterType
 #>
 function Update-ManagedClusterTypeV1 {
     [CmdletBinding()]
@@ -380,7 +380,7 @@ function Update-ManagedClusterTypeV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Jsonpatch},
+        ${JsonPatch},
         [Switch]
         $WithHttpInfo
     )
@@ -410,14 +410,14 @@ function Update-ManagedClusterTypeV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatch) {
-            throw "Error! The required parameter `Jsonpatch` missing when calling updateManagedClusterTypeV1."
+        if (!$JsonPatch) {
+            throw "Error! The required parameter `JsonPatch` missing when calling updateManagedClusterTypeV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatch -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatch -is [array])) {
+            $LocalVarBodyParameter = $JsonPatch | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatch | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatch | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -436,7 +436,7 @@ function Update-ManagedClusterTypeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedclustertype" `
+                                -ReturnType "ManagedClusterType" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.OrgConfig' -name 'OrgConfigApi' {
 
     Context 'Update-OrgConfigV1' {
         It 'Test Update-OrgConfigV1' {
-            #$TestResult = Update-OrgConfigV1 -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-OrgConfigV1 -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

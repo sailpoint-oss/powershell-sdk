@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.PrivilegeCriteria.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,24 +76,24 @@ FunctionsToExport = 'New-CustomPrivilegeCriteriaV1', 'Remove-CustomPrivilegeCrit
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Createprivilegecriteriarequest', 
-               'ConvertFrom-JsonToCreateprivilegecriteriarequest', 
-               'Initialize-CreateprivilegecriteriarequestGroupsInner', 
-               'ConvertFrom-JsonToCreateprivilegecriteriarequestGroupsInner', 
-               'Initialize-CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInner', 
-               'ConvertFrom-JsonToCreateprivilegecriteriarequestGroupsInnerCriteriaItemsInner', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-CreatePrivilegeCriteriaRequest', 
+               'ConvertFrom-JsonToCreatePrivilegeCriteriaRequest', 
+               'Initialize-CreatePrivilegeCriteriaRequestGroupsInner', 
+               'ConvertFrom-JsonToCreatePrivilegeCriteriaRequestGroupsInner', 
+               'Initialize-CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner', 
+               'ConvertFrom-JsonToCreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-ListPrivilegeCriteriaV1401Response', 
                'ConvertFrom-JsonToListPrivilegeCriteriaV1401Response', 
                'Initialize-ListPrivilegeCriteriaV1429Response', 
                'ConvertFrom-JsonToListPrivilegeCriteriaV1429Response', 
-               'Initialize-Privilegecriteriadto', 
-               'ConvertFrom-JsonToPrivilegecriteriadto', 
-               'Initialize-PrivilegecriteriadtoGroupsInner', 
-               'ConvertFrom-JsonToPrivilegecriteriadtoGroupsInner', 
-               'Initialize-PrivilegecriteriadtoGroupsInnerCriteriaItemsInner', 
-               'ConvertFrom-JsonToPrivilegecriteriadtoGroupsInnerCriteriaItemsInner'
+               'Initialize-PrivilegeCriteriaDTO', 
+               'ConvertFrom-JsonToPrivilegeCriteriaDTO', 
+               'Initialize-PrivilegeCriteriaDTOGroupsInner', 
+               'ConvertFrom-JsonToPrivilegeCriteriaDTOGroupsInner', 
+               'Initialize-PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner', 
+               'ConvertFrom-JsonToPrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

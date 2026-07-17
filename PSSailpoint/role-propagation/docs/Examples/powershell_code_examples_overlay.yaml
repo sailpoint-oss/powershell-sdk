@@ -82,18 +82,20 @@
       label: SDK_tools/sdk/powershell/rolepropagation/methods/role-propagation#set-role-propagation-config-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $RolePropagationConfigInput = @"
-        
+        $Rolepropagationconfiginput = @"
+        {
+          "enabled" : true
+        }
         "@
         
         # Update Role Change Propagation Configuration
         
         try {
-            $Result = ConvertFrom-JsonToRolePropagationConfigInput -Json $RolePropagationConfigInput
-            Set-RolePropagationConfigV1 -XSailPointExperimental $XSailPointExperimental -RolePropagationConfigInput $Result 
+            $Result = ConvertFrom-JsonToRolepropagationconfiginput -Json $Rolepropagationconfiginput
+            Set-RolePropagationConfigV1 -XSailPointExperimental $XSailPointExperimental -Rolepropagationconfiginput $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-RolePropagationConfigV1 -XSailPointExperimental $XSailPointExperimental -RolePropagationConfigInput $Result   
+            # Set-RolePropagationConfigV1 -XSailPointExperimental $XSailPointExperimental -Rolepropagationconfiginput $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-RolePropagationConfigV1"
             Write-Host $_.ErrorDetails

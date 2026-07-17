@@ -17,7 +17,7 @@ Completes an invocation to a REQUEST_RESPONSE type trigger.
 .PARAMETER Id
 The ID of the invocation to complete.
 
-.PARAMETER Completeinvocation
+.PARAMETER CompleteInvocation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -36,7 +36,7 @@ function Complete-TriggerInvocationV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Completeinvocation},
+        ${CompleteInvocation},
         [Switch]
         $WithHttpInfo
     )
@@ -66,14 +66,14 @@ function Complete-TriggerInvocationV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Completeinvocation) {
-            throw "Error! The required parameter `Completeinvocation` missing when calling completeTriggerInvocationV1."
+        if (!$CompleteInvocation) {
+            throw "Error! The required parameter `CompleteInvocation` missing when calling completeTriggerInvocationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Completeinvocation -is [array])) {
-            $LocalVarBodyParameter = $Completeinvocation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CompleteInvocation -is [array])) {
+            $LocalVarBodyParameter = $CompleteInvocation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Completeinvocation | ForEach-Object {
+            $LocalVarBodyParameter = $CompleteInvocation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -112,7 +112,7 @@ Create a subscription
 
 This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required: * HTTP subscriptions require httpConfig * EventBridge subscriptions require eventBridgeConfig
 
-.PARAMETER Subscriptionpostrequest
+.PARAMETER SubscriptionPostRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -128,7 +128,7 @@ function New-SubscriptionV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Subscriptionpostrequest},
+        ${SubscriptionPostRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -154,14 +154,14 @@ function New-SubscriptionV1 {
 
         $LocalVarUri = '/trigger-subscriptions/v1'
 
-        if (!$Subscriptionpostrequest) {
-            throw "Error! The required parameter `Subscriptionpostrequest` missing when calling createSubscriptionV1."
+        if (!$SubscriptionPostRequest) {
+            throw "Error! The required parameter `SubscriptionPostRequest` missing when calling createSubscriptionV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Subscriptionpostrequest -is [array])) {
-            $LocalVarBodyParameter = $Subscriptionpostrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SubscriptionPostRequest -is [array])) {
+            $LocalVarBodyParameter = $SubscriptionPostRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Subscriptionpostrequest | ForEach-Object {
+            $LocalVarBodyParameter = $SubscriptionPostRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -405,7 +405,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Invocationstatus[]
+InvocationStatus[]
 #>
 function Get-TriggerInvocationStatusV1 {
     [CmdletBinding()]
@@ -476,7 +476,7 @@ function Get-TriggerInvocationStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Invocationstatus[]" `
+                                -ReturnType "InvocationStatus[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -611,7 +611,7 @@ This API updates a trigger subscription in IdentityNow, using a set of instructi
 .PARAMETER Id
 ID of the Subscription to patch
 
-.PARAMETER SubscriptionpatchrequestInner
+.PARAMETER SubscriptionPatchRequestInner
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -630,7 +630,7 @@ function Update-SubscriptionV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${SubscriptionpatchrequestInner},
+        ${SubscriptionPatchRequestInner},
         [Switch]
         $WithHttpInfo
     )
@@ -660,14 +660,14 @@ function Update-SubscriptionV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$SubscriptionpatchrequestInner) {
-            throw "Error! The required parameter `SubscriptionpatchrequestInner` missing when calling patchSubscriptionV1."
+        if (!$SubscriptionPatchRequestInner) {
+            throw "Error! The required parameter `SubscriptionPatchRequestInner` missing when calling patchSubscriptionV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SubscriptionpatchrequestInner -is [array])) {
-            $LocalVarBodyParameter = $SubscriptionpatchrequestInner | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SubscriptionPatchRequestInner -is [array])) {
+            $LocalVarBodyParameter = $SubscriptionPatchRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $SubscriptionpatchrequestInner | ForEach-Object {
+            $LocalVarBodyParameter = $SubscriptionPatchRequestInner | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -706,7 +706,7 @@ Start a test invocation
 
 Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
 
-.PARAMETER Testinvocation
+.PARAMETER TestInvocation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -722,7 +722,7 @@ function Start-TestTriggerInvocationV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Testinvocation},
+        ${TestInvocation},
         [Switch]
         $WithHttpInfo
     )
@@ -748,14 +748,14 @@ function Start-TestTriggerInvocationV1 {
 
         $LocalVarUri = '/trigger-invocations/v1/test'
 
-        if (!$Testinvocation) {
-            throw "Error! The required parameter `Testinvocation` missing when calling startTestTriggerInvocationV1."
+        if (!$TestInvocation) {
+            throw "Error! The required parameter `TestInvocation` missing when calling startTestTriggerInvocationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Testinvocation -is [array])) {
-            $LocalVarBodyParameter = $Testinvocation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TestInvocation -is [array])) {
+            $LocalVarBodyParameter = $TestInvocation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Testinvocation | ForEach-Object {
+            $LocalVarBodyParameter = $TestInvocation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -794,7 +794,7 @@ Validate a subscription filter
 
 Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
 
-.PARAMETER Validatefilterinputdto
+.PARAMETER ValidateFilterInputDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -803,14 +803,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Validatefilteroutputdto
+ValidateFilterOutputDto
 #>
 function Test-SubscriptionFilterV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Validatefilterinputdto},
+        ${ValidateFilterInputDto},
         [Switch]
         $WithHttpInfo
     )
@@ -836,14 +836,14 @@ function Test-SubscriptionFilterV1 {
 
         $LocalVarUri = '/trigger-subscriptions/v1/validate-filter'
 
-        if (!$Validatefilterinputdto) {
-            throw "Error! The required parameter `Validatefilterinputdto` missing when calling testSubscriptionFilterV1."
+        if (!$ValidateFilterInputDto) {
+            throw "Error! The required parameter `ValidateFilterInputDto` missing when calling testSubscriptionFilterV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Validatefilterinputdto -is [array])) {
-            $LocalVarBodyParameter = $Validatefilterinputdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ValidateFilterInputDto -is [array])) {
+            $LocalVarBodyParameter = $ValidateFilterInputDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Validatefilterinputdto | ForEach-Object {
+            $LocalVarBodyParameter = $ValidateFilterInputDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -862,7 +862,7 @@ function Test-SubscriptionFilterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Validatefilteroutputdto" `
+                                -ReturnType "ValidateFilterOutputDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -885,7 +885,7 @@ This API updates a trigger subscription in IdentityNow, using a full object repr
 .PARAMETER Id
 Subscription ID
 
-.PARAMETER Subscriptionputrequest
+.PARAMETER SubscriptionPutRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -904,7 +904,7 @@ function Update-SubscriptionV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Subscriptionputrequest},
+        ${SubscriptionPutRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -934,14 +934,14 @@ function Update-SubscriptionV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Subscriptionputrequest) {
-            throw "Error! The required parameter `Subscriptionputrequest` missing when calling updateSubscriptionV1."
+        if (!$SubscriptionPutRequest) {
+            throw "Error! The required parameter `SubscriptionPutRequest` missing when calling updateSubscriptionV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Subscriptionputrequest -is [array])) {
-            $LocalVarBodyParameter = $Subscriptionputrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SubscriptionPutRequest -is [array])) {
+            $LocalVarBodyParameter = $SubscriptionPutRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Subscriptionputrequest | ForEach-Object {
+            $LocalVarBodyParameter = $SubscriptionPutRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

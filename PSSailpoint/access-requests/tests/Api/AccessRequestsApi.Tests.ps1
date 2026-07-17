@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.AccessRequests' -name 'AccessRequestsApi' {
     Context 'Approve-BulkAccessRequestV1' {
         It 'Test Approve-BulkAccessRequestV1' {
-            #$TestResult = Approve-BulkAccessRequestV1 -Bulkapproveaccessrequest "TEST_VALUE"
+            #$TestResult = Approve-BulkAccessRequestV1 -BulkApproveAccessRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'AccessRequestsApi' {
 
     Context 'Suspend-AccessRequestInBulkV1' {
         It 'Test Suspend-AccessRequestInBulkV1' {
-            #$TestResult = Suspend-AccessRequestInBulkV1 -Bulkcancelaccessrequest "TEST_VALUE"
+            #$TestResult = Suspend-AccessRequestInBulkV1 -BulkCancelAccessRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'AccessRequestsApi' {
 
     Context 'Suspend-AccessRequestV1' {
         It 'Test Suspend-AccessRequestV1' {
-            #$TestResult = Suspend-AccessRequestV1 -Cancelaccessrequest "TEST_VALUE"
+            #$TestResult = Suspend-AccessRequestV1 -CancelAccessRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'AccessRequestsApi' {
 
     Context 'Close-AccessRequestV1' {
         It 'Test Close-AccessRequestV1' {
-            #$TestResult = Close-AccessRequestV1 -Closeaccessrequest "TEST_VALUE"
+            #$TestResult = Close-AccessRequestV1 -CloseAccessRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'AccessRequestsApi' {
 
     Context 'New-AccessRequestV1' {
         It 'Test New-AccessRequestV1' {
-            #$TestResult = New-AccessRequestV1 -Accessrequest "TEST_VALUE"
+            #$TestResult = New-AccessRequestV1 -AccessRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'AccessRequestsApi' {
 
     Context 'Invoke-LoadAccountSelectionsV1' {
         It 'Test Invoke-LoadAccountSelectionsV1' {
-            #$TestResult = Invoke-LoadAccountSelectionsV1 -XSailPointExperimental "TEST_VALUE" -Accountsselectionrequest "TEST_VALUE"
+            #$TestResult = Invoke-LoadAccountSelectionsV1 -XSailPointExperimental "TEST_VALUE" -AccountsSelectionRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'AccessRequestsApi' {
 
     Context 'Set-AccessRequestConfigV1' {
         It 'Test Set-AccessRequestConfigV1' {
-            #$TestResult = Set-AccessRequestConfigV1 -Accessrequestconfig "TEST_VALUE"
+            #$TestResult = Set-AccessRequestConfigV1 -AccessRequestConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'AccessRequestsApi' {
 
     Context 'Set-AccessRequestConfigV2' {
         It 'Test Set-AccessRequestConfigV2' {
-            #$TestResult = Set-AccessRequestConfigV2 -Accessrequestconfigv2 "TEST_VALUE"
+            #$TestResult = Set-AccessRequestConfigV2 -AccessRequestConfig2 "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

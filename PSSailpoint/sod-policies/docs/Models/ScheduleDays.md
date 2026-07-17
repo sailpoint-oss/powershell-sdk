@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ScheduleDays', 'ScheduleDays']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **Selectortype** |  | [required]
+**Type** | **SelectorType** |  | [required]
 **Values** | **[]String** | The selected values.  | [required]
 **Interval** | **Int32** | The selected interval for RANGE selectors.  | [optional] 
 

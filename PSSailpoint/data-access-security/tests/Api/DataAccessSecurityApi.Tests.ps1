@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
 
     Context 'New-ApplicationV1' {
         It 'Test New-ApplicationV1' {
-            #$TestResult = New-ApplicationV1 -Basecreateapplicationrequest "TEST_VALUE"
+            #$TestResult = New-ApplicationV1 -BaseCreateApplicationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
 
     Context 'New-ScheduleV1' {
         It 'Test New-ScheduleV1' {
-            #$TestResult = New-ScheduleV1 -Createschedulerequest "TEST_VALUE"
+            #$TestResult = New-ScheduleV1 -CreateScheduleRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
 
     Context 'Invoke-DasV1OwnersAssignPost' {
         It 'Test Invoke-DasV1OwnersAssignPost' {
-            #$TestResult = Invoke-DasV1OwnersAssignPost -Assignresourceownerrequest "TEST_VALUE"
+            #$TestResult = Invoke-DasV1OwnersAssignPost -AssignResourceOwnerRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
 
     Context 'Invoke-DasV1OwnersReelectPost' {
         It 'Test Invoke-DasV1OwnersReelectPost' {
-            #$TestResult = Invoke-DasV1OwnersReelectPost -Reelectrequest "TEST_VALUE"
+            #$TestResult = Invoke-DasV1OwnersReelectPost -ReelectRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -176,7 +176,7 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
 
     Context 'Send-ApplicationV1' {
         It 'Test Send-ApplicationV1' {
-            #$TestResult = Send-ApplicationV1 -Id "TEST_VALUE" -Basecreateapplicationrequest "TEST_VALUE"
+            #$TestResult = Send-ApplicationV1 -Id "TEST_VALUE" -BaseCreateApplicationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -192,7 +192,7 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
 
     Context 'Send-ScheduleV1' {
         It 'Test Send-ScheduleV1' {
-            #$TestResult = Send-ScheduleV1 -Id "TEST_VALUE" -Updateschedulerequest "TEST_VALUE"
+            #$TestResult = Send-ScheduleV1 -Id "TEST_VALUE" -UpdateScheduleRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

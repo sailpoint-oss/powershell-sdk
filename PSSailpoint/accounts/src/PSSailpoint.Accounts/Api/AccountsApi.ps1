@@ -14,7 +14,7 @@ Create account
 
 Submit an account creation task - the API then returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn't actually provision the account on the target source, which means that if the account doesn't also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
 
-.PARAMETER Accountattributescreate
+.PARAMETER AccountAttributesCreate
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountsasyncresult
+AccountsAsyncResult
 #>
 function New-AccountV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accountattributescreate},
+        ${AccountAttributesCreate},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-AccountV1 {
 
         $LocalVarUri = '/accounts/v1'
 
-        if (!$Accountattributescreate) {
-            throw "Error! The required parameter `Accountattributescreate` missing when calling createAccountV1."
+        if (!$AccountAttributesCreate) {
+            throw "Error! The required parameter `AccountAttributesCreate` missing when calling createAccountV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accountattributescreate -is [array])) {
-            $LocalVarBodyParameter = $Accountattributescreate | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountAttributesCreate -is [array])) {
+            $LocalVarBodyParameter = $AccountAttributesCreate | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accountattributescreate | ForEach-Object {
+            $LocalVarBodyParameter = $AccountAttributesCreate | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-AccountV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountsasyncresult" `
+                                -ReturnType "AccountsAsyncResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -111,7 +111,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskresultdto
+TaskResultDto
 #>
 function Remove-AccountAsyncV1 {
     [CmdletBinding()]
@@ -154,7 +154,7 @@ function Remove-AccountAsyncV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskresultdto" `
+                                -ReturnType "TaskResultDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -183,7 +183,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountsasyncresult
+AccountsAsyncResult
 #>
 function Remove-AccountV1 {
     [CmdletBinding()]
@@ -226,7 +226,7 @@ function Remove-AccountV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountsasyncresult" `
+                                -ReturnType "AccountsAsyncResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -321,7 +321,7 @@ This API submits a task to disable the account and returns the task ID.
 .PARAMETER Id
 The account id
 
-.PARAMETER Accounttogglerequest
+.PARAMETER AccountToggleRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -330,7 +330,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountsasyncresult
+AccountsAsyncResult
 #>
 function Disable-AccountV1 {
     [CmdletBinding()]
@@ -340,7 +340,7 @@ function Disable-AccountV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accounttogglerequest},
+        ${AccountToggleRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -370,14 +370,14 @@ function Disable-AccountV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Accounttogglerequest) {
-            throw "Error! The required parameter `Accounttogglerequest` missing when calling disableAccountV1."
+        if (!$AccountToggleRequest) {
+            throw "Error! The required parameter `AccountToggleRequest` missing when calling disableAccountV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accounttogglerequest -is [array])) {
-            $LocalVarBodyParameter = $Accounttogglerequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountToggleRequest -is [array])) {
+            $LocalVarBodyParameter = $AccountToggleRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accounttogglerequest | ForEach-Object {
+            $LocalVarBodyParameter = $AccountToggleRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -396,7 +396,7 @@ function Disable-AccountV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountsasyncresult" `
+                                -ReturnType "AccountsAsyncResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -416,7 +416,7 @@ Disable idn accounts for identities
 
 This API submits tasks to disable IDN account for each identity provided in the request body.
 
-.PARAMETER Identitiesaccountsbulkrequest
+.PARAMETER IdentitiesAccountsBulkRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -425,14 +425,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Bulkidentitiesaccountsresponse[]
+BulkIdentitiesAccountsResponse[]
 #>
 function Disable-AccountsForIdentitiesV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Identitiesaccountsbulkrequest},
+        ${IdentitiesAccountsBulkRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -458,14 +458,14 @@ function Disable-AccountsForIdentitiesV1 {
 
         $LocalVarUri = '/identities-accounts/v1/disable'
 
-        if (!$Identitiesaccountsbulkrequest) {
-            throw "Error! The required parameter `Identitiesaccountsbulkrequest` missing when calling disableAccountsForIdentitiesV1."
+        if (!$IdentitiesAccountsBulkRequest) {
+            throw "Error! The required parameter `IdentitiesAccountsBulkRequest` missing when calling disableAccountsForIdentitiesV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Identitiesaccountsbulkrequest -is [array])) {
-            $LocalVarBodyParameter = $Identitiesaccountsbulkrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentitiesAccountsBulkRequest -is [array])) {
+            $LocalVarBodyParameter = $IdentitiesAccountsBulkRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Identitiesaccountsbulkrequest | ForEach-Object {
+            $LocalVarBodyParameter = $IdentitiesAccountsBulkRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -484,7 +484,7 @@ function Disable-AccountsForIdentitiesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Bulkidentitiesaccountsresponse[]" `
+                                -ReturnType "BulkIdentitiesAccountsResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -579,7 +579,7 @@ This API submits a task to enable account and returns the task ID.
 .PARAMETER Id
 The account id
 
-.PARAMETER Accounttogglerequest
+.PARAMETER AccountToggleRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -588,7 +588,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountsasyncresult
+AccountsAsyncResult
 #>
 function Enable-AccountV1 {
     [CmdletBinding()]
@@ -598,7 +598,7 @@ function Enable-AccountV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accounttogglerequest},
+        ${AccountToggleRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -628,14 +628,14 @@ function Enable-AccountV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Accounttogglerequest) {
-            throw "Error! The required parameter `Accounttogglerequest` missing when calling enableAccountV1."
+        if (!$AccountToggleRequest) {
+            throw "Error! The required parameter `AccountToggleRequest` missing when calling enableAccountV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accounttogglerequest -is [array])) {
-            $LocalVarBodyParameter = $Accounttogglerequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountToggleRequest -is [array])) {
+            $LocalVarBodyParameter = $AccountToggleRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accounttogglerequest | ForEach-Object {
+            $LocalVarBodyParameter = $AccountToggleRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -654,7 +654,7 @@ function Enable-AccountV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountsasyncresult" `
+                                -ReturnType "AccountsAsyncResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -674,7 +674,7 @@ Enable idn accounts for identities
 
 This API submits tasks to enable IDN account for each identity provided in the request body.
 
-.PARAMETER Identitiesaccountsbulkrequest
+.PARAMETER IdentitiesAccountsBulkRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -683,14 +683,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Bulkidentitiesaccountsresponse[]
+BulkIdentitiesAccountsResponse[]
 #>
 function Enable-AccountsForIdentitiesV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Identitiesaccountsbulkrequest},
+        ${IdentitiesAccountsBulkRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -716,14 +716,14 @@ function Enable-AccountsForIdentitiesV1 {
 
         $LocalVarUri = '/identities-accounts/v1/enable'
 
-        if (!$Identitiesaccountsbulkrequest) {
-            throw "Error! The required parameter `Identitiesaccountsbulkrequest` missing when calling enableAccountsForIdentitiesV1."
+        if (!$IdentitiesAccountsBulkRequest) {
+            throw "Error! The required parameter `IdentitiesAccountsBulkRequest` missing when calling enableAccountsForIdentitiesV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Identitiesaccountsbulkrequest -is [array])) {
-            $LocalVarBodyParameter = $Identitiesaccountsbulkrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentitiesAccountsBulkRequest -is [array])) {
+            $LocalVarBodyParameter = $IdentitiesAccountsBulkRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Identitiesaccountsbulkrequest | ForEach-Object {
+            $LocalVarBodyParameter = $IdentitiesAccountsBulkRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -742,7 +742,7 @@ function Enable-AccountsForIdentitiesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Bulkidentitiesaccountsresponse[]" `
+                                -ReturnType "BulkIdentitiesAccountsResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1062,7 +1062,7 @@ Use this API to update an account with a PUT request.   This endpoint submits an
 .PARAMETER Id
 Account ID.
 
-.PARAMETER Accountattributes
+.PARAMETER AccountAttributes
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1071,7 +1071,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountsasyncresult
+AccountsAsyncResult
 #>
 function Send-AccountV1 {
     [CmdletBinding()]
@@ -1081,7 +1081,7 @@ function Send-AccountV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accountattributes},
+        ${AccountAttributes},
         [Switch]
         $WithHttpInfo
     )
@@ -1111,14 +1111,14 @@ function Send-AccountV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Accountattributes) {
-            throw "Error! The required parameter `Accountattributes` missing when calling putAccountV1."
+        if (!$AccountAttributes) {
+            throw "Error! The required parameter `AccountAttributes` missing when calling putAccountV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accountattributes -is [array])) {
-            $LocalVarBodyParameter = $Accountattributes | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountAttributes -is [array])) {
+            $LocalVarBodyParameter = $AccountAttributes | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accountattributes | ForEach-Object {
+            $LocalVarBodyParameter = $AccountAttributes | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1137,7 +1137,7 @@ function Send-AccountV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountsasyncresult" `
+                                -ReturnType "AccountsAsyncResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1166,7 +1166,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountsasyncresult
+AccountsAsyncResult
 #>
 function Submit-ReloadAccountV1 {
     [CmdletBinding()]
@@ -1209,7 +1209,7 @@ function Submit-ReloadAccountV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountsasyncresult" `
+                                -ReturnType "AccountsAsyncResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1232,7 +1232,7 @@ This API submits a task to unlock an account and returns the task ID.   To use t
 .PARAMETER Id
 The account ID.
 
-.PARAMETER Accountunlockrequest
+.PARAMETER AccountUnlockRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1241,7 +1241,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountsasyncresult
+AccountsAsyncResult
 #>
 function Unlock-AccountV1 {
     [CmdletBinding()]
@@ -1251,7 +1251,7 @@ function Unlock-AccountV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accountunlockrequest},
+        ${AccountUnlockRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1281,14 +1281,14 @@ function Unlock-AccountV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Accountunlockrequest) {
-            throw "Error! The required parameter `Accountunlockrequest` missing when calling unlockAccountV1."
+        if (!$AccountUnlockRequest) {
+            throw "Error! The required parameter `AccountUnlockRequest` missing when calling unlockAccountV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accountunlockrequest -is [array])) {
-            $LocalVarBodyParameter = $Accountunlockrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountUnlockRequest -is [array])) {
+            $LocalVarBodyParameter = $AccountUnlockRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accountunlockrequest | ForEach-Object {
+            $LocalVarBodyParameter = $AccountUnlockRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1307,7 +1307,7 @@ function Unlock-AccountV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountsasyncresult" `
+                                -ReturnType "AccountsAsyncResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

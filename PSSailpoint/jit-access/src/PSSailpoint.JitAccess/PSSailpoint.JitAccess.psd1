@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.JitAccess.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,17 +74,17 @@ FunctionsToExport = 'Get-JitActivationConfigV1', 'Update-JitActivationConfigV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetJitActivationConfigV1401Response', 
                'ConvertFrom-JsonToGetJitActivationConfigV1401Response', 
                'Initialize-GetJitActivationConfigV1429Response', 
                'ConvertFrom-JsonToGetJitActivationConfigV1429Response', 
-               'Initialize-Jitaccessoperationrequest', 
-               'ConvertFrom-JsonToJitaccessoperationrequest', 
-               'ConvertFrom-JsonToJitaccessoperationrequestValue', 
-               'Initialize-Jitactivationconfigresponse', 
-               'ConvertFrom-JsonToJitactivationconfigresponse'
+               'Initialize-JitAccessOperationRequest', 
+               'ConvertFrom-JsonToJitAccessOperationRequest', 
+               'ConvertFrom-JsonToJitAccessOperationRequestValue', 
+               'Initialize-JITActivationConfigResponse', 
+               'ConvertFrom-JsonToJITActivationConfigResponse'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

@@ -4,18 +4,26 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#create-stream-v1
       source: |
-        $Createstreamrequest = @"
-        {"delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Production event stream for session revocation notifications"}
+        $CreateStreamRequest = @"
+        {
+          "delivery" : {
+            "method" : "urn:ietf:rfc:8935",
+            "endpoint_url" : "https://receiver.example.com/ssf/events",
+            "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+          },
+          "description" : "Production event stream",
+          "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+        }
         "@
         
         # Create stream
         
         try {
-            $Result = ConvertFrom-JsonToCreatestreamrequest -Json $Createstreamrequest
-            New-StreamV1 -Createstreamrequest $Result 
+            $Result = ConvertFrom-JsonToCreateStreamRequest -Json $CreateStreamRequest
+            New-StreamV1 -CreateStreamRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-StreamV1 -Createstreamrequest $Result   
+            # New-StreamV1 -CreateStreamRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-StreamV1"
             Write-Host $_.ErrorDetails
@@ -119,18 +127,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#send-stream-verification-v1
       source: |
-        $Verificationrequest = @"
-        {"stream_id":"550e8400-e29b-41d4-a716-446655440000","state":"verification-challenge-state-123"}
+        $VerificationRequest = @"
+        {
+          "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+          "state" : "verification-challenge-state-123"
+        }
         "@
         
         # Verify stream
         
         try {
-            $Result = ConvertFrom-JsonToVerificationrequest -Json $Verificationrequest
-            Send-StreamVerificationV1 -Verificationrequest $Result 
+            $Result = ConvertFrom-JsonToVerificationRequest -Json $VerificationRequest
+            Send-StreamVerificationV1 -VerificationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-StreamVerificationV1 -Verificationrequest $Result   
+            # Send-StreamVerificationV1 -VerificationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-StreamVerificationV1"
             Write-Host $_.ErrorDetails
@@ -141,18 +152,27 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#set-stream-configuration-v1
       source: |
-        $Replacestreamconfigurationrequest = @"
-        {"stream_id":"550e8400-e29b-41d4-a716-446655440000","delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Replaced stream configuration for production event delivery"}
+        $ReplaceStreamConfigurationRequest = @"
+        {
+          "delivery" : {
+            "method" : "urn:ietf:rfc:8935",
+            "endpoint_url" : "https://receiver.example.com/ssf/events",
+            "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+          },
+          "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+          "description" : "Production event stream",
+          "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+        }
         "@
         
         # Replace stream configuration
         
         try {
-            $Result = ConvertFrom-JsonToReplacestreamconfigurationrequest -Json $Replacestreamconfigurationrequest
-            Set-StreamConfigurationV1 -Replacestreamconfigurationrequest $Result 
+            $Result = ConvertFrom-JsonToReplaceStreamConfigurationRequest -Json $ReplaceStreamConfigurationRequest
+            Set-StreamConfigurationV1 -ReplaceStreamConfigurationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-StreamConfigurationV1 -Replacestreamconfigurationrequest $Result   
+            # Set-StreamConfigurationV1 -ReplaceStreamConfigurationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-StreamConfigurationV1"
             Write-Host $_.ErrorDetails
@@ -163,18 +183,27 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#update-stream-configuration-v1
       source: |
-        $Updatestreamconfigurationrequest = @"
-        {"stream_id":"550e8400-e29b-41d4-a716-446655440000","description":"Updated production event stream configuration"}
+        $UpdateStreamConfigurationRequest = @"
+        {
+          "delivery" : {
+            "method" : "urn:ietf:rfc:8935",
+            "endpoint_url" : "https://receiver.example.com/ssf/events",
+            "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+          },
+          "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+          "description" : "Updated production event stream configuration",
+          "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+        }
         "@
         
         # Update stream configuration
         
         try {
-            $Result = ConvertFrom-JsonToUpdatestreamconfigurationrequest -Json $Updatestreamconfigurationrequest
-            Update-StreamConfigurationV1 -Updatestreamconfigurationrequest $Result 
+            $Result = ConvertFrom-JsonToUpdateStreamConfigurationRequest -Json $UpdateStreamConfigurationRequest
+            Update-StreamConfigurationV1 -UpdateStreamConfigurationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-StreamConfigurationV1 -Updatestreamconfigurationrequest $Result   
+            # Update-StreamConfigurationV1 -UpdateStreamConfigurationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-StreamConfigurationV1"
             Write-Host $_.ErrorDetails
@@ -185,18 +214,22 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#update-stream-status-v1
       source: |
-        $Updatestreamstatusrequest = @"
-        {"stream_id":"550e8400-e29b-41d4-a716-446655440000","status":"paused","reason":"manually paused"}
+        $UpdateStreamStatusRequest = @"
+        {
+          "reason" : "manually paused",
+          "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+          "status" : "paused"
+        }
         "@
         
         # Update stream status
         
         try {
-            $Result = ConvertFrom-JsonToUpdatestreamstatusrequest -Json $Updatestreamstatusrequest
-            Update-StreamStatusV1 -Updatestreamstatusrequest $Result 
+            $Result = ConvertFrom-JsonToUpdateStreamStatusRequest -Json $UpdateStreamStatusRequest
+            Update-StreamStatusV1 -UpdateStreamStatusRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-StreamStatusV1 -Updatestreamstatusrequest $Result   
+            # Update-StreamStatusV1 -UpdateStreamStatusRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-StreamStatusV1"
             Write-Host $_.ErrorDetails

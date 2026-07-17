@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.Dimensions' -name 'DimensionsApi' {
 
     Context 'Remove-BulkDimensionsV1' {
         It 'Test Remove-BulkDimensionsV1' {
-            #$TestResult = Remove-BulkDimensionsV1 -RoleId "TEST_VALUE" -Dimensionbulkdeleterequest "TEST_VALUE"
+            #$TestResult = Remove-BulkDimensionsV1 -RoleId "TEST_VALUE" -DimensionBulkDeleteRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.Dimensions' -name 'DimensionsApi' {
 
     Context 'Update-DimensionV1' {
         It 'Test Update-DimensionV1' {
-            #$TestResult = Update-DimensionV1 -RoleId "TEST_VALUE" -DimensionId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-DimensionV1 -RoleId "TEST_VALUE" -DimensionId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

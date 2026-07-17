@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.Certifications' -name 'CertificationsApi' {
 
     Context 'Select-IdentityDecisionV1' {
         It 'Test Select-IdentityDecisionV1' {
-            #$TestResult = Select-IdentityDecisionV1 -Id "TEST_VALUE" -Reviewdecision "TEST_VALUE"
+            #$TestResult = Select-IdentityDecisionV1 -Id "TEST_VALUE" -ReviewDecision "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.Certifications' -name 'CertificationsApi' {
 
     Context 'Invoke-ReassignIdentityCertificationsV1' {
         It 'Test Invoke-ReassignIdentityCertificationsV1' {
-            #$TestResult = Invoke-ReassignIdentityCertificationsV1 -Id "TEST_VALUE" -Reviewreassign "TEST_VALUE"
+            #$TestResult = Invoke-ReassignIdentityCertificationsV1 -Id "TEST_VALUE" -ReviewReassign "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.Certifications' -name 'CertificationsApi' {
 
     Context 'Submit-ReassignCertsAsyncV1' {
         It 'Test Submit-ReassignCertsAsyncV1' {
-            #$TestResult = Submit-ReassignCertsAsyncV1 -Id "TEST_VALUE" -Reviewreassign "TEST_VALUE"
+            #$TestResult = Submit-ReassignCertsAsyncV1 -Id "TEST_VALUE" -ReviewReassign "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.Identities' -name 'IdentitiesApi' {
 
     Context 'Send-IdentityVerificationAccountTokenV1' {
         It 'Test Send-IdentityVerificationAccountTokenV1' {
-            #$TestResult = Send-IdentityVerificationAccountTokenV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -Sendaccountverificationrequest "TEST_VALUE"
+            #$TestResult = Send-IdentityVerificationAccountTokenV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -SendAccountVerificationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.Identities' -name 'IdentitiesApi' {
 
     Context 'Start-IdentitiesInviteV1' {
         It 'Test Start-IdentitiesInviteV1' {
-            #$TestResult = Start-IdentitiesInviteV1 -XSailPointExperimental "TEST_VALUE" -Inviteidentitiesrequest "TEST_VALUE"
+            #$TestResult = Start-IdentitiesInviteV1 -XSailPointExperimental "TEST_VALUE" -InviteIdentitiesRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.Identities' -name 'IdentitiesApi' {
 
     Context 'Start-IdentityProcessingV1' {
         It 'Test Start-IdentityProcessingV1' {
-            #$TestResult = Start-IdentityProcessingV1 -XSailPointExperimental "TEST_VALUE" -Processidentitiesrequest "TEST_VALUE"
+            #$TestResult = Start-IdentityProcessingV1 -XSailPointExperimental "TEST_VALUE" -ProcessIdentitiesRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

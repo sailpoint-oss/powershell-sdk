@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.RolePropagation' -name 'RolePropagationApi' {
 
     Context 'Set-RolePropagationConfigV1' {
         It 'Test Set-RolePropagationConfigV1' {
-            #$TestResult = Set-RolePropagationConfigV1 -XSailPointExperimental "TEST_VALUE" -RolePropagationConfigInput "TEST_VALUE"
+            #$TestResult = Set-RolePropagationConfigV1 -XSailPointExperimental "TEST_VALUE" -Rolepropagationconfiginput "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

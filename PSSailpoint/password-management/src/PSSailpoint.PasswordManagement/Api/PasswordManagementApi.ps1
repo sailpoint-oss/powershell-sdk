@@ -17,7 +17,7 @@ This API is used to generate a digit token for password management. Requires aut
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Passworddigittokenreset
+.PARAMETER PasswordDigitTokenReset
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passworddigittoken
+PasswordDigitToken
 #>
 function New-DigitTokenV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-DigitTokenV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Passworddigittokenreset},
+        ${PasswordDigitTokenReset},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-DigitTokenV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Passworddigittokenreset) {
-            throw "Error! The required parameter `Passworddigittokenreset` missing when calling createDigitTokenV1."
+        if (!$PasswordDigitTokenReset) {
+            throw "Error! The required parameter `PasswordDigitTokenReset` missing when calling createDigitTokenV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Passworddigittokenreset -is [array])) {
-            $LocalVarBodyParameter = $Passworddigittokenreset | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordDigitTokenReset -is [array])) {
+            $LocalVarBodyParameter = $PasswordDigitTokenReset | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Passworddigittokenreset | ForEach-Object {
+            $LocalVarBodyParameter = $PasswordDigitTokenReset | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -93,7 +93,7 @@ function New-DigitTokenV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passworddigittoken" `
+                                -ReturnType "PasswordDigitToken" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -122,7 +122,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordstatus
+PasswordStatus
 #>
 function Get-PasswordChangeStatusV1 {
     [CmdletBinding()]
@@ -165,7 +165,7 @@ function Get-PasswordChangeStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordstatus" `
+                                -ReturnType "PasswordStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -185,7 +185,7 @@ Query password info
 
 This API is used to query password related information.  
 
-.PARAMETER Passwordinfoquerydto
+.PARAMETER PasswordInfoQueryDTO
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -194,14 +194,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordinfo
+PasswordInfo
 #>
 function Search-PasswordInfoV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Passwordinfoquerydto},
+        ${PasswordInfoQueryDTO},
         [Switch]
         $WithHttpInfo
     )
@@ -227,14 +227,14 @@ function Search-PasswordInfoV1 {
 
         $LocalVarUri = '/query-password-info/v1'
 
-        if (!$Passwordinfoquerydto) {
-            throw "Error! The required parameter `Passwordinfoquerydto` missing when calling queryPasswordInfoV1."
+        if (!$PasswordInfoQueryDTO) {
+            throw "Error! The required parameter `PasswordInfoQueryDTO` missing when calling queryPasswordInfoV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Passwordinfoquerydto -is [array])) {
-            $LocalVarBodyParameter = $Passwordinfoquerydto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordInfoQueryDTO -is [array])) {
+            $LocalVarBodyParameter = $PasswordInfoQueryDTO | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Passwordinfoquerydto | ForEach-Object {
+            $LocalVarBodyParameter = $PasswordInfoQueryDTO | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -253,7 +253,7 @@ function Search-PasswordInfoV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordinfo" `
+                                -ReturnType "PasswordInfo" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -273,7 +273,7 @@ Set identity's password
 
 This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [""authorization_code"" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity's source account password, you must enable `PASSWORD` as one of the source's features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo -n ""myPassword"" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
 
-.PARAMETER Passwordchangerequest
+.PARAMETER PasswordChangeRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -282,14 +282,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordchangeresponse
+PasswordChangeResponse
 #>
 function Set-PasswordV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Passwordchangerequest},
+        ${PasswordChangeRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -315,14 +315,14 @@ function Set-PasswordV1 {
 
         $LocalVarUri = '/set-password/v1'
 
-        if (!$Passwordchangerequest) {
-            throw "Error! The required parameter `Passwordchangerequest` missing when calling setPasswordV1."
+        if (!$PasswordChangeRequest) {
+            throw "Error! The required parameter `PasswordChangeRequest` missing when calling setPasswordV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Passwordchangerequest -is [array])) {
-            $LocalVarBodyParameter = $Passwordchangerequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordChangeRequest -is [array])) {
+            $LocalVarBodyParameter = $PasswordChangeRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Passwordchangerequest | ForEach-Object {
+            $LocalVarBodyParameter = $PasswordChangeRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -341,7 +341,7 @@ function Set-PasswordV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordchangeresponse" `
+                                -ReturnType "PasswordChangeResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

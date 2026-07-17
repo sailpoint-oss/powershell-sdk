@@ -98,11 +98,11 @@ Path   | Id | **String** | True  | The ID of the object to delete tags from.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTaggedObjectsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTaggedObjectsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -135,7 +135,7 @@ This API removes tags from multiple objects.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Bulkremovetaggedobject | [**Bulkremovetaggedobject**](../models/bulkremovetaggedobject) | True  | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+ Body  | BulkRemoveTaggedObject | [**BulkRemoveTaggedObject**](../models/bulk-remove-tagged-object) | True  | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 ### Return type
  (empty response body)
@@ -144,11 +144,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTaggedObjectsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTaggedObjectsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -156,16 +156,27 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Bulkremovetaggedobject = @""@
+$BulkRemoveTaggedObject = @"{
+  "objectRefs" : [ {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  }, {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  } ],
+  "tags" : [ "BU_FINANCE", "PCI" ]
+}"@
 
 # Remove tags from multiple objects
 
 try {
-    $Result = ConvertFrom-JsonToBulkremovetaggedobject -Json $Bulkremovetaggedobject
-    Remove-TagsToManyObjectV1 -Bulkremovetaggedobject $Result 
+    $Result = ConvertFrom-JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
+    Remove-TagsToManyObjectV1 -BulkRemoveTaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-TagsToManyObjectV1 -Bulkremovetaggedobject $Result  
+    # Remove-TagsToManyObjectV1 -BulkRemoveTaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-TagsToManyObjectV1"
     Write-Host $_.ErrorDetails
@@ -185,17 +196,17 @@ Path   | Type | **String** | True  | The type of tagged object to retrieve.
 Path   | Id | **String** | True  | The ID of the object reference to retrieve.
 
 ### Return type
-[**Taggedobject**](../models/taggedobject)
+[**TaggedObject**](../models/tagged-object)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Tagged object by type and ID. | Taggedobject
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Tagged object by type and ID. | TaggedObject
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTaggedObjectsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTaggedObjectsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -235,17 +246,17 @@ Path   | Type | **String** | True  | The type of tagged object to retrieve.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq*
 
 ### Return type
-[**Taggedobject[]**](../models/taggedobject)
+[**TaggedObject[]**](../models/tagged-object)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of all tagged objects for specified type. | Taggedobject[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of all tagged objects for specified type. | TaggedObject[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTaggedObjectsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTaggedObjectsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -287,17 +298,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in*
 
 ### Return type
-[**Taggedobject[]**](../models/taggedobject)
+[**TaggedObject[]**](../models/tagged-object)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of all tagged objects. | Taggedobject[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of all tagged objects. | TaggedObject[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTaggedObjectsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTaggedObjectsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -334,20 +345,20 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Type | **String** | True  | The type of tagged object to update.
 Path   | Id | **String** | True  | The ID of the object reference to update.
- Body  | Taggedobject | [**Taggedobject**](../models/taggedobject) | True  | 
+ Body  | TaggedObject | [**TaggedObject**](../models/tagged-object) | True  | 
 
 ### Return type
-[**Taggedobject**](../models/taggedobject)
+[**TaggedObject**](../models/tagged-object)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Tagged object by type and ID. | Taggedobject
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Tagged object by type and ID. | TaggedObject
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTaggedObjectsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTaggedObjectsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -357,16 +368,23 @@ Code | Description  | Data Type
 ```powershell
 $Type = "ACCESS_PROFILE" # String | The type of tagged object to update.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
-$Taggedobject = @""@
+$TaggedObject = @"{
+  "objectRef" : {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "tags" : [ "BU_FINANCE", "PCI" ]
+}"@
 
 # Update tagged object
 
 try {
-    $Result = ConvertFrom-JsonToTaggedobject -Json $Taggedobject
-    Send-TaggedObjectV1 -Type $Type -Id $Id -Taggedobject $Result 
+    $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+    Send-TaggedObjectV1 -Type $Type -Id $Id -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-TaggedObjectV1 -Type $Type -Id $Id -Taggedobject $Result  
+    # Send-TaggedObjectV1 -Type $Type -Id $Id -TaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TaggedObjectV1"
     Write-Host $_.ErrorDetails
@@ -382,7 +400,7 @@ This adds a tag to an object.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Taggedobject | [**Taggedobject**](../models/taggedobject) | True  | 
+ Body  | TaggedObject | [**TaggedObject**](../models/tagged-object) | True  | 
 
 ### Return type
  (empty response body)
@@ -391,11 +409,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 201 | Created. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTaggedObjectsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTaggedObjectsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -403,16 +421,23 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Taggedobject = @""@
+$TaggedObject = @"{
+  "objectRef" : {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "tags" : [ "BU_FINANCE", "PCI" ]
+}"@
 
 # Add tag to object
 
 try {
-    $Result = ConvertFrom-JsonToTaggedobject -Json $Taggedobject
-    Set-TagToObjectV1 -Taggedobject $Result 
+    $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+    Set-TagToObjectV1 -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-TagToObjectV1 -Taggedobject $Result  
+    # Set-TagToObjectV1 -TaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-TagToObjectV1"
     Write-Host $_.ErrorDetails
@@ -428,20 +453,20 @@ This API adds tags to multiple objects.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Bulkaddtaggedobject | [**Bulkaddtaggedobject**](../models/bulkaddtaggedobject) | True  | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+ Body  | BulkAddTaggedObject | [**BulkAddTaggedObject**](../models/bulk-add-tagged-object) | True  | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 ### Return type
-[**Bulktaggedobjectresponse[]**](../models/bulktaggedobjectresponse)
+[**BulkTaggedObjectResponse[]**](../models/bulk-tagged-object-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Request succeeded. | Bulktaggedobjectresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Request succeeded. | BulkTaggedObjectResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTaggedObjectsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTaggedObjectsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -449,16 +474,28 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Bulkaddtaggedobject = @""@
+$BulkAddTaggedObject = @"{
+  "objectRefs" : [ {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  }, {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  } ],
+  "operation" : "MERGE",
+  "tags" : [ "BU_FINANCE", "PCI" ]
+}"@
 
 # Tag multiple objects
 
 try {
-    $Result = ConvertFrom-JsonToBulkaddtaggedobject -Json $Bulkaddtaggedobject
-    Set-TagsToManyObjectsV1 -Bulkaddtaggedobject $Result 
+    $Result = ConvertFrom-JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject
+    Set-TagsToManyObjectsV1 -BulkAddTaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-TagsToManyObjectsV1 -Bulkaddtaggedobject $Result  
+    # Set-TagsToManyObjectsV1 -BulkAddTaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-TagsToManyObjectsV1"
     Write-Host $_.ErrorDetails

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **Fields** | **[]String** | The fields to be searched against in a multi-field query.  | [optional] 
 **OrderBy** | **map[string]String[]** | Sort by index. This takes precedence over the `sort` property.  | [optional] 
 **Sort** | **[]String** | The fields to be used to sort the search results.  | [optional] 
-**Filters** | [**SavedsearchdetailFilters**](savedsearchdetail-filters) |  | [optional] 
+**Filters** | [**SavedSearchDetailFilters**](saved-search-detail-filters) |  | [optional] 
 
 ## Examples
 

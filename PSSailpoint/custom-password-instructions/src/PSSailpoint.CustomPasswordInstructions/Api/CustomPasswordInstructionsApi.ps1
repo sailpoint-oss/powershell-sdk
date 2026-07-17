@@ -12,12 +12,12 @@ Create custom password instructions
 
 .DESCRIPTION
 
-This API creates the custom password instructions for the specified page ID.
+This API creates the custom password instructions for the specified page ID.  The `pageId` determines which login and password-recovery screen your custom instructions appear on. The following table describes each supported page ID and where its text is displayed:  | Page ID | Where the custom text appears | | --- | --- | | `flow-selection:select` | Flow-selection landing screen, under ""Need help signing in?"", above the navigation links. | | `reset-password:enter-username` | Reset-password ""enter username"" step, under the prompt, above the username field. | | `unlock-account:enter-username` | Unlock-account ""enter username"" step, under the prompt, above the username field. | | `forget-username:user-email` | Forgot-username screen, under ""Enter the email address for"", above the email field. | | `reset-password:enter-password` | Reset-password ""new password"" step, under the header, above the password fields. | | `change-password:enter-password` | Same ""new password"" screen, but the authenticated app/sync-group change variant. | | `reset-password:finish` | Reset-password success screen, under the success icon/heading, above the return button. | | `change-password:finish` | Success screen for the authenticated app/sync-group change, under the heading. | | `mfa:select` | MFA method-selection step, under the prompt, above the list of MFA options. | | `mfa:enter-code` | MFA code-entry step, under the option label, above the code field. | | `mfa:enter-kba` | KBA step, under ""Please answer these security questions"", above the questions form. | | `unlock-account:finish` | Unlock-account success screen, under the success icon/heading, above the return button. |  In every case the text shows as an info-icon + paragraph block that only appears if custom text is configured for that page ID, positioned between the screen's built-in heading and its form controls. 
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Custompasswordinstruction
+.PARAMETER CustomPasswordInstruction
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Custompasswordinstruction
+CustomPasswordInstruction
 #>
 function New-CustomPasswordInstructionsV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-CustomPasswordInstructionsV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Custompasswordinstruction},
+        ${CustomPasswordInstruction},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-CustomPasswordInstructionsV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Custompasswordinstruction) {
-            throw "Error! The required parameter `Custompasswordinstruction` missing when calling createCustomPasswordInstructionsV1."
+        if (!$CustomPasswordInstruction) {
+            throw "Error! The required parameter `CustomPasswordInstruction` missing when calling createCustomPasswordInstructionsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Custompasswordinstruction -is [array])) {
-            $LocalVarBodyParameter = $Custompasswordinstruction | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CustomPasswordInstruction -is [array])) {
+            $LocalVarBodyParameter = $CustomPasswordInstruction | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Custompasswordinstruction | ForEach-Object {
+            $LocalVarBodyParameter = $CustomPasswordInstruction | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -93,7 +93,7 @@ function New-CustomPasswordInstructionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Custompasswordinstruction" `
+                                -ReturnType "CustomPasswordInstruction" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -222,7 +222,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Custompasswordinstruction
+CustomPasswordInstruction
 #>
 function Get-CustomPasswordInstructionsV1 {
     [CmdletBinding()]
@@ -281,7 +281,7 @@ function Get-CustomPasswordInstructionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Custompasswordinstruction" `
+                                -ReturnType "CustomPasswordInstruction" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

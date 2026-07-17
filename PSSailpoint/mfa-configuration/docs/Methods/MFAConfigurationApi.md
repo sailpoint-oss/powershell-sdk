@@ -36,17 +36,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Mfaduoconfig**](../models/mfaduoconfig)
+[**MfaDuoConfig**](../models/mfa-duo-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The configuration of an Duo MFA method. | Mfaduoconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The configuration of an Duo MFA method. | MfaDuoConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMFAOktaConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMFAOktaConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -80,17 +80,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | AllLanguages | **Boolean** |   (optional) | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false
 
 ### Return type
-[**Kbaquestion[]**](../models/kbaquestion)
+[**KbaQuestion[]**](../models/kba-question)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The configuration for KBA MFA method. | Kbaquestion[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The configuration for KBA MFA method. | KbaQuestion[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMFAOktaConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMFAOktaConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -124,17 +124,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Mfaoktaconfig**](../models/mfaoktaconfig)
+[**MfaOktaConfig**](../models/mfa-okta-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The configuration of an Okta MFA method. | Mfaoktaconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The configuration of an Okta MFA method. | MfaOktaConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMFAOktaConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMFAOktaConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -165,20 +165,20 @@ This API sets the configuration of an Duo MFA method.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Mfaduoconfig | [**Mfaduoconfig**](../models/mfaduoconfig) | True  | 
+ Body  | MfaDuoConfig | [**MfaDuoConfig**](../models/mfa-duo-config) | True  | 
 
 ### Return type
-[**Mfaduoconfig**](../models/mfaduoconfig)
+[**MfaDuoConfig**](../models/mfa-duo-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | MFA configuration of an Duo MFA method. | Mfaduoconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | MFA configuration of an Duo MFA method. | MfaDuoConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMFAOktaConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMFAOktaConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -186,16 +186,26 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Mfaduoconfig = @"{"mfaMethod":"duo-web","enabled":true,"host":"www.example.com","accessKey":"qw123Y3QlA5UqocYpdU3rEkzrK2D497y","identityAttribute":"email","configProperties":{"skey":"12q3WERlcUHWJmiMqyCXI3uOF7EaDJTbdeOp6E2B","ikey":"Q123WE45R6TY7890ZXCV"}}"@
+$MfaDuoConfig = @"{
+  "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
+  "host" : "example.com",
+  "configProperties" : {
+    "skey" : "qwERttyZx1CdlQye2Vwtbsjr3HKddy4BAiCXjc5x",
+    "ikey" : "Q123WE45R6TY7890ZXCV"
+  },
+  "mfaMethod" : "duo-web",
+  "enabled" : true,
+  "identityAttribute" : "email"
+}"@
 
 # Set duo mfa configuration
 
 try {
-    $Result = ConvertFrom-JsonToMfaduoconfig -Json $Mfaduoconfig
-    Set-MFADuoConfigV1 -Mfaduoconfig $Result 
+    $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
+    Set-MFADuoConfigV1 -MfaDuoConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-MFADuoConfigV1 -Mfaduoconfig $Result  
+    # Set-MFADuoConfigV1 -MfaDuoConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MFADuoConfigV1"
     Write-Host $_.ErrorDetails
@@ -211,20 +221,20 @@ This API sets answers to challenge questions.  Any configured questions omitted 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Kbaanswerrequestitem | [**[]Kbaanswerrequestitem**](../models/kbaanswerrequestitem) | True  | 
+ Body  | KbaAnswerRequestItem | [**[]KbaAnswerRequestItem**](../models/kba-answer-request-item) | True  | 
 
 ### Return type
-[**Kbaanswerresponseitem[]**](../models/kbaanswerresponseitem)
+[**KbaAnswerResponseItem[]**](../models/kba-answer-response-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The new KBA configuration for the user. | Kbaanswerresponseitem[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The new KBA configuration for the user. | KbaAnswerResponseItem[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMFAOktaConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMFAOktaConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -232,17 +242,20 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
- $Kbaanswerrequestitem = @"[{"id":"173423","answer":"822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34"},{"id":"c54fee53-2d63-4fc5-9259-3e93b9994135","answer":"9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"}]"@ # Kbaanswerrequestitem[] | 
+ $KbaAnswerRequestItem = @"{
+  "answer" : "Your answer",
+  "id" : "c54fee53-2d63-4fc5-9259-3e93b9994135"
+}"@ # KbaAnswerRequestItem[] | 
  
 
 # Set mfa kba configuration
 
 try {
-    $Result = ConvertFrom-JsonToKbaanswerrequestitem -Json $Kbaanswerrequestitem
-    Set-MFAKBAConfigV1 -Kbaanswerrequestitem $Result 
+    $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
+    Set-MFAKBAConfigV1 -KbaAnswerRequestItem $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-MFAKBAConfigV1 -Kbaanswerrequestitem $Result  
+    # Set-MFAKBAConfigV1 -KbaAnswerRequestItem $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MFAKBAConfigV1"
     Write-Host $_.ErrorDetails
@@ -258,20 +271,20 @@ This API sets the configuration of an Okta MFA method.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Mfaoktaconfig | [**Mfaoktaconfig**](../models/mfaoktaconfig) | True  | 
+ Body  | MfaOktaConfig | [**MfaOktaConfig**](../models/mfa-okta-config) | True  | 
 
 ### Return type
-[**Mfaoktaconfig**](../models/mfaoktaconfig)
+[**MfaOktaConfig**](../models/mfa-okta-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | MFA configuration of an Okta MFA method. | Mfaoktaconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | MFA configuration of an Okta MFA method. | MfaOktaConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMFAOktaConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMFAOktaConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -279,16 +292,22 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Mfaoktaconfig = @"{"mfaMethod":"okta-verify","enabled":true,"host":"www.example.com","accessKey":"dk778Y3QlA5UqocYpdU3rEkzrK2D497y","identityAttribute":"email"}"@
+$MfaOktaConfig = @"{
+  "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
+  "host" : "example.com",
+  "mfaMethod" : "okta-verify",
+  "enabled" : true,
+  "identityAttribute" : "email"
+}"@
 
 # Set okta mfa configuration
 
 try {
-    $Result = ConvertFrom-JsonToMfaoktaconfig -Json $Mfaoktaconfig
-    Set-MFAOktaConfigV1 -Mfaoktaconfig $Result 
+    $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
+    Set-MFAOktaConfigV1 -MfaOktaConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-MFAOktaConfigV1 -Mfaoktaconfig $Result  
+    # Set-MFAOktaConfigV1 -MfaOktaConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MFAOktaConfigV1"
     Write-Host $_.ErrorDetails
@@ -307,17 +326,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Method | **String** | True  | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
 ### Return type
-[**Mfaconfigtestresponse**](../models/mfaconfigtestresponse)
+[**MfaConfigTestResponse**](../models/mfa-config-test-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The result of configuration test for the MFA provider. | Mfaconfigtestresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The result of configuration test for the MFA provider. | MfaConfigTestResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMFAOktaConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMFAOktaConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined

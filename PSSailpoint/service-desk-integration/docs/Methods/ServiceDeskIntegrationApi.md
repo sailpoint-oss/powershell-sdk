@@ -61,21 +61,21 @@ Create a new Service Desk integration.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Servicedeskintegrationdto | [**Servicedeskintegrationdto**](../models/servicedeskintegrationdto) | True  | The specifics of a new integration to create
+ Body  | ServiceDeskIntegrationDto | [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto) | True  | The specifics of a new integration to create
 
 ### Return type
-[**Servicedeskintegrationdto**](../models/servicedeskintegrationdto)
+[**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Details of the created integration | Servicedeskintegrationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Details of the created integration | ServiceDeskIntegrationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetServiceDeskIntegrationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetServiceDeskIntegrationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -83,16 +83,49 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Servicedeskintegrationdto = @""@
+$ServiceDeskIntegrationDto = @"{
+  "ownerRef" : "",
+  "cluster" : "xyzzy999",
+  "created" : "2024-01-17T18:45:25.994Z",
+  "description" : "A very nice Service Desk integration",
+  "clusterRef" : "",
+  "type" : "ServiceNowSDIM",
+  "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+  "provisioningConfig" : {
+    "managedResourceRefs" : [ {
+      "type" : "SOURCE",
+      "id" : "2c9180855d191c59015d291ceb051111",
+      "name" : "My Source 1"
+    }, {
+      "type" : "SOURCE",
+      "id" : "2c9180855d191c59015d291ceb052222",
+      "name" : "My Source 2"
+    } ],
+    "provisioningRequestExpiration" : 7,
+    "noProvisioningRequests" : true,
+    "universalManager" : true,
+    "planInitializerScript" : {
+      "source" : "<?xml version='1.0' encoding='UTF-8'?>\\r\\n<!DOCTYPE Rule PUBLIC \\\"sailpoint.dtd\\\" \\\"sailpoint.dtd\\\">\\r\\n<Rule name=\\\"Example Rule\\\" type=\\\"BeforeProvisioning\\\">\\r\\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\\r\\n  <Source><![CDATA[\\r\\nimport sailpoint.object.*;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\\r\\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\\r\\nimport sailpoint.object.ProvisioningPlan;\\r\\nimport sailpoint.object.ProvisioningPlan.Operation;\\r\\n\\r\\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n}\\r\\n\\r\\n  ]]></Source>\n"
+    }
+  },
+  "name" : "Service Desk Integration Name",
+  "modified" : "2024-02-18T18:45:25.994Z",
+  "attributes" : {
+    "property" : "value",
+    "key" : "value"
+  },
+  "id" : "62945a496ef440189b1f03e3623411c8",
+  "beforeProvisioningRule" : ""
+}"@
 
 # Create new service desk integration
 
 try {
-    $Result = ConvertFrom-JsonToServicedeskintegrationdto -Json $Servicedeskintegrationdto
-    New-ServiceDeskIntegrationV1 -Servicedeskintegrationdto $Result 
+    $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+    New-ServiceDeskIntegrationV1 -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ServiceDeskIntegrationV1 -Servicedeskintegrationdto $Result  
+    # New-ServiceDeskIntegrationV1 -ServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ServiceDeskIntegrationV1"
     Write-Host $_.ErrorDetails
@@ -117,12 +150,12 @@ Path   | Id | **String** | True  | ID of Service Desk integration to delete
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | Service Desk integration with the given ID successfully deleted | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetServiceDeskIntegrationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetServiceDeskIntegrationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -157,18 +190,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | ScriptName | **String** | True  | The scriptName value of the Service Desk integration template to get
 
 ### Return type
-[**Servicedeskintegrationtemplatedto**](../models/servicedeskintegrationtemplatedto)
+[**ServiceDeskIntegrationTemplateDto**](../models/service-desk-integration-template-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Responds with the ServiceDeskIntegrationTemplateDto with the specified scriptName. | Servicedeskintegrationtemplatedto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Responds with the ServiceDeskIntegrationTemplateDto with the specified scriptName. | ServiceDeskIntegrationTemplateDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetServiceDeskIntegrationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetServiceDeskIntegrationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -202,18 +235,18 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Servicedeskintegrationtemplatetype[]**](../models/servicedeskintegrationtemplatetype)
+[**ServiceDeskIntegrationTemplateType[]**](../models/service-desk-integration-template-type)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Responds with an array of the currently supported Service Desk integration types. | Servicedeskintegrationtemplatetype[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Responds with an array of the currently supported Service Desk integration types. | ServiceDeskIntegrationTemplateType[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetServiceDeskIntegrationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetServiceDeskIntegrationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -247,18 +280,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Service Desk integration to get
 
 ### Return type
-[**Servicedeskintegrationdto**](../models/servicedeskintegrationdto)
+[**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | ServiceDeskIntegrationDto with the given ID | Servicedeskintegrationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | ServiceDeskIntegrationDto with the given ID | ServiceDeskIntegrationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetServiceDeskIntegrationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetServiceDeskIntegrationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -297,18 +330,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Servicedeskintegrationdto[]**](../models/servicedeskintegrationdto)
+[**ServiceDeskIntegrationDto[]**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of ServiceDeskIntegrationDto | Servicedeskintegrationdto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of ServiceDeskIntegrationDto | ServiceDeskIntegrationDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetServiceDeskIntegrationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetServiceDeskIntegrationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -346,18 +379,18 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Queuedcheckconfigdetails**](../models/queuedcheckconfigdetails)
+[**QueuedCheckConfigDetails**](../models/queued-check-config-details)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | QueuedCheckConfigDetails containing the configured values | Queuedcheckconfigdetails
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | QueuedCheckConfigDetails containing the configured values | QueuedCheckConfigDetails
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetServiceDeskIntegrationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetServiceDeskIntegrationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -389,21 +422,21 @@ Update an existing Service Desk integration by ID with a PATCH request.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Service Desk integration to update
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
 ### Return type
-[**Servicedeskintegrationdto**](../models/servicedeskintegrationdto)
+[**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | ServiceDeskIntegrationDto as updated | Servicedeskintegrationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | ServiceDeskIntegrationDto as updated | ServiceDeskIntegrationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetServiceDeskIntegrationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetServiceDeskIntegrationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -412,17 +445,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "anId" # String | ID of the Service Desk integration to update
- $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
  
 
 # Patch a service desk integration
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-ServiceDeskIntegrationV1 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-ServiceDeskIntegrationV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ServiceDeskIntegrationV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-ServiceDeskIntegrationV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ServiceDeskIntegrationV1"
     Write-Host $_.ErrorDetails
@@ -439,21 +476,21 @@ Update an existing Service Desk integration by ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Service Desk integration to update
- Body  | Servicedeskintegrationdto | [**Servicedeskintegrationdto**](../models/servicedeskintegrationdto) | True  | The specifics of the integration to update
+ Body  | ServiceDeskIntegrationDto | [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto) | True  | The specifics of the integration to update
 
 ### Return type
-[**Servicedeskintegrationdto**](../models/servicedeskintegrationdto)
+[**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | ServiceDeskIntegrationDto as updated | Servicedeskintegrationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | ServiceDeskIntegrationDto as updated | ServiceDeskIntegrationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetServiceDeskIntegrationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetServiceDeskIntegrationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -462,16 +499,49 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "anId" # String | ID of the Service Desk integration to update
-$Servicedeskintegrationdto = @""@
+$ServiceDeskIntegrationDto = @"{
+  "ownerRef" : "",
+  "cluster" : "xyzzy999",
+  "created" : "2024-01-17T18:45:25.994Z",
+  "description" : "A very nice Service Desk integration",
+  "clusterRef" : "",
+  "type" : "ServiceNowSDIM",
+  "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+  "provisioningConfig" : {
+    "managedResourceRefs" : [ {
+      "type" : "SOURCE",
+      "id" : "2c9180855d191c59015d291ceb051111",
+      "name" : "My Source 1"
+    }, {
+      "type" : "SOURCE",
+      "id" : "2c9180855d191c59015d291ceb052222",
+      "name" : "My Source 2"
+    } ],
+    "provisioningRequestExpiration" : 7,
+    "noProvisioningRequests" : true,
+    "universalManager" : true,
+    "planInitializerScript" : {
+      "source" : "<?xml version='1.0' encoding='UTF-8'?>\\r\\n<!DOCTYPE Rule PUBLIC \\\"sailpoint.dtd\\\" \\\"sailpoint.dtd\\\">\\r\\n<Rule name=\\\"Example Rule\\\" type=\\\"BeforeProvisioning\\\">\\r\\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\\r\\n  <Source><![CDATA[\\r\\nimport sailpoint.object.*;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\\r\\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\\r\\nimport sailpoint.object.ProvisioningPlan;\\r\\nimport sailpoint.object.ProvisioningPlan.Operation;\\r\\n\\r\\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n}\\r\\n\\r\\n  ]]></Source>\n"
+    }
+  },
+  "name" : "Service Desk Integration Name",
+  "modified" : "2024-02-18T18:45:25.994Z",
+  "attributes" : {
+    "property" : "value",
+    "key" : "value"
+  },
+  "id" : "62945a496ef440189b1f03e3623411c8",
+  "beforeProvisioningRule" : ""
+}"@
 
 # Update a service desk integration
 
 try {
-    $Result = ConvertFrom-JsonToServicedeskintegrationdto -Json $Servicedeskintegrationdto
-    Send-ServiceDeskIntegrationV1 -Id $Id -Servicedeskintegrationdto $Result 
+    $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+    Send-ServiceDeskIntegrationV1 -Id $Id -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-ServiceDeskIntegrationV1 -Id $Id -Servicedeskintegrationdto $Result  
+    # Send-ServiceDeskIntegrationV1 -Id $Id -ServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ServiceDeskIntegrationV1"
     Write-Host $_.ErrorDetails
@@ -487,21 +557,21 @@ Update the time check configuration of queued SDIM tickets.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Queuedcheckconfigdetails | [**Queuedcheckconfigdetails**](../models/queuedcheckconfigdetails) | True  | The modified time check configuration
+ Body  | QueuedCheckConfigDetails | [**QueuedCheckConfigDetails**](../models/queued-check-config-details) | True  | The modified time check configuration
 
 ### Return type
-[**Queuedcheckconfigdetails**](../models/queuedcheckconfigdetails)
+[**QueuedCheckConfigDetails**](../models/queued-check-config-details)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | QueuedCheckConfigDetails as updated | Queuedcheckconfigdetails
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | QueuedCheckConfigDetails as updated | QueuedCheckConfigDetails
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetServiceDeskIntegrationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetServiceDeskIntegrationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -509,16 +579,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Queuedcheckconfigdetails = @""@
+$QueuedCheckConfigDetails = @"{
+  "provisioningStatusCheckIntervalMinutes" : "30",
+  "provisioningMaxStatusCheckDays" : "2"
+}"@
 
 # Update the time check configuration
 
 try {
-    $Result = ConvertFrom-JsonToQueuedcheckconfigdetails -Json $Queuedcheckconfigdetails
-    Update-StatusCheckDetailsV1 -Queuedcheckconfigdetails $Result 
+    $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
+    Update-StatusCheckDetailsV1 -QueuedCheckConfigDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-StatusCheckDetailsV1 -Queuedcheckconfigdetails $Result  
+    # Update-StatusCheckDetailsV1 -QueuedCheckConfigDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-StatusCheckDetailsV1"
     Write-Host $_.ErrorDetails

@@ -4,18 +4,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessrequests/methods/access-requests#approve-bulk-access-request-v1
       source: |
-        $Bulkapproveaccessrequest = @"
-        {"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I approve these request items"}
+        $BulkApproveAccessRequest = @"
+        {
+          "comment" : "I approve these request items",
+          "approvalIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ]
+        }
         "@
         
         # Bulk approve access request
         
         try {
-            $Result = ConvertFrom-JsonToBulkapproveaccessrequest -Json $Bulkapproveaccessrequest
-            Approve-BulkAccessRequestV1 -Bulkapproveaccessrequest $Result 
+            $Result = ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
+            Approve-BulkAccessRequestV1 -BulkApproveAccessRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Approve-BulkAccessRequestV1 -Bulkapproveaccessrequest $Result   
+            # Approve-BulkAccessRequestV1 -BulkApproveAccessRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BulkAccessRequestV1"
             Write-Host $_.ErrorDetails
@@ -26,18 +29,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessrequests/methods/access-requests#cancel-access-request-in-bulk-v1
       source: |
-        $Bulkcancelaccessrequest = @"
-        {"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I requested this role by mistake."}
+        $BulkCancelAccessRequest = @"
+        {
+          "accessRequestIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ],
+          "comment" : "I requested this role by mistake."
+        }
         "@
         
         # Bulk cancel access request
         
         try {
-            $Result = ConvertFrom-JsonToBulkcancelaccessrequest -Json $Bulkcancelaccessrequest
-            Suspend-AccessRequestInBulkV1 -Bulkcancelaccessrequest $Result 
+            $Result = ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
+            Suspend-AccessRequestInBulkV1 -BulkCancelAccessRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Suspend-AccessRequestInBulkV1 -Bulkcancelaccessrequest $Result   
+            # Suspend-AccessRequestInBulkV1 -BulkCancelAccessRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-AccessRequestInBulkV1"
             Write-Host $_.ErrorDetails
@@ -48,18 +54,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessrequests/methods/access-requests#cancel-access-request-v1
       source: |
-        $Cancelaccessrequest = @"
-        {"accountActivityId":"2c91808568c529c60168cca6f90c1313","comment":"I requested this role by mistake."}
+        $CancelAccessRequest = @"
+        {
+          "accountActivityId" : "2c9180835d2e5168015d32f890ca1581",
+          "comment" : "I requested this role by mistake."
+        }
         "@
         
         # Cancel access request
         
         try {
-            $Result = ConvertFrom-JsonToCancelaccessrequest -Json $Cancelaccessrequest
-            Suspend-AccessRequestV1 -Cancelaccessrequest $Result 
+            $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
+            Suspend-AccessRequestV1 -CancelAccessRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Suspend-AccessRequestV1 -Cancelaccessrequest $Result   
+            # Suspend-AccessRequestV1 -CancelAccessRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-AccessRequestV1"
             Write-Host $_.ErrorDetails
@@ -70,18 +79,23 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessrequests/methods/access-requests#close-access-request-v1
       source: |
-        $Closeaccessrequest = @"
-        {"accessRequestIds":["2c90ad2a70ace7d50170acf22ca90010"],"executionStatus":"Terminated","completionStatus":"Failure","message":"The IdentityNow Administrator manually closed this request."}
+        $CloseAccessRequest = @"
+        {
+          "executionStatus" : "Terminated",
+          "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+          "completionStatus" : "Failure",
+          "message" : "The IdentityNow Administrator manually closed this request."
+        }
         "@
         
         # Close access request
         
         try {
-            $Result = ConvertFrom-JsonToCloseaccessrequest -Json $Closeaccessrequest
-            Close-AccessRequestV1 -Closeaccessrequest $Result 
+            $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
+            Close-AccessRequestV1 -CloseAccessRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Close-AccessRequestV1 -Closeaccessrequest $Result   
+            # Close-AccessRequestV1 -CloseAccessRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Close-AccessRequestV1"
             Write-Host $_.ErrorDetails
@@ -92,18 +106,173 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessrequests/methods/access-requests#create-access-request-v1
       source: |
-        $Accessrequest = @"
-        
+        $AccessRequest = @"
+        {
+          "requestedFor" : "2c918084660f45d6016617daa9210584",
+          "clientMetadata" : {
+            "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
+            "requestedAppName" : "test-app"
+          },
+          "requestType" : "GRANT_ACCESS",
+          "requestedItems" : [ {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          }, {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          } ],
+          "requestedForWithRequestedItems" : [ {
+            "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+            "requestedItems" : [ {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "startDate" : "2020-06-12T21:22:23Z"
+            }, {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "startDate" : "2020-06-12T21:22:23Z"
+            } ]
+          }, {
+            "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+            "requestedItems" : [ {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "startDate" : "2020-06-12T21:22:23Z"
+            }, {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "startDate" : "2020-06-12T21:22:23Z"
+            } ]
+          } ]
+        }
         "@
         
         # Submit access request
         
         try {
-            $Result = ConvertFrom-JsonToAccessrequest -Json $Accessrequest
-            New-AccessRequestV1 -Accessrequest $Result 
+            $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
+            New-AccessRequestV1 -AccessRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-AccessRequestV1 -Accessrequest $Result   
+            # New-AccessRequestV1 -AccessRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessRequestV1"
             Write-Host $_.ErrorDetails
@@ -228,18 +397,86 @@
       label: SDK_tools/sdk/powershell/accessrequests/methods/access-requests#load-account-selections-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Accountsselectionrequest = @"
-        
+        $AccountsSelectionRequest = @"
+        {
+          "requestedFor" : "2c918084660f45d6016617daa9210584",
+          "clientMetadata" : {
+            "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
+            "requestedAppName" : "test-app"
+          },
+          "requestType" : "GRANT_ACCESS",
+          "requestedItems" : [ {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          }, {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          }, {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          }, {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          }, {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          } ]
+        }
         "@
         
         # Get accounts selections for identity
         
         try {
-            $Result = ConvertFrom-JsonToAccountsselectionrequest -Json $Accountsselectionrequest
-            Invoke-LoadAccountSelectionsV1 -XSailPointExperimental $XSailPointExperimental -Accountsselectionrequest $Result 
+            $Result = ConvertFrom-JsonToAccountsSelectionRequest -Json $AccountsSelectionRequest
+            Invoke-LoadAccountSelectionsV1 -XSailPointExperimental $XSailPointExperimental -AccountsSelectionRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Invoke-LoadAccountSelectionsV1 -XSailPointExperimental $XSailPointExperimental -Accountsselectionrequest $Result   
+            # Invoke-LoadAccountSelectionsV1 -XSailPointExperimental $XSailPointExperimental -AccountsSelectionRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-LoadAccountSelectionsV1"
             Write-Host $_.ErrorDetails
@@ -250,18 +487,65 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessrequests/methods/access-requests#set-access-request-config-v1
       source: |
-        $Accessrequestconfig = @"
-        
+        $AccessRequestConfig = @"
+        {
+          "requestOnBehalfOfConfig" : {
+            "allowRequestOnBehalfOfEmployeeByManager" : true,
+            "allowRequestOnBehalfOfAnyoneByAnyone" : true
+          },
+          "approvalReminderAndEscalationConfig" : {
+            "fallbackApproverRef" : {
+              "name" : "Alison Ferguso",
+              "id" : "5168015d32f890ca15812c9180835d2e",
+              "type" : "IDENTITY",
+              "email" : "alison.ferguso@identitysoon.com"
+            },
+            "maxReminders" : 1,
+            "daysUntilEscalation" : 0,
+            "daysBetweenReminders" : 0
+          },
+          "autoApprovalEnabled" : true,
+          "entitlementRequestConfig" : {
+            "accessRequestConfig" : {
+              "denialCommentRequired" : false,
+              "approvalSchemes" : [ {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              }, {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              } ],
+              "reauthorizationRequired" : false,
+              "requestCommentRequired" : true,
+              "requireEndDate" : true,
+              "maxPermittedAccessDuration" : {
+                "value" : 5,
+                "timeUnit" : "DAYS"
+              }
+            },
+            "revocationRequestConfig" : {
+              "approvalSchemes" : [ {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              }, {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              } ]
+            }
+          },
+          "reauthorizationEnabled" : true,
+          "approvalsMustBeExternal" : true
+        }
         "@
         
         # Update access request configuration
         
         try {
-            $Result = ConvertFrom-JsonToAccessrequestconfig -Json $Accessrequestconfig
-            Set-AccessRequestConfigV1 -Accessrequestconfig $Result 
+            $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
+            Set-AccessRequestConfigV1 -AccessRequestConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-AccessRequestConfigV1 -Accessrequestconfig $Result   
+            # Set-AccessRequestConfigV1 -AccessRequestConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestConfigV1"
             Write-Host $_.ErrorDetails
@@ -272,18 +556,18 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessrequests/methods/access-requests#set-access-request-config-v2
       source: |
-        $Accessrequestconfigv2 = @"
+        $AccessRequestConfig2 = @"
         
         "@
         
         # Update access request configuration
         
         try {
-            $Result = ConvertFrom-JsonToAccessrequestconfigv2 -Json $Accessrequestconfigv2
-            Set-AccessRequestConfigV2 -Accessrequestconfigv2 $Result 
+            $Result = ConvertFrom-JsonToAccessRequestConfig2 -Json $AccessRequestConfig2
+            Set-AccessRequestConfigV2 -AccessRequestConfig2 $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-AccessRequestConfigV2 -Accessrequestconfigv2 $Result   
+            # Set-AccessRequestConfigV2 -AccessRequestConfig2 $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestConfigV2"
             Write-Host $_.ErrorDetails

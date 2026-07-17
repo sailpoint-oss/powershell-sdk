@@ -4,18 +4,73 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#create-sod-policy-v1
       source: |
-        $Sodpolicy = @"
-        {"name":"Conflicting-Policy-Name","description":"This policy ensures compliance of xyz","ownerRef":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"Owner Name"},"externalPolicyReference":"XYZ policy","compensatingControls":"Have a manager review the transaction decisions for their \"out of compliance\" employee","correctionAdvice":"Based on the role of the employee, managers should remove access that is not required for their job function.","state":"ENFORCED","tags":["string"],"creatorId":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","modifierId":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","violationOwnerAssignmentConfig":{"assignmentRule":"MANAGER","ownerRef":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"Violation Owner Name"}},"scheduled":true,"type":"CONFLICTING_ACCESS_BASED","conflictingAccessCriteria":{"leftCriteria":{"name":"money-in","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a66"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a67"}]},"rightCriteria":{"name":"money-out","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a68"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a69"}]}}}
+        $SodPolicy = @"
+        {
+          "conflictingAccessCriteria" : {
+            "leftCriteria" : {
+              "name" : "money-in",
+              "criteriaList" : [ {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a66",
+                "name" : "Administrator"
+              }, {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a67",
+                "name" : "Administrator"
+              } ]
+            },
+            "rightCriteria" : {
+              "name" : "money-in",
+              "criteriaList" : [ {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a66",
+                "name" : "Administrator"
+              }, {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a67",
+                "name" : "Administrator"
+              } ]
+            }
+          },
+          "ownerRef" : {
+            "name" : "Support",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          },
+          "created" : "2020-01-01T00:00:00Z",
+          "scheduled" : true,
+          "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "modifierId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "description" : "This policy ensures compliance of xyz",
+          "violationOwnerAssignmentConfig" : {
+            "assignmentRule" : "MANAGER",
+            "ownerRef" : {
+              "name" : "Support",
+              "id" : "2c9180a46faadee4016fb4e018c20639",
+              "type" : "IDENTITY"
+            }
+          },
+          "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
+          "type" : "GENERAL",
+          "tags" : [ "TAG1", "TAG2" ],
+          "name" : "policy-xyz",
+          "modified" : "2020-01-01T00:00:00Z",
+          "policyQuery" : "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)",
+          "compensatingControls" : "Have a manager review the transaction decisions for their \"out of compliance\" employee",
+          "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "state" : "ENFORCED",
+          "externalPolicyReference" : "XYZ policy"
+        }
         "@
         
         # Create sod policy
         
         try {
-            $Result = ConvertFrom-JsonToSodpolicy -Json $Sodpolicy
-            New-SodPolicyV1 -Sodpolicy $Result 
+            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+            New-SodPolicyV1 -SodPolicy $Result 
     
             # Below is a request that includes all optional parameters
-            # New-SodPolicyV1 -Sodpolicy $Result   
+            # New-SodPolicyV1 -SodPolicy $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SodPolicyV1"
             Write-Host $_.ErrorDetails
@@ -222,17 +277,21 @@
       label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#patch-sod-policy-v1
       source: |
         $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy being modified.
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Modified description"},{"op":"replace","path":"/conflictingAccessCriteria/leftCriteria/name","value":"money-in-modified"},{"op":"replace","path":"/conflictingAccessCriteria/rightCriteria","value":{"name":"money-out-modified","criteriaList":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}]}}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch sod policy by id
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-SodPolicyV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-SodPolicyV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-SodPolicyV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-SodPolicyV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SodPolicyV1"
             Write-Host $_.ErrorDetails
@@ -244,18 +303,55 @@
       label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#put-policy-schedule-v1
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update its schedule.
-        $Sodpolicyschedule = @"
-        
+        $SodPolicySchedule = @"
+        {
+          "schedule" : {
+            "hours" : {
+              "values" : [ "MON", "WED" ],
+              "interval" : 3,
+              "type" : "LIST"
+            },
+            "months" : {
+              "values" : [ "MON", "WED" ],
+              "interval" : 3,
+              "type" : "LIST"
+            },
+            "timeZoneId" : "America/Chicago",
+            "days" : {
+              "values" : [ "MON", "WED" ],
+              "interval" : 3,
+              "type" : "LIST"
+            },
+            "expiration" : "2018-06-25T20:22:28.104Z",
+            "type" : "WEEKLY"
+          },
+          "created" : "2020-01-01T00:00:00Z",
+          "recipients" : [ {
+            "name" : "Michael Michaels",
+            "id" : "2c7180a46faadee4016fb4e018c20642",
+            "type" : "IDENTITY"
+          }, {
+            "name" : "Michael Michaels",
+            "id" : "2c7180a46faadee4016fb4e018c20642",
+            "type" : "IDENTITY"
+          } ],
+          "name" : "SCH-1584312283015",
+          "creatorId" : "0f11f2a47c944bf3a2bd742580fe3bde",
+          "modifierId" : "0f11f2a47c944bf3a2bd742580fe3bde",
+          "modified" : "2020-01-01T00:00:00Z",
+          "description" : "Schedule for policy xyz",
+          "emailEmptyResults" : false
+        }
         "@
         
         # Update sod policy schedule
         
         try {
-            $Result = ConvertFrom-JsonToSodpolicyschedule -Json $Sodpolicyschedule
-            Send-PolicyScheduleV1 -Id $Id -Sodpolicyschedule $Result 
+            $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
+            Send-PolicyScheduleV1 -Id $Id -SodPolicySchedule $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-PolicyScheduleV1 -Id $Id -Sodpolicyschedule $Result   
+            # Send-PolicyScheduleV1 -Id $Id -SodPolicySchedule $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-PolicyScheduleV1"
             Write-Host $_.ErrorDetails
@@ -267,18 +363,73 @@
       label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#put-sod-policy-v1
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update.
-        $Sodpolicy = @"
-        {"name":"Conflicting-Policy-Name","description":"Modified Description","externalPolicyReference":"XYZ policy","compensatingControls":"Have a manager review the transaction decisions for their \"out of compliance\" employee","correctionAdvice":"Based on the role of the employee, managers should remove access that is not required for their job function.","state":"ENFORCED","tags":["string"],"violationOwnerAssignmentConfig":{"assignmentRule":"MANAGER","ownerRef":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"Violation Owner Name"}},"scheduled":true,"type":"CONFLICTING_ACCESS_BASED","conflictingAccessCriteria":{"leftCriteria":{"name":"money-in","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a66"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a67"}]},"rightCriteria":{"name":"money-out","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a68"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a69"}]}}}
+        $SodPolicy = @"
+        {
+          "conflictingAccessCriteria" : {
+            "leftCriteria" : {
+              "name" : "money-in",
+              "criteriaList" : [ {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a66",
+                "name" : "Administrator"
+              }, {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a67",
+                "name" : "Administrator"
+              } ]
+            },
+            "rightCriteria" : {
+              "name" : "money-in",
+              "criteriaList" : [ {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a66",
+                "name" : "Administrator"
+              }, {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a67",
+                "name" : "Administrator"
+              } ]
+            }
+          },
+          "ownerRef" : {
+            "name" : "Support",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          },
+          "created" : "2020-01-01T00:00:00Z",
+          "scheduled" : true,
+          "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "modifierId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "description" : "This policy ensures compliance of xyz",
+          "violationOwnerAssignmentConfig" : {
+            "assignmentRule" : "MANAGER",
+            "ownerRef" : {
+              "name" : "Support",
+              "id" : "2c9180a46faadee4016fb4e018c20639",
+              "type" : "IDENTITY"
+            }
+          },
+          "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
+          "type" : "GENERAL",
+          "tags" : [ "TAG1", "TAG2" ],
+          "name" : "policy-xyz",
+          "modified" : "2020-01-01T00:00:00Z",
+          "policyQuery" : "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)",
+          "compensatingControls" : "Have a manager review the transaction decisions for their \"out of compliance\" employee",
+          "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "state" : "ENFORCED",
+          "externalPolicyReference" : "XYZ policy"
+        }
         "@
         
         # Update sod policy by id
         
         try {
-            $Result = ConvertFrom-JsonToSodpolicy -Json $Sodpolicy
-            Send-SodPolicyV1 -Id $Id -Sodpolicy $Result 
+            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+            Send-SodPolicyV1 -Id $Id -SodPolicy $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-SodPolicyV1 -Id $Id -Sodpolicy $Result   
+            # Send-SodPolicyV1 -Id $Id -SodPolicy $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SodPolicyV1"
             Write-Host $_.ErrorDetails
@@ -308,8 +459,10 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#start-sod-all-policies-for-org-v1
       source: |
-        $Multipolicyrequest = @"
-        {"filteredPolicyList":["b868cd40-ffa4-4337-9c07-1a51846cfa94","63a07a7b-39a4-48aa-956d-50c827deba2a"]}
+        $MultiPolicyRequest = @"
+        {
+          "filteredPolicyList" : [ "[\"b868cd40-ffa4-4337-9c07-1a51846cfa94\",\"63a07a7b-39a4-48aa-956d-50c827deba2a\"]", "[\"b868cd40-ffa4-4337-9c07-1a51846cfa94\",\"63a07a7b-39a4-48aa-956d-50c827deba2a\"]" ]
+        }
         "@
         
         # Runs all policies for org
@@ -318,7 +471,7 @@
             Start-SodAllPoliciesForOrgV1 
     
             # Below is a request that includes all optional parameters
-            # Start-SodAllPoliciesForOrgV1 -Multipolicyrequest $Result   
+            # Start-SodAllPoliciesForOrgV1 -MultiPolicyRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-SodAllPoliciesForOrgV1"
             Write-Host $_.ErrorDetails

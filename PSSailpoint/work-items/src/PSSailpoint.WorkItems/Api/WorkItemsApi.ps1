@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitems
+WorkItems
 #>
 function Approve-ApprovalItemV1 {
     [CmdletBinding()]
@@ -76,7 +76,7 @@ function Approve-ApprovalItemV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitems" `
+                                -ReturnType "WorkItems" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -105,7 +105,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitems
+WorkItems
 #>
 function Approve-ApprovalItemsInBulkV1 {
     [CmdletBinding()]
@@ -148,7 +148,7 @@ function Approve-ApprovalItemsInBulkV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitems" `
+                                -ReturnType "WorkItems" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -180,7 +180,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitems
+WorkItems
 #>
 function Complete-WorkItemV1 {
     [CmdletBinding()]
@@ -242,7 +242,7 @@ function Complete-WorkItemV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitems" `
+                                -ReturnType "WorkItems" `
                                 -IsBodyNullable $true
 
         if ($WithHttpInfo.IsPresent) {
@@ -265,7 +265,7 @@ This API forwards a work item to a new owner. Either an admin, or the owning/cur
 .PARAMETER Id
 The ID of the work item
 
-.PARAMETER Workitemforward
+.PARAMETER WorkItemForward
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -284,7 +284,7 @@ function Invoke-ForwardWorkItemV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Workitemforward},
+        ${WorkItemForward},
         [Switch]
         $WithHttpInfo
     )
@@ -314,14 +314,14 @@ function Invoke-ForwardWorkItemV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Workitemforward) {
-            throw "Error! The required parameter `Workitemforward` missing when calling forwardWorkItemV1."
+        if (!$WorkItemForward) {
+            throw "Error! The required parameter `WorkItemForward` missing when calling forwardWorkItemV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Workitemforward -is [array])) {
-            $LocalVarBodyParameter = $Workitemforward | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($WorkItemForward -is [array])) {
+            $LocalVarBodyParameter = $WorkItemForward | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Workitemforward | ForEach-Object {
+            $LocalVarBodyParameter = $WorkItemForward | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -378,7 +378,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitems[]
+WorkItems[]
 #>
 function Get-CompletedWorkItemsV1 {
     [CmdletBinding()]
@@ -442,7 +442,7 @@ function Get-CompletedWorkItemsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitems[]" `
+                                -ReturnType "WorkItems[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -471,7 +471,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitemscount
+WorkItemsCount
 #>
 function Get-CountCompletedWorkItemsV1 {
     [CmdletBinding()]
@@ -514,7 +514,7 @@ function Get-CountCompletedWorkItemsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitemscount" `
+                                -ReturnType "WorkItemsCount" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -543,7 +543,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitemscount
+WorkItemsCount
 #>
 function Get-CountWorkItemsV1 {
     [CmdletBinding()]
@@ -586,7 +586,7 @@ function Get-CountWorkItemsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitemscount" `
+                                -ReturnType "WorkItemsCount" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -615,7 +615,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitems
+WorkItems
 #>
 function Get-WorkItemV1 {
     [CmdletBinding()]
@@ -658,7 +658,7 @@ function Get-WorkItemV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitems" `
+                                -ReturnType "WorkItems" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -687,7 +687,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitemssummary
+WorkItemsSummary
 #>
 function Get-WorkItemsSummaryV1 {
     [CmdletBinding()]
@@ -730,7 +730,7 @@ function Get-WorkItemsSummaryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitemssummary" `
+                                -ReturnType "WorkItemsSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -768,7 +768,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitems[]
+WorkItems[]
 #>
 function Get-WorkItemsV1 {
     [CmdletBinding()]
@@ -832,7 +832,7 @@ function Get-WorkItemsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitems[]" `
+                                -ReturnType "WorkItems[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -864,7 +864,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitems
+WorkItems
 #>
 function Deny-ApprovalItemV1 {
     [CmdletBinding()]
@@ -914,7 +914,7 @@ function Deny-ApprovalItemV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitems" `
+                                -ReturnType "WorkItems" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -943,7 +943,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitems
+WorkItems
 #>
 function Deny-ApprovalItemsInBulkV1 {
     [CmdletBinding()]
@@ -986,7 +986,7 @@ function Deny-ApprovalItemsInBulkV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitems" `
+                                -ReturnType "WorkItems" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1018,7 +1018,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workitems
+WorkItems
 #>
 function Submit-AccountSelectionV1 {
     [CmdletBinding()]
@@ -1084,7 +1084,7 @@ function Submit-AccountSelectionV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workitems" `
+                                -ReturnType "WorkItems" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

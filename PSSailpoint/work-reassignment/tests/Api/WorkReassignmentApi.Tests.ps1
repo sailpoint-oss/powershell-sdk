@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.WorkReassignment' -name 'WorkReassignmentApi' {
     Context 'New-ReassignmentConfigurationV1' {
         It 'Test New-ReassignmentConfigurationV1' {
-            #$TestResult = New-ReassignmentConfigurationV1 -XSailPointExperimental "TEST_VALUE" -Configurationitemrequest "TEST_VALUE"
+            #$TestResult = New-ReassignmentConfigurationV1 -XSailPointExperimental "TEST_VALUE" -ConfigurationItemRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.WorkReassignment' -name 'WorkReassignmentApi' {
 
     Context 'Send-ReassignmentConfigV1' {
         It 'Test Send-ReassignmentConfigV1' {
-            #$TestResult = Send-ReassignmentConfigV1 -IdentityId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Configurationitemrequest "TEST_VALUE"
+            #$TestResult = Send-ReassignmentConfigV1 -IdentityId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -ConfigurationItemRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.WorkReassignment' -name 'WorkReassignmentApi' {
 
     Context 'Send-TenantConfigurationV1' {
         It 'Test Send-TenantConfigurationV1' {
-            #$TestResult = Send-TenantConfigurationV1 -XSailPointExperimental "TEST_VALUE" -Tenantconfigurationrequest "TEST_VALUE"
+            #$TestResult = Send-TenantConfigurationV1 -XSailPointExperimental "TEST_VALUE" -TenantConfigurationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

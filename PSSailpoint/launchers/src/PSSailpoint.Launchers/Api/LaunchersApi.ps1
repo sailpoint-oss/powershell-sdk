@@ -14,7 +14,7 @@ Create launcher
 
 Create a Launcher with given information
 
-.PARAMETER Launcherrequest
+.PARAMETER LauncherRequest
 Payload to create a Launcher
 
 .PARAMETER WithHttpInfo
@@ -30,7 +30,7 @@ function New-LauncherV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Launcherrequest},
+        ${LauncherRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-LauncherV1 {
 
         $LocalVarUri = '/launchers/v1'
 
-        if (!$Launcherrequest) {
-            throw "Error! The required parameter `Launcherrequest` missing when calling createLauncherV1."
+        if (!$LauncherRequest) {
+            throw "Error! The required parameter `LauncherRequest` missing when calling createLauncherV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Launcherrequest -is [array])) {
-            $LocalVarBodyParameter = $Launcherrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($LauncherRequest -is [array])) {
+            $LocalVarBodyParameter = $LauncherRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Launcherrequest | ForEach-Object {
+            $LocalVarBodyParameter = $LauncherRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -341,7 +341,7 @@ Replace the given Launcher ID with given payload
 .PARAMETER LauncherID
 ID of the Launcher to be replaced
 
-.PARAMETER Launcherrequest
+.PARAMETER LauncherRequest
 Payload to replace Launcher
 
 .PARAMETER WithHttpInfo
@@ -360,7 +360,7 @@ function Send-LauncherV1 {
         ${LauncherID},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Launcherrequest},
+        ${LauncherRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -390,14 +390,14 @@ function Send-LauncherV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{launcherID}', [System.Web.HTTPUtility]::UrlEncode($LauncherID))
 
-        if (!$Launcherrequest) {
-            throw "Error! The required parameter `Launcherrequest` missing when calling putLauncherV1."
+        if (!$LauncherRequest) {
+            throw "Error! The required parameter `LauncherRequest` missing when calling putLauncherV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Launcherrequest -is [array])) {
-            $LocalVarBodyParameter = $Launcherrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($LauncherRequest -is [array])) {
+            $LocalVarBodyParameter = $LauncherRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Launcherrequest | ForEach-Object {
+            $LocalVarBodyParameter = $LauncherRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

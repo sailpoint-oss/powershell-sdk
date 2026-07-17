@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ExportFormDefinitionsByTenantV1200Res
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | [**Formdefinitionselfimportexportdto**](formdefinitionselfimportexportdto) |  | [optional] 
+**Object** | [**FormDefinitionSelfImportExportDto**](form-definition-self-import-export-dto) |  | [optional] 
 
 ## Examples
 

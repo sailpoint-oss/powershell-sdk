@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.MachineAccountCreationRequest.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,27 +75,27 @@ FunctionsToExport = 'New-MachineAccountRequestV1', 'Get-CreateMachineAccountRequ
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Accountrequestasyncresult', 
-               'ConvertFrom-JsonToAccountrequestasyncresult', 
-               'Initialize-Accountrequestdetailsdto', 
-               'ConvertFrom-JsonToAccountrequestdetailsdto', 
-               'Initialize-AccountrequestdetailsdtoRequester', 
-               'ConvertFrom-JsonToAccountrequestdetailsdtoRequester', 
-               'Initialize-Accountrequestphase', 
-               'ConvertFrom-JsonToAccountrequestphase', 
-               'Initialize-Basereferencedto', 'ConvertFrom-JsonToBasereferencedto', 
+               'Initialize-AccountRequestAsyncResult', 
+               'ConvertFrom-JsonToAccountRequestAsyncResult', 
+               'Initialize-AccountRequestDetailsDto', 
+               'ConvertFrom-JsonToAccountRequestDetailsDto', 
+               'Initialize-AccountRequestDetailsDtoRequester', 
+               'ConvertFrom-JsonToAccountRequestDetailsDtoRequester', 
+               'Initialize-AccountRequestPhase', 
+               'ConvertFrom-JsonToAccountRequestPhase', 
+               'Initialize-BaseReferenceDto', 'ConvertFrom-JsonToBaseReferenceDto', 
                'Initialize-CreateMachineAccountRequestV1401Response', 
                'ConvertFrom-JsonToCreateMachineAccountRequestV1401Response', 
                'Initialize-CreateMachineAccountRequestV1429Response', 
                'ConvertFrom-JsonToCreateMachineAccountRequestV1429Response', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Machineaccountcreateaccessdto', 
-               'ConvertFrom-JsonToMachineaccountcreateaccessdto', 
-               'Initialize-MachineaccountcreateaccessdtoSubtypesInner', 
-               'ConvertFrom-JsonToMachineaccountcreateaccessdtoSubtypesInner', 
-               'Initialize-Machineaccountcreaterequestinput', 
-               'ConvertFrom-JsonToMachineaccountcreaterequestinput'
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-MachineAccountCreateAccessDto', 
+               'ConvertFrom-JsonToMachineAccountCreateAccessDto', 
+               'Initialize-MachineAccountCreateAccessDtoSubtypesInner', 
+               'ConvertFrom-JsonToMachineAccountCreateAccessDtoSubtypesInner', 
+               'Initialize-MachineAccountCreateRequestInput', 
+               'ConvertFrom-JsonToMachineAccountCreateRequestInput'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

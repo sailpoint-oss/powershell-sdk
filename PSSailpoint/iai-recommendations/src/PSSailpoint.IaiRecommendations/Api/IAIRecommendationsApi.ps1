@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Recommendationconfigdto
+RecommendationConfigDto
 #>
 function Get-RecommendationsConfigV1 {
     [CmdletBinding()]
@@ -67,7 +67,7 @@ function Get-RecommendationsConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Recommendationconfigdto" `
+                                -ReturnType "RecommendationConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -90,7 +90,7 @@ The getRecommendations API returns recommendations based on the requested object
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Recommendationrequestdto
+.PARAMETER RecommendationRequestDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -99,7 +99,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Recommendationresponsedto
+RecommendationResponseDto
 #>
 function Get-RecommendationsV1 {
     [CmdletBinding()]
@@ -109,7 +109,7 @@ function Get-RecommendationsV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Recommendationrequestdto},
+        ${RecommendationRequestDto},
         [Switch]
         $WithHttpInfo
     )
@@ -140,14 +140,14 @@ function Get-RecommendationsV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Recommendationrequestdto) {
-            throw "Error! The required parameter `Recommendationrequestdto` missing when calling getRecommendationsV1."
+        if (!$RecommendationRequestDto) {
+            throw "Error! The required parameter `RecommendationRequestDto` missing when calling getRecommendationsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Recommendationrequestdto -is [array])) {
-            $LocalVarBodyParameter = $Recommendationrequestdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RecommendationRequestDto -is [array])) {
+            $LocalVarBodyParameter = $RecommendationRequestDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Recommendationrequestdto | ForEach-Object {
+            $LocalVarBodyParameter = $RecommendationRequestDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -166,7 +166,7 @@ function Get-RecommendationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Recommendationresponsedto" `
+                                -ReturnType "RecommendationResponseDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -189,7 +189,7 @@ Updates configuration attributes used by certification recommendations.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Recommendationconfigdto
+.PARAMETER RecommendationConfigDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -198,7 +198,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Recommendationconfigdto
+RecommendationConfigDto
 #>
 function Update-RecommendationsConfigV1 {
     [CmdletBinding()]
@@ -208,7 +208,7 @@ function Update-RecommendationsConfigV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Recommendationconfigdto},
+        ${RecommendationConfigDto},
         [Switch]
         $WithHttpInfo
     )
@@ -239,14 +239,14 @@ function Update-RecommendationsConfigV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Recommendationconfigdto) {
-            throw "Error! The required parameter `Recommendationconfigdto` missing when calling updateRecommendationsConfigV1."
+        if (!$RecommendationConfigDto) {
+            throw "Error! The required parameter `RecommendationConfigDto` missing when calling updateRecommendationsConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Recommendationconfigdto -is [array])) {
-            $LocalVarBodyParameter = $Recommendationconfigdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RecommendationConfigDto -is [array])) {
+            $LocalVarBodyParameter = $RecommendationConfigDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Recommendationconfigdto | ForEach-Object {
+            $LocalVarBodyParameter = $RecommendationConfigDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -265,7 +265,7 @@ function Update-RecommendationsConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Recommendationconfigdto" `
+                                -ReturnType "RecommendationConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.GovernanceGroups' -name 'GovernanceGroupsApi' {
     Context 'New-WorkgroupV1' {
         It 'Test New-WorkgroupV1' {
-            #$TestResult = New-WorkgroupV1 -Workgroupdto "TEST_VALUE"
+            #$TestResult = New-WorkgroupV1 -WorkgroupDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.GovernanceGroups' -name 'GovernanceGroupsApi' {
 
     Context 'Remove-WorkgroupMembersV1' {
         It 'Test Remove-WorkgroupMembersV1' {
-            #$TestResult = Remove-WorkgroupMembersV1 -WorkgroupId "TEST_VALUE" -BulkworkgroupmembersrequestInner "TEST_VALUE"
+            #$TestResult = Remove-WorkgroupMembersV1 -WorkgroupId "TEST_VALUE" -BulkWorkgroupMembersRequestInner "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.GovernanceGroups' -name 'GovernanceGroupsApi' {
 
     Context 'Remove-WorkgroupsInBulkV1' {
         It 'Test Remove-WorkgroupsInBulkV1' {
-            #$TestResult = Remove-WorkgroupsInBulkV1 -Workgroupbulkdeleterequest "TEST_VALUE"
+            #$TestResult = Remove-WorkgroupsInBulkV1 -WorkgroupBulkDeleteRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.GovernanceGroups' -name 'GovernanceGroupsApi' {
 
     Context 'Update-WorkgroupV1' {
         It 'Test Update-WorkgroupV1' {
-            #$TestResult = Update-WorkgroupV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-WorkgroupV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.GovernanceGroups' -name 'GovernanceGroupsApi' {
 
     Context 'Update-WorkgroupMembersV1' {
         It 'Test Update-WorkgroupMembersV1' {
-            #$TestResult = Update-WorkgroupMembersV1 -WorkgroupId "TEST_VALUE" -BulkworkgroupmembersrequestInner "TEST_VALUE"
+            #$TestResult = Update-WorkgroupMembersV1 -WorkgroupId "TEST_VALUE" -BulkWorkgroupMembersRequestInner "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

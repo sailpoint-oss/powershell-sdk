@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **StreamId** | **String** | Unique stream identifier. | [optional] 
 **Iss** | **String** | Issuer (transmitter) URL. | [optional] 
 **Aud** | **String** | Audience for the stream. | [optional] 
-**Delivery** | [**Deliveryresponse**](deliveryresponse) |  | [optional] 
+**Delivery** | [**DeliveryResponse**](delivery-response) |  | [optional] 
 **EventsSupported** | **[]String** | Event types supported by the transmitter. Use CAEP event-type URIs in the form: `https://schemas.openid.net/secevent/caep/event-type/{event-type}` (e.g. session-revoked).  | [optional] 
 **EventsRequested** | **[]String** | Event types requested by the receiver. Use CAEP event-type URIs in the form: `https://schemas.openid.net/secevent/caep/event-type/{event-type}` (e.g. session revoke).  | [optional] 
 **EventsDelivered** | **[]String** | Event types currently being delivered (intersection of supported and requested). | [optional] 

@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.MachineClassificationConfig.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,20 +76,20 @@ FunctionsToExport = 'Remove-MachineClassificationConfigV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetMachineClassificationConfigV1401Response', 
                'ConvertFrom-JsonToGetMachineClassificationConfigV1401Response', 
                'Initialize-GetMachineClassificationConfigV1429Response', 
                'ConvertFrom-JsonToGetMachineClassificationConfigV1429Response', 
-               'Initialize-Machineclassificationconfig', 
-               'ConvertFrom-JsonToMachineclassificationconfig', 
-               'Initialize-Machineclassificationcriterialevel1', 
-               'ConvertFrom-JsonToMachineclassificationcriterialevel1', 
-               'Initialize-Machineclassificationcriterialevel2', 
-               'ConvertFrom-JsonToMachineclassificationcriterialevel2', 
-               'Initialize-Machineclassificationcriterialevel3', 
-               'ConvertFrom-JsonToMachineclassificationcriterialevel3'
+               'Initialize-MachineClassificationConfig', 
+               'ConvertFrom-JsonToMachineClassificationConfig', 
+               'Initialize-MachineClassificationCriteriaLevel1', 
+               'ConvertFrom-JsonToMachineClassificationCriteriaLevel1', 
+               'Initialize-MachineClassificationCriteriaLevel2', 
+               'ConvertFrom-JsonToMachineClassificationCriteriaLevel2', 
+               'Initialize-MachineClassificationCriteriaLevel3', 
+               'ConvertFrom-JsonToMachineClassificationCriteriaLevel3'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

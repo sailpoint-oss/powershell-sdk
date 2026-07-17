@@ -43,11 +43,11 @@ Path   | Id | **String** | True  | ID of the running Report to cancel
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReportResultV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReportResultV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -83,17 +83,17 @@ Path   | TaskResultId | **String** | True  | Unique identifier of the task resul
   Query | Completed | **Boolean** |   (optional) (default to $false) | state of task result to apply ordering when results are fetching from the DB
 
 ### Return type
-[**Reportresults**](../models/reportresults)
+[**ReportResults**](../models/report-results)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Details about report that was run or is running. | Reportresults
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Details about report that was run or is running. | ReportResults
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReportResultV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReportResultV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -138,12 +138,12 @@ Path   | TaskResultId | **String** | True  | Unique identifier of the task resul
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Report file in selected format. CSV by default. | System.IO.FileInfo
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReportResultV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReportResultV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -178,20 +178,20 @@ Use this API to run a report according to report input details. If non-concurren
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Reportdetails | [**Reportdetails**](../models/reportdetails) | True  | 
+ Body  | ReportDetails | [**ReportDetails**](../models/report-details) | True  | 
 
 ### Return type
-[**Taskresultdetails**](../models/taskresultdetails)
+[**TaskResultDetails**](../models/task-result-details)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Details about running report task. | Taskresultdetails
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Details about running report task. | TaskResultDetails
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReportResultV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReportResultV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -199,16 +199,22 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Reportdetails = @""@
+$ReportDetails = @"{
+  "reportType" : "ACCOUNTS",
+  "arguments" : {
+    "application" : "2c9180897e7742b2017e781782f705b9",
+    "sourceName" : "Active Directory"
+  }
+}"@
 
 # Run report
 
 try {
-    $Result = ConvertFrom-JsonToReportdetails -Json $Reportdetails
-    Start-ReportV1 -Reportdetails $Result 
+    $Result = ConvertFrom-JsonToReportDetails -Json $ReportDetails
+    Start-ReportV1 -ReportDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-ReportV1 -Reportdetails $Result  
+    # Start-ReportV1 -ReportDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ReportV1"
     Write-Host $_.ErrorDetails

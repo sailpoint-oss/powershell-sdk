@@ -1,0 +1,32 @@
+---
+id: document-type
+title: DocumentType
+pagination_label: DocumentType
+sidebar_label: DocumentType
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'DocumentType', 'DocumentType'] 
+slug: /tools/sdk/powershell/search/models/document-type
+tags: ['SDK', 'Software Development Kit', 'DocumentType', 'DocumentType']
+---
+
+
+# DocumentType
+
+## Enum
+
+
+* `accessprofile` (value: `"accessprofile"`)
+
+* `accountactivity` (value: `"accountactivity"`)
+
+* `entitlement` (value: `"entitlement"`)
+
+* `event` (value: `"event"`)
+
+* `identity` (value: `"identity"`)
+
+* `role` (value: `"role"`)
+
+
+[[Back to top]](#) 
+

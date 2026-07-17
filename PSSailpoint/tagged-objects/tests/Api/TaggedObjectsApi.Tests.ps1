@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.TaggedObjects' -name 'TaggedObjectsApi' {
 
     Context 'Remove-TagsToManyObjectV1' {
         It 'Test Remove-TagsToManyObjectV1' {
-            #$TestResult = Remove-TagsToManyObjectV1 -Bulkremovetaggedobject "TEST_VALUE"
+            #$TestResult = Remove-TagsToManyObjectV1 -BulkRemoveTaggedObject "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.TaggedObjects' -name 'TaggedObjectsApi' {
 
     Context 'Send-TaggedObjectV1' {
         It 'Test Send-TaggedObjectV1' {
-            #$TestResult = Send-TaggedObjectV1 -Type "TEST_VALUE" -Id "TEST_VALUE" -Taggedobject "TEST_VALUE"
+            #$TestResult = Send-TaggedObjectV1 -Type "TEST_VALUE" -Id "TEST_VALUE" -TaggedObject "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.TaggedObjects' -name 'TaggedObjectsApi' {
 
     Context 'Set-TagToObjectV1' {
         It 'Test Set-TagToObjectV1' {
-            #$TestResult = Set-TagToObjectV1 -Taggedobject "TEST_VALUE"
+            #$TestResult = Set-TagToObjectV1 -TaggedObject "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.TaggedObjects' -name 'TaggedObjectsApi' {
 
     Context 'Set-TagsToManyObjectsV1' {
         It 'Test Set-TagsToManyObjectsV1' {
-            #$TestResult = Set-TagsToManyObjectsV1 -Bulkaddtaggedobject "TEST_VALUE"
+            #$TestResult = Set-TagsToManyObjectsV1 -BulkAddTaggedObject "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

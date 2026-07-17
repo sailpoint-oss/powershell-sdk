@@ -14,7 +14,7 @@ Create oauth client
 
 This creates an OAuth client.
 
-.PARAMETER Createoauthclientrequest
+.PARAMETER CreateOAuthClientRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Createoauthclientresponse
+CreateOAuthClientResponse
 #>
 function New-OauthClientV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Createoauthclientrequest},
+        ${CreateOAuthClientRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-OauthClientV1 {
 
         $LocalVarUri = '/oauth-clients/v1'
 
-        if (!$Createoauthclientrequest) {
-            throw "Error! The required parameter `Createoauthclientrequest` missing when calling createOauthClientV1."
+        if (!$CreateOAuthClientRequest) {
+            throw "Error! The required parameter `CreateOAuthClientRequest` missing when calling createOauthClientV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Createoauthclientrequest -is [array])) {
-            $LocalVarBodyParameter = $Createoauthclientrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreateOAuthClientRequest -is [array])) {
+            $LocalVarBodyParameter = $CreateOAuthClientRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Createoauthclientrequest | ForEach-Object {
+            $LocalVarBodyParameter = $CreateOAuthClientRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-OauthClientV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Createoauthclientresponse" `
+                                -ReturnType "CreateOAuthClientResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -183,7 +183,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Getoauthclientresponse
+GetOAuthClientResponse
 #>
 function Get-OauthClientV1 {
     [CmdletBinding()]
@@ -226,7 +226,7 @@ function Get-OauthClientV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Getoauthclientresponse" `
+                                -ReturnType "GetOAuthClientResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -255,7 +255,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Getoauthclientresponse[]
+GetOAuthClientResponse[]
 #>
 function Get-OauthClientsV1 {
     [CmdletBinding()]
@@ -298,7 +298,7 @@ function Get-OauthClientsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Getoauthclientresponse[]" `
+                                -ReturnType "GetOAuthClientResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -321,7 +321,7 @@ This performs a targeted update to the field(s) of an OAuth client.
 .PARAMETER Id
 The OAuth client id
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
 
 .PARAMETER WithHttpInfo
@@ -330,7 +330,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Getoauthclientresponse
+GetOAuthClientResponse
 #>
 function Update-OauthClientV1 {
     [CmdletBinding()]
@@ -340,7 +340,7 @@ function Update-OauthClientV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -370,14 +370,14 @@ function Update-OauthClientV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchOauthClientV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchOauthClientV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -396,7 +396,7 @@ function Update-OauthClientV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Getoauthclientresponse" `
+                                -ReturnType "GetOAuthClientResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -36,7 +36,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Aggregationresult
+AggregationResult
 #>
 function Search-AggregateV1 {
     [CmdletBinding()]
@@ -124,7 +124,7 @@ function Search-AggregateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Aggregationresult" `
+                                -ReturnType "AggregationResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -244,7 +244,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Searchdocument
+SearchDocument
 #>
 function Search-GetV1 {
     [CmdletBinding()]
@@ -295,11 +295,11 @@ function Search-GetV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Searchdocument" `
+                                -ReturnType "SearchDocument" `
                                 -IsBodyNullable $false
 
         # process oneOf response
-        $LocalVarResult["Response"] = ConvertFrom-JsonToSearchdocument (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
+        $LocalVarResult["Response"] = ConvertFrom-JsonToSearchDocument (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult
@@ -336,7 +336,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Searchdocuments[]
+SearchDocuments[]
 #>
 function Search-PostV1 {
     [CmdletBinding()]
@@ -416,7 +416,7 @@ function Search-PostV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Searchdocuments[]" `
+                                -ReturnType "SearchDocuments[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

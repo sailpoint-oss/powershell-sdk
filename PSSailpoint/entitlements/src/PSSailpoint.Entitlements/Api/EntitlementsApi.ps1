@@ -207,7 +207,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementrequestconfig
+EntitlementRequestConfig
 #>
 function Get-EntitlementRequestConfigV1 {
     [CmdletBinding()]
@@ -250,7 +250,7 @@ function Get-EntitlementRequestConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementrequestconfig" `
+                                -ReturnType "EntitlementRequestConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -279,7 +279,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementv2
+EntitlementV2
 #>
 function Get-EntitlementV1 {
     [CmdletBinding()]
@@ -322,7 +322,7 @@ function Get-EntitlementV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementv2" `
+                                -ReturnType "EntitlementV2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -354,7 +354,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Loadentitlementtask
+LoadEntitlementTask
 #>
 function Import-EntitlementsBySourceV1 {
     [CmdletBinding()]
@@ -407,7 +407,7 @@ function Import-EntitlementsBySourceV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Loadentitlementtask" `
+                                -ReturnType "LoadEntitlementTask" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -454,7 +454,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementv2[]
+EntitlementV2[]
 #>
 function Get-EntitlementChildrenV1 {
     [CmdletBinding()]
@@ -539,7 +539,7 @@ function Get-EntitlementChildrenV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementv2[]" `
+                                -ReturnType "EntitlementV2[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -586,7 +586,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementv2[]
+EntitlementV2[]
 #>
 function Get-EntitlementParentsV1 {
     [CmdletBinding()]
@@ -671,7 +671,7 @@ function Get-EntitlementParentsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementv2[]" `
+                                -ReturnType "EntitlementV2[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -715,7 +715,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementv2[]
+EntitlementV2[]
 #>
 function Get-EntitlementsByAccountV1 {
     [CmdletBinding()]
@@ -793,7 +793,7 @@ function Get-EntitlementsByAccountV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementv2[]" `
+                                -ReturnType "EntitlementV2[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -846,7 +846,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementv2[]
+EntitlementV2[]
 #>
 function Get-EntitlementsV1 {
     [CmdletBinding()]
@@ -945,7 +945,7 @@ function Get-EntitlementsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementv2[]" `
+                                -ReturnType "EntitlementV2[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -968,7 +968,7 @@ This API updates an existing entitlement using [JSON Patch](https://tools.ietf.o
 .PARAMETER Id
 ID of the entitlement to patch
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -977,7 +977,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementv2
+EntitlementV2
 #>
 function Update-EntitlementV1 {
     [CmdletBinding()]
@@ -987,7 +987,7 @@ function Update-EntitlementV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -1017,10 +1017,10 @@ function Update-EntitlementV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1039,7 +1039,7 @@ function Update-EntitlementV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementv2" `
+                                -ReturnType "EntitlementV2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1062,7 +1062,7 @@ This API replaces the entitlement request config for a specified entitlement.
 .PARAMETER Id
 Entitlement ID
 
-.PARAMETER Entitlementrequestconfig
+.PARAMETER EntitlementRequestConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1071,7 +1071,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementrequestconfig
+EntitlementRequestConfig
 #>
 function Send-EntitlementRequestConfigV1 {
     [CmdletBinding()]
@@ -1081,7 +1081,7 @@ function Send-EntitlementRequestConfigV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Entitlementrequestconfig},
+        ${EntitlementRequestConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -1111,14 +1111,14 @@ function Send-EntitlementRequestConfigV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Entitlementrequestconfig) {
-            throw "Error! The required parameter `Entitlementrequestconfig` missing when calling putEntitlementRequestConfigV1."
+        if (!$EntitlementRequestConfig) {
+            throw "Error! The required parameter `EntitlementRequestConfig` missing when calling putEntitlementRequestConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Entitlementrequestconfig -is [array])) {
-            $LocalVarBodyParameter = $Entitlementrequestconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementRequestConfig -is [array])) {
+            $LocalVarBodyParameter = $EntitlementRequestConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Entitlementrequestconfig | ForEach-Object {
+            $LocalVarBodyParameter = $EntitlementRequestConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1137,7 +1137,7 @@ function Send-EntitlementRequestConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementrequestconfig" `
+                                -ReturnType "EntitlementRequestConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1166,7 +1166,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementsourceresetbasereferencedto
+EntitlementSourceResetBaseReferenceDto
 #>
 function Reset-SourceEntitlementsV1 {
     [CmdletBinding()]
@@ -1209,7 +1209,7 @@ function Reset-SourceEntitlementsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementsourceresetbasereferencedto" `
+                                -ReturnType "EntitlementSourceResetBaseReferenceDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1229,7 +1229,7 @@ Bulk update an entitlement list
 
 This API applies an update to every entitlement of the list.   The number of entitlements to update is limited to 50 items maximum.   The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. examples of allowed operations : `**{ ""op"": ""replace"", ""path"": ""/requestable"",""value"": boolean }**` `**{ ""op"": ""replace"", ""path"": ""/privilegeOverride/level"",""value"": string }**`  A token with ORG_ADMIN or API authority is required to call this API. 
 
-.PARAMETER Entitlementbulkupdaterequest
+.PARAMETER EntitlementBulkUpdateRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1245,7 +1245,7 @@ function Update-EntitlementsInBulkV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Entitlementbulkupdaterequest},
+        ${EntitlementBulkUpdateRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1271,14 +1271,14 @@ function Update-EntitlementsInBulkV1 {
 
         $LocalVarUri = '/entitlements/v1/bulk-update'
 
-        if (!$Entitlementbulkupdaterequest) {
-            throw "Error! The required parameter `Entitlementbulkupdaterequest` missing when calling updateEntitlementsInBulkV1."
+        if (!$EntitlementBulkUpdateRequest) {
+            throw "Error! The required parameter `EntitlementBulkUpdateRequest` missing when calling updateEntitlementsInBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Entitlementbulkupdaterequest -is [array])) {
-            $LocalVarBodyParameter = $Entitlementbulkupdaterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementBulkUpdateRequest -is [array])) {
+            $LocalVarBodyParameter = $EntitlementBulkUpdateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Entitlementbulkupdaterequest | ForEach-Object {
+            $LocalVarBodyParameter = $EntitlementBulkUpdateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

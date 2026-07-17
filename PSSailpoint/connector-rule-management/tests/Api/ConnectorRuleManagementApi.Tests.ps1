@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.ConnectorRuleManagement' -name 'ConnectorRuleManagementApi' {
     Context 'New-ConnectorRuleV1' {
         It 'Test New-ConnectorRuleV1' {
-            #$TestResult = New-ConnectorRuleV1 -Connectorrulecreaterequest "TEST_VALUE"
+            #$TestResult = New-ConnectorRuleV1 -ConnectorRuleCreateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.ConnectorRuleManagement' -name 'ConnectorRuleManageme
 
     Context 'Send-ConnectorRuleV1' {
         It 'Test Send-ConnectorRuleV1' {
-            #$TestResult = Send-ConnectorRuleV1 -Id "TEST_VALUE" -Connectorruleupdaterequest "TEST_VALUE"
+            #$TestResult = Send-ConnectorRuleV1 -Id "TEST_VALUE" -ConnectorRuleUpdateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.ConnectorRuleManagement' -name 'ConnectorRuleManageme
 
     Context 'Test-ConnectorRuleV1' {
         It 'Test Test-ConnectorRuleV1' {
-            #$TestResult = Test-ConnectorRuleV1 -Sourcecode "TEST_VALUE"
+            #$TestResult = Test-ConnectorRuleV1 -SourceCode "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

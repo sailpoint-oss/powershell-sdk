@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.SharedSignalsFrameworkSsf' -name 'SharedSignalsFrameworkSSFApi' {
     Context 'New-StreamV1' {
         It 'Test New-StreamV1' {
-            #$TestResult = New-StreamV1 -Createstreamrequest "TEST_VALUE"
+            #$TestResult = New-StreamV1 -CreateStreamRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.SharedSignalsFrameworkSsf' -name 'SharedSignalsFramew
 
     Context 'Send-StreamVerificationV1' {
         It 'Test Send-StreamVerificationV1' {
-            #$TestResult = Send-StreamVerificationV1 -Verificationrequest "TEST_VALUE"
+            #$TestResult = Send-StreamVerificationV1 -VerificationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.SharedSignalsFrameworkSsf' -name 'SharedSignalsFramew
 
     Context 'Set-StreamConfigurationV1' {
         It 'Test Set-StreamConfigurationV1' {
-            #$TestResult = Set-StreamConfigurationV1 -Replacestreamconfigurationrequest "TEST_VALUE"
+            #$TestResult = Set-StreamConfigurationV1 -ReplaceStreamConfigurationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.SharedSignalsFrameworkSsf' -name 'SharedSignalsFramew
 
     Context 'Update-StreamConfigurationV1' {
         It 'Test Update-StreamConfigurationV1' {
-            #$TestResult = Update-StreamConfigurationV1 -Updatestreamconfigurationrequest "TEST_VALUE"
+            #$TestResult = Update-StreamConfigurationV1 -UpdateStreamConfigurationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.SharedSignalsFrameworkSsf' -name 'SharedSignalsFramew
 
     Context 'Update-StreamStatusV1' {
         It 'Test Update-StreamStatusV1' {
-            #$TestResult = Update-StreamStatusV1 -Updatestreamstatusrequest "TEST_VALUE"
+            #$TestResult = Update-StreamStatusV1 -UpdateStreamStatusRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

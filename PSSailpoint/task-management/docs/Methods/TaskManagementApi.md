@@ -38,18 +38,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created**
 
 ### Return type
-[**Taskstatus[]**](../models/taskstatus)
+[**TaskStatus[]**](../models/task-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Responds with a TaskStatus for the task with the given task ID. | Taskstatus[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Responds with a TaskStatus for the task with the given task ID. | TaskStatus[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTaskStatusV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTaskStatusV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -88,18 +88,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Task ID.
 
 ### Return type
-[**Taskstatus**](../models/taskstatus)
+[**TaskStatus**](../models/task-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Responds with a TaskStatus for the task with the given task ID. | Taskstatus
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Responds with a TaskStatus for the task with the given task ID. | TaskStatus
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTaskStatusV1401Response
 403 | Forbidden, generally due to a lack of security rights | 
 404 | TaskStatus with the given id was not found. | 
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTaskStatusV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -132,21 +132,21 @@ Update a current task status by task ID. Use this API to clear a pending task by
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Task ID.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | The JSONPatch payload used to update the object.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the object.
 
 ### Return type
-[**Taskstatus**](../models/taskstatus)
+[**TaskStatus**](../models/task-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | This response indicates the PATCH operation succeeded, and the API returns the updated task object. | Taskstatus
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | This response indicates the PATCH operation succeeded, and the API returns the updated task object. | TaskStatus
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTaskStatusV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTaskStatusV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -155,17 +155,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
- $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | The JSONPatch payload used to update the object.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | The JSONPatch payload used to update the object.
  
 
 # Update task status by id
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-TaskStatusV1 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-TaskStatusV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-TaskStatusV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-TaskStatusV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-TaskStatusV1"
     Write-Host $_.ErrorDetails

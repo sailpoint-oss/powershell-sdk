@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.SavedSearch.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -79,22 +79,22 @@ FunctionsToExport = 'New-SavedSearchV1', 'Remove-SavedSearchV1',
                'Initialize-Bound', 'ConvertFrom-JsonToBound', 'Initialize-Column', 
                'ConvertFrom-JsonToColumn', 'Initialize-CreateSavedSearchV1Request', 
                'ConvertFrom-JsonToCreateSavedSearchV1Request', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-ListSavedSearchesV1401Response', 
                'ConvertFrom-JsonToListSavedSearchesV1401Response', 
                'Initialize-ListSavedSearchesV1429Response', 
                'ConvertFrom-JsonToListSavedSearchesV1429Response', 
                'Initialize-ModelFilter', 'ConvertFrom-JsonToModelFilter', 
                'Initialize-Range', 'ConvertFrom-JsonToRange', 
-               'Initialize-Savedsearch', 'ConvertFrom-JsonToSavedsearch', 
-               'Initialize-Savedsearchdetail', 
-               'ConvertFrom-JsonToSavedsearchdetail', 
-               'Initialize-SavedsearchdetailFilters', 
-               'ConvertFrom-JsonToSavedsearchdetailFilters', 
-               'Initialize-Savedsearchname', 'ConvertFrom-JsonToSavedsearchname', 
-               'Initialize-Searcharguments', 'ConvertFrom-JsonToSearcharguments', 
-               'Initialize-Typedreference', 'ConvertFrom-JsonToTypedreference'
+               'Initialize-SavedSearch', 'ConvertFrom-JsonToSavedSearch', 
+               'Initialize-SavedSearchDetail', 
+               'ConvertFrom-JsonToSavedSearchDetail', 
+               'Initialize-SavedSearchDetailFilters', 
+               'ConvertFrom-JsonToSavedSearchDetailFilters', 
+               'Initialize-SavedSearchName', 'ConvertFrom-JsonToSavedSearchName', 
+               'Initialize-SearchArguments', 'ConvertFrom-JsonToSearchArguments', 
+               'Initialize-TypedReference', 'ConvertFrom-JsonToTypedReference'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

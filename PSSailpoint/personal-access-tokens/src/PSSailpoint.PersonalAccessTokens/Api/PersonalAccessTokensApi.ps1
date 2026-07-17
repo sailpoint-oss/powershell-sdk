@@ -14,7 +14,7 @@ Create personal access token
 
 This creates a personal access token. **expirationDate and userAwareTokenNeverExpires Relationship:** **Important:** When `expirationDate` is `null` or empty (not included in the request body), the token will never expire. **Required Validation:** If `expirationDate` is `null` or empty, `userAwareTokenNeverExpires` must be set to `true`. This is a required validation rule. The valid values for `expirationDate` depend on the value provided for `userAwareTokenNeverExpires`: * **When `userAwareTokenNeverExpires` is `true` (or required to be `true`):** `expirationDate` can be `null` or omitted from the request body. When `expirationDate` is `null` or empty, the token will never expire. This creates a PAT that never expires and serves as an explicit acknowledgment that the user is aware of the security implications of creating a non-expiring token. * **When `userAwareTokenNeverExpires` is `false` or omitted:** `expirationDate` must be provided and must be a valid date-time string representing a future date (there is no upper limit). `expirationDate` cannot be `null` in this case. In this scenario, `userAwareTokenNeverExpires` can be omitted. **Validation Rules:** * **If `expirationDate` is `null` or not included in the request body:** `userAwareTokenNeverExpires` must be set to `true` (required). The token will never expire. * **If `expirationDate` is provided and is not `null`:** `userAwareTokenNeverExpires` can be omitted. **Security Considerations:** The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed. **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
 
-.PARAMETER Createpersonalaccesstokenrequest
+.PARAMETER CreatePersonalAccessTokenRequest
 Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between `expirationDate` and `userAwareTokenNeverExpires`.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Createpersonalaccesstokenresponse
+CreatePersonalAccessTokenResponse
 #>
 function New-PersonalAccessTokenV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Createpersonalaccesstokenrequest},
+        ${CreatePersonalAccessTokenRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-PersonalAccessTokenV1 {
 
         $LocalVarUri = '/personal-access-tokens/v1'
 
-        if (!$Createpersonalaccesstokenrequest) {
-            throw "Error! The required parameter `Createpersonalaccesstokenrequest` missing when calling createPersonalAccessTokenV1."
+        if (!$CreatePersonalAccessTokenRequest) {
+            throw "Error! The required parameter `CreatePersonalAccessTokenRequest` missing when calling createPersonalAccessTokenV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Createpersonalaccesstokenrequest -is [array])) {
-            $LocalVarBodyParameter = $Createpersonalaccesstokenrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreatePersonalAccessTokenRequest -is [array])) {
+            $LocalVarBodyParameter = $CreatePersonalAccessTokenRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Createpersonalaccesstokenrequest | ForEach-Object {
+            $LocalVarBodyParameter = $CreatePersonalAccessTokenRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-PersonalAccessTokenV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Createpersonalaccesstokenresponse" `
+                                -ReturnType "CreatePersonalAccessTokenResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -186,7 +186,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Getpersonalaccesstokenresponse[]
+GetPersonalAccessTokenResponse[]
 #>
 function Get-PersonalAccessTokensV1 {
     [CmdletBinding()]
@@ -236,7 +236,7 @@ function Get-PersonalAccessTokensV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Getpersonalaccesstokenresponse[]" `
+                                -ReturnType "GetPersonalAccessTokenResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -259,7 +259,7 @@ This performs a targeted update to the field(s) of a Personal Access Token. Chan
 .PARAMETER Id
 The Personal Access Token id
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between `expirationDate` and `userAwareTokenNeverExpires`. 
 
 .PARAMETER WithHttpInfo
@@ -268,7 +268,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Getpersonalaccesstokenresponse
+GetPersonalAccessTokenResponse
 #>
 function Update-PersonalAccessTokenV1 {
     [CmdletBinding()]
@@ -278,7 +278,7 @@ function Update-PersonalAccessTokenV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -308,14 +308,14 @@ function Update-PersonalAccessTokenV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchPersonalAccessTokenV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchPersonalAccessTokenV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -334,7 +334,7 @@ function Update-PersonalAccessTokenV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Getpersonalaccesstokenresponse" `
+                                -ReturnType "GetPersonalAccessTokenResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

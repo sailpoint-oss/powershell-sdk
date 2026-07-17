@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.IdentityAttributes' -name 'IdentityAttributesApi' {
     Context 'New-IdentityAttributeV1' {
         It 'Test New-IdentityAttributeV1' {
-            #$TestResult = New-IdentityAttributeV1 -Identityattribute2 "TEST_VALUE"
+            #$TestResult = New-IdentityAttributeV1 -IdentityAttribute2 "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.IdentityAttributes' -name 'IdentityAttributesApi' {
 
     Context 'Remove-IdentityAttributesInBulkV1' {
         It 'Test Remove-IdentityAttributesInBulkV1' {
-            #$TestResult = Remove-IdentityAttributesInBulkV1 -Identityattributenames "TEST_VALUE"
+            #$TestResult = Remove-IdentityAttributesInBulkV1 -IdentityAttributeNames "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.IdentityAttributes' -name 'IdentityAttributesApi' {
 
     Context 'Send-IdentityAttributeV1' {
         It 'Test Send-IdentityAttributeV1' {
-            #$TestResult = Send-IdentityAttributeV1 -Name "TEST_VALUE" -Identityattribute2 "TEST_VALUE"
+            #$TestResult = Send-IdentityAttributeV1 -Name "TEST_VALUE" -IdentityAttribute2 "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

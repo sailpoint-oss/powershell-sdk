@@ -48,20 +48,20 @@ You can create a maximum of 10 SSF stream configurations for one org.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Createstreamrequest | [**Createstreamrequest**](../models/createstreamrequest) | True  | 
+ Body  | CreateStreamRequest | [**CreateStreamRequest**](../models/create-stream-request) | True  | 
 
 ### Return type
-[**Streamconfigresponse**](../models/streamconfigresponse)
+[**StreamConfigResponse**](../models/stream-config-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Stream created. | Streamconfigresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Stream created. | StreamConfigResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSSFConfigurationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSSFConfigurationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -69,16 +69,24 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Createstreamrequest = @"{"delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Production event stream for session revocation notifications"}"@
+$CreateStreamRequest = @"{
+  "delivery" : {
+    "method" : "urn:ietf:rfc:8935",
+    "endpoint_url" : "https://receiver.example.com/ssf/events",
+    "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+  },
+  "description" : "Production event stream",
+  "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+}"@
 
 # Create stream
 
 try {
-    $Result = ConvertFrom-JsonToCreatestreamrequest -Json $Createstreamrequest
-    New-StreamV1 -Createstreamrequest $Result 
+    $Result = ConvertFrom-JsonToCreateStreamRequest -Json $CreateStreamRequest
+    New-StreamV1 -CreateStreamRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-StreamV1 -Createstreamrequest $Result  
+    # New-StreamV1 -CreateStreamRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-StreamV1"
     Write-Host $_.ErrorDetails
@@ -107,12 +115,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSSFConfigurationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSSFConfigurationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -146,17 +154,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Jwks**](../models/jwks)
+[**JWKS**](../models/jwks)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | JSON Web Key Set (RFC 7517) containing the transmitter&#39;s public keys. | Jwks
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | JSON Web Key Set (RFC 7517) containing the transmitter&#39;s public keys. | JWKS
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSSFConfigurationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSSFConfigurationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -189,17 +197,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Transmittermetadata**](../models/transmittermetadata)
+[**TransmitterMetadata**](../models/transmitter-metadata)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | SSF transmitter configuration (issuer, jwks_uri, endpoints, authorization_schemes). | Transmittermetadata
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | SSF transmitter configuration (issuer, jwks_uri, endpoints, authorization_schemes). | TransmitterMetadata
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSSFConfigurationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSSFConfigurationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -233,18 +241,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | StreamId | **String** | True  | ID of the stream whose status to retrieve.
 
 ### Return type
-[**Streamstatusresponse**](../models/streamstatusresponse)
+[**StreamStatusResponse**](../models/stream-status-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Stream status (enabled, paused, or disabled; reason may be set when status was updated). | Streamstatusresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Stream status (enabled, paused, or disabled; reason may be set when status was updated). | StreamStatusResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSSFConfigurationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSSFConfigurationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -291,12 +299,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Single stream (when stream_id is provided) or list of streams (when stream_id is omitted). | GetStreamV1200Response
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSSFConfigurationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSSFConfigurationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -328,7 +336,7 @@ Verifies an SSF stream by publishing a verification event requested by a securit
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Verificationrequest | [**Verificationrequest**](../models/verificationrequest) | True  | 
+ Body  | VerificationRequest | [**VerificationRequest**](../models/verification-request) | True  | 
 
 ### Return type
  (empty response body)
@@ -337,11 +345,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSSFConfigurationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSSFConfigurationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -349,16 +357,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Verificationrequest = @"{"stream_id":"550e8400-e29b-41d4-a716-446655440000","state":"verification-challenge-state-123"}"@
+$VerificationRequest = @"{
+  "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+  "state" : "verification-challenge-state-123"
+}"@
 
 # Verify stream
 
 try {
-    $Result = ConvertFrom-JsonToVerificationrequest -Json $Verificationrequest
-    Send-StreamVerificationV1 -Verificationrequest $Result 
+    $Result = ConvertFrom-JsonToVerificationRequest -Json $VerificationRequest
+    Send-StreamVerificationV1 -VerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-StreamVerificationV1 -Verificationrequest $Result  
+    # Send-StreamVerificationV1 -VerificationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-StreamVerificationV1"
     Write-Host $_.ErrorDetails
@@ -377,21 +388,21 @@ The associated stream with the client ID (through the request OAuth 2.0 access t
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Replacestreamconfigurationrequest | [**Replacestreamconfigurationrequest**](../models/replacestreamconfigurationrequest) | True  | 
+ Body  | ReplaceStreamConfigurationRequest | [**ReplaceStreamConfigurationRequest**](../models/replace-stream-configuration-request) | True  | 
 
 ### Return type
-[**Updatestreamconfigresponse**](../models/updatestreamconfigresponse)
+[**UpdateStreamConfigResponse**](../models/update-stream-config-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Replaced stream configuration (same JSON shape as PATCH/GET single stream). | Updatestreamconfigresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Replaced stream configuration (same JSON shape as PATCH/GET single stream). | UpdateStreamConfigResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSSFConfigurationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSSFConfigurationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -399,16 +410,25 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Replacestreamconfigurationrequest = @"{"stream_id":"550e8400-e29b-41d4-a716-446655440000","delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Replaced stream configuration for production event delivery"}"@
+$ReplaceStreamConfigurationRequest = @"{
+  "delivery" : {
+    "method" : "urn:ietf:rfc:8935",
+    "endpoint_url" : "https://receiver.example.com/ssf/events",
+    "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+  },
+  "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+  "description" : "Production event stream",
+  "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+}"@
 
 # Replace stream configuration
 
 try {
-    $Result = ConvertFrom-JsonToReplacestreamconfigurationrequest -Json $Replacestreamconfigurationrequest
-    Set-StreamConfigurationV1 -Replacestreamconfigurationrequest $Result 
+    $Result = ConvertFrom-JsonToReplaceStreamConfigurationRequest -Json $ReplaceStreamConfigurationRequest
+    Set-StreamConfigurationV1 -ReplaceStreamConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-StreamConfigurationV1 -Replacestreamconfigurationrequest $Result  
+    # Set-StreamConfigurationV1 -ReplaceStreamConfigurationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-StreamConfigurationV1"
     Write-Host $_.ErrorDetails
@@ -427,21 +447,21 @@ The associated stream with the client ID (through the request OAuth 2.0 access t
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Updatestreamconfigurationrequest | [**Updatestreamconfigurationrequest**](../models/updatestreamconfigurationrequest) | True  | 
+ Body  | UpdateStreamConfigurationRequest | [**UpdateStreamConfigurationRequest**](../models/update-stream-configuration-request) | True  | 
 
 ### Return type
-[**Updatestreamconfigresponse**](../models/updatestreamconfigresponse)
+[**UpdateStreamConfigResponse**](../models/update-stream-config-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated stream configuration (same JSON shape as GET single stream, plus updatedAt). | Updatestreamconfigresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated stream configuration (same JSON shape as GET single stream, plus updatedAt). | UpdateStreamConfigResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSSFConfigurationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSSFConfigurationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -449,16 +469,25 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Updatestreamconfigurationrequest = @"{"stream_id":"550e8400-e29b-41d4-a716-446655440000","description":"Updated production event stream configuration"}"@
+$UpdateStreamConfigurationRequest = @"{
+  "delivery" : {
+    "method" : "urn:ietf:rfc:8935",
+    "endpoint_url" : "https://receiver.example.com/ssf/events",
+    "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+  },
+  "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+  "description" : "Updated production event stream configuration",
+  "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+}"@
 
 # Update stream configuration
 
 try {
-    $Result = ConvertFrom-JsonToUpdatestreamconfigurationrequest -Json $Updatestreamconfigurationrequest
-    Update-StreamConfigurationV1 -Updatestreamconfigurationrequest $Result 
+    $Result = ConvertFrom-JsonToUpdateStreamConfigurationRequest -Json $UpdateStreamConfigurationRequest
+    Update-StreamConfigurationV1 -UpdateStreamConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-StreamConfigurationV1 -Updatestreamconfigurationrequest $Result  
+    # Update-StreamConfigurationV1 -UpdateStreamConfigurationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-StreamConfigurationV1"
     Write-Host $_.ErrorDetails
@@ -474,21 +503,21 @@ Updates the operational status (enabled, paused, disabled) with an optional reas
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Updatestreamstatusrequest | [**Updatestreamstatusrequest**](../models/updatestreamstatusrequest) | True  | 
+ Body  | UpdateStreamStatusRequest | [**UpdateStreamStatusRequest**](../models/update-stream-status-request) | True  | 
 
 ### Return type
-[**Streamstatusresponse**](../models/streamstatusresponse)
+[**StreamStatusResponse**](../models/stream-status-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated stream status (same JSON shape as GET /ssf/streams/status). | Streamstatusresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated stream status (same JSON shape as GET /ssf/streams/status). | StreamStatusResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSSFConfigurationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSSFConfigurationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -496,16 +525,20 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Updatestreamstatusrequest = @"{"stream_id":"550e8400-e29b-41d4-a716-446655440000","status":"paused","reason":"manually paused"}"@
+$UpdateStreamStatusRequest = @"{
+  "reason" : "manually paused",
+  "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+  "status" : "paused"
+}"@
 
 # Update stream status
 
 try {
-    $Result = ConvertFrom-JsonToUpdatestreamstatusrequest -Json $Updatestreamstatusrequest
-    Update-StreamStatusV1 -Updatestreamstatusrequest $Result 
+    $Result = ConvertFrom-JsonToUpdateStreamStatusRequest -Json $UpdateStreamStatusRequest
+    Update-StreamStatusV1 -UpdateStreamStatusRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-StreamStatusV1 -Updatestreamstatusrequest $Result  
+    # Update-StreamStatusV1 -UpdateStreamStatusRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-StreamStatusV1"
     Write-Host $_.ErrorDetails

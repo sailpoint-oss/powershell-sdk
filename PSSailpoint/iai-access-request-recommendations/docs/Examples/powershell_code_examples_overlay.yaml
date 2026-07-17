@@ -5,18 +5,24 @@
       label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-ignored-item-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Accessrequestrecommendationactionitemdto = @"
-        
+        $AccessRequestRecommendationActionItemDto = @"
+        {
+          "access" : {
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE"
+          },
+          "identityId" : "2c91808570313110017040b06f344ec9"
+        }
         "@
         
         # Ignore access request recommendation
         
         try {
-            $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
-            Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result   
+            # Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsIgnoredItemV1"
             Write-Host $_.ErrorDetails
@@ -28,18 +34,24 @@
       label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-requested-item-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Accessrequestrecommendationactionitemdto = @"
-        
+        $AccessRequestRecommendationActionItemDto = @"
+        {
+          "access" : {
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE"
+          },
+          "identityId" : "2c91808570313110017040b06f344ec9"
+        }
         "@
         
         # Accept access request recommendation
         
         try {
-            $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
-            Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result   
+            # Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsRequestedItemV1"
             Write-Host $_.ErrorDetails
@@ -51,18 +63,24 @@
       label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-item-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Accessrequestrecommendationactionitemdto = @"
-        
+        $AccessRequestRecommendationActionItemDto = @"
+        {
+          "access" : {
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE"
+          },
+          "identityId" : "2c91808570313110017040b06f344ec9"
+        }
         "@
         
         # Mark viewed access request recommendations
         
         try {
-            $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
-            Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result   
+            # Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsViewedItemV1"
             Write-Host $_.ErrorDetails
@@ -74,17 +92,23 @@
       label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-items-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Accessrequestrecommendationactionitemdto = @""@ 
+        $AccessRequestRecommendationActionItemDto = @"{
+          "access" : {
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE"
+          },
+          "identityId" : "2c91808570313110017040b06f344ec9"
+        }"@ 
         
         
         # Bulk mark viewed access request recommendations
         
         try {
-            $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
-            Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result   
+            # Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsViewedItemsV1"
             Write-Host $_.ErrorDetails
@@ -213,18 +237,25 @@
       label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#set-access-request-recommendations-config-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Accessrequestrecommendationconfigdto = @"
-        
+        $AccessRequestRecommendationConfigDto = @"
+        {
+          "scoreThreshold" : 0.5,
+          "startDateAttribute" : "startDate",
+          "restrictionAttribute" : "location",
+          "moverAttribute" : "isMover",
+          "joinerAttribute" : "isJoiner",
+          "useRestrictionAttribute" : true
+        }
         "@
         
         # Update access request recommendations config
         
         try {
-            $Result = ConvertFrom-JsonToAccessrequestrecommendationconfigdto -Json $Accessrequestrecommendationconfigdto
-            Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationconfigdto $Result 
+            $Result = ConvertFrom-JsonToAccessRequestRecommendationConfigDto -Json $AccessRequestRecommendationConfigDto
+            Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationConfigDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationconfigdto $Result   
+            # Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationConfigDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestRecommendationsConfigV1"
             Write-Host $_.ErrorDetails

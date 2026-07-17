@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.EntitlementConnections' -name 'EntitlementConnections
 
     Context 'Update-EntitlementConnectionByIdV1' {
         It 'Test Update-EntitlementConnectionByIdV1' {
-            #$TestResult = Update-EntitlementConnectionByIdV1 -ConnectionId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-EntitlementConnectionByIdV1 -ConnectionId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.EntitlementConnections' -name 'EntitlementConnections
 
     Context 'Update-EntitlementConnectionByQueryV1' {
         It 'Test Update-EntitlementConnectionByQueryV1' {
-            #$TestResult = Update-EntitlementConnectionByQueryV1 -EntitlementId "TEST_VALUE" -IdentityId "TEST_VALUE" -AccountId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-EntitlementConnectionByQueryV1 -EntitlementId "TEST_VALUE" -IdentityId "TEST_VALUE" -AccountId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.EntitlementConnections' -name 'EntitlementConnections
 
     Context 'Update-EntitlementConnectionsBulkV1' {
         It 'Test Update-EntitlementConnectionsBulkV1' {
-            #$TestResult = Update-EntitlementConnectionsBulkV1 -Entitlementconnectionbulkupdateitem "TEST_VALUE"
+            #$TestResult = Update-EntitlementConnectionsBulkV1 -EntitlementConnectionBulkUpdateItem "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

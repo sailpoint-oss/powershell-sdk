@@ -46,21 +46,21 @@ A token with Org Admin or Multi-Host Admin authority is required to access this 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Multihostintegrationscreate | [**Multihostintegrationscreate**](../models/multihostintegrationscreate) | True  | The specifics of the Multi-Host Integration to create
+ Body  | MultiHostIntegrationsCreate | [**MultiHostIntegrationsCreate**](../models/multi-host-integrations-create) | True  | The specifics of the Multi-Host Integration to create
 
 ### Return type
-[**Multihostintegrations**](../models/multihostintegrations)
+[**MultiHostIntegrations**](../models/multi-host-integrations)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | OK. Returned if the request was successfully accepted into the system. | Multihostintegrations
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | OK. Returned if the request was successfully accepted into the system. | MultiHostIntegrations
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -68,16 +68,41 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Multihostintegrationscreate = @""@
+$MultiHostIntegrationsCreate = @"{
+  "owner" : {
+    "name" : "MyName",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "managementWorkgroup" : {
+    "name" : "My Management Workgroup",
+    "id" : "2c91808568c529c60168cca6f90c2222",
+    "type" : "GOVERNANCE_GROUP"
+  },
+  "cluster" : {
+    "name" : "Corporate Cluster",
+    "id" : "2c9180866166b5b0016167c32ef31a66",
+    "type" : "CLUSTER"
+  },
+  "connector" : "multihost-microsoft-sql-server",
+  "connectorAttributes" : {
+    "maxSourcesPerAggGroup" : 10,
+    "maxAllowedSources" : 300
+  },
+  "created" : "2022-02-08T14:50:03.827Z",
+  "name" : "My Multi-Host Integration",
+  "description" : "This is the Multi-Host Integration.",
+  "modified" : "2024-01-23T18:08:50.897Z"
+}"@
 
 # Create multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToMultihostintegrationscreate -Json $Multihostintegrationscreate
-    New-MultiHostIntegrationV1 -Multihostintegrationscreate $Result 
+    $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
+    New-MultiHostIntegrationV1 -MultiHostIntegrationsCreate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-MultiHostIntegrationV1 -Multihostintegrationscreate $Result  
+    # New-MultiHostIntegrationV1 -MultiHostIntegrationsCreate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MultiHostIntegrationV1"
     Write-Host $_.ErrorDetails
@@ -96,7 +121,7 @@ A token with Org Admin or Multi-Host Admin authority is required to access this 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | MultihostId | **String** | True  | ID of the Multi-Host Integration.
- Body  | Multihostintegrationscreatesources | [**[]Multihostintegrationscreatesources**](../models/multihostintegrationscreatesources) | True  | The specifics of the sources to create within Multi-Host Integration.
+ Body  | MultiHostIntegrationsCreateSources | [**[]MultiHostIntegrationsCreateSources**](../models/multi-host-integrations-create-sources) | True  | The specifics of the sources to create within Multi-Host Integration.
 
 ### Return type
  (empty response body)
@@ -105,12 +130,12 @@ Path   | MultihostId | **String** | True  | ID of the Multi-Host Integration.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | OK. Returned if the request was successfully accepted into the system. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -119,17 +144,28 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
- $Multihostintegrationscreatesources = @""@ # Multihostintegrationscreatesources[] | The specifics of the sources to create within Multi-Host Integration.
+ $MultiHostIntegrationsCreateSources = @"{
+  "connectorAttributes" : {
+    "authType" : "SQLAuthentication",
+    "url" : "jdbc:sqlserver://178.18.41.118:1433",
+    "user" : "username",
+    "driverClass" : "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+    "maxSourcesPerAggGroup" : 10,
+    "maxAllowedSources" : 300
+  },
+  "name" : "My Source",
+  "description" : "This is the corporate directory."
+}"@ # MultiHostIntegrationsCreateSources[] | The specifics of the sources to create within Multi-Host Integration.
  
 
 # Create sources within multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToMultihostintegrationscreatesources -Json $Multihostintegrationscreatesources
-    New-SourcesWithinMultiHostV1 -MultihostId $MultihostId -Multihostintegrationscreatesources $Result 
+    $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
+    New-SourcesWithinMultiHostV1 -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result 
     
     # Below is a request that includes all optional parameters
-    # New-SourcesWithinMultiHostV1 -MultihostId $MultihostId -Multihostintegrationscreatesources $Result  
+    # New-SourcesWithinMultiHostV1 -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourcesWithinMultiHostV1"
     Write-Host $_.ErrorDetails
@@ -157,12 +193,12 @@ Path   | MultiHostId | **String** | True  | ID of the Multi-Host Integration
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | OK. Returned if the request was successfully accepted into the system. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -209,12 +245,12 @@ Path   | MultihostId | **String** | True  | ID of Multi-Host Integration to dele
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | OK. Returned if the request was successfully accepted into the system. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -252,18 +288,18 @@ Path   | MultihostId | **String** | True  | ID of the Multi-Host Integration to 
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Multihostintegrationsaggscheduleupdate[]**](../models/multihostintegrationsaggscheduleupdate)
+[**MultiHostIntegrationsAggScheduleUpdate[]**](../models/multi-host-integrations-agg-schedule-update)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK. Returned if the request was successfully accepted into the system. | Multihostintegrationsaggscheduleupdate[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK. Returned if the request was successfully accepted into the system. | MultiHostIntegrationsAggScheduleUpdate[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -304,18 +340,18 @@ Path   | MultiHostId | **String** | True  | ID of the Multi-Host Integration to 
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Multihostintegrationsaggscheduleupdate[]**](../models/multihostintegrationsaggscheduleupdate)
+[**MultiHostIntegrationsAggScheduleUpdate[]**](../models/multi-host-integrations-agg-schedule-update)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK. Returned if the request was successfully accepted into the system. | Multihostintegrationsaggscheduleupdate[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK. Returned if the request was successfully accepted into the system. | MultiHostIntegrationsAggScheduleUpdate[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -359,18 +395,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | ForSubadmin | **String** |   (optional) | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity or SOURCE_SUBADMIN identity.  The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
 
 ### Return type
-[**Multihostintegrations[]**](../models/multihostintegrations)
+[**MultiHostIntegrations[]**](../models/multi-host-integrations)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK. Returned if the request was successfully accepted into the system. | Multihostintegrations[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK. Returned if the request was successfully accepted into the system. | MultiHostIntegrations[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -412,18 +448,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | MultihostId | **String** | True  | ID of the Multi-Host Integration.
 
 ### Return type
-[**Multihostintegrations**](../models/multihostintegrations)
+[**MultiHostIntegrations**](../models/multi-host-integrations)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK. Returned if the request was successfully accepted into the system. | Multihostintegrations
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK. Returned if the request was successfully accepted into the system. | MultiHostIntegrations
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -460,18 +496,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | MultiHostId | **String** | True  | ID of the Multi-Host Integration
 
 ### Return type
-[**Sourcecreationerrors[]**](../models/sourcecreationerrors)
+[**SourceCreationErrors[]**](../models/source-creation-errors)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK. Returned if the request was successfully accepted into the system. | Sourcecreationerrors[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK. Returned if the request was successfully accepted into the system. | SourceCreationErrors[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -507,18 +543,18 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Multihostintegrationtemplatetype[]**](../models/multihostintegrationtemplatetype)
+[**MultiHostIntegrationTemplateType[]**](../models/multi-host-integration-template-type)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK. Returned if the request was successfully accepted into the system. | Multihostintegrationtemplatetype[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK. Returned if the request was successfully accepted into the system. | MultiHostIntegrationTemplateType[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -559,18 +595,18 @@ Path   | MultihostId | **String** | True  | ID of the Multi-Host Integration to 
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Multihostsources[]**](../models/multihostsources)
+[**MultiHostSources[]**](../models/multi-host-sources)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK. Returned if the request was successfully accepted into the system. | Multihostsources[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK. Returned if the request was successfully accepted into the system. | MultiHostSources[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -618,12 +654,12 @@ Path   | MultihostId | **String** | True  | ID of the Multi-Host Integration
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | OK. Returned if the request was successfully accepted into the system. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -667,12 +703,12 @@ Path   | SourceId | **String** | True  | ID of the source within the Multi-Host 
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | OK. Returned if the request was successfully accepted into the system. | TestSourceConnectionMultihostV1200Response
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -717,12 +753,12 @@ Path   | MultihostId | **String** | True  | ID of the Multi-Host Integration to 
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | OK. Returned if the request was successfully accepted into the system. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMultiHostIntegrationsListV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMultiHostIntegrationsListV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json

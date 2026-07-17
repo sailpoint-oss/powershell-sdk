@@ -14,7 +14,7 @@ Create identity attribute
 
 Use this API to create a new identity attribute.
 
-.PARAMETER Identityattribute2
+.PARAMETER IdentityAttribute2
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityattribute2
+IdentityAttribute2
 #>
 function New-IdentityAttributeV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Identityattribute2},
+        ${IdentityAttribute2},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-IdentityAttributeV1 {
 
         $LocalVarUri = '/identity-attributes/v1'
 
-        if (!$Identityattribute2) {
-            throw "Error! The required parameter `Identityattribute2` missing when calling createIdentityAttributeV1."
+        if (!$IdentityAttribute2) {
+            throw "Error! The required parameter `IdentityAttribute2` missing when calling createIdentityAttributeV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Identityattribute2 -is [array])) {
-            $LocalVarBodyParameter = $Identityattribute2 | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityAttribute2 -is [array])) {
+            $LocalVarBodyParameter = $IdentityAttribute2 | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Identityattribute2 | ForEach-Object {
+            $LocalVarBodyParameter = $IdentityAttribute2 | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-IdentityAttributeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityattribute2" `
+                                -ReturnType "IdentityAttribute2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -174,7 +174,7 @@ Bulk delete identity attributes
 
 Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
 
-.PARAMETER Identityattributenames
+.PARAMETER IdentityAttributeNames
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -190,7 +190,7 @@ function Remove-IdentityAttributesInBulkV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Identityattributenames},
+        ${IdentityAttributeNames},
         [Switch]
         $WithHttpInfo
     )
@@ -216,14 +216,14 @@ function Remove-IdentityAttributesInBulkV1 {
 
         $LocalVarUri = '/identity-attributes/v1/bulk-delete'
 
-        if (!$Identityattributenames) {
-            throw "Error! The required parameter `Identityattributenames` missing when calling deleteIdentityAttributesInBulkV1."
+        if (!$IdentityAttributeNames) {
+            throw "Error! The required parameter `IdentityAttributeNames` missing when calling deleteIdentityAttributesInBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Identityattributenames -is [array])) {
-            $LocalVarBodyParameter = $Identityattributenames | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityAttributeNames -is [array])) {
+            $LocalVarBodyParameter = $IdentityAttributeNames | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Identityattributenames | ForEach-Object {
+            $LocalVarBodyParameter = $IdentityAttributeNames | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -271,7 +271,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityattribute2
+IdentityAttribute2
 #>
 function Get-IdentityAttributeV1 {
     [CmdletBinding()]
@@ -314,7 +314,7 @@ function Get-IdentityAttributeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityattribute2" `
+                                -ReturnType "IdentityAttribute2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -352,7 +352,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityattribute2[]
+IdentityAttribute2[]
 #>
 function Get-IdentityAttributesV1 {
     [CmdletBinding()]
@@ -416,7 +416,7 @@ function Get-IdentityAttributesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityattribute2[]" `
+                                -ReturnType "IdentityAttribute2[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -439,7 +439,7 @@ This updates an existing identity attribute.  Making an attribute searchable req
 .PARAMETER Name
 The attribute's technical name.
 
-.PARAMETER Identityattribute2
+.PARAMETER IdentityAttribute2
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -448,7 +448,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityattribute2
+IdentityAttribute2
 #>
 function Send-IdentityAttributeV1 {
     [CmdletBinding()]
@@ -458,7 +458,7 @@ function Send-IdentityAttributeV1 {
         ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Identityattribute2},
+        ${IdentityAttribute2},
         [Switch]
         $WithHttpInfo
     )
@@ -488,14 +488,14 @@ function Send-IdentityAttributeV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{name}', [System.Web.HTTPUtility]::UrlEncode($Name))
 
-        if (!$Identityattribute2) {
-            throw "Error! The required parameter `Identityattribute2` missing when calling putIdentityAttributeV1."
+        if (!$IdentityAttribute2) {
+            throw "Error! The required parameter `IdentityAttribute2` missing when calling putIdentityAttributeV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Identityattribute2 -is [array])) {
-            $LocalVarBodyParameter = $Identityattribute2 | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityAttribute2 -is [array])) {
+            $LocalVarBodyParameter = $IdentityAttribute2 | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Identityattribute2 | ForEach-Object {
+            $LocalVarBodyParameter = $IdentityAttribute2 | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -514,7 +514,7 @@ function Send-IdentityAttributeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityattribute2" `
+                                -ReturnType "IdentityAttribute2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

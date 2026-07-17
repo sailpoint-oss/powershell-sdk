@@ -36,17 +36,17 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Recommendationconfigdto**](../models/recommendationconfigdto)
+[**RecommendationConfigDto**](../models/recommendation-config-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Cert recommendation configuration attributes | Recommendationconfigdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Cert recommendation configuration attributes | RecommendationConfigDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -82,20 +82,20 @@ The getRecommendations API returns recommendations based on the requested object
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Recommendationrequestdto | [**Recommendationrequestdto**](../models/recommendationrequestdto) | True  | 
+ Body  | RecommendationRequestDto | [**RecommendationRequestDto**](../models/recommendation-request-dto) | True  | 
 
 ### Return type
-[**Recommendationresponsedto**](../models/recommendationresponsedto)
+[**RecommendationResponseDto**](../models/recommendation-response-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The recommendations for a customer | Recommendationresponsedto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The recommendations for a customer | RecommendationResponseDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -104,16 +104,34 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Recommendationrequestdto = @""@
+$RecommendationRequestDto = @"{
+  "prescribeMode" : false,
+  "excludeInterpretations" : false,
+  "requests" : [ {
+    "item" : {
+      "id" : "2c938083633d259901633d2623ec0375",
+      "type" : "ENTITLEMENT"
+    },
+    "identityId" : "2c938083633d259901633d25c68c00fa"
+  }, {
+    "item" : {
+      "id" : "2c938083633d259901633d2623ec0375",
+      "type" : "ENTITLEMENT"
+    },
+    "identityId" : "2c938083633d259901633d25c68c00fa"
+  } ],
+  "includeTranslationMessages" : false,
+  "includeDebugInformation" : true
+}"@
 
 # Returns recommendation based on object
 
 try {
-    $Result = ConvertFrom-JsonToRecommendationrequestdto -Json $Recommendationrequestdto
-    Get-RecommendationsV1 -XSailPointExperimental $XSailPointExperimental -Recommendationrequestdto $Result 
+    $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
+    Get-RecommendationsV1 -XSailPointExperimental $XSailPointExperimental -RecommendationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Get-RecommendationsV1 -XSailPointExperimental $XSailPointExperimental -Recommendationrequestdto $Result  
+    # Get-RecommendationsV1 -XSailPointExperimental $XSailPointExperimental -RecommendationRequestDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-RecommendationsV1"
     Write-Host $_.ErrorDetails
@@ -133,20 +151,20 @@ Updates configuration attributes used by certification recommendations.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Recommendationconfigdto | [**Recommendationconfigdto**](../models/recommendationconfigdto) | True  | 
+ Body  | RecommendationConfigDto | [**RecommendationConfigDto**](../models/recommendation-config-dto) | True  | 
 
 ### Return type
-[**Recommendationconfigdto**](../models/recommendationconfigdto)
+[**RecommendationConfigDto**](../models/recommendation-config-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Cert recommendation configuration attributes after update | Recommendationconfigdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Cert recommendation configuration attributes after update | RecommendationConfigDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -155,16 +173,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Recommendationconfigdto = @""@
+$RecommendationConfigDto = @"{
+  "recommenderFeatures" : [ "jobTitle", "location", "peer_group", "department", "active" ],
+  "peerGroupPercentageThreshold" : 0.5,
+  "runAutoSelectOnce" : false,
+  "onlyTuneThreshold" : false
+}"@
 
 # Update certification recommendation config values
 
 try {
-    $Result = ConvertFrom-JsonToRecommendationconfigdto -Json $Recommendationconfigdto
-    Update-RecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -Recommendationconfigdto $Result 
+    $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
+    Update-RecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -RecommendationConfigDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-RecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -Recommendationconfigdto $Result  
+    # Update-RecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -RecommendationConfigDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RecommendationsConfigV1"
     Write-Host $_.ErrorDetails

@@ -14,7 +14,7 @@ Create connector customizer
 
 Create a connector customizer.
 
-.PARAMETER Connectorcustomizercreaterequest
+.PARAMETER ConnectorCustomizerCreateRequest
 Connector customizer to create.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectorcustomizercreateresponse
+ConnectorCustomizerCreateResponse
 #>
 function New-ConnectorCustomizerV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Connectorcustomizercreaterequest},
+        ${ConnectorCustomizerCreateRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-ConnectorCustomizerV1 {
 
         $LocalVarUri = '/connector-customizers/v1'
 
-        if (!$Connectorcustomizercreaterequest) {
-            throw "Error! The required parameter `Connectorcustomizercreaterequest` missing when calling createConnectorCustomizerV1."
+        if (!$ConnectorCustomizerCreateRequest) {
+            throw "Error! The required parameter `ConnectorCustomizerCreateRequest` missing when calling createConnectorCustomizerV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Connectorcustomizercreaterequest -is [array])) {
-            $LocalVarBodyParameter = $Connectorcustomizercreaterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ConnectorCustomizerCreateRequest -is [array])) {
+            $LocalVarBodyParameter = $ConnectorCustomizerCreateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Connectorcustomizercreaterequest | ForEach-Object {
+            $LocalVarBodyParameter = $ConnectorCustomizerCreateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-ConnectorCustomizerV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectorcustomizercreateresponse" `
+                                -ReturnType "ConnectorCustomizerCreateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -111,7 +111,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectorcustomizerversioncreateresponse
+ConnectorCustomizerVersionCreateResponse
 #>
 function New-ConnectorCustomizerVersionV1 {
     [CmdletBinding()]
@@ -154,7 +154,7 @@ function New-ConnectorCustomizerVersionV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectorcustomizerversioncreateresponse" `
+                                -ReturnType "ConnectorCustomizerVersionCreateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -255,7 +255,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectorcustomizersresponse
+ConnectorCustomizersResponse
 #>
 function Get-ConnectorCustomizerV1 {
     [CmdletBinding()]
@@ -298,7 +298,7 @@ function Get-ConnectorCustomizerV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectorcustomizersresponse" `
+                                -ReturnType "ConnectorCustomizersResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -330,7 +330,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectorcustomizersresponse[]
+ConnectorCustomizersResponse[]
 #>
 function Get-ConnectorCustomizersV1 {
     [CmdletBinding()]
@@ -380,7 +380,7 @@ function Get-ConnectorCustomizersV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectorcustomizersresponse[]" `
+                                -ReturnType "ConnectorCustomizersResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -403,7 +403,7 @@ Update an existing connector customizer with the one provided in the request bod
 .PARAMETER Id
 ID of the connector customizer to update.
 
-.PARAMETER Connectorcustomizerupdaterequest
+.PARAMETER ConnectorCustomizerUpdateRequest
 Connector rule with updated data.
 
 .PARAMETER WithHttpInfo
@@ -412,7 +412,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectorcustomizerupdateresponse
+ConnectorCustomizerUpdateResponse
 #>
 function Send-ConnectorCustomizerV1 {
     [CmdletBinding()]
@@ -422,7 +422,7 @@ function Send-ConnectorCustomizerV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Connectorcustomizerupdaterequest},
+        ${ConnectorCustomizerUpdateRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -452,10 +452,10 @@ function Send-ConnectorCustomizerV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Connectorcustomizerupdaterequest -is [array])) {
-            $LocalVarBodyParameter = $Connectorcustomizerupdaterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ConnectorCustomizerUpdateRequest -is [array])) {
+            $LocalVarBodyParameter = $ConnectorCustomizerUpdateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Connectorcustomizerupdaterequest | ForEach-Object {
+            $LocalVarBodyParameter = $ConnectorCustomizerUpdateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -474,7 +474,7 @@ function Send-ConnectorCustomizerV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectorcustomizerupdateresponse" `
+                                -ReturnType "ConnectorCustomizerUpdateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

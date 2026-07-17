@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.MultiHostIntegration' -name 'MultiHostIntegrationApi' {
     Context 'New-MultiHostIntegrationV1' {
         It 'Test New-MultiHostIntegrationV1' {
-            #$TestResult = New-MultiHostIntegrationV1 -Multihostintegrationscreate "TEST_VALUE"
+            #$TestResult = New-MultiHostIntegrationV1 -MultiHostIntegrationsCreate "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.MultiHostIntegration' -name 'MultiHostIntegrationApi'
 
     Context 'New-SourcesWithinMultiHostV1' {
         It 'Test New-SourcesWithinMultiHostV1' {
-            #$TestResult = New-SourcesWithinMultiHostV1 -MultihostId "TEST_VALUE" -Multihostintegrationscreatesources "TEST_VALUE"
+            #$TestResult = New-SourcesWithinMultiHostV1 -MultihostId "TEST_VALUE" -MultiHostIntegrationsCreateSources "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

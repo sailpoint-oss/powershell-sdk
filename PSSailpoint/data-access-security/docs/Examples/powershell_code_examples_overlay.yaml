@@ -23,18 +23,64 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#create-application-v1
       source: |
-        $Basecreateapplicationrequest = @"
-        
+        $BaseCreateApplicationRequest = @"
+        {
+          "adIdentityCollectorId" : 987654321,
+          "applicationType" : 9,
+          "nisIdentityCollectorId" : 192837465,
+          "executeNow" : false,
+          "name" : "HR File Server",
+          "description" : "Stores HR documents and employee records.",
+          "dataClassificationSettings" : {
+            "isEnabled" : true,
+            "clusterId" : "cluster-001"
+          },
+          "activityConfigurationSettings" : {
+            "excludeFolders" : [ "/tmp", "/archive" ],
+            "excludeFileExtensions" : [ ".log", ".bak" ],
+            "excludeActions" : [ "delete", "move" ],
+            "isEnabled" : true,
+            "retentionTimePeriod" : 30,
+            "retentionTimeType" : "days",
+            "clusterId" : "cluster-001",
+            "excludeUsers" : [ "user1", "user2" ]
+          },
+          "applicationCrawlerSettings" : {
+            "calculateResourceSize" : 2,
+            "excludedResources" : [ "resourceA", "resourceB" ],
+            "crawlPublicFolders" : true,
+            "excludedPathsByRegex" : "^/archive/.*",
+            "isEnabled" : true,
+            "crawlSnapshotsFolder" : true,
+            "crawlMailboxes" : false,
+            "crawlTopLevelShares" : [ "share1", "share2" ],
+            "clusterId" : "cluster-001",
+            "includeResources" : [ "resourceX", "resourceY" ]
+          },
+          "identityCollectorId" : 123456789,
+          "permissionCollectorSettings" : {
+            "analyzeUniquePermissions" : true,
+            "calculateRiskiestPermissions" : false,
+            "isEnabled" : true,
+            "calculateEffectivePermissions" : true,
+            "clusterId" : "cluster-001",
+            "effectivePermissionsSource" : "S3"
+          },
+          "tags" : [ {
+            "key" : 1,
+            "value" : "Confidential"
+          } ]
+        }
         "@
         
         # Create application
         
         try {
-            $Result = ConvertFrom-JsonToBasecreateapplicationrequest -Json $Basecreateapplicationrequest
-            New-ApplicationV1 -Basecreateapplicationrequest $Result 
+            $Result = ConvertFrom-JsonToBaseCreateApplicationRequest -Json $BaseCreateApplicationRequest
+            New-ApplicationV1 -BaseCreateApplicationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-ApplicationV1 -Basecreateapplicationrequest $Result   
+            # New-ApplicationV1 -BaseCreateApplicationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ApplicationV1"
             Write-Host $_.ErrorDetails
@@ -46,7 +92,10 @@
       label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#create-identity-collector-v1
       source: |
         $Createidentitycollectorrequest = @"
-        
+        {
+          "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+          "name" : "Active Directory Identity Collector"
+        }
         "@
         
         # Create identity collector
@@ -67,18 +116,29 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#create-schedule-v1
       source: |
-        $Createschedulerequest = @"
-        
+        $CreateScheduleRequest = @"
+        {
+          "scheduleTaskName" : "Daily Data Sync",
+          "scheduleType" : "Daily",
+          "active" : true,
+          "interval" : 1440,
+          "startTime" : 1762237200,
+          "endTime" : 1762240800,
+          "taskTypeName" : "DataSync",
+          "daysOfWeek" : [ "Monday", "Wednesday", "Friday" ],
+          "applicationId" : 2001,
+          "runAfterScheduleTaskId" : 1000
+        }
         "@
         
         # Create a new schedule.
         
         try {
-            $Result = ConvertFrom-JsonToCreateschedulerequest -Json $Createschedulerequest
-            New-ScheduleV1 -Createschedulerequest $Result 
+            $Result = ConvertFrom-JsonToCreateScheduleRequest -Json $CreateScheduleRequest
+            New-ScheduleV1 -CreateScheduleRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-ScheduleV1 -Createschedulerequest $Result   
+            # New-ScheduleV1 -CreateScheduleRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ScheduleV1"
             Write-Host $_.ErrorDetails
@@ -89,18 +149,22 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#das-v1-owners-assign-post
       source: |
-        $Assignresourceownerrequest = @"
-        
+        $AssignResourceOwnerRequest = @"
+        {
+          "fullPath" : "/shared/hr/documents/employee-records.pdf",
+          "identityId" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+          "appId" : 12345
+        }
         "@
         
         # Assign owner to application resource.
         
         try {
-            $Result = ConvertFrom-JsonToAssignresourceownerrequest -Json $Assignresourceownerrequest
-            Invoke-DasV1OwnersAssignPost -Assignresourceownerrequest $Result 
+            $Result = ConvertFrom-JsonToAssignResourceOwnerRequest -Json $AssignResourceOwnerRequest
+            Invoke-DasV1OwnersAssignPost -AssignResourceOwnerRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Invoke-DasV1OwnersAssignPost -Assignresourceownerrequest $Result   
+            # Invoke-DasV1OwnersAssignPost -AssignResourceOwnerRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-DasV1OwnersAssignPost"
             Write-Host $_.ErrorDetails
@@ -132,18 +196,22 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#das-v1-owners-reelect-post
       source: |
-        $Reelectrequest = @"
-        
+        $ReelectRequest = @"
+        {
+          "ownerId" : "c1a2b3d4-e5f6-7890-abcd-1234567890ab",
+          "campaignName" : "Annual Resource Owner Election",
+          "reviewers" : [ "d4e5f6a7-b8c9-0123-4567-89abcdef0123", "e7f8g9h0-i1j2-3456-7890-klmnopqrstuv" ]
+        }
         "@
         
         # Re-elect resource owner.
         
         try {
-            $Result = ConvertFrom-JsonToReelectrequest -Json $Reelectrequest
-            Invoke-DasV1OwnersReelectPost -Reelectrequest $Result 
+            $Result = ConvertFrom-JsonToReelectRequest -Json $ReelectRequest
+            Invoke-DasV1OwnersReelectPost -ReelectRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Invoke-DasV1OwnersReelectPost -Reelectrequest $Result   
+            # Invoke-DasV1OwnersReelectPost -ReelectRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-DasV1OwnersReelectPost"
             Write-Host $_.ErrorDetails
@@ -438,18 +506,64 @@
       label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#put-application-v1
       source: |
         $Id = 12345 # Int64 | The unique identifier of the application to update.
-        $Basecreateapplicationrequest = @"
-        
+        $BaseCreateApplicationRequest = @"
+        {
+          "adIdentityCollectorId" : 987654321,
+          "applicationType" : 9,
+          "nisIdentityCollectorId" : 192837465,
+          "executeNow" : false,
+          "name" : "HR File Server",
+          "description" : "Stores HR documents and employee records.",
+          "dataClassificationSettings" : {
+            "isEnabled" : true,
+            "clusterId" : "cluster-001"
+          },
+          "activityConfigurationSettings" : {
+            "excludeFolders" : [ "/tmp", "/archive" ],
+            "excludeFileExtensions" : [ ".log", ".bak" ],
+            "excludeActions" : [ "delete", "move" ],
+            "isEnabled" : true,
+            "retentionTimePeriod" : 30,
+            "retentionTimeType" : "days",
+            "clusterId" : "cluster-001",
+            "excludeUsers" : [ "user1", "user2" ]
+          },
+          "applicationCrawlerSettings" : {
+            "calculateResourceSize" : 2,
+            "excludedResources" : [ "resourceA", "resourceB" ],
+            "crawlPublicFolders" : true,
+            "excludedPathsByRegex" : "^/archive/.*",
+            "isEnabled" : true,
+            "crawlSnapshotsFolder" : true,
+            "crawlMailboxes" : false,
+            "crawlTopLevelShares" : [ "share1", "share2" ],
+            "clusterId" : "cluster-001",
+            "includeResources" : [ "resourceX", "resourceY" ]
+          },
+          "identityCollectorId" : 123456789,
+          "permissionCollectorSettings" : {
+            "analyzeUniquePermissions" : true,
+            "calculateRiskiestPermissions" : false,
+            "isEnabled" : true,
+            "calculateEffectivePermissions" : true,
+            "clusterId" : "cluster-001",
+            "effectivePermissionsSource" : "S3"
+          },
+          "tags" : [ {
+            "key" : 1,
+            "value" : "Confidential"
+          } ]
+        }
         "@
         
         # Update application by identifier.
         
         try {
-            $Result = ConvertFrom-JsonToBasecreateapplicationrequest -Json $Basecreateapplicationrequest
-            Send-ApplicationV1 -Id $Id -Basecreateapplicationrequest $Result 
+            $Result = ConvertFrom-JsonToBaseCreateApplicationRequest -Json $BaseCreateApplicationRequest
+            Send-ApplicationV1 -Id $Id -BaseCreateApplicationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-ApplicationV1 -Id $Id -Basecreateapplicationrequest $Result   
+            # Send-ApplicationV1 -Id $Id -BaseCreateApplicationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ApplicationV1"
             Write-Host $_.ErrorDetails
@@ -462,7 +576,11 @@
       source: |
         $Id = 12345 # Int64 | The unique identifier of the identity collector to update.
         $Updateidentitycollectorrequest = @"
-        
+        {
+          "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+          "name" : "Active Directory Identity Collector",
+          "type" : "Active Directory"
+        }
         "@
         
         # Update identity collector by identifier
@@ -484,18 +602,29 @@
       label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#put-schedule-v1
       source: |
         $Id = 1001 # Int64 | The unique identifier of the schedule to update.
-        $Updateschedulerequest = @"
-        
+        $UpdateScheduleRequest = @"
+        {
+          "scheduleTaskName" : "Daily Data Sync",
+          "scheduleType" : "Daily",
+          "active" : true,
+          "interval" : 1440,
+          "startTime" : 1762237200,
+          "endTime" : 1762240800,
+          "taskTypeName" : "DataSync",
+          "daysOfWeek" : [ "Monday", "Wednesday", "Friday" ],
+          "applicationId" : 2001,
+          "runAfterScheduleTaskId" : 1000
+        }
         "@
         
         # Update a schedule.
         
         try {
-            $Result = ConvertFrom-JsonToUpdateschedulerequest -Json $Updateschedulerequest
-            Send-ScheduleV1 -Id $Id -Updateschedulerequest $Result 
+            $Result = ConvertFrom-JsonToUpdateScheduleRequest -Json $UpdateScheduleRequest
+            Send-ScheduleV1 -Id $Id -UpdateScheduleRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-ScheduleV1 -Id $Id -Updateschedulerequest $Result   
+            # Send-ScheduleV1 -Id $Id -UpdateScheduleRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ScheduleV1"
             Write-Host $_.ErrorDetails

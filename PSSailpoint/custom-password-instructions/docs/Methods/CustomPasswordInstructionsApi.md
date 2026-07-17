@@ -39,24 +39,44 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API creates the custom password instructions for the specified page ID.
 
+The `pageId` determines which login and password-recovery screen your custom instructions appear on. The following table describes each supported page ID and where its text is displayed:
+
+| Page ID | Where the custom text appears |
+| --- | --- |
+| `flow-selection:select` | Flow-selection landing screen, under "Need help signing in?", above the navigation links. |
+| `reset-password:enter-username` | Reset-password "enter username" step, under the prompt, above the username field. |
+| `unlock-account:enter-username` | Unlock-account "enter username" step, under the prompt, above the username field. |
+| `forget-username:user-email` | Forgot-username screen, under "Enter the email address for", above the email field. |
+| `reset-password:enter-password` | Reset-password "new password" step, under the header, above the password fields. |
+| `change-password:enter-password` | Same "new password" screen, but the authenticated app/sync-group change variant. |
+| `reset-password:finish` | Reset-password success screen, under the success icon/heading, above the return button. |
+| `change-password:finish` | Success screen for the authenticated app/sync-group change, under the heading. |
+| `mfa:select` | MFA method-selection step, under the prompt, above the list of MFA options. |
+| `mfa:enter-code` | MFA code-entry step, under the option label, above the code field. |
+| `mfa:enter-kba` | KBA step, under "Please answer these security questions", above the questions form. |
+| `unlock-account:finish` | Unlock-account success screen, under the success icon/heading, above the return button. |
+
+In every case the text shows as an info-icon + paragraph block that only appears if custom text is configured for that page ID, positioned between the screen's built-in heading and its form controls.
+
+
 [API Spec](https://developer.sailpoint.com/docs/api/create-custom-password-instructions-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Custompasswordinstruction | [**Custompasswordinstruction**](../models/custompasswordinstruction) | True  | 
+ Body  | CustomPasswordInstruction | [**CustomPasswordInstruction**](../models/custom-password-instruction) | True  | 
 
 ### Return type
-[**Custompasswordinstruction**](../models/custompasswordinstruction)
+[**CustomPasswordInstruction**](../models/custom-password-instruction)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reference to the custom password instructions. | Custompasswordinstruction
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+200 | Reference to the custom password instructions. | CustomPasswordInstruction
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -65,16 +85,20 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Custompasswordinstruction = @"{"pageId":"reset-password:enter-password","pageContent":"See company password policies for details by clicking <a href=\"url\">here</a>"}"@
+$CustomPasswordInstruction = @"{
+  "pageContent" : "Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter.",
+  "pageId" : "change-password:enter-password",
+  "locale" : "en"
+}"@
 
 # Create custom password instructions
 
 try {
-    $Result = ConvertFrom-JsonToCustompasswordinstruction -Json $Custompasswordinstruction
-    New-CustomPasswordInstructionsV1 -XSailPointExperimental $XSailPointExperimental -Custompasswordinstruction $Result 
+    $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
+    New-CustomPasswordInstructionsV1 -XSailPointExperimental $XSailPointExperimental -CustomPasswordInstruction $Result 
     
     # Below is a request that includes all optional parameters
-    # New-CustomPasswordInstructionsV1 -XSailPointExperimental $XSailPointExperimental -Custompasswordinstruction $Result  
+    # New-CustomPasswordInstructionsV1 -XSailPointExperimental $XSailPointExperimental -CustomPasswordInstruction $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CustomPasswordInstructionsV1"
     Write-Host $_.ErrorDetails
@@ -104,10 +128,10 @@ Path   | PageId | **String** | True  | The page ID of custom password instructio
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -149,16 +173,16 @@ Path   | PageId | **String** | True  | The page ID of custom password instructio
   Query | Locale | **String** |   (optional) | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"".
 
 ### Return type
-[**Custompasswordinstruction**](../models/custompasswordinstruction)
+[**CustomPasswordInstruction**](../models/custom-password-instruction)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reference to the custom password instructions. | Custompasswordinstruction
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+200 | Reference to the custom password instructions. | CustomPasswordInstruction
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined

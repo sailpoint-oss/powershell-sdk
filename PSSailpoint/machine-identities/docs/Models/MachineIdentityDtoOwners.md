@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'MachineIdentityDtoOwners', 'MachineId
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PrimaryIdentity** | **SystemCollectionsHashtable** | Defines the identity which is selected as the primary owner | [required]
-**SecondaryIdentities** | [**[]Basereferencedto**](basereferencedto) | Defines the identities which are selected as secondary owners | [required]
+**SecondaryIdentities** | [**[]BaseReferenceDto**](base-reference-dto) | Defines the identities which are selected as secondary owners | [required]
 
 ## Examples
 

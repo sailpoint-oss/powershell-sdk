@@ -14,7 +14,7 @@ Create custom connector
 
 Create custom connector.    
 
-.PARAMETER V3createconnectordto
+.PARAMETER V3CreateConnectorDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-V3connectordto
+V3ConnectorDto
 #>
 function New-CustomConnectorV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${V3createconnectordto},
+        ${V3CreateConnectorDto},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-CustomConnectorV1 {
 
         $LocalVarUri = '/connectors/v1'
 
-        if (!$V3createconnectordto) {
-            throw "Error! The required parameter `V3createconnectordto` missing when calling createCustomConnectorV1."
+        if (!$V3CreateConnectorDto) {
+            throw "Error! The required parameter `V3CreateConnectorDto` missing when calling createCustomConnectorV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($V3createconnectordto -is [array])) {
-            $LocalVarBodyParameter = $V3createconnectordto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($V3CreateConnectorDto -is [array])) {
+            $LocalVarBodyParameter = $V3CreateConnectorDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $V3createconnectordto | ForEach-Object {
+            $LocalVarBodyParameter = $V3CreateConnectorDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-CustomConnectorV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "V3connectordto" `
+                                -ReturnType "V3ConnectorDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -279,7 +279,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-V3connectordto[]
+V3ConnectorDto[]
 #>
 function Get-ConnectorListV1 {
     [CmdletBinding()]
@@ -351,7 +351,7 @@ function Get-ConnectorListV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "V3connectordto[]" `
+                                -ReturnType "V3ConnectorDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -646,7 +646,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectordetail
+ConnectorDetail
 #>
 function Get-ConnectorV1 {
     [CmdletBinding()]
@@ -697,7 +697,7 @@ function Get-ConnectorV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectordetail" `
+                                -ReturnType "ConnectorDetail" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -729,7 +729,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Updatedetail
+UpdateDetail
 #>
 function Send-ConnectorCorrelationConfigV1 {
     [CmdletBinding()]
@@ -783,7 +783,7 @@ function Send-ConnectorCorrelationConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Updatedetail" `
+                                -ReturnType "UpdateDetail" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -815,7 +815,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Updatedetail
+UpdateDetail
 #>
 function Send-ConnectorSourceConfigV1 {
     [CmdletBinding()]
@@ -869,7 +869,7 @@ function Send-ConnectorSourceConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Updatedetail" `
+                                -ReturnType "UpdateDetail" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -901,7 +901,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Updatedetail
+UpdateDetail
 #>
 function Send-ConnectorSourceTemplateV1 {
     [CmdletBinding()]
@@ -955,7 +955,7 @@ function Send-ConnectorSourceTemplateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Updatedetail" `
+                                -ReturnType "UpdateDetail" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -987,7 +987,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Updatedetail
+UpdateDetail
 #>
 function Send-ConnectorTranslationsV1 {
     [CmdletBinding()]
@@ -1041,7 +1041,7 @@ function Send-ConnectorTranslationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Updatedetail" `
+                                -ReturnType "UpdateDetail" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1064,7 +1064,7 @@ This API updates a custom connector by script name using [JSON Patch](https://to
 .PARAMETER ScriptName
 The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of connector detail update operations 
 
 .PARAMETER WithHttpInfo
@@ -1073,7 +1073,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectordetail
+ConnectorDetail
 #>
 function Update-ConnectorV1 {
     [CmdletBinding()]
@@ -1083,7 +1083,7 @@ function Update-ConnectorV1 {
         ${ScriptName},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -1113,14 +1113,14 @@ function Update-ConnectorV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{scriptName}', [System.Web.HTTPUtility]::UrlEncode($ScriptName))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateConnectorV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateConnectorV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1139,7 +1139,7 @@ function Update-ConnectorV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectordetail" `
+                                -ReturnType "ConnectorDetail" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

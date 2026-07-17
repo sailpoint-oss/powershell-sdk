@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'Aggregations', 'Aggregations']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Nested** | [**Nestedaggregation**](nestedaggregation) |  | [optional] 
-**Metric** | [**Metricaggregation**](metricaggregation) |  | [optional] 
-**VarFilter** | [**Filteraggregation**](filteraggregation) |  | [optional] 
-**Bucket** | [**Bucketaggregation**](bucketaggregation) |  | [optional] 
+**Nested** | [**NestedAggregation**](nested-aggregation) |  | [optional] 
+**Metric** | [**MetricAggregation**](metric-aggregation) |  | [optional] 
+**VarFilter** | [**FilterAggregation**](filter-aggregation) |  | [optional] 
+**Bucket** | [**BucketAggregation**](bucket-aggregation) |  | [optional] 
 
 ## Examples
 

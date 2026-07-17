@@ -17,7 +17,7 @@ Use this endpoint to create a lifecycle state.
 .PARAMETER IdentityProfileId
 Identity profile ID.
 
-.PARAMETER Lifecyclestate
+.PARAMETER LifecycleState
 Lifecycle state to be created.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Lifecyclestate
+LifecycleState
 #>
 function New-LifecycleStateV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-LifecycleStateV1 {
         ${IdentityProfileId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Lifecyclestate},
+        ${LifecycleState},
         [Switch]
         $WithHttpInfo
     )
@@ -66,14 +66,14 @@ function New-LifecycleStateV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
 
-        if (!$Lifecyclestate) {
-            throw "Error! The required parameter `Lifecyclestate` missing when calling createLifecycleStateV1."
+        if (!$LifecycleState) {
+            throw "Error! The required parameter `LifecycleState` missing when calling createLifecycleStateV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Lifecyclestate -is [array])) {
-            $LocalVarBodyParameter = $Lifecyclestate | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($LifecycleState -is [array])) {
+            $LocalVarBodyParameter = $LifecycleState | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Lifecyclestate | ForEach-Object {
+            $LocalVarBodyParameter = $LifecycleState | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -92,7 +92,7 @@ function New-LifecycleStateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Lifecyclestate" `
+                                -ReturnType "LifecycleState" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -124,7 +124,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Lifecyclestatedeleted
+LifecyclestateDeleted
 #>
 function Remove-LifecycleStateV1 {
     [CmdletBinding()]
@@ -174,7 +174,7 @@ function Remove-LifecycleStateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Lifecyclestatedeleted" `
+                                -ReturnType "LifecyclestateDeleted" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -206,7 +206,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Lifecyclestate
+LifecycleState
 #>
 function Get-LifecycleStateV1 {
     [CmdletBinding()]
@@ -256,7 +256,7 @@ function Get-LifecycleStateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Lifecyclestate" `
+                                -ReturnType "LifecycleState" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -297,7 +297,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Lifecyclestate[]
+LifecycleState[]
 #>
 function Get-LifecycleStatesV1 {
     [CmdletBinding()]
@@ -368,7 +368,7 @@ function Get-LifecycleStatesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Lifecyclestate[]" `
+                                -ReturnType "LifecycleState[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -492,7 +492,7 @@ Identity profile ID.
 .PARAMETER LifecycleStateId
 Lifecycle state ID.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
 
 .PARAMETER WithHttpInfo
@@ -501,7 +501,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Lifecyclestate
+LifecycleState
 #>
 function Update-LifecycleStatesV1 {
     [CmdletBinding()]
@@ -514,7 +514,7 @@ function Update-LifecycleStatesV1 {
         ${LifecycleStateId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -548,14 +548,14 @@ function Update-LifecycleStatesV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{lifecycle-state-id}', [System.Web.HTTPUtility]::UrlEncode($LifecycleStateId))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateLifecycleStatesV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateLifecycleStatesV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -574,7 +574,7 @@ function Update-LifecycleStatesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Lifecyclestate" `
+                                -ReturnType "LifecycleState" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

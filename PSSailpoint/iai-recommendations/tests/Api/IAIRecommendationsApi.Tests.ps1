@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.IaiRecommendations' -name 'IAIRecommendationsApi' {
 
     Context 'Get-RecommendationsV1' {
         It 'Test Get-RecommendationsV1' {
-            #$TestResult = Get-RecommendationsV1 -XSailPointExperimental "TEST_VALUE" -Recommendationrequestdto "TEST_VALUE"
+            #$TestResult = Get-RecommendationsV1 -XSailPointExperimental "TEST_VALUE" -RecommendationRequestDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.IaiRecommendations' -name 'IAIRecommendationsApi' {
 
     Context 'Update-RecommendationsConfigV1' {
         It 'Test Update-RecommendationsConfigV1' {
-            #$TestResult = Update-RecommendationsConfigV1 -XSailPointExperimental "TEST_VALUE" -Recommendationconfigdto "TEST_VALUE"
+            #$TestResult = Update-RecommendationsConfigV1 -XSailPointExperimental "TEST_VALUE" -RecommendationConfigDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

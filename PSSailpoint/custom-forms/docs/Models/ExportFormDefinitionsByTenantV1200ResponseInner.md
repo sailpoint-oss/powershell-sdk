@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ExportFormDefinitionsByTenantV1200Res
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | [**Formdefinitionresponse**](formdefinitionresponse) |  | [optional] 
+**Object** | [**FormDefinitionResponse**](form-definition-response) |  | [optional] 
 **Self** | [**ExportFormDefinitionsByTenantV1200ResponseInnerSelf**](export-form-definitions-by-tenant-v1200-response-inner-self) |  | [optional] 
 **Version** | **Int32** |  | [optional] 
 

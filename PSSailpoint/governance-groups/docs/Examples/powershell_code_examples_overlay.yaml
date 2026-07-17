@@ -4,18 +4,33 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#create-workgroup-v1
       source: |
-        $Workgroupdto = @"
-        
+        $WorkgroupDto = @"
+        {
+          "owner" : {
+            "emailAddress" : "support@sailpoint.com",
+            "displayName" : "Support",
+            "name" : "Support",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          },
+          "connectionCount" : 1641498673000,
+          "created" : "2022-01-06T19:51:13Z",
+          "memberCount" : 1641498673000,
+          "name" : "DB Access Governance Group",
+          "description" : "Description of the Governance Group",
+          "modified" : "2022-01-06T19:51:13Z",
+          "id" : "2c91808568c529c60168cca6f90c1313"
+        }
         "@
         
         # Create a new governance group.
         
         try {
-            $Result = ConvertFrom-JsonToWorkgroupdto -Json $Workgroupdto
-            New-WorkgroupV1 -Workgroupdto $Result 
+            $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
+            New-WorkgroupV1 -WorkgroupDto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-WorkgroupV1 -Workgroupdto $Result   
+            # New-WorkgroupV1 -WorkgroupDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-WorkgroupV1"
             Write-Host $_.ErrorDetails
@@ -27,17 +42,17 @@
       label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#delete-workgroup-members-v1
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-        $BulkworkgroupmembersrequestInner = @""@ 
+        $BulkWorkgroupMembersRequestInner = @""@ 
         
         
         # Remove members from governance group
         
         try {
-            $Result = ConvertFrom-JsonToBulkworkgroupmembersrequestInner -Json $BulkworkgroupmembersrequestInner
-            Remove-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result 
+            $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
+            Remove-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
     
             # Below is a request that includes all optional parameters
-            # Remove-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result   
+            # Remove-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-WorkgroupMembersV1"
             Write-Host $_.ErrorDetails
@@ -67,18 +82,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#delete-workgroups-in-bulk-v1
       source: |
-        $Workgroupbulkdeleterequest = @"
-        {"ids":["567a697e-885b-495a-afc5-d55e1c23a302","c7b0f7b2-1e78-4063-b294-a555333dacd2"]}
+        $WorkgroupBulkDeleteRequest = @"
+        {
+          "ids" : [ "567a697e-885b-495a-afc5-d55e1c23a302", "c7b0f7b2-1e78-4063-b294-a555333dacd2" ]
+        }
         "@
         
         # Delete governance group(s)
         
         try {
-            $Result = ConvertFrom-JsonToWorkgroupbulkdeleterequest -Json $Workgroupbulkdeleterequest
-            Remove-WorkgroupsInBulkV1 -Workgroupbulkdeleterequest $Result 
+            $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
+            Remove-WorkgroupsInBulkV1 -WorkgroupBulkDeleteRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Remove-WorkgroupsInBulkV1 -Workgroupbulkdeleterequest $Result   
+            # Remove-WorkgroupsInBulkV1 -WorkgroupBulkDeleteRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-WorkgroupsInBulkV1"
             Write-Host $_.ErrorDetails
@@ -178,7 +195,11 @@
       label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#patch-workgroup-v1
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Governance Group new description."}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch a governance group
@@ -187,7 +208,7 @@
             Update-WorkgroupV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Update-WorkgroupV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-WorkgroupV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-WorkgroupV1"
             Write-Host $_.ErrorDetails
@@ -199,17 +220,17 @@
       label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#update-workgroup-members-v1
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-        $BulkworkgroupmembersrequestInner = @""@ 
+        $BulkWorkgroupMembersRequestInner = @""@ 
         
         
         # Add members to governance group
         
         try {
-            $Result = ConvertFrom-JsonToBulkworkgroupmembersrequestInner -Json $BulkworkgroupmembersrequestInner
-            Update-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result 
+            $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
+            Update-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result   
+            # Update-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-WorkgroupMembersV1"
             Write-Host $_.ErrorDetails

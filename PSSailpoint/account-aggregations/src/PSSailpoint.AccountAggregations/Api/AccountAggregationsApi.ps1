@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountaggregationstatus
+AccountAggregationStatus
 #>
 function Get-AccountAggregationStatusV1 {
     [CmdletBinding()]
@@ -66,7 +66,7 @@ function Get-AccountAggregationStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountaggregationstatus" `
+                                -ReturnType "AccountAggregationStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

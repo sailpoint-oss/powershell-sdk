@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.AccessRequestApprovals' -name 'AccessRequestApprovalsApi' {
     Context 'Approve-AccessRequestV1' {
         It 'Test Approve-AccessRequestV1' {
-            #$TestResult = Approve-AccessRequestV1 -ApprovalId "TEST_VALUE" -Commentdto "TEST_VALUE"
+            #$TestResult = Approve-AccessRequestV1 -ApprovalId "TEST_VALUE" -CommentDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.AccessRequestApprovals' -name 'AccessRequestApprovals
 
     Context 'Invoke-ForwardAccessRequestV1' {
         It 'Test Invoke-ForwardAccessRequestV1' {
-            #$TestResult = Invoke-ForwardAccessRequestV1 -ApprovalId "TEST_VALUE" -Forwardapprovaldto "TEST_VALUE"
+            #$TestResult = Invoke-ForwardAccessRequestV1 -ApprovalId "TEST_VALUE" -ForwardApprovalDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.AccessRequestApprovals' -name 'AccessRequestApprovals
 
     Context 'Deny-AccessRequestV1' {
         It 'Test Deny-AccessRequestV1' {
-            #$TestResult = Deny-AccessRequestV1 -ApprovalId "TEST_VALUE" -Commentdto "TEST_VALUE"
+            #$TestResult = Deny-AccessRequestV1 -ApprovalId "TEST_VALUE" -CommentDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

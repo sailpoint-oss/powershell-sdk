@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Privilegecriteriaconfigdto
+PrivilegeCriteriaConfigDTO
 #>
 function Get-PrivilegeCriteriaConfigV1 {
     [CmdletBinding()]
@@ -66,7 +66,7 @@ function Get-PrivilegeCriteriaConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Privilegecriteriaconfigdto" `
+                                -ReturnType "PrivilegeCriteriaConfigDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -95,7 +95,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Privilegecriteriaconfigdto[]
+PrivilegeCriteriaConfigDTO[]
 #>
 function Get-PrivilegeCriteriaConfigV1 {
     [CmdletBinding()]
@@ -139,7 +139,7 @@ function Get-PrivilegeCriteriaConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Privilegecriteriaconfigdto[]" `
+                                -ReturnType "PrivilegeCriteriaConfigDTO[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -171,7 +171,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Privilegecriteriaconfigdto
+PrivilegeCriteriaConfigDTO
 #>
 function Update-PrivilegeCriteriaConfigV1 {
     [CmdletBinding()]
@@ -237,7 +237,7 @@ function Update-PrivilegeCriteriaConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Privilegecriteriaconfigdto" `
+                                -ReturnType "PrivilegeCriteriaConfigDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

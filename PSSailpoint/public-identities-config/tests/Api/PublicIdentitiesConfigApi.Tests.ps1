@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.PublicIdentitiesConfig' -name 'PublicIdentitiesConfig
 
     Context 'Update-PublicIdentityConfigV1' {
         It 'Test Update-PublicIdentityConfigV1' {
-            #$TestResult = Update-PublicIdentityConfigV1 -Publicidentityconfig "TEST_VALUE"
+            #$TestResult = Update-PublicIdentityConfigV1 -PublicIdentityConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

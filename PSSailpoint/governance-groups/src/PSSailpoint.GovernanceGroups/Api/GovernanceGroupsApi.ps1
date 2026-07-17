@@ -14,7 +14,7 @@ Create a new governance group.
 
 This API creates a new Governance Group.
 
-.PARAMETER Workgroupdto
+.PARAMETER WorkgroupDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workgroupdto
+WorkgroupDto
 #>
 function New-WorkgroupV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Workgroupdto},
+        ${WorkgroupDto},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-WorkgroupV1 {
 
         $LocalVarUri = '/workgroups/v1'
 
-        if (!$Workgroupdto) {
-            throw "Error! The required parameter `Workgroupdto` missing when calling createWorkgroupV1."
+        if (!$WorkgroupDto) {
+            throw "Error! The required parameter `WorkgroupDto` missing when calling createWorkgroupV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Workgroupdto -is [array])) {
-            $LocalVarBodyParameter = $Workgroupdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($WorkgroupDto -is [array])) {
+            $LocalVarBodyParameter = $WorkgroupDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Workgroupdto | ForEach-Object {
+            $LocalVarBodyParameter = $WorkgroupDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-WorkgroupV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workgroupdto" `
+                                -ReturnType "WorkgroupDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -105,7 +105,7 @@ This API removes one or more  members from a Governance Group.  A >  **Following
 .PARAMETER WorkgroupId
 ID of the Governance Group.
 
-.PARAMETER BulkworkgroupmembersrequestInner
+.PARAMETER BulkWorkgroupMembersRequestInner
 List of identities to be removed from  a Governance Group members list.
 
 .PARAMETER WithHttpInfo
@@ -114,7 +114,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workgroupmemberdeleteitem[]
+WorkgroupMemberDeleteItem[]
 #>
 function Remove-WorkgroupMembersV1 {
     [CmdletBinding()]
@@ -124,7 +124,7 @@ function Remove-WorkgroupMembersV1 {
         ${WorkgroupId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${BulkworkgroupmembersrequestInner},
+        ${BulkWorkgroupMembersRequestInner},
         [Switch]
         $WithHttpInfo
     )
@@ -154,14 +154,14 @@ function Remove-WorkgroupMembersV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{workgroupId}', [System.Web.HTTPUtility]::UrlEncode($WorkgroupId))
 
-        if (!$BulkworkgroupmembersrequestInner) {
-            throw "Error! The required parameter `BulkworkgroupmembersrequestInner` missing when calling deleteWorkgroupMembersV1."
+        if (!$BulkWorkgroupMembersRequestInner) {
+            throw "Error! The required parameter `BulkWorkgroupMembersRequestInner` missing when calling deleteWorkgroupMembersV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkworkgroupmembersrequestInner -is [array])) {
-            $LocalVarBodyParameter = $BulkworkgroupmembersrequestInner | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkWorkgroupMembersRequestInner -is [array])) {
+            $LocalVarBodyParameter = $BulkWorkgroupMembersRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $BulkworkgroupmembersrequestInner | ForEach-Object {
+            $LocalVarBodyParameter = $BulkWorkgroupMembersRequestInner | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -180,7 +180,7 @@ function Remove-WorkgroupMembersV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workgroupmemberdeleteitem[]" `
+                                -ReturnType "WorkgroupMemberDeleteItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -272,7 +272,7 @@ Delete governance group(s)
 
  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
 
-.PARAMETER Workgroupbulkdeleterequest
+.PARAMETER WorkgroupBulkDeleteRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -281,14 +281,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workgroupdeleteitem[]
+WorkgroupDeleteItem[]
 #>
 function Remove-WorkgroupsInBulkV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Workgroupbulkdeleterequest},
+        ${WorkgroupBulkDeleteRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -314,14 +314,14 @@ function Remove-WorkgroupsInBulkV1 {
 
         $LocalVarUri = '/workgroups/v1/bulk-delete'
 
-        if (!$Workgroupbulkdeleterequest) {
-            throw "Error! The required parameter `Workgroupbulkdeleterequest` missing when calling deleteWorkgroupsInBulkV1."
+        if (!$WorkgroupBulkDeleteRequest) {
+            throw "Error! The required parameter `WorkgroupBulkDeleteRequest` missing when calling deleteWorkgroupsInBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Workgroupbulkdeleterequest -is [array])) {
-            $LocalVarBodyParameter = $Workgroupbulkdeleterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($WorkgroupBulkDeleteRequest -is [array])) {
+            $LocalVarBodyParameter = $WorkgroupBulkDeleteRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Workgroupbulkdeleterequest | ForEach-Object {
+            $LocalVarBodyParameter = $WorkgroupBulkDeleteRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -340,7 +340,7 @@ function Remove-WorkgroupsInBulkV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workgroupdeleteitem[]" `
+                                -ReturnType "WorkgroupDeleteItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -369,7 +369,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workgroupdto
+WorkgroupDto
 #>
 function Get-WorkgroupV1 {
     [CmdletBinding()]
@@ -412,7 +412,7 @@ function Get-WorkgroupV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workgroupdto" `
+                                -ReturnType "WorkgroupDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -453,7 +453,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workgroupconnectiondto[]
+WorkgroupConnectionDto[]
 #>
 function Get-ConnectionsV1 {
     [CmdletBinding()]
@@ -524,7 +524,7 @@ function Get-ConnectionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workgroupconnectiondto[]" `
+                                -ReturnType "WorkgroupConnectionDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -677,7 +677,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workgroupdto[]
+WorkgroupDto[]
 #>
 function Get-WorkgroupsV1 {
     [CmdletBinding()]
@@ -748,7 +748,7 @@ function Get-WorkgroupsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workgroupdto[]" `
+                                -ReturnType "WorkgroupDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -771,7 +771,7 @@ This API updates an existing governance group by ID. The following fields and ob
 .PARAMETER Id
 ID of the Governance Group
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -780,7 +780,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workgroupdto
+WorkgroupDto
 #>
 function Update-WorkgroupV1 {
     [CmdletBinding()]
@@ -790,7 +790,7 @@ function Update-WorkgroupV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -820,10 +820,10 @@ function Update-WorkgroupV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -842,7 +842,7 @@ function Update-WorkgroupV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workgroupdto" `
+                                -ReturnType "WorkgroupDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -865,7 +865,7 @@ This API adds one or more members to a Governance Group.  A token with API, ORG_
 .PARAMETER WorkgroupId
 ID of the Governance Group.
 
-.PARAMETER BulkworkgroupmembersrequestInner
+.PARAMETER BulkWorkgroupMembersRequestInner
 List of identities to be added to a Governance Group members list.
 
 .PARAMETER WithHttpInfo
@@ -874,7 +874,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workgroupmemberadditem[]
+WorkgroupMemberAddItem[]
 #>
 function Update-WorkgroupMembersV1 {
     [CmdletBinding()]
@@ -884,7 +884,7 @@ function Update-WorkgroupMembersV1 {
         ${WorkgroupId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${BulkworkgroupmembersrequestInner},
+        ${BulkWorkgroupMembersRequestInner},
         [Switch]
         $WithHttpInfo
     )
@@ -914,14 +914,14 @@ function Update-WorkgroupMembersV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{workgroupId}', [System.Web.HTTPUtility]::UrlEncode($WorkgroupId))
 
-        if (!$BulkworkgroupmembersrequestInner) {
-            throw "Error! The required parameter `BulkworkgroupmembersrequestInner` missing when calling updateWorkgroupMembersV1."
+        if (!$BulkWorkgroupMembersRequestInner) {
+            throw "Error! The required parameter `BulkWorkgroupMembersRequestInner` missing when calling updateWorkgroupMembersV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkworkgroupmembersrequestInner -is [array])) {
-            $LocalVarBodyParameter = $BulkworkgroupmembersrequestInner | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkWorkgroupMembersRequestInner -is [array])) {
+            $LocalVarBodyParameter = $BulkWorkgroupMembersRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $BulkworkgroupmembersrequestInner | ForEach-Object {
+            $LocalVarBodyParameter = $BulkWorkgroupMembersRequestInner | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -940,7 +940,7 @@ function Update-WorkgroupMembersV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workgroupmemberadditem[]" `
+                                -ReturnType "WorkgroupMemberAddItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

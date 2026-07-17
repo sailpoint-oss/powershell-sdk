@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Intelidentityaggregate
+IntelIdentityAggregate
 #>
 function Get-IdentityIntelligenceV1 {
     [CmdletBinding()]
@@ -67,7 +67,7 @@ function Get-IdentityIntelligenceV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Intelidentityaggregate" `
+                                -ReturnType "IntelIdentityAggregate" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -102,7 +102,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Intelaccessitemhistoryevent[]
+IntelAccessItemHistoryEvent[]
 #>
 function Get-IntelIdentityAccessItemHistoryV1 {
     [CmdletBinding()]
@@ -159,7 +159,7 @@ function Get-IntelIdentityAccessItemHistoryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Intelaccessitemhistoryevent[]" `
+                                -ReturnType "IntelAccessItemHistoryEvent[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -194,7 +194,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Intelaccessaccountwire[]
+IntelAccessAccountWire[]
 #>
 function Get-IntelIdentityAccountsV1 {
     [CmdletBinding()]
@@ -251,7 +251,7 @@ function Get-IntelIdentityAccountsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Intelaccessaccountwire[]" `
+                                -ReturnType "IntelAccessAccountWire[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -286,7 +286,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Intelcertificationhistoryevent[]
+IntelCertificationHistoryEvent[]
 #>
 function Get-IntelIdentityCertificationHistoryV1 {
     [CmdletBinding()]
@@ -343,7 +343,7 @@ function Get-IntelIdentityCertificationHistoryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Intelcertificationhistoryevent[]" `
+                                -ReturnType "IntelCertificationHistoryEvent[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -378,7 +378,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Inteloutlieraccessitem[]
+IntelOutlierAccessItem[]
 #>
 function Get-IntelIdentityRareAccessV1 {
     [CmdletBinding()]
@@ -435,7 +435,7 @@ function Get-IntelIdentityRareAccessV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Inteloutlieraccessitem[]" `
+                                -ReturnType "IntelOutlierAccessItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

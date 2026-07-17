@@ -189,7 +189,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workflowoauthclient
+WorkflowOAuthClient
 #>
 function New-WorkflowExternalTriggerV1 {
     [CmdletBinding()]
@@ -232,7 +232,7 @@ function New-WorkflowExternalTriggerV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workflowoauthclient" `
+                                -ReturnType "WorkflowOAuthClient" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -421,7 +421,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workflowexecutionevent[]
+WorkflowExecutionEvent[]
 #>
 function Get-WorkflowExecutionHistoryV1 {
     [CmdletBinding()]
@@ -464,7 +464,7 @@ function Get-WorkflowExecutionHistoryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workflowexecutionevent[]" `
+                                -ReturnType "WorkflowExecutionEvent[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -493,7 +493,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workflowexecutionhistory
+WorkflowExecutionHistory
 #>
 function Get-WorkflowExecutionHistoryV2 {
     [CmdletBinding()]
@@ -536,7 +536,7 @@ function Get-WorkflowExecutionHistoryV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workflowexecutionhistory" `
+                                -ReturnType "WorkflowExecutionHistory" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -565,7 +565,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workflowexecution[]
+WorkflowExecution[]
 #>
 function Get-WorkflowExecutionV1 {
     [CmdletBinding()]
@@ -608,7 +608,7 @@ function Get-WorkflowExecutionV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workflowexecution[]" `
+                                -ReturnType "WorkflowExecution[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -646,7 +646,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workflowexecution[]
+WorkflowExecution[]
 #>
 function Get-WorkflowExecutionsV1 {
     [CmdletBinding()]
@@ -710,7 +710,7 @@ function Get-WorkflowExecutionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workflowexecution[]" `
+                                -ReturnType "WorkflowExecution[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -899,7 +899,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workflowlibraryaction[]
+WorkflowLibraryAction[]
 #>
 function Get-WorkflowLibraryActionsV1 {
     [CmdletBinding()]
@@ -956,7 +956,7 @@ function Get-WorkflowLibraryActionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workflowlibraryaction[]" `
+                                -ReturnType "WorkflowLibraryAction[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -982,7 +982,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workflowlibraryoperator[]
+WorkflowLibraryOperator[]
 #>
 function Get-WorkflowLibraryOperatorsV1 {
     [CmdletBinding()]
@@ -1018,7 +1018,7 @@ function Get-WorkflowLibraryOperatorsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workflowlibraryoperator[]" `
+                                -ReturnType "WorkflowLibraryOperator[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1053,7 +1053,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Workflowlibrarytrigger[]
+WorkflowLibraryTrigger[]
 #>
 function Get-WorkflowLibraryTriggersV1 {
     [CmdletBinding()]
@@ -1110,7 +1110,7 @@ function Get-WorkflowLibraryTriggersV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Workflowlibrarytrigger[]" `
+                                -ReturnType "WorkflowLibraryTrigger[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1195,7 +1195,7 @@ Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/
 .PARAMETER Id
 Id of the Workflow
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1214,7 +1214,7 @@ function Update-WorkflowV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -1244,14 +1244,14 @@ function Update-WorkflowV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchWorkflowV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchWorkflowV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1293,7 +1293,7 @@ Perform a full update of a workflow.  The updated workflow object is returned in
 .PARAMETER Id
 Id of the Workflow
 
-.PARAMETER Workflowbody
+.PARAMETER WorkflowBody
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1312,7 +1312,7 @@ function Send-WorkflowV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Workflowbody},
+        ${WorkflowBody},
         [Switch]
         $WithHttpInfo
     )
@@ -1342,14 +1342,14 @@ function Send-WorkflowV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Workflowbody) {
-            throw "Error! The required parameter `Workflowbody` missing when calling putWorkflowV1."
+        if (!$WorkflowBody) {
+            throw "Error! The required parameter `WorkflowBody` missing when calling putWorkflowV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Workflowbody -is [array])) {
-            $LocalVarBodyParameter = $Workflowbody | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($WorkflowBody -is [array])) {
+            $LocalVarBodyParameter = $WorkflowBody | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Workflowbody | ForEach-Object {
+            $LocalVarBodyParameter = $WorkflowBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

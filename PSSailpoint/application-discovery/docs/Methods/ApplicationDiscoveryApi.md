@@ -47,11 +47,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of discovered applications. By default, the API returns a list of SLIM discovered applications. | GetDiscoveredApplicationsV1200ResponseInner[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartApplicationDiscoveryV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartApplicationDiscoveryV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -92,17 +92,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Manualdiscoverapplicationstemplate**](../models/manualdiscoverapplicationstemplate)
+[**ManualDiscoverApplicationsTemplate**](../models/manual-discover-applications-template)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A CSV file download was successful. | Manualdiscoverapplicationstemplate
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A CSV file download was successful. | ManualDiscoverApplicationsTemplate
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartApplicationDiscoveryV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartApplicationDiscoveryV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -143,11 +143,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | The CSV has been successfully processed. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartApplicationDiscoveryV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartApplicationDiscoveryV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: multipart/form-data
@@ -184,21 +184,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | SourceId | **String** | True  | The sourceId.
- Body  | Applicationdiscoveryrequest | [**Applicationdiscoveryrequest**](../models/applicationdiscoveryrequest) | True  | 
+ Body  | ApplicationDiscoveryRequest | [**ApplicationDiscoveryRequest**](../models/application-discovery-request) | True  | 
 
 ### Return type
-[**Applicationdiscoveryresponse**](../models/applicationdiscoveryresponse)
+[**ApplicationDiscoveryResponse**](../models/application-discovery-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Application Discovery task was started successfully. | Applicationdiscoveryresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Application Discovery task was started successfully. | ApplicationDiscoveryResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartApplicationDiscoveryV1401Response
 403 | Forbidden. Returned when the user doesn&#39;t have access to this endpoint, or when the quota of allowed invocations for the day has been exceeded.  | StartApplicationDiscoveryV1403Response
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartApplicationDiscoveryV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -208,16 +208,18 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SourceId = "MySourceId" # String | The sourceId.
-$Applicationdiscoveryrequest = @""@
+$ApplicationDiscoveryRequest = @"{
+  "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ]
+}"@
 
 # Start Application Discovery
 
 try {
-    $Result = ConvertFrom-JsonToApplicationdiscoveryrequest -Json $Applicationdiscoveryrequest
-    Start-ApplicationDiscoveryV1 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -Applicationdiscoveryrequest $Result 
+    $Result = ConvertFrom-JsonToApplicationDiscoveryRequest -Json $ApplicationDiscoveryRequest
+    Start-ApplicationDiscoveryV1 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -ApplicationDiscoveryRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-ApplicationDiscoveryV1 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -Applicationdiscoveryrequest $Result  
+    # Start-ApplicationDiscoveryV1 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -ApplicationDiscoveryRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ApplicationDiscoveryV1"
     Write-Host $_.ErrorDetails

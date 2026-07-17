@@ -40,12 +40,12 @@ Path   | SourceId | **String** | True  | Source ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMachineClassificationConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMachineClassificationConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -80,18 +80,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | Source ID
 
 ### Return type
-[**Machineclassificationconfig**](../models/machineclassificationconfig)
+[**MachineClassificationConfig**](../models/machine-classification-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A Config Object | Machineclassificationconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A Config Object | MachineClassificationConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMachineClassificationConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMachineClassificationConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -124,21 +124,21 @@ Use this API to update Classification Config for a Source. A token with ORG_ADMI
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
- Body  | Machineclassificationconfig | [**Machineclassificationconfig**](../models/machineclassificationconfig) | True  | 
+ Body  | MachineClassificationConfig | [**MachineClassificationConfig**](../models/machine-classification-config) | True  | 
 
 ### Return type
-[**Machineclassificationconfig**](../models/machineclassificationconfig)
+[**MachineClassificationConfig**](../models/machine-classification-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated Machine Classification Config Object. | Machineclassificationconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated Machine Classification Config Object. | MachineClassificationConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetMachineClassificationConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetMachineClassificationConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -147,16 +147,71 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
-$Machineclassificationconfig = @""@
+$MachineClassificationConfig = @"{
+  "criteria" : {
+    "children" : [ {
+      "children" : [ {
+        "children" : [ "{}", "{}" ],
+        "caseSensitive" : false,
+        "dataType" : "dataType",
+        "attribute" : "sAMAccountName",
+        "operation" : "EQUALS",
+        "value" : "SVC"
+      }, {
+        "children" : [ "{}", "{}" ],
+        "caseSensitive" : false,
+        "dataType" : "dataType",
+        "attribute" : "sAMAccountName",
+        "operation" : "EQUALS",
+        "value" : "SVC"
+      } ],
+      "caseSensitive" : false,
+      "dataType" : "dataType",
+      "attribute" : "employeeType",
+      "operation" : "EQUALS",
+      "value" : "SERVICE"
+    }, {
+      "children" : [ {
+        "children" : [ "{}", "{}" ],
+        "caseSensitive" : false,
+        "dataType" : "dataType",
+        "attribute" : "sAMAccountName",
+        "operation" : "EQUALS",
+        "value" : "SVC"
+      }, {
+        "children" : [ "{}", "{}" ],
+        "caseSensitive" : false,
+        "dataType" : "dataType",
+        "attribute" : "sAMAccountName",
+        "operation" : "EQUALS",
+        "value" : "SVC"
+      } ],
+      "caseSensitive" : false,
+      "dataType" : "dataType",
+      "attribute" : "employeeType",
+      "operation" : "EQUALS",
+      "value" : "SERVICE"
+    } ],
+    "caseSensitive" : false,
+    "dataType" : "dataType",
+    "attribute" : "distinguishedName",
+    "operation" : "EQUALS",
+    "value" : "OU=Service Accounts"
+  },
+  "created" : "2017-07-11T18:45:37.098Z",
+  "modified" : "2018-06-25T20:22:28.104Z",
+  "classificationMethod" : "SOURCE",
+  "enabled" : true
+}"@
 
 # Update source's classification config
 
 try {
-    $Result = ConvertFrom-JsonToMachineclassificationconfig -Json $Machineclassificationconfig
-    Set-MachineClassificationConfigV1 -SourceId $SourceId -Machineclassificationconfig $Result 
+    $Result = ConvertFrom-JsonToMachineClassificationConfig -Json $MachineClassificationConfig
+    Set-MachineClassificationConfigV1 -SourceId $SourceId -MachineClassificationConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-MachineClassificationConfigV1 -SourceId $SourceId -Machineclassificationconfig $Result  
+    # Set-MachineClassificationConfigV1 -SourceId $SourceId -MachineClassificationConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MachineClassificationConfigV1"
     Write-Host $_.ErrorDetails

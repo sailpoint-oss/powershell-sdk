@@ -4,18 +4,50 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/privilegecriteria/methods/privilege-criteria#create-custom-privilege-criteria-v1
       source: |
-        $Createprivilegecriteriarequest = @"
-        
+        $CreatePrivilegeCriteriaRequest = @"
+        {
+          "sourceId" : "c42c45d8d7c04d2da64d215cd8c32f21",
+          "privilegeLevel" : "HIGH",
+          "groups" : [ {
+            "criteriaItems" : [ {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "targetType" : "group",
+              "operator" : "displayName"
+            }, {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "targetType" : "group",
+              "operator" : "displayName"
+            } ],
+            "operator" : "AND"
+          }, {
+            "criteriaItems" : [ {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "targetType" : "group",
+              "operator" : "displayName"
+            }, {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "targetType" : "group",
+              "operator" : "displayName"
+            } ],
+            "operator" : "AND"
+          } ],
+          "type" : "CUSTOM",
+          "operator" : "AND"
+        }
         "@
         
         # Create custom privilege criteria
         
         try {
-            $Result = ConvertFrom-JsonToCreateprivilegecriteriarequest -Json $Createprivilegecriteriarequest
-            New-CustomPrivilegeCriteriaV1 -Createprivilegecriteriarequest $Result 
+            $Result = ConvertFrom-JsonToCreatePrivilegeCriteriaRequest -Json $CreatePrivilegeCriteriaRequest
+            New-CustomPrivilegeCriteriaV1 -CreatePrivilegeCriteriaRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-CustomPrivilegeCriteriaV1 -Createprivilegecriteriarequest $Result   
+            # New-CustomPrivilegeCriteriaV1 -CreatePrivilegeCriteriaRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CustomPrivilegeCriteriaV1"
             Write-Host $_.ErrorDetails
@@ -84,18 +116,55 @@
       label: SDK_tools/sdk/powershell/privilegecriteria/methods/privilege-criteria#put-custom-privilege-criteria-value-v1
       source: |
         $CriteriaId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the privilege criteria record to return.
-        $Privilegecriteriadto = @"
-        
+        $PrivilegeCriteriaDTO = @"
+        {
+          "sourceId" : "c42c45d8d7c04d2da64d215cd8c32f21",
+          "privilegeLevel" : "HIGH",
+          "groups" : [ {
+            "criteriaItems" : [ {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "property" : "displayName",
+              "targetType" : "group",
+              "operator" : "IN"
+            }, {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "property" : "displayName",
+              "targetType" : "group",
+              "operator" : "IN"
+            } ],
+            "operator" : "AND"
+          }, {
+            "criteriaItems" : [ {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "property" : "displayName",
+              "targetType" : "group",
+              "operator" : "IN"
+            }, {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "property" : "displayName",
+              "targetType" : "group",
+              "operator" : "IN"
+            } ],
+            "operator" : "AND"
+          } ],
+          "id" : "2c9180867817ac4d017817c491119a20",
+          "type" : "CUSTOM",
+          "operator" : "AND"
+        }
         "@
         
         # Update privilege criteria
         
         try {
-            $Result = ConvertFrom-JsonToPrivilegecriteriadto -Json $Privilegecriteriadto
-            Send-CustomPrivilegeCriteriaValueV1 -CriteriaId $CriteriaId -Privilegecriteriadto $Result 
+            $Result = ConvertFrom-JsonToPrivilegeCriteriaDTO -Json $PrivilegeCriteriaDTO
+            Send-CustomPrivilegeCriteriaValueV1 -CriteriaId $CriteriaId -PrivilegeCriteriaDTO $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-CustomPrivilegeCriteriaValueV1 -CriteriaId $CriteriaId -Privilegecriteriadto $Result   
+            # Send-CustomPrivilegeCriteriaValueV1 -CriteriaId $CriteriaId -PrivilegeCriteriaDTO $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-CustomPrivilegeCriteriaValueV1"
             Write-Host $_.ErrorDetails

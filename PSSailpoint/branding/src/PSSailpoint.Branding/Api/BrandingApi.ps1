@@ -44,7 +44,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Brandingitem
+BrandingItem
 #>
 function New-BrandingItemV1 {
     [CmdletBinding()]
@@ -136,7 +136,7 @@ function New-BrandingItemV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Brandingitem" `
+                                -ReturnType "BrandingItem" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -234,7 +234,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Brandingitem[]
+BrandingItem[]
 #>
 function Get-BrandingListV1 {
     [CmdletBinding()]
@@ -270,7 +270,7 @@ function Get-BrandingListV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Brandingitem[]" `
+                                -ReturnType "BrandingItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -299,7 +299,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Brandingitem
+BrandingItem
 #>
 function Get-BrandingV1 {
     [CmdletBinding()]
@@ -342,7 +342,7 @@ function Get-BrandingV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Brandingitem" `
+                                -ReturnType "BrandingItem" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -395,7 +395,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Brandingitem
+BrandingItem
 #>
 function Set-BrandingItemV1 {
     [CmdletBinding()]
@@ -494,7 +494,7 @@ function Set-BrandingItemV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Brandingitem" `
+                                -ReturnType "BrandingItem" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

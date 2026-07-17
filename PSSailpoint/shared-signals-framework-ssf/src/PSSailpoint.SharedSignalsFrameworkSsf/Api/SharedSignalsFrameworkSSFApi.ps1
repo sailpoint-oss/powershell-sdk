@@ -14,7 +14,7 @@ Create stream
 
 An SSF stream is associated with the client ID of the OAuth 2.0 access token used to create the stream. One SSF stream is allowed for each client ID.  You can create a maximum of 10 SSF stream configurations for one org. 
 
-.PARAMETER Createstreamrequest
+.PARAMETER CreateStreamRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Streamconfigresponse
+StreamConfigResponse
 #>
 function New-StreamV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Createstreamrequest},
+        ${CreateStreamRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-StreamV1 {
 
         $LocalVarUri = '/ssf/v1/streams'
 
-        if (!$Createstreamrequest) {
-            throw "Error! The required parameter `Createstreamrequest` missing when calling createStreamV1."
+        if (!$CreateStreamRequest) {
+            throw "Error! The required parameter `CreateStreamRequest` missing when calling createStreamV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Createstreamrequest -is [array])) {
-            $LocalVarBodyParameter = $Createstreamrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreateStreamRequest -is [array])) {
+            $LocalVarBodyParameter = $CreateStreamRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Createstreamrequest | ForEach-Object {
+            $LocalVarBodyParameter = $CreateStreamRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-StreamV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Streamconfigresponse" `
+                                -ReturnType "StreamConfigResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -181,7 +181,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Jwks
+JWKS
 #>
 function Get-JWKSDataV1 {
     [CmdletBinding()]
@@ -217,7 +217,7 @@ function Get-JWKSDataV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Jwks" `
+                                -ReturnType "JWKS" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -243,7 +243,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Transmittermetadata
+TransmitterMetadata
 #>
 function Get-SSFConfigurationV1 {
     [CmdletBinding()]
@@ -279,7 +279,7 @@ function Get-SSFConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Transmittermetadata" `
+                                -ReturnType "TransmitterMetadata" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -308,7 +308,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Streamstatusresponse
+StreamStatusResponse
 #>
 function Get-StreamStatusV1 {
     [CmdletBinding()]
@@ -352,7 +352,7 @@ function Get-StreamStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Streamstatusresponse" `
+                                -ReturnType "StreamStatusResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -447,7 +447,7 @@ Verify stream
 
 Verifies an SSF stream by publishing a verification event requested by a security events provider.
 
-.PARAMETER Verificationrequest
+.PARAMETER VerificationRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -463,7 +463,7 @@ function Send-StreamVerificationV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Verificationrequest},
+        ${VerificationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -489,14 +489,14 @@ function Send-StreamVerificationV1 {
 
         $LocalVarUri = '/ssf/v1/streams/verify'
 
-        if (!$Verificationrequest) {
-            throw "Error! The required parameter `Verificationrequest` missing when calling sendStreamVerificationV1."
+        if (!$VerificationRequest) {
+            throw "Error! The required parameter `VerificationRequest` missing when calling sendStreamVerificationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Verificationrequest -is [array])) {
-            $LocalVarBodyParameter = $Verificationrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($VerificationRequest -is [array])) {
+            $LocalVarBodyParameter = $VerificationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Verificationrequest | ForEach-Object {
+            $LocalVarBodyParameter = $VerificationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -535,7 +535,7 @@ Replace stream configuration
 
 Replaces a stream's configuration (PUT). stream_id and delivery are required; full receiver-supplied properties.  The associated stream with the client ID (through the request OAuth 2.0 access token) is replaced. 
 
-.PARAMETER Replacestreamconfigurationrequest
+.PARAMETER ReplaceStreamConfigurationRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -544,14 +544,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Updatestreamconfigresponse
+UpdateStreamConfigResponse
 #>
 function Set-StreamConfigurationV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Replacestreamconfigurationrequest},
+        ${ReplaceStreamConfigurationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -577,14 +577,14 @@ function Set-StreamConfigurationV1 {
 
         $LocalVarUri = '/ssf/v1/streams'
 
-        if (!$Replacestreamconfigurationrequest) {
-            throw "Error! The required parameter `Replacestreamconfigurationrequest` missing when calling setStreamConfigurationV1."
+        if (!$ReplaceStreamConfigurationRequest) {
+            throw "Error! The required parameter `ReplaceStreamConfigurationRequest` missing when calling setStreamConfigurationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Replacestreamconfigurationrequest -is [array])) {
-            $LocalVarBodyParameter = $Replacestreamconfigurationrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ReplaceStreamConfigurationRequest -is [array])) {
+            $LocalVarBodyParameter = $ReplaceStreamConfigurationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Replacestreamconfigurationrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ReplaceStreamConfigurationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -603,7 +603,7 @@ function Set-StreamConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Updatestreamconfigresponse" `
+                                -ReturnType "UpdateStreamConfigResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -623,7 +623,7 @@ Update stream configuration
 
 Partially updates a stream's configuration (PATCH). Only provided fields are updated.  The associated stream with the client ID (through the request OAuth 2.0 access token) is updated. 
 
-.PARAMETER Updatestreamconfigurationrequest
+.PARAMETER UpdateStreamConfigurationRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -632,14 +632,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Updatestreamconfigresponse
+UpdateStreamConfigResponse
 #>
 function Update-StreamConfigurationV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Updatestreamconfigurationrequest},
+        ${UpdateStreamConfigurationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -665,14 +665,14 @@ function Update-StreamConfigurationV1 {
 
         $LocalVarUri = '/ssf/v1/streams'
 
-        if (!$Updatestreamconfigurationrequest) {
-            throw "Error! The required parameter `Updatestreamconfigurationrequest` missing when calling updateStreamConfigurationV1."
+        if (!$UpdateStreamConfigurationRequest) {
+            throw "Error! The required parameter `UpdateStreamConfigurationRequest` missing when calling updateStreamConfigurationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Updatestreamconfigurationrequest -is [array])) {
-            $LocalVarBodyParameter = $Updatestreamconfigurationrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($UpdateStreamConfigurationRequest -is [array])) {
+            $LocalVarBodyParameter = $UpdateStreamConfigurationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Updatestreamconfigurationrequest | ForEach-Object {
+            $LocalVarBodyParameter = $UpdateStreamConfigurationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -691,7 +691,7 @@ function Update-StreamConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Updatestreamconfigresponse" `
+                                -ReturnType "UpdateStreamConfigResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -711,7 +711,7 @@ Update stream status
 
 Updates the operational status (enabled, paused, disabled) with an optional reason for the stream associated with the client ID of the request's OAuth 2.0 access token.
 
-.PARAMETER Updatestreamstatusrequest
+.PARAMETER UpdateStreamStatusRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -720,14 +720,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Streamstatusresponse
+StreamStatusResponse
 #>
 function Update-StreamStatusV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Updatestreamstatusrequest},
+        ${UpdateStreamStatusRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -753,14 +753,14 @@ function Update-StreamStatusV1 {
 
         $LocalVarUri = '/ssf/v1/streams/status'
 
-        if (!$Updatestreamstatusrequest) {
-            throw "Error! The required parameter `Updatestreamstatusrequest` missing when calling updateStreamStatusV1."
+        if (!$UpdateStreamStatusRequest) {
+            throw "Error! The required parameter `UpdateStreamStatusRequest` missing when calling updateStreamStatusV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Updatestreamstatusrequest -is [array])) {
-            $LocalVarBodyParameter = $Updatestreamstatusrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($UpdateStreamStatusRequest -is [array])) {
+            $LocalVarBodyParameter = $UpdateStreamStatusRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Updatestreamstatusrequest | ForEach-Object {
+            $LocalVarBodyParameter = $UpdateStreamStatusRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -779,7 +779,7 @@ function Update-StreamStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Streamstatusresponse" `
+                                -ReturnType "StreamStatusResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

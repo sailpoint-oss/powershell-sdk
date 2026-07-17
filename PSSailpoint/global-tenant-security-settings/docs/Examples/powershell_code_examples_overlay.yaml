@@ -4,18 +4,22 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#create-auth-org-network-config-v1
       source: |
-        $Networkconfiguration = @"
-        
+        $NetworkConfiguration = @"
+        {
+          "range" : [ "1.3.7.2", "255.255.255.252/30" ],
+          "whitelisted" : true,
+          "geolocation" : [ "CA", "FR", "HT" ]
+        }
         "@
         
         # Create security network configuration.
         
         try {
-            $Result = ConvertFrom-JsonToNetworkconfiguration -Json $Networkconfiguration
-            New-AuthOrgNetworkConfigV1 -Networkconfiguration $Result 
+            $Result = ConvertFrom-JsonToNetworkConfiguration -Json $NetworkConfiguration
+            New-AuthOrgNetworkConfigV1 -NetworkConfiguration $Result 
     
             # Below is a request that includes all optional parameters
-            # New-AuthOrgNetworkConfigV1 -Networkconfiguration $Result   
+            # New-AuthOrgNetworkConfigV1 -NetworkConfiguration $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AuthOrgNetworkConfigV1"
             Write-Host $_.ErrorDetails
@@ -98,17 +102,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#patch-auth-org-lockout-config-v1
       source: |
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/maximumAttempts","value":"7,"},{"op":"add","path":"/lockoutDuration","value":35}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update auth org lockout configuration
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-AuthOrgLockoutConfigV1 -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-AuthOrgLockoutConfigV1 -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AuthOrgLockoutConfigV1 -Jsonpatchoperation $Result   
+            # Update-AuthOrgLockoutConfigV1 -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgLockoutConfigV1"
             Write-Host $_.ErrorDetails
@@ -119,17 +127,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#patch-auth-org-network-config-v1
       source: |
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/whitelisted","value":"false,"},{"op":"add","path":"/geolocation","value":["AF","HN","ES"]}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update security network configuration.
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-AuthOrgNetworkConfigV1 -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-AuthOrgNetworkConfigV1 -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AuthOrgNetworkConfigV1 -Jsonpatchoperation $Result   
+            # Update-AuthOrgNetworkConfigV1 -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgNetworkConfigV1"
             Write-Host $_.ErrorDetails
@@ -140,17 +152,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#patch-auth-org-service-provider-config-v1
       source: |
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/enabled","value":"true,"},{"op":"add","path":"/federationProtocolDetails/0/jitConfiguration","value":{"enabled":true,"sourceId":"2c9180857377ed2901739c12a2da5ac8","sourceAttributeMappings":{"firstName":"okta.firstName","lastName":"okta.lastName","email":"okta.email","employeeNumber":"okta.employeeNumber"}}}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update service provider configuration
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-AuthOrgServiceProviderConfigV1 -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-AuthOrgServiceProviderConfigV1 -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AuthOrgServiceProviderConfigV1 -Jsonpatchoperation $Result   
+            # Update-AuthOrgServiceProviderConfigV1 -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgServiceProviderConfigV1"
             Write-Host $_.ErrorDetails
@@ -161,17 +177,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#patch-auth-org-session-config-v1
       source: |
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/rememberMe","value":"true,"},{"op":"add","path":"/maxSessionTime","value":480}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update auth org session configuration
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-AuthOrgSessionConfigV1 -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-AuthOrgSessionConfigV1 -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AuthOrgSessionConfigV1 -Jsonpatchoperation $Result   
+            # Update-AuthOrgSessionConfigV1 -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgSessionConfigV1"
             Write-Host $_.ErrorDetails

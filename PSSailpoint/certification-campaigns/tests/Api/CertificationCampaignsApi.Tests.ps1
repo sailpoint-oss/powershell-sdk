@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.CertificationCampaigns' -name 'CertificationCampaignsApi' {
     Context 'Complete-CampaignV1' {
         It 'Test Complete-CampaignV1' {
-            #$TestResult = Complete-CampaignV1 -Id "TEST_VALUE" -Campaigncompleteoptions "TEST_VALUE"
+            #$TestResult = Complete-CampaignV1 -Id "TEST_VALUE" -CampaignCompleteOptions "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.CertificationCampaigns' -name 'CertificationCampaigns
 
     Context 'New-CampaignTemplateV1' {
         It 'Test New-CampaignTemplateV1' {
-            #$TestResult = New-CampaignTemplateV1 -Campaigntemplate "TEST_VALUE"
+            #$TestResult = New-CampaignTemplateV1 -CampaignTemplate "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.CertificationCampaigns' -name 'CertificationCampaigns
 
     Context 'Remove-CampaignsV1' {
         It 'Test Remove-CampaignsV1' {
-            #$TestResult = Remove-CampaignsV1 -Campaignsdeleterequest "TEST_VALUE"
+            #$TestResult = Remove-CampaignsV1 -CampaignsDeleteRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.CertificationCampaigns' -name 'CertificationCampaigns
 
     Context 'Move-V1' {
         It 'Test Move-V1' {
-            #$TestResult = Move-V1 -Id "TEST_VALUE" -Adminreviewreassign "TEST_VALUE"
+            #$TestResult = Move-V1 -Id "TEST_VALUE" -AdminReviewReassign "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -120,7 +120,7 @@ Describe -tag 'PSSailpoint.CertificationCampaigns' -name 'CertificationCampaigns
 
     Context 'Update-CampaignTemplateV1' {
         It 'Test Update-CampaignTemplateV1' {
-            #$TestResult = Update-CampaignTemplateV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-CampaignTemplateV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -128,7 +128,7 @@ Describe -tag 'PSSailpoint.CertificationCampaigns' -name 'CertificationCampaigns
 
     Context 'Set-CampaignReportsConfigV1' {
         It 'Test Set-CampaignReportsConfigV1' {
-            #$TestResult = Set-CampaignReportsConfigV1 -Campaignreportsconfig "TEST_VALUE"
+            #$TestResult = Set-CampaignReportsConfigV1 -CampaignReportsConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -160,7 +160,7 @@ Describe -tag 'PSSailpoint.CertificationCampaigns' -name 'CertificationCampaigns
 
     Context 'Start-CampaignV1' {
         It 'Test Start-CampaignV1' {
-            #$TestResult = Start-CampaignV1 -Id "TEST_VALUE" -Activatecampaignoptions "TEST_VALUE"
+            #$TestResult = Start-CampaignV1 -Id "TEST_VALUE" -ActivateCampaignOptions "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -176,7 +176,7 @@ Describe -tag 'PSSailpoint.CertificationCampaigns' -name 'CertificationCampaigns
 
     Context 'Update-CampaignV1' {
         It 'Test Update-CampaignV1' {
-            #$TestResult = Update-CampaignV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-CampaignV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.MfaConfiguration.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,21 +75,21 @@ FunctionsToExport = 'Get-MFADuoConfigV1', 'Get-MFAKbaConfigV1', 'Get-MFAOktaConf
                'Set-ConfigurationApiKey', 'Set-ConfigurationApiKeyPrefix', 
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
-               'Get-ConfigurationHttpSigning', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
+               'Get-ConfigurationHttpSigning', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetMFAOktaConfigV1401Response', 
                'ConvertFrom-JsonToGetMFAOktaConfigV1401Response', 
                'Initialize-GetMFAOktaConfigV1429Response', 
                'ConvertFrom-JsonToGetMFAOktaConfigV1429Response', 
-               'Initialize-Kbaanswerrequestitem', 
-               'ConvertFrom-JsonToKbaanswerrequestitem', 
-               'Initialize-Kbaanswerresponseitem', 
-               'ConvertFrom-JsonToKbaanswerresponseitem', 'Initialize-Kbaquestion', 
-               'ConvertFrom-JsonToKbaquestion', 'Initialize-Mfaconfigtestresponse', 
-               'ConvertFrom-JsonToMfaconfigtestresponse', 
-               'Initialize-Mfaduoconfig', 'ConvertFrom-JsonToMfaduoconfig', 
-               'Initialize-Mfaoktaconfig', 'ConvertFrom-JsonToMfaoktaconfig'
+               'Initialize-KbaAnswerRequestItem', 
+               'ConvertFrom-JsonToKbaAnswerRequestItem', 
+               'Initialize-KbaAnswerResponseItem', 
+               'ConvertFrom-JsonToKbaAnswerResponseItem', 'Initialize-KbaQuestion', 
+               'ConvertFrom-JsonToKbaQuestion', 'Initialize-MfaConfigTestResponse', 
+               'ConvertFrom-JsonToMfaConfigTestResponse', 
+               'Initialize-MfaDuoConfig', 'ConvertFrom-JsonToMfaDuoConfig', 
+               'Initialize-MfaOktaConfig', 'ConvertFrom-JsonToMfaOktaConfig'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

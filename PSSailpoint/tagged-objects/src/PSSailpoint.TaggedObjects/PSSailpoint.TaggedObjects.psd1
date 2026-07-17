@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.TaggedObjects.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,20 +76,20 @@ FunctionsToExport = 'Remove-TaggedObjectV1', 'Remove-TagsToManyObjectV1',
                'Set-ConfigurationApiKey', 'Set-ConfigurationApiKeyPrefix', 
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
-               'Get-ConfigurationHttpSigning', 'Initialize-Bulkaddtaggedobject', 
-               'ConvertFrom-JsonToBulkaddtaggedobject', 
-               'Initialize-Bulkremovetaggedobject', 
-               'ConvertFrom-JsonToBulkremovetaggedobject', 
-               'Initialize-Bulktaggedobjectresponse', 
-               'ConvertFrom-JsonToBulktaggedobjectresponse', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Get-ConfigurationHttpSigning', 'Initialize-BulkAddTaggedObject', 
+               'ConvertFrom-JsonToBulkAddTaggedObject', 
+               'Initialize-BulkRemoveTaggedObject', 
+               'ConvertFrom-JsonToBulkRemoveTaggedObject', 
+               'Initialize-BulkTaggedObjectResponse', 
+               'ConvertFrom-JsonToBulkTaggedObjectResponse', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-ListTaggedObjectsV1401Response', 
                'ConvertFrom-JsonToListTaggedObjectsV1401Response', 
                'Initialize-ListTaggedObjectsV1429Response', 
                'ConvertFrom-JsonToListTaggedObjectsV1429Response', 
-               'Initialize-Taggedobject', 'ConvertFrom-JsonToTaggedobject', 
-               'Initialize-Taggedobjectdto', 'ConvertFrom-JsonToTaggedobjectdto'
+               'Initialize-TaggedObject', 'ConvertFrom-JsonToTaggedObject', 
+               'Initialize-TaggedObjectDto', 'ConvertFrom-JsonToTaggedObjectDto'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

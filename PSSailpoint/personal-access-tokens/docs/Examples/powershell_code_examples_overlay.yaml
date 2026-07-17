@@ -4,18 +4,24 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/personalaccesstokens/methods/personal-access-tokens#create-personal-access-token-v1
       source: |
-        $Createpersonalaccesstokenrequest = @"
-        
+        $CreatePersonalAccessTokenRequest = @"
+        {
+          "scope" : [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ],
+          "accessTokenValiditySeconds" : 36900,
+          "name" : "NodeJS Integration",
+          "userAwareTokenNeverExpires" : false,
+          "expirationDate" : "2026-12-31T23:59:59.999Z"
+        }
         "@
         
         # Create personal access token
         
         try {
-            $Result = ConvertFrom-JsonToCreatepersonalaccesstokenrequest -Json $Createpersonalaccesstokenrequest
-            New-PersonalAccessTokenV1 -Createpersonalaccesstokenrequest $Result 
+            $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
+            New-PersonalAccessTokenV1 -CreatePersonalAccessTokenRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-PersonalAccessTokenV1 -Createpersonalaccesstokenrequest $Result   
+            # New-PersonalAccessTokenV1 -CreatePersonalAccessTokenRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PersonalAccessTokenV1"
             Write-Host $_.ErrorDetails
@@ -66,17 +72,21 @@
       label: SDK_tools/sdk/powershell/personalaccesstokens/methods/personal-access-tokens#patch-personal-access-token-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"New name"},{"op":"replace","path":"/scope","value":["sp:scopes:all"]},{"op":"replace","path":"/expirationDate","value":"2027-12-31T23:59:59.999Z"}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch personal access token
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-PersonalAccessTokenV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-PersonalAccessTokenV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-PersonalAccessTokenV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-PersonalAccessTokenV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PersonalAccessTokenV1"
             Write-Host $_.ErrorDetails

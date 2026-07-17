@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.IaiRoleMining' -name 'IAIRoleMiningApi' {
     Context 'New-PotentialRoleProvisionRequestV1' {
         It 'Test New-PotentialRoleProvisionRequestV1' {
-            #$TestResult = New-PotentialRoleProvisionRequestV1 -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -MinEntitlementPopularity "TEST_VALUE" -IncludeCommonAccess "TEST_VALUE" -Roleminingpotentialroleprovisionrequest "TEST_VALUE"
+            #$TestResult = New-PotentialRoleProvisionRequestV1 -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -MinEntitlementPopularity "TEST_VALUE" -IncludeCommonAccess "TEST_VALUE" -RoleMiningPotentialRoleProvisionRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.IaiRoleMining' -name 'IAIRoleMiningApi' {
 
     Context 'New-RoleMiningSessionsV1' {
         It 'Test New-RoleMiningSessionsV1' {
-            #$TestResult = New-RoleMiningSessionsV1 -XSailPointExperimental "TEST_VALUE" -Roleminingsessiondto "TEST_VALUE"
+            #$TestResult = New-RoleMiningSessionsV1 -XSailPointExperimental "TEST_VALUE" -RoleMiningSessionDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.IaiRoleMining' -name 'IAIRoleMiningApi' {
 
     Context 'Export-RoleMiningPotentialRoleAsyncV1' {
         It 'Test Export-RoleMiningPotentialRoleAsyncV1' {
-            #$TestResult = Export-RoleMiningPotentialRoleAsyncV1 -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Roleminingpotentialroleexportrequest "TEST_VALUE"
+            #$TestResult = Export-RoleMiningPotentialRoleAsyncV1 -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -RoleMiningPotentialRoleExportRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -176,7 +176,7 @@ Describe -tag 'PSSailpoint.IaiRoleMining' -name 'IAIRoleMiningApi' {
 
     Context 'Update-PotentialRoleSessionV1' {
         It 'Test Update-PotentialRoleSessionV1' {
-            #$TestResult = Update-PotentialRoleSessionV1 -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Jsonpatchoperationrolemining "TEST_VALUE"
+            #$TestResult = Update-PotentialRoleSessionV1 -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperationRoleMining "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -184,7 +184,7 @@ Describe -tag 'PSSailpoint.IaiRoleMining' -name 'IAIRoleMiningApi' {
 
     Context 'Update-PotentialRoleV1' {
         It 'Test Update-PotentialRoleV1' {
-            #$TestResult = Update-PotentialRoleV1 -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Jsonpatchoperationrolemining "TEST_VALUE"
+            #$TestResult = Update-PotentialRoleV1 -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperationRoleMining "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -192,7 +192,7 @@ Describe -tag 'PSSailpoint.IaiRoleMining' -name 'IAIRoleMiningApi' {
 
     Context 'Update-RoleMiningSessionV1' {
         It 'Test Update-RoleMiningSessionV1' {
-            #$TestResult = Update-RoleMiningSessionV1 -SessionId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-RoleMiningSessionV1 -SessionId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -200,7 +200,7 @@ Describe -tag 'PSSailpoint.IaiRoleMining' -name 'IAIRoleMiningApi' {
 
     Context 'Update-EntitlementsPotentialRoleV1' {
         It 'Test Update-EntitlementsPotentialRoleV1' {
-            #$TestResult = Update-EntitlementsPotentialRoleV1 -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Roleminingpotentialroleeditentitlements "TEST_VALUE"
+            #$TestResult = Update-EntitlementsPotentialRoleV1 -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -RoleMiningPotentialRoleEditEntitlements "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

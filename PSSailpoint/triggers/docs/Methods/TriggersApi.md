@@ -68,7 +68,7 @@ Completes an invocation to a REQUEST_RESPONSE type trigger.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the invocation to complete.
- Body  | Completeinvocation | [**Completeinvocation**](../models/completeinvocation) | True  | 
+ Body  | CompleteInvocation | [**CompleteInvocation**](../models/complete-invocation) | True  | 
 
 ### Return type
  (empty response body)
@@ -77,11 +77,11 @@ Path   | Id | **String** | True  | The ID of the invocation to complete.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTriggersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTriggersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -90,16 +90,22 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the invocation to complete.
-$Completeinvocation = @"{"secret":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","output":{"approved":false}}"@
+$CompleteInvocation = @"{
+  "output" : {
+    "approved" : false
+  },
+  "secret" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+  "error" : "Access request is denied."
+}"@
 
 # Complete trigger invocation
 
 try {
-    $Result = ConvertFrom-JsonToCompleteinvocation -Json $Completeinvocation
-    Complete-TriggerInvocationV1 -Id $Id -Completeinvocation $Result 
+    $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
+    Complete-TriggerInvocationV1 -Id $Id -CompleteInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Complete-TriggerInvocationV1 -Id $Id -Completeinvocation $Result  
+    # Complete-TriggerInvocationV1 -Id $Id -CompleteInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-TriggerInvocationV1"
     Write-Host $_.ErrorDetails
@@ -117,7 +123,7 @@ This API creates a new subscription to a trigger and defines trigger invocation 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Subscriptionpostrequest | [**Subscriptionpostrequest**](../models/subscriptionpostrequest) | True  | 
+ Body  | SubscriptionPostRequest | [**SubscriptionPostRequest**](../models/subscription-post-request) | True  | 
 
 ### Return type
 [**Subscription**](../models/subscription)
@@ -126,11 +132,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 201 | New subscription to a trigger. The trigger can now be invoked by the method defined in the subscription. | Subscription
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTriggersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTriggersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -138,16 +144,40 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Subscriptionpostrequest = @"{"name":"Access request subscription","description":"Access requested to site xyz","triggerId":"idn:access-requested","type":"HTTP","httpConfig":{"url":"https://www.example.com","httpDispatchMode":"SYNC","httpAuthenticationType":"BASIC_AUTH","basicAuthConfig":{"userName":"user@example.com","password":"eRtg4%6yuI!"}},"enabled":true,"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}"@
+$SubscriptionPostRequest = @"{
+  "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
+  "httpConfig" : {
+    "bearerTokenAuthConfig" : {
+      "bearerToken" : "bearerToken"
+    },
+    "httpAuthenticationType" : "BASIC_AUTH",
+    "httpDispatchMode" : "SYNC",
+    "basicAuthConfig" : {
+      "password" : "password",
+      "userName" : "user@example.com"
+    },
+    "url" : "https://www.example.com"
+  },
+  "triggerId" : "idn:access-requested",
+  "name" : "Access request subscription",
+  "description" : "Access requested to site xyz",
+  "eventBridgeConfig" : {
+    "awsRegion" : "us-west-1",
+    "awsAccount" : "123456789012"
+  },
+  "responseDeadline" : "PT1H",
+  "type" : "HTTP",
+  "enabled" : true
+}"@
 
 # Create a subscription
 
 try {
-    $Result = ConvertFrom-JsonToSubscriptionpostrequest -Json $Subscriptionpostrequest
-    New-SubscriptionV1 -Subscriptionpostrequest $Result 
+    $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
+    New-SubscriptionV1 -SubscriptionPostRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-SubscriptionV1 -Subscriptionpostrequest $Result  
+    # New-SubscriptionV1 -SubscriptionPostRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SubscriptionV1"
     Write-Host $_.ErrorDetails
@@ -172,12 +202,12 @@ Path   | Id | **String** | True  | Subscription ID
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTriggersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTriggersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -222,11 +252,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of subscriptions. | Subscription[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTriggersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTriggersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -271,17 +301,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed**
 
 ### Return type
-[**Invocationstatus[]**](../models/invocationstatus)
+[**InvocationStatus[]**](../models/invocation-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of latest invocation statuses. | Invocationstatus[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of latest invocation statuses. | InvocationStatus[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTriggersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTriggersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -330,11 +360,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of triggers. | Trigger[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTriggersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTriggersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -373,7 +403,7 @@ This API updates a trigger subscription in IdentityNow, using a set of instructi
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Subscription to patch
- Body  | SubscriptionpatchrequestInner | [**[]SubscriptionpatchrequestInner**](../models/subscriptionpatchrequest-inner) | True  | 
+ Body  | SubscriptionPatchRequestInner | [**[]SubscriptionPatchRequestInner**](../models/subscription-patch-request-inner) | True  | 
 
 ### Return type
 [**Subscription**](../models/subscription)
@@ -382,12 +412,12 @@ Path   | Id | **String** | True  | ID of the Subscription to patch
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Updated subscription. | Subscription
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTriggersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTriggersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -396,17 +426,17 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription to patch
- $SubscriptionpatchrequestInner = @""@ # SubscriptionpatchrequestInner[] | 
+ $SubscriptionPatchRequestInner = @""@ # SubscriptionPatchRequestInner[] | 
  
 
 # Patch a subscription
 
 try {
-    $Result = ConvertFrom-JsonToSubscriptionpatchrequestInner -Json $SubscriptionpatchrequestInner
-    Update-SubscriptionV1 -Id $Id -SubscriptionpatchrequestInner $Result 
+    $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
+    Update-SubscriptionV1 -Id $Id -SubscriptionPatchRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-SubscriptionV1 -Id $Id -SubscriptionpatchrequestInner $Result  
+    # Update-SubscriptionV1 -Id $Id -SubscriptionPatchRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SubscriptionV1"
     Write-Host $_.ErrorDetails
@@ -422,7 +452,7 @@ Initiate a test event for all subscribers of the specified event trigger.  If th
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Testinvocation | [**Testinvocation**](../models/testinvocation) | True  | 
+ Body  | TestInvocation | [**TestInvocation**](../models/test-invocation) | True  | 
 
 ### Return type
 [**Invocation[]**](../models/invocation)
@@ -432,11 +462,11 @@ Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Test trigger invocations that have been started for specified subscription(s). | Invocation[]
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTriggersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTriggersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -444,16 +474,25 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Testinvocation = @"{"triggerId":"idn:access-requested","input":{"identityId":"201327fda1c44704ac01181e963d463c"},"contentJson":{"workflowId":1234}}"@
+$TestInvocation = @"{
+  "input" : {
+    "identityId" : "201327fda1c44704ac01181e963d463c"
+  },
+  "subscriptionIds" : [ "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" ],
+  "triggerId" : "idn:access-request-post-approval",
+  "contentJson" : {
+    "workflowId" : 1234
+  }
+}"@
 
 # Start a test invocation
 
 try {
-    $Result = ConvertFrom-JsonToTestinvocation -Json $Testinvocation
-    Start-TestTriggerInvocationV1 -Testinvocation $Result 
+    $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
+    Start-TestTriggerInvocationV1 -TestInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-TestTriggerInvocationV1 -Testinvocation $Result  
+    # Start-TestTriggerInvocationV1 -TestInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-TestTriggerInvocationV1"
     Write-Host $_.ErrorDetails
@@ -470,20 +509,20 @@ Request requires a security scope of:
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Validatefilterinputdto | [**Validatefilterinputdto**](../models/validatefilterinputdto) | True  | 
+ Body  | ValidateFilterInputDto | [**ValidateFilterInputDto**](../models/validate-filter-input-dto) | True  | 
 
 ### Return type
-[**Validatefilteroutputdto**](../models/validatefilteroutputdto)
+[**ValidateFilterOutputDto**](../models/validate-filter-output-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Boolean whether specified filter expression is valid against the input. | Validatefilteroutputdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Boolean whether specified filter expression is valid against the input. | ValidateFilterOutputDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTriggersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTriggersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -491,16 +530,21 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Validatefilterinputdto = @"{"input":{"identityId":"201327fda1c44704ac01181e963d463c"},"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}"@
+$ValidateFilterInputDto = @"{
+  "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
+  "input" : {
+    "identityId" : "201327fda1c44704ac01181e963d463c"
+  }
+}"@
 
 # Validate a subscription filter
 
 try {
-    $Result = ConvertFrom-JsonToValidatefilterinputdto -Json $Validatefilterinputdto
-    Test-SubscriptionFilterV1 -Validatefilterinputdto $Result 
+    $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
+    Test-SubscriptionFilterV1 -ValidateFilterInputDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-SubscriptionFilterV1 -Validatefilterinputdto $Result  
+    # Test-SubscriptionFilterV1 -ValidateFilterInputDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-SubscriptionFilterV1"
     Write-Host $_.ErrorDetails
@@ -526,7 +570,7 @@ This API updates a trigger subscription in IdentityNow, using a full object repr
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Subscription ID
- Body  | Subscriptionputrequest | [**Subscriptionputrequest**](../models/subscriptionputrequest) | True  | 
+ Body  | SubscriptionPutRequest | [**SubscriptionPutRequest**](../models/subscription-put-request) | True  | 
 
 ### Return type
 [**Subscription**](../models/subscription)
@@ -535,12 +579,12 @@ Path   | Id | **String** | True  | Subscription ID
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Updated subscription. | Subscription
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListTriggersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListTriggersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -549,16 +593,39 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
-$Subscriptionputrequest = @"{"name":"Access request subscription","description":"Access requested to site xyz","type":"HTTP","httpConfig":{"url":"https://www.example.com","httpDispatchMode":"SYNC","httpAuthenticationType":"BASIC_AUTH","basicAuthConfig":{"userName":"user@example.com","password":"eRtg4%6yuI!"}},"enabled":true,"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}"@
+$SubscriptionPutRequest = @"{
+  "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
+  "httpConfig" : {
+    "bearerTokenAuthConfig" : {
+      "bearerToken" : "bearerToken"
+    },
+    "httpAuthenticationType" : "BASIC_AUTH",
+    "httpDispatchMode" : "SYNC",
+    "basicAuthConfig" : {
+      "password" : "password",
+      "userName" : "user@example.com"
+    },
+    "url" : "https://www.example.com"
+  },
+  "name" : "Access request subscription",
+  "description" : "Access requested to site xyz",
+  "eventBridgeConfig" : {
+    "awsRegion" : "us-west-1",
+    "awsAccount" : "123456789012"
+  },
+  "responseDeadline" : "PT1H",
+  "type" : "HTTP",
+  "enabled" : true
+}"@
 
 # Update a subscription
 
 try {
-    $Result = ConvertFrom-JsonToSubscriptionputrequest -Json $Subscriptionputrequest
-    Update-SubscriptionV1 -Id $Id -Subscriptionputrequest $Result 
+    $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
+    Update-SubscriptionV1 -Id $Id -SubscriptionPutRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-SubscriptionV1 -Id $Id -Subscriptionputrequest $Result  
+    # Update-SubscriptionV1 -Id $Id -SubscriptionPutRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SubscriptionV1"
     Write-Host $_.ErrorDetails

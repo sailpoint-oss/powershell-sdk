@@ -5,18 +5,22 @@
       label: SDK_tools/sdk/powershell/custompasswordinstructions/methods/custom-password-instructions#create-custom-password-instructions-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Custompasswordinstruction = @"
-        {"pageId":"reset-password:enter-password","pageContent":"See company password policies for details by clicking <a href=\"url\">here</a>"}
+        $CustomPasswordInstruction = @"
+        {
+          "pageContent" : "Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter.",
+          "pageId" : "change-password:enter-password",
+          "locale" : "en"
+        }
         "@
         
         # Create custom password instructions
         
         try {
-            $Result = ConvertFrom-JsonToCustompasswordinstruction -Json $Custompasswordinstruction
-            New-CustomPasswordInstructionsV1 -XSailPointExperimental $XSailPointExperimental -Custompasswordinstruction $Result 
+            $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
+            New-CustomPasswordInstructionsV1 -XSailPointExperimental $XSailPointExperimental -CustomPasswordInstruction $Result 
     
             # Below is a request that includes all optional parameters
-            # New-CustomPasswordInstructionsV1 -XSailPointExperimental $XSailPointExperimental -Custompasswordinstruction $Result   
+            # New-CustomPasswordInstructionsV1 -XSailPointExperimental $XSailPointExperimental -CustomPasswordInstruction $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CustomPasswordInstructionsV1"
             Write-Host $_.ErrorDetails

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalsApi' {
     Context 'Approve-ApprovalInBulkV1' {
         It 'Test Approve-ApprovalInBulkV1' {
-            #$TestResult = Approve-ApprovalInBulkV1 -Bulkapproverequestdto "TEST_VALUE"
+            #$TestResult = Approve-ApprovalInBulkV1 -BulkApproveRequestDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalsApi' {
 
     Context 'Approve-ApprovalV1' {
         It 'Test Approve-ApprovalV1' {
-            #$TestResult = Approve-ApprovalV1 -Id "TEST_VALUE" -Approvalapproverequest "TEST_VALUE"
+            #$TestResult = Approve-ApprovalV1 -Id "TEST_VALUE" -ApprovalApproveRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalsApi' {
 
     Context 'Suspend-ApprovalByIdV1' {
         It 'Test Suspend-ApprovalByIdV1' {
-            #$TestResult = Suspend-ApprovalByIdV1 -Id "TEST_VALUE" -Approvalcancelrequest "TEST_VALUE"
+            #$TestResult = Suspend-ApprovalByIdV1 -Id "TEST_VALUE" -ApprovalCancelRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalsApi' {
 
     Context 'Suspend-ApprovalV1' {
         It 'Test Suspend-ApprovalV1' {
-            #$TestResult = Suspend-ApprovalV1 -Bulkcancelrequestdto "TEST_VALUE"
+            #$TestResult = Suspend-ApprovalV1 -BulkCancelRequestDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalsApi' {
 
     Context 'Move-ApprovalV1' {
         It 'Test Move-ApprovalV1' {
-            #$TestResult = Move-ApprovalV1 -Bulkreassignrequestdto "TEST_VALUE"
+            #$TestResult = Move-ApprovalV1 -BulkReassignRequestDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalsApi' {
 
     Context 'Send-ApprovalsConfigV1' {
         It 'Test Send-ApprovalsConfigV1' {
-            #$TestResult = Send-ApprovalsConfigV1 -Id "TEST_VALUE" -Scope "TEST_VALUE" -Approvalconfig "TEST_VALUE"
+            #$TestResult = Send-ApprovalsConfigV1 -Id "TEST_VALUE" -Scope "TEST_VALUE" -ApprovalConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalsApi' {
 
     Context 'Deny-ApprovalInBulkV1' {
         It 'Test Deny-ApprovalInBulkV1' {
-            #$TestResult = Deny-ApprovalInBulkV1 -Bulkrejectrequestdto "TEST_VALUE"
+            #$TestResult = Deny-ApprovalInBulkV1 -BulkRejectRequestDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalsApi' {
 
     Context 'Deny-ApprovalV1' {
         It 'Test Deny-ApprovalV1' {
-            #$TestResult = Deny-ApprovalV1 -Id "TEST_VALUE" -Approvalrejectrequest "TEST_VALUE"
+            #$TestResult = Deny-ApprovalV1 -Id "TEST_VALUE" -ApprovalRejectRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalsApi' {
 
     Context 'Update-ApprovalsAttributesV1' {
         It 'Test Update-ApprovalsAttributesV1' {
-            #$TestResult = Update-ApprovalsAttributesV1 -Id "TEST_VALUE" -Approvalattributesrequest "TEST_VALUE"
+            #$TestResult = Update-ApprovalsAttributesV1 -Id "TEST_VALUE" -ApprovalAttributesRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalsApi' {
 
     Context 'Update-ApprovalsCommentsV1' {
         It 'Test Update-ApprovalsCommentsV1' {
-            #$TestResult = Update-ApprovalsCommentsV1 -Id "TEST_VALUE" -Approvalcommentsrequest "TEST_VALUE"
+            #$TestResult = Update-ApprovalsCommentsV1 -Id "TEST_VALUE" -ApprovalCommentsRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -120,7 +120,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalsApi' {
 
     Context 'Update-ApprovalsReassignV1' {
         It 'Test Update-ApprovalsReassignV1' {
-            #$TestResult = Update-ApprovalsReassignV1 -Id "TEST_VALUE" -Approvalreassignrequest "TEST_VALUE"
+            #$TestResult = Update-ApprovalsReassignV1 -Id "TEST_VALUE" -ApprovalReassignRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

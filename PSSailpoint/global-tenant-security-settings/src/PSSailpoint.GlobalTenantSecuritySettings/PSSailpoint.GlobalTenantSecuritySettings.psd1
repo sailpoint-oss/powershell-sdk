@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.GlobalTenantSecuritySettings.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -79,30 +79,30 @@ FunctionsToExport = 'New-AuthOrgNetworkConfigV1', 'Get-AuthOrgLockoutConfigV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'ConvertFrom-JsonToArrayInner', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Federationprotocoldetails', 
-               'ConvertFrom-JsonToFederationprotocoldetails', 
+               'ConvertFrom-JsonToArrayInner', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-FederationProtocolDetails', 
+               'ConvertFrom-JsonToFederationProtocolDetails', 
                'Initialize-GetAuthOrgNetworkConfigV1401Response', 
                'ConvertFrom-JsonToGetAuthOrgNetworkConfigV1401Response', 
                'Initialize-GetAuthOrgNetworkConfigV1429Response', 
                'ConvertFrom-JsonToGetAuthOrgNetworkConfigV1429Response', 
-               'Initialize-Idpdetails', 'ConvertFrom-JsonToIdpdetails', 
-               'Initialize-Jitconfiguration', 'ConvertFrom-JsonToJitconfiguration', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 
-               'Initialize-Lockoutconfiguration', 
-               'ConvertFrom-JsonToLockoutconfiguration', 
-               'Initialize-Networkconfiguration', 
-               'ConvertFrom-JsonToNetworkconfiguration', 
-               'Initialize-Serviceproviderconfiguration', 
-               'ConvertFrom-JsonToServiceproviderconfiguration', 
-               'ConvertFrom-JsonToServiceproviderconfigurationFederationProtocolDetailsInner', 
-               'Initialize-Sessionconfiguration', 
-               'ConvertFrom-JsonToSessionconfiguration', 'Initialize-Spdetails', 
-               'ConvertFrom-JsonToSpdetails'
+               'Initialize-IdpDetails', 'ConvertFrom-JsonToIdpDetails', 
+               'Initialize-JITConfiguration', 'ConvertFrom-JsonToJITConfiguration', 
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 
+               'Initialize-LockoutConfiguration', 
+               'ConvertFrom-JsonToLockoutConfiguration', 
+               'Initialize-NetworkConfiguration', 
+               'ConvertFrom-JsonToNetworkConfiguration', 
+               'Initialize-ServiceProviderConfiguration', 
+               'ConvertFrom-JsonToServiceProviderConfiguration', 
+               'ConvertFrom-JsonToServiceProviderConfigurationFederationProtocolDetailsInner', 
+               'Initialize-SessionConfiguration', 
+               'ConvertFrom-JsonToSessionConfiguration', 'Initialize-SpDetails', 
+               'ConvertFrom-JsonToSpDetails'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

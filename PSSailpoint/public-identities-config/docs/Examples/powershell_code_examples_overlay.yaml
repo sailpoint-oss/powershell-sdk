@@ -22,18 +22,32 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/publicidentitiesconfig/methods/public-identities-config#update-public-identity-config-v1
       source: |
-        $Publicidentityconfig = @"
-        
+        $PublicIdentityConfig = @"
+        {
+          "modified" : "2018-06-25T20:22:28.104Z",
+          "attributes" : [ {
+            "name" : "Country",
+            "key" : "country"
+          }, {
+            "name" : "Country",
+            "key" : "country"
+          } ],
+          "modifiedBy" : {
+            "name" : "Thomas Edison",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          }
+        }
         "@
         
         # Update the public identities configuration
         
         try {
-            $Result = ConvertFrom-JsonToPublicidentityconfig -Json $Publicidentityconfig
-            Update-PublicIdentityConfigV1 -Publicidentityconfig $Result 
+            $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
+            Update-PublicIdentityConfigV1 -PublicIdentityConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-PublicIdentityConfigV1 -Publicidentityconfig $Result   
+            # Update-PublicIdentityConfigV1 -PublicIdentityConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PublicIdentityConfigV1"
             Write-Host $_.ErrorDetails

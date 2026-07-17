@@ -14,7 +14,7 @@ Create create managed cluster
 
 Create a new Managed Cluster. The API returns a result that includes the managed cluster ID.
 
-.PARAMETER Managedclusterrequest
+.PARAMETER ManagedClusterRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedcluster
+ManagedCluster
 #>
 function New-ManagedClusterV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Managedclusterrequest},
+        ${ManagedClusterRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-ManagedClusterV1 {
 
         $LocalVarUri = '/managed-clusters/v1'
 
-        if (!$Managedclusterrequest) {
-            throw "Error! The required parameter `Managedclusterrequest` missing when calling createManagedClusterV1."
+        if (!$ManagedClusterRequest) {
+            throw "Error! The required parameter `ManagedClusterRequest` missing when calling createManagedClusterV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Managedclusterrequest -is [array])) {
-            $LocalVarBodyParameter = $Managedclusterrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ManagedClusterRequest -is [array])) {
+            $LocalVarBodyParameter = $ManagedClusterRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Managedclusterrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ManagedClusterRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-ManagedClusterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedcluster" `
+                                -ReturnType "ManagedCluster" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -193,7 +193,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Clientlogconfiguration
+ClientLogConfiguration
 #>
 function Get-ClientLogConfigurationV1 {
     [CmdletBinding()]
@@ -236,7 +236,7 @@ function Get-ClientLogConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Clientlogconfiguration" `
+                                -ReturnType "ClientLogConfiguration" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -265,7 +265,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedcluster
+ManagedCluster
 #>
 function Get-ManagedClusterV1 {
     [CmdletBinding()]
@@ -308,7 +308,7 @@ function Get-ManagedClusterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedcluster" `
+                                -ReturnType "ManagedCluster" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -346,7 +346,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedcluster[]
+ManagedCluster[]
 #>
 function Get-ManagedClustersV1 {
     [CmdletBinding()]
@@ -410,7 +410,7 @@ function Get-ManagedClustersV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedcluster[]" `
+                                -ReturnType "ManagedCluster[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -442,7 +442,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Clientlogconfiguration
+ClientLogConfiguration
 #>
 function Send-ClientLogConfigurationV1 {
     [CmdletBinding()]
@@ -508,7 +508,7 @@ function Send-ClientLogConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Clientlogconfiguration" `
+                                -ReturnType "ClientLogConfiguration" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -531,7 +531,7 @@ Update an existing managed cluster.
 .PARAMETER Id
 Managed cluster ID.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 JSONPatch payload used to update the object.
 
 .PARAMETER WithHttpInfo
@@ -540,7 +540,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedcluster
+ManagedCluster
 #>
 function Update-ManagedClusterV1 {
     [CmdletBinding()]
@@ -550,7 +550,7 @@ function Update-ManagedClusterV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -580,14 +580,14 @@ function Update-ManagedClusterV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateManagedClusterV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateManagedClusterV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -606,7 +606,7 @@ function Update-ManagedClusterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedcluster" `
+                                -ReturnType "ManagedCluster" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -635,7 +635,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Clustermanualupgrade
+ClusterManualUpgrade
 #>
 function Update-V1 {
     [CmdletBinding()]
@@ -678,7 +678,7 @@ function Update-V1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Clustermanualupgrade" `
+                                -ReturnType "ClusterManualUpgrade" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

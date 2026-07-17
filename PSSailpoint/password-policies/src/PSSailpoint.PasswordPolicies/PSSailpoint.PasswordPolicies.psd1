@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.PasswordPolicies.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,15 +75,15 @@ FunctionsToExport = 'New-PasswordPolicyV1', 'Remove-PasswordPolicyV1',
                'Set-ConfigurationApiKey', 'Set-ConfigurationApiKeyPrefix', 
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
-               'Get-ConfigurationHttpSigning', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
+               'Get-ConfigurationHttpSigning', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetPasswordPolicyByIdV1401Response', 
                'ConvertFrom-JsonToGetPasswordPolicyByIdV1401Response', 
                'Initialize-GetPasswordPolicyByIdV1429Response', 
                'ConvertFrom-JsonToGetPasswordPolicyByIdV1429Response', 
-               'Initialize-Passwordpolicyv3dto', 
-               'ConvertFrom-JsonToPasswordpolicyv3dto'
+               'Initialize-PasswordPolicyV3Dto', 
+               'ConvertFrom-JsonToPasswordPolicyV3Dto'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

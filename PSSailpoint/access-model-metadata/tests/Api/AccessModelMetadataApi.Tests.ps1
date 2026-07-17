@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.AccessModelMetadata' -name 'AccessModelMetadataApi' {
     Context 'New-AccessModelMetadataAttributeV1' {
         It 'Test New-AccessModelMetadataAttributeV1' {
-            #$TestResult = New-AccessModelMetadataAttributeV1 -Attributedto "TEST_VALUE"
+            #$TestResult = New-AccessModelMetadataAttributeV1 -AttributeDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.AccessModelMetadata' -name 'AccessModelMetadataApi' {
 
     Context 'New-AccessModelMetadataAttributeValueV1' {
         It 'Test New-AccessModelMetadataAttributeValueV1' {
-            #$TestResult = New-AccessModelMetadataAttributeValueV1 -Key "TEST_VALUE" -Attributevaluedto "TEST_VALUE"
+            #$TestResult = New-AccessModelMetadataAttributeValueV1 -Key "TEST_VALUE" -AttributeValueDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.AccessModelMetadata' -name 'AccessModelMetadataApi' {
 
     Context 'Update-AccessModelMetadataAttributeV1' {
         It 'Test Update-AccessModelMetadataAttributeV1' {
-            #$TestResult = Update-AccessModelMetadataAttributeV1 -Key "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-AccessModelMetadataAttributeV1 -Key "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.AccessModelMetadata' -name 'AccessModelMetadataApi' {
 
     Context 'Update-AccessModelMetadataAttributeValueV1' {
         It 'Test Update-AccessModelMetadataAttributeValueV1' {
-            #$TestResult = Update-AccessModelMetadataAttributeValueV1 -Key "TEST_VALUE" -Value "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-AccessModelMetadataAttributeValueV1 -Key "TEST_VALUE" -Value "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.AccessModelMetadata' -name 'AccessModelMetadataApi' {
 
     Context 'Update-AccessModelMetadataByFilterV1' {
         It 'Test Update-AccessModelMetadataByFilterV1' {
-            #$TestResult = Update-AccessModelMetadataByFilterV1 -Entitlementattributebulkupdatefilterrequest "TEST_VALUE"
+            #$TestResult = Update-AccessModelMetadataByFilterV1 -EntitlementAttributeBulkUpdateFilterRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.AccessModelMetadata' -name 'AccessModelMetadataApi' {
 
     Context 'Update-AccessModelMetadataByIdsV1' {
         It 'Test Update-AccessModelMetadataByIdsV1' {
-            #$TestResult = Update-AccessModelMetadataByIdsV1 -Entitlementattributebulkupdateidsrequest "TEST_VALUE"
+            #$TestResult = Update-AccessModelMetadataByIdsV1 -EntitlementAttributeBulkUpdateIdsRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.AccessModelMetadata' -name 'AccessModelMetadataApi' {
 
     Context 'Update-AccessModelMetadataByQueryV1' {
         It 'Test Update-AccessModelMetadataByQueryV1' {
-            #$TestResult = Update-AccessModelMetadataByQueryV1 -Entitlementattributebulkupdatequeryrequest "TEST_VALUE"
+            #$TestResult = Update-AccessModelMetadataByQueryV1 -EntitlementAttributeBulkUpdateQueryRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

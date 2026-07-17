@@ -170,18 +170,21 @@
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
-        $Sendaccountverificationrequest = @"
-        
+        $SendAccountVerificationRequest = @"
+        {
+          "sourceName" : "Active Directory Source",
+          "via" : "EMAIL_WORK"
+        }
         "@
         
         # Send password reset email
         
         try {
-            $Result = ConvertFrom-JsonToSendaccountverificationrequest -Json $Sendaccountverificationrequest
-            Send-IdentityVerificationAccountTokenV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Sendaccountverificationrequest $Result 
+            $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
+            Send-IdentityVerificationAccountTokenV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -SendAccountVerificationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-IdentityVerificationAccountTokenV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Sendaccountverificationrequest $Result   
+            # Send-IdentityVerificationAccountTokenV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -SendAccountVerificationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-IdentityVerificationAccountTokenV1"
             Write-Host $_.ErrorDetails
@@ -193,18 +196,21 @@
       label: SDK_tools/sdk/powershell/identities/methods/identities#start-identities-invite-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Inviteidentitiesrequest = @"
-        
+        $InviteIdentitiesRequest = @"
+        {
+          "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
+          "uninvited" : false
+        }
         "@
         
         # Invite identities to register
         
         try {
-            $Result = ConvertFrom-JsonToInviteidentitiesrequest -Json $Inviteidentitiesrequest
-            Start-IdentitiesInviteV1 -XSailPointExperimental $XSailPointExperimental -Inviteidentitiesrequest $Result 
+            $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
+            Start-IdentitiesInviteV1 -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-IdentitiesInviteV1 -XSailPointExperimental $XSailPointExperimental -Inviteidentitiesrequest $Result   
+            # Start-IdentitiesInviteV1 -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-IdentitiesInviteV1"
             Write-Host $_.ErrorDetails
@@ -216,18 +222,20 @@
       label: SDK_tools/sdk/powershell/identities/methods/identities#start-identity-processing-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Processidentitiesrequest = @"
-        
+        $ProcessIdentitiesRequest = @"
+        {
+          "identityIds" : [ "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8" ]
+        }
         "@
         
         # Process a list of identityids
         
         try {
-            $Result = ConvertFrom-JsonToProcessidentitiesrequest -Json $Processidentitiesrequest
-            Start-IdentityProcessingV1 -XSailPointExperimental $XSailPointExperimental -Processidentitiesrequest $Result 
+            $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
+            Start-IdentityProcessingV1 -XSailPointExperimental $XSailPointExperimental -ProcessIdentitiesRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-IdentityProcessingV1 -XSailPointExperimental $XSailPointExperimental -Processidentitiesrequest $Result   
+            # Start-IdentityProcessingV1 -XSailPointExperimental $XSailPointExperimental -ProcessIdentitiesRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-IdentityProcessingV1"
             Write-Host $_.ErrorDetails

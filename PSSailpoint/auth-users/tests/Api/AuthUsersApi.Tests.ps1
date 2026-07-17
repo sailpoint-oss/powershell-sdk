@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.AuthUsers' -name 'AuthUsersApi' {
 
     Context 'Update-AuthUserV1' {
         It 'Test Update-AuthUserV1' {
-            #$TestResult = Update-AuthUserV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-AuthUserV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

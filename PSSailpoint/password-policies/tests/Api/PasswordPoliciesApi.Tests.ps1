@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.PasswordPolicies' -name 'PasswordPoliciesApi' {
     Context 'New-PasswordPolicyV1' {
         It 'Test New-PasswordPolicyV1' {
-            #$TestResult = New-PasswordPolicyV1 -XSailPointExperimental "TEST_VALUE" -Passwordpolicyv3dto "TEST_VALUE"
+            #$TestResult = New-PasswordPolicyV1 -XSailPointExperimental "TEST_VALUE" -PasswordPolicyV3Dto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.PasswordPolicies' -name 'PasswordPoliciesApi' {
 
     Context 'Set-PasswordPolicyV1' {
         It 'Test Set-PasswordPolicyV1' {
-            #$TestResult = Set-PasswordPolicyV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Passwordpolicyv3dto "TEST_VALUE"
+            #$TestResult = Set-PasswordPolicyV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -PasswordPolicyV3Dto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

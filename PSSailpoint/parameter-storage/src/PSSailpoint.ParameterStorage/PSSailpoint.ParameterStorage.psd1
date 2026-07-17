@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.ParameterStorage.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -78,24 +78,24 @@ FunctionsToExport = 'New-ParameterV1', 'Remove-ParameterV1', 'Get-AttestationDoc
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
                'Initialize-DeleteParameterV1409Response', 
                'ConvertFrom-JsonToDeleteParameterV1409Response', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetAttestationDocumentV1401Response', 
                'ConvertFrom-JsonToGetAttestationDocumentV1401Response', 
                'Initialize-GetAttestationDocumentV1429Response', 
                'ConvertFrom-JsonToGetAttestationDocumentV1429Response', 
-               'Initialize-Parameterstorageattestationdocument', 
-               'ConvertFrom-JsonToParameterstorageattestationdocument', 
-               'Initialize-Parameterstoragejsonpatch', 
-               'ConvertFrom-JsonToParameterstoragejsonpatch', 
-               'Initialize-Parameterstoragenewparameter', 
-               'ConvertFrom-JsonToParameterstoragenewparameter', 
-               'Initialize-Parameterstorageparameter', 
-               'ConvertFrom-JsonToParameterstorageparameter', 
-               'Initialize-Parameterstoragereference', 
-               'ConvertFrom-JsonToParameterstoragereference', 
-               'Initialize-Parameterstorageupdateparameter', 
-               'ConvertFrom-JsonToParameterstorageupdateparameter'
+               'Initialize-ParameterStorageAttestationDocument', 
+               'ConvertFrom-JsonToParameterStorageAttestationDocument', 
+               'Initialize-ParameterStorageJsonPatch', 
+               'ConvertFrom-JsonToParameterStorageJsonPatch', 
+               'Initialize-ParameterStorageNewParameter', 
+               'ConvertFrom-JsonToParameterStorageNewParameter', 
+               'Initialize-ParameterStorageParameter', 
+               'ConvertFrom-JsonToParameterStorageParameter', 
+               'Initialize-ParameterStorageReference', 
+               'ConvertFrom-JsonToParameterStorageReference', 
+               'Initialize-ParameterStorageUpdateParameter', 
+               'ConvertFrom-JsonToParameterStorageUpdateParameter'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

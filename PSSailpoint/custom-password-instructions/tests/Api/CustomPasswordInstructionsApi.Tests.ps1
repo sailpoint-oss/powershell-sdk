@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.CustomPasswordInstructions' -name 'CustomPasswordInstructionsApi' {
     Context 'New-CustomPasswordInstructionsV1' {
         It 'Test New-CustomPasswordInstructionsV1' {
-            #$TestResult = New-CustomPasswordInstructionsV1 -XSailPointExperimental "TEST_VALUE" -Custompasswordinstruction "TEST_VALUE"
+            #$TestResult = New-CustomPasswordInstructionsV1 -XSailPointExperimental "TEST_VALUE" -CustomPasswordInstruction "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

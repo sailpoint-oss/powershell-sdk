@@ -14,7 +14,7 @@ Create connector rule
 
 Create a connector rule from the available types.
 
-.PARAMETER Connectorrulecreaterequest
+.PARAMETER ConnectorRuleCreateRequest
 Connector rule to create.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectorruleresponse
+ConnectorRuleResponse
 #>
 function New-ConnectorRuleV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Connectorrulecreaterequest},
+        ${ConnectorRuleCreateRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-ConnectorRuleV1 {
 
         $LocalVarUri = '/connector-rules/v1'
 
-        if (!$Connectorrulecreaterequest) {
-            throw "Error! The required parameter `Connectorrulecreaterequest` missing when calling createConnectorRuleV1."
+        if (!$ConnectorRuleCreateRequest) {
+            throw "Error! The required parameter `ConnectorRuleCreateRequest` missing when calling createConnectorRuleV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Connectorrulecreaterequest -is [array])) {
-            $LocalVarBodyParameter = $Connectorrulecreaterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ConnectorRuleCreateRequest -is [array])) {
+            $LocalVarBodyParameter = $ConnectorRuleCreateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Connectorrulecreaterequest | ForEach-Object {
+            $LocalVarBodyParameter = $ConnectorRuleCreateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-ConnectorRuleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectorruleresponse" `
+                                -ReturnType "ConnectorRuleResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -189,7 +189,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectorruleresponse[]
+ConnectorRuleResponse[]
 #>
 function Get-ConnectorRuleListV1 {
     [CmdletBinding()]
@@ -246,7 +246,7 @@ function Get-ConnectorRuleListV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectorruleresponse[]" `
+                                -ReturnType "ConnectorRuleResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -275,7 +275,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectorruleresponse
+ConnectorRuleResponse
 #>
 function Get-ConnectorRuleV1 {
     [CmdletBinding()]
@@ -318,7 +318,7 @@ function Get-ConnectorRuleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectorruleresponse" `
+                                -ReturnType "ConnectorRuleResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -341,7 +341,7 @@ Update an existing connector rule with the one provided in the request body. The
 .PARAMETER Id
 ID of the connector rule to update.
 
-.PARAMETER Connectorruleupdaterequest
+.PARAMETER ConnectorRuleUpdateRequest
 Connector rule with updated data.
 
 .PARAMETER WithHttpInfo
@@ -350,7 +350,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectorruleresponse
+ConnectorRuleResponse
 #>
 function Send-ConnectorRuleV1 {
     [CmdletBinding()]
@@ -360,7 +360,7 @@ function Send-ConnectorRuleV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Connectorruleupdaterequest},
+        ${ConnectorRuleUpdateRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -390,10 +390,10 @@ function Send-ConnectorRuleV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Connectorruleupdaterequest -is [array])) {
-            $LocalVarBodyParameter = $Connectorruleupdaterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ConnectorRuleUpdateRequest -is [array])) {
+            $LocalVarBodyParameter = $ConnectorRuleUpdateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Connectorruleupdaterequest | ForEach-Object {
+            $LocalVarBodyParameter = $ConnectorRuleUpdateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -412,7 +412,7 @@ function Send-ConnectorRuleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectorruleresponse" `
+                                -ReturnType "ConnectorRuleResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -432,7 +432,7 @@ Validate connector rule
 
 Detect issues within the connector rule's code to fix and list them.
 
-.PARAMETER Sourcecode
+.PARAMETER SourceCode
 Code to validate.
 
 .PARAMETER WithHttpInfo
@@ -441,14 +441,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Connectorrulevalidationresponse
+ConnectorRuleValidationResponse
 #>
 function Test-ConnectorRuleV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Sourcecode},
+        ${SourceCode},
         [Switch]
         $WithHttpInfo
     )
@@ -474,14 +474,14 @@ function Test-ConnectorRuleV1 {
 
         $LocalVarUri = '/connector-rules/v1/validate'
 
-        if (!$Sourcecode) {
-            throw "Error! The required parameter `Sourcecode` missing when calling testConnectorRuleV1."
+        if (!$SourceCode) {
+            throw "Error! The required parameter `SourceCode` missing when calling testConnectorRuleV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sourcecode -is [array])) {
-            $LocalVarBodyParameter = $Sourcecode | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SourceCode -is [array])) {
+            $LocalVarBodyParameter = $SourceCode | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sourcecode | ForEach-Object {
+            $LocalVarBodyParameter = $SourceCode | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -500,7 +500,7 @@ function Test-ConnectorRuleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Connectorrulevalidationresponse" `
+                                -ReturnType "ConnectorRuleValidationResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

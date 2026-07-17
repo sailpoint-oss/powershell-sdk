@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Tenantuimetadataitemresponse
+TenantUiMetadataItemResponse
 #>
 function Get-TenantUiMetadataV1 {
     [CmdletBinding()]
@@ -67,7 +67,7 @@ function Get-TenantUiMetadataV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Tenantuimetadataitemresponse" `
+                                -ReturnType "TenantUiMetadataItemResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -90,7 +90,7 @@ This API endpoint updates UI metadata for your tenant. These changes may require
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Tenantuimetadataitemupdaterequest
+.PARAMETER TenantUiMetadataItemUpdateRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -99,7 +99,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Tenantuimetadataitemresponse
+TenantUiMetadataItemResponse
 #>
 function Set-TenantUiMetadataV1 {
     [CmdletBinding()]
@@ -109,7 +109,7 @@ function Set-TenantUiMetadataV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Tenantuimetadataitemupdaterequest},
+        ${TenantUiMetadataItemUpdateRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -140,14 +140,14 @@ function Set-TenantUiMetadataV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Tenantuimetadataitemupdaterequest) {
-            throw "Error! The required parameter `Tenantuimetadataitemupdaterequest` missing when calling setTenantUiMetadataV1."
+        if (!$TenantUiMetadataItemUpdateRequest) {
+            throw "Error! The required parameter `TenantUiMetadataItemUpdateRequest` missing when calling setTenantUiMetadataV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Tenantuimetadataitemupdaterequest -is [array])) {
-            $LocalVarBodyParameter = $Tenantuimetadataitemupdaterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TenantUiMetadataItemUpdateRequest -is [array])) {
+            $LocalVarBodyParameter = $TenantUiMetadataItemUpdateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Tenantuimetadataitemupdaterequest | ForEach-Object {
+            $LocalVarBodyParameter = $TenantUiMetadataItemUpdateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -166,7 +166,7 @@ function Set-TenantUiMetadataV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Tenantuimetadataitemresponse" `
+                                -ReturnType "TenantUiMetadataItemResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -35,7 +35,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountusage[]
+AccountUsage[]
 #>
 function Get-UsagesByAccountIdV1 {
     [CmdletBinding()]
@@ -106,7 +106,7 @@ function Get-UsagesByAccountIdV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountusage[]" `
+                                -ReturnType "AccountUsage[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

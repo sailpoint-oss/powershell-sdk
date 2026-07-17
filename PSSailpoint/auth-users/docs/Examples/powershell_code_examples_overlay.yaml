@@ -24,17 +24,21 @@
       label: SDK_tools/sdk/powershell/authusers/methods/auth-users#patch-auth-user-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/capabilities","value":["ORG_ADMIN"]}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Auth user update
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-AuthUserV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-AuthUserV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AuthUserV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-AuthUserV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthUserV1"
             Write-Host $_.ErrorDetails

@@ -4,8 +4,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/parameterstorage/methods/parameter-storage#create-parameter-v1
       source: |
-        $Parameterstoragenewparameter = @"
-        
+        $ParameterStorageNewParameter = @"
+        {
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b",
+          "type" : "1.1"
+        }
         "@
         
         # Add a new parameter.
@@ -14,7 +21,7 @@
             New-ParameterV1 
     
             # Below is a request that includes all optional parameters
-            # New-ParameterV1 -Parameterstoragenewparameter $Result   
+            # New-ParameterV1 -ParameterStorageNewParameter $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ParameterV1"
             Write-Host $_.ErrorDetails
@@ -146,8 +153,21 @@
       label: SDK_tools/sdk/powershell/parameterstorage/methods/parameter-storage#update-parameter-v1
       source: |
         $Id = "58de858b-83d9-4563-9e15-7393594c684a" # String | The ID of the parameter to be updated.
-        $Parameterstorageupdateparameter = @"
-        
+        $ParameterStorageUpdateParameter = @"
+        {
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+        }
+        {
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+        }
         "@
         
         # Update a parameter.
@@ -156,7 +176,7 @@
             Update-ParameterV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Update-ParameterV1 -Id $Id -Parameterstorageupdateparameter $Result   
+            # Update-ParameterV1 -Id $Id -ParameterStorageUpdateParameter $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ParameterV1"
             Write-Host $_.ErrorDetails

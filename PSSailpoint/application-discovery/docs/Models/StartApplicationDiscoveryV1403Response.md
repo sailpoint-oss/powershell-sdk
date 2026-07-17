@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DetailCode** | **String** | Fine-grained error code providing more detail of the error. | [optional] 
 **TrackingId** | **String** | Unique tracking id for the error. | [optional] 
-**Messages** | [**[]Errormessagedto**](errormessagedto) | Generic localized reason for error | [optional] 
-**Causes** | [**[]Errormessagedto**](errormessagedto) | Plain-text descriptive reasons to provide additional detail to the text provided in the messages field | [optional] 
+**Messages** | [**[]ErrorMessageDto**](error-message-dto) | Generic localized reason for error | [optional] 
+**Causes** | [**[]ErrorMessageDto**](error-message-dto) | Plain-text descriptive reasons to provide additional detail to the text provided in the messages field | [optional] 
 **VarError** | **String** | Error message when quota is exceeded | [required]
 
 ## Examples

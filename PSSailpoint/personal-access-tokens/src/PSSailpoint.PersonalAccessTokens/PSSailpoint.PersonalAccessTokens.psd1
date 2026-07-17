@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.PersonalAccessTokens.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,22 +76,22 @@ FunctionsToExport = 'New-PersonalAccessTokenV1', 'Remove-PersonalAccessTokenV1',
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
                'ConvertFrom-JsonToArrayInner', 
-               'Initialize-Createpersonalaccesstokenrequest', 
-               'ConvertFrom-JsonToCreatepersonalaccesstokenrequest', 
-               'Initialize-Createpersonalaccesstokenresponse', 
-               'ConvertFrom-JsonToCreatepersonalaccesstokenresponse', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Getpersonalaccesstokenresponse', 
-               'ConvertFrom-JsonToGetpersonalaccesstokenresponse', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 
+               'Initialize-CreatePersonalAccessTokenRequest', 
+               'ConvertFrom-JsonToCreatePersonalAccessTokenRequest', 
+               'Initialize-CreatePersonalAccessTokenResponse', 
+               'ConvertFrom-JsonToCreatePersonalAccessTokenResponse', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-GetPersonalAccessTokenResponse', 
+               'ConvertFrom-JsonToGetPersonalAccessTokenResponse', 
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 
                'Initialize-ListPersonalAccessTokensV1401Response', 
                'ConvertFrom-JsonToListPersonalAccessTokensV1401Response', 
                'Initialize-ListPersonalAccessTokensV1429Response', 
                'ConvertFrom-JsonToListPersonalAccessTokensV1429Response', 
-               'Initialize-Patowner', 'ConvertFrom-JsonToPatowner'
+               'Initialize-PatOwner', 'ConvertFrom-JsonToPatOwner'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

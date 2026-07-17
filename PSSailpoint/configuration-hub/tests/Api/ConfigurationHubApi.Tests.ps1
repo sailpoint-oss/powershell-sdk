@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.ConfigurationHub' -name 'ConfigurationHubApi' {
     Context 'New-DeployV1' {
         It 'Test New-DeployV1' {
-            #$TestResult = New-DeployV1 -Deployrequest "TEST_VALUE"
+            #$TestResult = New-DeployV1 -DeployRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.ConfigurationHub' -name 'ConfigurationHubApi' {
 
     Context 'New-ObjectMappingV1' {
         It 'Test New-ObjectMappingV1' {
-            #$TestResult = New-ObjectMappingV1 -SourceOrg "TEST_VALUE" -Objectmappingrequest "TEST_VALUE"
+            #$TestResult = New-ObjectMappingV1 -SourceOrg "TEST_VALUE" -ObjectMappingRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.ConfigurationHub' -name 'ConfigurationHubApi' {
 
     Context 'New-ObjectMappingsV1' {
         It 'Test New-ObjectMappingsV1' {
-            #$TestResult = New-ObjectMappingsV1 -SourceOrg "TEST_VALUE" -Objectmappingbulkcreaterequest "TEST_VALUE"
+            #$TestResult = New-ObjectMappingsV1 -SourceOrg "TEST_VALUE" -ObjectMappingBulkCreateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.ConfigurationHub' -name 'ConfigurationHubApi' {
 
     Context 'New-ScheduledActionV1' {
         It 'Test New-ScheduledActionV1' {
-            #$TestResult = New-ScheduledActionV1 -Scheduledactionpayload "TEST_VALUE"
+            #$TestResult = New-ScheduledActionV1 -ScheduledActionPayload "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -152,7 +152,7 @@ Describe -tag 'PSSailpoint.ConfigurationHub' -name 'ConfigurationHubApi' {
 
     Context 'Update-ObjectMappingsV1' {
         It 'Test Update-ObjectMappingsV1' {
-            #$TestResult = Update-ObjectMappingsV1 -SourceOrg "TEST_VALUE" -Objectmappingbulkpatchrequest "TEST_VALUE"
+            #$TestResult = Update-ObjectMappingsV1 -SourceOrg "TEST_VALUE" -ObjectMappingBulkPatchRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -160,7 +160,7 @@ Describe -tag 'PSSailpoint.ConfigurationHub' -name 'ConfigurationHubApi' {
 
     Context 'Update-ScheduledActionV1' {
         It 'Test Update-ScheduledActionV1' {
-            #$TestResult = Update-ScheduledActionV1 -Id "TEST_VALUE" -Jsonpatch "TEST_VALUE"
+            #$TestResult = Update-ScheduledActionV1 -Id "TEST_VALUE" -JsonPatch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

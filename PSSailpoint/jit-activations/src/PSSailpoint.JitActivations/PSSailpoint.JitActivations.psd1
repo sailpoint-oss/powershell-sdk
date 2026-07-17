@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.JitActivations.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,21 +74,21 @@ FunctionsToExport = 'Start-ActivateWorkflowV1', 'Start-DeactivateWorkflowV1',
                'Set-ConfigurationApiKey', 'Set-ConfigurationApiKeyPrefix', 
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
-               'Get-ConfigurationHttpSigning', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Jitactivationactivaterequest', 
-               'ConvertFrom-JsonToJitactivationactivaterequest', 
-               'Initialize-Jitactivationactivateresponse', 
-               'ConvertFrom-JsonToJitactivationactivateresponse', 
-               'Initialize-Jitactivationdeactivaterequest', 
-               'ConvertFrom-JsonToJitactivationdeactivaterequest', 
-               'Initialize-Jitactivationdeactivateresponse', 
-               'ConvertFrom-JsonToJitactivationdeactivateresponse', 
-               'Initialize-Jitactivationextendrequest', 
-               'ConvertFrom-JsonToJitactivationextendrequest', 
-               'Initialize-Jitactivationextendresponse', 
-               'ConvertFrom-JsonToJitactivationextendresponse', 
+               'Get-ConfigurationHttpSigning', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-JitActivationActivateRequest', 
+               'ConvertFrom-JsonToJitActivationActivateRequest', 
+               'Initialize-JitActivationActivateResponse', 
+               'ConvertFrom-JsonToJitActivationActivateResponse', 
+               'Initialize-JitActivationDeactivateRequest', 
+               'ConvertFrom-JsonToJitActivationDeactivateRequest', 
+               'Initialize-JitActivationDeactivateResponse', 
+               'ConvertFrom-JsonToJitActivationDeactivateResponse', 
+               'Initialize-JitActivationExtendRequest', 
+               'ConvertFrom-JsonToJitActivationExtendRequest', 
+               'Initialize-JitActivationExtendResponse', 
+               'ConvertFrom-JsonToJitActivationExtendResponse', 
                'Initialize-StartActivateWorkflowV1401Response', 
                'ConvertFrom-JsonToStartActivateWorkflowV1401Response', 
                'Initialize-StartActivateWorkflowV1429Response', 

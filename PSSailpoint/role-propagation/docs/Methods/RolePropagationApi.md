@@ -49,11 +49,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | Role Propagation has been successfully terminated. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartRolePropagationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartRolePropagationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -91,17 +91,17 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**RolePropagationOngoingResponse**](../models/role-propagation-ongoing-response)
+[**Rolepropagationongoingresponse**](../models/rolepropagationongoingresponse)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Information of ongoing role propagation process. | RolePropagationOngoingResponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Information of ongoing role propagation process. | Rolepropagationongoingresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartRolePropagationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartRolePropagationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -139,17 +139,17 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**RolePropagationConfigResponse**](../models/role-propagation-config-response)
+[**Rolepropagationconfigresponse**](../models/rolepropagationconfigresponse)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Role Change Propagation configuration for the tenant. | RolePropagationConfigResponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Role Change Propagation configuration for the tenant. | Rolepropagationconfigresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartRolePropagationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartRolePropagationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -194,18 +194,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | RolePropagationId | **String** | True  | The ID of the role propagation process to retrieve the status for.
 
 ### Return type
-[**RolePropagationStatusResponse**](../models/role-propagation-status-response)
+[**Rolepropagationstatusresponse**](../models/rolepropagationstatusresponse)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Information of the role propagation process. | RolePropagationStatusResponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Information of the role propagation process. | Rolepropagationstatusresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartRolePropagationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartRolePropagationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -242,20 +242,20 @@ This endpoint enables or disables the Role Change Propagation Process for the te
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | RolePropagationConfigInput | [**RolePropagationConfigInput**](../models/role-propagation-config-input) | True  | 
+ Body  | Rolepropagationconfiginput | [**Rolepropagationconfiginput**](../models/rolepropagationconfiginput) | True  | 
 
 ### Return type
-[**RolePropagationConfigResponse**](../models/role-propagation-config-response)
+[**Rolepropagationconfigresponse**](../models/rolepropagationconfigresponse)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Role Change Propagation configuration for the tenant is successfully updated. | RolePropagationConfigResponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Role Change Propagation configuration for the tenant is successfully updated. | Rolepropagationconfigresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartRolePropagationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartRolePropagationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -264,16 +264,18 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$RolePropagationConfigInput = @""@
+$Rolepropagationconfiginput = @"{
+  "enabled" : true
+}"@
 
 # Update Role Change Propagation Configuration
 
 try {
-    $Result = ConvertFrom-JsonToRolePropagationConfigInput -Json $RolePropagationConfigInput
-    Set-RolePropagationConfigV1 -XSailPointExperimental $XSailPointExperimental -RolePropagationConfigInput $Result 
+    $Result = ConvertFrom-JsonToRolepropagationconfiginput -Json $Rolepropagationconfiginput
+    Set-RolePropagationConfigV1 -XSailPointExperimental $XSailPointExperimental -Rolepropagationconfiginput $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-RolePropagationConfigV1 -XSailPointExperimental $XSailPointExperimental -RolePropagationConfigInput $Result  
+    # Set-RolePropagationConfigV1 -XSailPointExperimental $XSailPointExperimental -Rolepropagationconfiginput $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-RolePropagationConfigV1"
     Write-Host $_.ErrorDetails
@@ -297,17 +299,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | SkipRoleRefresh | **Boolean** |   (optional) (default to $false) | When true, the role refresh is not performed. Keeping it false is recommended.
 
 ### Return type
-[**RolePropagationResponse**](../models/role-propagation-response)
+[**Rolepropagationresponse**](../models/rolepropagationresponse)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Role Propagation has sucessfully started. | RolePropagationResponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Role Propagation has sucessfully started. | Rolepropagationresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartRolePropagationV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartRolePropagationV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined

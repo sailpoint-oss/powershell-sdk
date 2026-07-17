@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.NonEmployeeLifecycleManagement' -name 'NonEmployeeLifecycleManagementApi' {
     Context 'Approve-NonEmployeeRequestV1' {
         It 'Test Approve-NonEmployeeRequestV1' {
-            #$TestResult = Approve-NonEmployeeRequestV1 -Id "TEST_VALUE" -Nonemployeeapprovaldecision "TEST_VALUE"
+            #$TestResult = Approve-NonEmployeeRequestV1 -Id "TEST_VALUE" -NonEmployeeApprovalDecision "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.NonEmployeeLifecycleManagement' -name 'NonEmployeeLif
 
     Context 'New-NonEmployeeRecordV1' {
         It 'Test New-NonEmployeeRecordV1' {
-            #$TestResult = New-NonEmployeeRecordV1 -Nonemployeerequestbody "TEST_VALUE"
+            #$TestResult = New-NonEmployeeRecordV1 -NonEmployeeRequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.NonEmployeeLifecycleManagement' -name 'NonEmployeeLif
 
     Context 'New-NonEmployeeRequestV1' {
         It 'Test New-NonEmployeeRequestV1' {
-            #$TestResult = New-NonEmployeeRequestV1 -Nonemployeerequestbody "TEST_VALUE"
+            #$TestResult = New-NonEmployeeRequestV1 -NonEmployeeRequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.NonEmployeeLifecycleManagement' -name 'NonEmployeeLif
 
     Context 'New-NonEmployeeSourceSchemaAttributesV1' {
         It 'Test New-NonEmployeeSourceSchemaAttributesV1' {
-            #$TestResult = New-NonEmployeeSourceSchemaAttributesV1 -SourceId "TEST_VALUE" -Nonemployeeschemaattributebody "TEST_VALUE"
+            #$TestResult = New-NonEmployeeSourceSchemaAttributesV1 -SourceId "TEST_VALUE" -NonEmployeeSchemaAttributeBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.NonEmployeeLifecycleManagement' -name 'NonEmployeeLif
 
     Context 'New-NonEmployeeSourceV1' {
         It 'Test New-NonEmployeeSourceV1' {
-            #$TestResult = New-NonEmployeeSourceV1 -Nonemployeesourcerequestbody "TEST_VALUE"
+            #$TestResult = New-NonEmployeeSourceV1 -NonEmployeeSourceRequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -224,7 +224,7 @@ Describe -tag 'PSSailpoint.NonEmployeeLifecycleManagement' -name 'NonEmployeeLif
 
     Context 'Update-NonEmployeeRecordV1' {
         It 'Test Update-NonEmployeeRecordV1' {
-            #$TestResult = Update-NonEmployeeRecordV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-NonEmployeeRecordV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -232,7 +232,7 @@ Describe -tag 'PSSailpoint.NonEmployeeLifecycleManagement' -name 'NonEmployeeLif
 
     Context 'Update-NonEmployeeSchemaAttributeV1' {
         It 'Test Update-NonEmployeeSchemaAttributeV1' {
-            #$TestResult = Update-NonEmployeeSchemaAttributeV1 -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-NonEmployeeSchemaAttributeV1 -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -240,7 +240,7 @@ Describe -tag 'PSSailpoint.NonEmployeeLifecycleManagement' -name 'NonEmployeeLif
 
     Context 'Update-NonEmployeeSourceV1' {
         It 'Test Update-NonEmployeeSourceV1' {
-            #$TestResult = Update-NonEmployeeSourceV1 -SourceId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-NonEmployeeSourceV1 -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -248,7 +248,7 @@ Describe -tag 'PSSailpoint.NonEmployeeLifecycleManagement' -name 'NonEmployeeLif
 
     Context 'Deny-NonEmployeeRequestV1' {
         It 'Test Deny-NonEmployeeRequestV1' {
-            #$TestResult = Deny-NonEmployeeRequestV1 -Id "TEST_VALUE" -Nonemployeerejectapprovaldecision "TEST_VALUE"
+            #$TestResult = Deny-NonEmployeeRequestV1 -Id "TEST_VALUE" -NonEmployeeRejectApprovalDecision "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -256,7 +256,7 @@ Describe -tag 'PSSailpoint.NonEmployeeLifecycleManagement' -name 'NonEmployeeLif
 
     Context 'Update-NonEmployeeRecordV1' {
         It 'Test Update-NonEmployeeRecordV1' {
-            #$TestResult = Update-NonEmployeeRecordV1 -Id "TEST_VALUE" -Nonemployeerequestbody "TEST_VALUE"
+            #$TestResult = Update-NonEmployeeRecordV1 -Id "TEST_VALUE" -NonEmployeeRequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.Roles' -name 'RolesApi' {
 
     Context 'Remove-BulkRolesV1' {
         It 'Test Remove-BulkRolesV1' {
-            #$TestResult = Remove-BulkRolesV1 -Rolebulkdeleterequest "TEST_VALUE"
+            #$TestResult = Remove-BulkRolesV1 -RoleBulkDeleteRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.Roles' -name 'RolesApi' {
 
     Context 'Update-RoleV1' {
         It 'Test Update-RoleV1' {
-            #$TestResult = Update-RoleV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-RoleV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.Roles' -name 'RolesApi' {
 
     Context 'Search-RolesByFilterV1' {
         It 'Test Search-RolesByFilterV1' {
-            #$TestResult = Search-RolesByFilterV1 -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -Rolelistfilterdto "TEST_VALUE"
+            #$TestResult = Search-RolesByFilterV1 -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -RoleListFilterDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.Roles' -name 'RolesApi' {
 
     Context 'Update-RolesMetadataByFilterV1' {
         It 'Test Update-RolesMetadataByFilterV1' {
-            #$TestResult = Update-RolesMetadataByFilterV1 -Rolemetadatabulkupdatebyfilterrequest "TEST_VALUE"
+            #$TestResult = Update-RolesMetadataByFilterV1 -RoleMetadataBulkUpdateByFilterRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -120,7 +120,7 @@ Describe -tag 'PSSailpoint.Roles' -name 'RolesApi' {
 
     Context 'Update-RolesMetadataByIdsV1' {
         It 'Test Update-RolesMetadataByIdsV1' {
-            #$TestResult = Update-RolesMetadataByIdsV1 -Rolemetadatabulkupdatebyidrequest "TEST_VALUE"
+            #$TestResult = Update-RolesMetadataByIdsV1 -RoleMetadataBulkUpdateByIdRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -128,7 +128,7 @@ Describe -tag 'PSSailpoint.Roles' -name 'RolesApi' {
 
     Context 'Update-RolesMetadataByQueryV1' {
         It 'Test Update-RolesMetadataByQueryV1' {
-            #$TestResult = Update-RolesMetadataByQueryV1 -Rolemetadatabulkupdatebyqueryrequest "TEST_VALUE"
+            #$TestResult = Update-RolesMetadataByQueryV1 -RoleMetadataBulkUpdateByQueryRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

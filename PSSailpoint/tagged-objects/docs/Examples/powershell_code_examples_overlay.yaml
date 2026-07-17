@@ -24,18 +24,29 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/taggedobjects/methods/tagged-objects#delete-tags-to-many-object-v1
       source: |
-        $Bulkremovetaggedobject = @"
-        
+        $BulkRemoveTaggedObject = @"
+        {
+          "objectRefs" : [ {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          }, {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          } ],
+          "tags" : [ "BU_FINANCE", "PCI" ]
+        }
         "@
         
         # Remove tags from multiple objects
         
         try {
-            $Result = ConvertFrom-JsonToBulkremovetaggedobject -Json $Bulkremovetaggedobject
-            Remove-TagsToManyObjectV1 -Bulkremovetaggedobject $Result 
+            $Result = ConvertFrom-JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
+            Remove-TagsToManyObjectV1 -BulkRemoveTaggedObject $Result 
     
             # Below is a request that includes all optional parameters
-            # Remove-TagsToManyObjectV1 -Bulkremovetaggedobject $Result   
+            # Remove-TagsToManyObjectV1 -BulkRemoveTaggedObject $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-TagsToManyObjectV1"
             Write-Host $_.ErrorDetails
@@ -113,18 +124,25 @@
       source: |
         $Type = "ACCESS_PROFILE" # String | The type of tagged object to update.
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
-        $Taggedobject = @"
-        
+        $TaggedObject = @"
+        {
+          "objectRef" : {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          },
+          "tags" : [ "BU_FINANCE", "PCI" ]
+        }
         "@
         
         # Update tagged object
         
         try {
-            $Result = ConvertFrom-JsonToTaggedobject -Json $Taggedobject
-            Send-TaggedObjectV1 -Type $Type -Id $Id -Taggedobject $Result 
+            $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+            Send-TaggedObjectV1 -Type $Type -Id $Id -TaggedObject $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-TaggedObjectV1 -Type $Type -Id $Id -Taggedobject $Result   
+            # Send-TaggedObjectV1 -Type $Type -Id $Id -TaggedObject $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TaggedObjectV1"
             Write-Host $_.ErrorDetails
@@ -135,18 +153,25 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/taggedobjects/methods/tagged-objects#set-tag-to-object-v1
       source: |
-        $Taggedobject = @"
-        
+        $TaggedObject = @"
+        {
+          "objectRef" : {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          },
+          "tags" : [ "BU_FINANCE", "PCI" ]
+        }
         "@
         
         # Add tag to object
         
         try {
-            $Result = ConvertFrom-JsonToTaggedobject -Json $Taggedobject
-            Set-TagToObjectV1 -Taggedobject $Result 
+            $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+            Set-TagToObjectV1 -TaggedObject $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-TagToObjectV1 -Taggedobject $Result   
+            # Set-TagToObjectV1 -TaggedObject $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-TagToObjectV1"
             Write-Host $_.ErrorDetails
@@ -157,18 +182,30 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/taggedobjects/methods/tagged-objects#set-tags-to-many-objects-v1
       source: |
-        $Bulkaddtaggedobject = @"
-        
+        $BulkAddTaggedObject = @"
+        {
+          "objectRefs" : [ {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          }, {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          } ],
+          "operation" : "MERGE",
+          "tags" : [ "BU_FINANCE", "PCI" ]
+        }
         "@
         
         # Tag multiple objects
         
         try {
-            $Result = ConvertFrom-JsonToBulkaddtaggedobject -Json $Bulkaddtaggedobject
-            Set-TagsToManyObjectsV1 -Bulkaddtaggedobject $Result 
+            $Result = ConvertFrom-JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject
+            Set-TagsToManyObjectsV1 -BulkAddTaggedObject $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-TagsToManyObjectsV1 -Bulkaddtaggedobject $Result   
+            # Set-TagsToManyObjectsV1 -BulkAddTaggedObject $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-TagsToManyObjectsV1"
             Write-Host $_.ErrorDetails

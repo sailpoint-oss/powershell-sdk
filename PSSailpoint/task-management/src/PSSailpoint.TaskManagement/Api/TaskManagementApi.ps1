@@ -35,7 +35,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskstatus[]
+TaskStatus[]
 #>
 function Get-TaskStatusListV1 {
     [CmdletBinding()]
@@ -106,7 +106,7 @@ function Get-TaskStatusListV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskstatus[]" `
+                                -ReturnType "TaskStatus[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -135,7 +135,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskstatus
+TaskStatus
 #>
 function Get-TaskStatusV1 {
     [CmdletBinding()]
@@ -178,7 +178,7 @@ function Get-TaskStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskstatus" `
+                                -ReturnType "TaskStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -201,7 +201,7 @@ Update a current task status by task ID. Use this API to clear a pending task by
 .PARAMETER Id
 Task ID.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the object.
 
 .PARAMETER WithHttpInfo
@@ -210,7 +210,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskstatus
+TaskStatus
 #>
 function Update-TaskStatusV1 {
     [CmdletBinding()]
@@ -220,7 +220,7 @@ function Update-TaskStatusV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -250,14 +250,14 @@ function Update-TaskStatusV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateTaskStatusV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateTaskStatusV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -276,7 +276,7 @@ function Update-TaskStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskstatus" `
+                                -ReturnType "TaskStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.IdentityAttributes.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,12 +76,12 @@ FunctionsToExport = 'New-IdentityAttributeV1', 'Remove-IdentityAttributeV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Identityattribute2', 
-               'ConvertFrom-JsonToIdentityattribute2', 
-               'Initialize-Identityattributenames', 
-               'ConvertFrom-JsonToIdentityattributenames', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-IdentityAttribute2', 
+               'ConvertFrom-JsonToIdentityAttribute2', 
+               'Initialize-IdentityAttributeNames', 
+               'ConvertFrom-JsonToIdentityAttributeNames', 
                'Initialize-ListIdentityAttributesV1401Response', 
                'ConvertFrom-JsonToListIdentityAttributesV1401Response', 
                'Initialize-ListIdentityAttributesV1429Response', 

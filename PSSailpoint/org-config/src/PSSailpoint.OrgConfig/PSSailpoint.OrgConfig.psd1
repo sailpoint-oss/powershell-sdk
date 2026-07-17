@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.OrgConfig.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,18 +74,18 @@ FunctionsToExport = 'Get-OrgConfigV1', 'Get-ValidTimeZonesV1', 'Update-OrgConfig
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'ConvertFrom-JsonToArrayInner', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
+               'ConvertFrom-JsonToArrayInner', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetOrgConfigV1401Response', 
                'ConvertFrom-JsonToGetOrgConfigV1401Response', 
                'Initialize-GetOrgConfigV1429Response', 
                'ConvertFrom-JsonToGetOrgConfigV1429Response', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 'Initialize-Orgconfig', 
-               'ConvertFrom-JsonToOrgconfig', 'Initialize-Reportconfigdto', 
-               'ConvertFrom-JsonToReportconfigdto'
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 'Initialize-OrgConfig', 
+               'ConvertFrom-JsonToOrgConfig', 'Initialize-ReportConfigDTO', 
+               'ConvertFrom-JsonToReportConfigDTO'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

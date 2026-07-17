@@ -5,7 +5,30 @@
       label: SDK_tools/sdk/powershell/segments/methods/segments#create-segment-v1
       source: |
         $Segment = @"
-        
+        {
+          "owner" : {
+            "name" : "support",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          },
+          "created" : "2020-01-01T00:00:00Z",
+          "visibilityCriteria" : {
+            "expression" : {
+              "children" : [ ],
+              "attribute" : "location",
+              "value" : {
+                "type" : "STRING",
+                "value" : "Austin"
+              },
+              "operator" : "EQUALS"
+            }
+          },
+          "name" : "segment-xyz",
+          "modified" : "2020-01-01T00:00:00Z",
+          "description" : "This segment represents xyz",
+          "active" : true,
+          "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+        }
         "@
         
         # Create segment

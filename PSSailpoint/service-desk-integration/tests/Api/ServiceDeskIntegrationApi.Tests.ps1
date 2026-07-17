@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.ServiceDeskIntegration' -name 'ServiceDeskIntegrationApi' {
     Context 'New-ServiceDeskIntegrationV1' {
         It 'Test New-ServiceDeskIntegrationV1' {
-            #$TestResult = New-ServiceDeskIntegrationV1 -Servicedeskintegrationdto "TEST_VALUE"
+            #$TestResult = New-ServiceDeskIntegrationV1 -ServiceDeskIntegrationDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.ServiceDeskIntegration' -name 'ServiceDeskIntegration
 
     Context 'Update-ServiceDeskIntegrationV1' {
         It 'Test Update-ServiceDeskIntegrationV1' {
-            #$TestResult = Update-ServiceDeskIntegrationV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-ServiceDeskIntegrationV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.ServiceDeskIntegration' -name 'ServiceDeskIntegration
 
     Context 'Send-ServiceDeskIntegrationV1' {
         It 'Test Send-ServiceDeskIntegrationV1' {
-            #$TestResult = Send-ServiceDeskIntegrationV1 -Id "TEST_VALUE" -Servicedeskintegrationdto "TEST_VALUE"
+            #$TestResult = Send-ServiceDeskIntegrationV1 -Id "TEST_VALUE" -ServiceDeskIntegrationDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.ServiceDeskIntegration' -name 'ServiceDeskIntegration
 
     Context 'Update-StatusCheckDetailsV1' {
         It 'Test Update-StatusCheckDetailsV1' {
-            #$TestResult = Update-StatusCheckDetailsV1 -Queuedcheckconfigdetails "TEST_VALUE"
+            #$TestResult = Update-StatusCheckDetailsV1 -QueuedCheckConfigDetails "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

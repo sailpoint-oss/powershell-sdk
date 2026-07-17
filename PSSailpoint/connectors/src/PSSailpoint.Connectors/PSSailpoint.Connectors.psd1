@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.Connectors.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -80,26 +80,26 @@ FunctionsToExport = 'New-CustomConnectorV1', 'Remove-CustomConnectorV1',
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
                'Get-ConfigurationHttpSigning', 'ConvertFrom-JsonToArrayInner', 
-               'Initialize-Connectordetail', 'ConvertFrom-JsonToConnectordetail', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ConnectorDetail', 'ConvertFrom-JsonToConnectorDetail', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetConnectorV1401Response', 
                'ConvertFrom-JsonToGetConnectorV1401Response', 
                'Initialize-GetConnectorV1429Response', 
                'ConvertFrom-JsonToGetConnectorV1429Response', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 
                'Initialize-PutConnectorCorrelationConfigV1Request', 
                'ConvertFrom-JsonToPutConnectorCorrelationConfigV1Request', 
                'Initialize-PutConnectorSourceConfigV1Request', 
                'ConvertFrom-JsonToPutConnectorSourceConfigV1Request', 
                'Initialize-PutConnectorSourceTemplateV1Request', 
                'ConvertFrom-JsonToPutConnectorSourceTemplateV1Request', 
-               'Initialize-Updatedetail', 'ConvertFrom-JsonToUpdatedetail', 
-               'Initialize-V3connectordto', 'ConvertFrom-JsonToV3connectordto', 
-               'Initialize-V3createconnectordto', 
-               'ConvertFrom-JsonToV3createconnectordto'
+               'Initialize-UpdateDetail', 'ConvertFrom-JsonToUpdateDetail', 
+               'Initialize-V3ConnectorDto', 'ConvertFrom-JsonToV3ConnectorDto', 
+               'Initialize-V3CreateConnectorDto', 
+               'ConvertFrom-JsonToV3CreateConnectorDto'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

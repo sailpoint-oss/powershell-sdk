@@ -37,20 +37,20 @@ The API returns a result that includes the managed client ID.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Managedclientrequest | [**Managedclientrequest**](../models/managedclientrequest) | True  | 
+ Body  | ManagedClientRequest | [**ManagedClientRequest**](../models/managed-client-request) | True  | 
 
 ### Return type
-[**Managedclient**](../models/managedclient)
+[**ManagedClient**](../models/managed-client)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Created managed client. | Managedclient
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Created managed client. | ManagedClient
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -58,16 +58,21 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Managedclientrequest = @""@
+$ManagedClientRequest = @"{
+  "name" : "aName",
+  "description" : "A short description of the ManagedClient",
+  "clusterId" : "aClusterId",
+  "type" : "VA"
+}"@
 
 # Create managed client
 
 try {
-    $Result = ConvertFrom-JsonToManagedclientrequest -Json $Managedclientrequest
-    New-ManagedClientV1 -Managedclientrequest $Result 
+    $Result = ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
+    New-ManagedClientV1 -ManagedClientRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ManagedClientV1 -Managedclientrequest $Result  
+    # New-ManagedClientV1 -ManagedClientRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ManagedClientV1"
     Write-Host $_.ErrorDetails
@@ -92,11 +97,11 @@ Path   | Id | **String** | True  | Managed client ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -131,18 +136,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Managed client ID to get health indicators for.
 
 ### Return type
-[**Managedclienthealthindicators**](../models/managedclienthealthindicators)
+[**ManagedClientHealthIndicators**](../models/managed-client-health-indicators)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Response with the managed client health indicators, with the given ID. | Managedclienthealthindicators
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Response with the managed client health indicators, with the given ID. | ManagedClientHealthIndicators
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -175,21 +180,21 @@ Get a managed client's status, using its ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Managed client ID to get status for.
-  Query | Type | [**Managedclienttype**](../models/managedclienttype) | True  | Managed client type to get status for.
+  Query | Type | [**ManagedClientType**](../models/managed-client-type) | True  | Managed client type to get status for.
 
 ### Return type
-[**Managedclientstatus**](../models/managedclientstatus)
+[**ManagedClientStatus**](../models/managed-client-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Response with the managed client status, with the given ID and type. | Managedclientstatus
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Response with the managed client status, with the given ID and type. | ManagedClientStatus
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -198,7 +203,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "aClientId" # String | Managed client ID to get status for.
-$Type = "CCG" # Managedclienttype | Managed client type to get status for.
+$Type = "CCG" # ManagedClientType | Managed client type to get status for.
 
 # Get managed client status
 
@@ -225,18 +230,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Managed client ID.
 
 ### Return type
-[**Managedclient**](../models/managedclient)
+[**ManagedClient**](../models/managed-client)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Managed client response. | Managedclient
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Managed client response. | ManagedClient
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -274,17 +279,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq*
 
 ### Return type
-[**Managedclient[]**](../models/managedclient)
+[**ManagedClient[]**](../models/managed-client)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Response with a list of managed clients, based on the specified query parameters. | Managedclient[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Response with a list of managed clients, based on the specified query parameters. | ManagedClient[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -320,21 +325,21 @@ Update an existing managed client.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Managed client ID.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | JSONPatch payload used to update the object.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | JSONPatch payload used to update the object.
 
 ### Return type
-[**Managedclient**](../models/managedclient)
+[**ManagedClient**](../models/managed-client)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated managed client. | Managedclient
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated managed client. | ManagedClient
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClientsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClientsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -343,17 +348,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
- $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | JSONPatch payload used to update the object.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | JSONPatch payload used to update the object.
  
 
 # Update managed client
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-ManagedClientV1 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-ManagedClientV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ManagedClientV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-ManagedClientV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ManagedClientV1"
     Write-Host $_.ErrorDetails

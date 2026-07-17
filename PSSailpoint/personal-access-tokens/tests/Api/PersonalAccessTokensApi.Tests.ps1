@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.PersonalAccessTokens' -name 'PersonalAccessTokensApi' {
     Context 'New-PersonalAccessTokenV1' {
         It 'Test New-PersonalAccessTokenV1' {
-            #$TestResult = New-PersonalAccessTokenV1 -Createpersonalaccesstokenrequest "TEST_VALUE"
+            #$TestResult = New-PersonalAccessTokenV1 -CreatePersonalAccessTokenRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.PersonalAccessTokens' -name 'PersonalAccessTokensApi'
 
     Context 'Update-PersonalAccessTokenV1' {
         It 'Test Update-PersonalAccessTokenV1' {
-            #$TestResult = Update-PersonalAccessTokenV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-PersonalAccessTokenV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

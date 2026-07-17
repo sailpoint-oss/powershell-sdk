@@ -17,7 +17,7 @@ Creates a new custom user level for the tenant.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Userlevelrequest
+.PARAMETER UserLevelRequest
 Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Userlevelsummarydto
+UserLevelSummaryDTO
 #>
 function New-CustomUserLevelV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-CustomUserLevelV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Userlevelrequest},
+        ${UserLevelRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-CustomUserLevelV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Userlevelrequest) {
-            throw "Error! The required parameter `Userlevelrequest` missing when calling createCustomUserLevelV1."
+        if (!$UserLevelRequest) {
+            throw "Error! The required parameter `UserLevelRequest` missing when calling createCustomUserLevelV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Userlevelrequest -is [array])) {
-            $LocalVarBodyParameter = $Userlevelrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($UserLevelRequest -is [array])) {
+            $LocalVarBodyParameter = $UserLevelRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Userlevelrequest | ForEach-Object {
+            $LocalVarBodyParameter = $UserLevelRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -93,7 +93,7 @@ function New-CustomUserLevelV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Userlevelsummarydto" `
+                                -ReturnType "UserLevelSummaryDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -208,7 +208,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Userlevelsummarydto
+UserLevelSummaryDTO
 #>
 function Get-UserLevelV1 {
     [CmdletBinding()]
@@ -259,7 +259,7 @@ function Get-UserLevelV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Userlevelsummarydto" `
+                                -ReturnType "UserLevelSummaryDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -300,7 +300,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Hierarchicalrightset[]
+HierarchicalRightSet[]
 #>
 function Get-AllAuthorizationRightSetsV1 {
     [CmdletBinding()]
@@ -372,7 +372,7 @@ function Get-AllAuthorizationRightSetsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Hierarchicalrightset[]" `
+                                -ReturnType "HierarchicalRightSet[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -416,7 +416,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Authuserslimresponse[]
+AuthUserSlimResponse[]
 #>
 function Get-UserLevelIdentitiesV1 {
     [CmdletBinding()]
@@ -495,7 +495,7 @@ function Get-UserLevelIdentitiesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Authuserslimresponse[]" `
+                                -ReturnType "AuthUserSlimResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -539,7 +539,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Userlevelsummarydto[]
+UserLevelSummaryDTO[]
 #>
 function Get-UserLevelsV1 {
     [CmdletBinding()]
@@ -619,7 +619,7 @@ function Get-UserLevelsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Userlevelsummarydto[]" `
+                                -ReturnType "UserLevelSummaryDTO[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -651,7 +651,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Userlevelpublishsummary
+UserLevelPublishSummary
 #>
 function Publish-CustomUserLevelV1 {
     [CmdletBinding()]
@@ -702,7 +702,7 @@ function Publish-CustomUserLevelV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Userlevelpublishsummary" `
+                                -ReturnType "UserLevelPublishSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -734,7 +734,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Authuserlevelsidentitycount[]
+AuthUserLevelsIdentityCount[]
 #>
 function Show-UserLevelCountsV1 {
     [CmdletBinding()]
@@ -801,7 +801,7 @@ function Show-UserLevelCountsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Authuserlevelsidentitycount[]" `
+                                -ReturnType "AuthUserLevelsIdentityCount[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -827,7 +827,7 @@ Use this header to enable this experimental API.
 .PARAMETER Id
 The unique identifier of the user level.
 
-.PARAMETER Jsonpatch
+.PARAMETER JsonPatch
 JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 
 .PARAMETER WithHttpInfo
@@ -836,7 +836,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Userlevelsummarydto
+UserLevelSummaryDTO
 #>
 function Update-UserLevelV1 {
     [CmdletBinding()]
@@ -849,7 +849,7 @@ function Update-UserLevelV1 {
         ${Id},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Jsonpatch},
+        ${JsonPatch},
         [Switch]
         $WithHttpInfo
     )
@@ -884,14 +884,14 @@ function Update-UserLevelV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Jsonpatch) {
-            throw "Error! The required parameter `Jsonpatch` missing when calling updateUserLevelV1."
+        if (!$JsonPatch) {
+            throw "Error! The required parameter `JsonPatch` missing when calling updateUserLevelV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatch -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatch -is [array])) {
+            $LocalVarBodyParameter = $JsonPatch | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatch | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatch | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -910,7 +910,7 @@ function Update-UserLevelV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Userlevelsummarydto" `
+                                -ReturnType "UserLevelSummaryDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

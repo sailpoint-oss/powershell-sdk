@@ -14,7 +14,7 @@ Post Bulk Approve Approvals
 
 Bulk Approves specified approval requests on behalf of the caller
 
-.PARAMETER Bulkapproverequestdto
+.PARAMETER BulkApproveRequestDTO
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -30,7 +30,7 @@ function Approve-ApprovalInBulkV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Bulkapproverequestdto},
+        ${BulkApproveRequestDTO},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function Approve-ApprovalInBulkV1 {
 
         $LocalVarUri = '/generic-approvals/v1/bulk-approve'
 
-        if (!$Bulkapproverequestdto) {
-            throw "Error! The required parameter `Bulkapproverequestdto` missing when calling approveApprovalInBulkV1."
+        if (!$BulkApproveRequestDTO) {
+            throw "Error! The required parameter `BulkApproveRequestDTO` missing when calling approveApprovalInBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Bulkapproverequestdto -is [array])) {
-            $LocalVarBodyParameter = $Bulkapproverequestdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkApproveRequestDTO -is [array])) {
+            $LocalVarBodyParameter = $BulkApproveRequestDTO | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Bulkapproverequestdto | ForEach-Object {
+            $LocalVarBodyParameter = $BulkApproveRequestDTO | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -105,7 +105,7 @@ Approves a specified approval request on behalf of the caller. The approval requ
 .PARAMETER Id
 Approval ID that correlates to an existing approval request that a user wants to approve.
 
-.PARAMETER Approvalapproverequest
+.PARAMETER ApprovalApproveRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -124,7 +124,7 @@ function Approve-ApprovalV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Approvalapproverequest},
+        ${ApprovalApproveRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -154,10 +154,10 @@ function Approve-ApprovalV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Approvalapproverequest -is [array])) {
-            $LocalVarBodyParameter = $Approvalapproverequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApprovalApproveRequest -is [array])) {
+            $LocalVarBodyParameter = $ApprovalApproveRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Approvalapproverequest | ForEach-Object {
+            $LocalVarBodyParameter = $ApprovalApproveRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -199,7 +199,7 @@ Cancels a specified approval requests on behalf of the caller.  Note: This endpo
 .PARAMETER Id
 ID of the approval request to cancel.
 
-.PARAMETER Approvalcancelrequest
+.PARAMETER ApprovalCancelRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -218,7 +218,7 @@ function Suspend-ApprovalByIdV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Approvalcancelrequest},
+        ${ApprovalCancelRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -248,10 +248,10 @@ function Suspend-ApprovalByIdV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Approvalcancelrequest -is [array])) {
-            $LocalVarBodyParameter = $Approvalcancelrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApprovalCancelRequest -is [array])) {
+            $LocalVarBodyParameter = $ApprovalCancelRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Approvalcancelrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ApprovalCancelRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -290,7 +290,7 @@ Post Bulk Cancel Approvals
 
 Bulk cancels specified approval requests on behalf of the caller.  Note: To bulk cancel access request approvals, please use the following: /access-requests/bulk-cancel
 
-.PARAMETER Bulkcancelrequestdto
+.PARAMETER BulkCancelRequestDTO
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -306,7 +306,7 @@ function Suspend-ApprovalV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Bulkcancelrequestdto},
+        ${BulkCancelRequestDTO},
         [Switch]
         $WithHttpInfo
     )
@@ -332,14 +332,14 @@ function Suspend-ApprovalV1 {
 
         $LocalVarUri = '/generic-approvals/v1/bulk-cancel'
 
-        if (!$Bulkcancelrequestdto) {
-            throw "Error! The required parameter `Bulkcancelrequestdto` missing when calling cancelApprovalV1."
+        if (!$BulkCancelRequestDTO) {
+            throw "Error! The required parameter `BulkCancelRequestDTO` missing when calling cancelApprovalV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Bulkcancelrequestdto -is [array])) {
-            $LocalVarBodyParameter = $Bulkcancelrequestdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkCancelRequestDTO -is [array])) {
+            $LocalVarBodyParameter = $BulkCancelRequestDTO | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Bulkcancelrequestdto | ForEach-Object {
+            $LocalVarBodyParameter = $BulkCancelRequestDTO | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -542,7 +542,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Approvalconfig
+ApprovalConfig
 #>
 function Get-ApprovalsConfigV1 {
     [CmdletBinding()]
@@ -585,7 +585,7 @@ function Get-ApprovalsConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Approvalconfig" `
+                                -ReturnType "ApprovalConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -797,7 +797,7 @@ Post Bulk Reassign Approvals
 
 Bulk reassigns specified approval requests on behalf of the caller
 
-.PARAMETER Bulkreassignrequestdto
+.PARAMETER BulkReassignRequestDTO
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -813,7 +813,7 @@ function Move-ApprovalV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Bulkreassignrequestdto},
+        ${BulkReassignRequestDTO},
         [Switch]
         $WithHttpInfo
     )
@@ -839,14 +839,14 @@ function Move-ApprovalV1 {
 
         $LocalVarUri = '/generic-approvals/v1/bulk-reassign'
 
-        if (!$Bulkreassignrequestdto) {
-            throw "Error! The required parameter `Bulkreassignrequestdto` missing when calling moveApprovalV1."
+        if (!$BulkReassignRequestDTO) {
+            throw "Error! The required parameter `BulkReassignRequestDTO` missing when calling moveApprovalV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Bulkreassignrequestdto -is [array])) {
-            $LocalVarBodyParameter = $Bulkreassignrequestdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkReassignRequestDTO -is [array])) {
+            $LocalVarBodyParameter = $BulkReassignRequestDTO | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Bulkreassignrequestdto | ForEach-Object {
+            $LocalVarBodyParameter = $BulkReassignRequestDTO | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -891,7 +891,7 @@ The ID defined by the scope field, where [[id]]:[[scope]] is the following [[rol
 .PARAMETER Scope
 The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 
-.PARAMETER Approvalconfig
+.PARAMETER ApprovalConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -900,7 +900,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Approvalconfig
+ApprovalConfig
 #>
 function Send-ApprovalsConfigV1 {
     [CmdletBinding()]
@@ -914,7 +914,7 @@ function Send-ApprovalsConfigV1 {
         ${Scope},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Approvalconfig},
+        ${ApprovalConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -948,14 +948,14 @@ function Send-ApprovalsConfigV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{scope}', [System.Web.HTTPUtility]::UrlEncode($Scope))
 
-        if (!$Approvalconfig) {
-            throw "Error! The required parameter `Approvalconfig` missing when calling putApprovalsConfigV1."
+        if (!$ApprovalConfig) {
+            throw "Error! The required parameter `ApprovalConfig` missing when calling putApprovalsConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Approvalconfig -is [array])) {
-            $LocalVarBodyParameter = $Approvalconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApprovalConfig -is [array])) {
+            $LocalVarBodyParameter = $ApprovalConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Approvalconfig | ForEach-Object {
+            $LocalVarBodyParameter = $ApprovalConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -974,7 +974,7 @@ function Send-ApprovalsConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Approvalconfig" `
+                                -ReturnType "ApprovalConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -994,7 +994,7 @@ Post Bulk Reject Approvals
 
 Bulk reject specified approval requests on behalf of the caller
 
-.PARAMETER Bulkrejectrequestdto
+.PARAMETER BulkRejectRequestDTO
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1010,7 +1010,7 @@ function Deny-ApprovalInBulkV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Bulkrejectrequestdto},
+        ${BulkRejectRequestDTO},
         [Switch]
         $WithHttpInfo
     )
@@ -1036,14 +1036,14 @@ function Deny-ApprovalInBulkV1 {
 
         $LocalVarUri = '/generic-approvals/v1/bulk-reject'
 
-        if (!$Bulkrejectrequestdto) {
-            throw "Error! The required parameter `Bulkrejectrequestdto` missing when calling rejectApprovalInBulkV1."
+        if (!$BulkRejectRequestDTO) {
+            throw "Error! The required parameter `BulkRejectRequestDTO` missing when calling rejectApprovalInBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Bulkrejectrequestdto -is [array])) {
-            $LocalVarBodyParameter = $Bulkrejectrequestdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkRejectRequestDTO -is [array])) {
+            $LocalVarBodyParameter = $BulkRejectRequestDTO | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Bulkrejectrequestdto | ForEach-Object {
+            $LocalVarBodyParameter = $BulkRejectRequestDTO | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1085,7 +1085,7 @@ Rejects a specified approval request on behalf of the caller. This endpoint does
 .PARAMETER Id
 Approval ID that correlates to an existing approval request that a user wants to reject.
 
-.PARAMETER Approvalrejectrequest
+.PARAMETER ApprovalRejectRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1104,7 +1104,7 @@ function Deny-ApprovalV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Approvalrejectrequest},
+        ${ApprovalRejectRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1134,10 +1134,10 @@ function Deny-ApprovalV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Approvalrejectrequest -is [array])) {
-            $LocalVarBodyParameter = $Approvalrejectrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApprovalRejectRequest -is [array])) {
+            $LocalVarBodyParameter = $ApprovalRejectRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Approvalrejectrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ApprovalRejectRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1179,7 +1179,7 @@ Allows for the edit/addition/removal of the key/value pair additional attributes
 .PARAMETER Id
 Approval ID that correlates to an existing approval request that a user wants to change the attributes of.
 
-.PARAMETER Approvalattributesrequest
+.PARAMETER ApprovalAttributesRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1198,7 +1198,7 @@ function Update-ApprovalsAttributesV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Approvalattributesrequest},
+        ${ApprovalAttributesRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1228,14 +1228,14 @@ function Update-ApprovalsAttributesV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Approvalattributesrequest) {
-            throw "Error! The required parameter `Approvalattributesrequest` missing when calling updateApprovalsAttributesV1."
+        if (!$ApprovalAttributesRequest) {
+            throw "Error! The required parameter `ApprovalAttributesRequest` missing when calling updateApprovalsAttributesV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Approvalattributesrequest -is [array])) {
-            $LocalVarBodyParameter = $Approvalattributesrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApprovalAttributesRequest -is [array])) {
+            $LocalVarBodyParameter = $ApprovalAttributesRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Approvalattributesrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ApprovalAttributesRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1277,7 +1277,7 @@ Adds comments to a specified approval request. This endpoint does not support ac
 .PARAMETER Id
 Approval ID that correlates to an existing approval request that a user wants to add a comment to.
 
-.PARAMETER Approvalcommentsrequest
+.PARAMETER ApprovalCommentsRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1296,7 +1296,7 @@ function Update-ApprovalsCommentsV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Approvalcommentsrequest},
+        ${ApprovalCommentsRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1326,14 +1326,14 @@ function Update-ApprovalsCommentsV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Approvalcommentsrequest) {
-            throw "Error! The required parameter `Approvalcommentsrequest` missing when calling updateApprovalsCommentsV1."
+        if (!$ApprovalCommentsRequest) {
+            throw "Error! The required parameter `ApprovalCommentsRequest` missing when calling updateApprovalsCommentsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Approvalcommentsrequest -is [array])) {
-            $LocalVarBodyParameter = $Approvalcommentsrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApprovalCommentsRequest -is [array])) {
+            $LocalVarBodyParameter = $ApprovalCommentsRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Approvalcommentsrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ApprovalCommentsRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1375,7 +1375,7 @@ Reassigns an approval request to another identity resulting in that identity bei
 .PARAMETER Id
 Approval ID that correlates to an existing approval request that a user wants to reassign.
 
-.PARAMETER Approvalreassignrequest
+.PARAMETER ApprovalReassignRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1394,7 +1394,7 @@ function Update-ApprovalsReassignV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Approvalreassignrequest},
+        ${ApprovalReassignRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1424,14 +1424,14 @@ function Update-ApprovalsReassignV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Approvalreassignrequest) {
-            throw "Error! The required parameter `Approvalreassignrequest` missing when calling updateApprovalsReassignV1."
+        if (!$ApprovalReassignRequest) {
+            throw "Error! The required parameter `ApprovalReassignRequest` missing when calling updateApprovalsReassignV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Approvalreassignrequest -is [array])) {
-            $LocalVarBodyParameter = $Approvalreassignrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApprovalReassignRequest -is [array])) {
+            $LocalVarBodyParameter = $ApprovalReassignRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Approvalreassignrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ApprovalReassignRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

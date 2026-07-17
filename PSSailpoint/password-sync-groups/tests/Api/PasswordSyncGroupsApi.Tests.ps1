@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.PasswordSyncGroups' -name 'PasswordSyncGroupsApi' {
     Context 'New-PasswordSyncGroupV1' {
         It 'Test New-PasswordSyncGroupV1' {
-            #$TestResult = New-PasswordSyncGroupV1 -Passwordsyncgroup "TEST_VALUE"
+            #$TestResult = New-PasswordSyncGroupV1 -PasswordSyncGroup "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.PasswordSyncGroups' -name 'PasswordSyncGroupsApi' {
 
     Context 'Update-PasswordSyncGroupV1' {
         It 'Test Update-PasswordSyncGroupV1' {
-            #$TestResult = Update-PasswordSyncGroupV1 -Id "TEST_VALUE" -Passwordsyncgroup "TEST_VALUE"
+            #$TestResult = Update-PasswordSyncGroupV1 -Id "TEST_VALUE" -PasswordSyncGroup "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

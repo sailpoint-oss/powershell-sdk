@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.AccountDeletionRequests' -name 'AccountDeletionRequestsApi' {
     Context 'Remove-AccountRequestV1' {
         It 'Test Remove-AccountRequestV1' {
-            #$TestResult = Remove-AccountRequestV1 -AccountId "TEST_VALUE" -Accountdeleterequestinput "TEST_VALUE"
+            #$TestResult = Remove-AccountRequestV1 -AccountId "TEST_VALUE" -AccountDeleteRequestInput "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

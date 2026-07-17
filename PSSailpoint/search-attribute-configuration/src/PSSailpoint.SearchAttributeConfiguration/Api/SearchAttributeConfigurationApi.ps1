@@ -17,7 +17,7 @@ Create and configure extended search attributes.  This API accepts an attribute 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Searchattributeconfig
+.PARAMETER SearchAttributeConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -36,7 +36,7 @@ function New-SearchAttributeConfigV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Searchattributeconfig},
+        ${SearchAttributeConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-SearchAttributeConfigV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Searchattributeconfig) {
-            throw "Error! The required parameter `Searchattributeconfig` missing when calling createSearchAttributeConfigV1."
+        if (!$SearchAttributeConfig) {
+            throw "Error! The required parameter `SearchAttributeConfig` missing when calling createSearchAttributeConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Searchattributeconfig -is [array])) {
-            $LocalVarBodyParameter = $Searchattributeconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SearchAttributeConfig -is [array])) {
+            $LocalVarBodyParameter = $SearchAttributeConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Searchattributeconfig | ForEach-Object {
+            $LocalVarBodyParameter = $SearchAttributeConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -211,7 +211,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Searchattributeconfig[]
+SearchAttributeConfig[]
 #>
 function Get-SearchAttributeConfigV1 {
     [CmdletBinding()]
@@ -269,7 +269,7 @@ function Get-SearchAttributeConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Searchattributeconfig[]" `
+                                -ReturnType "SearchAttributeConfig[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -301,7 +301,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Searchattributeconfig
+SearchAttributeConfig
 #>
 function Get-SingleSearchAttributeConfigV1 {
     [CmdletBinding()]
@@ -352,7 +352,7 @@ function Get-SingleSearchAttributeConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Searchattributeconfig" `
+                                -ReturnType "SearchAttributeConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -378,7 +378,7 @@ Name of the search attribute configuration to patch.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -387,7 +387,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Searchattributeconfig
+SearchAttributeConfig
 #>
 function Update-SearchAttributeConfigV1 {
     [CmdletBinding()]
@@ -400,7 +400,7 @@ function Update-SearchAttributeConfigV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -435,14 +435,14 @@ function Update-SearchAttributeConfigV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchSearchAttributeConfigV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchSearchAttributeConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -461,7 +461,7 @@ function Update-SearchAttributeConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Searchattributeconfig" `
+                                -ReturnType "SearchAttributeConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

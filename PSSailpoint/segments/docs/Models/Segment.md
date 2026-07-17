@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | The time when the segment is created. | [optional] 
 **Modified** | **System.DateTime** | The time when the segment is modified. | [optional] 
 **Description** | **String** | The segment's optional description. | [optional] 
-**Owner** | [**Ownerreferencesegments**](ownerreferencesegments) |  | [optional] 
+**Owner** | [**OwnerReferenceSegments**](owner-reference-segments) |  | [optional] 
 **VisibilityCriteria** | [**SegmentVisibilityCriteria**](segment-visibility-criteria) |  | [optional] 
 **Active** | **Boolean** | This boolean indicates whether the segment is currently active. Inactive segments have no effect. | [optional] [default to $false]
 

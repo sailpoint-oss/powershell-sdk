@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.IaiOutliers.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -80,29 +80,29 @@ FunctionsToExport = 'Export-OutliersZipV1', 'Get-IdentityOutlierSnapshotsV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetIdentityOutlierSnapshotsV1401Response', 
                'ConvertFrom-JsonToGetIdentityOutlierSnapshotsV1401Response', 
                'Initialize-GetIdentityOutlierSnapshotsV1429Response', 
                'ConvertFrom-JsonToGetIdentityOutlierSnapshotsV1429Response', 
-               'Initialize-Latestoutliersummary', 
-               'ConvertFrom-JsonToLatestoutliersummary', 'Initialize-Outlier', 
+               'Initialize-LatestOutlierSummary', 
+               'ConvertFrom-JsonToLatestOutlierSummary', 'Initialize-Outlier', 
                'ConvertFrom-JsonToOutlier', 
-               'Initialize-Outliercontributingfeature', 
-               'ConvertFrom-JsonToOutliercontributingfeature', 
-               'Initialize-Outlierfeaturesummary', 
-               'ConvertFrom-JsonToOutlierfeaturesummary', 
-               'Initialize-OutlierfeaturesummaryOutlierFeatureDisplayValuesInner', 
-               'ConvertFrom-JsonToOutlierfeaturesummaryOutlierFeatureDisplayValuesInner', 
-               'Initialize-Outlierfeaturetranslation', 
-               'ConvertFrom-JsonToOutlierfeaturetranslation', 
-               'Initialize-Outlierscontributingfeatureaccessitems', 
-               'ConvertFrom-JsonToOutlierscontributingfeatureaccessitems', 
-               'Initialize-Outliersummary', 'ConvertFrom-JsonToOutliersummary', 
-               'Initialize-Outliervaluetype', 'ConvertFrom-JsonToOutliervaluetype', 
-               'Initialize-Translationmessage', 
-               'ConvertFrom-JsonToTranslationmessage'
+               'Initialize-OutlierContributingFeature', 
+               'ConvertFrom-JsonToOutlierContributingFeature', 
+               'Initialize-OutlierFeatureSummary', 
+               'ConvertFrom-JsonToOutlierFeatureSummary', 
+               'Initialize-OutlierFeatureSummaryOutlierFeatureDisplayValuesInner', 
+               'ConvertFrom-JsonToOutlierFeatureSummaryOutlierFeatureDisplayValuesInner', 
+               'Initialize-OutlierFeatureTranslation', 
+               'ConvertFrom-JsonToOutlierFeatureTranslation', 
+               'Initialize-OutliersContributingFeatureAccessItems', 
+               'ConvertFrom-JsonToOutliersContributingFeatureAccessItems', 
+               'Initialize-OutlierSummary', 'ConvertFrom-JsonToOutlierSummary', 
+               'Initialize-OutlierValueType', 'ConvertFrom-JsonToOutlierValueType', 
+               'Initialize-TranslationMessage', 
+               'ConvertFrom-JsonToTranslationMessage'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

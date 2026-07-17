@@ -60,20 +60,20 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | MinEntitlementPopularity | **Int32** |   (optional) (default to 0) | Minimum popularity required for an entitlement to be included in the provisioned role.
   Query | IncludeCommonAccess | **Boolean** |   (optional) (default to $true) | Boolean determining whether common access entitlements will be included in the provisioned role.
- Body  | Roleminingpotentialroleprovisionrequest | [**Roleminingpotentialroleprovisionrequest**](../models/roleminingpotentialroleprovisionrequest) |   (optional) | Required information to create a new role
+ Body  | RoleMiningPotentialRoleProvisionRequest | [**RoleMiningPotentialRoleProvisionRequest**](../models/role-mining-potential-role-provision-request) |   (optional) | Required information to create a new role
 
 ### Return type
-[**Roleminingpotentialrolesummary**](../models/roleminingpotentialrolesummary)
+[**RoleMiningPotentialRoleSummary**](../models/role-mining-potential-role-summary)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Accepted. Returns a potential role summary including the status of the provison request | Roleminingpotentialrolesummary
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Accepted. Returns a potential role summary including the status of the provison request | RoleMiningPotentialRoleSummary
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -86,7 +86,13 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $MinEntitlementPopularity = 56 # Int32 | Minimum popularity required for an entitlement to be included in the provisioned role. (optional) (default to 0)
 $IncludeCommonAccess = $true # Boolean | Boolean determining whether common access entitlements will be included in the provisioned role. (optional) (default to $true)
-$Roleminingpotentialroleprovisionrequest = @""@
+$RoleMiningPotentialRoleProvisionRequest = @"{
+  "includeIdentities" : true,
+  "roleName" : "Finance - Accounting",
+  "ownerId" : "2b568c65bc3c4c57a43bd97e3a8e41",
+  "roleDescription" : "General access for accounting department",
+  "directlyAssignedEntitlements" : false
+}"@
 
 # Create request to provision a potential role into an actual role.
 
@@ -94,7 +100,7 @@ try {
     New-PotentialRoleProvisionRequestV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # New-PotentialRoleProvisionRequestV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -Roleminingpotentialroleprovisionrequest $Result  
+    # New-PotentialRoleProvisionRequestV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -RoleMiningPotentialRoleProvisionRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PotentialRoleProvisionRequestV1"
     Write-Host $_.ErrorDetails
@@ -114,20 +120,20 @@ This submits a create role mining session request to the role mining application
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Roleminingsessiondto | [**Roleminingsessiondto**](../models/roleminingsessiondto) | True  | Role mining session parameters
+ Body  | RoleMiningSessionDto | [**RoleMiningSessionDto**](../models/role-mining-session-dto) | True  | Role mining session parameters
 
 ### Return type
-[**Roleminingsessionresponse**](../models/roleminingsessionresponse)
+[**RoleMiningSessionResponse**](../models/role-mining-session-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Submitted a role mining session request | Roleminingsessionresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Submitted a role mining session request | RoleMiningSessionResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -136,16 +142,47 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Roleminingsessiondto = @""@
+$RoleMiningSessionDto = @"{
+  "emailRecipientId" : "2c918090761a5aac0176215c46a62d58",
+  "prescribedPruneThreshold" : 10,
+  "pruneThreshold" : 50,
+  "saved" : true,
+  "potentialRolesReadyCount" : 0,
+  "scope" : {
+    "identityIds" : [ "2c918090761a5aac0176215c46a62d58", "2c918090761a5aac01722015c46a62d42" ],
+    "attributeFilterCriteria" : {
+      "displayName" : {
+        "untranslated" : "Location: Miami"
+      },
+      "ariaLabel" : {
+        "untranslated" : "Location: Miami"
+      },
+      "data" : {
+        "displayName" : {
+          "translateKey" : "IDN.IDENTITY_ATTRIBUTES.LOCATION"
+        },
+        "name" : "location",
+        "operator" : "EQUALS",
+        "values" : [ "Miami" ]
+      }
+    },
+    "criteria" : "source.name:DataScienceDataset"
+  },
+  "potentialRoleCount" : 0,
+  "name" : "Saved RM Session - 07/10",
+  "minNumIdentitiesInPotentialRole" : 20,
+  "identityCount" : 0,
+  "type" : "SPECIALIZED"
+}"@
 
 # Create a role mining session
 
 try {
-    $Result = ConvertFrom-JsonToRoleminingsessiondto -Json $Roleminingsessiondto
-    New-RoleMiningSessionsV1 -XSailPointExperimental $XSailPointExperimental -Roleminingsessiondto $Result 
+    $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
+    New-RoleMiningSessionsV1 -XSailPointExperimental $XSailPointExperimental -RoleMiningSessionDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-RoleMiningSessionsV1 -XSailPointExperimental $XSailPointExperimental -Roleminingsessiondto $Result  
+    # New-RoleMiningSessionsV1 -XSailPointExperimental $XSailPointExperimental -RoleMiningSessionDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-RoleMiningSessionsV1"
     Write-Host $_.ErrorDetails
@@ -176,10 +213,10 @@ Path   | ExportId | **String** | True  | The id of a previously run export job f
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Succeeded. Returns a zip file containing csv files for identities and entitlements for the potential role. | System.IO.FileInfo
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -220,19 +257,19 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SessionId | **String** | True  | The role mining session id
 Path   | PotentialRoleId | **String** | True  | A potential role id in a role mining session
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Roleminingpotentialroleexportrequest | [**Roleminingpotentialroleexportrequest**](../models/roleminingpotentialroleexportrequest) |   (optional) | 
+ Body  | RoleMiningPotentialRoleExportRequest | [**RoleMiningPotentialRoleExportRequest**](../models/role-mining-potential-role-export-request) |   (optional) | 
 
 ### Return type
-[**Roleminingpotentialroleexportresponse**](../models/roleminingpotentialroleexportresponse)
+[**RoleMiningPotentialRoleExportResponse**](../models/role-mining-potential-role-export-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Job Submitted. Returns a reportId that can be used to download the zip once complete | Roleminingpotentialroleexportresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Job Submitted. Returns a reportId that can be used to download the zip once complete | RoleMiningPotentialRoleExportResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -243,7 +280,10 @@ Code | Description  | Data Type
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "278359a6-04b7-4669-9468-924cf580964a" # String | A potential role id in a role mining session
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Roleminingpotentialroleexportrequest = @""@
+$RoleMiningPotentialRoleExportRequest = @"{
+  "minEntitlementPopularity" : 0,
+  "includeCommonAccess" : true
+}"@
 
 # Asynchronously export details for a potential role in a role mining session and upload to S3
 
@@ -251,7 +291,7 @@ try {
     Export-RoleMiningPotentialRoleAsyncV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Export-RoleMiningPotentialRoleAsyncV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Roleminingpotentialroleexportrequest $Result  
+    # Export-RoleMiningPotentialRoleAsyncV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -RoleMiningPotentialRoleExportRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-RoleMiningPotentialRoleAsyncV1"
     Write-Host $_.ErrorDetails
@@ -276,16 +316,16 @@ Path   | ExportId | **String** | True  | The id of a previously run export job f
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Roleminingpotentialroleexportresponse**](../models/roleminingpotentialroleexportresponse)
+[**RoleMiningPotentialRoleExportResponse**](../models/role-mining-potential-role-export-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Success. Returns the current status of this export | Roleminingpotentialroleexportresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Success. Returns the current status of this export | RoleMiningPotentialRoleExportResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -334,10 +374,10 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Succeeded. Returns a zip file containing csv files for identities and entitlements for the potential role. | System.IO.FileInfo
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -382,17 +422,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Roleminingpotentialrolesummary[]**](../models/roleminingpotentialrolesummary)
+[**RoleMiningPotentialRoleSummary[]**](../models/role-mining-potential-role-summary)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns all potential role summaries that match the query parameters. | Roleminingpotentialrolesummary[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns all potential role summaries that match the query parameters. | RoleMiningPotentialRoleSummary[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -444,10 +484,10 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Succeeded. Returns a map containing entitlement popularity distribution for a potential role. | System.Collections.Hashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -496,17 +536,17 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Roleminingentitlement[]**](../models/roleminingentitlement)
+[**RoleMiningEntitlement[]**](../models/role-mining-entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of entitlements for a potential role. | Roleminingentitlement[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of entitlements for a potential role. | RoleMiningEntitlement[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -559,16 +599,16 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Roleminingentitlement[]**](../models/roleminingentitlement)
+[**RoleMiningEntitlement[]**](../models/role-mining-entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of excluded entitlements for a potential roles. | Roleminingentitlement[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of excluded entitlements for a potential roles. | RoleMiningEntitlement[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -620,16 +660,16 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Roleminingidentity[]**](../models/roleminingidentity)
+[**RoleMiningIdentity[]**](../models/role-mining-identity)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of identities for a potential role. | Roleminingidentity[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of identities for a potential role. | RoleMiningIdentity[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -680,17 +720,17 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Roleminingpotentialroleapplication[]**](../models/roleminingpotentialroleapplication)
+[**RoleMiningPotentialRoleApplication[]**](../models/role-mining-potential-role-application)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of potential roles for a role mining session. | Roleminingpotentialroleapplication[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of potential roles for a role mining session. | RoleMiningPotentialRoleApplication[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -740,17 +780,17 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Roleminingpotentialroleentitlements[]**](../models/roleminingpotentialroleentitlements)
+[**RoleMiningPotentialRoleEntitlements[]**](../models/role-mining-potential-role-entitlements)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns the entitlements of a potential role for a role mining session. session. | Roleminingpotentialroleentitlements[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns the entitlements of a potential role for a role mining session. session. | RoleMiningPotentialRoleEntitlements[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -800,17 +840,17 @@ Path   | SourceId | **String** | True  | A source id
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Roleminingpotentialrolesourceusage[]**](../models/roleminingpotentialrolesourceusage)
+[**RoleMiningPotentialRoleSourceUsage[]**](../models/role-mining-potential-role-source-usage)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of source usage for the identities in a potential role. | Roleminingpotentialrolesourceusage[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of source usage for the identities in a potential role. | RoleMiningPotentialRoleSourceUsage[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -860,17 +900,17 @@ Path   | SessionId | **String** | True  | The role mining session id
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Roleminingpotentialrolesummary[]**](../models/roleminingpotentialrolesummary)
+[**RoleMiningPotentialRoleSummary[]**](../models/role-mining-potential-role-summary)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of potential role summaries for a role mining session. | Roleminingpotentialrolesummary[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of potential role summaries for a role mining session. | RoleMiningPotentialRoleSummary[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -916,17 +956,17 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Roleminingpotentialrole**](../models/roleminingpotentialrole)
+[**RoleMiningPotentialRole**](../models/role-mining-potential-role)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of potential roles for a role mining session. | Roleminingpotentialrole
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of potential roles for a role mining session. | RoleMiningPotentialRole
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -967,17 +1007,17 @@ Path   | PotentialRoleId | **String** | True  | A potential role id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Roleminingpotentialrole**](../models/roleminingpotentialrole)
+[**RoleMiningPotentialRole**](../models/role-mining-potential-role)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of potential roles for a role mining session. | Roleminingpotentialrole
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of potential roles for a role mining session. | RoleMiningPotentialRole
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1017,16 +1057,16 @@ Path   | SessionId | **String** | True  | The role mining session id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Roleminingsessionstatus**](../models/roleminingsessionstatus)
+[**RoleMiningSessionStatus**](../models/role-mining-session-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns session status | Roleminingsessionstatus
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns session status | RoleMiningSessionStatus
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1066,18 +1106,18 @@ Path   | SessionId | **String** | True  | The role mining session id to be retri
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Roleminingsessionresponse**](../models/roleminingsessionresponse)
+[**RoleMiningSessionResponse**](../models/role-mining-session-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns a role mining session | Roleminingsessionresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
-401 | Client Error - Returned if the request body is invalid. | Errorresponsedto
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+200 | Returns a role mining session | RoleMiningSessionResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1121,17 +1161,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Roleminingsessiondto[]**](../models/roleminingsessiondto)
+[**RoleMiningSessionDto[]**](../models/role-mining-session-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns all role mining sessions that match the query parameters. | Roleminingsessiondto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns all role mining sessions that match the query parameters. | RoleMiningSessionDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1178,17 +1218,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Roleminingsessiondraftroledto[]**](../models/roleminingsessiondraftroledto)
+[**RoleMiningSessionDraftRoleDto[]**](../models/role-mining-session-draft-role-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of draft roles for a role mining session. | Roleminingsessiondraftroledto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of draft roles for a role mining session. | RoleMiningSessionDraftRoleDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1242,7 +1282,7 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SessionId | **String** | True  | The role mining session id
 Path   | PotentialRoleId | **String** | True  | The potential role summary id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Jsonpatchoperationrolemining | [**[]Jsonpatchoperationrolemining**](../models/jsonpatchoperationrolemining) | True  | 
+ Body  | JsonPatchOperationRoleMining | [**[]JsonPatchOperationRoleMining**](../models/json-patch-operation-role-mining) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -1251,12 +1291,12 @@ Path   | PotentialRoleId | **String** | True  | The potential role summary id
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Succeeded. Returns the potential role summary based on the potentialRoleId provided. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -1267,17 +1307,21 @@ Code | Description  | Data Type
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- $Jsonpatchoperationrolemining = @"[{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]"@ # Jsonpatchoperationrolemining[] | 
+ $JsonPatchOperationRoleMining = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperationRoleMining[] | 
  
 
 # Update a potential role session
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperationrolemining -Json $Jsonpatchoperationrolemining
-    Update-PotentialRoleSessionV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperationrolemining $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperationRoleMining -Json $JsonPatchOperationRoleMining
+    Update-PotentialRoleSessionV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-PotentialRoleSessionV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperationrolemining $Result  
+    # Update-PotentialRoleSessionV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PotentialRoleSessionV1"
     Write-Host $_.ErrorDetails
@@ -1311,7 +1355,7 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SessionId | **String** | True  | The role mining session id
 Path   | PotentialRoleId | **String** | True  | The potential role summary id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Jsonpatchoperationrolemining | [**[]Jsonpatchoperationrolemining**](../models/jsonpatchoperationrolemining) | True  | 
+ Body  | JsonPatchOperationRoleMining | [**[]JsonPatchOperationRoleMining**](../models/json-patch-operation-role-mining) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -1320,12 +1364,12 @@ Path   | PotentialRoleId | **String** | True  | The potential role summary id
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Succeeded. Returns the potential role summary based on the potentialRoleId provided. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -1336,17 +1380,21 @@ Code | Description  | Data Type
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- $Jsonpatchoperationrolemining = @"[{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]"@ # Jsonpatchoperationrolemining[] | 
+ $JsonPatchOperationRoleMining = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperationRoleMining[] | 
  
 
 # Update a potential role
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperationrolemining -Json $Jsonpatchoperationrolemining
-    Update-PotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperationrolemining $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperationRoleMining -Json $JsonPatchOperationRoleMining
+    Update-PotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-PotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperationrolemining $Result  
+    # Update-PotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PotentialRoleV1"
     Write-Host $_.ErrorDetails
@@ -1367,7 +1415,7 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SessionId | **String** | True  | The role mining session id to be patched
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -1376,12 +1424,12 @@ Path   | SessionId | **String** | True  | The role mining session id to be patch
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetRoleMiningSessionsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -1391,17 +1439,21 @@ Code | Description  | Data Type
 ```powershell
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id to be patched
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- $Jsonpatchoperation = @"[{"op":"replace","path":"/pruneThreshold","value":"83"},{"op":"replace","path":"/minNumIdentitiesInPotentialRole","value":"10"},{"op":"replace","path":"/saved","value":"false"},{"op":"replace","path":"/name","value":"RM Session - 07/10/22"},{"op":"add","path":"/name","value":"RM Session - 07/10/22"}]"@ # Jsonpatchoperation[] | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
  
 
 # Patch a role mining session
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-RoleMiningSessionV1 -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-RoleMiningSessionV1 -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-RoleMiningSessionV1 -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result  
+    # Update-RoleMiningSessionV1 -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RoleMiningSessionV1"
     Write-Host $_.ErrorDetails
@@ -1423,19 +1475,19 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SessionId | **String** | True  | The role mining session id
 Path   | PotentialRoleId | **String** | True  | A potential role id in a role mining session
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Roleminingpotentialroleeditentitlements | [**Roleminingpotentialroleeditentitlements**](../models/roleminingpotentialroleeditentitlements) | True  | Role mining session parameters
+ Body  | RoleMiningPotentialRoleEditEntitlements | [**RoleMiningPotentialRoleEditEntitlements**](../models/role-mining-potential-role-edit-entitlements) | True  | Role mining session parameters
 
 ### Return type
-[**Roleminingpotentialrole**](../models/roleminingpotentialrole)
+[**RoleMiningPotentialRole**](../models/role-mining-potential-role)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Adds or removes entitlements from a potential role&#39;s entitlement exclusion list. | Roleminingpotentialrole
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Adds or removes entitlements from a potential role&#39;s entitlement exclusion list. | RoleMiningPotentialRole
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetRoleMiningSessionsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -1446,16 +1498,19 @@ Code | Description  | Data Type
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Roleminingpotentialroleeditentitlements = @""@
+$RoleMiningPotentialRoleEditEntitlements = @"{
+  "ids" : [ "entId1", "entId2" ],
+  "exclude" : true
+}"@
 
 # Edit entitlements for a potential role to exclude some entitlements
 
 try {
-    $Result = ConvertFrom-JsonToRoleminingpotentialroleeditentitlements -Json $Roleminingpotentialroleeditentitlements
-    Update-EntitlementsPotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Roleminingpotentialroleeditentitlements $Result 
+    $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
+    Update-EntitlementsPotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -RoleMiningPotentialRoleEditEntitlements $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-EntitlementsPotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Roleminingpotentialroleeditentitlements $Result  
+    # Update-EntitlementsPotentialRoleV1 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -RoleMiningPotentialRoleEditEntitlements $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsPotentialRoleV1"
     Write-Host $_.ErrorDetails

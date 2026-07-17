@@ -207,7 +207,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Segmentmembership[]
+SegmentMembership[]
 #>
 function Get-DataSegmentIdentityMembershipV1 {
     [CmdletBinding()]
@@ -258,7 +258,7 @@ function Get-DataSegmentIdentityMembershipV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Segmentmembership[]" `
+                                -ReturnType "SegmentMembership[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

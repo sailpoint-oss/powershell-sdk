@@ -17,7 +17,7 @@ Create a new SIM Integrations.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Simintegrationdetails
+.PARAMETER SimIntegrationDetails
 DTO containing the details of the SIM integration
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationdto
+ServiceDeskIntegrationDto
 #>
 function New-SIMIntegrationV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-SIMIntegrationV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Simintegrationdetails},
+        ${SimIntegrationDetails},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-SIMIntegrationV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Simintegrationdetails) {
-            throw "Error! The required parameter `Simintegrationdetails` missing when calling createSIMIntegrationV1."
+        if (!$SimIntegrationDetails) {
+            throw "Error! The required parameter `SimIntegrationDetails` missing when calling createSIMIntegrationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Simintegrationdetails -is [array])) {
-            $LocalVarBodyParameter = $Simintegrationdetails | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SimIntegrationDetails -is [array])) {
+            $LocalVarBodyParameter = $SimIntegrationDetails | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Simintegrationdetails | ForEach-Object {
+            $LocalVarBodyParameter = $SimIntegrationDetails | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -93,7 +93,7 @@ function New-SIMIntegrationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationdto" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -208,7 +208,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationdto
+ServiceDeskIntegrationDto
 #>
 function Get-SIMIntegrationV1 {
     [CmdletBinding()]
@@ -259,7 +259,7 @@ function Get-SIMIntegrationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationdto" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -288,7 +288,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationdto[]
+ServiceDeskIntegrationDto[]
 #>
 function Get-SIMIntegrationsV1 {
     [CmdletBinding()]
@@ -332,7 +332,7 @@ function Get-SIMIntegrationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationdto[]" `
+                                -ReturnType "ServiceDeskIntegrationDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -358,7 +358,7 @@ SIM integration id
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Jsonpatch
+.PARAMETER JsonPatch
 The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
 
 .PARAMETER WithHttpInfo
@@ -367,7 +367,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationdto
+ServiceDeskIntegrationDto
 #>
 function Update-BeforeProvisioningRuleV1 {
     [CmdletBinding()]
@@ -380,7 +380,7 @@ function Update-BeforeProvisioningRuleV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Jsonpatch},
+        ${JsonPatch},
         [Switch]
         $WithHttpInfo
     )
@@ -415,14 +415,14 @@ function Update-BeforeProvisioningRuleV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Jsonpatch) {
-            throw "Error! The required parameter `Jsonpatch` missing when calling patchBeforeProvisioningRuleV1."
+        if (!$JsonPatch) {
+            throw "Error! The required parameter `JsonPatch` missing when calling patchBeforeProvisioningRuleV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatch -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatch -is [array])) {
+            $LocalVarBodyParameter = $JsonPatch | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatch | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatch | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -441,7 +441,7 @@ function Update-BeforeProvisioningRuleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationdto" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -467,7 +467,7 @@ SIM integration id
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Jsonpatch
+.PARAMETER JsonPatch
 The JsonPatch object that describes the changes of SIM
 
 .PARAMETER WithHttpInfo
@@ -476,7 +476,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationdto
+ServiceDeskIntegrationDto
 #>
 function Update-SIMAttributesV1 {
     [CmdletBinding()]
@@ -489,7 +489,7 @@ function Update-SIMAttributesV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Jsonpatch},
+        ${JsonPatch},
         [Switch]
         $WithHttpInfo
     )
@@ -524,14 +524,14 @@ function Update-SIMAttributesV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Jsonpatch) {
-            throw "Error! The required parameter `Jsonpatch` missing when calling patchSIMAttributesV1."
+        if (!$JsonPatch) {
+            throw "Error! The required parameter `JsonPatch` missing when calling patchSIMAttributesV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatch -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatch -is [array])) {
+            $LocalVarBodyParameter = $JsonPatch | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatch | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatch | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -550,7 +550,7 @@ function Update-SIMAttributesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationdto" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -576,7 +576,7 @@ The id of the integration.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Simintegrationdetails
+.PARAMETER SimIntegrationDetails
 The full DTO of the integration containing the updated model
 
 .PARAMETER WithHttpInfo
@@ -585,7 +585,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Servicedeskintegrationdto
+ServiceDeskIntegrationDto
 #>
 function Send-SIMIntegrationV1 {
     [CmdletBinding()]
@@ -598,7 +598,7 @@ function Send-SIMIntegrationV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Simintegrationdetails},
+        ${SimIntegrationDetails},
         [Switch]
         $WithHttpInfo
     )
@@ -633,14 +633,14 @@ function Send-SIMIntegrationV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Simintegrationdetails) {
-            throw "Error! The required parameter `Simintegrationdetails` missing when calling putSIMIntegrationV1."
+        if (!$SimIntegrationDetails) {
+            throw "Error! The required parameter `SimIntegrationDetails` missing when calling putSIMIntegrationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Simintegrationdetails -is [array])) {
-            $LocalVarBodyParameter = $Simintegrationdetails | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SimIntegrationDetails -is [array])) {
+            $LocalVarBodyParameter = $SimIntegrationDetails | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Simintegrationdetails | ForEach-Object {
+            $LocalVarBodyParameter = $SimIntegrationDetails | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -659,7 +659,7 @@ function Send-SIMIntegrationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Servicedeskintegrationdto" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

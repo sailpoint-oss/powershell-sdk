@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.PasswordSyncGroups.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,14 +76,14 @@ FunctionsToExport = 'New-PasswordSyncGroupV1', 'Remove-PasswordSyncGroupV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetPasswordSyncGroupsV1401Response', 
                'ConvertFrom-JsonToGetPasswordSyncGroupsV1401Response', 
                'Initialize-GetPasswordSyncGroupsV1429Response', 
                'ConvertFrom-JsonToGetPasswordSyncGroupsV1429Response', 
-               'Initialize-Passwordsyncgroup', 
-               'ConvertFrom-JsonToPasswordsyncgroup'
+               'Initialize-PasswordSyncGroup', 
+               'ConvertFrom-JsonToPasswordSyncGroup'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

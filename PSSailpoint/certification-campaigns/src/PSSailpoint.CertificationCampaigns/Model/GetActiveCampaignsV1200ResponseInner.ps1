@@ -53,20 +53,20 @@ function ConvertFrom-JsonToGetActiveCampaignsV1200ResponseInner {
         }
 
         if ($match -ne 0) { # no match yet
-            # try to match Slimcampaign defined in the anyOf schemas
+            # try to match SlimCampaign defined in the anyOf schemas
             try {
-                $matchInstance = ConvertFrom-JsonToSlimcampaign $Json
+                $matchInstance = ConvertFrom-JsonToSlimCampaign $Json
 
                 foreach($property in $matchInstance.PsObject.Properties) {
                     if ($null -ne $property.Value) {
-                        $matchType = "Slimcampaign"
+                        $matchType = "SlimCampaign"
                         $match++
                         break
                     }
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Slimcampaign' defined in anyOf (GetActiveCampaignsV1200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'SlimCampaign' defined in anyOf (GetActiveCampaignsV1200ResponseInner). Proceeding to the next one if any."
             }
         }
 
@@ -74,10 +74,10 @@ function ConvertFrom-JsonToGetActiveCampaignsV1200ResponseInner {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "anyOfSchemas" = @("Campaign2", "Slimcampaign")
+                "anyOfSchemas" = @("Campaign2", "SlimCampaign")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([Campaign2, Slimcampaign]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([Campaign2, SlimCampaign]). JSON Payload: $($Json)"
         }
     }
 }

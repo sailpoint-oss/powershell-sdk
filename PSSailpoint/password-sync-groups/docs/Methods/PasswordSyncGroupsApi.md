@@ -64,20 +64,20 @@ This API creates a password sync group based on the specifications provided.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Passwordsyncgroup | [**Passwordsyncgroup**](../models/passwordsyncgroup) | True  | 
+ Body  | PasswordSyncGroup | [**PasswordSyncGroup**](../models/password-sync-group) | True  | 
 
 ### Return type
-[**Passwordsyncgroup**](../models/passwordsyncgroup)
+[**PasswordSyncGroup**](../models/password-sync-group)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reference to the password sync group. | Passwordsyncgroup
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Reference to the password sync group. | PasswordSyncGroup
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordSyncGroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordSyncGroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -85,16 +85,23 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Passwordsyncgroup = @"{"name":"Password Sync Group 2","passwordPolicyId":"2c91808d744ba0ce01746f93b6204501","sourceIds":["2c918084660f45d6016617daa9210584","2c918084660f45d6016617daa9210500"]}"@
+$PasswordSyncGroup = @"{
+  "created" : "2023-03-16T04:00:00Z",
+  "name" : "Password Sync Group 1",
+  "modified" : "2023-03-16T04:00:00Z",
+  "passwordPolicyId" : "2c91808d744ba0ce01746f93b6204501",
+  "id" : "6881f631-3bd5-4213-9c75-8e05cc3e35dd",
+  "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+}"@
 
 # Create password sync group
 
 try {
-    $Result = ConvertFrom-JsonToPasswordsyncgroup -Json $Passwordsyncgroup
-    New-PasswordSyncGroupV1 -Passwordsyncgroup $Result 
+    $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
+    New-PasswordSyncGroupV1 -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # New-PasswordSyncGroupV1 -Passwordsyncgroup $Result  
+    # New-PasswordSyncGroupV1 -PasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PasswordSyncGroupV1"
     Write-Host $_.ErrorDetails
@@ -119,11 +126,11 @@ Path   | Id | **String** | True  | The ID of password sync group to delete.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordSyncGroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordSyncGroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -158,18 +165,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of password sync group to retrieve.
 
 ### Return type
-[**Passwordsyncgroup**](../models/passwordsyncgroup)
+[**PasswordSyncGroup**](../models/password-sync-group)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reference to the password sync group. | Passwordsyncgroup
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Reference to the password sync group. | PasswordSyncGroup
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordSyncGroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordSyncGroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -206,17 +213,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Passwordsyncgroup[]**](../models/passwordsyncgroup)
+[**PasswordSyncGroup[]**](../models/password-sync-group)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of password sync groups. | Passwordsyncgroup[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of password sync groups. | PasswordSyncGroup[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordSyncGroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordSyncGroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -251,21 +258,21 @@ This API updates the specified password sync group.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of password sync group to update.
- Body  | Passwordsyncgroup | [**Passwordsyncgroup**](../models/passwordsyncgroup) | True  | 
+ Body  | PasswordSyncGroup | [**PasswordSyncGroup**](../models/password-sync-group) | True  | 
 
 ### Return type
-[**Passwordsyncgroup**](../models/passwordsyncgroup)
+[**PasswordSyncGroup**](../models/password-sync-group)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reference to the password sync group. | Passwordsyncgroup
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Reference to the password sync group. | PasswordSyncGroup
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordSyncGroupsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordSyncGroupsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -274,16 +281,23 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to update.
-$Passwordsyncgroup = @"{"id":"6881f631-3bd5-4213-9c75-8e05cc3e35dd","name":"Password Sync Group 2","passwordPolicyId":"2c91808d744ba0ce01746f93b6204501","sourceIds":["2c918084660f45d6016617daa9210584","2c918084660f45d6016617daa9210500"]}"@
+$PasswordSyncGroup = @"{
+  "created" : "2023-03-16T04:00:00Z",
+  "name" : "Password Sync Group 1",
+  "modified" : "2023-03-16T04:00:00Z",
+  "passwordPolicyId" : "2c91808d744ba0ce01746f93b6204501",
+  "id" : "6881f631-3bd5-4213-9c75-8e05cc3e35dd",
+  "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+}"@
 
 # Update password sync group by id
 
 try {
-    $Result = ConvertFrom-JsonToPasswordsyncgroup -Json $Passwordsyncgroup
-    Update-PasswordSyncGroupV1 -Id $Id -Passwordsyncgroup $Result 
+    $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
+    Update-PasswordSyncGroupV1 -Id $Id -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-PasswordSyncGroupV1 -Id $Id -Passwordsyncgroup $Result  
+    # Update-PasswordSyncGroupV1 -Id $Id -PasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PasswordSyncGroupV1"
     Write-Host $_.ErrorDetails

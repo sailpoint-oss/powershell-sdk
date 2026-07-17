@@ -47,17 +47,17 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CreateSavedSearchV1Request | [**CreateSavedSearchV1Request**](../models/create-saved-search-v1-request) | True  | The saved search to persist.
 
 ### Return type
-[**Savedsearch**](../models/savedsearch)
+[**SavedSearch**](../models/saved-search)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | The persisted saved search. | Savedsearch
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | The persisted saved search. | SavedSearch
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSavedSearchesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSavedSearchesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -100,12 +100,12 @@ Path   | Id | **String** | True  | ID of the requested document.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content - Indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSavedSearchesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSavedSearchesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -139,7 +139,7 @@ Executes the specified saved search.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the requested document.
- Body  | Searcharguments | [**Searcharguments**](../models/searcharguments) | True  | When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
+ Body  | SearchArguments | [**SearchArguments**](../models/search-arguments) | True  | When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
 
 ### Return type
  (empty response body)
@@ -148,12 +148,12 @@ Path   | Id | **String** | True  | ID of the requested document.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSavedSearchesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSavedSearchesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -162,16 +162,26 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-$Searcharguments = @""@
+$SearchArguments = @"{
+  "owner" : "",
+  "recipients" : [ {
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  }, {
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  } ],
+  "scheduleId" : "7a724640-0c17-4ce9-a8c3-4a89738459c8"
+}"@
 
 # Execute a saved search by id
 
 try {
-    $Result = ConvertFrom-JsonToSearcharguments -Json $Searcharguments
-    Invoke-ExecuteSavedSearchV1 -Id $Id -Searcharguments $Result 
+    $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
+    Invoke-ExecuteSavedSearchV1 -Id $Id -SearchArguments $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-ExecuteSavedSearchV1 -Id $Id -Searcharguments $Result  
+    # Invoke-ExecuteSavedSearchV1 -Id $Id -SearchArguments $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ExecuteSavedSearchV1"
     Write-Host $_.ErrorDetails
@@ -191,18 +201,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the requested document.
 
 ### Return type
-[**Savedsearch**](../models/savedsearch)
+[**SavedSearch**](../models/saved-search)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The requested saved search. | Savedsearch
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The requested saved search. | SavedSearch
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSavedSearchesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSavedSearchesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -241,17 +251,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*
 
 ### Return type
-[**Savedsearch[]**](../models/savedsearch)
+[**SavedSearch[]**](../models/saved-search)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The list of requested saved searches. | Savedsearch[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The list of requested saved searches. | SavedSearch[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSavedSearchesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSavedSearchesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -290,20 +300,20 @@ Updates an existing saved search.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the requested document.
- Body  | Savedsearch | [**Savedsearch**](../models/savedsearch) | True  | The saved search to persist.
+ Body  | SavedSearch | [**SavedSearch**](../models/saved-search) | True  | The saved search to persist.
 
 ### Return type
-[**Savedsearch**](../models/savedsearch)
+[**SavedSearch**](../models/saved-search)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The persisted saved search. | Savedsearch
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The persisted saved search. | SavedSearch
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSavedSearchesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSavedSearchesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -312,16 +322,60 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-$Savedsearch = @""@
+$SavedSearch = @"{
+  "owner" : {
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "created" : "2018-06-25T20:22:28.104Z",
+  "columns" : {
+    "identity" : [ {
+      "field" : "displayName",
+      "header" : "Display Name"
+    }, {
+      "field" : "e-mail",
+      "header" : "Work Email"
+    } ]
+  },
+  "query" : "@accounts(disabled:true)",
+  "description" : "Disabled accounts",
+  "orderBy" : {
+    "identity" : [ "lastName", "firstName" ],
+    "role" : [ "name" ]
+  },
+  "sort" : [ "displayName" ],
+  "filters" : {
+    "terms" : [ "account_count", "account_count" ],
+    "range" : {
+      "lower" : {
+        "inclusive" : false,
+        "value" : "1"
+      },
+      "upper" : {
+        "inclusive" : false,
+        "value" : "1"
+      }
+    },
+    "exclude" : false,
+    "type" : "RANGE"
+  },
+  "ownerId" : "2c91808568c529c60168cca6f90c1313",
+  "indices" : [ "identities" ],
+  "public" : false,
+  "name" : "Disabled accounts",
+  "modified" : "2018-06-25T20:22:28.104Z",
+  "id" : "0de46054-fe90-434a-b84e-c6b3359d0c64",
+  "fields" : [ "disabled" ]
+}"@
 
 # Updates an existing saved search 
 
 try {
-    $Result = ConvertFrom-JsonToSavedsearch -Json $Savedsearch
-    Send-SavedSearchV1 -Id $Id -Savedsearch $Result 
+    $Result = ConvertFrom-JsonToSavedSearch -Json $SavedSearch
+    Send-SavedSearchV1 -Id $Id -SavedSearch $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-SavedSearchV1 -Id $Id -Savedsearch $Result  
+    # Send-SavedSearchV1 -Id $Id -SavedSearch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SavedSearchV1"
     Write-Host $_.ErrorDetails

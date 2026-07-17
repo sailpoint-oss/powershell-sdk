@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.ManagedClusterTypes.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,19 +76,19 @@ FunctionsToExport = 'New-ManagedClusterTypeV1', 'Remove-ManagedClusterTypeV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'ConvertFrom-JsonToArrayInner', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
+               'ConvertFrom-JsonToArrayInner', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetManagedClusterTypesV1401Response', 
                'ConvertFrom-JsonToGetManagedClusterTypesV1401Response', 
                'Initialize-GetManagedClusterTypesV1429Response', 
                'ConvertFrom-JsonToGetManagedClusterTypesV1429Response', 
-               'Initialize-Jsonpatch', 'ConvertFrom-JsonToJsonpatch', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 
-               'Initialize-Managedclustertype', 
-               'ConvertFrom-JsonToManagedclustertype'
+               'Initialize-JsonPatch', 'ConvertFrom-JsonToJsonPatch', 
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 
+               'Initialize-ManagedClusterType', 
+               'ConvertFrom-JsonToManagedClusterType'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

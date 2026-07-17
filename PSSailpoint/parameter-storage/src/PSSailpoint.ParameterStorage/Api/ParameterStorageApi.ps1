@@ -14,7 +14,7 @@ Add a new parameter.
 
 Add a new parameter.
 
-.PARAMETER Parameterstoragenewparameter
+.PARAMETER ParameterStorageNewParameter
 The parameter to add to the store.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Parameterstorageparameter
+ParameterStorageParameter
 #>
 function New-ParameterV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Parameterstoragenewparameter},
+        ${ParameterStorageNewParameter},
         [Switch]
         $WithHttpInfo
     )
@@ -56,10 +56,10 @@ function New-ParameterV1 {
 
         $LocalVarUri = '/parameter-storage/v1/parameters'
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Parameterstoragenewparameter -is [array])) {
-            $LocalVarBodyParameter = $Parameterstoragenewparameter | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ParameterStorageNewParameter -is [array])) {
+            $LocalVarBodyParameter = $ParameterStorageNewParameter | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Parameterstoragenewparameter | ForEach-Object {
+            $LocalVarBodyParameter = $ParameterStorageNewParameter | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -78,7 +78,7 @@ function New-ParameterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Parameterstorageparameter" `
+                                -ReturnType "ParameterStorageParameter" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -179,7 +179,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Parameterstorageattestationdocument
+ParameterStorageAttestationDocument
 #>
 function Get-AttestationDocumentV1 {
     [CmdletBinding()]
@@ -223,7 +223,7 @@ function Get-AttestationDocumentV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Parameterstorageattestationdocument" `
+                                -ReturnType "ParameterStorageAttestationDocument" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -261,7 +261,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Parameterstoragereference[]
+ParameterStorageReference[]
 #>
 function Get-ParameterReferencesV1 {
     [CmdletBinding()]
@@ -325,7 +325,7 @@ function Get-ParameterReferencesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Parameterstoragereference[]" `
+                                -ReturnType "ParameterStorageReference[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -426,7 +426,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Parameterstorageparameter
+ParameterStorageParameter
 #>
 function Get-ParameterV1 {
     [CmdletBinding()]
@@ -469,7 +469,7 @@ function Get-ParameterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Parameterstorageparameter" `
+                                -ReturnType "ParameterStorageParameter" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -507,7 +507,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Parameterstorageparameter[]
+ParameterStorageParameter[]
 #>
 function Search-ParametersV1 {
     [CmdletBinding()]
@@ -571,7 +571,7 @@ function Search-ParametersV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Parameterstorageparameter[]" `
+                                -ReturnType "ParameterStorageParameter[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -594,7 +594,7 @@ Update a parameter. You cannot change a parameter's type once set. Only the name
 .PARAMETER Id
 The ID of the parameter to be updated.
 
-.PARAMETER Parameterstorageupdateparameter
+.PARAMETER ParameterStorageUpdateParameter
 The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates.
 
 .PARAMETER WithHttpInfo
@@ -603,7 +603,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Parameterstorageparameter
+ParameterStorageParameter
 #>
 function Update-ParameterV1 {
     [CmdletBinding()]
@@ -613,7 +613,7 @@ function Update-ParameterV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Parameterstorageupdateparameter},
+        ${ParameterStorageUpdateParameter},
         [Switch]
         $WithHttpInfo
     )
@@ -643,10 +643,10 @@ function Update-ParameterV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Parameterstorageupdateparameter -is [array])) {
-            $LocalVarBodyParameter = $Parameterstorageupdateparameter | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ParameterStorageUpdateParameter -is [array])) {
+            $LocalVarBodyParameter = $ParameterStorageUpdateParameter | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Parameterstorageupdateparameter | ForEach-Object {
+            $LocalVarBodyParameter = $ParameterStorageUpdateParameter | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -665,7 +665,7 @@ function Update-ParameterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Parameterstorageparameter" `
+                                -ReturnType "ParameterStorageParameter" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -34,48 +34,48 @@ function ConvertFrom-JsonToGetStreamV1200Response {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match Streamconfigresponse defined in the oneOf schemas
+        # try to match StreamConfigResponse defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToStreamconfigresponse $Json
+            $matchInstance = ConvertFrom-JsonToStreamConfigResponse $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Streamconfigresponse"
+                    $matchType = "StreamConfigResponse"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Streamconfigresponse' defined in oneOf (GetStreamV1200Response). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'StreamConfigResponse' defined in oneOf (GetStreamV1200Response). Proceeding to the next one if any."
         }
 
-        # try to match Streamconfigresponse[] defined in the oneOf schemas
+        # try to match StreamConfigResponse[] defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToStreamconfigresponse[] $Json
+            $matchInstance = ConvertFrom-JsonToStreamConfigResponse[] $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Streamconfigresponse[]"
+                    $matchType = "StreamConfigResponse[]"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Streamconfigresponse[]' defined in oneOf (GetStreamV1200Response). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'StreamConfigResponse[]' defined in oneOf (GetStreamV1200Response). Proceeding to the next one if any."
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([Streamconfigresponse, Streamconfigresponse[]]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([StreamConfigResponse, StreamConfigResponse[]]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("Streamconfigresponse", "Streamconfigresponse[]")
+                "OneOfSchemas" = @("StreamConfigResponse", "StreamConfigResponse[]")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([Streamconfigresponse, Streamconfigresponse[]]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([StreamConfigResponse, StreamConfigResponse[]]). JSON Payload: $($Json)"
         }
     }
 }

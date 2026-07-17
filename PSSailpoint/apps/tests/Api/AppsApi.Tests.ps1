@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.Apps' -name 'AppsApi' {
     Context 'New-SourceAppV1' {
         It 'Test New-SourceAppV1' {
-            #$TestResult = New-SourceAppV1 -XSailPointExperimental "TEST_VALUE" -Sourceappcreatedto "TEST_VALUE"
+            #$TestResult = New-SourceAppV1 -XSailPointExperimental "TEST_VALUE" -SourceAppCreateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.Apps' -name 'AppsApi' {
 
     Context 'Update-SourceAppV1' {
         It 'Test Update-SourceAppV1' {
-            #$TestResult = Update-SourceAppV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-SourceAppV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.Apps' -name 'AppsApi' {
 
     Context 'Update-UserAppV1' {
         It 'Test Update-UserAppV1' {
-            #$TestResult = Update-UserAppV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-UserAppV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.Apps' -name 'AppsApi' {
 
     Context 'Update-SourceAppsInBulkV1' {
         It 'Test Update-SourceAppsInBulkV1' {
-            #$TestResult = Update-SourceAppsInBulkV1 -XSailPointExperimental "TEST_VALUE" -Sourceappbulkupdaterequest "TEST_VALUE"
+            #$TestResult = Update-SourceAppsInBulkV1 -XSailPointExperimental "TEST_VALUE" -SourceAppBulkUpdateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

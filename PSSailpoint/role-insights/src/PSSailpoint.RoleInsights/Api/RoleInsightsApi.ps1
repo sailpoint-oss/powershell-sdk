@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleinsightsresponse
+RoleInsightsResponse
 #>
 function New-RoleInsightRequestsV1 {
     [CmdletBinding()]
@@ -67,7 +67,7 @@ function New-RoleInsightRequestsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleinsightsresponse" `
+                                -ReturnType "RoleInsightsResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -235,7 +235,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleinsightsidentities[]
+RoleInsightsIdentities[]
 #>
 function Get-EntitlementChangesIdentitiesV1 {
     [CmdletBinding()]
@@ -335,7 +335,7 @@ function Get-EntitlementChangesIdentitiesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleinsightsidentities[]" `
+                                -ReturnType "RoleInsightsIdentities[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -367,7 +367,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleinsight
+RoleInsight
 #>
 function Get-RoleInsightV1 {
     [CmdletBinding()]
@@ -418,7 +418,7 @@ function Get-RoleInsightV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleinsight" `
+                                -ReturnType "RoleInsight" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -453,7 +453,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleinsightsentitlement[]
+RoleInsightsEntitlement[]
 #>
 function Get-RoleInsightsCurrentEntitlementsV1 {
     [CmdletBinding()]
@@ -511,7 +511,7 @@ function Get-RoleInsightsCurrentEntitlementsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleinsightsentitlement[]" `
+                                -ReturnType "RoleInsightsEntitlement[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -549,7 +549,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleinsightsentitlementchanges[]
+RoleInsightsEntitlementChanges[]
 #>
 function Get-RoleInsightsEntitlementsChangesV1 {
     [CmdletBinding()]
@@ -614,7 +614,7 @@ function Get-RoleInsightsEntitlementsChangesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleinsightsentitlementchanges[]" `
+                                -ReturnType "RoleInsightsEntitlementChanges[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -646,7 +646,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleinsightsresponse
+RoleInsightsResponse
 #>
 function Get-RoleInsightsRequestsV1 {
     [CmdletBinding()]
@@ -697,7 +697,7 @@ function Get-RoleInsightsRequestsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleinsightsresponse" `
+                                -ReturnType "RoleInsightsResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -726,7 +726,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleinsightssummary
+RoleInsightsSummary
 #>
 function Get-RoleInsightsSummaryV1 {
     [CmdletBinding()]
@@ -770,7 +770,7 @@ function Get-RoleInsightsSummaryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleinsightssummary" `
+                                -ReturnType "RoleInsightsSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -814,7 +814,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleinsight[]
+RoleInsight[]
 #>
 function Get-RoleInsightsV1 {
     [CmdletBinding()]
@@ -893,7 +893,7 @@ function Get-RoleInsightsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleinsight[]" `
+                                -ReturnType "RoleInsight[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

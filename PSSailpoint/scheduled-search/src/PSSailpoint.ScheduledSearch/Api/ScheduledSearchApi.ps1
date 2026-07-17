@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Scheduledsearch
+ScheduledSearch
 #>
 function New-ScheduledSearchV1 {
     [CmdletBinding()]
@@ -82,7 +82,7 @@ function New-ScheduledSearchV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Scheduledsearch" `
+                                -ReturnType "ScheduledSearch" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -183,7 +183,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Scheduledsearch
+ScheduledSearch
 #>
 function Get-ScheduledSearchV1 {
     [CmdletBinding()]
@@ -226,7 +226,7 @@ function Get-ScheduledSearchV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Scheduledsearch" `
+                                -ReturnType "ScheduledSearch" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -264,7 +264,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Scheduledsearch[]
+ScheduledSearch[]
 #>
 function Get-ScheduledSearchV1 {
     [CmdletBinding()]
@@ -328,7 +328,7 @@ function Get-ScheduledSearchV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Scheduledsearch[]" `
+                                -ReturnType "ScheduledSearch[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -351,7 +351,7 @@ Unsubscribes a recipient from the specified scheduled search.
 .PARAMETER Id
 ID of the requested document.
 
-.PARAMETER Typedreference
+.PARAMETER TypedReference
 The recipient to be removed from the scheduled search. 
 
 .PARAMETER WithHttpInfo
@@ -370,7 +370,7 @@ function Invoke-UnsubscribeScheduledSearchV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Typedreference},
+        ${TypedReference},
         [Switch]
         $WithHttpInfo
     )
@@ -400,14 +400,14 @@ function Invoke-UnsubscribeScheduledSearchV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Typedreference) {
-            throw "Error! The required parameter `Typedreference` missing when calling unsubscribeScheduledSearchV1."
+        if (!$TypedReference) {
+            throw "Error! The required parameter `TypedReference` missing when calling unsubscribeScheduledSearchV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Typedreference -is [array])) {
-            $LocalVarBodyParameter = $Typedreference | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TypedReference -is [array])) {
+            $LocalVarBodyParameter = $TypedReference | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Typedreference | ForEach-Object {
+            $LocalVarBodyParameter = $TypedReference | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -449,7 +449,7 @@ Updates an existing scheduled search.
 .PARAMETER Id
 ID of the requested document.
 
-.PARAMETER Scheduledsearch
+.PARAMETER ScheduledSearch
 The scheduled search to persist.
 
 .PARAMETER WithHttpInfo
@@ -458,7 +458,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Scheduledsearch
+ScheduledSearch
 #>
 function Update-ScheduledSearchV1 {
     [CmdletBinding()]
@@ -468,7 +468,7 @@ function Update-ScheduledSearchV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Scheduledsearch},
+        ${ScheduledSearch},
         [Switch]
         $WithHttpInfo
     )
@@ -498,14 +498,14 @@ function Update-ScheduledSearchV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Scheduledsearch) {
-            throw "Error! The required parameter `Scheduledsearch` missing when calling updateScheduledSearchV1."
+        if (!$ScheduledSearch) {
+            throw "Error! The required parameter `ScheduledSearch` missing when calling updateScheduledSearchV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Scheduledsearch -is [array])) {
-            $LocalVarBodyParameter = $Scheduledsearch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ScheduledSearch -is [array])) {
+            $LocalVarBodyParameter = $ScheduledSearch | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Scheduledsearch | ForEach-Object {
+            $LocalVarBodyParameter = $ScheduledSearch | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -524,7 +524,7 @@ function Update-ScheduledSearchV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Scheduledsearch" `
+                                -ReturnType "ScheduledSearch" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

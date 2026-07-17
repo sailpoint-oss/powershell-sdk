@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.Launchers' -name 'LaunchersApi' {
     Context 'New-LauncherV1' {
         It 'Test New-LauncherV1' {
-            #$TestResult = New-LauncherV1 -Launcherrequest "TEST_VALUE"
+            #$TestResult = New-LauncherV1 -LauncherRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.Launchers' -name 'LaunchersApi' {
 
     Context 'Send-LauncherV1' {
         It 'Test Send-LauncherV1' {
-            #$TestResult = Send-LauncherV1 -LauncherID "TEST_VALUE" -Launcherrequest "TEST_VALUE"
+            #$TestResult = Send-LauncherV1 -LauncherID "TEST_VALUE" -LauncherRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

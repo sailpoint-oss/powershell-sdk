@@ -125,7 +125,7 @@ can complete a certification even if all items have not been completed.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Campaign ID.
- Body  | Campaigncompleteoptions | [**Campaigncompleteoptions**](../models/campaigncompleteoptions) |   (optional) | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE
+ Body  | CampaignCompleteOptions | [**CampaignCompleteOptions**](../models/campaign-complete-options) |   (optional) | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -134,12 +134,12 @@ Path   | Id | **String** | True  | Campaign ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -148,7 +148,9 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
-$Campaigncompleteoptions = @""@
+$CampaignCompleteOptions = @"{
+  "autoCompleteAction" : "REVOKE"
+}"@
 
 # Complete a campaign
 
@@ -156,7 +158,7 @@ try {
     Complete-CampaignV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Complete-CampaignV1 -Id $Id -Campaigncompleteoptions $Result  
+    # Complete-CampaignV1 -Id $Id -CampaignCompleteOptions $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-CampaignV1"
     Write-Host $_.ErrorDetails
@@ -173,20 +175,20 @@ Use this API to create a certification campaign template based on campaign.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Campaigntemplate | [**Campaigntemplate**](../models/campaigntemplate) | True  | 
+ Body  | CampaignTemplate | [**CampaignTemplate**](../models/campaign-template) | True  | 
 
 ### Return type
-[**Campaigntemplate**](../models/campaigntemplate)
+[**CampaignTemplate**](../models/campaign-template)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Created successfully. | Campaigntemplate
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Created successfully. | CampaignTemplate
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -194,16 +196,140 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Campaigntemplate = @""@
+$CampaignTemplate = @"{
+  "ownerRef" : {
+    "name" : "Mister Manager",
+    "id" : "2c918086676d3e0601677611dbde220f",
+    "type" : "IDENTITY",
+    "email" : "mr.manager@example.com"
+  },
+  "deadlineDuration" : "P2W",
+  "created" : "2020-03-05T22:44:00.364Z",
+  "scheduled" : false,
+  "name" : "Manager Campaign Template",
+  "description" : "Template for the annual manager campaign.",
+  "modified" : "2020-03-05T22:52:09.969Z",
+  "campaign" : {
+    "totalCertifications" : 100,
+    "sourcesWithOrphanEntitlements" : [ {
+      "name" : "Source with orphan entitlements",
+      "id" : "2c90ad2a70ace7d50170acf22ca90010",
+      "type" : "SOURCE"
+    }, {
+      "name" : "Source with orphan entitlements",
+      "id" : "2c90ad2a70ace7d50170acf22ca90010",
+      "type" : "SOURCE"
+    } ],
+    "recommendationsEnabled" : true,
+    "sunsetCommentsRequired" : true,
+    "created" : "2020-03-03T22:15:13.611Z",
+    "machineAccountCampaignInfo" : {
+      "reviewerType" : "ACCOUNT_OWNER",
+      "sourceIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ]
+    },
+    "description" : "Everyone needs to be reviewed by their manager",
+    "type" : "MANAGER",
+    "sourceOwnerCampaignInfo" : {
+      "sourceIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ]
+    },
+    "emailNotificationEnabled" : false,
+    "alerts" : [ {
+      "level" : "ERROR",
+      "localizations" : [ {
+        "localeOrigin" : "DEFAULT",
+        "text" : "The request was syntactically correct but its content is semantically invalid.",
+        "locale" : "en-US"
+      }, {
+        "localeOrigin" : "DEFAULT",
+        "text" : "The request was syntactically correct but its content is semantically invalid.",
+        "locale" : "en-US"
+      } ]
+    }, {
+      "level" : "ERROR",
+      "localizations" : [ {
+        "localeOrigin" : "DEFAULT",
+        "text" : "The request was syntactically correct but its content is semantically invalid.",
+        "locale" : "en-US"
+      }, {
+        "localeOrigin" : "DEFAULT",
+        "text" : "The request was syntactically correct but its content is semantically invalid.",
+        "locale" : "en-US"
+      } ]
+    } ],
+    "filter" : {
+      "name" : "Test Filter",
+      "id" : "0fbe863c063c4c88a35fd7f17e8a3df5",
+      "type" : "CAMPAIGN_FILTER"
+    },
+    "searchCampaignInfo" : {
+      "identityIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ],
+      "query" : "Search Campaign query description",
+      "description" : "Search Campaign description",
+      "reviewer" : {
+        "name" : "William Wilson",
+        "id" : "2c91808568c529c60168cca6f90c1313",
+        "type" : "IDENTITY"
+      },
+      "type" : "ACCESS",
+      "accessConstraints" : [ {
+        "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+        "type" : "ENTITLEMENT",
+        "operator" : "SELECTED"
+      }, {
+        "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+        "type" : "ENTITLEMENT",
+        "operator" : "SELECTED"
+      }, {
+        "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+        "type" : "ENTITLEMENT",
+        "operator" : "SELECTED"
+      }, {
+        "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+        "type" : "ENTITLEMENT",
+        "operator" : "SELECTED"
+      }, {
+        "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+        "type" : "ENTITLEMENT",
+        "operator" : "SELECTED"
+      } ]
+    },
+    "autoRevokeAllowed" : false,
+    "name" : "Manager Campaign",
+    "mandatoryCommentRequirement" : "NO_DECISIONS",
+    "modified" : "2020-03-03T22:20:12.674Z",
+    "roleCompositionCampaignInfo" : {
+      "remediatorRef" : {
+        "name" : "Role Admin",
+        "id" : "2c90ad2a70ace7d50170acf22ca90010",
+        "type" : "IDENTITY"
+      },
+      "reviewerId" : "2c91808568c529c60168cca6f90c1313",
+      "roleIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+      "query" : "Search Query",
+      "description" : "Role Composition Description",
+      "reviewer" : {
+        "name" : "William Wilson",
+        "id" : "2c91808568c529c60168cca6f90c1313",
+        "type" : "IDENTITY"
+      }
+    },
+    "completedCertifications" : 10,
+    "id" : "2c9079b270a266a60170a2779fcb0007",
+    "deadline" : "2020-03-15T10:00:01.456Z",
+    "status" : "ACTIVE",
+    "correlatedStatus" : "CORRELATED"
+  },
+  "id" : "2c9079b270a266a60170a277bb960008"
+}"@
 
 # Create a campaign template
 
 try {
-    $Result = ConvertFrom-JsonToCampaigntemplate -Json $Campaigntemplate
-    New-CampaignTemplateV1 -Campaigntemplate $Result 
+    $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
+    New-CampaignTemplateV1 -CampaignTemplate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-CampaignTemplateV1 -Campaigntemplate $Result  
+    # New-CampaignTemplateV1 -CampaignTemplate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CampaignTemplateV1"
     Write-Host $_.ErrorDetails
@@ -229,11 +355,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | This response indicates that the requested campaign has been successfully accepted into the system, and its representation is returned by the API. | Campaign2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -276,12 +402,12 @@ Path   | Id | **String** | True  | ID of the campaign template whose schedule is
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -323,12 +449,12 @@ Path   | Id | **String** | True  | ID of the campaign template being deleted.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -361,7 +487,7 @@ Use this API to delete certification campaigns whose IDs are specified in the pr
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Campaignsdeleterequest | [**Campaignsdeleterequest**](../models/campaignsdeleterequest) | True  | IDs of the campaigns to delete.
+ Body  | CampaignsDeleteRequest | [**CampaignsDeleteRequest**](../models/campaigns-delete-request) | True  | IDs of the campaigns to delete.
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -370,12 +496,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -383,16 +509,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Campaignsdeleterequest = @""@
+$CampaignsDeleteRequest = @"{
+  "ids" : [ "2c9180887335cee10173490db1776c26", "2c9180836a712436016a7125a90c0021" ]
+}"@
 
 # Delete campaigns
 
 try {
-    $Result = ConvertFrom-JsonToCampaignsdeleterequest -Json $Campaignsdeleterequest
-    Remove-CampaignsV1 -Campaignsdeleterequest $Result 
+    $Result = ConvertFrom-JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
+    Remove-CampaignsV1 -CampaignsDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-CampaignsV1 -Campaignsdeleterequest $Result  
+    # Remove-CampaignsV1 -CampaignsDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-CampaignsV1"
     Write-Host $_.ErrorDetails
@@ -423,11 +551,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | A list of campaign objects. By default list of SLIM campaigns is returned. | GetActiveCampaignsV1200ResponseInner[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -467,17 +595,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Campaignreportsconfig**](../models/campaignreportsconfig)
+[**CampaignReportsConfig**](../models/campaign-reports-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Campaign report configuration. | Campaignreportsconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Campaign report configuration. | CampaignReportsConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -512,18 +640,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the campaign whose reports are being fetched.
 
 ### Return type
-[**Campaignreport[]**](../models/campaignreport)
+[**CampaignReport[]**](../models/campaign-report)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Array of campaign report objects. | Campaignreport[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Array of campaign report objects. | CampaignReport[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -565,12 +693,12 @@ Path   | Id | **String** | True  | ID of the campaign template whose schedule is
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Current schedule for the campaign template. See the [Set Campaign Template Schedule endpoint documentation](https://developer.sailpoint.com/docs/api/v3/set-campaign-template-schedule) for more examples. | Schedule2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -606,18 +734,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Requested campaign template's ID.
 
 ### Return type
-[**Campaigntemplate**](../models/campaigntemplate)
+[**CampaignTemplate**](../models/campaign-template)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Data for the campaign matching the given ID. | Campaigntemplate
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Data for the campaign matching the given ID. | CampaignTemplate
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -659,17 +787,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw*
 
 ### Return type
-[**Campaigntemplate[]**](../models/campaigntemplate)
+[**CampaignTemplate[]**](../models/campaign-template)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of campaign template objects. | Campaigntemplate[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of campaign template objects. | CampaignTemplate[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -716,12 +844,12 @@ Path   | Id | **String** | True  | ID of the campaign to be retrieved.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Requested campaign object. | GetCampaignV1200Response
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -756,21 +884,21 @@ This API reassigns the specified certifications from one identity to another.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The certification campaign ID
- Body  | Adminreviewreassign | [**Adminreviewreassign**](../models/adminreviewreassign) | True  | 
+ Body  | AdminReviewReassign | [**AdminReviewReassign**](../models/admin-review-reassign) | True  | 
 
 ### Return type
-[**Certificationtask**](../models/certificationtask)
+[**CertificationTask**](../models/certification-task)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | The reassign task that has been submitted. | Certificationtask
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | The reassign task that has been submitted. | CertificationTask
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -779,16 +907,23 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification campaign ID
-$Adminreviewreassign = @""@
+$AdminReviewReassign = @"{
+  "certificationIds" : [ "af3859464779471211bb8424a563abc1", "af3859464779471211bb8424a563abc2", "af3859464779471211bb8424a563abc3" ],
+  "reason" : "reassigned for some reason",
+  "reassignTo" : {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "IDENTITY"
+  }
+}"@
 
 # Reassign certifications
 
 try {
-    $Result = ConvertFrom-JsonToAdminreviewreassign -Json $Adminreviewreassign
-    Move-V1 -Id $Id -Adminreviewreassign $Result 
+    $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
+    Move-V1 -Id $Id -AdminReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Move-V1 -Id $Id -Adminreviewreassign $Result  
+    # Move-V1 -Id $Id -AdminReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-V1"
     Write-Host $_.ErrorDetails
@@ -806,21 +941,21 @@ Use this API to update individual fields on a certification campaign template, u
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the campaign template being modified.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
 ### Return type
-[**Campaigntemplate**](../models/campaigntemplate)
+[**CampaignTemplate**](../models/campaign-template)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | This response indicates that the PATCH operation succeeded, and the API returns the template&#39;s new representation. | Campaigntemplate
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | This response indicates that the PATCH operation succeeded, and the API returns the template&#39;s new representation. | CampaignTemplate
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -829,17 +964,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being modified.
- $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Updated description!"},{"op":"replace","path":"/campaign/filter/id","value":"ff80818155fe8c080155fe8d925b0316"}]"@ # Jsonpatchoperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
  
 
 # Update a campaign template
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-CampaignTemplateV1 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-CampaignTemplateV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-CampaignTemplateV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-CampaignTemplateV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CampaignTemplateV1"
     Write-Host $_.ErrorDetails
@@ -856,20 +995,20 @@ Use this API to overwrite the configuration for campaign reports.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Campaignreportsconfig | [**Campaignreportsconfig**](../models/campaignreportsconfig) | True  | Campaign report configuration.
+ Body  | CampaignReportsConfig | [**CampaignReportsConfig**](../models/campaign-reports-config) | True  | Campaign report configuration.
 
 ### Return type
-[**Campaignreportsconfig**](../models/campaignreportsconfig)
+[**CampaignReportsConfig**](../models/campaign-reports-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The persisted campaign report configuration. | Campaignreportsconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The persisted campaign report configuration. | CampaignReportsConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -877,16 +1016,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Campaignreportsconfig = @""@
+$CampaignReportsConfig = @"{
+  "identityAttributeColumns" : [ "firstname", "lastname" ]
+}"@
 
 # Set campaign reports configuration
 
 try {
-    $Result = ConvertFrom-JsonToCampaignreportsconfig -Json $Campaignreportsconfig
-    Set-CampaignReportsConfigV1 -Campaignreportsconfig $Result 
+    $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
+    Set-CampaignReportsConfigV1 -CampaignReportsConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-CampaignReportsConfigV1 -Campaignreportsconfig $Result  
+    # Set-CampaignReportsConfigV1 -CampaignReportsConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-CampaignReportsConfigV1"
     Write-Host $_.ErrorDetails
@@ -913,12 +1054,12 @@ Path   | Id | **String** | True  | ID of the campaign template being scheduled.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -961,12 +1102,12 @@ Path   | Id | **String** | True  | ID of the campaign the remediation scan is be
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1000,7 +1141,7 @@ Use this API to run a report for a certification campaign.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the campaign the report is being run for.
-Path   | Type | [**Reporttype**](../models/reporttype) | True  | Type of the report to run.
+Path   | Type | [**ReportType**](../models/report-type) | True  | Type of the report to run.
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -1009,12 +1150,12 @@ Path   | Type | [**Reporttype**](../models/reporttype) | True  | Type of the rep
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1023,7 +1164,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the report is being run for.
-$Type = "CAMPAIGN_COMPOSITION_REPORT" # Reporttype | Type of the report to run.
+$Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of the report to run.
 
 # Run campaign report
 
@@ -1049,7 +1190,7 @@ Use this API to submit a job to activate the certified campaign with the specifi
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Campaign ID.
- Body  | Activatecampaignoptions | [**Activatecampaignoptions**](../models/activatecampaignoptions) |   (optional) | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
+ Body  | ActivateCampaignOptions | [**ActivateCampaignOptions**](../models/activate-campaign-options) |   (optional) | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -1058,12 +1199,12 @@ Path   | Id | **String** | True  | Campaign ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -1072,7 +1213,9 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
-$Activatecampaignoptions = @""@
+$ActivateCampaignOptions = @"{
+  "timeZone" : "-05:00"
+}"@
 
 # Activate a campaign
 
@@ -1080,7 +1223,7 @@ try {
     Start-CampaignV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Start-CampaignV1 -Id $Id -Activatecampaignoptions $Result  
+    # Start-CampaignV1 -Id $Id -ActivateCampaignOptions $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-CampaignV1"
     Write-Host $_.ErrorDetails
@@ -1110,17 +1253,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the campaign template to use for generation.
 
 ### Return type
-[**Campaignreference**](../models/campaignreference)
+[**CampaignReference**](../models/campaign-reference)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | This response indicates that a campaign was successfully generated from this template, and the API returns a reference to the new campaign. | Campaignreference
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | This response indicates that a campaign was successfully generated from this template, and the API returns a reference to the new campaign. | CampaignReference
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1154,21 +1297,21 @@ Use this API to update individual fields on a certification campaign, using the 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the campaign template being modified.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 
 ### Return type
-[**Slimcampaign**](../models/slimcampaign)
+[**SlimCampaign**](../models/slim-campaign)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | This response indicates that the PATCH operation succeeded, and the API returns the campaign&#39;s new representation. | Slimcampaign
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | This response indicates that the PATCH operation succeeded, and the API returns the campaign&#39;s new representation. | SlimCampaign
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -1177,17 +1320,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template being modified.
- $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"This field has been updated!"},{"op":"copy","from":"/name","path":"/description"}]"@ # Jsonpatchoperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
  
 
 # Update a campaign
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-CampaignV1 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-CampaignV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-CampaignV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-CampaignV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CampaignV1"
     Write-Host $_.ErrorDetails

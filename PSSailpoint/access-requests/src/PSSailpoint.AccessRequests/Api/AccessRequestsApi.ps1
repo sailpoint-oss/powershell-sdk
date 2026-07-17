@@ -14,7 +14,7 @@ Bulk approve access request
 
 This API endpoint allows approving pending access requests in bulk. Maximum of 50 approval ids can be  provided in the request for one single invocation.  ORG_ADMIN or users with rights ""idn:access-request-administration:write"" can approve the access requests in bulk.
 
-.PARAMETER Bulkapproveaccessrequest
+.PARAMETER BulkApproveAccessRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -30,7 +30,7 @@ function Approve-BulkAccessRequestV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Bulkapproveaccessrequest},
+        ${BulkApproveAccessRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function Approve-BulkAccessRequestV1 {
 
         $LocalVarUri = '/access-request-approvals/v1/bulk-approve'
 
-        if (!$Bulkapproveaccessrequest) {
-            throw "Error! The required parameter `Bulkapproveaccessrequest` missing when calling approveBulkAccessRequestV1."
+        if (!$BulkApproveAccessRequest) {
+            throw "Error! The required parameter `BulkApproveAccessRequest` missing when calling approveBulkAccessRequestV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Bulkapproveaccessrequest -is [array])) {
-            $LocalVarBodyParameter = $Bulkapproveaccessrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkApproveAccessRequest -is [array])) {
+            $LocalVarBodyParameter = $BulkApproveAccessRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Bulkapproveaccessrequest | ForEach-Object {
+            $LocalVarBodyParameter = $BulkApproveAccessRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -102,7 +102,7 @@ Bulk cancel access request
 
 This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be  provided in the request for one single invocation.  Only ORG_ADMIN or users with rights ""idn:access-request-administration:write"" can cancel the access requests in  bulk.
 
-.PARAMETER Bulkcancelaccessrequest
+.PARAMETER BulkCancelAccessRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -118,7 +118,7 @@ function Suspend-AccessRequestInBulkV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Bulkcancelaccessrequest},
+        ${BulkCancelAccessRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -144,14 +144,14 @@ function Suspend-AccessRequestInBulkV1 {
 
         $LocalVarUri = '/access-requests/v1/bulk-cancel'
 
-        if (!$Bulkcancelaccessrequest) {
-            throw "Error! The required parameter `Bulkcancelaccessrequest` missing when calling cancelAccessRequestInBulkV1."
+        if (!$BulkCancelAccessRequest) {
+            throw "Error! The required parameter `BulkCancelAccessRequest` missing when calling cancelAccessRequestInBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Bulkcancelaccessrequest -is [array])) {
-            $LocalVarBodyParameter = $Bulkcancelaccessrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkCancelAccessRequest -is [array])) {
+            $LocalVarBodyParameter = $BulkCancelAccessRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Bulkcancelaccessrequest | ForEach-Object {
+            $LocalVarBodyParameter = $BulkCancelAccessRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -190,7 +190,7 @@ Cancel access request
 
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step. In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
 
-.PARAMETER Cancelaccessrequest
+.PARAMETER CancelAccessRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -206,7 +206,7 @@ function Suspend-AccessRequestV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Cancelaccessrequest},
+        ${CancelAccessRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -232,14 +232,14 @@ function Suspend-AccessRequestV1 {
 
         $LocalVarUri = '/access-requests/v1/cancel'
 
-        if (!$Cancelaccessrequest) {
-            throw "Error! The required parameter `Cancelaccessrequest` missing when calling cancelAccessRequestV1."
+        if (!$CancelAccessRequest) {
+            throw "Error! The required parameter `CancelAccessRequest` missing when calling cancelAccessRequestV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Cancelaccessrequest -is [array])) {
-            $LocalVarBodyParameter = $Cancelaccessrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CancelAccessRequest -is [array])) {
+            $LocalVarBodyParameter = $CancelAccessRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Cancelaccessrequest | ForEach-Object {
+            $LocalVarBodyParameter = $CancelAccessRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -278,7 +278,7 @@ Close access request
 
 This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).  To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND ""Access Request"". Use the Column Chooser to select 'Tracking Number', and use the 'Download' button to export a CSV containing the tracking numbers.  To find pending access requests with the API, use the [List Account Activities endpoint](https://developer.sailpoint.com/idn/api/v3/list-account-activities/).  Input the IDs from either source.  To track the status of endpoint requests, navigate to Search and use this query: name:""Close Identity Requests"". Search will include ""Close Identity Requests Started"" audits when requests are initiated and ""Close Identity Requests Completed"" audits when requests are completed. The completion audit will list the identity request IDs that finished in error.  This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/provisioning-completed/) for each access request that is closed. 
 
-.PARAMETER Closeaccessrequest
+.PARAMETER CloseAccessRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -294,7 +294,7 @@ function Close-AccessRequestV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Closeaccessrequest},
+        ${CloseAccessRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -320,14 +320,14 @@ function Close-AccessRequestV1 {
 
         $LocalVarUri = '/access-requests/v1/close'
 
-        if (!$Closeaccessrequest) {
-            throw "Error! The required parameter `Closeaccessrequest` missing when calling closeAccessRequestV1."
+        if (!$CloseAccessRequest) {
+            throw "Error! The required parameter `CloseAccessRequest` missing when calling closeAccessRequestV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Closeaccessrequest -is [array])) {
-            $LocalVarBodyParameter = $Closeaccessrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CloseAccessRequest -is [array])) {
+            $LocalVarBodyParameter = $CloseAccessRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Closeaccessrequest | ForEach-Object {
+            $LocalVarBodyParameter = $CloseAccessRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -366,7 +366,7 @@ Submit access request
 
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  >**Security:** idn:access-request:manage is for ORG_ADMIN level. idn:access-request-self:manage is for USER level.  :::info The ability to request access using this API is constrained by the Access Request Segments defined in the API token's user context. :::  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it does not return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It is best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren't requesting access that is already granted. If you use this API to request access that an identity already has,  without changing the account details or end date information from the existing assignment,  the API will cancel the request as a duplicate.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * You can specify a `startDate` to set or alter a sunrise date-time on an assignment. The startDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunrise date and its yet to be provisioned, you can also submit a request without a `startDate` to request immediate provisioning after approval. * If a `startDate` is specified, then the requested role, access profile, or entitlement will be provisioned on that date and time. * You can specify a `removeDate` to set or alter a sunset date-time on an assignment. The removeDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunset date, you can also submit a request without a `removeDate` to request removal of the sunset date and time. * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time. * Now supports an alternate field 'requestedForWithRequestedItems' for users to specify account selections while requesting items where they have more than one account on the source.  :::caution  If any entitlements are being requested, then the maximum number of entitlements that can be requested is 25, and the maximum number of identities that can be requested for is 10. If you exceed these limits, the request will fail with a 400 error. If you are not requesting any entitlements, then there are no limits.  :::  __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You cannot specify a 'startDate' in a REVOKE_ACCESS request, as startDate is only applicable for GRANT_ACCESS requests to indicate when the access should be provisioned, and it does not make sense in the context of revoking access. * You can specify a `removeDate` to add or alter a sunset date and time on an assignment. The `removeDate` must be a future date-time, in the UTC timezone. If the user already has the access assigned with a sunset date and time, the removeDate must be a date-time earlier than the existing sunset date and time.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields. These fields should be used within the 'requestedItems' section for the revoke requests.  * Usage of 'requestedForWithRequestedItems' field is not supported for revoke requests. 
 
-.PARAMETER Accessrequest
+.PARAMETER AccessRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -375,14 +375,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestresponse
+AccessRequestResponse
 #>
 function New-AccessRequestV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessrequest},
+        ${AccessRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -408,14 +408,14 @@ function New-AccessRequestV1 {
 
         $LocalVarUri = '/access-requests/v1'
 
-        if (!$Accessrequest) {
-            throw "Error! The required parameter `Accessrequest` missing when calling createAccessRequestV1."
+        if (!$AccessRequest) {
+            throw "Error! The required parameter `AccessRequest` missing when calling createAccessRequestV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessrequest -is [array])) {
-            $LocalVarBodyParameter = $Accessrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequest -is [array])) {
+            $LocalVarBodyParameter = $AccessRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessrequest | ForEach-Object {
+            $LocalVarBodyParameter = $AccessRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -434,7 +434,7 @@ function New-AccessRequestV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestresponse" `
+                                -ReturnType "AccessRequestResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -460,7 +460,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestconfig
+AccessRequestConfig
 #>
 function Get-AccessRequestConfigV1 {
     [CmdletBinding()]
@@ -496,7 +496,7 @@ function Get-AccessRequestConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestconfig" `
+                                -ReturnType "AccessRequestConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -522,7 +522,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestconfigv2
+AccessRequestConfig2
 #>
 function Get-AccessRequestConfigV2 {
     [CmdletBinding()]
@@ -558,7 +558,7 @@ function Get-AccessRequestConfigV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestconfigv2" `
+                                -ReturnType "AccessRequestConfig2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -590,7 +590,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityentitlementdetails
+IdentityEntitlementDetails
 #>
 function Get-EntitlementDetailsForIdentityV1 {
     [CmdletBinding()]
@@ -640,7 +640,7 @@ function Get-EntitlementDetailsForIdentityV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityentitlementdetails" `
+                                -ReturnType "IdentityEntitlementDetails" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -696,7 +696,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Requesteditemstatus[]
+RequestedItemStatus[]
 #>
 function Get-AccessRequestStatusV1 {
     [CmdletBinding()]
@@ -802,7 +802,7 @@ function Get-AccessRequestStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Requesteditemstatus[]" `
+                                -ReturnType "RequestedItemStatus[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -861,7 +861,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestadminitemstatus[]
+AccessRequestAdminItemStatus[]
 #>
 function Get-AdministratorsAccessRequestStatusV1 {
     [CmdletBinding()]
@@ -975,7 +975,7 @@ function Get-AdministratorsAccessRequestStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestadminitemstatus[]" `
+                                -ReturnType "AccessRequestAdminItemStatus[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -998,7 +998,7 @@ Use this API to fetch account information for an identity against the items in a
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Accountsselectionrequest
+.PARAMETER AccountsSelectionRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1007,7 +1007,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountsselectionresponse
+AccountsSelectionResponse
 #>
 function Invoke-LoadAccountSelectionsV1 {
     [CmdletBinding()]
@@ -1017,7 +1017,7 @@ function Invoke-LoadAccountSelectionsV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accountsselectionrequest},
+        ${AccountsSelectionRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1048,14 +1048,14 @@ function Invoke-LoadAccountSelectionsV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Accountsselectionrequest) {
-            throw "Error! The required parameter `Accountsselectionrequest` missing when calling loadAccountSelectionsV1."
+        if (!$AccountsSelectionRequest) {
+            throw "Error! The required parameter `AccountsSelectionRequest` missing when calling loadAccountSelectionsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accountsselectionrequest -is [array])) {
-            $LocalVarBodyParameter = $Accountsselectionrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountsSelectionRequest -is [array])) {
+            $LocalVarBodyParameter = $AccountsSelectionRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accountsselectionrequest | ForEach-Object {
+            $LocalVarBodyParameter = $AccountsSelectionRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1074,7 +1074,7 @@ function Invoke-LoadAccountSelectionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountsselectionresponse" `
+                                -ReturnType "AccountsSelectionResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1094,7 +1094,7 @@ Update access request configuration
 
 This endpoint replaces the current access-request configuration.
 
-.PARAMETER Accessrequestconfig
+.PARAMETER AccessRequestConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1103,14 +1103,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestconfig
+AccessRequestConfig
 #>
 function Set-AccessRequestConfigV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessrequestconfig},
+        ${AccessRequestConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -1136,14 +1136,14 @@ function Set-AccessRequestConfigV1 {
 
         $LocalVarUri = '/access-request-config/v1'
 
-        if (!$Accessrequestconfig) {
-            throw "Error! The required parameter `Accessrequestconfig` missing when calling setAccessRequestConfigV1."
+        if (!$AccessRequestConfig) {
+            throw "Error! The required parameter `AccessRequestConfig` missing when calling setAccessRequestConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessrequestconfig -is [array])) {
-            $LocalVarBodyParameter = $Accessrequestconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestConfig -is [array])) {
+            $LocalVarBodyParameter = $AccessRequestConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessrequestconfig | ForEach-Object {
+            $LocalVarBodyParameter = $AccessRequestConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1162,7 +1162,7 @@ function Set-AccessRequestConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestconfig" `
+                                -ReturnType "AccessRequestConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1182,7 +1182,7 @@ Update access request configuration
 
 This endpoint replaces the current access-request configuration.
 
-.PARAMETER Accessrequestconfigv2
+.PARAMETER AccessRequestConfig2
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1191,14 +1191,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestconfigv2
+AccessRequestConfig2
 #>
 function Set-AccessRequestConfigV2 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessrequestconfigv2},
+        ${AccessRequestConfig2},
         [Switch]
         $WithHttpInfo
     )
@@ -1224,14 +1224,14 @@ function Set-AccessRequestConfigV2 {
 
         $LocalVarUri = '/access-request-config/v2'
 
-        if (!$Accessrequestconfigv2) {
-            throw "Error! The required parameter `Accessrequestconfigv2` missing when calling setAccessRequestConfigV2."
+        if (!$AccessRequestConfig2) {
+            throw "Error! The required parameter `AccessRequestConfig2` missing when calling setAccessRequestConfigV2."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessrequestconfigv2 -is [array])) {
-            $LocalVarBodyParameter = $Accessrequestconfigv2 | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestConfig2 -is [array])) {
+            $LocalVarBodyParameter = $AccessRequestConfig2 | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessrequestconfigv2 | ForEach-Object {
+            $LocalVarBodyParameter = $AccessRequestConfig2 | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1250,7 +1250,7 @@ function Set-AccessRequestConfigV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestconfigv2" `
+                                -ReturnType "AccessRequestConfig2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

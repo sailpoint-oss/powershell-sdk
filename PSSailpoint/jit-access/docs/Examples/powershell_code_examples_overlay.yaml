@@ -24,17 +24,21 @@
       label: SDK_tools/sdk/powershell/jitaccess/methods/jit-access#patch-jit-activation-config-v1
       source: |
         $ConfigType = "policy" # String | Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
-        $Jitaccessoperationrequest = @""@ 
+        $JitAccessOperationRequest = @"{
+          "op" : "replace",
+          "path" : "/maxActivationPeriodMins",
+          "value" : 60
+        }"@ 
         
         
         # Update JIT activation policy configuration
         
         try {
-            $Result = ConvertFrom-JsonToJitaccessoperationrequest -Json $Jitaccessoperationrequest
-            Update-JitActivationConfigV1 -ConfigType $ConfigType -Jitaccessoperationrequest $Result 
+            $Result = ConvertFrom-JsonToJitAccessOperationRequest -Json $JitAccessOperationRequest
+            Update-JitActivationConfigV1 -ConfigType $ConfigType -JitAccessOperationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-JitActivationConfigV1 -ConfigType $ConfigType -Jitaccessoperationrequest $Result   
+            # Update-JitActivationConfigV1 -ConfigType $ConfigType -JitAccessOperationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-JitActivationConfigV1"
             Write-Host $_.ErrorDetails

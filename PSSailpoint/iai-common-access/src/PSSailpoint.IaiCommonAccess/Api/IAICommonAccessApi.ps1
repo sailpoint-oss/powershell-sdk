@@ -17,7 +17,7 @@ This API is used to add roles/access profiles to the list of common access for a
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Commonaccessitemrequest
+.PARAMETER CommonAccessItemRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Commonaccessitemresponse
+CommonAccessItemResponse
 #>
 function New-CommonAccessV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-CommonAccessV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Commonaccessitemrequest},
+        ${CommonAccessItemRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-CommonAccessV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Commonaccessitemrequest) {
-            throw "Error! The required parameter `Commonaccessitemrequest` missing when calling createCommonAccessV1."
+        if (!$CommonAccessItemRequest) {
+            throw "Error! The required parameter `CommonAccessItemRequest` missing when calling createCommonAccessV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Commonaccessitemrequest -is [array])) {
-            $LocalVarBodyParameter = $Commonaccessitemrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CommonAccessItemRequest -is [array])) {
+            $LocalVarBodyParameter = $CommonAccessItemRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Commonaccessitemrequest | ForEach-Object {
+            $LocalVarBodyParameter = $CommonAccessItemRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -93,7 +93,7 @@ function New-CommonAccessV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Commonaccessitemresponse" `
+                                -ReturnType "CommonAccessItemResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -137,7 +137,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Commonaccessresponse[]
+CommonAccessResponse[]
 #>
 function Get-CommonAccessV1 {
     [CmdletBinding()]
@@ -216,7 +216,7 @@ function Get-CommonAccessV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Commonaccessresponse[]" `
+                                -ReturnType "CommonAccessResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -239,7 +239,7 @@ This submits an update request to the common access application. At this time th
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Commonaccessidstatus
+.PARAMETER CommonAccessIDStatus
 Confirm or deny in bulk the common access ids that are (or aren't) common access
 
 .PARAMETER WithHttpInfo
@@ -258,7 +258,7 @@ function Update-CommonAccessStatusInBulkV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Commonaccessidstatus},
+        ${CommonAccessIDStatus},
         [Switch]
         $WithHttpInfo
     )
@@ -289,14 +289,14 @@ function Update-CommonAccessStatusInBulkV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Commonaccessidstatus) {
-            throw "Error! The required parameter `Commonaccessidstatus` missing when calling updateCommonAccessStatusInBulkV1."
+        if (!$CommonAccessIDStatus) {
+            throw "Error! The required parameter `CommonAccessIDStatus` missing when calling updateCommonAccessStatusInBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Commonaccessidstatus -is [array])) {
-            $LocalVarBodyParameter = $Commonaccessidstatus | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CommonAccessIDStatus -is [array])) {
+            $LocalVarBodyParameter = $CommonAccessIDStatus | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Commonaccessidstatus | ForEach-Object {
+            $LocalVarBodyParameter = $CommonAccessIDStatus | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

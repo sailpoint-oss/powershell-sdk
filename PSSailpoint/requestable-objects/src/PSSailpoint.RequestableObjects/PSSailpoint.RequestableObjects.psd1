@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.RequestableObjects.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -73,17 +73,17 @@ FunctionsToExport = 'Get-RequestableObjectsV1', 'Get-Configuration', 'Set-Config
                'Set-ConfigurationApiKey', 'Set-ConfigurationApiKeyPrefix', 
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
-               'Get-ConfigurationHttpSigning', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Identityreferencewithnameandemail', 
-               'ConvertFrom-JsonToIdentityreferencewithnameandemail', 
+               'Get-ConfigurationHttpSigning', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-IdentityReferenceWithNameAndEmail', 
+               'ConvertFrom-JsonToIdentityReferenceWithNameAndEmail', 
                'Initialize-ListRequestableObjectsV1401Response', 
                'ConvertFrom-JsonToListRequestableObjectsV1401Response', 
                'Initialize-ListRequestableObjectsV1429Response', 
                'ConvertFrom-JsonToListRequestableObjectsV1429Response', 
-               'Initialize-Requestableobject', 
-               'ConvertFrom-JsonToRequestableobject'
+               'Initialize-RequestableObject', 
+               'ConvertFrom-JsonToRequestableObject'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

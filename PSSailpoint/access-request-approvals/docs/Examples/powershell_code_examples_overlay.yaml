@@ -5,8 +5,16 @@
       label: SDK_tools/sdk/powershell/accessrequestapprovals/methods/access-request-approvals#approve-access-request-v1
       source: |
         $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
-        $Commentdto = @"
-        
+        $CommentDto = @"
+        {
+          "created" : "2017-07-11T18:45:37.098Z",
+          "author" : {
+            "name" : "john.doe",
+            "id" : "2c9180847e25f377017e2ae8cae4650b",
+            "type" : "IDENTITY"
+          },
+          "comment" : "This is a comment."
+        }
         "@
         
         # Approve access request approval
@@ -15,7 +23,7 @@
             Approve-AccessRequestV1 -ApprovalId $ApprovalId 
     
             # Below is a request that includes all optional parameters
-            # Approve-AccessRequestV1 -ApprovalId $ApprovalId -Commentdto $Result   
+            # Approve-AccessRequestV1 -ApprovalId $ApprovalId -CommentDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-AccessRequestV1"
             Write-Host $_.ErrorDetails
@@ -27,18 +35,21 @@
       label: SDK_tools/sdk/powershell/accessrequestapprovals/methods/access-request-approvals#forward-access-request-v1
       source: |
         $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
-        $Forwardapprovaldto = @"
-        
+        $ForwardApprovalDto = @"
+        {
+          "newOwnerId" : "2c91808568c529c60168cca6f90c1314",
+          "comment" : "2c91808568c529c60168cca6f90c1313"
+        }
         "@
         
         # Forward access request approval
         
         try {
-            $Result = ConvertFrom-JsonToForwardapprovaldto -Json $Forwardapprovaldto
-            Invoke-ForwardAccessRequestV1 -ApprovalId $ApprovalId -Forwardapprovaldto $Result 
+            $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
+            Invoke-ForwardAccessRequestV1 -ApprovalId $ApprovalId -ForwardApprovalDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Invoke-ForwardAccessRequestV1 -ApprovalId $ApprovalId -Forwardapprovaldto $Result   
+            # Invoke-ForwardAccessRequestV1 -ApprovalId $ApprovalId -ForwardApprovalDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ForwardAccessRequestV1"
             Write-Host $_.ErrorDetails
@@ -140,18 +151,26 @@
       label: SDK_tools/sdk/powershell/accessrequestapprovals/methods/access-request-approvals#reject-access-request-v1
       source: |
         $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
-        $Commentdto = @"
-        
+        $CommentDto = @"
+        {
+          "created" : "2017-07-11T18:45:37.098Z",
+          "author" : {
+            "name" : "john.doe",
+            "id" : "2c9180847e25f377017e2ae8cae4650b",
+            "type" : "IDENTITY"
+          },
+          "comment" : "This is a comment."
+        }
         "@
         
         # Reject access request approval
         
         try {
-            $Result = ConvertFrom-JsonToCommentdto -Json $Commentdto
-            Deny-AccessRequestV1 -ApprovalId $ApprovalId -Commentdto $Result 
+            $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
+            Deny-AccessRequestV1 -ApprovalId $ApprovalId -CommentDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Deny-AccessRequestV1 -ApprovalId $ApprovalId -Commentdto $Result   
+            # Deny-AccessRequestV1 -ApprovalId $ApprovalId -CommentDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-AccessRequestV1"
             Write-Host $_.ErrorDetails

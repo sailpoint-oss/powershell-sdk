@@ -5,18 +5,48 @@
       label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#create-machine-identity-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Machineidentityrequest = @"
-        
+        $MachineIdentityRequest = @"
+        {
+          "sourceId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+          "subtype" : "Application",
+          "created" : "2015-05-28T14:07:17Z",
+          "userEntitlements" : [ {
+            "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+            "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+          }, {
+            "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+            "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+          } ],
+          "name" : "aName",
+          "modified" : "2015-05-28T14:07:17Z",
+          "description" : "",
+          "attributes" : "{\"Region\":\"EU\"}",
+          "owners" : {
+            "primaryIdentity" : "{}",
+            "secondaryIdentities" : [ {
+              "name" : "William Wilson",
+              "id" : "2c91808568c529c60168cca6f90c1313",
+              "type" : "IDENTITY"
+            }, {
+              "name" : "William Wilson",
+              "id" : "2c91808568c529c60168cca6f90c1313",
+              "type" : "IDENTITY"
+            } ]
+          },
+          "id" : "id12345",
+          "uuid" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
+          "nativeIdentity" : "abc:123:dddd"
+        }
         "@
         
         # Create machine identity
         
         try {
-            $Result = ConvertFrom-JsonToMachineidentityrequest -Json $Machineidentityrequest
-            New-MachineIdentityV1 -XSailPointExperimental $XSailPointExperimental -Machineidentityrequest $Result 
+            $Result = ConvertFrom-JsonToMachineIdentityRequest -Json $MachineIdentityRequest
+            New-MachineIdentityV1 -XSailPointExperimental $XSailPointExperimental -MachineIdentityRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-MachineIdentityV1 -XSailPointExperimental $XSailPointExperimental -Machineidentityrequest $Result   
+            # New-MachineIdentityV1 -XSailPointExperimental $XSailPointExperimental -MachineIdentityRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineIdentityV1"
             Write-Host $_.ErrorDetails
@@ -28,7 +58,90 @@
       label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#create-machine-identity-v2
       source: |
         $Machineidentityv2 = @"
-        
+        {
+          "sourceId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+          "resource" : {
+            "features" : [ "PROVISIONING", "AUTHENTICATION" ],
+            "name" : "nightly-batch-role",
+            "id" : "8886e5e3-63d0-462f-a195-d98da885b8dc",
+            "type" : "aws:iam-role"
+          },
+          "created" : "2015-05-28T14:07:17Z",
+          "connectorAttributes" : {
+            "objectguid" : "abc-123"
+          },
+          "description" : "Service account for nightly batch jobs",
+          "owners" : {
+            "secondary" : [ {
+              "id" : "2c9180858082150f0180893dbaf44202",
+              "name" : "Jane Doe",
+              "type" : "IDENTITY"
+            } ],
+            "primary" : {
+              "name" : "William Wilson",
+              "id" : "2c91808568c529c60168cca6f90c1313",
+              "type" : "IDENTITY"
+            }
+          },
+          "source" : {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          },
+          "uuid" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
+          "nativeIdentity" : "abc:123:dddd",
+          "effectiveSanctionedStatus" : "SANCTIONED",
+          "environment" : "PRODUCTION",
+          "subtype" : "AI_AGENT",
+          "businessApplicationRefs" : [ {
+            "name" : "Cursor",
+            "correlationType" : "MANUAL",
+            "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+            "type" : "BUSINESS_APPLICATION",
+            "sanctionedStatus" : "SANCTIONED"
+          }, {
+            "name" : "Cursor",
+            "correlationType" : "MANUAL",
+            "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+            "type" : "BUSINESS_APPLICATION",
+            "sanctionedStatus" : "SANCTIONED"
+          } ],
+          "userEntitlements" : [ {
+            "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+            "displayName" : "Entitlement Name",
+            "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+            "source" : {
+              "name" : "William Wilson",
+              "id" : "2c91808568c529c60168cca6f90c1313",
+              "type" : "IDENTITY"
+            }
+          }, {
+            "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+            "displayName" : "Entitlement Name",
+            "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+            "source" : {
+              "name" : "William Wilson",
+              "id" : "2c91808568c529c60168cca6f90c1313",
+              "type" : "IDENTITY"
+            }
+          } ],
+          "name" : "aName",
+          "modified" : "2015-05-28T14:07:17Z",
+          "datasetId" : "8886e5e3-63d0-462f-a195-d98da885b8dc",
+          "attributes" : {
+            "privilegeLevel" : "HIGH",
+            "region" : "APAC"
+          },
+          "risk" : {
+            "severity" : "HIGH",
+            "score" : 72.5
+          },
+          "id" : "id12345",
+          "manuallyEdited" : true,
+          "manuallyCreated" : true,
+          "existsOnSource" : "TRUE",
+          "status" : "ACTIVE"
+        }
         "@
         
         # Create machine identity
@@ -267,17 +380,21 @@
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
         $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation config ID.
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/attributes","value":{"syncPrimaryToMachineAccounts":true}}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch ownership correlation config
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -Jsonpatchoperation $Result   
+            # Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-OwnershipCorrelationConfigV1"
             Write-Host $_.ErrorDetails
@@ -290,18 +407,21 @@
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Machineidentityaggregationrequest = @"
-        
+        $MachineIdentityAggregationRequest = @"
+        {
+          "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ],
+          "disableOptimization" : false
+        }
         "@
         
         # Start machine identity aggregation
         
         try {
-            $Result = ConvertFrom-JsonToMachineidentityaggregationrequest -Json $Machineidentityaggregationrequest
-            Start-MachineIdentityAggregationV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Machineidentityaggregationrequest $Result 
+            $Result = ConvertFrom-JsonToMachineIdentityAggregationRequest -Json $MachineIdentityAggregationRequest
+            Start-MachineIdentityAggregationV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-MachineIdentityAggregationV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Machineidentityaggregationrequest $Result   
+            # Start-MachineIdentityAggregationV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-MachineIdentityAggregationV1"
             Write-Host $_.ErrorDetails
@@ -337,17 +457,21 @@
       label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#update-machine-identity-v2
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
-        $Jsonpatchoperation = @"[{"op":"add","path":"/attributes/securityRisk","value":"medium"}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Partial update of machine identity
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-MachineIdentityV2 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-MachineIdentityV2 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-MachineIdentityV2 -Id $Id -Jsonpatchoperation $Result   
+            # Update-MachineIdentityV2 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineIdentityV2"
             Write-Host $_.ErrorDetails

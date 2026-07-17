@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.ScheduledSearch.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -78,26 +78,26 @@ FunctionsToExport = 'New-ScheduledSearchV1', 'Remove-ScheduledSearchV1',
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
                'Initialize-CreateScheduledSearchV1Request', 
                'ConvertFrom-JsonToCreateScheduledSearchV1Request', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-ListScheduledSearchV1401Response', 
                'ConvertFrom-JsonToListScheduledSearchV1401Response', 
                'Initialize-ListScheduledSearchV1429Response', 
                'ConvertFrom-JsonToListScheduledSearchV1429Response', 
                'Initialize-Schedule', 'ConvertFrom-JsonToSchedule', 
                'Initialize-ScheduleDays', 'ConvertFrom-JsonToScheduleDays', 
-               'Initialize-Scheduledsearch', 'ConvertFrom-JsonToScheduledsearch', 
-               'Initialize-ScheduledsearchAllOfOwner', 
-               'ConvertFrom-JsonToScheduledsearchAllOfOwner', 
-               'Initialize-Scheduledsearchname', 
-               'ConvertFrom-JsonToScheduledsearchname', 'Initialize-ScheduleHours', 
+               'Initialize-ScheduledSearch', 'ConvertFrom-JsonToScheduledSearch', 
+               'Initialize-ScheduledSearchAllOfOwner', 
+               'ConvertFrom-JsonToScheduledSearchAllOfOwner', 
+               'Initialize-ScheduledSearchName', 
+               'ConvertFrom-JsonToScheduledSearchName', 'Initialize-ScheduleHours', 
                'ConvertFrom-JsonToScheduleHours', 'Initialize-ScheduleMonths', 
-               'ConvertFrom-JsonToScheduleMonths', 'Initialize-Searchschedule', 
-               'ConvertFrom-JsonToSearchschedule', 
-               'Initialize-SearchscheduleRecipientsInner', 
-               'ConvertFrom-JsonToSearchscheduleRecipientsInner', 
+               'ConvertFrom-JsonToScheduleMonths', 'Initialize-SearchSchedule', 
+               'ConvertFrom-JsonToSearchSchedule', 
+               'Initialize-SearchScheduleRecipientsInner', 
+               'ConvertFrom-JsonToSearchScheduleRecipientsInner', 
                'Initialize-Selector', 'ConvertFrom-JsonToSelector', 
-               'Initialize-Typedreference', 'ConvertFrom-JsonToTypedreference'
+               'Initialize-TypedReference', 'ConvertFrom-JsonToTypedReference'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

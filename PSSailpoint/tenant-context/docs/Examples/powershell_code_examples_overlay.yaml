@@ -22,18 +22,22 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/tenantcontext/methods/tenant-context#patch-tenant-context-v1
       source: |
-        $Jsonpatchoperation = @"
-        [{"op":"add","path":"/Key/IAS","value":"Integrated Automation System"},{"op":"replace","path":"/Key/IAS","value":"International Accounting Standards"},{"op":"remove","path":"/Key/NDR"}]
+        $JsonPatchOperation = @"
+        {
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }
         "@
         
         # Update tenant context
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-TenantContextV1 -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-TenantContextV1 -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-TenantContextV1 -Jsonpatchoperation $Result   
+            # Update-TenantContextV1 -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-TenantContextV1"
             Write-Host $_.ErrorDetails

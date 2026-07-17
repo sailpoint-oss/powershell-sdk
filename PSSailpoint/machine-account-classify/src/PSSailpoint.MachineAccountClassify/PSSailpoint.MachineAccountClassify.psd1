@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.MachineAccountClassify.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,8 +74,8 @@ FunctionsToExport = 'Send-ClassifyMachineAccountV1', 'Get-Configuration',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-SendClassifyMachineAccountV1200Response', 
                'ConvertFrom-JsonToSendClassifyMachineAccountV1200Response', 
                'Initialize-SendClassifyMachineAccountV1401Response', 

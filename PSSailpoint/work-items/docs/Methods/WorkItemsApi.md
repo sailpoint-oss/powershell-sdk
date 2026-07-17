@@ -58,18 +58,18 @@ Path   | Id | **String** | True  | The ID of the work item
 Path   | ApprovalItemId | **String** | True  | The ID of the approval item.
 
 ### Return type
-[**Workitems**](../models/workitems)
+[**WorkItems**](../models/work-items)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A work items details object. | Workitems
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A work items details object. | WorkItems
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -105,18 +105,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the work item
 
 ### Return type
-[**Workitems**](../models/workitems)
+[**WorkItems**](../models/work-items)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A work items details object. | Workitems
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A work items details object. | WorkItems
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -152,18 +152,18 @@ Path   | Id | **String** | True  | The ID of the work item
  Body  | Body | **String** |   (optional) | Body is the request payload to create form definition request
 
 ### Return type
-[**Workitems**](../models/workitems)
+[**WorkItems**](../models/work-items)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A WorkItems object | Workitems
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A WorkItems object | WorkItems
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -197,7 +197,7 @@ This API forwards a work item to a new owner. Either an admin, or the owning/cur
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the work item
- Body  | Workitemforward | [**Workitemforward**](../models/workitemforward) | True  | 
+ Body  | WorkItemForward | [**WorkItemForward**](../models/work-item-forward) | True  | 
 
 ### Return type
  (empty response body)
@@ -206,11 +206,11 @@ Path   | Id | **String** | True  | The ID of the work item
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Success, but no data is returned. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -219,16 +219,20 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-$Workitemforward = @""@
+$WorkItemForward = @"{
+  "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
+  "comment" : "I'm going on vacation.",
+  "sendNotifications" : true
+}"@
 
 # Forward a work item
 
 try {
-    $Result = ConvertFrom-JsonToWorkitemforward -Json $Workitemforward
-    Invoke-ForwardWorkItemV1 -Id $Id -Workitemforward $Result 
+    $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
+    Invoke-ForwardWorkItemV1 -Id $Id -WorkItemForward $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-ForwardWorkItemV1 -Id $Id -Workitemforward $Result  
+    # Invoke-ForwardWorkItemV1 -Id $Id -WorkItemForward $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ForwardWorkItemV1"
     Write-Host $_.ErrorDetails
@@ -250,17 +254,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Workitems[]**](../models/workitems)
+[**WorkItems[]**](../models/work-items)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of completed work items. | Workitems[]
+200 | List of completed work items. | WorkItems[]
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -298,15 +302,15 @@ Param Type | Name | Data Type | Required  | Description
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
 
 ### Return type
-[**Workitemscount**](../models/workitemscount)
+[**WorkItemsCount**](../models/work-items-count)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of work items | Workitemscount
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+200 | List of work items | WorkItemsCount
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -341,17 +345,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
 
 ### Return type
-[**Workitemscount**](../models/workitemscount)
+[**WorkItemsCount**](../models/work-items-count)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of work items | Workitemscount
+200 | List of work items | WorkItemsCount
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -386,17 +390,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the work item.
 
 ### Return type
-[**Workitems**](../models/workitems)
+[**WorkItems**](../models/work-items)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The work item with the given ID. | Workitems
+200 | The work item with the given ID. | WorkItems
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -431,17 +435,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
 
 ### Return type
-[**Workitemssummary**](../models/workitemssummary)
+[**WorkItemsSummary**](../models/work-items-summary)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of work items | Workitemssummary
+200 | List of work items | WorkItemsSummary
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -479,17 +483,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
 
 ### Return type
-[**Workitems[]**](../models/workitems)
+[**WorkItems[]**](../models/work-items)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of work items | Workitems[]
+200 | List of work items | WorkItems[]
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -528,18 +532,18 @@ Path   | Id | **String** | True  | The ID of the work item
 Path   | ApprovalItemId | **String** | True  | The ID of the approval item.
 
 ### Return type
-[**Workitems**](../models/workitems)
+[**WorkItems**](../models/work-items)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A work items details object. | Workitems
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A work items details object. | WorkItems
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -575,18 +579,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the work item
 
 ### Return type
-[**Workitems**](../models/workitems)
+[**WorkItems**](../models/work-items)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A work items details object. | Workitems
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A work items details object. | WorkItems
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -622,18 +626,18 @@ Path   | Id | **String** | True  | The ID of the work item
  Body  | RequestBody | [**map[string]AnyType**](https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4) | True  | Account Selection Data map, keyed on fieldName
 
 ### Return type
-[**Workitems**](../models/workitems)
+[**WorkItems**](../models/work-items)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A work items details object. | Workitems
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A work items details object. | WorkItems
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListWorkItemsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListWorkItemsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json

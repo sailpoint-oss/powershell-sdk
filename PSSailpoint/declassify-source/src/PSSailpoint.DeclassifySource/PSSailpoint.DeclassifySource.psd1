@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.DeclassifySource.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,8 +74,8 @@ FunctionsToExport = 'Send-DeclassifyMachineAccountFromSourceV1', 'Get-Configurat
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-SendDeclassifyMachineAccountFromSourceV1401Response', 
                'ConvertFrom-JsonToSendDeclassifyMachineAccountFromSourceV1401Response', 
                'Initialize-SendDeclassifyMachineAccountFromSourceV1429Response', 

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsV1RequestInner',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | [**Formdefinitionresponse**](formdefinitionresponse) |  | [optional] 
+**Object** | [**FormDefinitionResponse**](form-definition-response) |  | [optional] 
 **Self** | **String** |  | [optional] 
 **Version** | **Int32** |  | [optional] 
 

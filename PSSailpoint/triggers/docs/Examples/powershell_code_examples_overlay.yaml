@@ -5,18 +5,24 @@
       label: SDK_tools/sdk/powershell/triggers/methods/triggers#complete-trigger-invocation-v1
       source: |
         $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the invocation to complete.
-        $Completeinvocation = @"
-        {"secret":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","output":{"approved":false}}
+        $CompleteInvocation = @"
+        {
+          "output" : {
+            "approved" : false
+          },
+          "secret" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "error" : "Access request is denied."
+        }
         "@
         
         # Complete trigger invocation
         
         try {
-            $Result = ConvertFrom-JsonToCompleteinvocation -Json $Completeinvocation
-            Complete-TriggerInvocationV1 -Id $Id -Completeinvocation $Result 
+            $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
+            Complete-TriggerInvocationV1 -Id $Id -CompleteInvocation $Result 
     
             # Below is a request that includes all optional parameters
-            # Complete-TriggerInvocationV1 -Id $Id -Completeinvocation $Result   
+            # Complete-TriggerInvocationV1 -Id $Id -CompleteInvocation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-TriggerInvocationV1"
             Write-Host $_.ErrorDetails
@@ -27,18 +33,42 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/triggers/methods/triggers#create-subscription-v1
       source: |
-        $Subscriptionpostrequest = @"
-        {"name":"Access request subscription","description":"Access requested to site xyz","triggerId":"idn:access-requested","type":"HTTP","httpConfig":{"url":"https://www.example.com","httpDispatchMode":"SYNC","httpAuthenticationType":"BASIC_AUTH","basicAuthConfig":{"userName":"user@example.com","password":"eRtg4%6yuI!"}},"enabled":true,"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}
+        $SubscriptionPostRequest = @"
+        {
+          "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
+          "httpConfig" : {
+            "bearerTokenAuthConfig" : {
+              "bearerToken" : "bearerToken"
+            },
+            "httpAuthenticationType" : "BASIC_AUTH",
+            "httpDispatchMode" : "SYNC",
+            "basicAuthConfig" : {
+              "password" : "password",
+              "userName" : "user@example.com"
+            },
+            "url" : "https://www.example.com"
+          },
+          "triggerId" : "idn:access-requested",
+          "name" : "Access request subscription",
+          "description" : "Access requested to site xyz",
+          "eventBridgeConfig" : {
+            "awsRegion" : "us-west-1",
+            "awsAccount" : "123456789012"
+          },
+          "responseDeadline" : "PT1H",
+          "type" : "HTTP",
+          "enabled" : true
+        }
         "@
         
         # Create a subscription
         
         try {
-            $Result = ConvertFrom-JsonToSubscriptionpostrequest -Json $Subscriptionpostrequest
-            New-SubscriptionV1 -Subscriptionpostrequest $Result 
+            $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
+            New-SubscriptionV1 -SubscriptionPostRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-SubscriptionV1 -Subscriptionpostrequest $Result   
+            # New-SubscriptionV1 -SubscriptionPostRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SubscriptionV1"
             Write-Host $_.ErrorDetails
@@ -138,17 +168,17 @@
       label: SDK_tools/sdk/powershell/triggers/methods/triggers#patch-subscription-v1
       source: |
         $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription to patch
-        $SubscriptionpatchrequestInner = @""@ 
+        $SubscriptionPatchRequestInner = @""@ 
         
         
         # Patch a subscription
         
         try {
-            $Result = ConvertFrom-JsonToSubscriptionpatchrequestInner -Json $SubscriptionpatchrequestInner
-            Update-SubscriptionV1 -Id $Id -SubscriptionpatchrequestInner $Result 
+            $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
+            Update-SubscriptionV1 -Id $Id -SubscriptionPatchRequestInner $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-SubscriptionV1 -Id $Id -SubscriptionpatchrequestInner $Result   
+            # Update-SubscriptionV1 -Id $Id -SubscriptionPatchRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SubscriptionV1"
             Write-Host $_.ErrorDetails
@@ -159,18 +189,27 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/triggers/methods/triggers#start-test-trigger-invocation-v1
       source: |
-        $Testinvocation = @"
-        {"triggerId":"idn:access-requested","input":{"identityId":"201327fda1c44704ac01181e963d463c"},"contentJson":{"workflowId":1234}}
+        $TestInvocation = @"
+        {
+          "input" : {
+            "identityId" : "201327fda1c44704ac01181e963d463c"
+          },
+          "subscriptionIds" : [ "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" ],
+          "triggerId" : "idn:access-request-post-approval",
+          "contentJson" : {
+            "workflowId" : 1234
+          }
+        }
         "@
         
         # Start a test invocation
         
         try {
-            $Result = ConvertFrom-JsonToTestinvocation -Json $Testinvocation
-            Start-TestTriggerInvocationV1 -Testinvocation $Result 
+            $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
+            Start-TestTriggerInvocationV1 -TestInvocation $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-TestTriggerInvocationV1 -Testinvocation $Result   
+            # Start-TestTriggerInvocationV1 -TestInvocation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-TestTriggerInvocationV1"
             Write-Host $_.ErrorDetails
@@ -181,18 +220,23 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/triggers/methods/triggers#test-subscription-filter-v1
       source: |
-        $Validatefilterinputdto = @"
-        {"input":{"identityId":"201327fda1c44704ac01181e963d463c"},"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}
+        $ValidateFilterInputDto = @"
+        {
+          "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
+          "input" : {
+            "identityId" : "201327fda1c44704ac01181e963d463c"
+          }
+        }
         "@
         
         # Validate a subscription filter
         
         try {
-            $Result = ConvertFrom-JsonToValidatefilterinputdto -Json $Validatefilterinputdto
-            Test-SubscriptionFilterV1 -Validatefilterinputdto $Result 
+            $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
+            Test-SubscriptionFilterV1 -ValidateFilterInputDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Test-SubscriptionFilterV1 -Validatefilterinputdto $Result   
+            # Test-SubscriptionFilterV1 -ValidateFilterInputDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-SubscriptionFilterV1"
             Write-Host $_.ErrorDetails
@@ -204,18 +248,41 @@
       label: SDK_tools/sdk/powershell/triggers/methods/triggers#update-subscription-v1
       source: |
         $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
-        $Subscriptionputrequest = @"
-        {"name":"Access request subscription","description":"Access requested to site xyz","type":"HTTP","httpConfig":{"url":"https://www.example.com","httpDispatchMode":"SYNC","httpAuthenticationType":"BASIC_AUTH","basicAuthConfig":{"userName":"user@example.com","password":"eRtg4%6yuI!"}},"enabled":true,"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}
+        $SubscriptionPutRequest = @"
+        {
+          "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
+          "httpConfig" : {
+            "bearerTokenAuthConfig" : {
+              "bearerToken" : "bearerToken"
+            },
+            "httpAuthenticationType" : "BASIC_AUTH",
+            "httpDispatchMode" : "SYNC",
+            "basicAuthConfig" : {
+              "password" : "password",
+              "userName" : "user@example.com"
+            },
+            "url" : "https://www.example.com"
+          },
+          "name" : "Access request subscription",
+          "description" : "Access requested to site xyz",
+          "eventBridgeConfig" : {
+            "awsRegion" : "us-west-1",
+            "awsAccount" : "123456789012"
+          },
+          "responseDeadline" : "PT1H",
+          "type" : "HTTP",
+          "enabled" : true
+        }
         "@
         
         # Update a subscription
         
         try {
-            $Result = ConvertFrom-JsonToSubscriptionputrequest -Json $Subscriptionputrequest
-            Update-SubscriptionV1 -Id $Id -Subscriptionputrequest $Result 
+            $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
+            Update-SubscriptionV1 -Id $Id -SubscriptionPutRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-SubscriptionV1 -Id $Id -Subscriptionputrequest $Result   
+            # Update-SubscriptionV1 -Id $Id -SubscriptionPutRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SubscriptionV1"
             Write-Host $_.ErrorDetails

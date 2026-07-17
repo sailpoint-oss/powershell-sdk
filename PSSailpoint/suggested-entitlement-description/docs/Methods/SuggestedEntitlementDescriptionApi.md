@@ -45,20 +45,20 @@ Approve multiple entitlement recommendations in a single request. Each item in t
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Bulkapproveentitlementrecommendationrequest | [**Bulkapproveentitlementrecommendationrequest**](../models/bulkapproveentitlementrecommendationrequest) | True  | The list of recommendation items to approve.
+ Body  | BulkApproveEntitlementRecommendationRequest | [**BulkApproveEntitlementRecommendationRequest**](../models/bulk-approve-entitlement-recommendation-request) | True  | The list of recommendation items to approve.
 
 ### Return type
-[**Bulkapproveentitlementrecommendationresult[]**](../models/bulkapproveentitlementrecommendationresult)
+[**BulkApproveEntitlementRecommendationResult[]**](../models/bulk-approve-entitlement-recommendation-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Per-item approval results. | Bulkapproveentitlementrecommendationresult[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Per-item approval results. | BulkApproveEntitlementRecommendationResult[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -66,16 +66,26 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Bulkapproveentitlementrecommendationrequest = @""@
+$BulkApproveEntitlementRecommendationRequest = @"{
+  "items" : [ {
+    "id" : "79db50d4-723c-4aa0-a824-83c2205d82d1",
+    "recordType" : "SED",
+    "description" : "Provides access and permissions related to the Delinea Secret Server Cloud system."
+  }, {
+    "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "recordType" : "privilege",
+    "privilegeLevel" : "high"
+  } ]
+}"@
 
 # Bulk approve entitlement recommendations
 
 try {
-    $Result = ConvertFrom-JsonToBulkapproveentitlementrecommendationrequest -Json $Bulkapproveentitlementrecommendationrequest
-    Approve-BulkEntitlementRecommendationsV1 -Bulkapproveentitlementrecommendationrequest $Result 
+    $Result = ConvertFrom-JsonToBulkApproveEntitlementRecommendationRequest -Json $BulkApproveEntitlementRecommendationRequest
+    Approve-BulkEntitlementRecommendationsV1 -BulkApproveEntitlementRecommendationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-BulkEntitlementRecommendationsV1 -Bulkapproveentitlementrecommendationrequest $Result  
+    # Approve-BulkEntitlementRecommendationsV1 -BulkApproveEntitlementRecommendationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BulkEntitlementRecommendationsV1"
     Write-Host $_.ErrorDetails
@@ -91,21 +101,21 @@ Create the initial auto-write settings for a tenant. Returns 409 Conflict if set
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Autowritesetting | [**Autowritesetting**](../models/autowritesetting) | True  | Auto-write settings to create
+ Body  | AutoWriteSetting | [**AutoWriteSetting**](../models/auto-write-setting) | True  | Auto-write settings to create
 
 ### Return type
-[**Autowritesettingresponse**](../models/autowritesettingresponse)
+[**AutoWriteSettingResponse**](../models/auto-write-setting-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Auto-write settings created successfully | Autowritesettingresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Auto-write settings created successfully | AutoWriteSettingResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 409 | Conflict - Indicates that the request could not be processed because of conflict in the current state of the resource. | CreateAutoWriteSettingsV1409Response
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -113,16 +123,20 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Autowritesetting = @""@
+$AutoWriteSetting = @"{
+  "excludedSourceIds" : [ "2c91808a7813090a017814552e526350" ],
+  "includedSourceIds" : [ "2c91808a7813090a017814552e526349", "2c91808a7813090a017814552e52634a" ],
+  "enabled" : true
+}"@
 
 # Create auto-write settings for SED
 
 try {
-    $Result = ConvertFrom-JsonToAutowritesetting -Json $Autowritesetting
-    New-AutoWriteSettingsV1 -Autowritesetting $Result 
+    $Result = ConvertFrom-JsonToAutoWriteSetting -Json $AutoWriteSetting
+    New-AutoWriteSettingsV1 -AutoWriteSetting $Result 
     
     # Below is a request that includes all optional parameters
-    # New-AutoWriteSettingsV1 -Autowritesetting $Result  
+    # New-AutoWriteSettingsV1 -AutoWriteSetting $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AutoWriteSettingsV1"
     Write-Host $_.ErrorDetails
@@ -140,18 +154,18 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Autowritesettingresponse**](../models/autowritesettingresponse)
+[**AutoWriteSettingResponse**](../models/auto-write-setting-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Current auto-write settings | Autowritesettingresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Current auto-write settings | AutoWriteSettingResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -189,18 +203,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | BatchId | **String** | True  | Batch Id
 
 ### Return type
-[**Sedbatchstats**](../models/sedbatchstats)
+[**SedBatchStats**](../models/sed-batch-stats)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Stats of Sed batch. | Sedbatchstats
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Stats of Sed batch. | SedBatchStats
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -240,18 +254,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Status | **String** |   (optional) | Batch Status
 
 ### Return type
-[**Sedbatchrecord[]**](../models/sedbatchrecord)
+[**SedBatchRecord[]**](../models/sed-batch-record)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Sed Batch Records | Sedbatchrecord[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of Sed Batch Records | SedBatchRecord[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -291,17 +305,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Entitlementrecommendationrecord[]**](../models/entitlementrecommendationrecord)
+[**EntitlementRecommendationRecord[]**](../models/entitlement-recommendation-record)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of pending entitlement recommendation records. | Entitlementrecommendationrecord[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of pending entitlement recommendation records. | EntitlementRecommendationRecord[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -338,17 +352,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Privilegedrecommendationgroup[]**](../models/privilegedrecommendationgroup)
+[**PrivilegedRecommendationGroup[]**](../models/privileged-recommendation-group)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of privileged recommendation groups. | Privilegedrecommendationgroup[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of privileged recommendation groups. | PrivilegedRecommendationGroup[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -411,12 +425,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of Suggested Entitlement Details | Sed[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -456,21 +470,21 @@ Partially update a single entitlement recommendation record by its ID. Use this 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The unique identifier of the entitlement recommendation to update.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | The patch operations to apply to the entitlement recommendation record.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The patch operations to apply to the entitlement recommendation record.
 
 ### Return type
-[**Entitlementrecommendationrecord**](../models/entitlementrecommendationrecord)
+[**EntitlementRecommendationRecord**](../models/entitlement-recommendation-record)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The updated entitlement recommendation record. | Entitlementrecommendationrecord
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The updated entitlement recommendation record. | EntitlementRecommendationRecord
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -479,17 +493,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "79db50d4-723c-4aa0-a824-83c2205d82d1" # String | The unique identifier of the entitlement recommendation to update.
- $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | The patch operations to apply to the entitlement recommendation record.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | The patch operations to apply to the entitlement recommendation record.
  
 
 # Update an entitlement recommendation
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-EntitlementRecommendationV1 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-EntitlementRecommendationV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-EntitlementRecommendationV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-EntitlementRecommendationV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementRecommendationV1"
     Write-Host $_.ErrorDetails
@@ -506,7 +524,7 @@ Patch Suggested Entitlement Description
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | id is sed id
- Body  | Sedpatch | [**[]Sedpatch**](../models/sedpatch) | True  | Sed Patch Request
+ Body  | SedPatch | [**[]SedPatch**](../models/sed-patch) | True  | Sed Patch Request
 
 ### Return type
 [**Sed**](../models/sed)
@@ -515,12 +533,12 @@ Path   | Id | **String** | True  | id is sed id
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | detail of patched sed | Sed
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -529,17 +547,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
- $Sedpatch = @""@ # Sedpatch[] | Sed Patch Request
+ $SedPatch = @"{
+  "op" : "replace",
+  "path" : "status",
+  "value" : "approved"
+}"@ # SedPatch[] | Sed Patch Request
  
 
 # Patch suggested entitlement description
 
 try {
-    $Result = ConvertFrom-JsonToSedpatch -Json $Sedpatch
-    Update-SedV1 -Id $Id -Sedpatch $Result 
+    $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
+    Update-SedV1 -Id $Id -SedPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-SedV1 -Id $Id -Sedpatch $Result  
+    # Update-SedV1 -Id $Id -SedPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SedV1"
     Write-Host $_.ErrorDetails
@@ -555,20 +577,20 @@ Assign a set of entitlement recommendation records to a reviewer. The assignee c
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Entitlementrecommendationassignrequest | [**Entitlementrecommendationassignrequest**](../models/entitlementrecommendationassignrequest) | True  | The recommendation IDs and the target assignee.
+ Body  | EntitlementRecommendationAssignRequest | [**EntitlementRecommendationAssignRequest**](../models/entitlement-recommendation-assign-request) | True  | The recommendation IDs and the target assignee.
 
 ### Return type
-[**Entitlementrecommendationassignresult**](../models/entitlementrecommendationassignresult)
+[**EntitlementRecommendationAssignResult**](../models/entitlement-recommendation-assign-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Assignment queued successfully. Returns the batch ID for tracking. | Entitlementrecommendationassignresult
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Assignment queued successfully. Returns the batch ID for tracking. | EntitlementRecommendationAssignResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -576,16 +598,22 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Entitlementrecommendationassignrequest = @""@
+$EntitlementRecommendationAssignRequest = @"{
+  "assignee" : {
+    "type" : "IDENTITY",
+    "value" : "2c91808a7f3b2e8a017f3c3e5f6d0099"
+  },
+  "items" : [ "79db50d4-723c-4aa0-a824-83c2205d82d1", "a1b2c3d4-e5f6-7890-abcd-ef1234567890" ]
+}"@
 
 # Assign entitlement recommendations for review
 
 try {
-    $Result = ConvertFrom-JsonToEntitlementrecommendationassignrequest -Json $Entitlementrecommendationassignrequest
-    Submit-EntitlementRecommendationsAssignmentV1 -Entitlementrecommendationassignrequest $Result 
+    $Result = ConvertFrom-JsonToEntitlementRecommendationAssignRequest -Json $EntitlementRecommendationAssignRequest
+    Submit-EntitlementRecommendationsAssignmentV1 -EntitlementRecommendationAssignRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-EntitlementRecommendationsAssignmentV1 -Entitlementrecommendationassignrequest $Result  
+    # Submit-EntitlementRecommendationsAssignmentV1 -EntitlementRecommendationAssignRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-EntitlementRecommendationsAssignmentV1"
     Write-Host $_.ErrorDetails
@@ -602,21 +630,21 @@ Request body takes list of SED Ids. API responses with list of SED Approval Stat
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Sedapproval | [**[]Sedapproval**](../models/sedapproval) | True  | Sed Approval
+ Body  | SedApproval | [**[]SedApproval**](../models/sed-approval) | True  | Sed Approval
 
 ### Return type
-[**Sedapprovalstatus[]**](../models/sedapprovalstatus)
+[**SedApprovalStatus[]**](../models/sed-approval-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of SED Approval Status | Sedapprovalstatus[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of SED Approval Status | SedApprovalStatus[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -624,17 +652,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
- $Sedapproval = @""@ # Sedapproval[] | Sed Approval
+ $SedApproval = @"{
+  "items" : "016629d1-1d25-463f-97f3-c6686846650"
+}"@ # SedApproval[] | Sed Approval
  
 
 # Submit bulk approval request
 
 try {
-    $Result = ConvertFrom-JsonToSedapproval -Json $Sedapproval
-    Submit-SedApprovalV1 -Sedapproval $Result 
+    $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
+    Submit-SedApprovalV1 -SedApproval $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-SedApprovalV1 -Sedapproval $Result  
+    # Submit-SedApprovalV1 -SedApproval $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-SedApprovalV1"
     Write-Host $_.ErrorDetails
@@ -651,21 +681,21 @@ Request body has an assignee, and list of SED Ids that are assigned to that assi
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Sedassignment | [**Sedassignment**](../models/sedassignment) | True  | Sed Assignment Request
+ Body  | SedAssignment | [**SedAssignment**](../models/sed-assignment) | True  | Sed Assignment Request
 
 ### Return type
-[**Sedassignmentresponse**](../models/sedassignmentresponse)
+[**SedAssignmentResponse**](../models/sed-assignment-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Sed Assignment Response | Sedassignmentresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Sed Assignment Response | SedAssignmentResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -673,16 +703,22 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Sedassignment = @""@
+$SedAssignment = @"{
+  "assignee" : {
+    "type" : "SOURCE_OWNER",
+    "value" : "016629d1-1d25-463f-97f3-c6686846650"
+  },
+  "items" : [ "016629d1-1d25-463f-97f3-0c6686846650", "016629d1-1d25-463f-97f3-0c6686846650" ]
+}"@
 
 # Submit sed assignment request
 
 try {
-    $Result = ConvertFrom-JsonToSedassignment -Json $Sedassignment
-    Submit-SedAssignmentV1 -Sedassignment $Result 
+    $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
+    Submit-SedAssignmentV1 -SedAssignment $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-SedAssignmentV1 -Sedassignment $Result  
+    # Submit-SedAssignmentV1 -SedAssignment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-SedAssignmentV1"
     Write-Host $_.ErrorDetails
@@ -699,21 +735,21 @@ Request body has one of the following: - a list of entitlement Ids - a list of S
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Sedbatchrequest | [**Sedbatchrequest**](../models/sedbatchrequest) |   (optional) | Sed Batch Request
+ Body  | SedBatchRequest | [**SedBatchRequest**](../models/sed-batch-request) |   (optional) | Sed Batch Request
 
 ### Return type
-[**Sedbatchresponse**](../models/sedbatchresponse)
+[**SedBatchResponse**](../models/sed-batch-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Sed Batch Response | Sedbatchresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Sed Batch Response | SedBatchResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -721,7 +757,33 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Sedbatchrequest = @""@
+$SedBatchRequest = @"{
+  "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
+  "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
+  "searchCriteria" : {
+    "key" : {
+      "indices" : [ "entitlements" ],
+      "query" : {
+        "query" : "status:active"
+      },
+      "textQuery" : {
+        "terms" : [ "admin", "user" ],
+        "matchAny" : true,
+        "fields" : [ "role", "name" ]
+      },
+      "searchAfter" : [ "12345", "67890" ],
+      "filters" : {
+        "status" : {
+          "type" : "TERMS",
+          "terms" : [ "active", "inactive" ]
+        }
+      },
+      "sort" : [ "name:asc", "createdAt:desc" ],
+      "queryType" : "TEXT",
+      "includeNested" : true
+    }
+  }
+}"@
 
 # Submit sed batch request
 
@@ -729,7 +791,7 @@ try {
     Submit-SedBatchRequestV1 
     
     # Below is a request that includes all optional parameters
-    # Submit-SedBatchRequestV1 -Sedbatchrequest $Result  
+    # Submit-SedBatchRequestV1 -SedBatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-SedBatchRequestV1"
     Write-Host $_.ErrorDetails
@@ -745,21 +807,21 @@ Partially update the auto-write settings for a tenant using JSON Patch operation
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Autowritesettingpatch | [**[]Autowritesettingpatch**](../models/autowritesettingpatch) | True  | Patch operations for auto-write settings
+ Body  | AutoWriteSettingPatch | [**[]AutoWriteSettingPatch**](../models/auto-write-setting-patch) | True  | Patch operations for auto-write settings
 
 ### Return type
-[**Autowritesettingresponse**](../models/autowritesettingresponse)
+[**AutoWriteSettingResponse**](../models/auto-write-setting-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated auto-write settings | Autowritesettingresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated auto-write settings | AutoWriteSettingResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAutoWriteSettingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAutoWriteSettingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -767,17 +829,21 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
- $Autowritesettingpatch = @""@ # Autowritesettingpatch[] | Patch operations for auto-write settings
+ $AutoWriteSettingPatch = @"{
+  "op" : "replace",
+  "path" : "/enabled",
+  "value" : true
+}"@ # AutoWriteSettingPatch[] | Patch operations for auto-write settings
  
 
 # Update auto-write settings for SED
 
 try {
-    $Result = ConvertFrom-JsonToAutowritesettingpatch -Json $Autowritesettingpatch
-    Update-AutoWriteSettingsV1 -Autowritesettingpatch $Result 
+    $Result = ConvertFrom-JsonToAutoWriteSettingPatch -Json $AutoWriteSettingPatch
+    Update-AutoWriteSettingsV1 -AutoWriteSettingPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AutoWriteSettingsV1 -Autowritesettingpatch $Result  
+    # Update-AutoWriteSettingsV1 -AutoWriteSettingPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AutoWriteSettingsV1"
     Write-Host $_.ErrorDetails

@@ -39,56 +39,56 @@ function ConvertFrom-JsonToTransformAttributes {
             return [PSCustomObject]@{
                 "ActualType" = $null
                 "ActualInstance" = $null
-                "OneOfSchemas" = @("Accountattribute", "Base64decode", "Base64encode", "Concatenation", "Conditional", "Datecompare", "Dateformat", "Datemath", "Decomposediacriticalmarks", "E164phone", "Firstvalid", "Identityattribute", "Indexof", "Iso3166", "Leftpad", "Lookup", "Lower", "Namenormalizer", "Randomalphanumeric", "Randomnumeric", "Reference2", "Replace", "Replaceall", "Rightpad", "Rule", "Split", "Static", "Substring", "Trim", "Upper", "Uuidgenerator")
+                "OneOfSchemas" = @("AccountAttribute", "Base64Decode", "Base64Encode", "Concatenation", "Conditional", "DateCompare", "DateFormat", "DateMath", "DecomposeDiacriticalMarks", "E164phone", "FirstValid", "ISO3166", "IdentityAttribute", "IndexOf", "LeftPad", "Lookup", "Lower", "NameNormalizer", "RandomAlphaNumeric", "RandomNumeric", "Reference2", "Replace", "ReplaceAll", "RightPad", "Rule", "Split", "Static", "Substring", "Trim", "UUIDGenerator", "Upper")
             }
         }
 
-        # try to match Accountattribute defined in the oneOf schemas
+        # try to match AccountAttribute defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccountattribute $Json
+            $matchInstance = ConvertFrom-JsonToAccountAttribute $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accountattribute"
+                    $matchType = "AccountAttribute"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accountattribute' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountAttribute' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Base64decode defined in the oneOf schemas
+        # try to match Base64Decode defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToBase64decode $Json
+            $matchInstance = ConvertFrom-JsonToBase64Decode $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Base64decode"
+                    $matchType = "Base64Decode"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Base64decode' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Base64Decode' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Base64encode defined in the oneOf schemas
+        # try to match Base64Encode defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToBase64encode $Json
+            $matchInstance = ConvertFrom-JsonToBase64Encode $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Base64encode"
+                    $matchType = "Base64Encode"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Base64encode' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Base64Encode' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Concatenation defined in the oneOf schemas
@@ -123,68 +123,68 @@ function ConvertFrom-JsonToTransformAttributes {
             Write-Debug "Failed to match 'Conditional' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Datecompare defined in the oneOf schemas
+        # try to match DateCompare defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToDatecompare $Json
+            $matchInstance = ConvertFrom-JsonToDateCompare $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Datecompare"
+                    $matchType = "DateCompare"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Datecompare' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'DateCompare' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Dateformat defined in the oneOf schemas
+        # try to match DateFormat defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToDateformat $Json
+            $matchInstance = ConvertFrom-JsonToDateFormat $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Dateformat"
+                    $matchType = "DateFormat"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Dateformat' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'DateFormat' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Datemath defined in the oneOf schemas
+        # try to match DateMath defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToDatemath $Json
+            $matchInstance = ConvertFrom-JsonToDateMath $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Datemath"
+                    $matchType = "DateMath"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Datemath' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'DateMath' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Decomposediacriticalmarks defined in the oneOf schemas
+        # try to match DecomposeDiacriticalMarks defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToDecomposediacriticalmarks $Json
+            $matchInstance = ConvertFrom-JsonToDecomposeDiacriticalMarks $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Decomposediacriticalmarks"
+                    $matchType = "DecomposeDiacriticalMarks"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Decomposediacriticalmarks' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'DecomposeDiacriticalMarks' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match E164phone defined in the oneOf schemas
@@ -203,84 +203,84 @@ function ConvertFrom-JsonToTransformAttributes {
             Write-Debug "Failed to match 'E164phone' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Firstvalid defined in the oneOf schemas
+        # try to match FirstValid defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToFirstvalid $Json
+            $matchInstance = ConvertFrom-JsonToFirstValid $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Firstvalid"
+                    $matchType = "FirstValid"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Firstvalid' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'FirstValid' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Identityattribute defined in the oneOf schemas
+        # try to match ISO3166 defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToIdentityattribute $Json
+            $matchInstance = ConvertFrom-JsonToISO3166 $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Identityattribute"
+                    $matchType = "ISO3166"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Identityattribute' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'ISO3166' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Indexof defined in the oneOf schemas
+        # try to match IdentityAttribute defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToIndexof $Json
+            $matchInstance = ConvertFrom-JsonToIdentityAttribute $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Indexof"
+                    $matchType = "IdentityAttribute"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Indexof' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'IdentityAttribute' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Iso3166 defined in the oneOf schemas
+        # try to match IndexOf defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToIso3166 $Json
+            $matchInstance = ConvertFrom-JsonToIndexOf $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Iso3166"
+                    $matchType = "IndexOf"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Iso3166' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'IndexOf' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Leftpad defined in the oneOf schemas
+        # try to match LeftPad defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToLeftpad $Json
+            $matchInstance = ConvertFrom-JsonToLeftPad $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Leftpad"
+                    $matchType = "LeftPad"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Leftpad' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'LeftPad' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Lookup defined in the oneOf schemas
@@ -315,52 +315,52 @@ function ConvertFrom-JsonToTransformAttributes {
             Write-Debug "Failed to match 'Lower' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Namenormalizer defined in the oneOf schemas
+        # try to match NameNormalizer defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToNamenormalizer $Json
+            $matchInstance = ConvertFrom-JsonToNameNormalizer $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Namenormalizer"
+                    $matchType = "NameNormalizer"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Namenormalizer' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'NameNormalizer' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Randomalphanumeric defined in the oneOf schemas
+        # try to match RandomAlphaNumeric defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToRandomalphanumeric $Json
+            $matchInstance = ConvertFrom-JsonToRandomAlphaNumeric $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Randomalphanumeric"
+                    $matchType = "RandomAlphaNumeric"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Randomalphanumeric' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'RandomAlphaNumeric' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Randomnumeric defined in the oneOf schemas
+        # try to match RandomNumeric defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToRandomnumeric $Json
+            $matchInstance = ConvertFrom-JsonToRandomNumeric $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Randomnumeric"
+                    $matchType = "RandomNumeric"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Randomnumeric' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'RandomNumeric' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Reference2 defined in the oneOf schemas
@@ -395,36 +395,36 @@ function ConvertFrom-JsonToTransformAttributes {
             Write-Debug "Failed to match 'Replace' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Replaceall defined in the oneOf schemas
+        # try to match ReplaceAll defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToReplaceall $Json
+            $matchInstance = ConvertFrom-JsonToReplaceAll $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Replaceall"
+                    $matchType = "ReplaceAll"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Replaceall' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'ReplaceAll' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Rightpad defined in the oneOf schemas
+        # try to match RightPad defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToRightpad $Json
+            $matchInstance = ConvertFrom-JsonToRightPad $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Rightpad"
+                    $matchType = "RightPad"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Rightpad' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'RightPad' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Rule defined in the oneOf schemas
@@ -507,6 +507,22 @@ function ConvertFrom-JsonToTransformAttributes {
             Write-Debug "Failed to match 'Trim' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
+        # try to match UUIDGenerator defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-JsonToUUIDGenerator $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "UUIDGenerator"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'UUIDGenerator' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
+        }
+
         # try to match Upper defined in the oneOf schemas
         try {
             $matchInstance = ConvertFrom-JsonToUpper $Json
@@ -523,32 +539,16 @@ function ConvertFrom-JsonToTransformAttributes {
             Write-Debug "Failed to match 'Upper' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match Uuidgenerator defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-JsonToUuidgenerator $Json
-
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "Uuidgenerator"
-                    $match++
-                    break
-                }
-            }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Uuidgenerator' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
-        }
-
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([Accountattribute, Base64decode, Base64encode, Concatenation, Conditional, Datecompare, Dateformat, Datemath, Decomposediacriticalmarks, E164phone, Firstvalid, Identityattribute, Indexof, Iso3166, Leftpad, Lookup, Lower, Namenormalizer, Randomalphanumeric, Randomnumeric, Reference2, Replace, Replaceall, Rightpad, Rule, Split, Static, Substring, Trim, Upper, Uuidgenerator]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccountAttribute, Base64Decode, Base64Encode, Concatenation, Conditional, DateCompare, DateFormat, DateMath, DecomposeDiacriticalMarks, E164phone, FirstValid, ISO3166, IdentityAttribute, IndexOf, LeftPad, Lookup, Lower, NameNormalizer, RandomAlphaNumeric, RandomNumeric, Reference2, Replace, ReplaceAll, RightPad, Rule, Split, Static, Substring, Trim, UUIDGenerator, Upper]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("Accountattribute", "Base64decode", "Base64encode", "Concatenation", "Conditional", "Datecompare", "Dateformat", "Datemath", "Decomposediacriticalmarks", "E164phone", "Firstvalid", "Identityattribute", "Indexof", "Iso3166", "Leftpad", "Lookup", "Lower", "Namenormalizer", "Randomalphanumeric", "Randomnumeric", "Reference2", "Replace", "Replaceall", "Rightpad", "Rule", "Split", "Static", "Substring", "Trim", "Upper", "Uuidgenerator")
+                "OneOfSchemas" = @("AccountAttribute", "Base64Decode", "Base64Encode", "Concatenation", "Conditional", "DateCompare", "DateFormat", "DateMath", "DecomposeDiacriticalMarks", "E164phone", "FirstValid", "ISO3166", "IdentityAttribute", "IndexOf", "LeftPad", "Lookup", "Lower", "NameNormalizer", "RandomAlphaNumeric", "RandomNumeric", "Reference2", "Replace", "ReplaceAll", "RightPad", "Rule", "Split", "Static", "Substring", "Trim", "UUIDGenerator", "Upper")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([Accountattribute, Base64decode, Base64encode, Concatenation, Conditional, Datecompare, Dateformat, Datemath, Decomposediacriticalmarks, E164phone, Firstvalid, Identityattribute, Indexof, Iso3166, Leftpad, Lookup, Lower, Namenormalizer, Randomalphanumeric, Randomnumeric, Reference2, Replace, Replaceall, Rightpad, Rule, Split, Static, Substring, Trim, Upper, Uuidgenerator]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccountAttribute, Base64Decode, Base64Encode, Concatenation, Conditional, DateCompare, DateFormat, DateMath, DecomposeDiacriticalMarks, E164phone, FirstValid, ISO3166, IdentityAttribute, IndexOf, LeftPad, Lookup, Lower, NameNormalizer, RandomAlphaNumeric, RandomNumeric, Reference2, Replace, ReplaceAll, RightPad, Rule, Split, Static, Substring, Trim, UUIDGenerator, Upper]). JSON Payload: $($Json)"
         }
     }
 }

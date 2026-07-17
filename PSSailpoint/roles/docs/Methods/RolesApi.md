@@ -95,11 +95,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 201 | Role created | Role
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -107,7 +107,192 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Role = @""@
+$Role = @"{
+  "owner" : {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "entitlements" : [ {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  }, {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  } ],
+  "dimensional" : false,
+  "privilegeLevel" : "High",
+  "created" : "2021-03-01T22:32:58.104Z",
+  "dimensionRefs" : [ {
+    "name" : "Role 2",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "DIMENSION"
+  }, {
+    "name" : "Role 2",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "DIMENSION"
+  } ],
+  "description" : "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor.",
+  "membership" : {
+    "identities" : [ {
+      "aliasName" : "t.edison",
+      "name" : "Thomas Edison",
+      "id" : "2c9180a46faadee4016fb4e018c20639",
+      "type" : "IDENTITY"
+    }, {
+      "aliasName" : "t.edison",
+      "name" : "Thomas Edison",
+      "id" : "2c9180a46faadee4016fb4e018c20639",
+      "type" : "IDENTITY"
+    } ],
+    "criteria" : {
+      "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+      "children" : [ {
+        "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+        "children" : [ {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "sourceId" : "2c9180867427f3a301745aec18211519",
+            "property" : "attribute.email",
+            "type" : "ACCOUNT"
+          }
+        }, {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "sourceId" : "2c9180867427f3a301745aec18211519",
+            "property" : "attribute.email",
+            "type" : "ACCOUNT"
+          }
+        } ],
+        "operation" : "EQUALS",
+        "key" : {
+          "sourceId" : "2c9180867427f3a301745aec18211519",
+          "property" : "attribute.email",
+          "type" : "ACCOUNT"
+        }
+      }, {
+        "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+        "children" : [ {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "sourceId" : "2c9180867427f3a301745aec18211519",
+            "property" : "attribute.email",
+            "type" : "ACCOUNT"
+          }
+        }, {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "sourceId" : "2c9180867427f3a301745aec18211519",
+            "property" : "attribute.email",
+            "type" : "ACCOUNT"
+          }
+        } ],
+        "operation" : "EQUALS",
+        "key" : {
+          "sourceId" : "2c9180867427f3a301745aec18211519",
+          "property" : "attribute.email",
+          "type" : "ACCOUNT"
+        }
+      } ],
+      "operation" : "EQUALS",
+      "key" : {
+        "sourceId" : "2c9180867427f3a301745aec18211519",
+        "property" : "attribute.email",
+        "type" : "ACCOUNT"
+      }
+    },
+    "type" : "IDENTITY_LIST"
+  },
+  "additionalOwners" : [ {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  }, {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  } ],
+  "enabled" : true,
+  "revocationRequestConfig" : {
+    "commentsRequired" : false,
+    "approvalSchemes" : [ {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "denialCommentsRequired" : false
+  },
+  "segments" : [ "f7b1b8a3-5fed-4fd4-ad29-82014e137e19", "29cb6c06-1da8-43ea-8be4-b3125f248f2a" ],
+  "legacyMembershipInfo" : {
+    "type" : "IDENTITY_LIST"
+  },
+  "accessRequestConfig" : {
+    "dimensionSchema" : {
+      "dimensionAttributes" : [ {
+        "displayName" : "City",
+        "name" : "city",
+        "derived" : true
+      }, {
+        "displayName" : "City",
+        "name" : "city",
+        "derived" : true
+      } ]
+    },
+    "commentsRequired" : true,
+    "reauthorizationRequired" : true,
+    "approvalSchemes" : [ {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "formDefinitionId" : "78258e80-e9e2-4e1a-a11f-ce0b7c62f25d",
+    "denialCommentsRequired" : true,
+    "requireEndDate" : true,
+    "maxPermittedAccessDuration" : {
+      "value" : 6,
+      "timeUnit" : "MONTHS"
+    }
+  },
+  "accessProfiles" : [ {
+    "name" : "Access Profile 2567",
+    "id" : "ff808081751e6e129f1518161919ecca",
+    "type" : "ACCESS_PROFILE"
+  }, {
+    "name" : "Access Profile 2567",
+    "id" : "ff808081751e6e129f1518161919ecca",
+    "type" : "ACCESS_PROFILE"
+  } ],
+  "name" : "Role 2567",
+  "modified" : "2021-03-02T20:22:28.104Z",
+  "accessModelMetadata" : {
+    "attributes" : [ {
+      "key" : "iscPrivacy",
+      "name" : "Privacy",
+      "multiselect" : false,
+      "status" : "active",
+      "type" : "governance",
+      "objectTypes" : [ "all" ],
+      "description" : "Specifies the level of privacy associated with an access item.",
+      "values" : [ {
+        "value" : "public",
+        "name" : "Public",
+        "status" : "active"
+      } ]
+    } ]
+  },
+  "id" : "2c918086749d78830174a1a40e121518",
+  "requestable" : true
+}"@
 
 # Create a role
 
@@ -135,20 +320,20 @@ A user with ROLE_SUBADMIN authority can only call this endpoint if all roles inc
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Rolebulkdeleterequest | [**Rolebulkdeleterequest**](../models/rolebulkdeleterequest) | True  | 
+ Body  | RoleBulkDeleteRequest | [**RoleBulkDeleteRequest**](../models/role-bulk-delete-request) | True  | 
 
 ### Return type
-[**Taskresultdto**](../models/taskresultdto)
+[**TaskResultDto**](../models/task-result-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Returns an object with the id of the task performing the delete operation. | Taskresultdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Returns an object with the id of the task performing the delete operation. | TaskResultDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -156,16 +341,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Rolebulkdeleterequest = @"{"roleIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}"@
+$RoleBulkDeleteRequest = @"{
+  "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
+}"@
 
 # Delete role(s)
 
 try {
-    $Result = ConvertFrom-JsonToRolebulkdeleterequest -Json $Rolebulkdeleterequest
-    Remove-BulkRolesV1 -Rolebulkdeleterequest $Result 
+    $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
+    Remove-BulkRolesV1 -RoleBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BulkRolesV1 -Rolebulkdeleterequest $Result  
+    # Remove-BulkRolesV1 -RoleBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BulkRolesV1"
     Write-Host $_.ErrorDetails
@@ -192,11 +379,11 @@ Path   | AttributeValue | **String** | True  | Technical name of the Attribute V
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Request accepted | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -241,11 +428,11 @@ Path   | Id | **String** | True  | ID of the Role
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -282,17 +469,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The Id of the bulk update task.
 
 ### Return type
-[**Rolebulkupdateresponse**](../models/rolebulkupdateresponse)
+[**RoleBulkUpdateResponse**](../models/role-bulk-update-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | return if bulk update status could be found. | Rolebulkupdateresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | return if bulk update status could be found. | RoleBulkUpdateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -326,17 +513,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Rolegetallbulkupdateresponse[]**](../models/rolegetallbulkupdateresponse)
+[**RoleGetAllBulkUpdateResponse[]**](../models/role-get-all-bulk-update-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | successfully get the status of all unfinished bulk updates request. | Rolegetallbulkupdateresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | successfully get the status of all unfinished bulk updates request. | RoleGetAllBulkUpdateResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -375,17 +562,17 @@ Path   | Id | **String** | True  | ID of the Role for which the assigned Identit
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email**
 
 ### Return type
-[**Roleidentity[]**](../models/roleidentity)
+[**RoleIdentity[]**](../models/role-identity)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Identities assigned the Role | Roleidentity[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of Identities assigned the Role | RoleIdentity[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -440,11 +627,11 @@ Path   | Id | **String** | True  | Containing role's ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of Entitlements | Entitlement[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -492,11 +679,11 @@ Path   | Id | **String** | True  | ID of the Role
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of all Roles | Role
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -546,11 +733,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of Roles | Role[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -611,7 +798,7 @@ When you use this API to modify a role's membership identities, you can only mod
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Role to patch
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
 [**Role**](../models/role)
@@ -620,11 +807,11 @@ Path   | Id | **String** | True  | ID of the Role to patch
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Responds with the Role as updated. | Role
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -633,17 +820,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
- $Jsonpatchoperation = @"[{"op":"replace","path":"/requestable","value":true},{"op":"replace","path":"/enabled","value":true}]"@ # Jsonpatchoperation[] | 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | 
  
 
 # Patch a specified role
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-RoleV1 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-RoleV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-RoleV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-RoleV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RoleV1"
     Write-Host $_.ErrorDetails
@@ -667,7 +858,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
   Query | ForSegmentIds | **String** |   (optional) | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
   Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
- Body  | Rolelistfilterdto | [**Rolelistfilterdto**](../models/rolelistfilterdto) |   (optional) | 
+ Body  | RoleListFilterDTO | [**RoleListFilterDTO**](../models/role-list-filter-dto) |   (optional) | 
 
 ### Return type
 [**Role[]**](../models/role)
@@ -676,11 +867,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Responds with A list of Roles | Role[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -695,7 +886,13 @@ $Count = $true # Boolean | Boolean indicating whether a total count is returned,
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
 $IncludeUnsegmented = $false # Boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to $true)
-$Rolelistfilterdto = @"{"filters":"dimensional eq false","ammKeyValues":[{"attribute":"iscFederalClassifications","values":["secret"]}]}"@
+$RoleListFilterDTO = @"{
+  "ammKeyValues" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "secret" ]
+  } ],
+  "filters" : "dimensional eq false"
+}"@
 
 # Filter roles by metadata
 
@@ -703,7 +900,7 @@ try {
     Search-RolesByFilterV1 
     
     # Below is a request that includes all optional parameters
-    # Search-RolesByFilterV1 -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Rolelistfilterdto $Result  
+    # Search-RolesByFilterV1 -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -RoleListFilterDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-RolesByFilterV1"
     Write-Host $_.ErrorDetails
@@ -730,11 +927,11 @@ Path   | AttributeValue | **String** | True  | Technical name of the Attribute V
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Responds with the Role as updated. | Role
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -771,20 +968,20 @@ Custom metadata update, including add, replace need suit licensed.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Rolemetadatabulkupdatebyfilterrequest | [**Rolemetadatabulkupdatebyfilterrequest**](../models/rolemetadatabulkupdatebyfilterrequest) | True  | 
+ Body  | RoleMetadataBulkUpdateByFilterRequest | [**RoleMetadataBulkUpdateByFilterRequest**](../models/role-metadata-bulk-update-by-filter-request) | True  | 
 
 ### Return type
-[**Rolebulkupdateresponse**](../models/rolebulkupdateresponse)
+[**RoleBulkUpdateResponse**](../models/role-bulk-update-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Returned if bulk update request created | Rolebulkupdateresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Returned if bulk update request created | RoleBulkUpdateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -792,16 +989,24 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Rolemetadatabulkupdatebyfilterrequest = @"{"operation":"ADD","replaceScope":"ALL","filters":"requestable eq false","values":[{"attribute":"iscFederalClassifications","values":["topSecret"]}]}"@
+$RoleMetadataBulkUpdateByFilterRequest = @"{
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "filters" : " requestable eq false",
+  "replaceScope" : "ALL",
+  "operation" : "REPLACE"
+}"@
 
 # Bulk-update roles' metadata by filters
 
 try {
-    $Result = ConvertFrom-JsonToRolemetadatabulkupdatebyfilterrequest -Json $Rolemetadatabulkupdatebyfilterrequest
-    Update-RolesMetadataByFilterV1 -Rolemetadatabulkupdatebyfilterrequest $Result 
+    $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByFilterRequest -Json $RoleMetadataBulkUpdateByFilterRequest
+    Update-RolesMetadataByFilterV1 -RoleMetadataBulkUpdateByFilterRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-RolesMetadataByFilterV1 -Rolemetadatabulkupdatebyfilterrequest $Result  
+    # Update-RolesMetadataByFilterV1 -RoleMetadataBulkUpdateByFilterRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RolesMetadataByFilterV1"
     Write-Host $_.ErrorDetails
@@ -820,20 +1025,20 @@ Custom metadata update, including add, replace need suit licensed.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Rolemetadatabulkupdatebyidrequest | [**Rolemetadatabulkupdatebyidrequest**](../models/rolemetadatabulkupdatebyidrequest) | True  | 
+ Body  | RoleMetadataBulkUpdateByIdRequest | [**RoleMetadataBulkUpdateByIdRequest**](../models/role-metadata-bulk-update-by-id-request) | True  | 
 
 ### Return type
-[**Rolebulkupdateresponse**](../models/rolebulkupdateresponse)
+[**RoleBulkUpdateResponse**](../models/role-bulk-update-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Returned if bulk update request created | Rolebulkupdateresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Returned if bulk update request created | RoleBulkUpdateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -841,16 +1046,24 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Rolemetadatabulkupdatebyidrequest = @""@
+$RoleMetadataBulkUpdateByIdRequest = @"{
+  "roles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ALL",
+  "operation" : "REPLACE"
+}"@
 
 # Bulk-update roles' metadata by id
 
 try {
-    $Result = ConvertFrom-JsonToRolemetadatabulkupdatebyidrequest -Json $Rolemetadatabulkupdatebyidrequest
-    Update-RolesMetadataByIdsV1 -Rolemetadatabulkupdatebyidrequest $Result 
+    $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
+    Update-RolesMetadataByIdsV1 -RoleMetadataBulkUpdateByIdRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-RolesMetadataByIdsV1 -Rolemetadatabulkupdatebyidrequest $Result  
+    # Update-RolesMetadataByIdsV1 -RoleMetadataBulkUpdateByIdRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RolesMetadataByIdsV1"
     Write-Host $_.ErrorDetails
@@ -869,20 +1082,20 @@ Custom metadata update, including add, replace need suit licensed.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Rolemetadatabulkupdatebyqueryrequest | [**Rolemetadatabulkupdatebyqueryrequest**](../models/rolemetadatabulkupdatebyqueryrequest) | True  | 
+ Body  | RoleMetadataBulkUpdateByQueryRequest | [**RoleMetadataBulkUpdateByQueryRequest**](../models/role-metadata-bulk-update-by-query-request) | True  | 
 
 ### Return type
-[**Rolebulkupdateresponse**](../models/rolebulkupdateresponse)
+[**RoleBulkUpdateResponse**](../models/role-bulk-update-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Returned if bulk update request created | Rolebulkupdateresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Returned if bulk update request created | RoleBulkUpdateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListRolesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListRolesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -890,16 +1103,39 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Rolemetadatabulkupdatebyqueryrequest = @"{"example of a success update":{"query":{"indices":["roles"],"queryType":"TEXT","textQuery":{"terms":["test123"],"fields":["id"],"matchAny":false,"contains":true},"includeNested":false},"operation":"REPLACE","replaceScope":"ALL","values":[{"attribute":"iscFederalClassifications","values":["secret"]}]}}"@
+$RoleMetadataBulkUpdateByQueryRequest = @"{
+  "query" : {
+    "query\"" : {
+      "indices" : [ "roles" ],
+      "queryType" : "TEXT",
+      "textQuery" : {
+        "terms" : [ "test123" ],
+        "fields" : [ "id" ],
+        "matchAny" : false,
+        "contains" : true
+      },
+      "includeNested" : false
+    }
+  },
+  "values" : [ {
+    "attributeValue" : [ "topSecret" ],
+    "attributeKey" : "iscFederalClassifications"
+  }, {
+    "attributeValue" : [ "topSecret" ],
+    "attributeKey" : "iscFederalClassifications"
+  } ],
+  "replaceScope" : "ALL",
+  "operation" : "REPLACE"
+}"@
 
 # Bulk-update roles' metadata by query
 
 try {
-    $Result = ConvertFrom-JsonToRolemetadatabulkupdatebyqueryrequest -Json $Rolemetadatabulkupdatebyqueryrequest
-    Update-RolesMetadataByQueryV1 -Rolemetadatabulkupdatebyqueryrequest $Result 
+    $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByQueryRequest -Json $RoleMetadataBulkUpdateByQueryRequest
+    Update-RolesMetadataByQueryV1 -RoleMetadataBulkUpdateByQueryRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-RolesMetadataByQueryV1 -Rolemetadatabulkupdatebyqueryrequest $Result  
+    # Update-RolesMetadataByQueryV1 -RoleMetadataBulkUpdateByQueryRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RolesMetadataByQueryV1"
     Write-Host $_.ErrorDetails

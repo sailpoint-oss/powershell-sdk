@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.WorkItems' -name 'WorkItemsApi' {
 
     Context 'Invoke-ForwardWorkItemV1' {
         It 'Test Invoke-ForwardWorkItemV1' {
-            #$TestResult = Invoke-ForwardWorkItemV1 -Id "TEST_VALUE" -Workitemforward "TEST_VALUE"
+            #$TestResult = Invoke-ForwardWorkItemV1 -Id "TEST_VALUE" -WorkItemForward "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

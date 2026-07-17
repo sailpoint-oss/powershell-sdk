@@ -17,7 +17,7 @@ Initiates an account deletion request for the specified account. This method val
 .PARAMETER AccountId
 Account ID.
 
-.PARAMETER Accountdeleterequestinput
+.PARAMETER AccountDeleteRequestInput
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountrequestasyncresult
+AccountRequestAsyncResult
 #>
 function Remove-AccountRequestV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function Remove-AccountRequestV1 {
         ${AccountId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accountdeleterequestinput},
+        ${AccountDeleteRequestInput},
         [Switch]
         $WithHttpInfo
     )
@@ -66,10 +66,10 @@ function Remove-AccountRequestV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{accountId}', [System.Web.HTTPUtility]::UrlEncode($AccountId))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accountdeleterequestinput -is [array])) {
-            $LocalVarBodyParameter = $Accountdeleterequestinput | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountDeleteRequestInput -is [array])) {
+            $LocalVarBodyParameter = $AccountDeleteRequestInput | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accountdeleterequestinput | ForEach-Object {
+            $LocalVarBodyParameter = $AccountDeleteRequestInput | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -88,7 +88,7 @@ function Remove-AccountRequestV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountrequestasyncresult" `
+                                -ReturnType "AccountRequestAsyncResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -126,7 +126,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountactionrequestdto[]
+AccountActionRequestDto[]
 #>
 function Get-AccountDeletionRequestsV1 {
     [CmdletBinding()]
@@ -190,7 +190,7 @@ function Get-AccountDeletionRequestsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountactionrequestdto[]" `
+                                -ReturnType "AccountActionRequestDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

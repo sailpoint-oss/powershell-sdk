@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | Created time of the campaign | [optional] [readonly] 
 **TotalCertifications** | **Int32** | The total number of certifications in this campaign. | [optional] [readonly] 
 **CompletedCertifications** | **Int32** | The number of completed certifications in this campaign. | [optional] [readonly] 
-**Alerts** | [**[]Campaignalert**](campaignalert) | A list of errors and warnings that have accumulated. | [optional] [readonly] 
+**Alerts** | [**[]CampaignAlert**](campaign-alert) | A list of errors and warnings that have accumulated. | [optional] [readonly] 
 **Modified** | **System.DateTime** | Modified time of the campaign | [optional] [readonly] 
 **VarFilter** | [**Campaign2AllOfFilter**](campaign2-all-of-filter) |  | [optional] 
 **SunsetCommentsRequired** | **Boolean** | Determines if comments on sunset date changes are required. | [optional] [default to $true]

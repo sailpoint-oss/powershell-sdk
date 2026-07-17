@@ -4,18 +4,26 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/managedclusters/methods/managed-clusters#create-managed-cluster-v1
       source: |
-        $Managedclusterrequest = @"
-        
+        $ManagedClusterRequest = @"
+        {
+          "configuration" : {
+            "clusterExternalId" : "externalId",
+            "ccgVersion" : "77.0.0"
+          },
+          "name" : "Managed Cluster Name",
+          "description" : "A short description of the managed cluster.",
+          "type" : "idn"
+        }
         "@
         
         # Create create managed cluster
         
         try {
-            $Result = ConvertFrom-JsonToManagedclusterrequest -Json $Managedclusterrequest
-            New-ManagedClusterV1 -Managedclusterrequest $Result 
+            $Result = ConvertFrom-JsonToManagedClusterRequest -Json $ManagedClusterRequest
+            New-ManagedClusterV1 -ManagedClusterRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-ManagedClusterV1 -Managedclusterrequest $Result   
+            # New-ManagedClusterV1 -ManagedClusterRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ManagedClusterV1"
             Write-Host $_.ErrorDetails
@@ -130,17 +138,21 @@
       label: SDK_tools/sdk/powershell/managedclusters/methods/managed-clusters#update-managed-cluster-v1
       source: |
         $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update managed cluster
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-ManagedClusterV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-ManagedClusterV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-ManagedClusterV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-ManagedClusterV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ManagedClusterV1"
             Write-Host $_.ErrorDetails

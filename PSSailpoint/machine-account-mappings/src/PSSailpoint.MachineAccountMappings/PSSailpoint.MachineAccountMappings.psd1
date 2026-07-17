@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.MachineAccountMappings.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,20 +75,20 @@ FunctionsToExport = 'New-MachineAccountMappingsV1', 'Remove-MachineAccountMappin
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Attributemappings', 
-               'ConvertFrom-JsonToAttributemappings', 
-               'Initialize-AttributemappingsAllOfTarget', 
-               'ConvertFrom-JsonToAttributemappingsAllOfTarget', 
-               'Initialize-AttributemappingsAllOfTransformDefinition', 
-               'ConvertFrom-JsonToAttributemappingsAllOfTransformDefinition', 
-               'Initialize-AttributemappingsAllOfTransformDefinitionAttributes', 
-               'ConvertFrom-JsonToAttributemappingsAllOfTransformDefinitionAttributes', 
-               'Initialize-AttributemappingsAllOfTransformDefinitionAttributesInput', 
-               'ConvertFrom-JsonToAttributemappingsAllOfTransformDefinitionAttributesInput', 
-               'Initialize-AttributemappingsAllOfTransformDefinitionAttributesInputAttributes', 
-               'ConvertFrom-JsonToAttributemappingsAllOfTransformDefinitionAttributesInputAttributes', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-AttributeMappings', 
+               'ConvertFrom-JsonToAttributeMappings', 
+               'Initialize-AttributeMappingsAllOfTarget', 
+               'ConvertFrom-JsonToAttributeMappingsAllOfTarget', 
+               'Initialize-AttributeMappingsAllOfTransformDefinition', 
+               'ConvertFrom-JsonToAttributeMappingsAllOfTransformDefinition', 
+               'Initialize-AttributeMappingsAllOfTransformDefinitionAttributes', 
+               'ConvertFrom-JsonToAttributeMappingsAllOfTransformDefinitionAttributes', 
+               'Initialize-AttributeMappingsAllOfTransformDefinitionAttributesInput', 
+               'ConvertFrom-JsonToAttributeMappingsAllOfTransformDefinitionAttributesInput', 
+               'Initialize-AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes', 
+               'ConvertFrom-JsonToAttributeMappingsAllOfTransformDefinitionAttributesInputAttributes', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-ListMachineAccountMappingsV1401Response', 
                'ConvertFrom-JsonToListMachineAccountMappingsV1401Response', 
                'Initialize-ListMachineAccountMappingsV1429Response', 

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.MachineIdentities' -name 'MachineIdentitiesApi' {
     Context 'New-MachineIdentityV1' {
         It 'Test New-MachineIdentityV1' {
-            #$TestResult = New-MachineIdentityV1 -XSailPointExperimental "TEST_VALUE" -Machineidentityrequest "TEST_VALUE"
+            #$TestResult = New-MachineIdentityV1 -XSailPointExperimental "TEST_VALUE" -MachineIdentityRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.MachineIdentities' -name 'MachineIdentitiesApi' {
 
     Context 'Update-OwnershipCorrelationConfigV1' {
         It 'Test Update-OwnershipCorrelationConfigV1' {
-            #$TestResult = Update-OwnershipCorrelationConfigV1 -SourceId "TEST_VALUE" -ResourceId "TEST_VALUE" -ConfigId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-OwnershipCorrelationConfigV1 -SourceId "TEST_VALUE" -ResourceId "TEST_VALUE" -ConfigId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.MachineIdentities' -name 'MachineIdentitiesApi' {
 
     Context 'Start-MachineIdentityAggregationV1' {
         It 'Test Start-MachineIdentityAggregationV1' {
-            #$TestResult = Start-MachineIdentityAggregationV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Machineidentityaggregationrequest "TEST_VALUE"
+            #$TestResult = Start-MachineIdentityAggregationV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -MachineIdentityAggregationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -128,7 +128,7 @@ Describe -tag 'PSSailpoint.MachineIdentities' -name 'MachineIdentitiesApi' {
 
     Context 'Update-MachineIdentityV2' {
         It 'Test Update-MachineIdentityV2' {
-            #$TestResult = Update-MachineIdentityV2 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-MachineIdentityV2 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

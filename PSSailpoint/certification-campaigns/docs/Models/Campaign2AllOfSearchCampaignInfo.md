@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Reviewer** | [**Campaign2AllOfSearchCampaignInfoReviewer**](campaign2-all-of-search-campaign-info-reviewer) |  | [optional] 
 **Query** | **String** | The scope for the campaign. The campaign will cover identities returned by the query and identities that have access items returned by the query. One of `query` or `identityIds` must be set. | [optional] 
 **IdentityIds** | **[]String** | A direct list of identities to include in this campaign. One of `identityIds` or `query` must be set. | [optional] 
-**AccessConstraints** | [**[]Accessconstraint**](accessconstraint) | Further reduces the scope of the campaign by excluding identities (from `query` or `identityIds`) that do not have this access. | [optional] 
+**AccessConstraints** | [**[]AccessConstraint**](access-constraint) | Further reduces the scope of the campaign by excluding identities (from `query` or `identityIds`) that do not have this access. | [optional] 
 
 ## Examples
 

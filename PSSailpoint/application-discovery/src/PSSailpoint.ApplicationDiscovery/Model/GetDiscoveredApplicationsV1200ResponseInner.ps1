@@ -34,48 +34,48 @@ function ConvertFrom-JsonToGetDiscoveredApplicationsV1200ResponseInner {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match Fulldiscoveredapplications defined in the oneOf schemas
+        # try to match FullDiscoveredApplications defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToFulldiscoveredapplications $Json
+            $matchInstance = ConvertFrom-JsonToFullDiscoveredApplications $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Fulldiscoveredapplications"
+                    $matchType = "FullDiscoveredApplications"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Fulldiscoveredapplications' defined in oneOf (GetDiscoveredApplicationsV1200ResponseInner). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'FullDiscoveredApplications' defined in oneOf (GetDiscoveredApplicationsV1200ResponseInner). Proceeding to the next one if any."
         }
 
-        # try to match Slimdiscoveredapplications defined in the oneOf schemas
+        # try to match SlimDiscoveredApplications defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToSlimdiscoveredapplications $Json
+            $matchInstance = ConvertFrom-JsonToSlimDiscoveredApplications $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Slimdiscoveredapplications"
+                    $matchType = "SlimDiscoveredApplications"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Slimdiscoveredapplications' defined in oneOf (GetDiscoveredApplicationsV1200ResponseInner). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'SlimDiscoveredApplications' defined in oneOf (GetDiscoveredApplicationsV1200ResponseInner). Proceeding to the next one if any."
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([Fulldiscoveredapplications, Slimdiscoveredapplications]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([FullDiscoveredApplications, SlimDiscoveredApplications]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("Fulldiscoveredapplications", "Slimdiscoveredapplications")
+                "OneOfSchemas" = @("FullDiscoveredApplications", "SlimDiscoveredApplications")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([Fulldiscoveredapplications, Slimdiscoveredapplications]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([FullDiscoveredApplications, SlimDiscoveredApplications]). JSON Payload: $($Json)"
         }
     }
 }

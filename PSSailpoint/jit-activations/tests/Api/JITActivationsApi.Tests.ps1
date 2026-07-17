@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.JitActivations' -name 'JITActivationsApi' {
     Context 'Start-ActivateWorkflowV1' {
         It 'Test Start-ActivateWorkflowV1' {
-            #$TestResult = Start-ActivateWorkflowV1 -Jitactivationactivaterequest "TEST_VALUE"
+            #$TestResult = Start-ActivateWorkflowV1 -JitActivationActivateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.JitActivations' -name 'JITActivationsApi' {
 
     Context 'Start-DeactivateWorkflowV1' {
         It 'Test Start-DeactivateWorkflowV1' {
-            #$TestResult = Start-DeactivateWorkflowV1 -Jitactivationdeactivaterequest "TEST_VALUE"
+            #$TestResult = Start-DeactivateWorkflowV1 -JitActivationDeactivateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.JitActivations' -name 'JITActivationsApi' {
 
     Context 'Start-ExtendWorkflowV1' {
         It 'Test Start-ExtendWorkflowV1' {
-            #$TestResult = Start-ExtendWorkflowV1 -Jitactivationextendrequest "TEST_VALUE"
+            #$TestResult = Start-ExtendWorkflowV1 -JitActivationExtendRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -38,20 +38,20 @@ The API returns a result that includes the managed cluster ID.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Managedclusterrequest | [**Managedclusterrequest**](../models/managedclusterrequest) | True  | 
+ Body  | ManagedClusterRequest | [**ManagedClusterRequest**](../models/managed-cluster-request) | True  | 
 
 ### Return type
-[**Managedcluster**](../models/managedcluster)
+[**ManagedCluster**](../models/managed-cluster)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Created managed cluster. | Managedcluster
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Created managed cluster. | ManagedCluster
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClustersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClustersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -59,16 +59,24 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Managedclusterrequest = @""@
+$ManagedClusterRequest = @"{
+  "configuration" : {
+    "clusterExternalId" : "externalId",
+    "ccgVersion" : "77.0.0"
+  },
+  "name" : "Managed Cluster Name",
+  "description" : "A short description of the managed cluster.",
+  "type" : "idn"
+}"@
 
 # Create create managed cluster
 
 try {
-    $Result = ConvertFrom-JsonToManagedclusterrequest -Json $Managedclusterrequest
-    New-ManagedClusterV1 -Managedclusterrequest $Result 
+    $Result = ConvertFrom-JsonToManagedClusterRequest -Json $ManagedClusterRequest
+    New-ManagedClusterV1 -ManagedClusterRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ManagedClusterV1 -Managedclusterrequest $Result  
+    # New-ManagedClusterV1 -ManagedClusterRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ManagedClusterV1"
     Write-Host $_.ErrorDetails
@@ -94,11 +102,11 @@ Path   | Id | **String** | True  | Managed cluster ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClustersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClustersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -134,19 +142,19 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of managed cluster to get log configuration for.
 
 ### Return type
-[**Clientlogconfiguration**](../models/clientlogconfiguration)
+[**ClientLogConfiguration**](../models/client-log-configuration)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Log configuration of managed cluster for given cluster ID. | Clientlogconfiguration
+200 | Log configuration of managed cluster for given cluster ID. | ClientLogConfiguration
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClustersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClustersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -181,18 +189,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Managed cluster ID.
 
 ### Return type
-[**Managedcluster**](../models/managedcluster)
+[**ManagedCluster**](../models/managed-cluster)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Response with managed cluster for the given ID. | Managedcluster
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Response with managed cluster for the given ID. | ManagedCluster
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClustersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClustersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -230,17 +238,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*
 
 ### Return type
-[**Managedcluster[]**](../models/managedcluster)
+[**ManagedCluster[]**](../models/managed-cluster)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Response with a list of managed clusters. | Managedcluster[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Response with a list of managed clusters. | ManagedCluster[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClustersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClustersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -279,18 +287,18 @@ Path   | Id | **String** | True  | ID of the managed cluster to update the log c
  Body  | PutClientLogConfigurationV1Request | [**PutClientLogConfigurationV1Request**](../models/put-client-log-configuration-v1-request) | True  | Client log configuration for the given managed cluster.
 
 ### Return type
-[**Clientlogconfiguration**](../models/clientlogconfiguration)
+[**ClientLogConfiguration**](../models/client-log-configuration)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Response with updated client log configuration for the given managed cluster. | Clientlogconfiguration
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Response with updated client log configuration for the given managed cluster. | ClientLogConfiguration
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClustersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClustersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -325,21 +333,21 @@ Update an existing managed cluster.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Managed cluster ID.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | JSONPatch payload used to update the object.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | JSONPatch payload used to update the object.
 
 ### Return type
-[**Managedcluster**](../models/managedcluster)
+[**ManagedCluster**](../models/managed-cluster)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated managed cluster. | Managedcluster
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated managed cluster. | ManagedCluster
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClustersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClustersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -348,17 +356,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
- $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | JSONPatch payload used to update the object.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | JSONPatch payload used to update the object.
  
 
 # Update managed cluster
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-ManagedClusterV1 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-ManagedClusterV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ManagedClusterV1 -Id $Id -Jsonpatchoperation $Result  
+    # Update-ManagedClusterV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ManagedClusterV1"
     Write-Host $_.ErrorDetails
@@ -378,18 +390,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of managed cluster to trigger manual upgrade.
 
 ### Return type
-[**Clustermanualupgrade**](../models/clustermanualupgrade)
+[**ClusterManualUpgrade**](../models/cluster-manual-upgrade)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Manual upgrade of managed cluster for given cluster ID. | Clustermanualupgrade
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Manual upgrade of managed cluster for given cluster ID. | ClusterManualUpgrade
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetManagedClustersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetManagedClustersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined

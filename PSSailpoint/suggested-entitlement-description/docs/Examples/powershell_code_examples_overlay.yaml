@@ -4,18 +4,28 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#approve-bulk-entitlement-recommendations-v1
       source: |
-        $Bulkapproveentitlementrecommendationrequest = @"
-        
+        $BulkApproveEntitlementRecommendationRequest = @"
+        {
+          "items" : [ {
+            "id" : "79db50d4-723c-4aa0-a824-83c2205d82d1",
+            "recordType" : "SED",
+            "description" : "Provides access and permissions related to the Delinea Secret Server Cloud system."
+          }, {
+            "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+            "recordType" : "privilege",
+            "privilegeLevel" : "high"
+          } ]
+        }
         "@
         
         # Bulk approve entitlement recommendations
         
         try {
-            $Result = ConvertFrom-JsonToBulkapproveentitlementrecommendationrequest -Json $Bulkapproveentitlementrecommendationrequest
-            Approve-BulkEntitlementRecommendationsV1 -Bulkapproveentitlementrecommendationrequest $Result 
+            $Result = ConvertFrom-JsonToBulkApproveEntitlementRecommendationRequest -Json $BulkApproveEntitlementRecommendationRequest
+            Approve-BulkEntitlementRecommendationsV1 -BulkApproveEntitlementRecommendationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Approve-BulkEntitlementRecommendationsV1 -Bulkapproveentitlementrecommendationrequest $Result   
+            # Approve-BulkEntitlementRecommendationsV1 -BulkApproveEntitlementRecommendationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BulkEntitlementRecommendationsV1"
             Write-Host $_.ErrorDetails
@@ -26,18 +36,22 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#create-auto-write-settings-v1
       source: |
-        $Autowritesetting = @"
-        
+        $AutoWriteSetting = @"
+        {
+          "excludedSourceIds" : [ "2c91808a7813090a017814552e526350" ],
+          "includedSourceIds" : [ "2c91808a7813090a017814552e526349", "2c91808a7813090a017814552e52634a" ],
+          "enabled" : true
+        }
         "@
         
         # Create auto-write settings for SED
         
         try {
-            $Result = ConvertFrom-JsonToAutowritesetting -Json $Autowritesetting
-            New-AutoWriteSettingsV1 -Autowritesetting $Result 
+            $Result = ConvertFrom-JsonToAutoWriteSetting -Json $AutoWriteSetting
+            New-AutoWriteSettingsV1 -AutoWriteSetting $Result 
     
             # Below is a request that includes all optional parameters
-            # New-AutoWriteSettingsV1 -Autowritesetting $Result   
+            # New-AutoWriteSettingsV1 -AutoWriteSetting $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AutoWriteSettingsV1"
             Write-Host $_.ErrorDetails
@@ -175,17 +189,21 @@
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#patch-entitlement-recommendation-v1
       source: |
         $Id = "79db50d4-723c-4aa0-a824-83c2205d82d1" # String | The unique identifier of the entitlement recommendation to update.
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update an entitlement recommendation
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-EntitlementRecommendationV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-EntitlementRecommendationV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-EntitlementRecommendationV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-EntitlementRecommendationV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementRecommendationV1"
             Write-Host $_.ErrorDetails
@@ -197,17 +215,21 @@
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#patch-sed-v1
       source: |
         $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
-        $Sedpatch = @""@ 
+        $SedPatch = @"{
+          "op" : "replace",
+          "path" : "status",
+          "value" : "approved"
+        }"@ 
         
         
         # Patch suggested entitlement description
         
         try {
-            $Result = ConvertFrom-JsonToSedpatch -Json $Sedpatch
-            Update-SedV1 -Id $Id -Sedpatch $Result 
+            $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
+            Update-SedV1 -Id $Id -SedPatch $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-SedV1 -Id $Id -Sedpatch $Result   
+            # Update-SedV1 -Id $Id -SedPatch $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SedV1"
             Write-Host $_.ErrorDetails
@@ -218,18 +240,24 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-entitlement-recommendations-assignment-v1
       source: |
-        $Entitlementrecommendationassignrequest = @"
-        
+        $EntitlementRecommendationAssignRequest = @"
+        {
+          "assignee" : {
+            "type" : "IDENTITY",
+            "value" : "2c91808a7f3b2e8a017f3c3e5f6d0099"
+          },
+          "items" : [ "79db50d4-723c-4aa0-a824-83c2205d82d1", "a1b2c3d4-e5f6-7890-abcd-ef1234567890" ]
+        }
         "@
         
         # Assign entitlement recommendations for review
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementrecommendationassignrequest -Json $Entitlementrecommendationassignrequest
-            Submit-EntitlementRecommendationsAssignmentV1 -Entitlementrecommendationassignrequest $Result 
+            $Result = ConvertFrom-JsonToEntitlementRecommendationAssignRequest -Json $EntitlementRecommendationAssignRequest
+            Submit-EntitlementRecommendationsAssignmentV1 -EntitlementRecommendationAssignRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Submit-EntitlementRecommendationsAssignmentV1 -Entitlementrecommendationassignrequest $Result   
+            # Submit-EntitlementRecommendationsAssignmentV1 -EntitlementRecommendationAssignRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-EntitlementRecommendationsAssignmentV1"
             Write-Host $_.ErrorDetails
@@ -240,17 +268,19 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-sed-approval-v1
       source: |
-        $Sedapproval = @""@ 
+        $SedApproval = @"{
+          "items" : "016629d1-1d25-463f-97f3-c6686846650"
+        }"@ 
         
         
         # Submit bulk approval request
         
         try {
-            $Result = ConvertFrom-JsonToSedapproval -Json $Sedapproval
-            Submit-SedApprovalV1 -Sedapproval $Result 
+            $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
+            Submit-SedApprovalV1 -SedApproval $Result 
     
             # Below is a request that includes all optional parameters
-            # Submit-SedApprovalV1 -Sedapproval $Result   
+            # Submit-SedApprovalV1 -SedApproval $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-SedApprovalV1"
             Write-Host $_.ErrorDetails
@@ -261,18 +291,24 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-sed-assignment-v1
       source: |
-        $Sedassignment = @"
-        
+        $SedAssignment = @"
+        {
+          "assignee" : {
+            "type" : "SOURCE_OWNER",
+            "value" : "016629d1-1d25-463f-97f3-c6686846650"
+          },
+          "items" : [ "016629d1-1d25-463f-97f3-0c6686846650", "016629d1-1d25-463f-97f3-0c6686846650" ]
+        }
         "@
         
         # Submit sed assignment request
         
         try {
-            $Result = ConvertFrom-JsonToSedassignment -Json $Sedassignment
-            Submit-SedAssignmentV1 -Sedassignment $Result 
+            $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
+            Submit-SedAssignmentV1 -SedAssignment $Result 
     
             # Below is a request that includes all optional parameters
-            # Submit-SedAssignmentV1 -Sedassignment $Result   
+            # Submit-SedAssignmentV1 -SedAssignment $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-SedAssignmentV1"
             Write-Host $_.ErrorDetails
@@ -283,8 +319,34 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-sed-batch-request-v1
       source: |
-        $Sedbatchrequest = @"
-        
+        $SedBatchRequest = @"
+        {
+          "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
+          "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
+          "searchCriteria" : {
+            "key" : {
+              "indices" : [ "entitlements" ],
+              "query" : {
+                "query" : "status:active"
+              },
+              "textQuery" : {
+                "terms" : [ "admin", "user" ],
+                "matchAny" : true,
+                "fields" : [ "role", "name" ]
+              },
+              "searchAfter" : [ "12345", "67890" ],
+              "filters" : {
+                "status" : {
+                  "type" : "TERMS",
+                  "terms" : [ "active", "inactive" ]
+                }
+              },
+              "sort" : [ "name:asc", "createdAt:desc" ],
+              "queryType" : "TEXT",
+              "includeNested" : true
+            }
+          }
+        }
         "@
         
         # Submit sed batch request
@@ -293,7 +355,7 @@
             Submit-SedBatchRequestV1 
     
             # Below is a request that includes all optional parameters
-            # Submit-SedBatchRequestV1 -Sedbatchrequest $Result   
+            # Submit-SedBatchRequestV1 -SedBatchRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-SedBatchRequestV1"
             Write-Host $_.ErrorDetails
@@ -304,17 +366,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#update-auto-write-settings-v1
       source: |
-        $Autowritesettingpatch = @""@ 
+        $AutoWriteSettingPatch = @"{
+          "op" : "replace",
+          "path" : "/enabled",
+          "value" : true
+        }"@ 
         
         
         # Update auto-write settings for SED
         
         try {
-            $Result = ConvertFrom-JsonToAutowritesettingpatch -Json $Autowritesettingpatch
-            Update-AutoWriteSettingsV1 -Autowritesettingpatch $Result 
+            $Result = ConvertFrom-JsonToAutoWriteSettingPatch -Json $AutoWriteSettingPatch
+            Update-AutoWriteSettingsV1 -AutoWriteSettingPatch $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AutoWriteSettingsV1 -Autowritesettingpatch $Result   
+            # Update-AutoWriteSettingsV1 -AutoWriteSettingPatch $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AutoWriteSettingsV1"
             Write-Host $_.ErrorDetails

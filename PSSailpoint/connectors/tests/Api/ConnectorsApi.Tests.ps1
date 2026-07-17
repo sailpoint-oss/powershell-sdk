@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.Connectors' -name 'ConnectorsApi' {
     Context 'New-CustomConnectorV1' {
         It 'Test New-CustomConnectorV1' {
-            #$TestResult = New-CustomConnectorV1 -V3createconnectordto "TEST_VALUE"
+            #$TestResult = New-CustomConnectorV1 -V3CreateConnectorDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.Connectors' -name 'ConnectorsApi' {
 
     Context 'Update-ConnectorV1' {
         It 'Test Update-ConnectorV1' {
-            #$TestResult = Update-ConnectorV1 -ScriptName "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-ConnectorV1 -ScriptName "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

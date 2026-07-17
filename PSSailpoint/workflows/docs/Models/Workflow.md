@@ -17,17 +17,17 @@ tags: ['SDK', 'Software Development Kit', 'Workflow', 'Workflow']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | The name of the workflow | [optional] 
-**Owner** | [**WorkflowbodyOwner**](workflowbody-owner) |  | [optional] 
+**Owner** | [**WorkflowBodyOwner**](workflow-body-owner) |  | [optional] 
 **Description** | **String** | Description of what the workflow accomplishes | [optional] 
-**Definition** | [**Workflowdefinition**](workflowdefinition) |  | [optional] 
+**Definition** | [**WorkflowDefinition**](workflow-definition) |  | [optional] 
 **Enabled** | **Boolean** | Enable or disable the workflow.  Workflows cannot be created in an enabled state. | [optional] [default to $false]
-**Trigger** | [**Workflowtrigger**](workflowtrigger) |  | [optional] 
+**Trigger** | [**WorkflowTrigger**](workflow-trigger) |  | [optional] 
 **Id** | **String** | Workflow ID. This is a UUID generated upon creation. | [optional] 
 **ExecutionCount** | **Int32** | The number of times this workflow has been executed. | [optional] 
 **FailureCount** | **Int32** | The number of times this workflow has failed during execution. | [optional] 
 **Created** | **System.DateTime** | The date and time the workflow was created. | [optional] 
 **Modified** | **System.DateTime** | The date and time the workflow was modified. | [optional] 
-**ModifiedBy** | [**Workflowmodifiedby**](workflowmodifiedby) |  | [optional] 
+**ModifiedBy** | [**WorkflowModifiedBy**](workflow-modified-by) |  | [optional] 
 **Creator** | [**WorkflowAllOfCreator**](workflow-all-of-creator) |  | [optional] 
 
 ## Examples

@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.IaiCommonAccess.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,20 +75,20 @@ FunctionsToExport = 'New-CommonAccessV1', 'Get-CommonAccessV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Commonaccessidstatus', 
-               'ConvertFrom-JsonToCommonaccessidstatus', 
-               'Initialize-Commonaccessitemaccess', 
-               'ConvertFrom-JsonToCommonaccessitemaccess', 
-               'Initialize-Commonaccessitemrequest', 
-               'ConvertFrom-JsonToCommonaccessitemrequest', 
-               'Initialize-Commonaccessitemresponse', 
-               'ConvertFrom-JsonToCommonaccessitemresponse', 
-               'Initialize-Commonaccessresponse', 
-               'ConvertFrom-JsonToCommonaccessresponse', 
+               'Initialize-CommonAccessIDStatus', 
+               'ConvertFrom-JsonToCommonAccessIDStatus', 
+               'Initialize-CommonAccessItemAccess', 
+               'ConvertFrom-JsonToCommonAccessItemAccess', 
+               'Initialize-CommonAccessItemRequest', 
+               'ConvertFrom-JsonToCommonAccessItemRequest', 
+               'Initialize-CommonAccessItemResponse', 
+               'ConvertFrom-JsonToCommonAccessItemResponse', 
+               'Initialize-CommonAccessResponse', 
+               'ConvertFrom-JsonToCommonAccessResponse', 
                'Initialize-CreateCommonAccessV1429Response', 
                'ConvertFrom-JsonToCreateCommonAccessV1429Response', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetCommonAccessV1401Response', 
                'ConvertFrom-JsonToGetCommonAccessV1401Response'
 

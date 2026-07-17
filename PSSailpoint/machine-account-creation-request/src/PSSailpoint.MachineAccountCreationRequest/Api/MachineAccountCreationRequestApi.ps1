@@ -17,7 +17,7 @@ Initiates machine account creation request for the specified subtype. This metho
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Machineaccountcreaterequestinput
+.PARAMETER MachineAccountCreateRequestInput
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountrequestasyncresult
+AccountRequestAsyncResult
 #>
 function New-MachineAccountRequestV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-MachineAccountRequestV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Machineaccountcreaterequestinput},
+        ${MachineAccountCreateRequestInput},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-MachineAccountRequestV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Machineaccountcreaterequestinput) {
-            throw "Error! The required parameter `Machineaccountcreaterequestinput` missing when calling createMachineAccountRequestV1."
+        if (!$MachineAccountCreateRequestInput) {
+            throw "Error! The required parameter `MachineAccountCreateRequestInput` missing when calling createMachineAccountRequestV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Machineaccountcreaterequestinput -is [array])) {
-            $LocalVarBodyParameter = $Machineaccountcreaterequestinput | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MachineAccountCreateRequestInput -is [array])) {
+            $LocalVarBodyParameter = $MachineAccountCreateRequestInput | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Machineaccountcreaterequestinput | ForEach-Object {
+            $LocalVarBodyParameter = $MachineAccountCreateRequestInput | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -93,7 +93,7 @@ function New-MachineAccountRequestV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountrequestasyncresult" `
+                                -ReturnType "AccountRequestAsyncResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -125,7 +125,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accountrequestdetailsdto
+AccountRequestDetailsDto
 #>
 function Get-CreateMachineAccountRequestV1 {
     [CmdletBinding()]
@@ -176,7 +176,7 @@ function Get-CreateMachineAccountRequestV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accountrequestdetailsdto" `
+                                -ReturnType "AccountRequestDetailsDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -211,7 +211,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineaccountcreateaccessdto[]
+MachineAccountCreateAccessDto[]
 #>
 function Get-MachineAccountCreateAccessInfoV1 {
     [CmdletBinding()]
@@ -269,7 +269,7 @@ function Get-MachineAccountCreateAccessInfoV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineaccountcreateaccessdto[]" `
+                                -ReturnType "MachineAccountCreateAccessDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

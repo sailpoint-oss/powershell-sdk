@@ -4,18 +4,23 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#create-managed-client-v1
       source: |
-        $Managedclientrequest = @"
-        
+        $ManagedClientRequest = @"
+        {
+          "name" : "aName",
+          "description" : "A short description of the ManagedClient",
+          "clusterId" : "aClusterId",
+          "type" : "VA"
+        }
         "@
         
         # Create managed client
         
         try {
-            $Result = ConvertFrom-JsonToManagedclientrequest -Json $Managedclientrequest
-            New-ManagedClientV1 -Managedclientrequest $Result 
+            $Result = ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
+            New-ManagedClientV1 -ManagedClientRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-ManagedClientV1 -Managedclientrequest $Result   
+            # New-ManagedClientV1 -ManagedClientRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ManagedClientV1"
             Write-Host $_.ErrorDetails
@@ -65,7 +70,7 @@
       label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#get-managed-client-status-v1
       source: |
         $Id = "aClientId" # String | Managed client ID to get status for.
-        $Type = "CCG" # Managedclienttype | Managed client type to get status for.
+        $Type = "CCG" # ManagedClientType | Managed client type to get status for.
         
         # Get managed client status
         
@@ -126,17 +131,21 @@
       label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#update-managed-client-v1
       source: |
         $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update managed client
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-ManagedClientV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-ManagedClientV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-ManagedClientV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-ManagedClientV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ManagedClientV1"
             Write-Host $_.ErrorDetails

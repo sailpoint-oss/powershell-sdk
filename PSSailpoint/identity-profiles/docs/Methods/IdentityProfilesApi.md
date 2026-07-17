@@ -48,20 +48,20 @@ Creates an identity profile.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Identityprofile | [**Identityprofile**](../models/identityprofile) | True  | 
+ Body  | IdentityProfile | [**IdentityProfile**](../models/identity-profile) | True  | 
 
 ### Return type
-[**Identityprofile**](../models/identityprofile)
+[**IdentityProfile**](../models/identity-profile)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Created identity profile. | Identityprofile
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Created identity profile. | IdentityProfile
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -69,16 +69,64 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Identityprofile = @""@
+$IdentityProfile = @"{
+  "owner" : {
+    "name" : "William Wilson",
+    "id" : "2c9180835d191a86015d28455b4b232a",
+    "type" : "IDENTITY"
+  },
+  "identityExceptionReportReference" : {
+    "reportName" : "My annual report",
+    "taskResultId" : "2b838de9-db9b-abcf-e646-d4f274ad4238"
+  },
+  "authoritativeSource" : {
+    "name" : "HR Active Directory",
+    "id" : "2c9180835d191a86015d28455b4b232a",
+    "type" : "SOURCE"
+  },
+  "hasTimeBasedAttr" : true,
+  "created" : "2015-05-28T14:07:17Z",
+  "description" : "My custom flat file profile",
+  "identityRefreshRequired" : true,
+  "identityCount" : 8,
+  "priority" : 10,
+  "identityAttributeConfig" : {
+    "attributeTransforms" : [ {
+      "transformDefinition" : {
+        "attributes" : {
+          "attributeName" : "e-mail",
+          "sourceName" : "MySource",
+          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+        },
+        "type" : "accountAttribute"
+      },
+      "identityAttributeName" : "email"
+    }, {
+      "transformDefinition" : {
+        "attributes" : {
+          "attributeName" : "e-mail",
+          "sourceName" : "MySource",
+          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+        },
+        "type" : "accountAttribute"
+      },
+      "identityAttributeName" : "email"
+    } ],
+    "enabled" : true
+  },
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "id" : "id12345"
+}"@
 
 # Create identity profile
 
 try {
-    $Result = ConvertFrom-JsonToIdentityprofile -Json $Identityprofile
-    New-IdentityProfileV1 -Identityprofile $Result 
+    $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
+    New-IdentityProfileV1 -IdentityProfile $Result 
     
     # Below is a request that includes all optional parameters
-    # New-IdentityProfileV1 -Identityprofile $Result  
+    # New-IdentityProfileV1 -IdentityProfile $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-IdentityProfileV1"
     Write-Host $_.ErrorDetails
@@ -98,18 +146,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | IdentityProfileId | **String** | True  | Identity profile ID.
 
 ### Return type
-[**Taskresultsimplified**](../models/taskresultsimplified)
+[**TaskResultSimplified**](../models/task-result-simplified)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Accepted - Returns a TaskResult object referencing the bulk delete job created. | Taskresultsimplified
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Accepted - Returns a TaskResult object referencing the bulk delete job created. | TaskResultSimplified
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -148,17 +196,17 @@ Param Type | Name | Data Type | Required  | Description
  Body  | RequestBody | **[]String** | True  | Identity Profile bulk delete request body.
 
 ### Return type
-[**Taskresultsimplified**](../models/taskresultsimplified)
+[**TaskResultSimplified**](../models/task-result-simplified)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Accepted - Returns a TaskResult object referencing the bulk delete job created. | Taskresultsimplified
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Accepted - Returns a TaskResult object referencing the bulk delete job created. | TaskResultSimplified
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -200,17 +248,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority**
 
 ### Return type
-[**Identityprofileexportedobject[]**](../models/identityprofileexportedobject)
+[**IdentityProfileExportedObject[]**](../models/identity-profile-exported-object)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of export objects with identity profiles. | Identityprofileexportedobject[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of export objects with identity profiles. | IdentityProfileExportedObject[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -246,20 +294,20 @@ This generates a non-persisted IdentityDetails object that will represent as the
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Identitypreviewrequest | [**Identitypreviewrequest**](../models/identitypreviewrequest) | True  | Identity Preview request body.
+ Body  | IdentityPreviewRequest | [**IdentityPreviewRequest**](../models/identity-preview-request) | True  | Identity Preview request body.
 
 ### Return type
-[**Identitypreviewresponse**](../models/identitypreviewresponse)
+[**IdentityPreviewResponse**](../models/identity-preview-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Object representing the preview object with all of the identity attributes using the current mappings. | Identitypreviewresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Object representing the preview object with all of the identity attributes using the current mappings. | IdentityPreviewResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -267,16 +315,42 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Identitypreviewrequest = @""@
+$IdentityPreviewRequest = @"{
+  "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "identityAttributeConfig" : {
+    "attributeTransforms" : [ {
+      "transformDefinition" : {
+        "attributes" : {
+          "attributeName" : "e-mail",
+          "sourceName" : "MySource",
+          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+        },
+        "type" : "accountAttribute"
+      },
+      "identityAttributeName" : "email"
+    }, {
+      "transformDefinition" : {
+        "attributes" : {
+          "attributeName" : "e-mail",
+          "sourceName" : "MySource",
+          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+        },
+        "type" : "accountAttribute"
+      },
+      "identityAttributeName" : "email"
+    } ],
+    "enabled" : true
+  }
+}"@
 
 # Generate identity profile preview
 
 try {
-    $Result = ConvertFrom-JsonToIdentitypreviewrequest -Json $Identitypreviewrequest
-    New-IdentityPreviewV1 -Identitypreviewrequest $Result 
+    $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
+    New-IdentityPreviewV1 -IdentityPreviewRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-IdentityPreviewV1 -Identitypreviewrequest $Result  
+    # New-IdentityPreviewV1 -IdentityPreviewRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-IdentityPreviewV1"
     Write-Host $_.ErrorDetails
@@ -295,18 +369,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | IdentityProfileId | **String** | True  | The Identity Profile ID.
 
 ### Return type
-[**Identityattributeconfig**](../models/identityattributeconfig)
+[**IdentityAttributeConfig**](../models/identity-attribute-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An Identity Attribute Config object. | Identityattributeconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | An Identity Attribute Config object. | IdentityAttributeConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -341,18 +415,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | IdentityProfileId | **String** | True  | Identity profile ID.
 
 ### Return type
-[**Identityprofile**](../models/identityprofile)
+[**IdentityProfile**](../models/identity-profile)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Identity profile object. | Identityprofile
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Identity profile object. | IdentityProfile
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -384,20 +458,20 @@ This imports previously exported identity profiles.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Identityprofileexportedobject | [**[]Identityprofileexportedobject**](../models/identityprofileexportedobject) | True  | Previously exported Identity Profiles.
+ Body  | IdentityProfileExportedObject | [**[]IdentityProfileExportedObject**](../models/identity-profile-exported-object) | True  | Previously exported Identity Profiles.
 
 ### Return type
-[**Objectimportresult**](../models/objectimportresult)
+[**ObjectImportResult**](../models/object-import-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The result of importing Identity Profiles. | Objectimportresult
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The result of importing Identity Profiles. | ObjectImportResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -410,17 +484,73 @@ Code | Description  | Data Type
 
 
 
- $Identityprofileexportedobject = @""@ # Identityprofileexportedobject[] | Previously exported Identity Profiles.
+ $IdentityProfileExportedObject = @"{
+  "self" : {
+    "name" : "HR Active Directory",
+    "id" : "2c9180835d191a86015d28455b4b232a",
+    "type" : "SOURCE"
+  },
+  "version" : 1,
+  "object" : {
+    "owner" : {
+      "name" : "William Wilson",
+      "id" : "2c9180835d191a86015d28455b4b232a",
+      "type" : "IDENTITY"
+    },
+    "identityExceptionReportReference" : {
+      "reportName" : "My annual report",
+      "taskResultId" : "2b838de9-db9b-abcf-e646-d4f274ad4238"
+    },
+    "authoritativeSource" : {
+      "name" : "HR Active Directory",
+      "id" : "2c9180835d191a86015d28455b4b232a",
+      "type" : "SOURCE"
+    },
+    "hasTimeBasedAttr" : true,
+    "created" : "2015-05-28T14:07:17Z",
+    "description" : "My custom flat file profile",
+    "identityRefreshRequired" : true,
+    "identityCount" : 8,
+    "priority" : 10,
+    "identityAttributeConfig" : {
+      "attributeTransforms" : [ {
+        "transformDefinition" : {
+          "attributes" : {
+            "attributeName" : "e-mail",
+            "sourceName" : "MySource",
+            "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+          },
+          "type" : "accountAttribute"
+        },
+        "identityAttributeName" : "email"
+      }, {
+        "transformDefinition" : {
+          "attributes" : {
+            "attributeName" : "e-mail",
+            "sourceName" : "MySource",
+            "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+          },
+          "type" : "accountAttribute"
+        },
+        "identityAttributeName" : "email"
+      } ],
+      "enabled" : true
+    },
+    "name" : "aName",
+    "modified" : "2015-05-28T14:07:17Z",
+    "id" : "id12345"
+  }
+}"@ # IdentityProfileExportedObject[] | Previously exported Identity Profiles.
  
 
 # Import identity profiles
 
 try {
-    $Result = ConvertFrom-JsonToIdentityprofileexportedobject -Json $Identityprofileexportedobject
-    Import-IdentityProfilesV1 -Identityprofileexportedobject $Result 
+    $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
+    Import-IdentityProfilesV1 -IdentityProfileExportedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Import-IdentityProfilesV1 -Identityprofileexportedobject $Result  
+    # Import-IdentityProfilesV1 -IdentityProfileExportedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-IdentityProfilesV1"
     Write-Host $_.ErrorDetails
@@ -443,17 +573,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
 
 ### Return type
-[**Identityprofile[]**](../models/identityprofile)
+[**IdentityProfile[]**](../models/identity-profile)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of identity profiles. | Identityprofile[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of identity profiles. | IdentityProfile[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -502,12 +632,12 @@ Path   | IdentityProfileId | **String** | True  | The Identity Profile ID to be 
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -548,21 +678,21 @@ You cannot update these fields:
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityProfileId | **String** | True  | Identity profile ID.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-[**Identityprofile**](../models/identityprofile)
+[**IdentityProfile**](../models/identity-profile)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated identity profile. | Identityprofile
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated identity profile. | IdentityProfile
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityProfilesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityProfilesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -571,17 +701,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
- $Jsonpatchoperation = @"[{"op":"add","path":"/identityAttributeConfig/attributeTransforms/0","value":{"identityAttributeName":"location","transformDefinition":{"type":"accountAttribute","attributes":{"sourceName":"Employees","attributeName":"location","sourceId":"2c91808878b7d63b0178c66ffcdc4ce4"}}}}]"@ # Jsonpatchoperation[] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
 # Update identity profile
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-IdentityProfileV1 -IdentityProfileId $IdentityProfileId -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-IdentityProfileV1 -IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-IdentityProfileV1 -IdentityProfileId $IdentityProfileId -Jsonpatchoperation $Result  
+    # Update-IdentityProfileV1 -IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-IdentityProfileV1"
     Write-Host $_.ErrorDetails

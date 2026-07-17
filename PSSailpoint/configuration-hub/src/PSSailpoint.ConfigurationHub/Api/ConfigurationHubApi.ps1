@@ -14,7 +14,7 @@ Create a deploy
 
 This API performs a deploy based on an existing daft.
 
-.PARAMETER Deployrequest
+.PARAMETER DeployRequest
 The deploy request body.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Deployresponse
+DeployResponse
 #>
 function New-DeployV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Deployrequest},
+        ${DeployRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-DeployV1 {
 
         $LocalVarUri = '/configuration-hub/v1/deploys'
 
-        if (!$Deployrequest) {
-            throw "Error! The required parameter `Deployrequest` missing when calling createDeployV1."
+        if (!$DeployRequest) {
+            throw "Error! The required parameter `DeployRequest` missing when calling createDeployV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Deployrequest -is [array])) {
-            $LocalVarBodyParameter = $Deployrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($DeployRequest -is [array])) {
+            $LocalVarBodyParameter = $DeployRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Deployrequest | ForEach-Object {
+            $LocalVarBodyParameter = $DeployRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-DeployV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Deployresponse" `
+                                -ReturnType "DeployResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -105,7 +105,7 @@ This creates an object mapping between current org and source org. Source org sh
 .PARAMETER SourceOrg
 The name of the source org.
 
-.PARAMETER Objectmappingrequest
+.PARAMETER ObjectMappingRequest
 The object mapping request body.
 
 .PARAMETER WithHttpInfo
@@ -114,7 +114,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Objectmappingresponse
+ObjectMappingResponse
 #>
 function New-ObjectMappingV1 {
     [CmdletBinding()]
@@ -124,7 +124,7 @@ function New-ObjectMappingV1 {
         ${SourceOrg},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Objectmappingrequest},
+        ${ObjectMappingRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -154,14 +154,14 @@ function New-ObjectMappingV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceOrg}', [System.Web.HTTPUtility]::UrlEncode($SourceOrg))
 
-        if (!$Objectmappingrequest) {
-            throw "Error! The required parameter `Objectmappingrequest` missing when calling createObjectMappingV1."
+        if (!$ObjectMappingRequest) {
+            throw "Error! The required parameter `ObjectMappingRequest` missing when calling createObjectMappingV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Objectmappingrequest -is [array])) {
-            $LocalVarBodyParameter = $Objectmappingrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ObjectMappingRequest -is [array])) {
+            $LocalVarBodyParameter = $ObjectMappingRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Objectmappingrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ObjectMappingRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -180,7 +180,7 @@ function New-ObjectMappingV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Objectmappingresponse" `
+                                -ReturnType "ObjectMappingResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -203,7 +203,7 @@ This creates a set of object mappings (Max 25) between current org and source or
 .PARAMETER SourceOrg
 The name of the source org.
 
-.PARAMETER Objectmappingbulkcreaterequest
+.PARAMETER ObjectMappingBulkCreateRequest
 The bulk create object mapping request body.
 
 .PARAMETER WithHttpInfo
@@ -212,7 +212,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Objectmappingbulkcreateresponse
+ObjectMappingBulkCreateResponse
 #>
 function New-ObjectMappingsV1 {
     [CmdletBinding()]
@@ -222,7 +222,7 @@ function New-ObjectMappingsV1 {
         ${SourceOrg},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Objectmappingbulkcreaterequest},
+        ${ObjectMappingBulkCreateRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -252,14 +252,14 @@ function New-ObjectMappingsV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceOrg}', [System.Web.HTTPUtility]::UrlEncode($SourceOrg))
 
-        if (!$Objectmappingbulkcreaterequest) {
-            throw "Error! The required parameter `Objectmappingbulkcreaterequest` missing when calling createObjectMappingsV1."
+        if (!$ObjectMappingBulkCreateRequest) {
+            throw "Error! The required parameter `ObjectMappingBulkCreateRequest` missing when calling createObjectMappingsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Objectmappingbulkcreaterequest -is [array])) {
-            $LocalVarBodyParameter = $Objectmappingbulkcreaterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ObjectMappingBulkCreateRequest -is [array])) {
+            $LocalVarBodyParameter = $ObjectMappingBulkCreateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Objectmappingbulkcreaterequest | ForEach-Object {
+            $LocalVarBodyParameter = $ObjectMappingBulkCreateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -278,7 +278,7 @@ function New-ObjectMappingsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Objectmappingbulkcreateresponse" `
+                                -ReturnType "ObjectMappingBulkCreateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -298,7 +298,7 @@ Create scheduled action
 
 This API creates a new scheduled action for the current tenant.
 
-.PARAMETER Scheduledactionpayload
+.PARAMETER ScheduledActionPayload
 The scheduled action creation request body.
 
 .PARAMETER WithHttpInfo
@@ -307,14 +307,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Scheduledactionresponse
+ScheduledActionResponse
 #>
 function New-ScheduledActionV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Scheduledactionpayload},
+        ${ScheduledActionPayload},
         [Switch]
         $WithHttpInfo
     )
@@ -340,14 +340,14 @@ function New-ScheduledActionV1 {
 
         $LocalVarUri = '/configuration-hub/v1/scheduled-actions'
 
-        if (!$Scheduledactionpayload) {
-            throw "Error! The required parameter `Scheduledactionpayload` missing when calling createScheduledActionV1."
+        if (!$ScheduledActionPayload) {
+            throw "Error! The required parameter `ScheduledActionPayload` missing when calling createScheduledActionV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Scheduledactionpayload -is [array])) {
-            $LocalVarBodyParameter = $Scheduledactionpayload | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ScheduledActionPayload -is [array])) {
+            $LocalVarBodyParameter = $ScheduledActionPayload | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Scheduledactionpayload | ForEach-Object {
+            $LocalVarBodyParameter = $ScheduledActionPayload | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -366,7 +366,7 @@ function New-ScheduledActionV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Scheduledactionresponse" `
+                                -ReturnType "ScheduledActionResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -398,7 +398,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Backupresponse
+BackupResponse
 #>
 function New-UploadedConfigurationV1 {
     [CmdletBinding()]
@@ -453,7 +453,7 @@ function New-UploadedConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Backupresponse" `
+                                -ReturnType "BackupResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -852,7 +852,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Deployresponse
+DeployResponse
 #>
 function Get-DeployV1 {
     [CmdletBinding()]
@@ -895,7 +895,7 @@ function Get-DeployV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Deployresponse" `
+                                -ReturnType "DeployResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -924,7 +924,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Objectmappingresponse[]
+ObjectMappingResponse[]
 #>
 function Get-ObjectMappingsV1 {
     [CmdletBinding()]
@@ -967,7 +967,7 @@ function Get-ObjectMappingsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Objectmappingresponse[]" `
+                                -ReturnType "ObjectMappingResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -996,7 +996,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Backupresponse
+BackupResponse
 #>
 function Get-UploadedConfigurationV1 {
     [CmdletBinding()]
@@ -1039,7 +1039,7 @@ function Get-UploadedConfigurationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Backupresponse" `
+                                -ReturnType "BackupResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1068,7 +1068,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Backupresponse[]
+BackupResponse[]
 #>
 function Get-BackupsV1 {
     [CmdletBinding()]
@@ -1111,7 +1111,7 @@ function Get-BackupsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Backupresponse[]" `
+                                -ReturnType "BackupResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1202,7 +1202,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Draftresponse[]
+DraftResponse[]
 #>
 function Get-DraftsV1 {
     [CmdletBinding()]
@@ -1245,7 +1245,7 @@ function Get-DraftsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Draftresponse[]" `
+                                -ReturnType "DraftResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1271,7 +1271,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Scheduledactionresponse[]
+ScheduledActionResponse[]
 #>
 function Get-ScheduledActionsV1 {
     [CmdletBinding()]
@@ -1307,7 +1307,7 @@ function Get-ScheduledActionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Scheduledactionresponse[]" `
+                                -ReturnType "ScheduledActionResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1336,7 +1336,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Backupresponse[]
+BackupResponse[]
 #>
 function Get-UploadedConfigurationsV1 {
     [CmdletBinding()]
@@ -1379,7 +1379,7 @@ function Get-UploadedConfigurationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Backupresponse[]" `
+                                -ReturnType "BackupResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1402,7 +1402,7 @@ This updates a set of object mappings, only enabled and targetValue fields can b
 .PARAMETER SourceOrg
 The name of the source org.
 
-.PARAMETER Objectmappingbulkpatchrequest
+.PARAMETER ObjectMappingBulkPatchRequest
 The object mapping request body.
 
 .PARAMETER WithHttpInfo
@@ -1411,7 +1411,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Objectmappingbulkpatchresponse
+ObjectMappingBulkPatchResponse
 #>
 function Update-ObjectMappingsV1 {
     [CmdletBinding()]
@@ -1421,7 +1421,7 @@ function Update-ObjectMappingsV1 {
         ${SourceOrg},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Objectmappingbulkpatchrequest},
+        ${ObjectMappingBulkPatchRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1451,14 +1451,14 @@ function Update-ObjectMappingsV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceOrg}', [System.Web.HTTPUtility]::UrlEncode($SourceOrg))
 
-        if (!$Objectmappingbulkpatchrequest) {
-            throw "Error! The required parameter `Objectmappingbulkpatchrequest` missing when calling updateObjectMappingsV1."
+        if (!$ObjectMappingBulkPatchRequest) {
+            throw "Error! The required parameter `ObjectMappingBulkPatchRequest` missing when calling updateObjectMappingsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Objectmappingbulkpatchrequest -is [array])) {
-            $LocalVarBodyParameter = $Objectmappingbulkpatchrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ObjectMappingBulkPatchRequest -is [array])) {
+            $LocalVarBodyParameter = $ObjectMappingBulkPatchRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Objectmappingbulkpatchrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ObjectMappingBulkPatchRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1477,7 +1477,7 @@ function Update-ObjectMappingsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Objectmappingbulkpatchresponse" `
+                                -ReturnType "ObjectMappingBulkPatchResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1500,7 +1500,7 @@ This API updates an existing scheduled action using JSON Patch format.
 .PARAMETER Id
 The ID of the scheduled action.
 
-.PARAMETER Jsonpatch
+.PARAMETER JsonPatch
 The JSON Patch document containing the changes to apply to the scheduled action.
 
 .PARAMETER WithHttpInfo
@@ -1509,7 +1509,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Scheduledactionresponse
+ScheduledActionResponse
 #>
 function Update-ScheduledActionV1 {
     [CmdletBinding()]
@@ -1519,7 +1519,7 @@ function Update-ScheduledActionV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Jsonpatch},
+        ${JsonPatch},
         [Switch]
         $WithHttpInfo
     )
@@ -1549,14 +1549,14 @@ function Update-ScheduledActionV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatch) {
-            throw "Error! The required parameter `Jsonpatch` missing when calling updateScheduledActionV1."
+        if (!$JsonPatch) {
+            throw "Error! The required parameter `JsonPatch` missing when calling updateScheduledActionV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatch -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatch -is [array])) {
+            $LocalVarBodyParameter = $JsonPatch | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatch | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatch | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1575,7 +1575,7 @@ function Update-ScheduledActionV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Scheduledactionresponse" `
+                                -ReturnType "ScheduledActionResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

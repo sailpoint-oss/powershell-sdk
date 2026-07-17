@@ -41,20 +41,20 @@ This API ignores a recommended access request item. Once an item is ignored, it 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Accessrequestrecommendationactionitemdto | [**Accessrequestrecommendationactionitemdto**](../models/accessrequestrecommendationactionitemdto) | True  | The recommended access item to ignore for an identity.
+ Body  | AccessRequestRecommendationActionItemDto | [**AccessRequestRecommendationActionItemDto**](../models/access-request-recommendation-action-item-dto) | True  | The recommended access item to ignore for an identity.
 
 ### Return type
-[**Accessrequestrecommendationactionitemresponsedto**](../models/accessrequestrecommendationactionitemresponsedto)
+[**AccessRequestRecommendationActionItemResponseDto**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Recommendation successfully stored as ignored. | Accessrequestrecommendationactionitemresponsedto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Recommendation successfully stored as ignored. | AccessRequestRecommendationActionItemResponseDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -63,16 +63,22 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Accessrequestrecommendationactionitemdto = @""@
+$AccessRequestRecommendationActionItemDto = @"{
+  "access" : {
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE"
+  },
+  "identityId" : "2c91808570313110017040b06f344ec9"
+}"@
 
 # Ignore access request recommendation
 
 try {
-    $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
-    Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result  
+    # Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsIgnoredItemV1"
     Write-Host $_.ErrorDetails
@@ -92,20 +98,20 @@ This API consumes a notification that a recommended access request item was requ
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Accessrequestrecommendationactionitemdto | [**Accessrequestrecommendationactionitemdto**](../models/accessrequestrecommendationactionitemdto) | True  | The recommended access item that was requested for an identity.
+ Body  | AccessRequestRecommendationActionItemDto | [**AccessRequestRecommendationActionItemDto**](../models/access-request-recommendation-action-item-dto) | True  | The recommended access item that was requested for an identity.
 
 ### Return type
-[**Accessrequestrecommendationactionitemresponsedto**](../models/accessrequestrecommendationactionitemresponsedto)
+[**AccessRequestRecommendationActionItemResponseDto**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Notification successfully acknowledged. | Accessrequestrecommendationactionitemresponsedto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Notification successfully acknowledged. | AccessRequestRecommendationActionItemResponseDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -114,16 +120,22 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Accessrequestrecommendationactionitemdto = @""@
+$AccessRequestRecommendationActionItemDto = @"{
+  "access" : {
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE"
+  },
+  "identityId" : "2c91808570313110017040b06f344ec9"
+}"@
 
 # Accept access request recommendation
 
 try {
-    $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
-    Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result  
+    # Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsRequestedItemV1"
     Write-Host $_.ErrorDetails
@@ -143,20 +155,20 @@ This API consumes a notification that a recommended access request item was view
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Accessrequestrecommendationactionitemdto | [**Accessrequestrecommendationactionitemdto**](../models/accessrequestrecommendationactionitemdto) | True  | The recommended access that was viewed for an identity.
+ Body  | AccessRequestRecommendationActionItemDto | [**AccessRequestRecommendationActionItemDto**](../models/access-request-recommendation-action-item-dto) | True  | The recommended access that was viewed for an identity.
 
 ### Return type
-[**Accessrequestrecommendationactionitemresponsedto**](../models/accessrequestrecommendationactionitemresponsedto)
+[**AccessRequestRecommendationActionItemResponseDto**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Recommendation successfully stored as viewed. | Accessrequestrecommendationactionitemresponsedto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Recommendation successfully stored as viewed. | AccessRequestRecommendationActionItemResponseDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -165,16 +177,22 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Accessrequestrecommendationactionitemdto = @""@
+$AccessRequestRecommendationActionItemDto = @"{
+  "access" : {
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE"
+  },
+  "identityId" : "2c91808570313110017040b06f344ec9"
+}"@
 
 # Mark viewed access request recommendations
 
 try {
-    $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
-    Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result  
+    # Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsViewedItemV1"
     Write-Host $_.ErrorDetails
@@ -194,20 +212,20 @@ This API consumes a notification that a set of recommended access request item w
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Accessrequestrecommendationactionitemdto | [**[]Accessrequestrecommendationactionitemdto**](../models/accessrequestrecommendationactionitemdto) | True  | The recommended access items that were viewed for an identity.
+ Body  | AccessRequestRecommendationActionItemDto | [**[]AccessRequestRecommendationActionItemDto**](../models/access-request-recommendation-action-item-dto) | True  | The recommended access items that were viewed for an identity.
 
 ### Return type
-[**Accessrequestrecommendationactionitemresponsedto[]**](../models/accessrequestrecommendationactionitemresponsedto)
+[**AccessRequestRecommendationActionItemResponseDto[]**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Recommendations successfully stored as viewed. | Accessrequestrecommendationactionitemresponsedto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Recommendations successfully stored as viewed. | AccessRequestRecommendationActionItemResponseDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -216,17 +234,23 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- $Accessrequestrecommendationactionitemdto = @""@ # Accessrequestrecommendationactionitemdto[] | The recommended access items that were viewed for an identity.
+ $AccessRequestRecommendationActionItemDto = @"{
+  "access" : {
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE"
+  },
+  "identityId" : "2c91808570313110017040b06f344ec9"
+}"@ # AccessRequestRecommendationActionItemDto[] | The recommended access items that were viewed for an identity.
  
 
 # Bulk mark viewed access request recommendations
 
 try {
-    $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
-    Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result  
+    # Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsViewedItemsV1"
     Write-Host $_.ErrorDetails
@@ -248,17 +272,17 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Accessrequestrecommendationconfigdto**](../models/accessrequestrecommendationconfigdto)
+[**AccessRequestRecommendationConfigDto**](../models/access-request-recommendation-config-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Configurations for Access Request Recommender for the tenant. | Accessrequestrecommendationconfigdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Configurations for Access Request Recommender for the tenant. | AccessRequestRecommendationConfigDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -301,17 +325,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
 
 ### Return type
-[**Accessrequestrecommendationactionitemresponsedto[]**](../models/accessrequestrecommendationactionitemresponsedto)
+[**AccessRequestRecommendationActionItemResponseDto[]**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns list of ignored access request recommendations. | Accessrequestrecommendationactionitemresponsedto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Returns list of ignored access request recommendations. | AccessRequestRecommendationActionItemResponseDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -359,17 +383,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
 
 ### Return type
-[**Accessrequestrecommendationactionitemresponsedto[]**](../models/accessrequestrecommendationactionitemresponsedto)
+[**AccessRequestRecommendationActionItemResponseDto[]**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns the list of requested access request recommendations. | Accessrequestrecommendationactionitemresponsedto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Returns the list of requested access request recommendations. | AccessRequestRecommendationActionItemResponseDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -419,17 +443,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first.
 
 ### Return type
-[**Accessrequestrecommendationitemdetail[]**](../models/accessrequestrecommendationitemdetail)
+[**AccessRequestRecommendationItemDetail[]**](../models/access-request-recommendation-item-detail)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of access request recommendations for the identityId | Accessrequestrecommendationitemdetail[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of access request recommendations for the identityId | AccessRequestRecommendationItemDetail[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -479,17 +503,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
 
 ### Return type
-[**Accessrequestrecommendationactionitemresponsedto[]**](../models/accessrequestrecommendationactionitemresponsedto)
+[**AccessRequestRecommendationActionItemResponseDto[]**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Returns list of viewed access request recommendations. | Accessrequestrecommendationactionitemresponsedto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Returns list of viewed access request recommendations. | AccessRequestRecommendationActionItemResponseDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -530,20 +554,20 @@ This API updates the configurations for Access Request Recommender for the tenan
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Accessrequestrecommendationconfigdto | [**Accessrequestrecommendationconfigdto**](../models/accessrequestrecommendationconfigdto) | True  | The desired configurations for Access Request Recommender for the tenant.
+ Body  | AccessRequestRecommendationConfigDto | [**AccessRequestRecommendationConfigDto**](../models/access-request-recommendation-config-dto) | True  | The desired configurations for Access Request Recommender for the tenant.
 
 ### Return type
-[**Accessrequestrecommendationconfigdto**](../models/accessrequestrecommendationconfigdto)
+[**AccessRequestRecommendationConfigDto**](../models/access-request-recommendation-config-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Successfully updated configurations for Access Request Recommender for the tenant. | Accessrequestrecommendationconfigdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Successfully updated configurations for Access Request Recommender for the tenant. | AccessRequestRecommendationConfigDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestRecommendationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestRecommendationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -552,16 +576,23 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Accessrequestrecommendationconfigdto = @""@
+$AccessRequestRecommendationConfigDto = @"{
+  "scoreThreshold" : 0.5,
+  "startDateAttribute" : "startDate",
+  "restrictionAttribute" : "location",
+  "moverAttribute" : "isMover",
+  "joinerAttribute" : "isJoiner",
+  "useRestrictionAttribute" : true
+}"@
 
 # Update access request recommendations config
 
 try {
-    $Result = ConvertFrom-JsonToAccessrequestrecommendationconfigdto -Json $Accessrequestrecommendationconfigdto
-    Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationconfigdto $Result 
+    $Result = ConvertFrom-JsonToAccessRequestRecommendationConfigDto -Json $AccessRequestRecommendationConfigDto
+    Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationConfigDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationconfigdto $Result  
+    # Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationConfigDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestRecommendationsConfigV1"
     Write-Host $_.ErrorDetails

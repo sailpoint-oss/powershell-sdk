@@ -50,20 +50,20 @@ Creates a new Reassignment Configuration for the specified identity.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Configurationitemrequest | [**Configurationitemrequest**](../models/configurationitemrequest) | True  | 
+ Body  | ConfigurationItemRequest | [**ConfigurationItemRequest**](../models/configuration-item-request) | True  | 
 
 ### Return type
-[**Configurationitemresponse**](../models/configurationitemresponse)
+[**ConfigurationItemResponse**](../models/configuration-item-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | The newly created Reassignment Configuration object | Configurationitemresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | The newly created Reassignment Configuration object | ConfigurationItemResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReassignmentConfigTypesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReassignmentConfigTypesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -72,16 +72,22 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Configurationitemrequest = @""@
+$ConfigurationItemRequest = @"{
+  "endDate" : "2022-07-30T17:00:00Z",
+  "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
+  "configType" : "ACCESS_REQUESTS",
+  "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
+  "startDate" : "2022-07-21T11:13:12.345Z"
+}"@
 
 # Create a reassignment configuration
 
 try {
-    $Result = ConvertFrom-JsonToConfigurationitemrequest -Json $Configurationitemrequest
-    New-ReassignmentConfigurationV1 -XSailPointExperimental $XSailPointExperimental -Configurationitemrequest $Result 
+    $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+    New-ReassignmentConfigurationV1 -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ReassignmentConfigurationV1 -XSailPointExperimental $XSailPointExperimental -Configurationitemrequest $Result  
+    # New-ReassignmentConfigurationV1 -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ReassignmentConfigurationV1"
     Write-Host $_.ErrorDetails
@@ -101,7 +107,7 @@ Deletes a single reassignment configuration for the specified identity
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityId | **String** | True  | unique identity id
-Path   | ConfigType | [**Configtypeenum**](../models/configtypeenum) | True  | 
+Path   | ConfigType | [**ConfigTypeEnum**](../models/config-type-enum) | True  | 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
@@ -111,11 +117,11 @@ Path   | ConfigType | [**Configtypeenum**](../models/configtypeenum) | True  |
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | Reassignment Configuration deleted | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReassignmentConfigTypesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReassignmentConfigTypesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -124,7 +130,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
-$ConfigType = "ACCESS_REQUESTS" # Configtypeenum | 
+$ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete reassignment configuration
@@ -153,22 +159,22 @@ Evaluates the Reassignment Configuration for an `Identity` to determine if work 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityId | **String** | True  | unique identity id
-Path   | ConfigType | [**Configtypeenum**](../models/configtypeenum) | True  | Reassignment work type
+Path   | ConfigType | [**ConfigTypeEnum**](../models/config-type-enum) | True  | Reassignment work type
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | ExclusionFilters | **[]String** |   (optional) | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments
 
 ### Return type
-[**Evaluateresponse[]**](../models/evaluateresponse)
+[**EvaluateResponse[]**](../models/evaluate-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Evaluated Reassignment Configuration | Evaluateresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Evaluated Reassignment Configuration | EvaluateResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReassignmentConfigTypesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReassignmentConfigTypesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -177,7 +183,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
-$ConfigType = "ACCESS_REQUESTS" # Configtypeenum | Reassignment work type
+$ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | Reassignment work type
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $ExclusionFilters = "MyExclusionFilters" # String[] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
 
@@ -211,17 +217,17 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Configtype[]**](../models/configtype)
+[**ConfigType[]**](../models/config-type)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Reassignment Configuration Types | Configtype[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of Reassignment Configuration Types | ConfigType[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReassignmentConfigTypesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReassignmentConfigTypesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -260,18 +266,18 @@ Path   | IdentityId | **String** | True  | unique identity id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Configurationresponse**](../models/configurationresponse)
+[**ConfigurationResponse**](../models/configuration-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reassignment Configuration for an identity | Configurationresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Reassignment Configuration for an identity | ConfigurationResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReassignmentConfigTypesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReassignmentConfigTypesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -310,18 +316,18 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Tenantconfigurationresponse**](../models/tenantconfigurationresponse)
+[**TenantConfigurationResponse**](../models/tenant-configuration-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Tenant-wide Reassignment Configuration settings | Tenantconfigurationresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Tenant-wide Reassignment Configuration settings | TenantConfigurationResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReassignmentConfigTypesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReassignmentConfigTypesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -359,18 +365,18 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Configurationresponse[]**](../models/configurationresponse)
+[**ConfigurationResponse[]**](../models/configuration-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of Reassignment Configurations for an org | Configurationresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of Reassignment Configurations for an org | ConfigurationResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReassignmentConfigTypesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReassignmentConfigTypesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -407,20 +413,20 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityId | **String** | True  | unique identity id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Configurationitemrequest | [**Configurationitemrequest**](../models/configurationitemrequest) | True  | 
+ Body  | ConfigurationItemRequest | [**ConfigurationItemRequest**](../models/configuration-item-request) | True  | 
 
 ### Return type
-[**Configurationitemresponse**](../models/configurationitemresponse)
+[**ConfigurationItemResponse**](../models/configuration-item-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reassignment Configuration updated | Configurationitemresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Reassignment Configuration updated | ConfigurationItemResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReassignmentConfigTypesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReassignmentConfigTypesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -430,16 +436,22 @@ Code | Description  | Data Type
 ```powershell
 $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Configurationitemrequest = @""@
+$ConfigurationItemRequest = @"{
+  "endDate" : "2022-07-30T17:00:00Z",
+  "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
+  "configType" : "ACCESS_REQUESTS",
+  "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
+  "startDate" : "2022-07-21T11:13:12.345Z"
+}"@
 
 # Update reassignment configuration
 
 try {
-    $Result = ConvertFrom-JsonToConfigurationitemrequest -Json $Configurationitemrequest
-    Send-ReassignmentConfigV1 -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -Configurationitemrequest $Result 
+    $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+    Send-ReassignmentConfigV1 -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-ReassignmentConfigV1 -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -Configurationitemrequest $Result  
+    # Send-ReassignmentConfigV1 -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ReassignmentConfigV1"
     Write-Host $_.ErrorDetails
@@ -459,20 +471,20 @@ Replaces existing Tenant-wide Reassignment Configuration settings with the newly
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Tenantconfigurationrequest | [**Tenantconfigurationrequest**](../models/tenantconfigurationrequest) | True  | 
+ Body  | TenantConfigurationRequest | [**TenantConfigurationRequest**](../models/tenant-configuration-request) | True  | 
 
 ### Return type
-[**Tenantconfigurationresponse**](../models/tenantconfigurationresponse)
+[**TenantConfigurationResponse**](../models/tenant-configuration-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Tenant-wide Reassignment Configuration settings | Tenantconfigurationresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Tenant-wide Reassignment Configuration settings | TenantConfigurationResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetReassignmentConfigTypesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetReassignmentConfigTypesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -481,16 +493,20 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Tenantconfigurationrequest = @""@
+$TenantConfigurationRequest = @"{
+  "configDetails" : {
+    "disabled" : true
+  }
+}"@
 
 # Update tenant-wide reassignment configuration settings
 
 try {
-    $Result = ConvertFrom-JsonToTenantconfigurationrequest -Json $Tenantconfigurationrequest
-    Send-TenantConfigurationV1 -XSailPointExperimental $XSailPointExperimental -Tenantconfigurationrequest $Result 
+    $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
+    Send-TenantConfigurationV1 -XSailPointExperimental $XSailPointExperimental -TenantConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-TenantConfigurationV1 -XSailPointExperimental $XSailPointExperimental -Tenantconfigurationrequest $Result  
+    # Send-TenantConfigurationV1 -XSailPointExperimental $XSailPointExperimental -TenantConfigurationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TenantConfigurationV1"
     Write-Host $_.ErrorDetails

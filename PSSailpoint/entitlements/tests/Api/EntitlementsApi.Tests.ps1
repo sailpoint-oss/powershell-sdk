@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.Entitlements' -name 'EntitlementsApi' {
 
     Context 'Update-EntitlementV1' {
         It 'Test Update-EntitlementV1' {
-            #$TestResult = Update-EntitlementV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-EntitlementV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.Entitlements' -name 'EntitlementsApi' {
 
     Context 'Send-EntitlementRequestConfigV1' {
         It 'Test Send-EntitlementRequestConfigV1' {
-            #$TestResult = Send-EntitlementRequestConfigV1 -Id "TEST_VALUE" -Entitlementrequestconfig "TEST_VALUE"
+            #$TestResult = Send-EntitlementRequestConfigV1 -Id "TEST_VALUE" -EntitlementRequestConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.Entitlements' -name 'EntitlementsApi' {
 
     Context 'Update-EntitlementsInBulkV1' {
         It 'Test Update-EntitlementsInBulkV1' {
-            #$TestResult = Update-EntitlementsInBulkV1 -Entitlementbulkupdaterequest "TEST_VALUE"
+            #$TestResult = Update-EntitlementsInBulkV1 -EntitlementBulkUpdateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

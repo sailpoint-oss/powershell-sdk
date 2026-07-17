@@ -4,18 +4,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-activate-workflow-v1
       source: |
-        $Jitactivationactivaterequest = @"
-        
+        $JitActivationActivateRequest = @"
+        {
+          "activationPeriodMins" : 120,
+          "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+        }
         "@
         
         # Start JIT activation workflow
         
         try {
-            $Result = ConvertFrom-JsonToJitactivationactivaterequest -Json $Jitactivationactivaterequest
-            Start-ActivateWorkflowV1 -Jitactivationactivaterequest $Result 
+            $Result = ConvertFrom-JsonToJitActivationActivateRequest -Json $JitActivationActivateRequest
+            Start-ActivateWorkflowV1 -JitActivationActivateRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-ActivateWorkflowV1 -Jitactivationactivaterequest $Result   
+            # Start-ActivateWorkflowV1 -JitActivationActivateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ActivateWorkflowV1"
             Write-Host $_.ErrorDetails
@@ -26,18 +29,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-deactivate-workflow-v1
       source: |
-        $Jitactivationdeactivaterequest = @"
-        
+        $JitActivationDeactivateRequest = @"
+        {
+          "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+        }
         "@
         
         # Deactivate JIT activation workflow
         
         try {
-            $Result = ConvertFrom-JsonToJitactivationdeactivaterequest -Json $Jitactivationdeactivaterequest
-            Start-DeactivateWorkflowV1 -Jitactivationdeactivaterequest $Result 
+            $Result = ConvertFrom-JsonToJitActivationDeactivateRequest -Json $JitActivationDeactivateRequest
+            Start-DeactivateWorkflowV1 -JitActivationDeactivateRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-DeactivateWorkflowV1 -Jitactivationdeactivaterequest $Result   
+            # Start-DeactivateWorkflowV1 -JitActivationDeactivateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-DeactivateWorkflowV1"
             Write-Host $_.ErrorDetails
@@ -48,18 +53,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-extend-workflow-v1
       source: |
-        $Jitactivationextendrequest = @"
-        
+        $JitActivationExtendRequest = @"
+        {
+          "activationPeriodExtensionMins" : 120,
+          "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+        }
         "@
         
         # Extend JIT activation workflow
         
         try {
-            $Result = ConvertFrom-JsonToJitactivationextendrequest -Json $Jitactivationextendrequest
-            Start-ExtendWorkflowV1 -Jitactivationextendrequest $Result 
+            $Result = ConvertFrom-JsonToJitActivationExtendRequest -Json $JitActivationExtendRequest
+            Start-ExtendWorkflowV1 -JitActivationExtendRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-ExtendWorkflowV1 -Jitactivationextendrequest $Result   
+            # Start-ExtendWorkflowV1 -JitActivationExtendRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ExtendWorkflowV1"
             Write-Host $_.ErrorDetails

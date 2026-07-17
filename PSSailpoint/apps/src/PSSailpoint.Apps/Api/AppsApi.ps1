@@ -17,7 +17,7 @@ This endpoint creates a source app using the given source app payload
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Sourceappcreatedto
+.PARAMETER SourceAppCreateDto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceapp
+SourceApp
 #>
 function New-SourceAppV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-SourceAppV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Sourceappcreatedto},
+        ${SourceAppCreateDto},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-SourceAppV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Sourceappcreatedto) {
-            throw "Error! The required parameter `Sourceappcreatedto` missing when calling createSourceAppV1."
+        if (!$SourceAppCreateDto) {
+            throw "Error! The required parameter `SourceAppCreateDto` missing when calling createSourceAppV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sourceappcreatedto -is [array])) {
-            $LocalVarBodyParameter = $Sourceappcreatedto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SourceAppCreateDto -is [array])) {
+            $LocalVarBodyParameter = $SourceAppCreateDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sourceappcreatedto | ForEach-Object {
+            $LocalVarBodyParameter = $SourceAppCreateDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -93,7 +93,7 @@ function New-SourceAppV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceapp" `
+                                -ReturnType "SourceApp" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -131,7 +131,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofiledetails[]
+AccessProfileDetails[]
 #>
 function Remove-AccessProfilesFromSourceAppByBulkV1 {
     [CmdletBinding()]
@@ -212,7 +212,7 @@ function Remove-AccessProfilesFromSourceAppByBulkV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofiledetails[]" `
+                                -ReturnType "AccessProfileDetails[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -244,7 +244,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceapp
+SourceApp
 #>
 function Remove-SourceAppV1 {
     [CmdletBinding()]
@@ -295,7 +295,7 @@ function Remove-SourceAppV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceapp" `
+                                -ReturnType "SourceApp" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -327,7 +327,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceapp
+SourceApp
 #>
 function Get-SourceAppV1 {
     [CmdletBinding()]
@@ -378,7 +378,7 @@ function Get-SourceAppV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceapp" `
+                                -ReturnType "SourceApp" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -419,7 +419,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofiledetails[]
+AccessProfileDetails[]
 #>
 function Get-AccessProfilesForSourceAppV1 {
     [CmdletBinding()]
@@ -491,7 +491,7 @@ function Get-AccessProfilesForSourceAppV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofiledetails[]" `
+                                -ReturnType "AccessProfileDetails[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -535,7 +535,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceapp[]
+SourceApp[]
 #>
 function Get-AllSourceAppV1 {
     [CmdletBinding()]
@@ -614,7 +614,7 @@ function Get-AllSourceAppV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceapp[]" `
+                                -ReturnType "SourceApp[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -655,7 +655,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Userapp[]
+UserApp[]
 #>
 function Get-AllUserAppsV1 {
     [CmdletBinding()]
@@ -728,7 +728,7 @@ function Get-AllUserAppsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Userapp[]" `
+                                -ReturnType "UserApp[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -772,7 +772,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceapp[]
+SourceApp[]
 #>
 function Get-AssignedSourceAppV1 {
     [CmdletBinding()]
@@ -851,7 +851,7 @@ function Get-AssignedSourceAppV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceapp[]" `
+                                -ReturnType "SourceApp[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -889,7 +889,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Appaccountdetails[]
+AppAccountDetails[]
 #>
 function Get-AvailableAccountsForUserAppV1 {
     [CmdletBinding()]
@@ -954,7 +954,7 @@ function Get-AvailableAccountsForUserAppV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Appaccountdetails[]" `
+                                -ReturnType "AppAccountDetails[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -998,7 +998,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceapp[]
+SourceApp[]
 #>
 function Get-AvailableSourceAppsV1 {
     [CmdletBinding()]
@@ -1077,7 +1077,7 @@ function Get-AvailableSourceAppsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceapp[]" `
+                                -ReturnType "SourceApp[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1118,7 +1118,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Userapp[]
+UserApp[]
 #>
 function Get-OwnedUserAppsV1 {
     [CmdletBinding()]
@@ -1190,7 +1190,7 @@ function Get-OwnedUserAppsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Userapp[]" `
+                                -ReturnType "UserApp[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1216,7 +1216,7 @@ ID of the source app to patch
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1225,7 +1225,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sourceapppatchdto
+SourceAppPatchDto
 #>
 function Update-SourceAppV1 {
     [CmdletBinding()]
@@ -1238,7 +1238,7 @@ function Update-SourceAppV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -1273,10 +1273,10 @@ function Update-SourceAppV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1295,7 +1295,7 @@ function Update-SourceAppV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sourceapppatchdto" `
+                                -ReturnType "SourceAppPatchDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1321,7 +1321,7 @@ ID of the user app to patch
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1330,7 +1330,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Userapp
+UserApp
 #>
 function Update-UserAppV1 {
     [CmdletBinding()]
@@ -1343,7 +1343,7 @@ function Update-UserAppV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -1378,10 +1378,10 @@ function Update-UserAppV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1400,7 +1400,7 @@ function Update-UserAppV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Userapp" `
+                                -ReturnType "UserApp" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1423,7 +1423,7 @@ This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Sourceappbulkupdaterequest
+.PARAMETER SourceAppBulkUpdateRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1442,7 +1442,7 @@ function Update-SourceAppsInBulkV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Sourceappbulkupdaterequest},
+        ${SourceAppBulkUpdateRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1473,10 +1473,10 @@ function Update-SourceAppsInBulkV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sourceappbulkupdaterequest -is [array])) {
-            $LocalVarBodyParameter = $Sourceappbulkupdaterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SourceAppBulkUpdateRequest -is [array])) {
+            $LocalVarBodyParameter = $SourceAppBulkUpdateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sourceappbulkupdaterequest | ForEach-Object {
+            $LocalVarBodyParameter = $SourceAppBulkUpdateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

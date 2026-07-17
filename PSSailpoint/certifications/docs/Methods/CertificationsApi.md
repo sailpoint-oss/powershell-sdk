@@ -64,18 +64,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The task ID
 
 ### Return type
-[**Certificationtask**](../models/certificationtask)
+[**CertificationTask**](../models/certification-task)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A certification task | Certificationtask
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A certification task | CertificationTask
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityCertificationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityCertificationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -115,18 +115,18 @@ Path   | ItemId | **String** | True  | The certification item ID
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Permissiondto[]**](../models/permissiondto)
+[**PermissionDTO[]**](../models/permission-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of permissions associated with the given itemId | Permissiondto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of permissions associated with the given itemId | PermissionDTO[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityCertificationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityCertificationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -166,18 +166,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The certification id
 
 ### Return type
-[**Identitycertificationdto**](../models/identitycertificationdto)
+[**IdentityCertificationDto**](../models/identity-certification-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An identity campaign certification object | Identitycertificationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | An identity campaign certification object | IdentityCertificationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityCertificationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityCertificationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -216,18 +216,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, in*  **type**: *eq, in*
 
 ### Return type
-[**Certificationtask[]**](../models/certificationtask)
+[**CertificationTask[]**](../models/certification-task)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of pending certification tasks | Certificationtask[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of pending certification tasks | CertificationTask[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityCertificationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityCertificationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -271,18 +271,18 @@ Path   | Id | **String** | True  | The certification ID
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email**
 
 ### Return type
-[**Identityreferencewithnameandemail[]**](../models/identityreferencewithnameandemail)
+[**IdentityReferenceWithNameAndEmail[]**](../models/identity-reference-with-name-and-email)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of reviewers | Identityreferencewithnameandemail[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of reviewers | IdentityReferenceWithNameAndEmail[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityCertificationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityCertificationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -330,18 +330,18 @@ Path   | Id | **String** | True  | The identity campaign certification ID
   Query | Roles | **String** |   (optional) | Filter results to view access review items that pertain to any of the specified comma-separated role IDs.  An error will occur if this param is used with **entitlements** or **access-profiles** as only one of these query params can be used at a time.
 
 ### Return type
-[**Accessreviewitem[]**](../models/accessreviewitem)
+[**AccessReviewItem[]**](../models/access-review-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of access review items | Accessreviewitem[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of access review items | AccessReviewItem[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityCertificationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityCertificationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -389,17 +389,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed**
 
 ### Return type
-[**Identitycertificationdto[]**](../models/identitycertificationdto)
+[**IdentityCertificationDto[]**](../models/identity-certification-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of identity campaign certifications. | Identitycertificationdto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of identity campaign certifications. | IdentityCertificationDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityCertificationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityCertificationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -437,21 +437,21 @@ The API makes a decision to approve or revoke one or more identity campaign cert
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the identity campaign certification on which to make decisions
- Body  | Reviewdecision | [**[]Reviewdecision**](../models/reviewdecision) | True  | A non-empty array of decisions to be made.
+ Body  | ReviewDecision | [**[]ReviewDecision**](../models/review-decision) | True  | A non-empty array of decisions to be made.
 
 ### Return type
-[**Identitycertificationdto**](../models/identitycertificationdto)
+[**IdentityCertificationDto**](../models/identity-certification-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An identity campaign certification object | Identitycertificationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | An identity campaign certification object | IdentityCertificationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityCertificationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityCertificationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -460,17 +460,28 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campaign certification on which to make decisions
- $Reviewdecision = @"[{"id":"ef38f94347e94562b5bb8424a56396b5","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source."},{"id":"ef38f94347e94562b5bb8424a56397d8","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source too."}]"@ # Reviewdecision[] | A non-empty array of decisions to be made.
+ $ReviewDecision = @"{
+  "comments" : "This user no longer needs access to this source",
+  "decision" : "APPROVE",
+  "proposedEndDate" : "2017-07-11T18:45:37.098Z",
+  "recommendation" : {
+    "reasons" : [ "Reason 1", "Reason 2" ],
+    "recommendation" : "recommendation",
+    "timestamp" : "2020-06-01T13:49:37.385Z"
+  },
+  "id" : "ef38f94347e94562b5bb8424a56397d8",
+  "bulk" : true
+}"@ # ReviewDecision[] | A non-empty array of decisions to be made.
  
 
 # Decide on a certification item
 
 try {
-    $Result = ConvertFrom-JsonToReviewdecision -Json $Reviewdecision
-    Select-IdentityDecisionV1 -Id $Id -Reviewdecision $Result 
+    $Result = ConvertFrom-JsonToReviewDecision -Json $ReviewDecision
+    Select-IdentityDecisionV1 -Id $Id -ReviewDecision $Result 
     
     # Below is a request that includes all optional parameters
-    # Select-IdentityDecisionV1 -Id $Id -Reviewdecision $Result  
+    # Select-IdentityDecisionV1 -Id $Id -ReviewDecision $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Select-IdentityDecisionV1"
     Write-Host $_.ErrorDetails
@@ -487,21 +498,21 @@ This API reassigns up to 50 identities or items in an identity campaign certific
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The identity campaign certification ID
- Body  | Reviewreassign | [**Reviewreassign**](../models/reviewreassign) | True  | 
+ Body  | ReviewReassign | [**ReviewReassign**](../models/review-reassign) | True  | 
 
 ### Return type
-[**Identitycertificationdto**](../models/identitycertificationdto)
+[**IdentityCertificationDto**](../models/identity-certification-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An identity campaign certification details after completing the reassignment. | Identitycertificationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | An identity campaign certification details after completing the reassignment. | IdentityCertificationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityCertificationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityCertificationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -510,16 +521,26 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
-$Reviewreassign = @""@
+$ReviewReassign = @"{
+  "reason" : "reassigned for some reason",
+  "reassignTo" : "ef38f94347e94562b5bb8424a56397d8",
+  "reassign" : [ {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  }, {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  } ]
+}"@
 
 # Reassign identities or items
 
 try {
-    $Result = ConvertFrom-JsonToReviewreassign -Json $Reviewreassign
-    Invoke-ReassignIdentityCertificationsV1 -Id $Id -Reviewreassign $Result 
+    $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
+    Invoke-ReassignIdentityCertificationsV1 -Id $Id -ReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-ReassignIdentityCertificationsV1 -Id $Id -Reviewreassign $Result  
+    # Invoke-ReassignIdentityCertificationsV1 -Id $Id -ReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReassignIdentityCertificationsV1"
     Write-Host $_.ErrorDetails
@@ -538,18 +559,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The identity campaign certification ID
 
 ### Return type
-[**Identitycertificationdto**](../models/identitycertificationdto)
+[**IdentityCertificationDto**](../models/identity-certification-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An identity campaign certification object | Identitycertificationdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | An identity campaign certification object | IdentityCertificationDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityCertificationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityCertificationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -587,21 +608,21 @@ Reviewers for this certification can also call this API.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The identity campaign certification ID
- Body  | Reviewreassign | [**Reviewreassign**](../models/reviewreassign) | True  | 
+ Body  | ReviewReassign | [**ReviewReassign**](../models/review-reassign) | True  | 
 
 ### Return type
-[**Certificationtask**](../models/certificationtask)
+[**CertificationTask**](../models/certification-task)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A certification task object for the reassignment which can be queried for status. | Certificationtask
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A certification task object for the reassignment which can be queried for status. | CertificationTask
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentityCertificationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentityCertificationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -610,16 +631,26 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
-$Reviewreassign = @""@
+$ReviewReassign = @"{
+  "reason" : "reassigned for some reason",
+  "reassignTo" : "ef38f94347e94562b5bb8424a56397d8",
+  "reassign" : [ {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  }, {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  } ]
+}"@
 
 # Reassign certifications asynchronously
 
 try {
-    $Result = ConvertFrom-JsonToReviewreassign -Json $Reviewreassign
-    Submit-ReassignCertsAsyncV1 -Id $Id -Reviewreassign $Result 
+    $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
+    Submit-ReassignCertsAsyncV1 -Id $Id -ReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-ReassignCertsAsyncV1 -Id $Id -Reviewreassign $Result  
+    # Submit-ReassignCertsAsyncV1 -Id $Id -ReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-ReassignCertsAsyncV1"
     Write-Host $_.ErrorDetails

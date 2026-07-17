@@ -46,18 +46,28 @@
       label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#execute-saved-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-        $Searcharguments = @"
-        
+        $SearchArguments = @"
+        {
+          "owner" : "",
+          "recipients" : [ {
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          }, {
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          } ],
+          "scheduleId" : "7a724640-0c17-4ce9-a8c3-4a89738459c8"
+        }
         "@
         
         # Execute a saved search by id
         
         try {
-            $Result = ConvertFrom-JsonToSearcharguments -Json $Searcharguments
-            Invoke-ExecuteSavedSearchV1 -Id $Id -Searcharguments $Result 
+            $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
+            Invoke-ExecuteSavedSearchV1 -Id $Id -SearchArguments $Result 
     
             # Below is a request that includes all optional parameters
-            # Invoke-ExecuteSavedSearchV1 -Id $Id -Searcharguments $Result   
+            # Invoke-ExecuteSavedSearchV1 -Id $Id -SearchArguments $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ExecuteSavedSearchV1"
             Write-Host $_.ErrorDetails
@@ -110,18 +120,62 @@
       label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#put-saved-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-        $Savedsearch = @"
-        
+        $SavedSearch = @"
+        {
+          "owner" : {
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          },
+          "created" : "2018-06-25T20:22:28.104Z",
+          "columns" : {
+            "identity" : [ {
+              "field" : "displayName",
+              "header" : "Display Name"
+            }, {
+              "field" : "e-mail",
+              "header" : "Work Email"
+            } ]
+          },
+          "query" : "@accounts(disabled:true)",
+          "description" : "Disabled accounts",
+          "orderBy" : {
+            "identity" : [ "lastName", "firstName" ],
+            "role" : [ "name" ]
+          },
+          "sort" : [ "displayName" ],
+          "filters" : {
+            "terms" : [ "account_count", "account_count" ],
+            "range" : {
+              "lower" : {
+                "inclusive" : false,
+                "value" : "1"
+              },
+              "upper" : {
+                "inclusive" : false,
+                "value" : "1"
+              }
+            },
+            "exclude" : false,
+            "type" : "RANGE"
+          },
+          "ownerId" : "2c91808568c529c60168cca6f90c1313",
+          "indices" : [ "identities" ],
+          "public" : false,
+          "name" : "Disabled accounts",
+          "modified" : "2018-06-25T20:22:28.104Z",
+          "id" : "0de46054-fe90-434a-b84e-c6b3359d0c64",
+          "fields" : [ "disabled" ]
+        }
         "@
         
         # Updates an existing saved search 
         
         try {
-            $Result = ConvertFrom-JsonToSavedsearch -Json $Savedsearch
-            Send-SavedSearchV1 -Id $Id -Savedsearch $Result 
+            $Result = ConvertFrom-JsonToSavedSearch -Json $SavedSearch
+            Send-SavedSearchV1 -Id $Id -SavedSearch $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-SavedSearchV1 -Id $Id -Savedsearch $Result   
+            # Send-SavedSearchV1 -Id $Id -SavedSearch $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SavedSearchV1"
             Write-Host $_.ErrorDetails

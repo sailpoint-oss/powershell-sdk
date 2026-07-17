@@ -4,18 +4,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/notifications/methods/notifications#create-domain-dkim-v1
       source: |
-        $Domainaddress = @"
-        
+        $DomainAddress = @"
+        {
+          "domain" : "sailpoint.com"
+        }
         "@
         
         # Verify domain address via dkim
         
         try {
-            $Result = ConvertFrom-JsonToDomainaddress -Json $Domainaddress
-            New-DomainDkimV1 -Domainaddress $Result 
+            $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
+            New-DomainDkimV1 -DomainAddress $Result 
     
             # Below is a request that includes all optional parameters
-            # New-DomainDkimV1 -Domainaddress $Result   
+            # New-DomainDkimV1 -DomainAddress $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-DomainDkimV1"
             Write-Host $_.ErrorDetails
@@ -26,18 +28,81 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/notifications/methods/notifications#create-notification-template-v1
       source: |
-        $Templatedto = @"
-        
+        $TemplateDto = @"
+        {
+          "slackTemplate" : {
+            "isSubscription" : false,
+            "attachments" : "[]",
+            "blocks" : "blocks",
+            "requestId" : "requestId",
+            "autoApprovalData" : {
+              "itemId" : "itemId",
+              "itemType" : "itemType",
+              "autoApprovalMessageJSON" : "autoApprovalMessageJSON",
+              "isAutoApproved" : "isAutoApproved",
+              "autoApprovalTitle" : "autoApprovalTitle"
+            },
+            "customFields" : {
+              "requestType" : "requestType",
+              "campaignId" : "campaignId",
+              "campaignStatus" : "campaignStatus",
+              "containsDeny" : "containsDeny"
+            },
+            "requestedById" : "requestedById",
+            "approvalId" : "approvalId",
+            "text" : "You have a new approval request",
+            "notificationType" : "notificationType",
+            "key" : "key"
+          },
+          "footer" : "footer",
+          "teamsTemplate" : {
+            "isSubscription" : false,
+            "requestId" : "requestId",
+            "autoApprovalData" : {
+              "itemId" : "itemId",
+              "itemType" : "itemType",
+              "autoApprovalMessageJSON" : "autoApprovalMessageJSON",
+              "isAutoApproved" : "isAutoApproved",
+              "autoApprovalTitle" : "autoApprovalTitle"
+            },
+            "customFields" : {
+              "requestType" : "requestType",
+              "campaignId" : "campaignId",
+              "campaignStatus" : "campaignStatus",
+              "containsDeny" : "containsDeny"
+            },
+            "requestedById" : "requestedById",
+            "approvalId" : "approvalId",
+            "text" : "You have a new approval request",
+            "notificationType" : "notificationType",
+            "title" : "title",
+            "key" : "key",
+            "messageJSON" : "messageJSON"
+          },
+          "subject" : "You have $numberOfPendingTasks $taskTasks to complete in ${__global.productName}.",
+          "created" : "2020-01-01T00:00:00Z",
+          "description" : "Daily digest - sent if number of outstanding tasks for task owner > 0",
+          "medium" : "EMAIL",
+          "locale" : "en",
+          "body" : "Please go to the task manager",
+          "name" : "Task Manager Subscription",
+          "replyTo" : "$__global.emailFromAddress",
+          "header" : "header",
+          "modified" : "2020-01-01T00:00:00Z",
+          "from" : "$__global.emailFromAddress",
+          "id" : "c17bea3a-574d-453c-9e04-4365fbf5af0b",
+          "key" : "cloud_manual_work_item_summary"
+        }
         "@
         
         # Create notification template
         
         try {
-            $Result = ConvertFrom-JsonToTemplatedto -Json $Templatedto
-            New-NotificationTemplateV1 -Templatedto $Result 
+            $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
+            New-NotificationTemplateV1 -TemplateDto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-NotificationTemplateV1 -Templatedto $Result   
+            # New-NotificationTemplateV1 -TemplateDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NotificationTemplateV1"
             Write-Host $_.ErrorDetails
@@ -48,18 +113,24 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/notifications/methods/notifications#create-verified-from-address-v1
       source: |
-        $Emailstatusdto = @"
-        {"email":"sender@example.com"}
+        $EmailStatusDto = @"
+        {
+          "isVerifiedByDomain" : false,
+          "verificationStatus" : "SUCCESS",
+          "id" : "id",
+          "region" : "us-east-1",
+          "email" : "sender@example.com"
+        }
         "@
         
         # Create verified from address
         
         try {
-            $Result = ConvertFrom-JsonToEmailstatusdto -Json $Emailstatusdto
-            New-VerifiedFromAddressV1 -Emailstatusdto $Result 
+            $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
+            New-VerifiedFromAddressV1 -EmailStatusDto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-VerifiedFromAddressV1 -Emailstatusdto $Result   
+            # New-VerifiedFromAddressV1 -EmailStatusDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-VerifiedFromAddressV1"
             Write-Host $_.ErrorDetails
@@ -70,17 +141,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/notifications/methods/notifications#delete-notification-templates-in-bulk-v1
       source: |
-        $Templatebulkdeletedto = @""@ 
+        $TemplateBulkDeleteDto = @"{
+          "medium" : "EMAIL",
+          "locale" : "en",
+          "key" : "cloud_manual_work_item_summary"
+        }"@ 
         
         
         # Bulk delete notification templates
         
         try {
-            $Result = ConvertFrom-JsonToTemplatebulkdeletedto -Json $Templatebulkdeletedto
-            Remove-NotificationTemplatesInBulkV1 -Templatebulkdeletedto $Result 
+            $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
+            Remove-NotificationTemplatesInBulkV1 -TemplateBulkDeleteDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Remove-NotificationTemplatesInBulkV1 -Templatebulkdeletedto $Result   
+            # Remove-NotificationTemplatesInBulkV1 -TemplateBulkDeleteDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-NotificationTemplatesInBulkV1"
             Write-Host $_.ErrorDetails
@@ -292,18 +367,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/notifications/methods/notifications#put-mail-from-attributes-v1
       source: |
-        $Mailfromattributesdto = @"
-        {"identity":"BobSmith@sailpoint.com","mailFromDomain":"example.sailpoint.com"}
+        $MailFromAttributesDto = @"
+        {
+          "identity" : "BobSmith@sailpoint.com",
+          "mailFromDomain" : "example.sailpoint.com"
+        }
         "@
         
         # Change mail from domain
         
         try {
-            $Result = ConvertFrom-JsonToMailfromattributesdto -Json $Mailfromattributesdto
-            Send-MailFromAttributesV1 -Mailfromattributesdto $Result 
+            $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
+            Send-MailFromAttributesV1 -MailFromAttributesDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-MailFromAttributesV1 -Mailfromattributesdto $Result   
+            # Send-MailFromAttributesV1 -MailFromAttributesDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-MailFromAttributesV1"
             Write-Host $_.ErrorDetails
@@ -314,18 +392,29 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/notifications/methods/notifications#send-test-notification-v1
       source: |
-        $Sendtestnotificationrequestdto = @"
-        {"key":"cloud_manual_work_item_summary","medium":"EMAIL","context":{"numberOfPendingTasks":"4","ownerId":"201327fda1c44704ac01181e963d463c"}}
+        $SendTestNotificationRequestDto = @"
+        {
+          "carbonCopy" : [ "cc@example.com" ],
+          "context" : {
+            "numberOfPendingTasks" : "4",
+            "taskTasks" : "tasks"
+          },
+          "blindCarbonCopy" : [ "bcc@example.com" ],
+          "medium" : "EMAIL",
+          "locale" : "en",
+          "recipientEmailList" : [ "test@example.com" ],
+          "key" : "cloud_manual_work_item_summary"
+        }
         "@
         
         # Send test notification
         
         try {
-            $Result = ConvertFrom-JsonToSendtestnotificationrequestdto -Json $Sendtestnotificationrequestdto
-            Send-TestNotificationV1 -Sendtestnotificationrequestdto $Result 
+            $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
+            Send-TestNotificationV1 -SendTestNotificationRequestDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-TestNotificationV1 -Sendtestnotificationrequestdto $Result   
+            # Send-TestNotificationV1 -SendTestNotificationRequestDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TestNotificationV1"
             Write-Host $_.ErrorDetails

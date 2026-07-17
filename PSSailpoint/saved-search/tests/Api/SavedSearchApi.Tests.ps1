@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.SavedSearch' -name 'SavedSearchApi' {
 
     Context 'Invoke-ExecuteSavedSearchV1' {
         It 'Test Invoke-ExecuteSavedSearchV1' {
-            #$TestResult = Invoke-ExecuteSavedSearchV1 -Id "TEST_VALUE" -Searcharguments "TEST_VALUE"
+            #$TestResult = Invoke-ExecuteSavedSearchV1 -Id "TEST_VALUE" -SearchArguments "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.SavedSearch' -name 'SavedSearchApi' {
 
     Context 'Send-SavedSearchV1' {
         It 'Test Send-SavedSearchV1' {
-            #$TestResult = Send-SavedSearchV1 -Id "TEST_VALUE" -Savedsearch "TEST_VALUE"
+            #$TestResult = Send-SavedSearchV1 -Id "TEST_VALUE" -SavedSearch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

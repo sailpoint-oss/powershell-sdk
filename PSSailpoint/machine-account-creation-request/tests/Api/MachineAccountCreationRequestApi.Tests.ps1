@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.MachineAccountCreationRequest' -name 'MachineAccountCreationRequestApi' {
     Context 'New-MachineAccountRequestV1' {
         It 'Test New-MachineAccountRequestV1' {
-            #$TestResult = New-MachineAccountRequestV1 -XSailPointExperimental "TEST_VALUE" -Machineaccountcreaterequestinput "TEST_VALUE"
+            #$TestResult = New-MachineAccountRequestV1 -XSailPointExperimental "TEST_VALUE" -MachineAccountCreateRequestInput "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

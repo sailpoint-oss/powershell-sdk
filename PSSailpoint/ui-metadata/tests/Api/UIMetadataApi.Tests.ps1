@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.UiMetadata' -name 'UIMetadataApi' {
 
     Context 'Set-TenantUiMetadataV1' {
         It 'Test Set-TenantUiMetadataV1' {
-            #$TestResult = Set-TenantUiMetadataV1 -XSailPointExperimental "TEST_VALUE" -Tenantuimetadataitemupdaterequest "TEST_VALUE"
+            #$TestResult = Set-TenantUiMetadataV1 -XSailPointExperimental "TEST_VALUE" -TenantUiMetadataItemUpdateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

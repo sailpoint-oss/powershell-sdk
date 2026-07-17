@@ -14,7 +14,7 @@ Predict sod violations for identity.
 
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
-.PARAMETER Identitywithnewaccess
+.PARAMETER IdentityWithNewAccess
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Violationprediction
+ViolationPrediction
 #>
 function Start-PredictSodViolationsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Identitywithnewaccess},
+        ${IdentityWithNewAccess},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function Start-PredictSodViolationsV1 {
 
         $LocalVarUri = '/sod-violations/v1/predict'
 
-        if (!$Identitywithnewaccess) {
-            throw "Error! The required parameter `Identitywithnewaccess` missing when calling startPredictSodViolationsV1."
+        if (!$IdentityWithNewAccess) {
+            throw "Error! The required parameter `IdentityWithNewAccess` missing when calling startPredictSodViolationsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Identitywithnewaccess -is [array])) {
-            $LocalVarBodyParameter = $Identitywithnewaccess | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityWithNewAccess -is [array])) {
+            $LocalVarBodyParameter = $IdentityWithNewAccess | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Identitywithnewaccess | ForEach-Object {
+            $LocalVarBodyParameter = $IdentityWithNewAccess | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function Start-PredictSodViolationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Violationprediction" `
+                                -ReturnType "ViolationPrediction" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -102,7 +102,7 @@ Check sod violations
 
 This API initiates a SOD policy verification asynchronously.
 
-.PARAMETER Identitywithnewaccess
+.PARAMETER IdentityWithNewAccess
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -111,14 +111,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sodviolationcheck
+SodViolationCheck
 #>
 function Start-ViolationCheckV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Identitywithnewaccess},
+        ${IdentityWithNewAccess},
         [Switch]
         $WithHttpInfo
     )
@@ -144,14 +144,14 @@ function Start-ViolationCheckV1 {
 
         $LocalVarUri = '/sod-violations/v1/check'
 
-        if (!$Identitywithnewaccess) {
-            throw "Error! The required parameter `Identitywithnewaccess` missing when calling startViolationCheckV1."
+        if (!$IdentityWithNewAccess) {
+            throw "Error! The required parameter `IdentityWithNewAccess` missing when calling startViolationCheckV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Identitywithnewaccess -is [array])) {
-            $LocalVarBodyParameter = $Identitywithnewaccess | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityWithNewAccess -is [array])) {
+            $LocalVarBodyParameter = $IdentityWithNewAccess | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Identitywithnewaccess | ForEach-Object {
+            $LocalVarBodyParameter = $IdentityWithNewAccess | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -170,7 +170,7 @@ function Start-ViolationCheckV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sodviolationcheck" `
+                                -ReturnType "SodViolationCheck" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

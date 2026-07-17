@@ -47,7 +47,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessitemdiff[]
+AccessItemDiff[]
 #>
 function Compare-IdentitySnapshotsAccessTypeV1 {
     [CmdletBinding()]
@@ -148,7 +148,7 @@ function Compare-IdentitySnapshotsAccessTypeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessitemdiff[]" `
+                                -ReturnType "AccessItemDiff[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -198,7 +198,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identitycompareresponse[]
+IdentityCompareResponse[]
 #>
 function Compare-IdentitySnapshotsV1 {
     [CmdletBinding()]
@@ -291,7 +291,7 @@ function Compare-IdentitySnapshotsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identitycompareresponse[]" `
+                                -ReturnType "IdentityCompareResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -466,7 +466,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityhistoryresponse
+IdentityHistoryResponse
 #>
 function Get-HistoricalIdentityV1 {
     [CmdletBinding()]
@@ -517,7 +517,7 @@ function Get-HistoricalIdentityV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityhistoryresponse" `
+                                -ReturnType "IdentityHistoryResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -567,7 +567,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Metricresponse[]
+MetricResponse[]
 #>
 function Get-IdentitySnapshotSummaryV1 {
     [CmdletBinding()]
@@ -661,7 +661,7 @@ function Get-IdentitySnapshotSummaryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Metricresponse[]" `
+                                -ReturnType "MetricResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -696,7 +696,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityhistoryresponse
+IdentityHistoryResponse
 #>
 function Get-IdentitySnapshotV1 {
     [CmdletBinding()]
@@ -754,7 +754,7 @@ function Get-IdentitySnapshotV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityhistoryresponse" `
+                                -ReturnType "IdentityHistoryResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -881,7 +881,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identitylistitem[]
+IdentityListItem[]
 #>
 function Get-HistoricalIdentitiesV1 {
     [CmdletBinding()]
@@ -960,7 +960,7 @@ function Get-HistoricalIdentitiesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identitylistitem[]" `
+                                -ReturnType "IdentityListItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1234,7 +1234,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identitysnapshotsummaryresponse[]
+IdentitySnapshotSummaryResponse[]
 #>
 function Get-IdentitySnapshotsV1 {
     [CmdletBinding()]
@@ -1321,7 +1321,7 @@ function Get-IdentitySnapshotsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identitysnapshotsummaryresponse[]" `
+                                -ReturnType "IdentitySnapshotSummaryResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

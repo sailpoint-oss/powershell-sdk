@@ -134,7 +134,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Outliersummary[]
+OutlierSummary[]
 #>
 function Get-IdentityOutlierSnapshotsV1 {
     [CmdletBinding()]
@@ -214,7 +214,7 @@ function Get-IdentityOutlierSnapshotsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Outliersummary[]" `
+                                -ReturnType "OutlierSummary[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -380,7 +380,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Latestoutliersummary[]
+LatestOutlierSummary[]
 #>
 function Get-LatestIdentityOutlierSnapshotsV1 {
     [CmdletBinding()]
@@ -432,7 +432,7 @@ function Get-LatestIdentityOutlierSnapshotsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Latestoutliersummary[]" `
+                                -ReturnType "LatestOutlierSummary[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -464,7 +464,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Outlierfeaturesummary
+OutlierFeatureSummary
 #>
 function Get-OutlierContributingFeatureSummaryV1 {
     [CmdletBinding()]
@@ -515,7 +515,7 @@ function Get-OutlierContributingFeatureSummaryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Outlierfeaturesummary" `
+                                -ReturnType "OutlierFeatureSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -562,7 +562,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Outliercontributingfeature[]
+OutlierContributingFeature[]
 #>
 function Get-PeerGroupOutliersContributingFeaturesV1 {
     [CmdletBinding()]
@@ -648,7 +648,7 @@ function Get-PeerGroupOutliersContributingFeaturesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Outliercontributingfeature[]" `
+                                -ReturnType "OutlierContributingFeature[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -797,7 +797,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Outlierscontributingfeatureaccessitems[]
+OutliersContributingFeatureAccessItems[]
 #>
 function Get-OutliersContributingFeatureAccessItemsV1 {
     [CmdletBinding()]
@@ -891,7 +891,7 @@ function Get-OutliersContributingFeatureAccessItemsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Outlierscontributingfeatureaccessitems[]" `
+                                -ReturnType "OutliersContributingFeatureAccessItems[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

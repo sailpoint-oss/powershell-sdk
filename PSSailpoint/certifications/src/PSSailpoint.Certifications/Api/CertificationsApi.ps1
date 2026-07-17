@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Certificationtask
+CertificationTask
 #>
 function Get-CertificationTaskV1 {
     [CmdletBinding()]
@@ -66,7 +66,7 @@ function Get-CertificationTaskV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Certificationtask" `
+                                -ReturnType "CertificationTask" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -110,7 +110,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Permissiondto[]
+PermissionDTO[]
 #>
 function Get-IdentityCertificationItemPermissionsV1 {
     [CmdletBinding()]
@@ -188,7 +188,7 @@ function Get-IdentityCertificationItemPermissionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Permissiondto[]" `
+                                -ReturnType "PermissionDTO[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -217,7 +217,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identitycertificationdto
+IdentityCertificationDto
 #>
 function Get-IdentityCertificationV1 {
     [CmdletBinding()]
@@ -260,7 +260,7 @@ function Get-IdentityCertificationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identitycertificationdto" `
+                                -ReturnType "IdentityCertificationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -301,7 +301,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Certificationtask[]
+CertificationTask[]
 #>
 function Get-PendingCertificationTasksV1 {
     [CmdletBinding()]
@@ -372,7 +372,7 @@ function Get-PendingCertificationTasksV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Certificationtask[]" `
+                                -ReturnType "CertificationTask[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -416,7 +416,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityreferencewithnameandemail[]
+IdentityReferenceWithNameAndEmail[]
 #>
 function Get-CertificationReviewersV1 {
     [CmdletBinding()]
@@ -494,7 +494,7 @@ function Get-CertificationReviewersV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityreferencewithnameandemail[]" `
+                                -ReturnType "IdentityReferenceWithNameAndEmail[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -547,7 +547,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessreviewitem[]
+AccessReviewItem[]
 #>
 function Get-IdentityAccessReviewItemsV1 {
     [CmdletBinding()]
@@ -646,7 +646,7 @@ function Get-IdentityAccessReviewItemsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessreviewitem[]" `
+                                -ReturnType "AccessReviewItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -690,7 +690,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identitycertificationdto[]
+IdentityCertificationDto[]
 #>
 function Get-IdentityCertificationsV1 {
     [CmdletBinding()]
@@ -768,7 +768,7 @@ function Get-IdentityCertificationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identitycertificationdto[]" `
+                                -ReturnType "IdentityCertificationDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -791,7 +791,7 @@ The API makes a decision to approve or revoke one or more identity campaign cert
 .PARAMETER Id
 The ID of the identity campaign certification on which to make decisions
 
-.PARAMETER Reviewdecision
+.PARAMETER ReviewDecision
 A non-empty array of decisions to be made.
 
 .PARAMETER WithHttpInfo
@@ -800,7 +800,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identitycertificationdto
+IdentityCertificationDto
 #>
 function Select-IdentityDecisionV1 {
     [CmdletBinding()]
@@ -810,7 +810,7 @@ function Select-IdentityDecisionV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Reviewdecision},
+        ${ReviewDecision},
         [Switch]
         $WithHttpInfo
     )
@@ -840,14 +840,14 @@ function Select-IdentityDecisionV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Reviewdecision) {
-            throw "Error! The required parameter `Reviewdecision` missing when calling makeIdentityDecisionV1."
+        if (!$ReviewDecision) {
+            throw "Error! The required parameter `ReviewDecision` missing when calling makeIdentityDecisionV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Reviewdecision -is [array])) {
-            $LocalVarBodyParameter = $Reviewdecision | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ReviewDecision -is [array])) {
+            $LocalVarBodyParameter = $ReviewDecision | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Reviewdecision | ForEach-Object {
+            $LocalVarBodyParameter = $ReviewDecision | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -866,7 +866,7 @@ function Select-IdentityDecisionV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identitycertificationdto" `
+                                -ReturnType "IdentityCertificationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -889,7 +889,7 @@ This API reassigns up to 50 identities or items in an identity campaign certific
 .PARAMETER Id
 The identity campaign certification ID
 
-.PARAMETER Reviewreassign
+.PARAMETER ReviewReassign
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -898,7 +898,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identitycertificationdto
+IdentityCertificationDto
 #>
 function Invoke-ReassignIdentityCertificationsV1 {
     [CmdletBinding()]
@@ -908,7 +908,7 @@ function Invoke-ReassignIdentityCertificationsV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Reviewreassign},
+        ${ReviewReassign},
         [Switch]
         $WithHttpInfo
     )
@@ -938,14 +938,14 @@ function Invoke-ReassignIdentityCertificationsV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Reviewreassign) {
-            throw "Error! The required parameter `Reviewreassign` missing when calling reassignIdentityCertificationsV1."
+        if (!$ReviewReassign) {
+            throw "Error! The required parameter `ReviewReassign` missing when calling reassignIdentityCertificationsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Reviewreassign -is [array])) {
-            $LocalVarBodyParameter = $Reviewreassign | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ReviewReassign -is [array])) {
+            $LocalVarBodyParameter = $ReviewReassign | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Reviewreassign | ForEach-Object {
+            $LocalVarBodyParameter = $ReviewReassign | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -964,7 +964,7 @@ function Invoke-ReassignIdentityCertificationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identitycertificationdto" `
+                                -ReturnType "IdentityCertificationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -993,7 +993,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identitycertificationdto
+IdentityCertificationDto
 #>
 function Invoke-SignOffIdentityCertificationV1 {
     [CmdletBinding()]
@@ -1036,7 +1036,7 @@ function Invoke-SignOffIdentityCertificationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identitycertificationdto" `
+                                -ReturnType "IdentityCertificationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1059,7 +1059,7 @@ This API initiates a task to reassign up to 500 identities or items in an identi
 .PARAMETER Id
 The identity campaign certification ID
 
-.PARAMETER Reviewreassign
+.PARAMETER ReviewReassign
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1068,7 +1068,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Certificationtask
+CertificationTask
 #>
 function Submit-ReassignCertsAsyncV1 {
     [CmdletBinding()]
@@ -1078,7 +1078,7 @@ function Submit-ReassignCertsAsyncV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Reviewreassign},
+        ${ReviewReassign},
         [Switch]
         $WithHttpInfo
     )
@@ -1108,14 +1108,14 @@ function Submit-ReassignCertsAsyncV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Reviewreassign) {
-            throw "Error! The required parameter `Reviewreassign` missing when calling submitReassignCertsAsyncV1."
+        if (!$ReviewReassign) {
+            throw "Error! The required parameter `ReviewReassign` missing when calling submitReassignCertsAsyncV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Reviewreassign -is [array])) {
-            $LocalVarBodyParameter = $Reviewreassign | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ReviewReassign -is [array])) {
+            $LocalVarBodyParameter = $ReviewReassign | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Reviewreassign | ForEach-Object {
+            $LocalVarBodyParameter = $ReviewReassign | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1134,7 +1134,7 @@ function Submit-ReassignCertsAsyncV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Certificationtask" `
+                                -ReturnType "CertificationTask" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

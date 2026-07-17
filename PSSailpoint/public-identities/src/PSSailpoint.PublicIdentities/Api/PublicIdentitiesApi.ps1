@@ -38,7 +38,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Publicidentity[]
+PublicIdentity[]
 #>
 function Get-PublicIdentitiesV1 {
     [CmdletBinding()]
@@ -116,7 +116,7 @@ function Get-PublicIdentitiesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Publicidentity[]" `
+                                -ReturnType "PublicIdentity[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

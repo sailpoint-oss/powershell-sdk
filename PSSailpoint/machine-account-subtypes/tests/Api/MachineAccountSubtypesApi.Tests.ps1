@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.MachineAccountSubtypes' -name 'MachineAccountSubtypes
 
     Context 'Update-MachineAccountSubtypeApprovalConfigV1' {
         It 'Test Update-MachineAccountSubtypeApprovalConfigV1' {
-            #$TestResult = Update-MachineAccountSubtypeApprovalConfigV1 -XSailPointExperimental "TEST_VALUE" -SubtypeId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-MachineAccountSubtypeApprovalConfigV1 -XSailPointExperimental "TEST_VALUE" -SubtypeId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

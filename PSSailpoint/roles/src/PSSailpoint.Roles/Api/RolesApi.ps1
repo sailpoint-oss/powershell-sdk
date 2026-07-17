@@ -102,7 +102,7 @@ Delete role(s)
 
 This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
 
-.PARAMETER Rolebulkdeleterequest
+.PARAMETER RoleBulkDeleteRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -111,14 +111,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskresultdto
+TaskResultDto
 #>
 function Remove-BulkRolesV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Rolebulkdeleterequest},
+        ${RoleBulkDeleteRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -144,14 +144,14 @@ function Remove-BulkRolesV1 {
 
         $LocalVarUri = '/roles/v1/bulk-delete'
 
-        if (!$Rolebulkdeleterequest) {
-            throw "Error! The required parameter `Rolebulkdeleterequest` missing when calling deleteBulkRolesV1."
+        if (!$RoleBulkDeleteRequest) {
+            throw "Error! The required parameter `RoleBulkDeleteRequest` missing when calling deleteBulkRolesV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Rolebulkdeleterequest -is [array])) {
-            $LocalVarBodyParameter = $Rolebulkdeleterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleBulkDeleteRequest -is [array])) {
+            $LocalVarBodyParameter = $RoleBulkDeleteRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Rolebulkdeleterequest | ForEach-Object {
+            $LocalVarBodyParameter = $RoleBulkDeleteRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -170,7 +170,7 @@ function Remove-BulkRolesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskresultdto" `
+                                -ReturnType "TaskResultDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -363,7 +363,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Rolebulkupdateresponse
+RoleBulkUpdateResponse
 #>
 function Get-BulkUpdateStatusByIdV1 {
     [CmdletBinding()]
@@ -406,7 +406,7 @@ function Get-BulkUpdateStatusByIdV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Rolebulkupdateresponse" `
+                                -ReturnType "RoleBulkUpdateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -432,7 +432,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Rolegetallbulkupdateresponse[]
+RoleGetAllBulkUpdateResponse[]
 #>
 function Get-BulkUpdateStatusV1 {
     [CmdletBinding()]
@@ -468,7 +468,7 @@ function Get-BulkUpdateStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Rolegetallbulkupdateresponse[]" `
+                                -ReturnType "RoleGetAllBulkUpdateResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -512,7 +512,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Roleidentity[]
+RoleIdentity[]
 #>
 function Get-RoleAssignedIdentitiesV1 {
     [CmdletBinding()]
@@ -590,7 +590,7 @@ function Get-RoleAssignedIdentitiesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Roleidentity[]" `
+                                -ReturnType "RoleIdentity[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -960,7 +960,7 @@ This API updates an existing role using [JSON Patch](https://tools.ietf.org/html
 .PARAMETER Id
 ID of the Role to patch
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -979,7 +979,7 @@ function Update-RoleV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -1009,14 +1009,14 @@ function Update-RoleV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchRoleV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchRoleV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1076,7 +1076,7 @@ If present and not empty, additionally filters Roles to those which are assigned
 .PARAMETER IncludeUnsegmented
 Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
 
-.PARAMETER Rolelistfilterdto
+.PARAMETER RoleListFilterDTO
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1113,7 +1113,7 @@ function Search-RolesByFilterV1 {
         ${IncludeUnsegmented},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Rolelistfilterdto},
+        ${RoleListFilterDTO},
         [Switch]
         $WithHttpInfo
     )
@@ -1167,10 +1167,10 @@ function Search-RolesByFilterV1 {
             $LocalVarQueryParameters['include-unsegmented'] = $IncludeUnsegmented
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Rolelistfilterdto -is [array])) {
-            $LocalVarBodyParameter = $Rolelistfilterdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleListFilterDTO -is [array])) {
+            $LocalVarBodyParameter = $RoleListFilterDTO | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Rolelistfilterdto | ForEach-Object {
+            $LocalVarBodyParameter = $RoleListFilterDTO | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1301,7 +1301,7 @@ Bulk-update roles' metadata by filters
 
 This API initiates a bulk update of metadata for one or more Roles by filter. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum metadata value count for a single role is 25. Custom metadata update, including add, replace need suit licensed.
 
-.PARAMETER Rolemetadatabulkupdatebyfilterrequest
+.PARAMETER RoleMetadataBulkUpdateByFilterRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1310,14 +1310,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Rolebulkupdateresponse
+RoleBulkUpdateResponse
 #>
 function Update-RolesMetadataByFilterV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Rolemetadatabulkupdatebyfilterrequest},
+        ${RoleMetadataBulkUpdateByFilterRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1343,14 +1343,14 @@ function Update-RolesMetadataByFilterV1 {
 
         $LocalVarUri = '/roles/v1/access-model-metadata/bulk-update/filter'
 
-        if (!$Rolemetadatabulkupdatebyfilterrequest) {
-            throw "Error! The required parameter `Rolemetadatabulkupdatebyfilterrequest` missing when calling updateRolesMetadataByFilterV1."
+        if (!$RoleMetadataBulkUpdateByFilterRequest) {
+            throw "Error! The required parameter `RoleMetadataBulkUpdateByFilterRequest` missing when calling updateRolesMetadataByFilterV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Rolemetadatabulkupdatebyfilterrequest -is [array])) {
-            $LocalVarBodyParameter = $Rolemetadatabulkupdatebyfilterrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleMetadataBulkUpdateByFilterRequest -is [array])) {
+            $LocalVarBodyParameter = $RoleMetadataBulkUpdateByFilterRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Rolemetadatabulkupdatebyfilterrequest | ForEach-Object {
+            $LocalVarBodyParameter = $RoleMetadataBulkUpdateByFilterRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1369,7 +1369,7 @@ function Update-RolesMetadataByFilterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Rolebulkupdateresponse" `
+                                -ReturnType "RoleBulkUpdateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1389,7 +1389,7 @@ Bulk-update roles' metadata by id
 
 This API initiates a bulk update of metadata for one or more Roles by a list of Role Ids. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum role count in a single update request is 3000. The maximum metadata value count for a single role is 25. Custom metadata update, including add, replace need suit licensed.
 
-.PARAMETER Rolemetadatabulkupdatebyidrequest
+.PARAMETER RoleMetadataBulkUpdateByIdRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1398,14 +1398,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Rolebulkupdateresponse
+RoleBulkUpdateResponse
 #>
 function Update-RolesMetadataByIdsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Rolemetadatabulkupdatebyidrequest},
+        ${RoleMetadataBulkUpdateByIdRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1431,14 +1431,14 @@ function Update-RolesMetadataByIdsV1 {
 
         $LocalVarUri = '/roles/v1/access-model-metadata/bulk-update/ids'
 
-        if (!$Rolemetadatabulkupdatebyidrequest) {
-            throw "Error! The required parameter `Rolemetadatabulkupdatebyidrequest` missing when calling updateRolesMetadataByIdsV1."
+        if (!$RoleMetadataBulkUpdateByIdRequest) {
+            throw "Error! The required parameter `RoleMetadataBulkUpdateByIdRequest` missing when calling updateRolesMetadataByIdsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Rolemetadatabulkupdatebyidrequest -is [array])) {
-            $LocalVarBodyParameter = $Rolemetadatabulkupdatebyidrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleMetadataBulkUpdateByIdRequest -is [array])) {
+            $LocalVarBodyParameter = $RoleMetadataBulkUpdateByIdRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Rolemetadatabulkupdatebyidrequest | ForEach-Object {
+            $LocalVarBodyParameter = $RoleMetadataBulkUpdateByIdRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1457,7 +1457,7 @@ function Update-RolesMetadataByIdsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Rolebulkupdateresponse" `
+                                -ReturnType "RoleBulkUpdateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1477,7 +1477,7 @@ Bulk-update roles' metadata by query
 
 This API initiates a bulk update of metadata for one or more Roles by query. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum metadata value count for a single role is 25. Custom metadata update, including add, replace need suit licensed.
 
-.PARAMETER Rolemetadatabulkupdatebyqueryrequest
+.PARAMETER RoleMetadataBulkUpdateByQueryRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1486,14 +1486,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Rolebulkupdateresponse
+RoleBulkUpdateResponse
 #>
 function Update-RolesMetadataByQueryV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Rolemetadatabulkupdatebyqueryrequest},
+        ${RoleMetadataBulkUpdateByQueryRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1519,14 +1519,14 @@ function Update-RolesMetadataByQueryV1 {
 
         $LocalVarUri = '/roles/v1/access-model-metadata/bulk-update/query'
 
-        if (!$Rolemetadatabulkupdatebyqueryrequest) {
-            throw "Error! The required parameter `Rolemetadatabulkupdatebyqueryrequest` missing when calling updateRolesMetadataByQueryV1."
+        if (!$RoleMetadataBulkUpdateByQueryRequest) {
+            throw "Error! The required parameter `RoleMetadataBulkUpdateByQueryRequest` missing when calling updateRolesMetadataByQueryV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Rolemetadatabulkupdatebyqueryrequest -is [array])) {
-            $LocalVarBodyParameter = $Rolemetadatabulkupdatebyqueryrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleMetadataBulkUpdateByQueryRequest -is [array])) {
+            $LocalVarBodyParameter = $RoleMetadataBulkUpdateByQueryRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Rolemetadatabulkupdatebyqueryrequest | ForEach-Object {
+            $LocalVarBodyParameter = $RoleMetadataBulkUpdateByQueryRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1545,7 +1545,7 @@ function Update-RolesMetadataByQueryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Rolebulkupdateresponse" `
+                                -ReturnType "RoleBulkUpdateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

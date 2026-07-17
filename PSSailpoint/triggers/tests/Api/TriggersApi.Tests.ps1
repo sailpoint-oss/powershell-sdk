@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.Triggers' -name 'TriggersApi' {
     Context 'Complete-TriggerInvocationV1' {
         It 'Test Complete-TriggerInvocationV1' {
-            #$TestResult = Complete-TriggerInvocationV1 -Id "TEST_VALUE" -Completeinvocation "TEST_VALUE"
+            #$TestResult = Complete-TriggerInvocationV1 -Id "TEST_VALUE" -CompleteInvocation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.Triggers' -name 'TriggersApi' {
 
     Context 'New-SubscriptionV1' {
         It 'Test New-SubscriptionV1' {
-            #$TestResult = New-SubscriptionV1 -Subscriptionpostrequest "TEST_VALUE"
+            #$TestResult = New-SubscriptionV1 -SubscriptionPostRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.Triggers' -name 'TriggersApi' {
 
     Context 'Update-SubscriptionV1' {
         It 'Test Update-SubscriptionV1' {
-            #$TestResult = Update-SubscriptionV1 -Id "TEST_VALUE" -SubscriptionpatchrequestInner "TEST_VALUE"
+            #$TestResult = Update-SubscriptionV1 -Id "TEST_VALUE" -SubscriptionPatchRequestInner "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.Triggers' -name 'TriggersApi' {
 
     Context 'Start-TestTriggerInvocationV1' {
         It 'Test Start-TestTriggerInvocationV1' {
-            #$TestResult = Start-TestTriggerInvocationV1 -Testinvocation "TEST_VALUE"
+            #$TestResult = Start-TestTriggerInvocationV1 -TestInvocation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.Triggers' -name 'TriggersApi' {
 
     Context 'Test-SubscriptionFilterV1' {
         It 'Test Test-SubscriptionFilterV1' {
-            #$TestResult = Test-SubscriptionFilterV1 -Validatefilterinputdto "TEST_VALUE"
+            #$TestResult = Test-SubscriptionFilterV1 -ValidateFilterInputDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.Triggers' -name 'TriggersApi' {
 
     Context 'Update-SubscriptionV1' {
         It 'Test Update-SubscriptionV1' {
-            #$TestResult = Update-SubscriptionV1 -Id "TEST_VALUE" -Subscriptionputrequest "TEST_VALUE"
+            #$TestResult = Update-SubscriptionV1 -Id "TEST_VALUE" -SubscriptionPutRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

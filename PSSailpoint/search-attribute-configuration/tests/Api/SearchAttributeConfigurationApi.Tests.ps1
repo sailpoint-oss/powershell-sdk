@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.SearchAttributeConfiguration' -name 'SearchAttributeConfigurationApi' {
     Context 'New-SearchAttributeConfigV1' {
         It 'Test New-SearchAttributeConfigV1' {
-            #$TestResult = New-SearchAttributeConfigV1 -XSailPointExperimental "TEST_VALUE" -Searchattributeconfig "TEST_VALUE"
+            #$TestResult = New-SearchAttributeConfigV1 -XSailPointExperimental "TEST_VALUE" -SearchAttributeConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.SearchAttributeConfiguration' -name 'SearchAttributeC
 
     Context 'Update-SearchAttributeConfigV1' {
         It 'Test Update-SearchAttributeConfigV1' {
-            #$TestResult = Update-SearchAttributeConfigV1 -Name "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-SearchAttributeConfigV1 -Name "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

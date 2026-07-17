@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.ReportsDataExtraction.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,35 +75,35 @@ FunctionsToExport = 'Suspend-ReportV1', 'Get-ReportResultV1', 'Get-ReportV1',
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
                'Get-ConfigurationHttpSigning', 
-               'Initialize-AccountsExportReportArguments', 
-               'ConvertFrom-JsonToAccountsExportReportArguments', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-Accountsexportreportarguments', 
+               'ConvertFrom-JsonToAccountsexportreportarguments', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetReportResultV1401Response', 
                'ConvertFrom-JsonToGetReportResultV1401Response', 
                'Initialize-GetReportResultV1429Response', 
                'ConvertFrom-JsonToGetReportResultV1429Response', 
-               'Initialize-IdentitiesDetailsReportArguments', 
-               'ConvertFrom-JsonToIdentitiesDetailsReportArguments', 
-               'Initialize-IdentitiesReportArguments', 
-               'ConvertFrom-JsonToIdentitiesReportArguments', 
-               'Initialize-IdentityProfileIdentityErrorReportArguments', 
-               'ConvertFrom-JsonToIdentityProfileIdentityErrorReportArguments', 
-               'Initialize-OrphanIdentitiesReportArguments', 
-               'ConvertFrom-JsonToOrphanIdentitiesReportArguments', 
-               'Initialize-Reportdetails', 'ConvertFrom-JsonToReportdetails', 
-               'ConvertFrom-JsonToReportdetailsArguments', 
-               'Initialize-Reportresults', 'ConvertFrom-JsonToReportresults', 
-               'Initialize-SearchExportReportArguments', 
-               'ConvertFrom-JsonToSearchExportReportArguments', 
-               'Initialize-Taskresultdetails', 
-               'ConvertFrom-JsonToTaskresultdetails', 
-               'Initialize-TaskresultdetailsMessagesInner', 
-               'ConvertFrom-JsonToTaskresultdetailsMessagesInner', 
-               'Initialize-TaskresultdetailsReturnsInner', 
-               'ConvertFrom-JsonToTaskresultdetailsReturnsInner', 
-               'Initialize-UncorrelatedAccountsReportArguments', 
-               'ConvertFrom-JsonToUncorrelatedAccountsReportArguments'
+               'Initialize-Identitiesdetailsreportarguments', 
+               'ConvertFrom-JsonToIdentitiesdetailsreportarguments', 
+               'Initialize-Identitiesreportarguments', 
+               'ConvertFrom-JsonToIdentitiesreportarguments', 
+               'Initialize-Identityprofileidentityerrorreportarguments', 
+               'ConvertFrom-JsonToIdentityprofileidentityerrorreportarguments', 
+               'Initialize-Orphanidentitiesreportarguments', 
+               'ConvertFrom-JsonToOrphanidentitiesreportarguments', 
+               'Initialize-ReportDetails', 'ConvertFrom-JsonToReportDetails', 
+               'ConvertFrom-JsonToReportDetailsArguments', 
+               'Initialize-ReportResults', 'ConvertFrom-JsonToReportResults', 
+               'Initialize-Searchexportreportarguments', 
+               'ConvertFrom-JsonToSearchexportreportarguments', 
+               'Initialize-TaskResultDetails', 
+               'ConvertFrom-JsonToTaskResultDetails', 
+               'Initialize-TaskResultDetailsMessagesInner', 
+               'ConvertFrom-JsonToTaskResultDetailsMessagesInner', 
+               'Initialize-TaskResultDetailsReturnsInner', 
+               'ConvertFrom-JsonToTaskResultDetailsReturnsInner', 
+               'Initialize-Uncorrelatedaccountsreportarguments', 
+               'ConvertFrom-JsonToUncorrelatedaccountsreportarguments'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

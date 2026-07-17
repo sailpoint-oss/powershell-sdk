@@ -5,18 +5,27 @@
       label: SDK_tools/sdk/powershell/apps/methods/apps#create-source-app-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Sourceappcreatedto = @"
-        {"name":"new app name","description":"app description","matchAllAccounts":true,"accountSource":{"id":"edcb0951812949d085b60cd8bf35bc78"}}
+        $SourceAppCreateDto = @"
+        {
+          "name" : "my app",
+          "description" : "the source app for engineers",
+          "accountSource" : {
+            "name" : "ODS-AD-Source",
+            "id" : "2c9180827ca885d7017ca8ce28a000eb",
+            "type" : "SOURCE"
+          },
+          "matchAllAccounts" : true
+        }
         "@
         
         # Create source app
         
         try {
-            $Result = ConvertFrom-JsonToSourceappcreatedto -Json $Sourceappcreatedto
-            New-SourceAppV1 -XSailPointExperimental $XSailPointExperimental -Sourceappcreatedto $Result 
+            $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
+            New-SourceAppV1 -XSailPointExperimental $XSailPointExperimental -SourceAppCreateDto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-SourceAppV1 -XSailPointExperimental $XSailPointExperimental -Sourceappcreatedto $Result   
+            # New-SourceAppV1 -XSailPointExperimental $XSailPointExperimental -SourceAppCreateDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourceAppV1"
             Write-Host $_.ErrorDetails
@@ -257,7 +266,11 @@
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app to patch
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/enabled","value":true},{"op":"replace","path":"/matchAllAccounts","value":true}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch source app by id
@@ -266,7 +279,7 @@
             Update-SourceAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Update-SourceAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result   
+            # Update-SourceAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceAppV1"
             Write-Host $_.ErrorDetails
@@ -279,7 +292,11 @@
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app to patch
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch user app by id
@@ -288,7 +305,7 @@
             Update-UserAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Update-UserAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result   
+            # Update-UserAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-UserAppV1"
             Write-Host $_.ErrorDetails
@@ -300,8 +317,19 @@
       label: SDK_tools/sdk/powershell/apps/methods/apps#update-source-apps-in-bulk-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Sourceappbulkupdaterequest = @"
-        
+        $SourceAppBulkUpdateRequest = @"
+        {
+          "appIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
+          "jsonPatch" : [ {
+            "op" : "replace",
+            "path" : "/enabled",
+            "value" : false
+          }, {
+            "op" : "replace",
+            "path" : "/matchAllAccounts",
+            "value" : false
+          } ]
+        }
         "@
         
         # Bulk update source apps
@@ -310,7 +338,7 @@
             Update-SourceAppsInBulkV1 -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Update-SourceAppsInBulkV1 -XSailPointExperimental $XSailPointExperimental -Sourceappbulkupdaterequest $Result   
+            # Update-SourceAppsInBulkV1 -XSailPointExperimental $XSailPointExperimental -SourceAppBulkUpdateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceAppsInBulkV1"
             Write-Host $_.ErrorDetails

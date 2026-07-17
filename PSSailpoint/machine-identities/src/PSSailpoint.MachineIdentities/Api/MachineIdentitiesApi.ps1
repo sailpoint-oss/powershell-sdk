@@ -17,7 +17,7 @@ Use this API to create a machine identity. The maximum supported length for the 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Machineidentityrequest
+.PARAMETER MachineIdentityRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineidentityresponse
+MachineIdentityResponse
 #>
 function New-MachineIdentityV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-MachineIdentityV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Machineidentityrequest},
+        ${MachineIdentityRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-MachineIdentityV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Machineidentityrequest) {
-            throw "Error! The required parameter `Machineidentityrequest` missing when calling createMachineIdentityV1."
+        if (!$MachineIdentityRequest) {
+            throw "Error! The required parameter `MachineIdentityRequest` missing when calling createMachineIdentityV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Machineidentityrequest -is [array])) {
-            $LocalVarBodyParameter = $Machineidentityrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MachineIdentityRequest -is [array])) {
+            $LocalVarBodyParameter = $MachineIdentityRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Machineidentityrequest | ForEach-Object {
+            $LocalVarBodyParameter = $MachineIdentityRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -93,7 +93,7 @@ function New-MachineIdentityV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineidentityresponse" `
+                                -ReturnType "MachineIdentityResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -460,7 +460,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineidentityresponse
+MachineIdentityResponse
 #>
 function Get-MachineIdentityV1 {
     [CmdletBinding()]
@@ -511,7 +511,7 @@ function Get-MachineIdentityV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineidentityresponse" `
+                                -ReturnType "MachineIdentityResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -618,7 +618,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Correlationconfig
+CorrelationConfig
 #>
 function Get-OwnershipCorrelationConfigV1 {
     [CmdletBinding()]
@@ -675,7 +675,7 @@ function Get-OwnershipCorrelationConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Correlationconfig" `
+                                -ReturnType "CorrelationConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -719,7 +719,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineidentityresponse[]
+MachineIdentityResponse[]
 #>
 function Get-MachineIdentitiesV1 {
     [CmdletBinding()]
@@ -798,7 +798,7 @@ function Get-MachineIdentitiesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineidentityresponse[]" `
+                                -ReturnType "MachineIdentityResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -954,7 +954,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineidentityuserentitlementresponse[]
+MachineIdentityUserEntitlementResponse[]
 #>
 function Get-MachineIdentityUserEntitlementsV1 {
     [CmdletBinding()]
@@ -1033,7 +1033,7 @@ function Get-MachineIdentityUserEntitlementsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineidentityuserentitlementresponse[]" `
+                                -ReturnType "MachineIdentityUserEntitlementResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1077,7 +1077,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Correlationconfig[]
+CorrelationConfig[]
 #>
 function Get-OwnershipCorrelationConfigsV1 {
     [CmdletBinding()]
@@ -1156,7 +1156,7 @@ function Get-OwnershipCorrelationConfigsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Correlationconfig[]" `
+                                -ReturnType "CorrelationConfig[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1185,7 +1185,7 @@ The source resource ID (for example, account or aws:iam-role).
 .PARAMETER ConfigId
 The correlation config ID.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the correlation config.
 
 .PARAMETER WithHttpInfo
@@ -1194,7 +1194,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Correlationconfig
+CorrelationConfig
 #>
 function Update-OwnershipCorrelationConfigV1 {
     [CmdletBinding()]
@@ -1210,7 +1210,7 @@ function Update-OwnershipCorrelationConfigV1 {
         ${ConfigId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -1248,14 +1248,14 @@ function Update-OwnershipCorrelationConfigV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{configId}', [System.Web.HTTPUtility]::UrlEncode($ConfigId))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchOwnershipCorrelationConfigV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchOwnershipCorrelationConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1274,7 +1274,7 @@ function Update-OwnershipCorrelationConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Correlationconfig" `
+                                -ReturnType "CorrelationConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1300,7 +1300,7 @@ Source ID.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Machineidentityaggregationrequest
+.PARAMETER MachineIdentityAggregationRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1309,7 +1309,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineidentityaggregationresponse
+MachineIdentityAggregationResponse
 #>
 function Start-MachineIdentityAggregationV1 {
     [CmdletBinding()]
@@ -1322,7 +1322,7 @@ function Start-MachineIdentityAggregationV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Machineidentityaggregationrequest},
+        ${MachineIdentityAggregationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1357,14 +1357,14 @@ function Start-MachineIdentityAggregationV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Machineidentityaggregationrequest) {
-            throw "Error! The required parameter `Machineidentityaggregationrequest` missing when calling startMachineIdentityAggregationV1."
+        if (!$MachineIdentityAggregationRequest) {
+            throw "Error! The required parameter `MachineIdentityAggregationRequest` missing when calling startMachineIdentityAggregationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Machineidentityaggregationrequest -is [array])) {
-            $LocalVarBodyParameter = $Machineidentityaggregationrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MachineIdentityAggregationRequest -is [array])) {
+            $LocalVarBodyParameter = $MachineIdentityAggregationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Machineidentityaggregationrequest | ForEach-Object {
+            $LocalVarBodyParameter = $MachineIdentityAggregationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1383,7 +1383,7 @@ function Start-MachineIdentityAggregationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineidentityaggregationresponse" `
+                                -ReturnType "MachineIdentityAggregationResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1418,7 +1418,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Machineidentityresponse
+MachineIdentityResponse
 #>
 function Update-MachineIdentityV1 {
     [CmdletBinding()]
@@ -1492,7 +1492,7 @@ function Update-MachineIdentityV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Machineidentityresponse" `
+                                -ReturnType "MachineIdentityResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1515,7 +1515,7 @@ Use this API to selectively update machine identity details using a JSONPatch pa
 .PARAMETER Id
 Machine Identity ID.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER WithHttpInfo
@@ -1534,7 +1534,7 @@ function Update-MachineIdentityV2 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -1564,14 +1564,14 @@ function Update-MachineIdentityV2 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateMachineIdentityV2."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateMachineIdentityV2."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

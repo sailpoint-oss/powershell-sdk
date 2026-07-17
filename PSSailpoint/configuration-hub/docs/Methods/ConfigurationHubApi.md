@@ -58,20 +58,20 @@ This API performs a deploy based on an existing daft.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Deployrequest | [**Deployrequest**](../models/deployrequest) | True  | The deploy request body.
+ Body  | DeployRequest | [**DeployRequest**](../models/deploy-request) | True  | The deploy request body.
 
 ### Return type
-[**Deployresponse**](../models/deployresponse)
+[**DeployResponse**](../models/deploy-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Deploy job accepted and queued for processing. | Deployresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Deploy job accepted and queued for processing. | DeployResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -79,16 +79,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Deployrequest = @"{"draftId":"c9a38d8c-5edf-4182-9d39-f6581d3ebd05"}"@
+$DeployRequest = @"{
+  "draftId" : "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b"
+}"@
 
 # Create a deploy
 
 try {
-    $Result = ConvertFrom-JsonToDeployrequest -Json $Deployrequest
-    New-DeployV1 -Deployrequest $Result 
+    $Result = ConvertFrom-JsonToDeployRequest -Json $DeployRequest
+    New-DeployV1 -DeployRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-DeployV1 -Deployrequest $Result  
+    # New-DeployV1 -DeployRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-DeployV1"
     Write-Host $_.ErrorDetails
@@ -108,21 +110,21 @@ The request will need the following security scope:
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceOrg | **String** | True  | The name of the source org.
- Body  | Objectmappingrequest | [**Objectmappingrequest**](../models/objectmappingrequest) | True  | The object mapping request body.
+ Body  | ObjectMappingRequest | [**ObjectMappingRequest**](../models/object-mapping-request) | True  | The object mapping request body.
 
 ### Return type
-[**Objectmappingresponse**](../models/objectmappingresponse)
+[**ObjectMappingResponse**](../models/object-mapping-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The created object mapping between current org and source org. | Objectmappingresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The created object mapping between current org and source org. | ObjectMappingResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -131,16 +133,22 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceOrg = "source-org" # String | The name of the source org.
-$Objectmappingrequest = @"{"objectType":"GOVERNANCE_GROUP","jsonPath":"$.description","sourceValue":"Sample Governance Group","targetValue":"Sample Governance Group - Updated","enabled":true}"@
+$ObjectMappingRequest = @"{
+  "targetValue" : "My New Governance Group Name",
+  "jsonPath" : "$.name",
+  "sourceValue" : "My Governance Group Name",
+  "enabled" : false,
+  "objectType" : "IDENTITY"
+}"@
 
 # Creates an object mapping
 
 try {
-    $Result = ConvertFrom-JsonToObjectmappingrequest -Json $Objectmappingrequest
-    New-ObjectMappingV1 -SourceOrg $SourceOrg -Objectmappingrequest $Result 
+    $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
+    New-ObjectMappingV1 -SourceOrg $SourceOrg -ObjectMappingRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ObjectMappingV1 -SourceOrg $SourceOrg -Objectmappingrequest $Result  
+    # New-ObjectMappingV1 -SourceOrg $SourceOrg -ObjectMappingRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ObjectMappingV1"
     Write-Host $_.ErrorDetails
@@ -160,21 +168,21 @@ The request will need the following security scope:
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceOrg | **String** | True  | The name of the source org.
- Body  | Objectmappingbulkcreaterequest | [**Objectmappingbulkcreaterequest**](../models/objectmappingbulkcreaterequest) | True  | The bulk create object mapping request body.
+ Body  | ObjectMappingBulkCreateRequest | [**ObjectMappingBulkCreateRequest**](../models/object-mapping-bulk-create-request) | True  | The bulk create object mapping request body.
 
 ### Return type
-[**Objectmappingbulkcreateresponse**](../models/objectmappingbulkcreateresponse)
+[**ObjectMappingBulkCreateResponse**](../models/object-mapping-bulk-create-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The created object mapping between current org and source org. | Objectmappingbulkcreateresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The created object mapping between current org and source org. | ObjectMappingBulkCreateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -183,16 +191,30 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceOrg = "source-org" # String | The name of the source org.
-$Objectmappingbulkcreaterequest = @"{"newObjectsMappings":[{"objectType":"SOURCE","jsonPath":"$.name","sourceValue":"Original SOURCE Name","targetValue":"New SOURCE Name","enabled":true},{"objectType":"IDENTITY","jsonPath":"$.name","sourceValue":"Original IDENTITY Name","targetValue":"New IDENTITY Name ","enabled":true}]}"@
+$ObjectMappingBulkCreateRequest = @"{
+  "newObjectsMappings" : [ {
+    "targetValue" : "My New Governance Group Name",
+    "jsonPath" : "$.name",
+    "sourceValue" : "My Governance Group Name",
+    "enabled" : false,
+    "objectType" : "IDENTITY"
+  }, {
+    "targetValue" : "My New Governance Group Name",
+    "jsonPath" : "$.name",
+    "sourceValue" : "My Governance Group Name",
+    "enabled" : false,
+    "objectType" : "IDENTITY"
+  } ]
+}"@
 
 # Bulk creates object mappings
 
 try {
-    $Result = ConvertFrom-JsonToObjectmappingbulkcreaterequest -Json $Objectmappingbulkcreaterequest
-    New-ObjectMappingsV1 -SourceOrg $SourceOrg -Objectmappingbulkcreaterequest $Result 
+    $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
+    New-ObjectMappingsV1 -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ObjectMappingsV1 -SourceOrg $SourceOrg -Objectmappingbulkcreaterequest $Result  
+    # New-ObjectMappingsV1 -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ObjectMappingsV1"
     Write-Host $_.ErrorDetails
@@ -208,20 +230,20 @@ This API creates a new scheduled action for the current tenant.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Scheduledactionpayload | [**Scheduledactionpayload**](../models/scheduledactionpayload) | True  | The scheduled action creation request body.
+ Body  | ScheduledActionPayload | [**ScheduledActionPayload**](../models/scheduled-action-payload) | True  | The scheduled action creation request body.
 
 ### Return type
-[**Scheduledactionresponse**](../models/scheduledactionresponse)
+[**ScheduledActionResponse**](../models/scheduled-action-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The created scheduled action. | Scheduledactionresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The created scheduled action. | ScheduledActionResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -229,16 +251,38 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Scheduledactionpayload = @"{"jobType":"BACKUP","startTime":"2024-08-16T14:16:58.389Z","cronString":"0 0 * * * *","timeZoneId":"America/Chicago","content":{"name":"Daily Backup","backupOptions":{"includeTypes":["SOURCE","IDENTITY"],"objectOptions":{"SOURCE":{"includedNames":["Source1","Source2"]}}}}}"@
+$ScheduledActionPayload = @"{
+  "cronString" : "0 0 * * * *",
+  "timeZoneId" : "America/Chicago",
+  "startTime" : "2024-08-16T14:16:58.389Z",
+  "jobType" : "BACKUP",
+  "content" : {
+    "sourceTenant" : "tenant-name",
+    "draftId" : "9012b87d-48ca-439a-868f-2160001da8c3",
+    "name" : "Daily Backup",
+    "backupOptions" : {
+      "includeTypes" : [ "ROLE", "IDENTITY_PROFILE" ],
+      "objectOptions" : {
+        "SOURCE" : {
+          "includedNames" : [ "Source1", "Source2" ]
+        },
+        "ROLE" : {
+          "includedNames" : [ "Admin Role", "User Role" ]
+        }
+      }
+    },
+    "sourceBackupId" : "5678b87d-48ca-439a-868f-2160001da8c2"
+  }
+}"@
 
 # Create scheduled action
 
 try {
-    $Result = ConvertFrom-JsonToScheduledactionpayload -Json $Scheduledactionpayload
-    New-ScheduledActionV1 -Scheduledactionpayload $Result 
+    $Result = ConvertFrom-JsonToScheduledActionPayload -Json $ScheduledActionPayload
+    New-ScheduledActionV1 -ScheduledActionPayload $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ScheduledActionV1 -Scheduledactionpayload $Result  
+    # New-ScheduledActionV1 -ScheduledActionPayload $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ScheduledActionV1"
     Write-Host $_.ErrorDetails
@@ -262,17 +306,17 @@ Param Type | Name | Data Type | Required  | Description
    | Name | **String** | True  | Name that will be assigned to the uploaded configuration file.
 
 ### Return type
-[**Backupresponse**](../models/backupresponse)
+[**BackupResponse**](../models/backup-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Upload job accepted and queued for processing. | Backupresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Upload job accepted and queued for processing. | BackupResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: multipart/form-data
@@ -318,12 +362,12 @@ Path   | Id | **String** | True  | The id of the backup to delete.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -368,12 +412,12 @@ Path   | Id | **String** | True  | The id of the draft to delete.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -418,12 +462,12 @@ Path   | ObjectMappingId | **String** | True  | The id of the object mapping to 
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -465,12 +509,12 @@ Path   | Id | **String** | True  | The ID of the scheduled action.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -515,12 +559,12 @@ Path   | Id | **String** | True  | The id of the uploaded configuration.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -555,18 +599,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the deploy.
 
 ### Return type
-[**Deployresponse**](../models/deployresponse)
+[**DeployResponse**](../models/deploy-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Gets the details of a deploy. | Deployresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Gets the details of a deploy. | DeployResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -604,18 +648,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceOrg | **String** | True  | The name of the source org.
 
 ### Return type
-[**Objectmappingresponse[]**](../models/objectmappingresponse)
+[**ObjectMappingResponse[]**](../models/object-mapping-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of existing object mappings between current org and source org. | Objectmappingresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of existing object mappings between current org and source org. | ObjectMappingResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -650,18 +694,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the uploaded configuration.
 
 ### Return type
-[**Backupresponse**](../models/backupresponse)
+[**BackupResponse**](../models/backup-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Gets an uploaded configuration details. | Backupresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Gets an uploaded configuration details. | BackupResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -696,17 +740,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
 
 ### Return type
-[**Backupresponse[]**](../models/backupresponse)
+[**BackupResponse[]**](../models/backup-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of existing backups. | Backupresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of existing backups. | BackupResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -746,11 +790,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of existing deploys. | ListDeploysV1200Response
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -784,17 +828,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq*
 
 ### Return type
-[**Draftresponse[]**](../models/draftresponse)
+[**DraftResponse[]**](../models/draft-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of existing drafts. | Draftresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of existing drafts. | DraftResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -828,17 +872,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Scheduledactionresponse[]**](../models/scheduledactionresponse)
+[**ScheduledActionResponse[]**](../models/scheduled-action-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of existing scheduled actions. | Scheduledactionresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of existing scheduled actions. | ScheduledActionResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -872,18 +916,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
 
 ### Return type
-[**Backupresponse[]**](../models/backupresponse)
+[**BackupResponse[]**](../models/backup-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of existing uploaded configurations. | Backupresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of existing uploaded configurations. | BackupResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -919,21 +963,21 @@ The request will need the following security scope:
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceOrg | **String** | True  | The name of the source org.
- Body  | Objectmappingbulkpatchrequest | [**Objectmappingbulkpatchrequest**](../models/objectmappingbulkpatchrequest) | True  | The object mapping request body.
+ Body  | ObjectMappingBulkPatchRequest | [**ObjectMappingBulkPatchRequest**](../models/object-mapping-bulk-patch-request) | True  | The object mapping request body.
 
 ### Return type
-[**Objectmappingbulkpatchresponse**](../models/objectmappingbulkpatchresponse)
+[**ObjectMappingBulkPatchResponse**](../models/object-mapping-bulk-patch-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The updated object mappings. | Objectmappingbulkpatchresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The updated object mappings. | ObjectMappingBulkPatchResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -942,16 +986,29 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceOrg = "source-org" # String | The name of the source org.
-$Objectmappingbulkpatchrequest = @"{"patches":{"603b1a61-d03d-4ed1-864f-a508fbd1995d":[{"op":"replace","path":"/enabled","value":true}],"00bece34-f50d-4227-8878-76f620b5a971":[{"op":"replace","path":"/targetValue","value":"New Target Value"}]}}"@
+$ObjectMappingBulkPatchRequest = @"{
+  "patches" : {
+    "603b1a61-d03d-4ed1-864f-a508fbd1995d" : [ {
+      "op" : "replace",
+      "path" : "/enabled",
+      "value" : true
+    } ],
+    "00bece34-f50d-4227-8878-76f620b5a971" : [ {
+      "op" : "replace",
+      "path" : "/targetValue",
+      "value" : "New Target Value"
+    } ]
+  }
+}"@
 
 # Bulk updates object mappings
 
 try {
-    $Result = ConvertFrom-JsonToObjectmappingbulkpatchrequest -Json $Objectmappingbulkpatchrequest
-    Update-ObjectMappingsV1 -SourceOrg $SourceOrg -Objectmappingbulkpatchrequest $Result 
+    $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
+    Update-ObjectMappingsV1 -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ObjectMappingsV1 -SourceOrg $SourceOrg -Objectmappingbulkpatchrequest $Result  
+    # Update-ObjectMappingsV1 -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ObjectMappingsV1"
     Write-Host $_.ErrorDetails
@@ -968,21 +1025,21 @@ This API updates an existing scheduled action using JSON Patch format.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the scheduled action.
- Body  | Jsonpatch | [**Jsonpatch**](../models/jsonpatch) | True  | The JSON Patch document containing the changes to apply to the scheduled action.
+ Body  | JsonPatch | [**JsonPatch**](../models/json-patch) | True  | The JSON Patch document containing the changes to apply to the scheduled action.
 
 ### Return type
-[**Scheduledactionresponse**](../models/scheduledactionresponse)
+[**ScheduledActionResponse**](../models/scheduled-action-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The updated scheduled action. | Scheduledactionresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The updated scheduled action. | ScheduledActionResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetObjectMappingsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetObjectMappingsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -991,16 +1048,26 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the scheduled action.
-$Jsonpatch = @"[{"op":"replace","path":"/content/name","value":"Updated Backup Name"},{"op":"replace","path":"/cronString","value":"0 0 9 * * ?"}]"@
+$JsonPatch = @"{
+  "operations" : [ {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  }, {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  } ]
+}"@
 
 # Update scheduled action
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatch -Json $Jsonpatch
-    Update-ScheduledActionV1 -Id $Id -Jsonpatch $Result 
+    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    Update-ScheduledActionV1 -Id $Id -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ScheduledActionV1 -Id $Id -Jsonpatch $Result  
+    # Update-ScheduledActionV1 -Id $Id -JsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ScheduledActionV1"
     Write-Host $_.ErrorDetails

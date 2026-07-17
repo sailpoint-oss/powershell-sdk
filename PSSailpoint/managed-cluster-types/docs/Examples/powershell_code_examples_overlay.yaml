@@ -4,18 +4,24 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#create-managed-cluster-type-v1
       source: |
-        $Managedclustertype = @"
-        
+        $ManagedClusterType = @"
+        {
+          "managedProcessIds" : [ "someId", "someId2" ],
+          "pod" : "megapod-useast1",
+          "org" : "denali-cjh",
+          "id" : "aClusterTypeId",
+          "type" : "idn"
+        }
         "@
         
         # Create new managed cluster type
         
         try {
-            $Result = ConvertFrom-JsonToManagedclustertype -Json $Managedclustertype
-            New-ManagedClusterTypeV1 -Managedclustertype $Result 
+            $Result = ConvertFrom-JsonToManagedClusterType -Json $ManagedClusterType
+            New-ManagedClusterTypeV1 -ManagedClusterType $Result 
     
             # Below is a request that includes all optional parameters
-            # New-ManagedClusterTypeV1 -Managedclustertype $Result   
+            # New-ManagedClusterTypeV1 -ManagedClusterType $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ManagedClusterTypeV1"
             Write-Host $_.ErrorDetails
@@ -88,18 +94,28 @@
       label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#update-managed-cluster-type-v1
       source: |
         $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
-        $Jsonpatch = @"
-        
+        $JsonPatch = @"
+        {
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        }
         "@
         
         # Update a managed cluster type
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatch -Json $Jsonpatch
-            Update-ManagedClusterTypeV1 -Id $Id -Jsonpatch $Result 
+            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            Update-ManagedClusterTypeV1 -Id $Id -JsonPatch $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-ManagedClusterTypeV1 -Id $Id -Jsonpatch $Result   
+            # Update-ManagedClusterTypeV1 -Id $Id -JsonPatch $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ManagedClusterTypeV1"
             Write-Host $_.ErrorDetails

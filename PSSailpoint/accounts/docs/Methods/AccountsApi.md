@@ -81,20 +81,20 @@ By providing the account ID of an existing account in the request body, this API
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Accountattributescreate | [**Accountattributescreate**](../models/accountattributescreate) | True  | 
+ Body  | AccountAttributesCreate | [**AccountAttributesCreate**](../models/account-attributes-create) | True  | 
 
 ### Return type
-[**Accountsasyncresult**](../models/accountsasyncresult)
+[**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Async task details. | Accountsasyncresult
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Async task details. | AccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -102,16 +102,25 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Accountattributescreate = @""@
+$AccountAttributesCreate = @"{
+  "attributes" : {
+    "sourceId" : "34bfcbe116c9407464af37acbaf7a4dc",
+    "city" : "Austin",
+    "displayName" : "John Doe",
+    "userName" : "jdoe",
+    "sAMAccountName" : "jDoe",
+    "mail" : "john.doe@sailpoint.com"
+  }
+}"@
 
 # Create account
 
 try {
-    $Result = ConvertFrom-JsonToAccountattributescreate -Json $Accountattributescreate
-    New-AccountV1 -Accountattributescreate $Result 
+    $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
+    New-AccountV1 -AccountAttributesCreate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-AccountV1 -Accountattributescreate $Result  
+    # New-AccountV1 -AccountAttributesCreate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccountV1"
     Write-Host $_.ErrorDetails
@@ -136,17 +145,17 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The account id
 
 ### Return type
-[**Taskresultdto**](../models/taskresultdto)
+[**TaskResultDto**](../models/task-result-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Accepted. Returns task result details of removal request. | Taskresultdto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Accepted. Returns task result details of removal request. | TaskResultDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -184,18 +193,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Account ID.
 
 ### Return type
-[**Accountsasyncresult**](../models/accountsasyncresult)
+[**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Async task details. | Accountsasyncresult
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Async task details. | AccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -236,12 +245,12 @@ Path   | Id | **String** | True  | The identity id.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -274,21 +283,21 @@ This API submits a task to disable the account and returns the task ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The account id
- Body  | Accounttogglerequest | [**Accounttogglerequest**](../models/accounttogglerequest) | True  | 
+ Body  | AccountToggleRequest | [**AccountToggleRequest**](../models/account-toggle-request) | True  | 
 
 ### Return type
-[**Accountsasyncresult**](../models/accountsasyncresult)
+[**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Async task details | Accountsasyncresult
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Async task details | AccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -297,16 +306,19 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
-$Accounttogglerequest = @""@
+$AccountToggleRequest = @"{
+  "forceProvisioning" : false,
+  "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
+}"@
 
 # Disable account
 
 try {
-    $Result = ConvertFrom-JsonToAccounttogglerequest -Json $Accounttogglerequest
-    Disable-AccountV1 -Id $Id -Accounttogglerequest $Result 
+    $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
+    Disable-AccountV1 -Id $Id -AccountToggleRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Disable-AccountV1 -Id $Id -Accounttogglerequest $Result  
+    # Disable-AccountV1 -Id $Id -AccountToggleRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-AccountV1"
     Write-Host $_.ErrorDetails
@@ -322,20 +334,20 @@ This API submits tasks to disable IDN account for each identity provided in the 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Identitiesaccountsbulkrequest | [**Identitiesaccountsbulkrequest**](../models/identitiesaccountsbulkrequest) | True  | 
+ Body  | IdentitiesAccountsBulkRequest | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) | True  | 
 
 ### Return type
-[**Bulkidentitiesaccountsresponse[]**](../models/bulkidentitiesaccountsresponse)
+[**BulkIdentitiesAccountsResponse[]**](../models/bulk-identities-accounts-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-207 | Bulk response details. | Bulkidentitiesaccountsresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+207 | Bulk response details. | BulkIdentitiesAccountsResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -343,16 +355,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Identitiesaccountsbulkrequest = @""@
+$IdentitiesAccountsBulkRequest = @"{
+  "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
+}"@
 
 # Disable idn accounts for identities
 
 try {
-    $Result = ConvertFrom-JsonToIdentitiesaccountsbulkrequest -Json $Identitiesaccountsbulkrequest
-    Disable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result 
+    $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
+    Disable-AccountsForIdentitiesV1 -IdentitiesAccountsBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Disable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result  
+    # Disable-AccountsForIdentitiesV1 -IdentitiesAccountsBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-AccountsForIdentitiesV1"
     Write-Host $_.ErrorDetails
@@ -377,12 +391,12 @@ Path   | Id | **String** | True  | The identity id.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -415,21 +429,21 @@ This API submits a task to enable account and returns the task ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The account id
- Body  | Accounttogglerequest | [**Accounttogglerequest**](../models/accounttogglerequest) | True  | 
+ Body  | AccountToggleRequest | [**AccountToggleRequest**](../models/account-toggle-request) | True  | 
 
 ### Return type
-[**Accountsasyncresult**](../models/accountsasyncresult)
+[**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Async task details | Accountsasyncresult
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Async task details | AccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -438,16 +452,19 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
-$Accounttogglerequest = @""@
+$AccountToggleRequest = @"{
+  "forceProvisioning" : false,
+  "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
+}"@
 
 # Enable account
 
 try {
-    $Result = ConvertFrom-JsonToAccounttogglerequest -Json $Accounttogglerequest
-    Enable-AccountV1 -Id $Id -Accounttogglerequest $Result 
+    $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
+    Enable-AccountV1 -Id $Id -AccountToggleRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Enable-AccountV1 -Id $Id -Accounttogglerequest $Result  
+    # Enable-AccountV1 -Id $Id -AccountToggleRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-AccountV1"
     Write-Host $_.ErrorDetails
@@ -463,20 +480,20 @@ This API submits tasks to enable IDN account for each identity provided in the r
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Identitiesaccountsbulkrequest | [**Identitiesaccountsbulkrequest**](../models/identitiesaccountsbulkrequest) | True  | 
+ Body  | IdentitiesAccountsBulkRequest | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) | True  | 
 
 ### Return type
-[**Bulkidentitiesaccountsresponse[]**](../models/bulkidentitiesaccountsresponse)
+[**BulkIdentitiesAccountsResponse[]**](../models/bulk-identities-accounts-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-207 | Bulk response details. | Bulkidentitiesaccountsresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+207 | Bulk response details. | BulkIdentitiesAccountsResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -484,16 +501,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Identitiesaccountsbulkrequest = @""@
+$IdentitiesAccountsBulkRequest = @"{
+  "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
+}"@
 
 # Enable idn accounts for identities
 
 try {
-    $Result = ConvertFrom-JsonToIdentitiesaccountsbulkrequest -Json $Identitiesaccountsbulkrequest
-    Enable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result 
+    $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
+    Enable-AccountsForIdentitiesV1 -IdentitiesAccountsBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Enable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result  
+    # Enable-AccountsForIdentitiesV1 -IdentitiesAccountsBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-AccountsForIdentitiesV1"
     Write-Host $_.ErrorDetails
@@ -521,12 +540,12 @@ Path   | Id | **String** | True  | The account id
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | An array of account entitlements | Entitlement[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -570,12 +589,12 @@ Path   | Id | **String** | True  | Account ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Account object. | Account
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -621,11 +640,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of account objects. | Account[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -668,21 +687,21 @@ This endpoint submits an account update task and returns the task ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Account ID.
- Body  | Accountattributes | [**Accountattributes**](../models/accountattributes) | True  | 
+ Body  | AccountAttributes | [**AccountAttributes**](../models/account-attributes) | True  | 
 
 ### Return type
-[**Accountsasyncresult**](../models/accountsasyncresult)
+[**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Async task details. | Accountsasyncresult
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Async task details. | AccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -691,16 +710,24 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
-$Accountattributes = @""@
+$AccountAttributes = @"{
+  "attributes" : {
+    "city" : "Austin",
+    "displayName" : "John Doe",
+    "userName" : "jdoe",
+    "sAMAccountName" : "jDoe",
+    "mail" : "john.doe@sailpoint.com"
+  }
+}"@
 
 # Update account
 
 try {
-    $Result = ConvertFrom-JsonToAccountattributes -Json $Accountattributes
-    Send-AccountV1 -Id $Id -Accountattributes $Result 
+    $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
+    Send-AccountV1 -Id $Id -AccountAttributes $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-AccountV1 -Id $Id -Accountattributes $Result  
+    # Send-AccountV1 -Id $Id -AccountAttributes $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-AccountV1"
     Write-Host $_.ErrorDetails
@@ -719,18 +746,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The account id
 
 ### Return type
-[**Accountsasyncresult**](../models/accountsasyncresult)
+[**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Async task details | Accountsasyncresult
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Async task details | AccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -764,21 +791,21 @@ To use this endpoint to unlock an account that has the `forceProvisioning` optio
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The account ID.
- Body  | Accountunlockrequest | [**Accountunlockrequest**](../models/accountunlockrequest) | True  | 
+ Body  | AccountUnlockRequest | [**AccountUnlockRequest**](../models/account-unlock-request) | True  | 
 
 ### Return type
-[**Accountsasyncresult**](../models/accountsasyncresult)
+[**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Async task details | Accountsasyncresult
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Async task details | AccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -787,16 +814,20 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID.
-$Accountunlockrequest = @""@
+$AccountUnlockRequest = @"{
+  "forceProvisioning" : false,
+  "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581",
+  "unlockIDNAccount" : false
+}"@
 
 # Unlock account
 
 try {
-    $Result = ConvertFrom-JsonToAccountunlockrequest -Json $Accountunlockrequest
-    Unlock-AccountV1 -Id $Id -Accountunlockrequest $Result 
+    $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
+    Unlock-AccountV1 -Id $Id -AccountUnlockRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Unlock-AccountV1 -Id $Id -Accountunlockrequest $Result  
+    # Unlock-AccountV1 -Id $Id -AccountUnlockRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Unlock-AccountV1"
     Write-Host $_.ErrorDetails
@@ -832,12 +863,12 @@ Path   | Id | **String** | True  | Account ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json

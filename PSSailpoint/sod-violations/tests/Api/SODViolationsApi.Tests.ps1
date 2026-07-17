@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.SodViolations' -name 'SODViolationsApi' {
     Context 'Start-PredictSodViolationsV1' {
         It 'Test Start-PredictSodViolationsV1' {
-            #$TestResult = Start-PredictSodViolationsV1 -Identitywithnewaccess "TEST_VALUE"
+            #$TestResult = Start-PredictSodViolationsV1 -IdentityWithNewAccess "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.SodViolations' -name 'SODViolationsApi' {
 
     Context 'Start-ViolationCheckV1' {
         It 'Test Start-ViolationCheckV1' {
-            #$TestResult = Start-ViolationCheckV1 -Identitywithnewaccess "TEST_VALUE"
+            #$TestResult = Start-ViolationCheckV1 -IdentityWithNewAccess "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.GlobalTenantSecuritySettings' -name 'GlobalTenantSecuritySettingsApi' {
     Context 'New-AuthOrgNetworkConfigV1' {
         It 'Test New-AuthOrgNetworkConfigV1' {
-            #$TestResult = New-AuthOrgNetworkConfigV1 -Networkconfiguration "TEST_VALUE"
+            #$TestResult = New-AuthOrgNetworkConfigV1 -NetworkConfiguration "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.GlobalTenantSecuritySettings' -name 'GlobalTenantSecu
 
     Context 'Update-AuthOrgLockoutConfigV1' {
         It 'Test Update-AuthOrgLockoutConfigV1' {
-            #$TestResult = Update-AuthOrgLockoutConfigV1 -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-AuthOrgLockoutConfigV1 -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.GlobalTenantSecuritySettings' -name 'GlobalTenantSecu
 
     Context 'Update-AuthOrgNetworkConfigV1' {
         It 'Test Update-AuthOrgNetworkConfigV1' {
-            #$TestResult = Update-AuthOrgNetworkConfigV1 -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-AuthOrgNetworkConfigV1 -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.GlobalTenantSecuritySettings' -name 'GlobalTenantSecu
 
     Context 'Update-AuthOrgServiceProviderConfigV1' {
         It 'Test Update-AuthOrgServiceProviderConfigV1' {
-            #$TestResult = Update-AuthOrgServiceProviderConfigV1 -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-AuthOrgServiceProviderConfigV1 -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.GlobalTenantSecuritySettings' -name 'GlobalTenantSecu
 
     Context 'Update-AuthOrgSessionConfigV1' {
         It 'Test Update-AuthOrgSessionConfigV1' {
-            #$TestResult = Update-AuthOrgSessionConfigV1 -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-AuthOrgSessionConfigV1 -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

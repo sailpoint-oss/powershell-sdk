@@ -41,7 +41,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accesssummary[]
+AccessSummary[]
 #>
 function Get-IdentityAccessSummariesV1 {
     [CmdletBinding()]
@@ -127,7 +127,7 @@ function Get-IdentityAccessSummariesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accesssummary[]" `
+                                -ReturnType "AccessSummary[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -159,7 +159,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identitycertdecisionsummary
+IdentityCertDecisionSummary
 #>
 function Get-IdentityDecisionSummaryV1 {
     [CmdletBinding()]
@@ -209,7 +209,7 @@ function Get-IdentityDecisionSummaryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identitycertdecisionsummary" `
+                                -ReturnType "IdentityCertDecisionSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -253,7 +253,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Certificationidentitysummary[]
+CertificationIdentitySummary[]
 #>
 function Get-IdentitySummariesV1 {
     [CmdletBinding()]
@@ -331,7 +331,7 @@ function Get-IdentitySummariesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Certificationidentitysummary[]" `
+                                -ReturnType "CertificationIdentitySummary[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -363,7 +363,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Certificationidentitysummary
+CertificationIdentitySummary
 #>
 function Get-IdentitySummaryV1 {
     [CmdletBinding()]
@@ -413,7 +413,7 @@ function Get-IdentitySummaryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Certificationidentitysummary" `
+                                -ReturnType "CertificationIdentitySummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.AccountActivities.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,15 +74,15 @@ FunctionsToExport = 'Get-AccountActivityV1', 'Get-AccountActivitiesV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Accountactivity', 'ConvertFrom-JsonToAccountactivity', 
-               'Initialize-Accountactivityitem', 
-               'ConvertFrom-JsonToAccountactivityitem', 
-               'Initialize-Accountrequestinfo', 
-               'ConvertFrom-JsonToAccountrequestinfo', 'Initialize-Comment', 
-               'ConvertFrom-JsonToComment', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 'Initialize-Identitysummary', 
-               'ConvertFrom-JsonToIdentitysummary', 
+               'Initialize-AccountActivity', 'ConvertFrom-JsonToAccountActivity', 
+               'Initialize-AccountActivityItem', 
+               'ConvertFrom-JsonToAccountActivityItem', 
+               'Initialize-AccountRequestInfo', 
+               'ConvertFrom-JsonToAccountRequestInfo', 'Initialize-Comment', 
+               'ConvertFrom-JsonToComment', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 'Initialize-IdentitySummary', 
+               'ConvertFrom-JsonToIdentitySummary', 
                'Initialize-ListAccountActivitiesV1401Response', 
                'ConvertFrom-JsonToListAccountActivitiesV1401Response', 
                'Initialize-ListAccountActivitiesV1429Response', 

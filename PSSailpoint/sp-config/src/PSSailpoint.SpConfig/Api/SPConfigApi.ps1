@@ -14,7 +14,7 @@ Initiates configuration objects export job
 
 This post will export objects from the tenant to a JSON configuration file. For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).
 
-.PARAMETER Exportpayload
+.PARAMETER ExportPayload
 Export options control what will be included in the export.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Spconfigexportjob
+SpConfigExportJob
 #>
 function Export-SpConfigV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Exportpayload},
+        ${ExportPayload},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function Export-SpConfigV1 {
 
         $LocalVarUri = '/sp-config/v1/export'
 
-        if (!$Exportpayload) {
-            throw "Error! The required parameter `Exportpayload` missing when calling exportSpConfigV1."
+        if (!$ExportPayload) {
+            throw "Error! The required parameter `ExportPayload` missing when calling exportSpConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Exportpayload -is [array])) {
-            $LocalVarBodyParameter = $Exportpayload | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ExportPayload -is [array])) {
+            $LocalVarBodyParameter = $ExportPayload | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Exportpayload | ForEach-Object {
+            $LocalVarBodyParameter = $ExportPayload | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function Export-SpConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Spconfigexportjob" `
+                                -ReturnType "SpConfigExportJob" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -111,7 +111,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Spconfigexportjobstatus
+SpConfigExportJobStatus
 #>
 function Get-SpConfigExportStatusV1 {
     [CmdletBinding()]
@@ -154,7 +154,7 @@ function Get-SpConfigExportStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Spconfigexportjobstatus" `
+                                -ReturnType "SpConfigExportJobStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -183,7 +183,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Spconfigexportresults
+SpConfigExportResults
 #>
 function Get-SpConfigExportV1 {
     [CmdletBinding()]
@@ -226,7 +226,7 @@ function Get-SpConfigExportV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Spconfigexportresults" `
+                                -ReturnType "SpConfigExportResults" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -255,7 +255,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Spconfigimportjobstatus
+SpConfigImportJobStatus
 #>
 function Get-SpConfigImportStatusV1 {
     [CmdletBinding()]
@@ -298,7 +298,7 @@ function Get-SpConfigImportStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Spconfigimportjobstatus" `
+                                -ReturnType "SpConfigImportJobStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -327,7 +327,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Spconfigimportresults
+SpConfigImportResults
 #>
 function Get-SpConfigImportV1 {
     [CmdletBinding()]
@@ -370,7 +370,7 @@ function Get-SpConfigImportV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Spconfigimportresults" `
+                                -ReturnType "SpConfigImportResults" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -405,7 +405,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Spconfigjob
+SpConfigJob
 #>
 function Import-SpConfigV1 {
     [CmdletBinding()]
@@ -466,7 +466,7 @@ function Import-SpConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Spconfigjob" `
+                                -ReturnType "SpConfigJob" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -492,7 +492,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Spconfigobject[]
+SpConfigObject[]
 #>
 function Get-SpConfigObjectsV1 {
     [CmdletBinding()]
@@ -528,7 +528,7 @@ function Get-SpConfigObjectsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Spconfigobject[]" `
+                                -ReturnType "SpConfigObject[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

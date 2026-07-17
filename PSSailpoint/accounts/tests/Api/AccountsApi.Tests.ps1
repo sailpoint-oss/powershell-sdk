@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.Accounts' -name 'AccountsApi' {
     Context 'New-AccountV1' {
         It 'Test New-AccountV1' {
-            #$TestResult = New-AccountV1 -Accountattributescreate "TEST_VALUE"
+            #$TestResult = New-AccountV1 -AccountAttributesCreate "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.Accounts' -name 'AccountsApi' {
 
     Context 'Disable-AccountV1' {
         It 'Test Disable-AccountV1' {
-            #$TestResult = Disable-AccountV1 -Id "TEST_VALUE" -Accounttogglerequest "TEST_VALUE"
+            #$TestResult = Disable-AccountV1 -Id "TEST_VALUE" -AccountToggleRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.Accounts' -name 'AccountsApi' {
 
     Context 'Disable-AccountsForIdentitiesV1' {
         It 'Test Disable-AccountsForIdentitiesV1' {
-            #$TestResult = Disable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest "TEST_VALUE"
+            #$TestResult = Disable-AccountsForIdentitiesV1 -IdentitiesAccountsBulkRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.Accounts' -name 'AccountsApi' {
 
     Context 'Enable-AccountV1' {
         It 'Test Enable-AccountV1' {
-            #$TestResult = Enable-AccountV1 -Id "TEST_VALUE" -Accounttogglerequest "TEST_VALUE"
+            #$TestResult = Enable-AccountV1 -Id "TEST_VALUE" -AccountToggleRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.Accounts' -name 'AccountsApi' {
 
     Context 'Enable-AccountsForIdentitiesV1' {
         It 'Test Enable-AccountsForIdentitiesV1' {
-            #$TestResult = Enable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest "TEST_VALUE"
+            #$TestResult = Enable-AccountsForIdentitiesV1 -IdentitiesAccountsBulkRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.Accounts' -name 'AccountsApi' {
 
     Context 'Send-AccountV1' {
         It 'Test Send-AccountV1' {
-            #$TestResult = Send-AccountV1 -Id "TEST_VALUE" -Accountattributes "TEST_VALUE"
+            #$TestResult = Send-AccountV1 -Id "TEST_VALUE" -AccountAttributes "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -120,7 +120,7 @@ Describe -tag 'PSSailpoint.Accounts' -name 'AccountsApi' {
 
     Context 'Unlock-AccountV1' {
         It 'Test Unlock-AccountV1' {
-            #$TestResult = Unlock-AccountV1 -Id "TEST_VALUE" -Accountunlockrequest "TEST_VALUE"
+            #$TestResult = Unlock-AccountV1 -Id "TEST_VALUE" -AccountUnlockRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -48,21 +48,21 @@ The maximum supported length for the description field is 2000 characters.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Machineidentityrequest | [**Machineidentityrequest**](../models/machineidentityrequest) | True  | 
+ Body  | MachineIdentityRequest | [**MachineIdentityRequest**](../models/machine-identity-request) | True  | 
 
 ### Return type
-[**Machineidentityresponse**](../models/machineidentityresponse)
+[**MachineIdentityResponse**](../models/machine-identity-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Machine Identity created. | Machineidentityresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Machine Identity created. | MachineIdentityResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -71,16 +71,46 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Machineidentityrequest = @""@
+$MachineIdentityRequest = @"{
+  "sourceId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+  "subtype" : "Application",
+  "created" : "2015-05-28T14:07:17Z",
+  "userEntitlements" : [ {
+    "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+    "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+  }, {
+    "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+    "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+  } ],
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "description" : "",
+  "attributes" : "{\"Region\":\"EU\"}",
+  "owners" : {
+    "primaryIdentity" : "{}",
+    "secondaryIdentities" : [ {
+      "name" : "William Wilson",
+      "id" : "2c91808568c529c60168cca6f90c1313",
+      "type" : "IDENTITY"
+    }, {
+      "name" : "William Wilson",
+      "id" : "2c91808568c529c60168cca6f90c1313",
+      "type" : "IDENTITY"
+    } ]
+  },
+  "id" : "id12345",
+  "uuid" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
+  "nativeIdentity" : "abc:123:dddd"
+}"@
 
 # Create machine identity
 
 try {
-    $Result = ConvertFrom-JsonToMachineidentityrequest -Json $Machineidentityrequest
-    New-MachineIdentityV1 -XSailPointExperimental $XSailPointExperimental -Machineidentityrequest $Result 
+    $Result = ConvertFrom-JsonToMachineIdentityRequest -Json $MachineIdentityRequest
+    New-MachineIdentityV1 -XSailPointExperimental $XSailPointExperimental -MachineIdentityRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-MachineIdentityV1 -XSailPointExperimental $XSailPointExperimental -Machineidentityrequest $Result  
+    # New-MachineIdentityV1 -XSailPointExperimental $XSailPointExperimental -MachineIdentityRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineIdentityV1"
     Write-Host $_.ErrorDetails
@@ -105,12 +135,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 201 | Machine identity created (same schema family as v2 GET/PATCH). | Machineidentityv2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -118,7 +148,90 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Machineidentityv2 = @""@
+$Machineidentityv2 = @"{
+  "sourceId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+  "resource" : {
+    "features" : [ "PROVISIONING", "AUTHENTICATION" ],
+    "name" : "nightly-batch-role",
+    "id" : "8886e5e3-63d0-462f-a195-d98da885b8dc",
+    "type" : "aws:iam-role"
+  },
+  "created" : "2015-05-28T14:07:17Z",
+  "connectorAttributes" : {
+    "objectguid" : "abc-123"
+  },
+  "description" : "Service account for nightly batch jobs",
+  "owners" : {
+    "secondary" : [ {
+      "id" : "2c9180858082150f0180893dbaf44202",
+      "name" : "Jane Doe",
+      "type" : "IDENTITY"
+    } ],
+    "primary" : {
+      "name" : "William Wilson",
+      "id" : "2c91808568c529c60168cca6f90c1313",
+      "type" : "IDENTITY"
+    }
+  },
+  "source" : {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "uuid" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
+  "nativeIdentity" : "abc:123:dddd",
+  "effectiveSanctionedStatus" : "SANCTIONED",
+  "environment" : "PRODUCTION",
+  "subtype" : "AI_AGENT",
+  "businessApplicationRefs" : [ {
+    "name" : "Cursor",
+    "correlationType" : "MANUAL",
+    "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "type" : "BUSINESS_APPLICATION",
+    "sanctionedStatus" : "SANCTIONED"
+  }, {
+    "name" : "Cursor",
+    "correlationType" : "MANUAL",
+    "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "type" : "BUSINESS_APPLICATION",
+    "sanctionedStatus" : "SANCTIONED"
+  } ],
+  "userEntitlements" : [ {
+    "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+    "displayName" : "Entitlement Name",
+    "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+    "source" : {
+      "name" : "William Wilson",
+      "id" : "2c91808568c529c60168cca6f90c1313",
+      "type" : "IDENTITY"
+    }
+  }, {
+    "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+    "displayName" : "Entitlement Name",
+    "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+    "source" : {
+      "name" : "William Wilson",
+      "id" : "2c91808568c529c60168cca6f90c1313",
+      "type" : "IDENTITY"
+    }
+  } ],
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "datasetId" : "8886e5e3-63d0-462f-a195-d98da885b8dc",
+  "attributes" : {
+    "privilegeLevel" : "HIGH",
+    "region" : "APAC"
+  },
+  "risk" : {
+    "severity" : "HIGH",
+    "score" : 72.5
+  },
+  "id" : "id12345",
+  "manuallyEdited" : true,
+  "manuallyCreated" : true,
+  "existsOnSource" : "TRUE",
+  "status" : "ACTIVE"
+}"@
 
 # Create machine identity
 
@@ -156,12 +269,12 @@ Path   | Id | **String** | True  | Machine Identity ID
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -203,12 +316,12 @@ Path   | Id | **String** | True  | Machine Identity ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -251,12 +364,12 @@ Path   | ConfigId | **String** | True  | The correlation config ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -297,18 +410,18 @@ Path   | Id | **String** | True  | Machine Identity ID
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Machineidentityresponse**](../models/machineidentityresponse)
+[**MachineIdentityResponse**](../models/machine-identity-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A machine identity object | Machineidentityresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A machine identity object | MachineIdentityResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -350,12 +463,12 @@ Path   | Id | **String** | True  | Machine Identity ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | A machine identity object. | Machineidentityv2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -392,18 +505,18 @@ Path   | ResourceId | **String** | True  | The source resource ID (for example, 
 Path   | ConfigId | **String** | True  | The correlation config ID.
 
 ### Return type
-[**Correlationconfig**](../models/correlationconfig)
+[**CorrelationConfig**](../models/correlation-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The requested correlation config. | Correlationconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The requested correlation config. | CorrelationConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -448,18 +561,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Machineidentityresponse[]**](../models/machineidentityresponse)
+[**MachineIdentityResponse[]**](../models/machine-identity-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of machine identities. | Machineidentityresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of machine identities. | MachineIdentityResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -509,12 +622,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of machine identities. | Machineidentityv2[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -561,18 +674,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Machineidentityuserentitlementresponse[]**](../models/machineidentityuserentitlementresponse)
+[**MachineIdentityUserEntitlementResponse[]**](../models/machine-identity-user-entitlement-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of machine identity user entitlements. | Machineidentityuserentitlementresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of machine identity user entitlements. | MachineIdentityUserEntitlementResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -617,17 +730,17 @@ Path   | ResourceId | **String** | True  | The source resource ID (for example, 
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Correlationconfig[]**](../models/correlationconfig)
+[**CorrelationConfig[]**](../models/correlation-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of correlation configs. | Correlationconfig[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of correlation configs. | CorrelationConfig[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -667,21 +780,21 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | The Source ID.
 Path   | ResourceId | **String** | True  | The source resource ID (for example, account or aws:iam-role).
 Path   | ConfigId | **String** | True  | The correlation config ID.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | The JSONPatch payload used to update the correlation config.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the correlation config.
 
 ### Return type
-[**Correlationconfig**](../models/correlationconfig)
+[**CorrelationConfig**](../models/correlation-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The updated correlation config. | Correlationconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The updated correlation config. | CorrelationConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -692,17 +805,21 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
 $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation config ID.
- $Jsonpatchoperation = @"[{"op":"replace","path":"/attributes","value":{"syncPrimaryToMachineAccounts":true}}]"@ # Jsonpatchoperation[] | The JSONPatch payload used to update the correlation config.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | The JSONPatch payload used to update the correlation config.
  
 
 # Patch ownership correlation config
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -Jsonpatchoperation $Result  
+    # Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-OwnershipCorrelationConfigV1"
     Write-Host $_.ErrorDetails
@@ -723,21 +840,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Machineidentityaggregationrequest | [**Machineidentityaggregationrequest**](../models/machineidentityaggregationrequest) | True  | 
+ Body  | MachineIdentityAggregationRequest | [**MachineIdentityAggregationRequest**](../models/machine-identity-aggregation-request) | True  | 
 
 ### Return type
-[**Machineidentityaggregationresponse**](../models/machineidentityaggregationresponse)
+[**MachineIdentityAggregationResponse**](../models/machine-identity-aggregation-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Machine Identity Aggregation was started successfully. | Machineidentityaggregationresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Machine Identity Aggregation was started successfully. | MachineIdentityAggregationResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -747,16 +864,19 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Machineidentityaggregationrequest = @""@
+$MachineIdentityAggregationRequest = @"{
+  "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ],
+  "disableOptimization" : false
+}"@
 
 # Start machine identity aggregation
 
 try {
-    $Result = ConvertFrom-JsonToMachineidentityaggregationrequest -Json $Machineidentityaggregationrequest
-    Start-MachineIdentityAggregationV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Machineidentityaggregationrequest $Result 
+    $Result = ConvertFrom-JsonToMachineIdentityAggregationRequest -Json $MachineIdentityAggregationRequest
+    Start-MachineIdentityAggregationV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-MachineIdentityAggregationV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Machineidentityaggregationrequest $Result  
+    # Start-MachineIdentityAggregationV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-MachineIdentityAggregationV1"
     Write-Host $_.ErrorDetails
@@ -781,18 +901,18 @@ Path   | Id | **String** | True  | Machine Identity ID.
  Body  | RequestBody | [**[]SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) | True  | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-[**Machineidentityresponse**](../models/machineidentityresponse)
+[**MachineIdentityResponse**](../models/machine-identity-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated Machine Identity object. | Machineidentityresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated Machine Identity object. | MachineIdentityResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -833,7 +953,7 @@ Patchable fields include **name**, **description**, **nativeIdentity**, **subtyp
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Machine Identity ID.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
 [**Machineidentityv2**](../models/machineidentityv2)
@@ -842,12 +962,12 @@ Path   | Id | **String** | True  | Machine Identity ID.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Updated machine identity object. | Machineidentityv2
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineIdentitiesV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineIdentitiesV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -856,17 +976,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
- $Jsonpatchoperation = @"[{"op":"add","path":"/attributes/securityRisk","value":"medium"}]"@ # Jsonpatchoperation[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
 # Partial update of machine identity
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-MachineIdentityV2 -Id $Id -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-MachineIdentityV2 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-MachineIdentityV2 -Id $Id -Jsonpatchoperation $Result  
+    # Update-MachineIdentityV2 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineIdentityV2"
     Write-Host $_.ErrorDetails

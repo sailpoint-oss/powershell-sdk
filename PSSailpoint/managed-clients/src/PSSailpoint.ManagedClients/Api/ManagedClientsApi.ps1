@@ -14,7 +14,7 @@ Create managed client
 
 Create a new managed client. The API returns a result that includes the managed client ID.
 
-.PARAMETER Managedclientrequest
+.PARAMETER ManagedClientRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedclient
+ManagedClient
 #>
 function New-ManagedClientV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Managedclientrequest},
+        ${ManagedClientRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-ManagedClientV1 {
 
         $LocalVarUri = '/managed-clients/v1'
 
-        if (!$Managedclientrequest) {
-            throw "Error! The required parameter `Managedclientrequest` missing when calling createManagedClientV1."
+        if (!$ManagedClientRequest) {
+            throw "Error! The required parameter `ManagedClientRequest` missing when calling createManagedClientV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Managedclientrequest -is [array])) {
-            $LocalVarBodyParameter = $Managedclientrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ManagedClientRequest -is [array])) {
+            $LocalVarBodyParameter = $ManagedClientRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Managedclientrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ManagedClientRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-ManagedClientV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedclient" `
+                                -ReturnType "ManagedClient" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -183,7 +183,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedclienthealthindicators
+ManagedClientHealthIndicators
 #>
 function Get-ManagedClientHealthIndicatorsV1 {
     [CmdletBinding()]
@@ -226,7 +226,7 @@ function Get-ManagedClientHealthIndicatorsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedclienthealthindicators" `
+                                -ReturnType "ManagedClientHealthIndicators" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -258,7 +258,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedclientstatus
+ManagedClientStatus
 #>
 function Get-ManagedClientStatusV1 {
     [CmdletBinding()]
@@ -309,7 +309,7 @@ function Get-ManagedClientStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedclientstatus" `
+                                -ReturnType "ManagedClientStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -338,7 +338,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedclient
+ManagedClient
 #>
 function Get-ManagedClientV1 {
     [CmdletBinding()]
@@ -381,7 +381,7 @@ function Get-ManagedClientV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedclient" `
+                                -ReturnType "ManagedClient" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -419,7 +419,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedclient[]
+ManagedClient[]
 #>
 function Get-ManagedClientsV1 {
     [CmdletBinding()]
@@ -483,7 +483,7 @@ function Get-ManagedClientsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedclient[]" `
+                                -ReturnType "ManagedClient[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -506,7 +506,7 @@ Update an existing managed client.
 .PARAMETER Id
 Managed client ID.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 JSONPatch payload used to update the object.
 
 .PARAMETER WithHttpInfo
@@ -515,7 +515,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Managedclient
+ManagedClient
 #>
 function Update-ManagedClientV1 {
     [CmdletBinding()]
@@ -525,7 +525,7 @@ function Update-ManagedClientV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -555,14 +555,14 @@ function Update-ManagedClientV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateManagedClientV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateManagedClientV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -581,7 +581,7 @@ function Update-ManagedClientV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Managedclient" `
+                                -ReturnType "ManagedClient" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

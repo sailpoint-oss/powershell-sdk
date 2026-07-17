@@ -4,18 +4,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#create-connector-customizer-v1
       source: |
-        $Connectorcustomizercreaterequest = @"
-        
+        $ConnectorCustomizerCreateRequest = @"
+        {
+          "name" : "My Custom Connector"
+        }
         "@
         
         # Create connector customizer
         
         try {
-            $Result = ConvertFrom-JsonToConnectorcustomizercreaterequest -Json $Connectorcustomizercreaterequest
-            New-ConnectorCustomizerV1 -Connectorcustomizercreaterequest $Result 
+            $Result = ConvertFrom-JsonToConnectorCustomizerCreateRequest -Json $ConnectorCustomizerCreateRequest
+            New-ConnectorCustomizerV1 -ConnectorCustomizerCreateRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-ConnectorCustomizerV1 -Connectorcustomizercreaterequest $Result   
+            # New-ConnectorCustomizerV1 -ConnectorCustomizerCreateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ConnectorCustomizerV1"
             Write-Host $_.ErrorDetails
@@ -104,8 +106,10 @@
       label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#put-connector-customizer-v1
       source: |
         $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to update.
-        $Connectorcustomizerupdaterequest = @"
-        
+        $ConnectorCustomizerUpdateRequest = @"
+        {
+          "name" : "My Custom Connector"
+        }
         "@
         
         # Update connector customizer
@@ -114,7 +118,7 @@
             Send-ConnectorCustomizerV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Send-ConnectorCustomizerV1 -Id $Id -Connectorcustomizerupdaterequest $Result   
+            # Send-ConnectorCustomizerV1 -Id $Id -ConnectorCustomizerUpdateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ConnectorCustomizerV1"
             Write-Host $_.ErrorDetails

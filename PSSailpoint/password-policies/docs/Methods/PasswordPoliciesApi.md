@@ -44,21 +44,21 @@ This API creates the specified password policy.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Passwordpolicyv3dto | [**Passwordpolicyv3dto**](../models/passwordpolicyv3dto) | True  | 
+ Body  | PasswordPolicyV3Dto | [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto) | True  | 
 
 ### Return type
-[**Passwordpolicyv3dto**](../models/passwordpolicyv3dto)
+[**PasswordPolicyV3Dto**](../models/password-policy-v3-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reference to the password policy. | Passwordpolicyv3dto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Reference to the password policy. | PasswordPolicyV3Dto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordPolicyByIdV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordPolicyByIdV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -67,16 +67,48 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Passwordpolicyv3dto = @"{"description":"New Password Policy with high requirements to password complexity.","id":null,"name":"High security Password Policy","dateCreated":1639056206564,"lastUpdated":1662385430753,"firstExpirationReminder":90,"accountIdMinWordLength":3,"accountNameMinWordLength":3,"maxLength":0,"maxRepeatedChars":4,"minAlpha":1,"minCharacterTypes":-1,"minLength":8,"minLower":0,"minNumeric":1,"minSpecial":0,"minUpper":0,"passwordExpiration":90,"defaultPolicy":false,"enablePasswdExpiration":false,"requireStrongAuthn":false,"requireStrongAuthOffNetwork":false,"requireStrongAuthUntrustedGeographies":false,"useAccountAttributes":false,"useDictionary":false,"useIdentityAttributes":false,"validateAgainstAccountId":true,"validateAgainstAccountName":true,"sourceIds":["2c91808382ffee0b01830de154f14034","2c91808582ffee0c01830de36511405f"]}"@
+$PasswordPolicyV3Dto = @"{
+  "validateAgainstAccountName" : true,
+  "minLength" : 8,
+  "description" : "Information about the Password Policy",
+  "requireStrongAuthUntrustedGeographies" : true,
+  "enablePasswdExpiration" : true,
+  "minNumeric" : 8,
+  "lastUpdated" : 1939056206564,
+  "validateAgainstAccountId" : false,
+  "dateCreated" : 1639056206564,
+  "accountNameMinWordLength" : 6,
+  "minUpper" : 8,
+  "firstExpirationReminder" : 45,
+  "modified" : "modified",
+  "id" : "2c91808e7d976f3b017d9f5ceae440c8",
+  "requireStrongAuthn" : true,
+  "useDictionary" : false,
+  "minSpecial" : 8,
+  "sourceIds" : [ "2c91808382ffee0b01830de154f14034", "2f98808382ffee0b01830de154f12134" ],
+  "passwordExpiration" : 8,
+  "maxRepeatedChars" : 3,
+  "minCharacterTypes" : 5,
+  "minAlpha" : 5,
+  "created" : "created",
+  "useAccountAttributes" : false,
+  "accountIdMinWordLength" : 4,
+  "minLower" : 8,
+  "useIdentityAttributes" : false,
+  "defaultPolicy" : true,
+  "requireStrongAuthOffNetwork" : true,
+  "name" : "PasswordPolicy Example",
+  "maxLength" : 25
+}"@
 
 # Create password policy
 
 try {
-    $Result = ConvertFrom-JsonToPasswordpolicyv3dto -Json $Passwordpolicyv3dto
-    New-PasswordPolicyV1 -XSailPointExperimental $XSailPointExperimental -Passwordpolicyv3dto $Result 
+    $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
+    New-PasswordPolicyV1 -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-PasswordPolicyV1 -XSailPointExperimental $XSailPointExperimental -Passwordpolicyv3dto $Result  
+    # New-PasswordPolicyV1 -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PasswordPolicyV1"
     Write-Host $_.ErrorDetails
@@ -105,12 +137,12 @@ Path   | Id | **String** | True  | The ID of password policy to delete.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordPolicyByIdV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordPolicyByIdV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -150,18 +182,18 @@ Path   | Id | **String** | True  | The ID of password policy to retrieve.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Passwordpolicyv3dto**](../models/passwordpolicyv3dto)
+[**PasswordPolicyV3Dto**](../models/password-policy-v3-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reference to the password policy. | Passwordpolicyv3dto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Reference to the password policy. | PasswordPolicyV3Dto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordPolicyByIdV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordPolicyByIdV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -204,17 +236,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Passwordpolicyv3dto[]**](../models/passwordpolicyv3dto)
+[**PasswordPolicyV3Dto[]**](../models/password-policy-v3-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of all Password Policies. | Passwordpolicyv3dto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of all Password Policies. | PasswordPolicyV3Dto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordPolicyByIdV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordPolicyByIdV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -254,21 +286,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of password policy to update.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Passwordpolicyv3dto | [**Passwordpolicyv3dto**](../models/passwordpolicyv3dto) | True  | 
+ Body  | PasswordPolicyV3Dto | [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto) | True  | 
 
 ### Return type
-[**Passwordpolicyv3dto**](../models/passwordpolicyv3dto)
+[**PasswordPolicyV3Dto**](../models/password-policy-v3-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reference to the password policy. | Passwordpolicyv3dto
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Reference to the password policy. | PasswordPolicyV3Dto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordPolicyByIdV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordPolicyByIdV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -278,16 +310,48 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ff808081838d9e9d01838da6a03e0007" # String | The ID of password policy to update.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Passwordpolicyv3dto = @"{"description":"Password Policy after update.","id":"2c91808e7d976f3b017d9f5ceae440c8","name":"Improved Password Policy","dateCreated":1639056206564,"lastUpdated":1662385430753,"firstExpirationReminder":90,"accountIdMinWordLength":3,"accountNameMinWordLength":3,"maxLength":0,"maxRepeatedChars":4,"minAlpha":1,"minCharacterTypes":-1,"minLength":8,"minLower":0,"minNumeric":1,"minSpecial":0,"minUpper":0,"passwordExpiration":90,"defaultPolicy":false,"enablePasswdExpiration":false,"requireStrongAuthn":false,"requireStrongAuthOffNetwork":false,"requireStrongAuthUntrustedGeographies":false,"useAccountAttributes":false,"useDictionary":false,"useIdentityAttributes":false,"validateAgainstAccountId":true,"validateAgainstAccountName":true,"sourceIds":["2c91808382ffee0b01830de154f14034","2c91808582ffee0c01830de36511405f"]}"@
+$PasswordPolicyV3Dto = @"{
+  "validateAgainstAccountName" : true,
+  "minLength" : 8,
+  "description" : "Information about the Password Policy",
+  "requireStrongAuthUntrustedGeographies" : true,
+  "enablePasswdExpiration" : true,
+  "minNumeric" : 8,
+  "lastUpdated" : 1939056206564,
+  "validateAgainstAccountId" : false,
+  "dateCreated" : 1639056206564,
+  "accountNameMinWordLength" : 6,
+  "minUpper" : 8,
+  "firstExpirationReminder" : 45,
+  "modified" : "modified",
+  "id" : "2c91808e7d976f3b017d9f5ceae440c8",
+  "requireStrongAuthn" : true,
+  "useDictionary" : false,
+  "minSpecial" : 8,
+  "sourceIds" : [ "2c91808382ffee0b01830de154f14034", "2f98808382ffee0b01830de154f12134" ],
+  "passwordExpiration" : 8,
+  "maxRepeatedChars" : 3,
+  "minCharacterTypes" : 5,
+  "minAlpha" : 5,
+  "created" : "created",
+  "useAccountAttributes" : false,
+  "accountIdMinWordLength" : 4,
+  "minLower" : 8,
+  "useIdentityAttributes" : false,
+  "defaultPolicy" : true,
+  "requireStrongAuthOffNetwork" : true,
+  "name" : "PasswordPolicy Example",
+  "maxLength" : 25
+}"@
 
 # Update password policy by id
 
 try {
-    $Result = ConvertFrom-JsonToPasswordpolicyv3dto -Json $Passwordpolicyv3dto
-    Set-PasswordPolicyV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Passwordpolicyv3dto $Result 
+    $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
+    Set-PasswordPolicyV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-PasswordPolicyV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Passwordpolicyv3dto $Result  
+    # Set-PasswordPolicyV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-PasswordPolicyV1"
     Write-Host $_.ErrorDetails

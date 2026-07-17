@@ -55,7 +55,7 @@ Create and configure extended search attributes.  This API accepts an attribute 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Searchattributeconfig | [**Searchattributeconfig**](../models/searchattributeconfig) | True  | 
+ Body  | SearchAttributeConfig | [**SearchAttributeConfig**](../models/search-attribute-config) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -64,12 +64,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSearchAttributeConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSearchAttributeConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -78,16 +78,23 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Searchattributeconfig = @"{"name":"newMailAttribute","displayName":"New Mail Attribute","applicationAttributes":{"2c9180866166b5b0016167c32ef31a66":"mail","2c9180866166b5b0016167c32ef31a67":"mail"}}"@
+$SearchAttributeConfig = @"{
+  "displayName" : "New Mail Attribute",
+  "name" : "newMailAttribute",
+  "applicationAttributes" : {
+    "2c91808b79fd2422017a0b35d30f3968" : "employeeNumber",
+    "2c91808b79fd2422017a0b36008f396b" : "employeeNumber"
+  }
+}"@
 
 # Create extended search attributes
 
 try {
-    $Result = ConvertFrom-JsonToSearchattributeconfig -Json $Searchattributeconfig
-    New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -Searchattributeconfig $Result 
+    $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
+    New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -Searchattributeconfig $Result  
+    # New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SearchAttributeConfigV1"
     Write-Host $_.ErrorDetails
@@ -117,10 +124,10 @@ Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSearchAttributeConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSearchAttributeConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -161,17 +168,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Searchattributeconfig[]**](../models/searchattributeconfig)
+[**SearchAttributeConfig[]**](../models/search-attribute-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of attribute configurations in ISC. | Searchattributeconfig[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of attribute configurations in ISC. | SearchAttributeConfig[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSearchAttributeConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSearchAttributeConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -212,18 +219,18 @@ Path   | Name | **String** | True  | Name of the extended search attribute confi
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Searchattributeconfig**](../models/searchattributeconfig)
+[**SearchAttributeConfig**](../models/search-attribute-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Specific attribute configuration in IdentityNow. | Searchattributeconfig
+200 | Specific attribute configuration in IdentityNow. | SearchAttributeConfig
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSearchAttributeConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSearchAttributeConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -263,21 +270,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Name | **String** | True  | Name of the search attribute configuration to patch.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
-[**Searchattributeconfig**](../models/searchattributeconfig)
+[**SearchAttributeConfig**](../models/search-attribute-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Responds with the search attribute configuration as updated. | Searchattributeconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Responds with the search attribute configuration as updated. | SearchAttributeConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetSearchAttributeConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetSearchAttributeConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json-patch+json
@@ -287,17 +294,21 @@ Code | Description  | Data Type
 ```powershell
 $Name = "promotedMailAttribute" # String | Name of the search attribute configuration to patch.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"newAttributeName"},{"op":"replace","path":"/displayName","value":"new attribute display name"},{"op":"add","path":"/applicationAttributes","value":{"2c91808b79fd2422017a0b35d30f3968":"employeeNumber"}}]"@ # Jsonpatchoperation[] | 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | 
  
 
 # Update extended search attribute
 
 try {
-    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-    Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result  
+    # Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SearchAttributeConfigV1"
     Write-Host $_.ErrorDetails

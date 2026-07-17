@@ -17,7 +17,7 @@ Approves a non-employee approval request and notifies the next approver. The cur
 .PARAMETER Id
 Non-Employee approval item id (UUID)
 
-.PARAMETER Nonemployeeapprovaldecision
+.PARAMETER NonEmployeeApprovalDecision
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeeapprovalitem
+NonEmployeeApprovalItem
 #>
 function Approve-NonEmployeeRequestV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function Approve-NonEmployeeRequestV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Nonemployeeapprovaldecision},
+        ${NonEmployeeApprovalDecision},
         [Switch]
         $WithHttpInfo
     )
@@ -66,14 +66,14 @@ function Approve-NonEmployeeRequestV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Nonemployeeapprovaldecision) {
-            throw "Error! The required parameter `Nonemployeeapprovaldecision` missing when calling approveNonEmployeeRequestV1."
+        if (!$NonEmployeeApprovalDecision) {
+            throw "Error! The required parameter `NonEmployeeApprovalDecision` missing when calling approveNonEmployeeRequestV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Nonemployeeapprovaldecision -is [array])) {
-            $LocalVarBodyParameter = $Nonemployeeapprovaldecision | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeApprovalDecision -is [array])) {
+            $LocalVarBodyParameter = $NonEmployeeApprovalDecision | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Nonemployeeapprovaldecision | ForEach-Object {
+            $LocalVarBodyParameter = $NonEmployeeApprovalDecision | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -92,7 +92,7 @@ function Approve-NonEmployeeRequestV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeeapprovalitem" `
+                                -ReturnType "NonEmployeeApprovalItem" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -112,7 +112,7 @@ Create non-employee record
 
 This request will create a non-employee record. Requires role context of `idn:nesr:create`
 
-.PARAMETER Nonemployeerequestbody
+.PARAMETER NonEmployeeRequestBody
 Non-Employee record creation request body.
 
 .PARAMETER WithHttpInfo
@@ -121,14 +121,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeerecord
+NonEmployeeRecord
 #>
 function New-NonEmployeeRecordV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Nonemployeerequestbody},
+        ${NonEmployeeRequestBody},
         [Switch]
         $WithHttpInfo
     )
@@ -154,14 +154,14 @@ function New-NonEmployeeRecordV1 {
 
         $LocalVarUri = '/non-employee-records/v1'
 
-        if (!$Nonemployeerequestbody) {
-            throw "Error! The required parameter `Nonemployeerequestbody` missing when calling createNonEmployeeRecordV1."
+        if (!$NonEmployeeRequestBody) {
+            throw "Error! The required parameter `NonEmployeeRequestBody` missing when calling createNonEmployeeRecordV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Nonemployeerequestbody -is [array])) {
-            $LocalVarBodyParameter = $Nonemployeerequestbody | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeRequestBody -is [array])) {
+            $LocalVarBodyParameter = $NonEmployeeRequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Nonemployeerequestbody | ForEach-Object {
+            $LocalVarBodyParameter = $NonEmployeeRequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -180,7 +180,7 @@ function New-NonEmployeeRecordV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeerecord" `
+                                -ReturnType "NonEmployeeRecord" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -200,7 +200,7 @@ Create non-employee request
 
 This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
 
-.PARAMETER Nonemployeerequestbody
+.PARAMETER NonEmployeeRequestBody
 Non-Employee creation request body
 
 .PARAMETER WithHttpInfo
@@ -209,14 +209,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeerequest
+NonEmployeeRequest
 #>
 function New-NonEmployeeRequestV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Nonemployeerequestbody},
+        ${NonEmployeeRequestBody},
         [Switch]
         $WithHttpInfo
     )
@@ -242,14 +242,14 @@ function New-NonEmployeeRequestV1 {
 
         $LocalVarUri = '/non-employee-requests/v1'
 
-        if (!$Nonemployeerequestbody) {
-            throw "Error! The required parameter `Nonemployeerequestbody` missing when calling createNonEmployeeRequestV1."
+        if (!$NonEmployeeRequestBody) {
+            throw "Error! The required parameter `NonEmployeeRequestBody` missing when calling createNonEmployeeRequestV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Nonemployeerequestbody -is [array])) {
-            $LocalVarBodyParameter = $Nonemployeerequestbody | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeRequestBody -is [array])) {
+            $LocalVarBodyParameter = $NonEmployeeRequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Nonemployeerequestbody | ForEach-Object {
+            $LocalVarBodyParameter = $NonEmployeeRequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -268,7 +268,7 @@ function New-NonEmployeeRequestV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeerequest" `
+                                -ReturnType "NonEmployeeRequest" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -291,7 +291,7 @@ This API creates a new schema attribute for Non-Employee Source. The schema tech
 .PARAMETER SourceId
 The Source id
 
-.PARAMETER Nonemployeeschemaattributebody
+.PARAMETER NonEmployeeSchemaAttributeBody
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -300,7 +300,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeeschemaattribute
+NonEmployeeSchemaAttribute
 #>
 function New-NonEmployeeSourceSchemaAttributesV1 {
     [CmdletBinding()]
@@ -310,7 +310,7 @@ function New-NonEmployeeSourceSchemaAttributesV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Nonemployeeschemaattributebody},
+        ${NonEmployeeSchemaAttributeBody},
         [Switch]
         $WithHttpInfo
     )
@@ -340,14 +340,14 @@ function New-NonEmployeeSourceSchemaAttributesV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Nonemployeeschemaattributebody) {
-            throw "Error! The required parameter `Nonemployeeschemaattributebody` missing when calling createNonEmployeeSourceSchemaAttributesV1."
+        if (!$NonEmployeeSchemaAttributeBody) {
+            throw "Error! The required parameter `NonEmployeeSchemaAttributeBody` missing when calling createNonEmployeeSourceSchemaAttributesV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Nonemployeeschemaattributebody -is [array])) {
-            $LocalVarBodyParameter = $Nonemployeeschemaattributebody | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeSchemaAttributeBody -is [array])) {
+            $LocalVarBodyParameter = $NonEmployeeSchemaAttributeBody | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Nonemployeeschemaattributebody | ForEach-Object {
+            $LocalVarBodyParameter = $NonEmployeeSchemaAttributeBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -366,7 +366,7 @@ function New-NonEmployeeSourceSchemaAttributesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeeschemaattribute" `
+                                -ReturnType "NonEmployeeSchemaAttribute" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -386,7 +386,7 @@ Create non-employee source
 
 Create a non-employee source. 
 
-.PARAMETER Nonemployeesourcerequestbody
+.PARAMETER NonEmployeeSourceRequestBody
 Non-Employee source creation request body.
 
 .PARAMETER WithHttpInfo
@@ -395,14 +395,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeesourcewithcloudexternalid
+NonEmployeeSourceWithCloudExternalId
 #>
 function New-NonEmployeeSourceV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Nonemployeesourcerequestbody},
+        ${NonEmployeeSourceRequestBody},
         [Switch]
         $WithHttpInfo
     )
@@ -428,14 +428,14 @@ function New-NonEmployeeSourceV1 {
 
         $LocalVarUri = '/non-employee-sources/v1'
 
-        if (!$Nonemployeesourcerequestbody) {
-            throw "Error! The required parameter `Nonemployeesourcerequestbody` missing when calling createNonEmployeeSourceV1."
+        if (!$NonEmployeeSourceRequestBody) {
+            throw "Error! The required parameter `NonEmployeeSourceRequestBody` missing when calling createNonEmployeeSourceV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Nonemployeesourcerequestbody -is [array])) {
-            $LocalVarBodyParameter = $Nonemployeesourcerequestbody | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeSourceRequestBody -is [array])) {
+            $LocalVarBodyParameter = $NonEmployeeSourceRequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Nonemployeesourcerequestbody | ForEach-Object {
+            $LocalVarBodyParameter = $NonEmployeeSourceRequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -454,7 +454,7 @@ function New-NonEmployeeSourceV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeesourcewithcloudexternalid" `
+                                -ReturnType "NonEmployeeSourceWithCloudExternalId" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1109,7 +1109,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeeapprovalsummary
+NonEmployeeApprovalSummary
 #>
 function Get-NonEmployeeApprovalSummaryV1 {
     [CmdletBinding()]
@@ -1152,7 +1152,7 @@ function Get-NonEmployeeApprovalSummaryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeeapprovalsummary" `
+                                -ReturnType "NonEmployeeApprovalSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1184,7 +1184,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeeapprovalitemdetail
+NonEmployeeApprovalItemDetail
 #>
 function Get-NonEmployeeApprovalV1 {
     [CmdletBinding()]
@@ -1234,7 +1234,7 @@ function Get-NonEmployeeApprovalV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeeapprovalitemdetail" `
+                                -ReturnType "NonEmployeeApprovalItemDetail" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1263,7 +1263,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeebulkuploadstatus
+NonEmployeeBulkUploadStatus
 #>
 function Get-NonEmployeeBulkUploadStatusV1 {
     [CmdletBinding()]
@@ -1306,7 +1306,7 @@ function Get-NonEmployeeBulkUploadStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeebulkuploadstatus" `
+                                -ReturnType "NonEmployeeBulkUploadStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1335,7 +1335,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeerecord
+NonEmployeeRecord
 #>
 function Get-NonEmployeeRecordV1 {
     [CmdletBinding()]
@@ -1378,7 +1378,7 @@ function Get-NonEmployeeRecordV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeerecord" `
+                                -ReturnType "NonEmployeeRecord" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1407,7 +1407,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeerequestsummary
+NonEmployeeRequestSummary
 #>
 function Get-NonEmployeeRequestSummaryV1 {
     [CmdletBinding()]
@@ -1450,7 +1450,7 @@ function Get-NonEmployeeRequestSummaryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeerequestsummary" `
+                                -ReturnType "NonEmployeeRequestSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1479,7 +1479,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeerequest
+NonEmployeeRequest
 #>
 function Get-NonEmployeeRequestV1 {
     [CmdletBinding()]
@@ -1522,7 +1522,7 @@ function Get-NonEmployeeRequestV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeerequest" `
+                                -ReturnType "NonEmployeeRequest" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1554,7 +1554,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeeschemaattribute
+NonEmployeeSchemaAttribute
 #>
 function Get-NonEmployeeSchemaAttributeV1 {
     [CmdletBinding()]
@@ -1604,7 +1604,7 @@ function Get-NonEmployeeSchemaAttributeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeeschemaattribute" `
+                                -ReturnType "NonEmployeeSchemaAttribute" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1633,7 +1633,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeeschemaattribute[]
+NonEmployeeSchemaAttribute[]
 #>
 function Get-NonEmployeeSourceSchemaAttributesV1 {
     [CmdletBinding()]
@@ -1676,7 +1676,7 @@ function Get-NonEmployeeSourceSchemaAttributesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeeschemaattribute[]" `
+                                -ReturnType "NonEmployeeSchemaAttribute[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1705,7 +1705,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeesource
+NonEmployeeSource
 #>
 function Get-NonEmployeeSourceV1 {
     [CmdletBinding()]
@@ -1748,7 +1748,7 @@ function Get-NonEmployeeSourceV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeesource" `
+                                -ReturnType "NonEmployeeSource" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1780,7 +1780,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeebulkuploadjob
+NonEmployeeBulkUploadJob
 #>
 function Import-NonEmployeeRecordsInBulkV1 {
     [CmdletBinding()]
@@ -1834,7 +1834,7 @@ function Import-NonEmployeeRecordsInBulkV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeebulkuploadjob" `
+                                -ReturnType "NonEmployeeBulkUploadJob" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1878,7 +1878,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeeapprovalitem[]
+NonEmployeeApprovalItem[]
 #>
 function Get-NonEmployeeApprovalsV1 {
     [CmdletBinding()]
@@ -1956,7 +1956,7 @@ function Get-NonEmployeeApprovalsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeeapprovalitem[]" `
+                                -ReturnType "NonEmployeeApprovalItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1997,7 +1997,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeerecord[]
+NonEmployeeRecord[]
 #>
 function Get-NonEmployeeRecordsV1 {
     [CmdletBinding()]
@@ -2068,7 +2068,7 @@ function Get-NonEmployeeRecordsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeerecord[]" `
+                                -ReturnType "NonEmployeeRecord[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2112,7 +2112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeerequest[]
+NonEmployeeRequest[]
 #>
 function Get-NonEmployeeRequestsV1 {
     [CmdletBinding()]
@@ -2191,7 +2191,7 @@ function Get-NonEmployeeRequestsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeerequest[]" `
+                                -ReturnType "NonEmployeeRequest[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2235,7 +2235,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeesourcewithnecount[]
+NonEmployeeSourceWithNECount[]
 #>
 function Get-NonEmployeeSourcesV1 {
     [CmdletBinding()]
@@ -2313,7 +2313,7 @@ function Get-NonEmployeeSourcesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeesourcewithnecount[]" `
+                                -ReturnType "NonEmployeeSourceWithNECount[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2336,7 +2336,7 @@ This request will patch a non-employee record. There are two contextual uses for
 .PARAMETER Id
 Non-employee record id (UUID)
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
 .PARAMETER WithHttpInfo
@@ -2345,7 +2345,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeerecord
+NonEmployeeRecord
 #>
 function Update-NonEmployeeRecordV1 {
     [CmdletBinding()]
@@ -2355,7 +2355,7 @@ function Update-NonEmployeeRecordV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -2385,14 +2385,14 @@ function Update-NonEmployeeRecordV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchNonEmployeeRecordV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchNonEmployeeRecordV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2411,7 +2411,7 @@ function Update-NonEmployeeRecordV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeerecord" `
+                                -ReturnType "NonEmployeeRecord" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2437,7 +2437,7 @@ The Schema Attribute Id (UUID)
 .PARAMETER SourceId
 The Source id
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
 
 .PARAMETER WithHttpInfo
@@ -2446,7 +2446,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeeschemaattribute
+NonEmployeeSchemaAttribute
 #>
 function Update-NonEmployeeSchemaAttributeV1 {
     [CmdletBinding()]
@@ -2459,7 +2459,7 @@ function Update-NonEmployeeSchemaAttributeV1 {
         ${SourceId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -2493,14 +2493,14 @@ function Update-NonEmployeeSchemaAttributeV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchNonEmployeeSchemaAttributeV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchNonEmployeeSchemaAttributeV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2519,7 +2519,7 @@ function Update-NonEmployeeSchemaAttributeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeeschemaattribute" `
+                                -ReturnType "NonEmployeeSchemaAttribute" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2542,7 +2542,7 @@ patch a non-employee source. (partial update) <br/> Patchable field: **name, des
 .PARAMETER SourceId
 Source Id
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER WithHttpInfo
@@ -2551,7 +2551,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeesource
+NonEmployeeSource
 #>
 function Update-NonEmployeeSourceV1 {
     [CmdletBinding()]
@@ -2561,7 +2561,7 @@ function Update-NonEmployeeSourceV1 {
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -2591,14 +2591,14 @@ function Update-NonEmployeeSourceV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchNonEmployeeSourceV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchNonEmployeeSourceV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2617,7 +2617,7 @@ function Update-NonEmployeeSourceV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeesource" `
+                                -ReturnType "NonEmployeeSource" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2640,7 +2640,7 @@ This endpoint will reject an approval item request and notify user. The current 
 .PARAMETER Id
 Non-Employee approval item id (UUID)
 
-.PARAMETER Nonemployeerejectapprovaldecision
+.PARAMETER NonEmployeeRejectApprovalDecision
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -2649,7 +2649,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeeapprovalitem
+NonEmployeeApprovalItem
 #>
 function Deny-NonEmployeeRequestV1 {
     [CmdletBinding()]
@@ -2659,7 +2659,7 @@ function Deny-NonEmployeeRequestV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Nonemployeerejectapprovaldecision},
+        ${NonEmployeeRejectApprovalDecision},
         [Switch]
         $WithHttpInfo
     )
@@ -2689,14 +2689,14 @@ function Deny-NonEmployeeRequestV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Nonemployeerejectapprovaldecision) {
-            throw "Error! The required parameter `Nonemployeerejectapprovaldecision` missing when calling rejectNonEmployeeRequestV1."
+        if (!$NonEmployeeRejectApprovalDecision) {
+            throw "Error! The required parameter `NonEmployeeRejectApprovalDecision` missing when calling rejectNonEmployeeRequestV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Nonemployeerejectapprovaldecision -is [array])) {
-            $LocalVarBodyParameter = $Nonemployeerejectapprovaldecision | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeRejectApprovalDecision -is [array])) {
+            $LocalVarBodyParameter = $NonEmployeeRejectApprovalDecision | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Nonemployeerejectapprovaldecision | ForEach-Object {
+            $LocalVarBodyParameter = $NonEmployeeRejectApprovalDecision | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2715,7 +2715,7 @@ function Deny-NonEmployeeRequestV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeeapprovalitem" `
+                                -ReturnType "NonEmployeeApprovalItem" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2738,7 +2738,7 @@ This request will update a non-employee record. There are two contextual uses fo
 .PARAMETER Id
 Non-employee record id (UUID)
 
-.PARAMETER Nonemployeerequestbody
+.PARAMETER NonEmployeeRequestBody
 Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
 .PARAMETER WithHttpInfo
@@ -2747,7 +2747,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Nonemployeerecord
+NonEmployeeRecord
 #>
 function Update-NonEmployeeRecordV1 {
     [CmdletBinding()]
@@ -2757,7 +2757,7 @@ function Update-NonEmployeeRecordV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Nonemployeerequestbody},
+        ${NonEmployeeRequestBody},
         [Switch]
         $WithHttpInfo
     )
@@ -2787,14 +2787,14 @@ function Update-NonEmployeeRecordV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Nonemployeerequestbody) {
-            throw "Error! The required parameter `Nonemployeerequestbody` missing when calling updateNonEmployeeRecordV1."
+        if (!$NonEmployeeRequestBody) {
+            throw "Error! The required parameter `NonEmployeeRequestBody` missing when calling updateNonEmployeeRecordV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Nonemployeerequestbody -is [array])) {
-            $LocalVarBodyParameter = $Nonemployeerequestbody | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeRequestBody -is [array])) {
+            $LocalVarBodyParameter = $NonEmployeeRequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Nonemployeerequestbody | ForEach-Object {
+            $LocalVarBodyParameter = $NonEmployeeRequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2813,7 +2813,7 @@ function Update-NonEmployeeRecordV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Nonemployeerecord" `
+                                -ReturnType "NonEmployeeRecord" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

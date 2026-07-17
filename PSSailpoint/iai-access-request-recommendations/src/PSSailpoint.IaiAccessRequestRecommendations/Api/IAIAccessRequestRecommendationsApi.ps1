@@ -17,7 +17,7 @@ This API ignores a recommended access request item. Once an item is ignored, it 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Accessrequestrecommendationactionitemdto
+.PARAMETER AccessRequestRecommendationActionItemDto
 The recommended access item to ignore for an identity.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestrecommendationactionitemresponsedto
+AccessRequestRecommendationActionItemResponseDto
 #>
 function Add-AccessRequestRecommendationsIgnoredItemV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function Add-AccessRequestRecommendationsIgnoredItemV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessrequestrecommendationactionitemdto},
+        ${AccessRequestRecommendationActionItemDto},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function Add-AccessRequestRecommendationsIgnoredItemV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Accessrequestrecommendationactionitemdto) {
-            throw "Error! The required parameter `Accessrequestrecommendationactionitemdto` missing when calling addAccessRequestRecommendationsIgnoredItemV1."
+        if (!$AccessRequestRecommendationActionItemDto) {
+            throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsIgnoredItemV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessrequestrecommendationactionitemdto -is [array])) {
-            $LocalVarBodyParameter = $Accessrequestrecommendationactionitemdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
+            $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessrequestrecommendationactionitemdto | ForEach-Object {
+            $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -93,7 +93,7 @@ function Add-AccessRequestRecommendationsIgnoredItemV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestrecommendationactionitemresponsedto" `
+                                -ReturnType "AccessRequestRecommendationActionItemResponseDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -116,7 +116,7 @@ This API consumes a notification that a recommended access request item was requ
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Accessrequestrecommendationactionitemdto
+.PARAMETER AccessRequestRecommendationActionItemDto
 The recommended access item that was requested for an identity.
 
 .PARAMETER WithHttpInfo
@@ -125,7 +125,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestrecommendationactionitemresponsedto
+AccessRequestRecommendationActionItemResponseDto
 #>
 function Add-AccessRequestRecommendationsRequestedItemV1 {
     [CmdletBinding()]
@@ -135,7 +135,7 @@ function Add-AccessRequestRecommendationsRequestedItemV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessrequestrecommendationactionitemdto},
+        ${AccessRequestRecommendationActionItemDto},
         [Switch]
         $WithHttpInfo
     )
@@ -166,14 +166,14 @@ function Add-AccessRequestRecommendationsRequestedItemV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Accessrequestrecommendationactionitemdto) {
-            throw "Error! The required parameter `Accessrequestrecommendationactionitemdto` missing when calling addAccessRequestRecommendationsRequestedItemV1."
+        if (!$AccessRequestRecommendationActionItemDto) {
+            throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsRequestedItemV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessrequestrecommendationactionitemdto -is [array])) {
-            $LocalVarBodyParameter = $Accessrequestrecommendationactionitemdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
+            $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessrequestrecommendationactionitemdto | ForEach-Object {
+            $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -192,7 +192,7 @@ function Add-AccessRequestRecommendationsRequestedItemV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestrecommendationactionitemresponsedto" `
+                                -ReturnType "AccessRequestRecommendationActionItemResponseDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -215,7 +215,7 @@ This API consumes a notification that a recommended access request item was view
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Accessrequestrecommendationactionitemdto
+.PARAMETER AccessRequestRecommendationActionItemDto
 The recommended access that was viewed for an identity.
 
 .PARAMETER WithHttpInfo
@@ -224,7 +224,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestrecommendationactionitemresponsedto
+AccessRequestRecommendationActionItemResponseDto
 #>
 function Add-AccessRequestRecommendationsViewedItemV1 {
     [CmdletBinding()]
@@ -234,7 +234,7 @@ function Add-AccessRequestRecommendationsViewedItemV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessrequestrecommendationactionitemdto},
+        ${AccessRequestRecommendationActionItemDto},
         [Switch]
         $WithHttpInfo
     )
@@ -265,14 +265,14 @@ function Add-AccessRequestRecommendationsViewedItemV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Accessrequestrecommendationactionitemdto) {
-            throw "Error! The required parameter `Accessrequestrecommendationactionitemdto` missing when calling addAccessRequestRecommendationsViewedItemV1."
+        if (!$AccessRequestRecommendationActionItemDto) {
+            throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsViewedItemV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessrequestrecommendationactionitemdto -is [array])) {
-            $LocalVarBodyParameter = $Accessrequestrecommendationactionitemdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
+            $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessrequestrecommendationactionitemdto | ForEach-Object {
+            $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -291,7 +291,7 @@ function Add-AccessRequestRecommendationsViewedItemV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestrecommendationactionitemresponsedto" `
+                                -ReturnType "AccessRequestRecommendationActionItemResponseDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -314,7 +314,7 @@ This API consumes a notification that a set of recommended access request item w
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Accessrequestrecommendationactionitemdto
+.PARAMETER AccessRequestRecommendationActionItemDto
 The recommended access items that were viewed for an identity.
 
 .PARAMETER WithHttpInfo
@@ -323,7 +323,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestrecommendationactionitemresponsedto[]
+AccessRequestRecommendationActionItemResponseDto[]
 #>
 function Add-AccessRequestRecommendationsViewedItemsV1 {
     [CmdletBinding()]
@@ -333,7 +333,7 @@ function Add-AccessRequestRecommendationsViewedItemsV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Accessrequestrecommendationactionitemdto},
+        ${AccessRequestRecommendationActionItemDto},
         [Switch]
         $WithHttpInfo
     )
@@ -364,14 +364,14 @@ function Add-AccessRequestRecommendationsViewedItemsV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Accessrequestrecommendationactionitemdto) {
-            throw "Error! The required parameter `Accessrequestrecommendationactionitemdto` missing when calling addAccessRequestRecommendationsViewedItemsV1."
+        if (!$AccessRequestRecommendationActionItemDto) {
+            throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsViewedItemsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessrequestrecommendationactionitemdto -is [array])) {
-            $LocalVarBodyParameter = $Accessrequestrecommendationactionitemdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
+            $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessrequestrecommendationactionitemdto | ForEach-Object {
+            $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -390,7 +390,7 @@ function Add-AccessRequestRecommendationsViewedItemsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestrecommendationactionitemresponsedto[]" `
+                                -ReturnType "AccessRequestRecommendationActionItemResponseDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -419,7 +419,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestrecommendationconfigdto
+AccessRequestRecommendationConfigDto
 #>
 function Get-AccessRequestRecommendationsConfigV1 {
     [CmdletBinding()]
@@ -463,7 +463,7 @@ function Get-AccessRequestRecommendationsConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestrecommendationconfigdto" `
+                                -ReturnType "AccessRequestRecommendationConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -507,7 +507,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestrecommendationactionitemresponsedto[]
+AccessRequestRecommendationActionItemResponseDto[]
 #>
 function Get-AccessRequestRecommendationsIgnoredItemsV1 {
     [CmdletBinding()]
@@ -586,7 +586,7 @@ function Get-AccessRequestRecommendationsIgnoredItemsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestrecommendationactionitemresponsedto[]" `
+                                -ReturnType "AccessRequestRecommendationActionItemResponseDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -630,7 +630,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestrecommendationactionitemresponsedto[]
+AccessRequestRecommendationActionItemResponseDto[]
 #>
 function Get-AccessRequestRecommendationsRequestedItemsV1 {
     [CmdletBinding()]
@@ -709,7 +709,7 @@ function Get-AccessRequestRecommendationsRequestedItemsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestrecommendationactionitemresponsedto[]" `
+                                -ReturnType "AccessRequestRecommendationActionItemResponseDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -759,7 +759,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestrecommendationitemdetail[]
+AccessRequestRecommendationItemDetail[]
 #>
 function Get-AccessRequestRecommendationsV1 {
     [CmdletBinding()]
@@ -852,7 +852,7 @@ function Get-AccessRequestRecommendationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestrecommendationitemdetail[]" `
+                                -ReturnType "AccessRequestRecommendationItemDetail[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -896,7 +896,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestrecommendationactionitemresponsedto[]
+AccessRequestRecommendationActionItemResponseDto[]
 #>
 function Get-AccessRequestRecommendationsViewedItemsV1 {
     [CmdletBinding()]
@@ -975,7 +975,7 @@ function Get-AccessRequestRecommendationsViewedItemsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestrecommendationactionitemresponsedto[]" `
+                                -ReturnType "AccessRequestRecommendationActionItemResponseDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -998,7 +998,7 @@ This API updates the configurations for Access Request Recommender for the tenan
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Accessrequestrecommendationconfigdto
+.PARAMETER AccessRequestRecommendationConfigDto
 The desired configurations for Access Request Recommender for the tenant.
 
 .PARAMETER WithHttpInfo
@@ -1007,7 +1007,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestrecommendationconfigdto
+AccessRequestRecommendationConfigDto
 #>
 function Set-AccessRequestRecommendationsConfigV1 {
     [CmdletBinding()]
@@ -1017,7 +1017,7 @@ function Set-AccessRequestRecommendationsConfigV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessrequestrecommendationconfigdto},
+        ${AccessRequestRecommendationConfigDto},
         [Switch]
         $WithHttpInfo
     )
@@ -1048,14 +1048,14 @@ function Set-AccessRequestRecommendationsConfigV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Accessrequestrecommendationconfigdto) {
-            throw "Error! The required parameter `Accessrequestrecommendationconfigdto` missing when calling setAccessRequestRecommendationsConfigV1."
+        if (!$AccessRequestRecommendationConfigDto) {
+            throw "Error! The required parameter `AccessRequestRecommendationConfigDto` missing when calling setAccessRequestRecommendationsConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessrequestrecommendationconfigdto -is [array])) {
-            $LocalVarBodyParameter = $Accessrequestrecommendationconfigdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationConfigDto -is [array])) {
+            $LocalVarBodyParameter = $AccessRequestRecommendationConfigDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessrequestrecommendationconfigdto | ForEach-Object {
+            $LocalVarBodyParameter = $AccessRequestRecommendationConfigDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1074,7 +1074,7 @@ function Set-AccessRequestRecommendationsConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestrecommendationconfigdto" `
+                                -ReturnType "AccessRequestRecommendationConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

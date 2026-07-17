@@ -115,7 +115,7 @@ This endpoint initiates a bulk deletion of one or more dimensions. When the requ
 .PARAMETER RoleId
 Parent Role Id of the dimensions.
 
-.PARAMETER Dimensionbulkdeleterequest
+.PARAMETER DimensionBulkDeleteRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -124,7 +124,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskresultdto
+TaskResultDto
 #>
 function Remove-BulkDimensionsV1 {
     [CmdletBinding()]
@@ -134,7 +134,7 @@ function Remove-BulkDimensionsV1 {
         ${RoleId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Dimensionbulkdeleterequest},
+        ${DimensionBulkDeleteRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -164,14 +164,14 @@ function Remove-BulkDimensionsV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{roleId}', [System.Web.HTTPUtility]::UrlEncode($RoleId))
 
-        if (!$Dimensionbulkdeleterequest) {
-            throw "Error! The required parameter `Dimensionbulkdeleterequest` missing when calling deleteBulkDimensionsV1."
+        if (!$DimensionBulkDeleteRequest) {
+            throw "Error! The required parameter `DimensionBulkDeleteRequest` missing when calling deleteBulkDimensionsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Dimensionbulkdeleterequest -is [array])) {
-            $LocalVarBodyParameter = $Dimensionbulkdeleterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($DimensionBulkDeleteRequest -is [array])) {
+            $LocalVarBodyParameter = $DimensionBulkDeleteRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Dimensionbulkdeleterequest | ForEach-Object {
+            $LocalVarBodyParameter = $DimensionBulkDeleteRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -190,7 +190,7 @@ function Remove-BulkDimensionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskresultdto" `
+                                -ReturnType "TaskResultDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -533,7 +533,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofile[]
+AccessProfile[]
 #>
 function Get-DimensionAccessProfilesV1 {
     [CmdletBinding()]
@@ -618,7 +618,7 @@ function Get-DimensionAccessProfilesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofile[]" `
+                                -ReturnType "AccessProfile[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -776,7 +776,7 @@ Parent Role Id of the dimension.
 .PARAMETER DimensionId
 Id of the Dimension
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -798,7 +798,7 @@ function Update-DimensionV1 {
         ${DimensionId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -832,14 +832,14 @@ function Update-DimensionV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{dimensionId}', [System.Web.HTTPUtility]::UrlEncode($DimensionId))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchDimensionV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchDimensionV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

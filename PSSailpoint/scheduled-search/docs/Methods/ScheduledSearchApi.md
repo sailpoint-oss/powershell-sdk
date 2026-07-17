@@ -63,18 +63,18 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CreateScheduledSearchV1Request | [**CreateScheduledSearchV1Request**](../models/create-scheduled-search-v1-request) | True  | The scheduled search to persist.
 
 ### Return type
-[**Scheduledsearch**](../models/scheduledsearch)
+[**ScheduledSearch**](../models/scheduled-search)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | The persisted scheduled search. | Scheduledsearch
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | The persisted scheduled search. | ScheduledSearch
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListScheduledSearchV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListScheduledSearchV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -117,12 +117,12 @@ Path   | Id | **String** | True  | ID of the requested document.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content - Indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListScheduledSearchV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListScheduledSearchV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -157,18 +157,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the requested document.
 
 ### Return type
-[**Scheduledsearch**](../models/scheduledsearch)
+[**ScheduledSearch**](../models/scheduled-search)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The requested scheduled search. | Scheduledsearch
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The requested scheduled search. | ScheduledSearch
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListScheduledSearchV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListScheduledSearchV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -207,18 +207,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **savedSearchId**: *eq*
 
 ### Return type
-[**Scheduledsearch[]**](../models/scheduledsearch)
+[**ScheduledSearch[]**](../models/scheduled-search)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The list of requested scheduled searches. | Scheduledsearch[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The list of requested scheduled searches. | ScheduledSearch[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListScheduledSearchV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListScheduledSearchV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -255,7 +255,7 @@ Unsubscribes a recipient from the specified scheduled search.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the requested document.
- Body  | Typedreference | [**Typedreference**](../models/typedreference) | True  | The recipient to be removed from the scheduled search. 
+ Body  | TypedReference | [**TypedReference**](../models/typed-reference) | True  | The recipient to be removed from the scheduled search. 
 
 ### Return type
  (empty response body)
@@ -264,9 +264,9 @@ Path   | Id | **String** | True  | ID of the requested document.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content - Indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -275,16 +275,19 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-$Typedreference = @""@
+$TypedReference = @"{
+  "id" : "2c91808568c529c60168cca6f90c1313",
+  "type" : "IDENTITY"
+}"@
 
 # Unsubscribe a recipient from scheduled search
 
 try {
-    $Result = ConvertFrom-JsonToTypedreference -Json $Typedreference
-    Invoke-UnsubscribeScheduledSearchV1 -Id $Id -Typedreference $Result 
+    $Result = ConvertFrom-JsonToTypedReference -Json $TypedReference
+    Invoke-UnsubscribeScheduledSearchV1 -Id $Id -TypedReference $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-UnsubscribeScheduledSearchV1 -Id $Id -Typedreference $Result  
+    # Invoke-UnsubscribeScheduledSearchV1 -Id $Id -TypedReference $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-UnsubscribeScheduledSearchV1"
     Write-Host $_.ErrorDetails
@@ -302,21 +305,21 @@ Updates an existing scheduled search.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the requested document.
- Body  | Scheduledsearch | [**Scheduledsearch**](../models/scheduledsearch) | True  | The scheduled search to persist.
+ Body  | ScheduledSearch | [**ScheduledSearch**](../models/scheduled-search) | True  | The scheduled search to persist.
 
 ### Return type
-[**Scheduledsearch**](../models/scheduledsearch)
+[**ScheduledSearch**](../models/scheduled-search)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The persisted scheduled search. | Scheduledsearch
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The persisted scheduled search. | ScheduledSearch
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListScheduledSearchV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListScheduledSearchV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -325,16 +328,58 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-$Scheduledsearch = @""@
+$ScheduledSearch = @"{
+  "owner" : {
+    "id" : "2c9180867624cbd7017642d8c8c81f67",
+    "type" : "IDENTITY"
+  },
+  "displayQueryDetails" : false,
+  "created" : "",
+  "description" : "Daily disabled accounts",
+  "ownerId" : "2c9180867624cbd7017642d8c8c81f67",
+  "enabled" : false,
+  "schedule" : {
+    "hours" : {
+      "values" : [ "MON", "WED" ],
+      "interval" : 3,
+      "type" : "LIST"
+    },
+    "months" : {
+      "values" : [ "MON", "WED" ],
+      "interval" : 3,
+      "type" : "LIST"
+    },
+    "timeZoneId" : "America/Chicago",
+    "days" : {
+      "values" : [ "MON", "WED" ],
+      "interval" : 3,
+      "type" : "LIST"
+    },
+    "expiration" : "2018-06-25T20:22:28.104Z",
+    "type" : "WEEKLY"
+  },
+  "recipients" : [ {
+    "id" : "2c9180867624cbd7017642d8c8c81f67",
+    "type" : "IDENTITY"
+  }, {
+    "id" : "2c9180867624cbd7017642d8c8c81f67",
+    "type" : "IDENTITY"
+  } ],
+  "savedSearchId" : "554f1511-f0a1-4744-ab14-599514d3e57c",
+  "name" : "Daily disabled accounts",
+  "modified" : "",
+  "id" : "0de46054-fe90-434a-b84e-c6b3359d0c64",
+  "emailEmptyResults" : false
+}"@
 
 # Update an existing scheduled search
 
 try {
-    $Result = ConvertFrom-JsonToScheduledsearch -Json $Scheduledsearch
-    Update-ScheduledSearchV1 -Id $Id -Scheduledsearch $Result 
+    $Result = ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch
+    Update-ScheduledSearchV1 -Id $Id -ScheduledSearch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ScheduledSearchV1 -Id $Id -Scheduledsearch $Result  
+    # Update-ScheduledSearchV1 -Id $Id -ScheduledSearch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ScheduledSearchV1"
     Write-Host $_.ErrorDetails

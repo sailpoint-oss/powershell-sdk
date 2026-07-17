@@ -38,7 +38,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementconnectionsearchhit[]
+EntitlementConnectionSearchHit[]
 #>
 function Get-EntitlementConnectionsForCurrentIdentityV1 {
     [CmdletBinding()]
@@ -116,7 +116,7 @@ function Get-EntitlementConnectionsForCurrentIdentityV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementconnectionsearchhit[]" `
+                                -ReturnType "EntitlementConnectionSearchHit[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -160,7 +160,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementconnectionsearchhit[]
+EntitlementConnectionSearchHit[]
 #>
 function Get-EntitlementConnectionsV1 {
     [CmdletBinding()]
@@ -238,7 +238,7 @@ function Get-EntitlementConnectionsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementconnectionsearchhit[]" `
+                                -ReturnType "EntitlementConnectionSearchHit[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -261,7 +261,7 @@ Applies JSON Patch operations to an entitlement connection selected by `connecti
 .PARAMETER ConnectionId
 Connection ID (UUID with or without hyphens).
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -270,7 +270,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementconnection
+EntitlementConnection
 #>
 function Update-EntitlementConnectionByIdV1 {
     [CmdletBinding()]
@@ -280,7 +280,7 @@ function Update-EntitlementConnectionByIdV1 {
         ${ConnectionId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -310,14 +310,14 @@ function Update-EntitlementConnectionByIdV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{connectionId}', [System.Web.HTTPUtility]::UrlEncode($ConnectionId))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchEntitlementConnectionByIdV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchEntitlementConnectionByIdV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -336,7 +336,7 @@ function Update-EntitlementConnectionByIdV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementconnection" `
+                                -ReturnType "EntitlementConnection" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -365,7 +365,7 @@ Identity ID (UUID with or without hyphens).
 .PARAMETER AccountId
 Account ID (UUID with or without hyphens).
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -374,7 +374,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementconnection
+EntitlementConnection
 #>
 function Update-EntitlementConnectionByQueryV1 {
     [CmdletBinding()]
@@ -390,7 +390,7 @@ function Update-EntitlementConnectionByQueryV1 {
         ${AccountId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -431,14 +431,14 @@ function Update-EntitlementConnectionByQueryV1 {
         }
         $LocalVarQueryParameters['accountId'] = $AccountId
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchEntitlementConnectionByQueryV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchEntitlementConnectionByQueryV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -457,7 +457,7 @@ function Update-EntitlementConnectionByQueryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementconnection" `
+                                -ReturnType "EntitlementConnection" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -477,7 +477,7 @@ Update connections in bulk
 
 Updates connection type for up to 100 connections in one request. The API returns per-item results in a 207 Multi-Status response. 
 
-.PARAMETER Entitlementconnectionbulkupdateitem
+.PARAMETER EntitlementConnectionBulkUpdateItem
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -486,14 +486,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementconnectionbulkupdateresultitem[]
+EntitlementConnectionBulkUpdateResultItem[]
 #>
 function Update-EntitlementConnectionsBulkV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Entitlementconnectionbulkupdateitem},
+        ${EntitlementConnectionBulkUpdateItem},
         [Switch]
         $WithHttpInfo
     )
@@ -519,14 +519,14 @@ function Update-EntitlementConnectionsBulkV1 {
 
         $LocalVarUri = '/entitlement-connections/v1'
 
-        if (!$Entitlementconnectionbulkupdateitem) {
-            throw "Error! The required parameter `Entitlementconnectionbulkupdateitem` missing when calling updateEntitlementConnectionsBulkV1."
+        if (!$EntitlementConnectionBulkUpdateItem) {
+            throw "Error! The required parameter `EntitlementConnectionBulkUpdateItem` missing when calling updateEntitlementConnectionsBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Entitlementconnectionbulkupdateitem -is [array])) {
-            $LocalVarBodyParameter = $Entitlementconnectionbulkupdateitem | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementConnectionBulkUpdateItem -is [array])) {
+            $LocalVarBodyParameter = $EntitlementConnectionBulkUpdateItem | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Entitlementconnectionbulkupdateitem | ForEach-Object {
+            $LocalVarBodyParameter = $EntitlementConnectionBulkUpdateItem | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -545,7 +545,7 @@ function Update-EntitlementConnectionsBulkV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementconnectionbulkupdateresultitem[]" `
+                                -ReturnType "EntitlementConnectionBulkUpdateResultItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -97,7 +97,7 @@ Remove tags from multiple objects
 
 This API removes tags from multiple objects.
 
-.PARAMETER Bulkremovetaggedobject
+.PARAMETER BulkRemoveTaggedObject
 Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 .PARAMETER WithHttpInfo
@@ -113,7 +113,7 @@ function Remove-TagsToManyObjectV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Bulkremovetaggedobject},
+        ${BulkRemoveTaggedObject},
         [Switch]
         $WithHttpInfo
     )
@@ -139,14 +139,14 @@ function Remove-TagsToManyObjectV1 {
 
         $LocalVarUri = '/tagged-objects/v1/bulk-remove'
 
-        if (!$Bulkremovetaggedobject) {
-            throw "Error! The required parameter `Bulkremovetaggedobject` missing when calling deleteTagsToManyObjectV1."
+        if (!$BulkRemoveTaggedObject) {
+            throw "Error! The required parameter `BulkRemoveTaggedObject` missing when calling deleteTagsToManyObjectV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Bulkremovetaggedobject -is [array])) {
-            $LocalVarBodyParameter = $Bulkremovetaggedobject | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkRemoveTaggedObject -is [array])) {
+            $LocalVarBodyParameter = $BulkRemoveTaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Bulkremovetaggedobject | ForEach-Object {
+            $LocalVarBodyParameter = $BulkRemoveTaggedObject | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -197,7 +197,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taggedobject
+TaggedObject
 #>
 function Get-TaggedObjectV1 {
     [CmdletBinding()]
@@ -248,7 +248,7 @@ function Get-TaggedObjectV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taggedobject" `
+                                -ReturnType "TaggedObject" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -289,7 +289,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taggedobject[]
+TaggedObject[]
 #>
 function Get-TaggedObjectsByTypeV1 {
     [CmdletBinding()]
@@ -361,7 +361,7 @@ function Get-TaggedObjectsByTypeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taggedobject[]" `
+                                -ReturnType "TaggedObject[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -399,7 +399,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taggedobject[]
+TaggedObject[]
 #>
 function Get-TaggedObjectsV1 {
     [CmdletBinding()]
@@ -463,7 +463,7 @@ function Get-TaggedObjectsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taggedobject[]" `
+                                -ReturnType "TaggedObject[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -489,7 +489,7 @@ The type of tagged object to update.
 .PARAMETER Id
 The ID of the object reference to update.
 
-.PARAMETER Taggedobject
+.PARAMETER TaggedObject
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -498,7 +498,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taggedobject
+TaggedObject
 #>
 function Send-TaggedObjectV1 {
     [CmdletBinding()]
@@ -512,7 +512,7 @@ function Send-TaggedObjectV1 {
         ${Id},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Taggedobject},
+        ${TaggedObject},
         [Switch]
         $WithHttpInfo
     )
@@ -546,14 +546,14 @@ function Send-TaggedObjectV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Taggedobject) {
-            throw "Error! The required parameter `Taggedobject` missing when calling putTaggedObjectV1."
+        if (!$TaggedObject) {
+            throw "Error! The required parameter `TaggedObject` missing when calling putTaggedObjectV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Taggedobject -is [array])) {
-            $LocalVarBodyParameter = $Taggedobject | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TaggedObject -is [array])) {
+            $LocalVarBodyParameter = $TaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Taggedobject | ForEach-Object {
+            $LocalVarBodyParameter = $TaggedObject | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -572,7 +572,7 @@ function Send-TaggedObjectV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taggedobject" `
+                                -ReturnType "TaggedObject" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -592,7 +592,7 @@ Add tag to object
 
 This adds a tag to an object.
 
-.PARAMETER Taggedobject
+.PARAMETER TaggedObject
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -608,7 +608,7 @@ function Set-TagToObjectV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Taggedobject},
+        ${TaggedObject},
         [Switch]
         $WithHttpInfo
     )
@@ -634,14 +634,14 @@ function Set-TagToObjectV1 {
 
         $LocalVarUri = '/tagged-objects/v1'
 
-        if (!$Taggedobject) {
-            throw "Error! The required parameter `Taggedobject` missing when calling setTagToObjectV1."
+        if (!$TaggedObject) {
+            throw "Error! The required parameter `TaggedObject` missing when calling setTagToObjectV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Taggedobject -is [array])) {
-            $LocalVarBodyParameter = $Taggedobject | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TaggedObject -is [array])) {
+            $LocalVarBodyParameter = $TaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Taggedobject | ForEach-Object {
+            $LocalVarBodyParameter = $TaggedObject | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -680,7 +680,7 @@ Tag multiple objects
 
 This API adds tags to multiple objects.
 
-.PARAMETER Bulkaddtaggedobject
+.PARAMETER BulkAddTaggedObject
 Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 .PARAMETER WithHttpInfo
@@ -689,14 +689,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Bulktaggedobjectresponse[]
+BulkTaggedObjectResponse[]
 #>
 function Set-TagsToManyObjectsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Bulkaddtaggedobject},
+        ${BulkAddTaggedObject},
         [Switch]
         $WithHttpInfo
     )
@@ -722,14 +722,14 @@ function Set-TagsToManyObjectsV1 {
 
         $LocalVarUri = '/tagged-objects/v1/bulk-add'
 
-        if (!$Bulkaddtaggedobject) {
-            throw "Error! The required parameter `Bulkaddtaggedobject` missing when calling setTagsToManyObjectsV1."
+        if (!$BulkAddTaggedObject) {
+            throw "Error! The required parameter `BulkAddTaggedObject` missing when calling setTagsToManyObjectsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Bulkaddtaggedobject -is [array])) {
-            $LocalVarBodyParameter = $Bulkaddtaggedobject | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkAddTaggedObject -is [array])) {
+            $LocalVarBodyParameter = $BulkAddTaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Bulkaddtaggedobject | ForEach-Object {
+            $LocalVarBodyParameter = $BulkAddTaggedObject | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -748,7 +748,7 @@ function Set-TagsToManyObjectsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Bulktaggedobjectresponse[]" `
+                                -ReturnType "BulkTaggedObjectResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

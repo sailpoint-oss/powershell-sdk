@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.CertificationSummaries.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,38 +75,38 @@ FunctionsToExport = 'Get-IdentityAccessSummariesV1', 'Get-IdentityDecisionSummar
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Accesssummary', 'ConvertFrom-JsonToAccesssummary', 
-               'Initialize-AccesssummaryAccess', 
-               'ConvertFrom-JsonToAccesssummaryAccess', 
-               'Initialize-Activityinsights', 'ConvertFrom-JsonToActivityinsights', 
-               'Initialize-Certificationidentitysummary', 
-               'ConvertFrom-JsonToCertificationidentitysummary', 
-               'Initialize-Dataaccess', 'ConvertFrom-JsonToDataaccess', 
-               'Initialize-DataaccessCategoriesInner', 
-               'ConvertFrom-JsonToDataaccessCategoriesInner', 
-               'Initialize-DataaccessImpactScore', 
-               'ConvertFrom-JsonToDataaccessImpactScore', 
-               'Initialize-DataaccessPoliciesInner', 
-               'ConvertFrom-JsonToDataaccessPoliciesInner', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-AccessSummary', 'ConvertFrom-JsonToAccessSummary', 
+               'Initialize-AccessSummaryAccess', 
+               'ConvertFrom-JsonToAccessSummaryAccess', 
+               'Initialize-ActivityInsights', 'ConvertFrom-JsonToActivityInsights', 
+               'Initialize-CertificationIdentitySummary', 
+               'ConvertFrom-JsonToCertificationIdentitySummary', 
+               'Initialize-DataAccess', 'ConvertFrom-JsonToDataAccess', 
+               'Initialize-DataAccessCategoriesInner', 
+               'ConvertFrom-JsonToDataAccessCategoriesInner', 
+               'Initialize-DataAccessImpactScore', 
+               'ConvertFrom-JsonToDataAccessImpactScore', 
+               'Initialize-DataAccessPoliciesInner', 
+               'ConvertFrom-JsonToDataAccessPoliciesInner', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetIdentityDecisionSummaryV1401Response', 
                'ConvertFrom-JsonToGetIdentityDecisionSummaryV1401Response', 
                'Initialize-GetIdentityDecisionSummaryV1429Response', 
                'ConvertFrom-JsonToGetIdentityDecisionSummaryV1429Response', 
-               'Initialize-Identitycertdecisionsummary', 
-               'ConvertFrom-JsonToIdentitycertdecisionsummary', 
-               'Initialize-Identityreferencewithnameandemail', 
-               'ConvertFrom-JsonToIdentityreferencewithnameandemail', 
-               'Initialize-Reviewableaccessprofile', 
-               'ConvertFrom-JsonToReviewableaccessprofile', 
-               'Initialize-Reviewableentitlement', 
-               'ConvertFrom-JsonToReviewableentitlement', 
-               'Initialize-ReviewableentitlementAccount', 
-               'ConvertFrom-JsonToReviewableentitlementAccount', 
-               'Initialize-ReviewableentitlementAccountOwner', 
-               'ConvertFrom-JsonToReviewableentitlementAccountOwner', 
-               'Initialize-Reviewablerole', 'ConvertFrom-JsonToReviewablerole'
+               'Initialize-IdentityCertDecisionSummary', 
+               'ConvertFrom-JsonToIdentityCertDecisionSummary', 
+               'Initialize-IdentityReferenceWithNameAndEmail', 
+               'ConvertFrom-JsonToIdentityReferenceWithNameAndEmail', 
+               'Initialize-ReviewableAccessProfile', 
+               'ConvertFrom-JsonToReviewableAccessProfile', 
+               'Initialize-ReviewableEntitlement', 
+               'ConvertFrom-JsonToReviewableEntitlement', 
+               'Initialize-ReviewableEntitlementAccount', 
+               'ConvertFrom-JsonToReviewableEntitlementAccount', 
+               'Initialize-ReviewableEntitlementAccountOwner', 
+               'ConvertFrom-JsonToReviewableEntitlementAccountOwner', 
+               'Initialize-ReviewableRole', 'ConvertFrom-JsonToReviewableRole'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

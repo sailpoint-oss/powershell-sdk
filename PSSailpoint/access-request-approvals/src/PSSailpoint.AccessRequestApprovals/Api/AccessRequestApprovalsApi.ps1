@@ -17,7 +17,7 @@ Use this endpoint to approve an access request approval. Only the owner of the a
 .PARAMETER ApprovalId
 Approval ID.
 
-.PARAMETER Commentdto
+.PARAMETER CommentDto
 Reviewer's comment.
 
 .PARAMETER WithHttpInfo
@@ -36,7 +36,7 @@ function Approve-AccessRequestV1 {
         ${ApprovalId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Commentdto},
+        ${CommentDto},
         [Switch]
         $WithHttpInfo
     )
@@ -66,10 +66,10 @@ function Approve-AccessRequestV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{approvalId}', [System.Web.HTTPUtility]::UrlEncode($ApprovalId))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Commentdto -is [array])) {
-            $LocalVarBodyParameter = $Commentdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CommentDto -is [array])) {
+            $LocalVarBodyParameter = $CommentDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Commentdto | ForEach-Object {
+            $LocalVarBodyParameter = $CommentDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -111,7 +111,7 @@ Use this API to forward an access request approval to a new owner. Only the owne
 .PARAMETER ApprovalId
 Approval ID.
 
-.PARAMETER Forwardapprovaldto
+.PARAMETER ForwardApprovalDto
 Information about the forwarded approval.
 
 .PARAMETER WithHttpInfo
@@ -130,7 +130,7 @@ function Invoke-ForwardAccessRequestV1 {
         ${ApprovalId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Forwardapprovaldto},
+        ${ForwardApprovalDto},
         [Switch]
         $WithHttpInfo
     )
@@ -160,14 +160,14 @@ function Invoke-ForwardAccessRequestV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{approvalId}', [System.Web.HTTPUtility]::UrlEncode($ApprovalId))
 
-        if (!$Forwardapprovaldto) {
-            throw "Error! The required parameter `Forwardapprovaldto` missing when calling forwardAccessRequestV1."
+        if (!$ForwardApprovalDto) {
+            throw "Error! The required parameter `ForwardApprovalDto` missing when calling forwardAccessRequestV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Forwardapprovaldto -is [array])) {
-            $LocalVarBodyParameter = $Forwardapprovaldto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ForwardApprovalDto -is [array])) {
+            $LocalVarBodyParameter = $ForwardApprovalDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Forwardapprovaldto | ForEach-Object {
+            $LocalVarBodyParameter = $ForwardApprovalDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -218,7 +218,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Approvalsummary
+ApprovalSummary
 #>
 function Get-AccessRequestApprovalSummaryV1 {
     [CmdletBinding()]
@@ -268,7 +268,7 @@ function Get-AccessRequestApprovalSummaryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Approvalsummary" `
+                                -ReturnType "ApprovalSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -306,7 +306,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessrequestapproverslistresponse[]
+AccessRequestApproversListResponse[]
 #>
 function Get-AccessRequestApproversV1 {
     [CmdletBinding()]
@@ -370,7 +370,7 @@ function Get-AccessRequestApproversV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessrequestapproverslistresponse[]" `
+                                -ReturnType "AccessRequestApproversListResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -414,7 +414,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Completedapproval[]
+CompletedApproval[]
 #>
 function Get-CompletedApprovalsV1 {
     [CmdletBinding()]
@@ -492,7 +492,7 @@ function Get-CompletedApprovalsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Completedapproval[]" `
+                                -ReturnType "CompletedApproval[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -536,7 +536,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Pendingapproval[]
+PendingApproval[]
 #>
 function Get-PendingApprovalsV1 {
     [CmdletBinding()]
@@ -614,7 +614,7 @@ function Get-PendingApprovalsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Pendingapproval[]" `
+                                -ReturnType "PendingApproval[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -637,7 +637,7 @@ Use this API to reject an access request approval. Only the owner of the approva
 .PARAMETER ApprovalId
 Approval ID.
 
-.PARAMETER Commentdto
+.PARAMETER CommentDto
 Reviewer's comment.
 
 .PARAMETER WithHttpInfo
@@ -656,7 +656,7 @@ function Deny-AccessRequestV1 {
         ${ApprovalId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Commentdto},
+        ${CommentDto},
         [Switch]
         $WithHttpInfo
     )
@@ -686,14 +686,14 @@ function Deny-AccessRequestV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{approvalId}', [System.Web.HTTPUtility]::UrlEncode($ApprovalId))
 
-        if (!$Commentdto) {
-            throw "Error! The required parameter `Commentdto` missing when calling rejectAccessRequestV1."
+        if (!$CommentDto) {
+            throw "Error! The required parameter `CommentDto` missing when calling rejectAccessRequestV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Commentdto -is [array])) {
-            $LocalVarBodyParameter = $Commentdto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CommentDto -is [array])) {
+            $LocalVarBodyParameter = $CommentDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Commentdto | ForEach-Object {
+            $LocalVarBodyParameter = $CommentDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

@@ -17,7 +17,7 @@ This API creates the specified password policy.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Passwordpolicyv3dto
+.PARAMETER PasswordPolicyV3Dto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordpolicyv3dto
+PasswordPolicyV3Dto
 #>
 function New-PasswordPolicyV1 {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-PasswordPolicyV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Passwordpolicyv3dto},
+        ${PasswordPolicyV3Dto},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-PasswordPolicyV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Passwordpolicyv3dto) {
-            throw "Error! The required parameter `Passwordpolicyv3dto` missing when calling createPasswordPolicyV1."
+        if (!$PasswordPolicyV3Dto) {
+            throw "Error! The required parameter `PasswordPolicyV3Dto` missing when calling createPasswordPolicyV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Passwordpolicyv3dto -is [array])) {
-            $LocalVarBodyParameter = $Passwordpolicyv3dto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordPolicyV3Dto -is [array])) {
+            $LocalVarBodyParameter = $PasswordPolicyV3Dto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Passwordpolicyv3dto | ForEach-Object {
+            $LocalVarBodyParameter = $PasswordPolicyV3Dto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -93,7 +93,7 @@ function New-PasswordPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordpolicyv3dto" `
+                                -ReturnType "PasswordPolicyV3Dto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -208,7 +208,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordpolicyv3dto
+PasswordPolicyV3Dto
 #>
 function Get-PasswordPolicyByIdV1 {
     [CmdletBinding()]
@@ -259,7 +259,7 @@ function Get-PasswordPolicyByIdV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordpolicyv3dto" `
+                                -ReturnType "PasswordPolicyV3Dto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -297,7 +297,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordpolicyv3dto[]
+PasswordPolicyV3Dto[]
 #>
 function Get-PasswordPoliciesV1 {
     [CmdletBinding()]
@@ -362,7 +362,7 @@ function Get-PasswordPoliciesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordpolicyv3dto[]" `
+                                -ReturnType "PasswordPolicyV3Dto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -388,7 +388,7 @@ The ID of password policy to update.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER Passwordpolicyv3dto
+.PARAMETER PasswordPolicyV3Dto
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -397,7 +397,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordpolicyv3dto
+PasswordPolicyV3Dto
 #>
 function Set-PasswordPolicyV1 {
     [CmdletBinding()]
@@ -410,7 +410,7 @@ function Set-PasswordPolicyV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Passwordpolicyv3dto},
+        ${PasswordPolicyV3Dto},
         [Switch]
         $WithHttpInfo
     )
@@ -445,14 +445,14 @@ function Set-PasswordPolicyV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$Passwordpolicyv3dto) {
-            throw "Error! The required parameter `Passwordpolicyv3dto` missing when calling setPasswordPolicyV1."
+        if (!$PasswordPolicyV3Dto) {
+            throw "Error! The required parameter `PasswordPolicyV3Dto` missing when calling setPasswordPolicyV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Passwordpolicyv3dto -is [array])) {
-            $LocalVarBodyParameter = $Passwordpolicyv3dto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordPolicyV3Dto -is [array])) {
+            $LocalVarBodyParameter = $PasswordPolicyV3Dto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Passwordpolicyv3dto | ForEach-Object {
+            $LocalVarBodyParameter = $PasswordPolicyV3Dto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -471,7 +471,7 @@ function Set-PasswordPolicyV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordpolicyv3dto" `
+                                -ReturnType "PasswordPolicyV3Dto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

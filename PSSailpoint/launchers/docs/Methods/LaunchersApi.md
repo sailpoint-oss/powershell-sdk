@@ -33,7 +33,7 @@ Create a Launcher with given information
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Launcherrequest | [**Launcherrequest**](../models/launcherrequest) | True  | Payload to create a Launcher
+ Body  | LauncherRequest | [**LauncherRequest**](../models/launcher-request) | True  | Payload to create a Launcher
 
 ### Return type
 [**Launcher**](../models/launcher)
@@ -42,12 +42,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 201 | Launcher created successfully | Launcher
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetLaunchersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetLaunchersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -55,16 +55,26 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Launcherrequest = @""@
+$LauncherRequest = @"{
+  "reference" : {
+    "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
+    "type" : "WORKFLOW"
+  },
+  "name" : "Group Create",
+  "description" : "Create a new Active Directory Group",
+  "disabled" : false,
+  "type" : "INTERACTIVE_PROCESS",
+  "config" : "{\"workflowId\" : \"6b42d9be-61b6-46af-827e-ea29ba8aa3d9\"}"
+}"@
 
 # Create launcher
 
 try {
-    $Result = ConvertFrom-JsonToLauncherrequest -Json $Launcherrequest
-    New-LauncherV1 -Launcherrequest $Result 
+    $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+    New-LauncherV1 -LauncherRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-LauncherV1 -Launcherrequest $Result  
+    # New-LauncherV1 -LauncherRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-LauncherV1"
     Write-Host $_.ErrorDetails
@@ -89,12 +99,12 @@ Path   | LauncherID | **String** | True  | ID of the Launcher to be deleted
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | Launcher deleted successfully | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetLaunchersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetLaunchersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -135,12 +145,12 @@ Path   | LauncherID | **String** | True  | ID of the Launcher to be retrieved
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Launcher retrieved successfully | Launcher
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetLaunchersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetLaunchersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -183,12 +193,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of Launchers | GetLaunchersV1200Response
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetLaunchersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetLaunchersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -223,7 +233,7 @@ Replace the given Launcher ID with given payload
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | LauncherID | **String** | True  | ID of the Launcher to be replaced
- Body  | Launcherrequest | [**Launcherrequest**](../models/launcherrequest) | True  | Payload to replace Launcher
+ Body  | LauncherRequest | [**LauncherRequest**](../models/launcher-request) | True  | Payload to replace Launcher
 
 ### Return type
 [**Launcher**](../models/launcher)
@@ -232,12 +242,12 @@ Path   | LauncherID | **String** | True  | ID of the Launcher to be replaced
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Launcher replaced successfully | Launcher
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetLaunchersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetLaunchersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -246,16 +256,26 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be replaced
-$Launcherrequest = @""@
+$LauncherRequest = @"{
+  "reference" : {
+    "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
+    "type" : "WORKFLOW"
+  },
+  "name" : "Group Create",
+  "description" : "Create a new Active Directory Group",
+  "disabled" : false,
+  "type" : "INTERACTIVE_PROCESS",
+  "config" : "{\"workflowId\" : \"6b42d9be-61b6-46af-827e-ea29ba8aa3d9\"}"
+}"@
 
 # Replace launcher
 
 try {
-    $Result = ConvertFrom-JsonToLauncherrequest -Json $Launcherrequest
-    Send-LauncherV1 -LauncherID $LauncherID -Launcherrequest $Result 
+    $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+    Send-LauncherV1 -LauncherID $LauncherID -LauncherRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-LauncherV1 -LauncherID $LauncherID -Launcherrequest $Result  
+    # Send-LauncherV1 -LauncherID $LauncherID -LauncherRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-LauncherV1"
     Write-Host $_.ErrorDetails
@@ -280,12 +300,12 @@ Path   | LauncherID | **String** | True  | ID of the Launcher to be launched
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Launcher launched successfully | StartLauncherV1200Response
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetLaunchersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetLaunchersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined

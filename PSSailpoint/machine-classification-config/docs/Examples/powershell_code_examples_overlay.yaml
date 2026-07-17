@@ -43,18 +43,73 @@
       label: SDK_tools/sdk/powershell/machineclassificationconfig/methods/machine-classification-config#set-machine-classification-config-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
-        $Machineclassificationconfig = @"
-        
+        $MachineClassificationConfig = @"
+        {
+          "criteria" : {
+            "children" : [ {
+              "children" : [ {
+                "children" : [ "{}", "{}" ],
+                "caseSensitive" : false,
+                "dataType" : "dataType",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              }, {
+                "children" : [ "{}", "{}" ],
+                "caseSensitive" : false,
+                "dataType" : "dataType",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              } ],
+              "caseSensitive" : false,
+              "dataType" : "dataType",
+              "attribute" : "employeeType",
+              "operation" : "EQUALS",
+              "value" : "SERVICE"
+            }, {
+              "children" : [ {
+                "children" : [ "{}", "{}" ],
+                "caseSensitive" : false,
+                "dataType" : "dataType",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              }, {
+                "children" : [ "{}", "{}" ],
+                "caseSensitive" : false,
+                "dataType" : "dataType",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              } ],
+              "caseSensitive" : false,
+              "dataType" : "dataType",
+              "attribute" : "employeeType",
+              "operation" : "EQUALS",
+              "value" : "SERVICE"
+            } ],
+            "caseSensitive" : false,
+            "dataType" : "dataType",
+            "attribute" : "distinguishedName",
+            "operation" : "EQUALS",
+            "value" : "OU=Service Accounts"
+          },
+          "created" : "2017-07-11T18:45:37.098Z",
+          "modified" : "2018-06-25T20:22:28.104Z",
+          "classificationMethod" : "SOURCE",
+          "enabled" : true
+        }
         "@
         
         # Update source's classification config
         
         try {
-            $Result = ConvertFrom-JsonToMachineclassificationconfig -Json $Machineclassificationconfig
-            Set-MachineClassificationConfigV1 -SourceId $SourceId -Machineclassificationconfig $Result 
+            $Result = ConvertFrom-JsonToMachineClassificationConfig -Json $MachineClassificationConfig
+            Set-MachineClassificationConfigV1 -SourceId $SourceId -MachineClassificationConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-MachineClassificationConfigV1 -SourceId $SourceId -Machineclassificationconfig $Result   
+            # Set-MachineClassificationConfigV1 -SourceId $SourceId -MachineClassificationConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MachineClassificationConfigV1"
             Write-Host $_.ErrorDetails

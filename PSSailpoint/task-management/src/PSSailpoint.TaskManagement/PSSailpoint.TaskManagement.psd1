@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.TaskManagement.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,25 +74,25 @@ FunctionsToExport = 'Get-TaskStatusListV1', 'Get-TaskStatusV1', 'Update-TaskStat
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'ConvertFrom-JsonToArrayInner', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
+               'ConvertFrom-JsonToArrayInner', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetTaskStatusV1401Response', 
                'ConvertFrom-JsonToGetTaskStatusV1401Response', 
                'Initialize-GetTaskStatusV1429Response', 
                'ConvertFrom-JsonToGetTaskStatusV1429Response', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 
-               'Initialize-Localizedmessage', 'ConvertFrom-JsonToLocalizedmessage', 
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 
+               'Initialize-LocalizedMessage', 'ConvertFrom-JsonToLocalizedMessage', 
                'Initialize-Target', 'ConvertFrom-JsonToTarget', 
-               'Initialize-Taskdefinitionsummary', 
-               'ConvertFrom-JsonToTaskdefinitionsummary', 
-               'Initialize-Taskreturndetails', 
-               'ConvertFrom-JsonToTaskreturndetails', 'Initialize-Taskstatus', 
-               'ConvertFrom-JsonToTaskstatus', 'Initialize-Taskstatusmessage', 
-               'ConvertFrom-JsonToTaskstatusmessage', 
-               'ConvertFrom-JsonToTaskstatusmessageParametersInner'
+               'Initialize-TaskDefinitionSummary', 
+               'ConvertFrom-JsonToTaskDefinitionSummary', 
+               'Initialize-TaskReturnDetails', 
+               'ConvertFrom-JsonToTaskReturnDetails', 'Initialize-TaskStatus', 
+               'ConvertFrom-JsonToTaskStatus', 'Initialize-TaskStatusMessage', 
+               'ConvertFrom-JsonToTaskStatusMessage', 
+               'ConvertFrom-JsonToTaskStatusMessageParametersInner'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

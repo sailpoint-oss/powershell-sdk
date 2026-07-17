@@ -38,20 +38,20 @@ Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Passwordorgconfig | [**Passwordorgconfig**](../models/passwordorgconfig) | True  | 
+ Body  | PasswordOrgConfig | [**PasswordOrgConfig**](../models/password-org-config) | True  | 
 
 ### Return type
-[**Passwordorgconfig**](../models/passwordorgconfig)
+[**PasswordOrgConfig**](../models/password-org-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reference to the password org config. | Passwordorgconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Reference to the password org config. | PasswordOrgConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordOrgConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordOrgConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -59,16 +59,21 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Passwordorgconfig = @"{"customInstructionsEnabled":true,"digitTokenEnabled":true,"digitTokenDurationMinutes":12,"digitTokenLength":9}"@
+$PasswordOrgConfig = @"{
+  "digitTokenLength" : 9,
+  "digitTokenEnabled" : true,
+  "digitTokenDurationMinutes" : 10,
+  "customInstructionsEnabled" : true
+}"@
 
 # Create password org config
 
 try {
-    $Result = ConvertFrom-JsonToPasswordorgconfig -Json $Passwordorgconfig
-    New-PasswordOrgConfigV1 -Passwordorgconfig $Result 
+    $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
+    New-PasswordOrgConfigV1 -PasswordOrgConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # New-PasswordOrgConfigV1 -Passwordorgconfig $Result  
+    # New-PasswordOrgConfigV1 -PasswordOrgConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PasswordOrgConfigV1"
     Write-Host $_.ErrorDetails
@@ -86,17 +91,17 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**Passwordorgconfig**](../models/passwordorgconfig)
+[**PasswordOrgConfig**](../models/password-org-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reference to the password org config. | Passwordorgconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Reference to the password org config. | PasswordOrgConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordOrgConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordOrgConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -129,20 +134,20 @@ Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Passwordorgconfig | [**Passwordorgconfig**](../models/passwordorgconfig) | True  | 
+ Body  | PasswordOrgConfig | [**PasswordOrgConfig**](../models/password-org-config) | True  | 
 
 ### Return type
-[**Passwordorgconfig**](../models/passwordorgconfig)
+[**PasswordOrgConfig**](../models/password-org-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Reference to the password org config. | Passwordorgconfig
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Reference to the password org config. | PasswordOrgConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetPasswordOrgConfigV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetPasswordOrgConfigV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -150,16 +155,21 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Passwordorgconfig = @"{"digitTokenEnabled":true,"digitTokenDurationMinutes":12}"@
+$PasswordOrgConfig = @"{
+  "digitTokenLength" : 9,
+  "digitTokenEnabled" : true,
+  "digitTokenDurationMinutes" : 10,
+  "customInstructionsEnabled" : true
+}"@
 
 # Update password org config
 
 try {
-    $Result = ConvertFrom-JsonToPasswordorgconfig -Json $Passwordorgconfig
-    Send-PasswordOrgConfigV1 -Passwordorgconfig $Result 
+    $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
+    Send-PasswordOrgConfigV1 -PasswordOrgConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-PasswordOrgConfigV1 -Passwordorgconfig $Result  
+    # Send-PasswordOrgConfigV1 -PasswordOrgConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-PasswordOrgConfigV1"
     Write-Host $_.ErrorDetails

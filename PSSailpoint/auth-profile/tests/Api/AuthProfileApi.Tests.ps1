@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.AuthProfile' -name 'AuthProfileApi' {
 
     Context 'Update-ProfileConfigV1' {
         It 'Test Update-ProfileConfigV1' {
-            #$TestResult = Update-ProfileConfigV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-ProfileConfigV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

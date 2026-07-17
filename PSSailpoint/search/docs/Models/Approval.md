@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'Approval', 'Approval']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comments** | [**[]Approvalcomment2**](approvalcomment2) |  | [optional] 
+**Comments** | [**[]ApprovalComment2**](approval-comment2) |  | [optional] 
 **Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Owner** | [**Activityidentity**](activityidentity) |  | [optional] 
+**Owner** | [**ActivityIdentity**](activity-identity) |  | [optional] 
 **Result** | **String** | The result of the approval | [optional] 
-**AttributeRequest** | [**Attributerequest**](attributerequest) |  | [optional] 
-**Source** | [**Accountsource**](accountsource) |  | [optional] 
+**AttributeRequest** | [**AttributeRequest**](attribute-request) |  | [optional] 
+**Source** | [**AccountSource**](account-source) |  | [optional] 
 
 ## Examples
 

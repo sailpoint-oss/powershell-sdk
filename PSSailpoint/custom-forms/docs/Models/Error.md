@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'ModelError', 'ModelError']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DetailCode** | **String** | DetailCode is the text of the status code returned | [optional] 
-**Messages** | [**[]Errormessage**](errormessage) |  | [optional] 
+**Messages** | [**[]ErrorMessage**](error-message) |  | [optional] 
 **TrackingId** | **String** | TrackingID is the request tracking unique identifier | [optional] 
 
 ## Examples

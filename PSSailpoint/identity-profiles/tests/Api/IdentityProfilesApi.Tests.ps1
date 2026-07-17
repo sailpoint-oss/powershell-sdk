@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.IdentityProfiles' -name 'IdentityProfilesApi' {
     Context 'New-IdentityProfileV1' {
         It 'Test New-IdentityProfileV1' {
-            #$TestResult = New-IdentityProfileV1 -Identityprofile "TEST_VALUE"
+            #$TestResult = New-IdentityProfileV1 -IdentityProfile "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.IdentityProfiles' -name 'IdentityProfilesApi' {
 
     Context 'New-IdentityPreviewV1' {
         It 'Test New-IdentityPreviewV1' {
-            #$TestResult = New-IdentityPreviewV1 -Identitypreviewrequest "TEST_VALUE"
+            #$TestResult = New-IdentityPreviewV1 -IdentityPreviewRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.IdentityProfiles' -name 'IdentityProfilesApi' {
 
     Context 'Import-IdentityProfilesV1' {
         It 'Test Import-IdentityProfilesV1' {
-            #$TestResult = Import-IdentityProfilesV1 -Identityprofileexportedobject "TEST_VALUE"
+            #$TestResult = Import-IdentityProfilesV1 -IdentityProfileExportedObject "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.IdentityProfiles' -name 'IdentityProfilesApi' {
 
     Context 'Update-IdentityProfileV1' {
         It 'Test Update-IdentityProfileV1' {
-            #$TestResult = Update-IdentityProfileV1 -IdentityProfileId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-IdentityProfileV1 -IdentityProfileId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

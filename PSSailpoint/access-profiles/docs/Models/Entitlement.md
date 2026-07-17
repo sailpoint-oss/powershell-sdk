@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **CloudGoverned** | **Boolean** | True if the entitlement is cloud governed | [optional] [default to $false]
 **Requestable** | **Boolean** | True if the entitlement is able to be directly requested | [optional] [default to $false]
 **Owner** | [**EntitlementOwner**](entitlement-owner) |  | [optional] 
-**AdditionalOwners** | [**[]Additionalownerref**](additionalownerref) | List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP). | [optional] 
+**AdditionalOwners** | [**[]AdditionalOwnerRef**](additional-owner-ref) | List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP). | [optional] 
 **ManuallyUpdatedFields** | **map[string]AnyType** | A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated. | [optional] 
 **AccessModelMetadata** | [**EntitlementAccessModelMetadata**](entitlement-access-model-metadata) |  | [optional] 
 **Created** | **System.DateTime** | Time when the entitlement was created | [optional] 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **Source** | [**EntitlementSource**](entitlement-source) |  | [optional] 
 **Attributes** | **map[string]AnyType** | A map of free-form key-value pairs from the source system | [optional] 
 **Segments** | **[]String** | List of IDs of segments, if any, to which this Entitlement is assigned. | [optional] 
-**DirectPermissions** | [**[]Permissiondto**](permissiondto) |  | [optional] 
+**DirectPermissions** | [**[]PermissionDTO**](permission-dto) |  | [optional] 
 
 ## Examples
 

@@ -14,7 +14,7 @@ Create access profile
 
 Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile's source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters. >**Note:** To use this endpoint, you need all the listed scopes.
 
-.PARAMETER Accessprofile
+.PARAMETER AccessProfile
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofile
+AccessProfile
 #>
 function New-AccessProfileV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessprofile},
+        ${AccessProfile},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-AccessProfileV1 {
 
         $LocalVarUri = '/access-profiles/v1'
 
-        if (!$Accessprofile) {
-            throw "Error! The required parameter `Accessprofile` missing when calling createAccessProfileV1."
+        if (!$AccessProfile) {
+            throw "Error! The required parameter `AccessProfile` missing when calling createAccessProfileV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessprofile -is [array])) {
-            $LocalVarBodyParameter = $Accessprofile | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessProfile -is [array])) {
+            $LocalVarBodyParameter = $AccessProfile | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessprofile | ForEach-Object {
+            $LocalVarBodyParameter = $AccessProfile | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-AccessProfileV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofile" `
+                                -ReturnType "AccessProfile" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -174,7 +174,7 @@ Delete access profile(s)
 
 This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they're able to administer.
 
-.PARAMETER Accessprofilebulkdeleterequest
+.PARAMETER AccessProfileBulkDeleteRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -183,14 +183,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofilebulkdeleteresponse
+AccessProfileBulkDeleteResponse
 #>
 function Remove-AccessProfilesInBulkV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessprofilebulkdeleterequest},
+        ${AccessProfileBulkDeleteRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -216,14 +216,14 @@ function Remove-AccessProfilesInBulkV1 {
 
         $LocalVarUri = '/access-profiles/v1/bulk-delete'
 
-        if (!$Accessprofilebulkdeleterequest) {
-            throw "Error! The required parameter `Accessprofilebulkdeleterequest` missing when calling deleteAccessProfilesInBulkV1."
+        if (!$AccessProfileBulkDeleteRequest) {
+            throw "Error! The required parameter `AccessProfileBulkDeleteRequest` missing when calling deleteAccessProfilesInBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessprofilebulkdeleterequest -is [array])) {
-            $LocalVarBodyParameter = $Accessprofilebulkdeleterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessProfileBulkDeleteRequest -is [array])) {
+            $LocalVarBodyParameter = $AccessProfileBulkDeleteRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessprofilebulkdeleterequest | ForEach-Object {
+            $LocalVarBodyParameter = $AccessProfileBulkDeleteRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -242,7 +242,7 @@ function Remove-AccessProfilesInBulkV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofilebulkdeleteresponse" `
+                                -ReturnType "AccessProfileBulkDeleteResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -393,7 +393,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofile
+AccessProfile
 #>
 function Get-AccessProfileV1 {
     [CmdletBinding()]
@@ -436,7 +436,7 @@ function Get-AccessProfileV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofile" `
+                                -ReturnType "AccessProfile" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -486,7 +486,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofile[]
+AccessProfile[]
 #>
 function Get-AccessProfilesV1 {
     [CmdletBinding()]
@@ -578,7 +578,7 @@ function Get-AccessProfilesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofile[]" `
+                                -ReturnType "AccessProfile[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -601,7 +601,7 @@ This API updates an existing Access Profile. The following fields are patchable:
 .PARAMETER Id
 ID of the Access Profile to patch
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -610,7 +610,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofile
+AccessProfile
 #>
 function Update-AccessProfileV1 {
     [CmdletBinding()]
@@ -620,7 +620,7 @@ function Update-AccessProfileV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -650,14 +650,14 @@ function Update-AccessProfileV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchAccessProfileV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchAccessProfileV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -676,7 +676,7 @@ function Update-AccessProfileV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofile" `
+                                -ReturnType "AccessProfile" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -699,7 +699,7 @@ This API initiates a bulk update of field requestable for one or more Access Pro
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER AccessprofilebulkupdaterequestInner
+.PARAMETER AccessProfileBulkUpdateRequestInner
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -708,7 +708,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofileupdateitem[]
+AccessProfileUpdateItem[]
 #>
 function Update-AccessProfilesInBulkV1 {
     [CmdletBinding()]
@@ -718,7 +718,7 @@ function Update-AccessProfilesInBulkV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${AccessprofilebulkupdaterequestInner},
+        ${AccessProfileBulkUpdateRequestInner},
         [Switch]
         $WithHttpInfo
     )
@@ -749,14 +749,14 @@ function Update-AccessProfilesInBulkV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$AccessprofilebulkupdaterequestInner) {
-            throw "Error! The required parameter `AccessprofilebulkupdaterequestInner` missing when calling updateAccessProfilesInBulkV1."
+        if (!$AccessProfileBulkUpdateRequestInner) {
+            throw "Error! The required parameter `AccessProfileBulkUpdateRequestInner` missing when calling updateAccessProfilesInBulkV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessprofilebulkupdaterequestInner -is [array])) {
-            $LocalVarBodyParameter = $AccessprofilebulkupdaterequestInner | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessProfileBulkUpdateRequestInner -is [array])) {
+            $LocalVarBodyParameter = $AccessProfileBulkUpdateRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $AccessprofilebulkupdaterequestInner | ForEach-Object {
+            $LocalVarBodyParameter = $AccessProfileBulkUpdateRequestInner | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -775,7 +775,7 @@ function Update-AccessProfilesInBulkV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofileupdateitem[]" `
+                                -ReturnType "AccessProfileUpdateItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

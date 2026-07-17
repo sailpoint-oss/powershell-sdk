@@ -50,18 +50,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The account aggregation id
 
 ### Return type
-[**Accountaggregationstatus**](../models/accountaggregationstatus)
+[**AccountAggregationStatus**](../models/account-aggregation-status)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An account aggregation status object | Accountaggregationstatus
+200 | An account aggregation status object | AccountAggregationStatus
 400 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccountAggregationStatusV1400Response
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccountAggregationStatusV1400Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccountAggregationStatusV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined

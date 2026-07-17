@@ -47,17 +47,21 @@
       label: SDK_tools/sdk/powershell/taskmanagement/methods/task-management#update-task-status-v1
       source: |
         $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update task status by id
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-TaskStatusV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-TaskStatusV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-TaskStatusV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-TaskStatusV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-TaskStatusV1"
             Write-Host $_.ErrorDetails

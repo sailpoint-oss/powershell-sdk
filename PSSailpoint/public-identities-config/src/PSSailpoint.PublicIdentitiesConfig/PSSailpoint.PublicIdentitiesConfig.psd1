@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.PublicIdentitiesConfig.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,18 +74,18 @@ FunctionsToExport = 'Get-PublicIdentityConfigV1', 'Update-PublicIdentityConfigV1
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetPublicIdentityConfigV1401Response', 
                'ConvertFrom-JsonToGetPublicIdentityConfigV1401Response', 
                'Initialize-GetPublicIdentityConfigV1429Response', 
                'ConvertFrom-JsonToGetPublicIdentityConfigV1429Response', 
-               'Initialize-Identityreference', 
-               'ConvertFrom-JsonToIdentityreference', 
-               'Initialize-Publicidentityattributeconfig', 
-               'ConvertFrom-JsonToPublicidentityattributeconfig', 
-               'Initialize-Publicidentityconfig', 
-               'ConvertFrom-JsonToPublicidentityconfig'
+               'Initialize-IdentityReference', 
+               'ConvertFrom-JsonToIdentityReference', 
+               'Initialize-PublicIdentityAttributeConfig', 
+               'ConvertFrom-JsonToPublicIdentityAttributeConfig', 
+               'Initialize-PublicIdentityConfig', 
+               'ConvertFrom-JsonToPublicIdentityConfig'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

@@ -165,17 +165,28 @@
       label: SDK_tools/sdk/powershell/certifications/methods/certifications#make-identity-decision-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campaign certification on which to make decisions
-        $Reviewdecision = @"[{"id":"ef38f94347e94562b5bb8424a56396b5","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source."},{"id":"ef38f94347e94562b5bb8424a56397d8","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source too."}]"@ 
+        $ReviewDecision = @"{
+          "comments" : "This user no longer needs access to this source",
+          "decision" : "APPROVE",
+          "proposedEndDate" : "2017-07-11T18:45:37.098Z",
+          "recommendation" : {
+            "reasons" : [ "Reason 1", "Reason 2" ],
+            "recommendation" : "recommendation",
+            "timestamp" : "2020-06-01T13:49:37.385Z"
+          },
+          "id" : "ef38f94347e94562b5bb8424a56397d8",
+          "bulk" : true
+        }"@ 
         
         
         # Decide on a certification item
         
         try {
-            $Result = ConvertFrom-JsonToReviewdecision -Json $Reviewdecision
-            Select-IdentityDecisionV1 -Id $Id -Reviewdecision $Result 
+            $Result = ConvertFrom-JsonToReviewDecision -Json $ReviewDecision
+            Select-IdentityDecisionV1 -Id $Id -ReviewDecision $Result 
     
             # Below is a request that includes all optional parameters
-            # Select-IdentityDecisionV1 -Id $Id -Reviewdecision $Result   
+            # Select-IdentityDecisionV1 -Id $Id -ReviewDecision $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Select-IdentityDecisionV1"
             Write-Host $_.ErrorDetails
@@ -187,18 +198,28 @@
       label: SDK_tools/sdk/powershell/certifications/methods/certifications#reassign-identity-certifications-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
-        $Reviewreassign = @"
-        
+        $ReviewReassign = @"
+        {
+          "reason" : "reassigned for some reason",
+          "reassignTo" : "ef38f94347e94562b5bb8424a56397d8",
+          "reassign" : [ {
+            "id" : "ef38f94347e94562b5bb8424a56397d8",
+            "type" : "ITEM"
+          }, {
+            "id" : "ef38f94347e94562b5bb8424a56397d8",
+            "type" : "ITEM"
+          } ]
+        }
         "@
         
         # Reassign identities or items
         
         try {
-            $Result = ConvertFrom-JsonToReviewreassign -Json $Reviewreassign
-            Invoke-ReassignIdentityCertificationsV1 -Id $Id -Reviewreassign $Result 
+            $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
+            Invoke-ReassignIdentityCertificationsV1 -Id $Id -ReviewReassign $Result 
     
             # Below is a request that includes all optional parameters
-            # Invoke-ReassignIdentityCertificationsV1 -Id $Id -Reviewreassign $Result   
+            # Invoke-ReassignIdentityCertificationsV1 -Id $Id -ReviewReassign $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReassignIdentityCertificationsV1"
             Write-Host $_.ErrorDetails
@@ -229,18 +250,28 @@
       label: SDK_tools/sdk/powershell/certifications/methods/certifications#submit-reassign-certs-async-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
-        $Reviewreassign = @"
-        
+        $ReviewReassign = @"
+        {
+          "reason" : "reassigned for some reason",
+          "reassignTo" : "ef38f94347e94562b5bb8424a56397d8",
+          "reassign" : [ {
+            "id" : "ef38f94347e94562b5bb8424a56397d8",
+            "type" : "ITEM"
+          }, {
+            "id" : "ef38f94347e94562b5bb8424a56397d8",
+            "type" : "ITEM"
+          } ]
+        }
         "@
         
         # Reassign certifications asynchronously
         
         try {
-            $Result = ConvertFrom-JsonToReviewreassign -Json $Reviewreassign
-            Submit-ReassignCertsAsyncV1 -Id $Id -Reviewreassign $Result 
+            $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
+            Submit-ReassignCertsAsyncV1 -Id $Id -ReviewReassign $Result 
     
             # Below is a request that includes all optional parameters
-            # Submit-ReassignCertsAsyncV1 -Id $Id -Reviewreassign $Result   
+            # Submit-ReassignCertsAsyncV1 -Id $Id -ReviewReassign $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-ReassignCertsAsyncV1"
             Write-Host $_.ErrorDetails

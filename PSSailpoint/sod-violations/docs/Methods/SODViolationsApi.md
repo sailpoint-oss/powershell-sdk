@@ -47,21 +47,21 @@ This API is used to check if granting some additional accesses would cause the s
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Identitywithnewaccess | [**Identitywithnewaccess**](../models/identitywithnewaccess) | True  | 
+ Body  | IdentityWithNewAccess | [**IdentityWithNewAccess**](../models/identity-with-new-access) | True  | 
 
 ### Return type
-[**Violationprediction**](../models/violationprediction)
+[**ViolationPrediction**](../models/violation-prediction)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Violation Contexts | Violationprediction
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Violation Contexts | ViolationPrediction
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartPredictSodViolationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartPredictSodViolationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -69,16 +69,25 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Identitywithnewaccess = @"{"identityId":"2c91808568c529c60168cca6f90c1313","accessRefs":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c050861ab1"},{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}]}"@
+$IdentityWithNewAccess = @"{
+  "identityId" : "2c91808568c529c60168cca6f90c1313",
+  "accessRefs" : [ {
+    "type" : "ENTITLEMENT",
+    "id" : "2c918087682f9a86016839c050861ab1"
+  }, {
+    "type" : "ENTITLEMENT",
+    "id" : "2c918087682f9a86016839c0509c1ab2"
+  } ]
+}"@
 
 # Predict sod violations for identity.
 
 try {
-    $Result = ConvertFrom-JsonToIdentitywithnewaccess -Json $Identitywithnewaccess
-    Start-PredictSodViolationsV1 -Identitywithnewaccess $Result 
+    $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
+    Start-PredictSodViolationsV1 -IdentityWithNewAccess $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-PredictSodViolationsV1 -Identitywithnewaccess $Result  
+    # Start-PredictSodViolationsV1 -IdentityWithNewAccess $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-PredictSodViolationsV1"
     Write-Host $_.ErrorDetails
@@ -94,21 +103,21 @@ This API initiates a SOD policy verification asynchronously.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Identitywithnewaccess | [**Identitywithnewaccess**](../models/identitywithnewaccess) | True  | 
+ Body  | IdentityWithNewAccess | [**IdentityWithNewAccess**](../models/identity-with-new-access) | True  | 
 
 ### Return type
-[**Sodviolationcheck**](../models/sodviolationcheck)
+[**SodViolationCheck**](../models/sod-violation-check)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Request ID with a timestamp. | Sodviolationcheck
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Request ID with a timestamp. | SodViolationCheck
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartPredictSodViolationsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartPredictSodViolationsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -116,16 +125,25 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Identitywithnewaccess = @"{"identityId":"2c91808568c529c60168cca6f90c1313","accessRefs":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c050861ab1"},{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}],"clientMetadata":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"}}"@
+$IdentityWithNewAccess = @"{
+  "identityId" : "2c91808568c529c60168cca6f90c1313",
+  "accessRefs" : [ {
+    "type" : "ENTITLEMENT",
+    "id" : "2c918087682f9a86016839c050861ab1"
+  }, {
+    "type" : "ENTITLEMENT",
+    "id" : "2c918087682f9a86016839c0509c1ab2"
+  } ]
+}"@
 
 # Check sod violations
 
 try {
-    $Result = ConvertFrom-JsonToIdentitywithnewaccess -Json $Identitywithnewaccess
-    Start-ViolationCheckV1 -Identitywithnewaccess $Result 
+    $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
+    Start-ViolationCheckV1 -IdentityWithNewAccess $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-ViolationCheckV1 -Identitywithnewaccess $Result  
+    # Start-ViolationCheckV1 -IdentityWithNewAccess $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ViolationCheckV1"
     Write-Host $_.ErrorDetails

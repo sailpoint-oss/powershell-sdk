@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.PublicIdentities.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -73,18 +73,18 @@ FunctionsToExport = 'Get-PublicIdentitiesV1', 'Get-Configuration', 'Set-Configur
                'Set-ConfigurationApiKey', 'Set-ConfigurationApiKeyPrefix', 
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
-               'Get-ConfigurationHttpSigning', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
+               'Get-ConfigurationHttpSigning', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetPublicIdentitiesV1401Response', 
                'ConvertFrom-JsonToGetPublicIdentitiesV1401Response', 
                'Initialize-GetPublicIdentitiesV1429Response', 
                'ConvertFrom-JsonToGetPublicIdentitiesV1429Response', 
-               'Initialize-Identityreference', 
-               'ConvertFrom-JsonToIdentityreference', 'Initialize-Publicidentity', 
-               'ConvertFrom-JsonToPublicidentity', 
-               'Initialize-PublicidentityAttributesInner', 
-               'ConvertFrom-JsonToPublicidentityAttributesInner'
+               'Initialize-IdentityReference', 
+               'ConvertFrom-JsonToIdentityReference', 'Initialize-PublicIdentity', 
+               'ConvertFrom-JsonToPublicIdentity', 
+               'Initialize-PublicIdentityAttributesInner', 
+               'ConvertFrom-JsonToPublicIdentityAttributesInner'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

@@ -34,20 +34,20 @@ This API is used to add roles/access profiles to the list of common access for a
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Commonaccessitemrequest | [**Commonaccessitemrequest**](../models/commonaccessitemrequest) | True  | 
+ Body  | CommonAccessItemRequest | [**CommonAccessItemRequest**](../models/common-access-item-request) | True  | 
 
 ### Return type
-[**Commonaccessitemresponse**](../models/commonaccessitemresponse)
+[**CommonAccessItemResponse**](../models/common-access-item-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Returns details of the common access classification request. | Commonaccessitemresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Returns details of the common access classification request. | CommonAccessItemResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetCommonAccessV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | CreateCommonAccessV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -56,16 +56,26 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Commonaccessitemrequest = @""@
+$CommonAccessItemRequest = @"{
+  "access" : {
+    "ownerName" : "ownerName",
+    "name" : "name",
+    "description" : "description",
+    "id" : "id",
+    "type" : "ACCESS_PROFILE",
+    "ownerId" : "ownerId"
+  },
+  "status" : "CONFIRMED"
+}"@
 
 # Create common access items
 
 try {
-    $Result = ConvertFrom-JsonToCommonaccessitemrequest -Json $Commonaccessitemrequest
-    New-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessitemrequest $Result 
+    $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
+    New-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental -CommonAccessItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessitemrequest $Result  
+    # New-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental -CommonAccessItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CommonAccessV1"
     Write-Host $_.ErrorDetails
@@ -92,16 +102,16 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, status**  By default the common access items are sorted by name, ascending.
 
 ### Return type
-[**Commonaccessresponse[]**](../models/commonaccessresponse)
+[**CommonAccessResponse[]**](../models/common-access-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Succeeded. Returns a list of common access for a customer. | Commonaccessresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Succeeded. Returns a list of common access for a customer. | CommonAccessResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetCommonAccessV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -142,7 +152,7 @@ This submits an update request to the common access application. At this time th
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | Commonaccessidstatus | [**[]Commonaccessidstatus**](../models/commonaccessidstatus) | True  | Confirm or deny in bulk the common access ids that are (or aren't) common access
+ Body  | CommonAccessIDStatus | [**[]CommonAccessIDStatus**](../models/common-access-id-status) | True  | Confirm or deny in bulk the common access ids that are (or aren't) common access
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -151,11 +161,11 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetCommonAccessV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | CreateCommonAccessV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -164,17 +174,20 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- $Commonaccessidstatus = @""@ # Commonaccessidstatus[] | Confirm or deny in bulk the common access ids that are (or aren't) common access
+ $CommonAccessIDStatus = @"{
+  "confirmedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ],
+  "deniedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ]
+}"@ # CommonAccessIDStatus[] | Confirm or deny in bulk the common access ids that are (or aren't) common access
  
 
 # Bulk update common access status
 
 try {
-    $Result = ConvertFrom-JsonToCommonaccessidstatus -Json $Commonaccessidstatus
-    Update-CommonAccessStatusInBulkV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessidstatus $Result 
+    $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
+    Update-CommonAccessStatusInBulkV1 -XSailPointExperimental $XSailPointExperimental -CommonAccessIDStatus $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-CommonAccessStatusInBulkV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessidstatus $Result  
+    # Update-CommonAccessStatusInBulkV1 -XSailPointExperimental $XSailPointExperimental -CommonAccessIDStatus $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CommonAccessStatusInBulkV1"
     Write-Host $_.ErrorDetails

@@ -17,11 +17,11 @@ tags: ['SDK', 'Software Development Kit', 'CreateWorkflowV1Request', 'CreateWork
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | The name of the workflow | [required]
-**Owner** | [**WorkflowbodyOwner**](workflowbody-owner) |  | [optional] 
+**Owner** | [**WorkflowBodyOwner**](workflow-body-owner) |  | [optional] 
 **Description** | **String** | Description of what the workflow accomplishes | [optional] 
-**Definition** | [**Workflowdefinition**](workflowdefinition) |  | [optional] 
+**Definition** | [**WorkflowDefinition**](workflow-definition) |  | [optional] 
 **Enabled** | **Boolean** | Enable or disable the workflow.  Workflows cannot be created in an enabled state. | [optional] [default to $false]
-**Trigger** | [**Workflowtrigger**](workflowtrigger) |  | [optional] 
+**Trigger** | [**WorkflowTrigger**](workflow-trigger) |  | [optional] 
 
 ## Examples
 

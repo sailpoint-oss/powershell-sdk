@@ -47,7 +47,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Requestableobject[]
+RequestableObject[]
 #>
 function Get-RequestableObjectsV1 {
     [CmdletBinding()]
@@ -147,7 +147,7 @@ function Get-RequestableObjectsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Requestableobject[]" `
+                                -ReturnType "RequestableObject[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

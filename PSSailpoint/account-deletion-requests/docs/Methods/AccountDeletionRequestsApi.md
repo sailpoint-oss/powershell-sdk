@@ -33,21 +33,21 @@ and generates an asynchronous result containing a tracking ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | AccountId | **String** | True  | Account ID.
- Body  | Accountdeleterequestinput | [**Accountdeleterequestinput**](../models/accountdeleterequestinput) |   (optional) | 
+ Body  | AccountDeleteRequestInput | [**AccountDeleteRequestInput**](../models/account-delete-request-input) |   (optional) | 
 
 ### Return type
-[**Accountrequestasyncresult**](../models/accountrequestasyncresult)
+[**AccountRequestAsyncResult**](../models/account-request-async-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Account deletion request details. | Accountrequestasyncresult
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+202 | Account deletion request details. | AccountRequestAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccountDeletionRequestsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccountDeletionRequestsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -56,7 +56,9 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $AccountId = "ef38f94347e94562b5bb8424a56498d8" # String | Account ID.
-$Accountdeleterequestinput = @"{"comments":"I requested this account deletion."}"@
+$AccountDeleteRequestInput = @"{
+  "comments" : "Requesting account deletion request"
+}"@
 
 # Delete account
 
@@ -64,7 +66,7 @@ try {
     Remove-AccountRequestV1 -AccountId $AccountId 
     
     # Below is a request that includes all optional parameters
-    # Remove-AccountRequestV1 -AccountId $AccountId -Accountdeleterequestinput $Result  
+    # Remove-AccountRequestV1 -AccountId $AccountId -AccountDeleteRequestInput $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccountRequestV1"
     Write-Host $_.ErrorDetails
@@ -86,18 +88,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Mine | **Boolean** |   (optional) (default to $false) | Determines whether to return only the account deletion requests initiated by the currently authenticated user. If set to true, the response includes only deletion requests created by the logged-in user. If set to false or not provided, the response includes all deletion requests for the tenant, regardless of the initiator. This parameter allows users to view their own requests, while administrators can view all requests within the tenant.
 
 ### Return type
-[**Accountactionrequestdto[]**](../models/accountactionrequestdto)
+[**AccountActionRequestDto[]**](../models/account-action-request-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Account Action Request objects. | Accountactionrequestdto[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Account Action Request objects. | AccountActionRequestDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccountDeletionRequestsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccountDeletionRequestsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined

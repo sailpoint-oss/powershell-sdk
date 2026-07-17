@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.Branding.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,11 +75,11 @@ FunctionsToExport = 'New-BrandingItemV1', 'Remove-BrandingV1', 'Get-BrandingList
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Brandingitem', 'ConvertFrom-JsonToBrandingitem', 
-               'Initialize-Brandingitemcreate', 
-               'ConvertFrom-JsonToBrandingitemcreate', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-BrandingItem', 'ConvertFrom-JsonToBrandingItem', 
+               'Initialize-BrandingItemCreate', 
+               'ConvertFrom-JsonToBrandingItemCreate', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetBrandingListV1401Response', 
                'ConvertFrom-JsonToGetBrandingListV1401Response', 
                'Initialize-GetBrandingListV1429Response', 

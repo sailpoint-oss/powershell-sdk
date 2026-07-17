@@ -1,0 +1,34 @@
+---
+id: account-request-phase-state
+title: AccountRequestPhaseState
+pagination_label: AccountRequestPhaseState
+sidebar_label: AccountRequestPhaseState
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountRequestPhaseState', 'AccountRequestPhaseState'] 
+slug: /tools/sdk/powershell/accountdeletionrequests/models/account-request-phase-state
+tags: ['SDK', 'Software Development Kit', 'AccountRequestPhaseState', 'AccountRequestPhaseState']
+---
+
+
+# AccountRequestPhaseState
+
+## Enum
+
+
+* `PENDING` (value: `"PENDING"`)
+
+* `CANCELLED` (value: `"CANCELLED"`)
+
+* `APPROVED` (value: `"APPROVED"`)
+
+* `REJECTED` (value: `"REJECTED"`)
+
+* `PASSED` (value: `"PASSED"`)
+
+* `FAILED` (value: `"FAILED"`)
+
+* `NOT_STARTED` (value: `"NOT_STARTED"`)
+
+
+[[Back to top]](#) 
+

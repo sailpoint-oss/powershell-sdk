@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.WorkReassignment.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -80,31 +80,31 @@ FunctionsToExport = 'New-ReassignmentConfigurationV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Auditdetails', 'ConvertFrom-JsonToAuditdetails', 
-               'Initialize-Configtype', 'ConvertFrom-JsonToConfigtype', 
-               'Initialize-Configurationdetailsresponse', 
-               'ConvertFrom-JsonToConfigurationdetailsresponse', 
-               'Initialize-Configurationitemrequest', 
-               'ConvertFrom-JsonToConfigurationitemrequest', 
-               'Initialize-Configurationitemresponse', 
-               'ConvertFrom-JsonToConfigurationitemresponse', 
-               'Initialize-Configurationresponse', 
-               'ConvertFrom-JsonToConfigurationresponse', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Evaluateresponse', 'ConvertFrom-JsonToEvaluateresponse', 
+               'Initialize-AuditDetails', 'ConvertFrom-JsonToAuditDetails', 
+               'Initialize-ConfigType', 'ConvertFrom-JsonToConfigType', 
+               'Initialize-ConfigurationDetailsResponse', 
+               'ConvertFrom-JsonToConfigurationDetailsResponse', 
+               'Initialize-ConfigurationItemRequest', 
+               'ConvertFrom-JsonToConfigurationItemRequest', 
+               'Initialize-ConfigurationItemResponse', 
+               'ConvertFrom-JsonToConfigurationItemResponse', 
+               'Initialize-ConfigurationResponse', 
+               'ConvertFrom-JsonToConfigurationResponse', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-EvaluateResponse', 'ConvertFrom-JsonToEvaluateResponse', 
                'Initialize-GetReassignmentConfigTypesV1401Response', 
                'ConvertFrom-JsonToGetReassignmentConfigTypesV1401Response', 
                'Initialize-GetReassignmentConfigTypesV1429Response', 
                'ConvertFrom-JsonToGetReassignmentConfigTypesV1429Response', 
                'Initialize-Identity2', 'ConvertFrom-JsonToIdentity2', 
-               'Initialize-Lookupstep', 'ConvertFrom-JsonToLookupstep', 
-               'Initialize-Tenantconfigurationdetails', 
-               'ConvertFrom-JsonToTenantconfigurationdetails', 
-               'Initialize-Tenantconfigurationrequest', 
-               'ConvertFrom-JsonToTenantconfigurationrequest', 
-               'Initialize-Tenantconfigurationresponse', 
-               'ConvertFrom-JsonToTenantconfigurationresponse'
+               'Initialize-LookupStep', 'ConvertFrom-JsonToLookupStep', 
+               'Initialize-TenantConfigurationDetails', 
+               'ConvertFrom-JsonToTenantConfigurationDetails', 
+               'Initialize-TenantConfigurationRequest', 
+               'ConvertFrom-JsonToTenantConfigurationRequest', 
+               'Initialize-TenantConfigurationResponse', 
+               'ConvertFrom-JsonToTenantConfigurationResponse'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

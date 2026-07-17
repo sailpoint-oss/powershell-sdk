@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.ClassifySource.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,18 +76,18 @@ FunctionsToExport = 'Remove-ClassifyMachineAccountFromSourceV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetClassifyMachineAccountFromSourceStatusV1401Response', 
                'ConvertFrom-JsonToGetClassifyMachineAccountFromSourceStatusV1401Response', 
                'Initialize-GetClassifyMachineAccountFromSourceStatusV1429Response', 
                'ConvertFrom-JsonToGetClassifyMachineAccountFromSourceStatusV1429Response', 
                'Initialize-SendClassifyMachineAccountFromSourceV1200Response', 
                'ConvertFrom-JsonToSendClassifyMachineAccountFromSourceV1200Response', 
-               'Initialize-Sourceclassificationstatus', 
-               'ConvertFrom-JsonToSourceclassificationstatus', 
-               'Initialize-SourceclassificationstatusAllOfCounts', 
-               'ConvertFrom-JsonToSourceclassificationstatusAllOfCounts'
+               'Initialize-SourceClassificationStatus', 
+               'ConvertFrom-JsonToSourceClassificationStatus', 
+               'Initialize-SourceClassificationStatusAllOfCounts', 
+               'ConvertFrom-JsonToSourceClassificationStatusAllOfCounts'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

@@ -96,7 +96,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-RolePropagationOngoingResponse
+Rolepropagationongoingresponse
 #>
 function Get-OngoingRolePropagationV1 {
     [CmdletBinding()]
@@ -140,7 +140,7 @@ function Get-OngoingRolePropagationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "RolePropagationOngoingResponse" `
+                                -ReturnType "Rolepropagationongoingresponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -169,7 +169,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-RolePropagationConfigResponse
+Rolepropagationconfigresponse
 #>
 function Get-RolePropagationConfigV1 {
     [CmdletBinding()]
@@ -213,7 +213,7 @@ function Get-RolePropagationConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "RolePropagationConfigResponse" `
+                                -ReturnType "Rolepropagationconfigresponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -245,7 +245,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-RolePropagationStatusResponse
+Rolepropagationstatusresponse
 #>
 function Get-RolePropagationStatusV1 {
     [CmdletBinding()]
@@ -296,7 +296,7 @@ function Get-RolePropagationStatusV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "RolePropagationStatusResponse" `
+                                -ReturnType "Rolepropagationstatusresponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -319,7 +319,7 @@ This endpoint enables or disables the Role Change Propagation Process for the te
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER RolePropagationConfigInput
+.PARAMETER Rolepropagationconfiginput
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -328,7 +328,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-RolePropagationConfigResponse
+Rolepropagationconfigresponse
 #>
 function Set-RolePropagationConfigV1 {
     [CmdletBinding()]
@@ -338,7 +338,7 @@ function Set-RolePropagationConfigV1 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${RolePropagationConfigInput},
+        ${Rolepropagationconfiginput},
         [Switch]
         $WithHttpInfo
     )
@@ -369,14 +369,14 @@ function Set-RolePropagationConfigV1 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$RolePropagationConfigInput) {
-            throw "Error! The required parameter `RolePropagationConfigInput` missing when calling setRolePropagationConfigV1."
+        if (!$Rolepropagationconfiginput) {
+            throw "Error! The required parameter `Rolepropagationconfiginput` missing when calling setRolePropagationConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RolePropagationConfigInput -is [array])) {
-            $LocalVarBodyParameter = $RolePropagationConfigInput | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Rolepropagationconfiginput -is [array])) {
+            $LocalVarBodyParameter = $Rolepropagationconfiginput | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $RolePropagationConfigInput | ForEach-Object {
+            $LocalVarBodyParameter = $Rolepropagationconfiginput | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -395,7 +395,7 @@ function Set-RolePropagationConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "RolePropagationConfigResponse" `
+                                -ReturnType "Rolepropagationconfigresponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -427,7 +427,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-RolePropagationResponse
+Rolepropagationresponse
 #>
 function Start-RolePropagationV1 {
     [CmdletBinding()]
@@ -478,7 +478,7 @@ function Start-RolePropagationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "RolePropagationResponse" `
+                                -ReturnType "Rolepropagationresponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

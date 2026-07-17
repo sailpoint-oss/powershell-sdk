@@ -17,7 +17,7 @@ Complete a campaign
 .PARAMETER Id
 Campaign ID.
 
-.PARAMETER Campaigncompleteoptions
+.PARAMETER CampaignCompleteOptions
 Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE
 
 .PARAMETER WithHttpInfo
@@ -36,7 +36,7 @@ function Complete-CampaignV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Campaigncompleteoptions},
+        ${CampaignCompleteOptions},
         [Switch]
         $WithHttpInfo
     )
@@ -66,10 +66,10 @@ function Complete-CampaignV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Campaigncompleteoptions -is [array])) {
-            $LocalVarBodyParameter = $Campaigncompleteoptions | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignCompleteOptions -is [array])) {
+            $LocalVarBodyParameter = $CampaignCompleteOptions | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Campaigncompleteoptions | ForEach-Object {
+            $LocalVarBodyParameter = $CampaignCompleteOptions | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -108,7 +108,7 @@ Create a campaign template
 
 Use this API to create a certification campaign template based on campaign. 
 
-.PARAMETER Campaigntemplate
+.PARAMETER CampaignTemplate
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -117,14 +117,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Campaigntemplate
+CampaignTemplate
 #>
 function New-CampaignTemplateV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Campaigntemplate},
+        ${CampaignTemplate},
         [Switch]
         $WithHttpInfo
     )
@@ -150,14 +150,14 @@ function New-CampaignTemplateV1 {
 
         $LocalVarUri = '/campaign-templates/v1'
 
-        if (!$Campaigntemplate) {
-            throw "Error! The required parameter `Campaigntemplate` missing when calling createCampaignTemplateV1."
+        if (!$CampaignTemplate) {
+            throw "Error! The required parameter `CampaignTemplate` missing when calling createCampaignTemplateV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Campaigntemplate -is [array])) {
-            $LocalVarBodyParameter = $Campaigntemplate | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignTemplate -is [array])) {
+            $LocalVarBodyParameter = $CampaignTemplate | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Campaigntemplate | ForEach-Object {
+            $LocalVarBodyParameter = $CampaignTemplate | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -176,7 +176,7 @@ function New-CampaignTemplateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Campaigntemplate" `
+                                -ReturnType "CampaignTemplate" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -428,7 +428,7 @@ Delete campaigns
 
 Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. 
 
-.PARAMETER Campaignsdeleterequest
+.PARAMETER CampaignsDeleteRequest
 IDs of the campaigns to delete.
 
 .PARAMETER WithHttpInfo
@@ -444,7 +444,7 @@ function Remove-CampaignsV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Campaignsdeleterequest},
+        ${CampaignsDeleteRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -470,14 +470,14 @@ function Remove-CampaignsV1 {
 
         $LocalVarUri = '/campaigns/v1/delete'
 
-        if (!$Campaignsdeleterequest) {
-            throw "Error! The required parameter `Campaignsdeleterequest` missing when calling deleteCampaignsV1."
+        if (!$CampaignsDeleteRequest) {
+            throw "Error! The required parameter `CampaignsDeleteRequest` missing when calling deleteCampaignsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Campaignsdeleterequest -is [array])) {
-            $LocalVarBodyParameter = $Campaignsdeleterequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignsDeleteRequest -is [array])) {
+            $LocalVarBodyParameter = $CampaignsDeleteRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Campaignsdeleterequest | ForEach-Object {
+            $LocalVarBodyParameter = $CampaignsDeleteRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -645,7 +645,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Campaignreportsconfig
+CampaignReportsConfig
 #>
 function Get-CampaignReportsConfigV1 {
     [CmdletBinding()]
@@ -681,7 +681,7 @@ function Get-CampaignReportsConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Campaignreportsconfig" `
+                                -ReturnType "CampaignReportsConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -710,7 +710,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Campaignreport[]
+CampaignReport[]
 #>
 function Get-CampaignReportsV1 {
     [CmdletBinding()]
@@ -753,7 +753,7 @@ function Get-CampaignReportsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Campaignreport[]" `
+                                -ReturnType "CampaignReport[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -854,7 +854,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Campaigntemplate
+CampaignTemplate
 #>
 function Get-CampaignTemplateV1 {
     [CmdletBinding()]
@@ -897,7 +897,7 @@ function Get-CampaignTemplateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Campaigntemplate" `
+                                -ReturnType "CampaignTemplate" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -938,7 +938,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Campaigntemplate[]
+CampaignTemplate[]
 #>
 function Get-CampaignTemplatesV1 {
     [CmdletBinding()]
@@ -1009,7 +1009,7 @@ function Get-CampaignTemplatesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Campaigntemplate[]" `
+                                -ReturnType "CampaignTemplate[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1118,7 +1118,7 @@ This API reassigns the specified certifications from one identity to another.
 .PARAMETER Id
 The certification campaign ID
 
-.PARAMETER Adminreviewreassign
+.PARAMETER AdminReviewReassign
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1127,7 +1127,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Certificationtask
+CertificationTask
 #>
 function Move-V1 {
     [CmdletBinding()]
@@ -1137,7 +1137,7 @@ function Move-V1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Adminreviewreassign},
+        ${AdminReviewReassign},
         [Switch]
         $WithHttpInfo
     )
@@ -1167,14 +1167,14 @@ function Move-V1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Adminreviewreassign) {
-            throw "Error! The required parameter `Adminreviewreassign` missing when calling moveV1."
+        if (!$AdminReviewReassign) {
+            throw "Error! The required parameter `AdminReviewReassign` missing when calling moveV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Adminreviewreassign -is [array])) {
-            $LocalVarBodyParameter = $Adminreviewreassign | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AdminReviewReassign -is [array])) {
+            $LocalVarBodyParameter = $AdminReviewReassign | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Adminreviewreassign | ForEach-Object {
+            $LocalVarBodyParameter = $AdminReviewReassign | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1193,7 +1193,7 @@ function Move-V1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Certificationtask" `
+                                -ReturnType "CertificationTask" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1216,7 +1216,7 @@ Use this API to update individual fields on a certification campaign template, u
 .PARAMETER Id
 ID of the campaign template being modified.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
 .PARAMETER WithHttpInfo
@@ -1225,7 +1225,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Campaigntemplate
+CampaignTemplate
 #>
 function Update-CampaignTemplateV1 {
     [CmdletBinding()]
@@ -1235,7 +1235,7 @@ function Update-CampaignTemplateV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -1265,14 +1265,14 @@ function Update-CampaignTemplateV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchCampaignTemplateV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchCampaignTemplateV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1291,7 +1291,7 @@ function Update-CampaignTemplateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Campaigntemplate" `
+                                -ReturnType "CampaignTemplate" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1311,7 +1311,7 @@ Set campaign reports configuration
 
 Use this API to overwrite the configuration for campaign reports.  
 
-.PARAMETER Campaignreportsconfig
+.PARAMETER CampaignReportsConfig
 Campaign report configuration.
 
 .PARAMETER WithHttpInfo
@@ -1320,14 +1320,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Campaignreportsconfig
+CampaignReportsConfig
 #>
 function Set-CampaignReportsConfigV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Campaignreportsconfig},
+        ${CampaignReportsConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -1353,14 +1353,14 @@ function Set-CampaignReportsConfigV1 {
 
         $LocalVarUri = '/campaigns/v1/reports-configuration'
 
-        if (!$Campaignreportsconfig) {
-            throw "Error! The required parameter `Campaignreportsconfig` missing when calling setCampaignReportsConfigV1."
+        if (!$CampaignReportsConfig) {
+            throw "Error! The required parameter `CampaignReportsConfig` missing when calling setCampaignReportsConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Campaignreportsconfig -is [array])) {
-            $LocalVarBodyParameter = $Campaignreportsconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignReportsConfig -is [array])) {
+            $LocalVarBodyParameter = $CampaignReportsConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Campaignreportsconfig | ForEach-Object {
+            $LocalVarBodyParameter = $CampaignReportsConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1379,7 +1379,7 @@ function Set-CampaignReportsConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Campaignreportsconfig" `
+                                -ReturnType "CampaignReportsConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1650,7 +1650,7 @@ Use this API to submit a job to activate the certified campaign with the specifi
 .PARAMETER Id
 Campaign ID.
 
-.PARAMETER Activatecampaignoptions
+.PARAMETER ActivateCampaignOptions
 Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
 
 .PARAMETER WithHttpInfo
@@ -1669,7 +1669,7 @@ function Start-CampaignV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Activatecampaignoptions},
+        ${ActivateCampaignOptions},
         [Switch]
         $WithHttpInfo
     )
@@ -1699,10 +1699,10 @@ function Start-CampaignV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Activatecampaignoptions -is [array])) {
-            $LocalVarBodyParameter = $Activatecampaignoptions | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ActivateCampaignOptions -is [array])) {
+            $LocalVarBodyParameter = $ActivateCampaignOptions | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Activatecampaignoptions | ForEach-Object {
+            $LocalVarBodyParameter = $ActivateCampaignOptions | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1750,7 +1750,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Campaignreference
+CampaignReference
 #>
 function Start-GenerateCampaignTemplateV1 {
     [CmdletBinding()]
@@ -1793,7 +1793,7 @@ function Start-GenerateCampaignTemplateV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Campaignreference" `
+                                -ReturnType "CampaignReference" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1816,7 +1816,7 @@ Use this API to update individual fields on a certification campaign, using the 
 .PARAMETER Id
 ID of the campaign template being modified.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 
 .PARAMETER WithHttpInfo
@@ -1825,7 +1825,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Slimcampaign
+SlimCampaign
 #>
 function Update-CampaignV1 {
     [CmdletBinding()]
@@ -1835,7 +1835,7 @@ function Update-CampaignV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -1865,14 +1865,14 @@ function Update-CampaignV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateCampaignV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateCampaignV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1891,7 +1891,7 @@ function Update-CampaignV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Slimcampaign" `
+                                -ReturnType "SlimCampaign" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

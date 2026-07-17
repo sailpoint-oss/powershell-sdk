@@ -14,7 +14,7 @@ Create password org config
 
 This API creates the password org config. Unspecified fields will use default value. To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to ""true"". Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
 
-.PARAMETER Passwordorgconfig
+.PARAMETER PasswordOrgConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordorgconfig
+PasswordOrgConfig
 #>
 function New-PasswordOrgConfigV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Passwordorgconfig},
+        ${PasswordOrgConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-PasswordOrgConfigV1 {
 
         $LocalVarUri = '/password-org-config/v1'
 
-        if (!$Passwordorgconfig) {
-            throw "Error! The required parameter `Passwordorgconfig` missing when calling createPasswordOrgConfigV1."
+        if (!$PasswordOrgConfig) {
+            throw "Error! The required parameter `PasswordOrgConfig` missing when calling createPasswordOrgConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Passwordorgconfig -is [array])) {
-            $LocalVarBodyParameter = $Passwordorgconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordOrgConfig -is [array])) {
+            $LocalVarBodyParameter = $PasswordOrgConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Passwordorgconfig | ForEach-Object {
+            $LocalVarBodyParameter = $PasswordOrgConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-PasswordOrgConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordorgconfig" `
+                                -ReturnType "PasswordOrgConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -108,7 +108,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordorgconfig
+PasswordOrgConfig
 #>
 function Get-PasswordOrgConfigV1 {
     [CmdletBinding()]
@@ -144,7 +144,7 @@ function Get-PasswordOrgConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordorgconfig" `
+                                -ReturnType "PasswordOrgConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -164,7 +164,7 @@ Update password org config
 
 This API updates the password org config for specified fields. Other fields will keep original value. You must set the `customInstructionsEnabled` field to ""true"" to be able to use custom password instructions.  Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
 
-.PARAMETER Passwordorgconfig
+.PARAMETER PasswordOrgConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -173,14 +173,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordorgconfig
+PasswordOrgConfig
 #>
 function Send-PasswordOrgConfigV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Passwordorgconfig},
+        ${PasswordOrgConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -206,14 +206,14 @@ function Send-PasswordOrgConfigV1 {
 
         $LocalVarUri = '/password-org-config/v1'
 
-        if (!$Passwordorgconfig) {
-            throw "Error! The required parameter `Passwordorgconfig` missing when calling putPasswordOrgConfigV1."
+        if (!$PasswordOrgConfig) {
+            throw "Error! The required parameter `PasswordOrgConfig` missing when calling putPasswordOrgConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Passwordorgconfig -is [array])) {
-            $LocalVarBodyParameter = $Passwordorgconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordOrgConfig -is [array])) {
+            $LocalVarBodyParameter = $PasswordOrgConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Passwordorgconfig | ForEach-Object {
+            $LocalVarBodyParameter = $PasswordOrgConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -232,7 +232,7 @@ function Send-PasswordOrgConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordorgconfig" `
+                                -ReturnType "PasswordOrgConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

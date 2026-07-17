@@ -128,7 +128,7 @@ Describe -tag 'PSSailpoint.Workflows' -name 'WorkflowsApi' {
 
     Context 'Update-WorkflowV1' {
         It 'Test Update-WorkflowV1' {
-            #$TestResult = Update-WorkflowV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-WorkflowV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -136,7 +136,7 @@ Describe -tag 'PSSailpoint.Workflows' -name 'WorkflowsApi' {
 
     Context 'Send-WorkflowV1' {
         It 'Test Send-WorkflowV1' {
-            #$TestResult = Send-WorkflowV1 -Id "TEST_VALUE" -Workflowbody "TEST_VALUE"
+            #$TestResult = Send-WorkflowV1 -Id "TEST_VALUE" -WorkflowBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

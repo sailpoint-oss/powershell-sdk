@@ -14,7 +14,7 @@ Create password sync group
 
 This API creates a password sync group based on the specifications provided.
 
-.PARAMETER Passwordsyncgroup
+.PARAMETER PasswordSyncGroup
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordsyncgroup
+PasswordSyncGroup
 #>
 function New-PasswordSyncGroupV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Passwordsyncgroup},
+        ${PasswordSyncGroup},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-PasswordSyncGroupV1 {
 
         $LocalVarUri = '/password-sync-groups/v1'
 
-        if (!$Passwordsyncgroup) {
-            throw "Error! The required parameter `Passwordsyncgroup` missing when calling createPasswordSyncGroupV1."
+        if (!$PasswordSyncGroup) {
+            throw "Error! The required parameter `PasswordSyncGroup` missing when calling createPasswordSyncGroupV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Passwordsyncgroup -is [array])) {
-            $LocalVarBodyParameter = $Passwordsyncgroup | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordSyncGroup -is [array])) {
+            $LocalVarBodyParameter = $PasswordSyncGroup | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Passwordsyncgroup | ForEach-Object {
+            $LocalVarBodyParameter = $PasswordSyncGroup | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-PasswordSyncGroupV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordsyncgroup" `
+                                -ReturnType "PasswordSyncGroup" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -183,7 +183,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordsyncgroup
+PasswordSyncGroup
 #>
 function Get-PasswordSyncGroupV1 {
     [CmdletBinding()]
@@ -226,7 +226,7 @@ function Get-PasswordSyncGroupV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordsyncgroup" `
+                                -ReturnType "PasswordSyncGroup" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -261,7 +261,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordsyncgroup[]
+PasswordSyncGroup[]
 #>
 function Get-PasswordSyncGroupsV1 {
     [CmdletBinding()]
@@ -318,7 +318,7 @@ function Get-PasswordSyncGroupsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordsyncgroup[]" `
+                                -ReturnType "PasswordSyncGroup[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -341,7 +341,7 @@ This API updates the specified password sync group.
 .PARAMETER Id
 The ID of password sync group to update.
 
-.PARAMETER Passwordsyncgroup
+.PARAMETER PasswordSyncGroup
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -350,7 +350,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Passwordsyncgroup
+PasswordSyncGroup
 #>
 function Update-PasswordSyncGroupV1 {
     [CmdletBinding()]
@@ -360,7 +360,7 @@ function Update-PasswordSyncGroupV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Passwordsyncgroup},
+        ${PasswordSyncGroup},
         [Switch]
         $WithHttpInfo
     )
@@ -390,14 +390,14 @@ function Update-PasswordSyncGroupV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Passwordsyncgroup) {
-            throw "Error! The required parameter `Passwordsyncgroup` missing when calling updatePasswordSyncGroupV1."
+        if (!$PasswordSyncGroup) {
+            throw "Error! The required parameter `PasswordSyncGroup` missing when calling updatePasswordSyncGroupV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Passwordsyncgroup -is [array])) {
-            $LocalVarBodyParameter = $Passwordsyncgroup | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordSyncGroup -is [array])) {
+            $LocalVarBodyParameter = $PasswordSyncGroup | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Passwordsyncgroup | ForEach-Object {
+            $LocalVarBodyParameter = $PasswordSyncGroup | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -416,7 +416,7 @@ function Update-PasswordSyncGroupV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Passwordsyncgroup" `
+                                -ReturnType "PasswordSyncGroup" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

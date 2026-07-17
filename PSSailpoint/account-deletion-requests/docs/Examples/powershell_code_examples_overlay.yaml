@@ -5,8 +5,10 @@
       label: SDK_tools/sdk/powershell/accountdeletionrequests/methods/account-deletion-requests#delete-account-request-v1
       source: |
         $AccountId = "ef38f94347e94562b5bb8424a56498d8" # String | Account ID.
-        $Accountdeleterequestinput = @"
-        {"comments":"I requested this account deletion."}
+        $AccountDeleteRequestInput = @"
+        {
+          "comments" : "Requesting account deletion request"
+        }
         "@
         
         # Delete account
@@ -15,7 +17,7 @@
             Remove-AccountRequestV1 -AccountId $AccountId 
     
             # Below is a request that includes all optional parameters
-            # Remove-AccountRequestV1 -AccountId $AccountId -Accountdeleterequestinput $Result   
+            # Remove-AccountRequestV1 -AccountId $AccountId -AccountDeleteRequestInput $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccountRequestV1"
             Write-Host $_.ErrorDetails

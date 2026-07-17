@@ -87,18 +87,21 @@
       label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#unsubscribe-scheduled-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-        $Typedreference = @"
-        
+        $TypedReference = @"
+        {
+          "id" : "2c91808568c529c60168cca6f90c1313",
+          "type" : "IDENTITY"
+        }
         "@
         
         # Unsubscribe a recipient from scheduled search
         
         try {
-            $Result = ConvertFrom-JsonToTypedreference -Json $Typedreference
-            Invoke-UnsubscribeScheduledSearchV1 -Id $Id -Typedreference $Result 
+            $Result = ConvertFrom-JsonToTypedReference -Json $TypedReference
+            Invoke-UnsubscribeScheduledSearchV1 -Id $Id -TypedReference $Result 
     
             # Below is a request that includes all optional parameters
-            # Invoke-UnsubscribeScheduledSearchV1 -Id $Id -Typedreference $Result   
+            # Invoke-UnsubscribeScheduledSearchV1 -Id $Id -TypedReference $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-UnsubscribeScheduledSearchV1"
             Write-Host $_.ErrorDetails
@@ -110,18 +113,60 @@
       label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#update-scheduled-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-        $Scheduledsearch = @"
-        
+        $ScheduledSearch = @"
+        {
+          "owner" : {
+            "id" : "2c9180867624cbd7017642d8c8c81f67",
+            "type" : "IDENTITY"
+          },
+          "displayQueryDetails" : false,
+          "created" : "",
+          "description" : "Daily disabled accounts",
+          "ownerId" : "2c9180867624cbd7017642d8c8c81f67",
+          "enabled" : false,
+          "schedule" : {
+            "hours" : {
+              "values" : [ "MON", "WED" ],
+              "interval" : 3,
+              "type" : "LIST"
+            },
+            "months" : {
+              "values" : [ "MON", "WED" ],
+              "interval" : 3,
+              "type" : "LIST"
+            },
+            "timeZoneId" : "America/Chicago",
+            "days" : {
+              "values" : [ "MON", "WED" ],
+              "interval" : 3,
+              "type" : "LIST"
+            },
+            "expiration" : "2018-06-25T20:22:28.104Z",
+            "type" : "WEEKLY"
+          },
+          "recipients" : [ {
+            "id" : "2c9180867624cbd7017642d8c8c81f67",
+            "type" : "IDENTITY"
+          }, {
+            "id" : "2c9180867624cbd7017642d8c8c81f67",
+            "type" : "IDENTITY"
+          } ],
+          "savedSearchId" : "554f1511-f0a1-4744-ab14-599514d3e57c",
+          "name" : "Daily disabled accounts",
+          "modified" : "",
+          "id" : "0de46054-fe90-434a-b84e-c6b3359d0c64",
+          "emailEmptyResults" : false
+        }
         "@
         
         # Update an existing scheduled search
         
         try {
-            $Result = ConvertFrom-JsonToScheduledsearch -Json $Scheduledsearch
-            Update-ScheduledSearchV1 -Id $Id -Scheduledsearch $Result 
+            $Result = ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch
+            Update-ScheduledSearchV1 -Id $Id -ScheduledSearch $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-ScheduledSearchV1 -Id $Id -Scheduledsearch $Result   
+            # Update-ScheduledSearchV1 -Id $Id -ScheduledSearch $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ScheduledSearchV1"
             Write-Host $_.ErrorDetails

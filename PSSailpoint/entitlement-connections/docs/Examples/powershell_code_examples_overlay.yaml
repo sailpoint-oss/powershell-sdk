@@ -53,17 +53,21 @@
       label: SDK_tools/sdk/powershell/entitlementconnections/methods/entitlement-connections#patch-entitlement-connection-by-id-v1
       source: |
         $ConnectionId = "6c692d9972f8400ca4560a68f62c4c5f" # String | Connection ID (UUID with or without hyphens).
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update entitlement connection
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-EntitlementConnectionByIdV1 -ConnectionId $ConnectionId -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-EntitlementConnectionByIdV1 -ConnectionId $ConnectionId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-EntitlementConnectionByIdV1 -ConnectionId $ConnectionId -Jsonpatchoperation $Result   
+            # Update-EntitlementConnectionByIdV1 -ConnectionId $ConnectionId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementConnectionByIdV1"
             Write-Host $_.ErrorDetails
@@ -77,17 +81,21 @@
         $EntitlementId = "dcfd09e551644ad5aa162ce977862031" # String | Entitlement ID (UUID with or without hyphens).
         $IdentityId = "5470d8d4817a4207a8020bf533187da9" # String | Identity ID (UUID with or without hyphens).
         $AccountId = "323bfddfb3dd4197b8f10f7735307d27" # String | Account ID (UUID with or without hyphens).
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update connection by query
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-EntitlementConnectionByQueryV1 -EntitlementId $EntitlementId -IdentityId $IdentityId -AccountId $AccountId -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-EntitlementConnectionByQueryV1 -EntitlementId $EntitlementId -IdentityId $IdentityId -AccountId $AccountId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-EntitlementConnectionByQueryV1 -EntitlementId $EntitlementId -IdentityId $IdentityId -AccountId $AccountId -Jsonpatchoperation $Result   
+            # Update-EntitlementConnectionByQueryV1 -EntitlementId $EntitlementId -IdentityId $IdentityId -AccountId $AccountId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementConnectionByQueryV1"
             Write-Host $_.ErrorDetails
@@ -98,17 +106,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/entitlementconnections/methods/entitlement-connections#update-entitlement-connections-bulk-v1
       source: |
-        $Entitlementconnectionbulkupdateitem = @"[{"connectionId":"d532fa5cb15748e2873c6a01e5923ec4","type":"JIT"},{"connectionId":"57bdbfcab8a34afb91c0a9fb4dba52b8","type":"STANDING"},{"connectionId":"0f571cefc8a2411790e0ee09f77e25a3","type":"STANDING"},{"connectionId":"025542c7e42144258c6f2325b6feeba8","type":"JIT"},{"connectionId":"6bccbc42381f49028dac9bfe68dbad2e","type":"JIT"}]"@ 
+        $EntitlementConnectionBulkUpdateItem = @"{
+          "connectionId" : "d532fa5cb15748e2873c6a01e5923ec4",
+          "type" : "JIT"
+        }"@ 
         
         
         # Update connections in bulk
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementconnectionbulkupdateitem -Json $Entitlementconnectionbulkupdateitem
-            Update-EntitlementConnectionsBulkV1 -Entitlementconnectionbulkupdateitem $Result 
+            $Result = ConvertFrom-JsonToEntitlementConnectionBulkUpdateItem -Json $EntitlementConnectionBulkUpdateItem
+            Update-EntitlementConnectionsBulkV1 -EntitlementConnectionBulkUpdateItem $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-EntitlementConnectionsBulkV1 -Entitlementconnectionbulkupdateitem $Result   
+            # Update-EntitlementConnectionsBulkV1 -EntitlementConnectionBulkUpdateItem $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementConnectionsBulkV1"
             Write-Host $_.ErrorDetails

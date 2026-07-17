@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Schedule', 'Schedule']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **Scheduletype** |  | [required]
+**Type** | **ScheduleType** |  | [required]
 **Months** | [**ScheduleMonths**](schedule-months) |  | [optional] 
 **Days** | [**ScheduleDays**](schedule-days) |  | [optional] 
 **Hours** | [**ScheduleHours**](schedule-hours) |  | [required]

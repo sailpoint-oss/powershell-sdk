@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.MachineClassificationConfig' -name 'MachineClassifica
 
     Context 'Set-MachineClassificationConfigV1' {
         It 'Test Set-MachineClassificationConfigV1' {
-            #$TestResult = Set-MachineClassificationConfigV1 -SourceId "TEST_VALUE" -Machineclassificationconfig "TEST_VALUE"
+            #$TestResult = Set-MachineClassificationConfigV1 -SourceId "TEST_VALUE" -MachineClassificationConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

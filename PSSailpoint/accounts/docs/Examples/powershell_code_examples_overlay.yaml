@@ -4,18 +4,27 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accounts/methods/accounts#create-account-v1
       source: |
-        $Accountattributescreate = @"
-        
+        $AccountAttributesCreate = @"
+        {
+          "attributes" : {
+            "sourceId" : "34bfcbe116c9407464af37acbaf7a4dc",
+            "city" : "Austin",
+            "displayName" : "John Doe",
+            "userName" : "jdoe",
+            "sAMAccountName" : "jDoe",
+            "mail" : "john.doe@sailpoint.com"
+          }
+        }
         "@
         
         # Create account
         
         try {
-            $Result = ConvertFrom-JsonToAccountattributescreate -Json $Accountattributescreate
-            New-AccountV1 -Accountattributescreate $Result 
+            $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
+            New-AccountV1 -AccountAttributesCreate $Result 
     
             # Below is a request that includes all optional parameters
-            # New-AccountV1 -Accountattributescreate $Result   
+            # New-AccountV1 -AccountAttributesCreate $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccountV1"
             Write-Host $_.ErrorDetails
@@ -84,18 +93,21 @@
       label: SDK_tools/sdk/powershell/accounts/methods/accounts#disable-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
-        $Accounttogglerequest = @"
-        
+        $AccountToggleRequest = @"
+        {
+          "forceProvisioning" : false,
+          "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
+        }
         "@
         
         # Disable account
         
         try {
-            $Result = ConvertFrom-JsonToAccounttogglerequest -Json $Accounttogglerequest
-            Disable-AccountV1 -Id $Id -Accounttogglerequest $Result 
+            $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
+            Disable-AccountV1 -Id $Id -AccountToggleRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Disable-AccountV1 -Id $Id -Accounttogglerequest $Result   
+            # Disable-AccountV1 -Id $Id -AccountToggleRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-AccountV1"
             Write-Host $_.ErrorDetails
@@ -106,18 +118,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accounts/methods/accounts#disable-accounts-for-identities-v1
       source: |
-        $Identitiesaccountsbulkrequest = @"
-        
+        $IdentitiesAccountsBulkRequest = @"
+        {
+          "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
+        }
         "@
         
         # Disable idn accounts for identities
         
         try {
-            $Result = ConvertFrom-JsonToIdentitiesaccountsbulkrequest -Json $Identitiesaccountsbulkrequest
-            Disable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result 
+            $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
+            Disable-AccountsForIdentitiesV1 -IdentitiesAccountsBulkRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Disable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result   
+            # Disable-AccountsForIdentitiesV1 -IdentitiesAccountsBulkRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-AccountsForIdentitiesV1"
             Write-Host $_.ErrorDetails
@@ -148,18 +162,21 @@
       label: SDK_tools/sdk/powershell/accounts/methods/accounts#enable-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
-        $Accounttogglerequest = @"
-        
+        $AccountToggleRequest = @"
+        {
+          "forceProvisioning" : false,
+          "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
+        }
         "@
         
         # Enable account
         
         try {
-            $Result = ConvertFrom-JsonToAccounttogglerequest -Json $Accounttogglerequest
-            Enable-AccountV1 -Id $Id -Accounttogglerequest $Result 
+            $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
+            Enable-AccountV1 -Id $Id -AccountToggleRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Enable-AccountV1 -Id $Id -Accounttogglerequest $Result   
+            # Enable-AccountV1 -Id $Id -AccountToggleRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-AccountV1"
             Write-Host $_.ErrorDetails
@@ -170,18 +187,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accounts/methods/accounts#enable-accounts-for-identities-v1
       source: |
-        $Identitiesaccountsbulkrequest = @"
-        
+        $IdentitiesAccountsBulkRequest = @"
+        {
+          "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
+        }
         "@
         
         # Enable idn accounts for identities
         
         try {
-            $Result = ConvertFrom-JsonToIdentitiesaccountsbulkrequest -Json $Identitiesaccountsbulkrequest
-            Enable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result 
+            $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
+            Enable-AccountsForIdentitiesV1 -IdentitiesAccountsBulkRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Enable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result   
+            # Enable-AccountsForIdentitiesV1 -IdentitiesAccountsBulkRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-AccountsForIdentitiesV1"
             Write-Host $_.ErrorDetails
@@ -258,18 +277,26 @@
       label: SDK_tools/sdk/powershell/accounts/methods/accounts#put-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
-        $Accountattributes = @"
-        
+        $AccountAttributes = @"
+        {
+          "attributes" : {
+            "city" : "Austin",
+            "displayName" : "John Doe",
+            "userName" : "jdoe",
+            "sAMAccountName" : "jDoe",
+            "mail" : "john.doe@sailpoint.com"
+          }
+        }
         "@
         
         # Update account
         
         try {
-            $Result = ConvertFrom-JsonToAccountattributes -Json $Accountattributes
-            Send-AccountV1 -Id $Id -Accountattributes $Result 
+            $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
+            Send-AccountV1 -Id $Id -AccountAttributes $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-AccountV1 -Id $Id -Accountattributes $Result   
+            # Send-AccountV1 -Id $Id -AccountAttributes $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-AccountV1"
             Write-Host $_.ErrorDetails
@@ -300,18 +327,22 @@
       label: SDK_tools/sdk/powershell/accounts/methods/accounts#unlock-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID.
-        $Accountunlockrequest = @"
-        
+        $AccountUnlockRequest = @"
+        {
+          "forceProvisioning" : false,
+          "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581",
+          "unlockIDNAccount" : false
+        }
         "@
         
         # Unlock account
         
         try {
-            $Result = ConvertFrom-JsonToAccountunlockrequest -Json $Accountunlockrequest
-            Unlock-AccountV1 -Id $Id -Accountunlockrequest $Result 
+            $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
+            Unlock-AccountV1 -Id $Id -AccountUnlockRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Unlock-AccountV1 -Id $Id -Accountunlockrequest $Result   
+            # Unlock-AccountV1 -Id $Id -AccountUnlockRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Unlock-AccountV1"
             Write-Host $_.ErrorDetails

@@ -34,496 +34,496 @@ function ConvertFrom-JsonToTriggerExampleInput {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match Accessrequestdynamicapprover defined in the oneOf schemas
+        # try to match AccessRequestDynamicApprover defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccessrequestdynamicapprover $Json
+            $matchInstance = ConvertFrom-JsonToAccessRequestDynamicApprover $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accessrequestdynamicapprover"
+                    $matchType = "AccessRequestDynamicApprover"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accessrequestdynamicapprover' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccessRequestDynamicApprover' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Accessrequestpostapproval defined in the oneOf schemas
+        # try to match AccessRequestPostApproval defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccessrequestpostapproval $Json
+            $matchInstance = ConvertFrom-JsonToAccessRequestPostApproval $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accessrequestpostapproval"
+                    $matchType = "AccessRequestPostApproval"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accessrequestpostapproval' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccessRequestPostApproval' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Accessrequestpreapproval defined in the oneOf schemas
+        # try to match AccessRequestPreApproval defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccessrequestpreapproval $Json
+            $matchInstance = ConvertFrom-JsonToAccessRequestPreApproval $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accessrequestpreapproval"
+                    $matchType = "AccessRequestPreApproval"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accessrequestpreapproval' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccessRequestPreApproval' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Accountaggregationcompleted defined in the oneOf schemas
+        # try to match AccountAggregationCompleted defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccountaggregationcompleted $Json
+            $matchInstance = ConvertFrom-JsonToAccountAggregationCompleted $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accountaggregationcompleted"
+                    $matchType = "AccountAggregationCompleted"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accountaggregationcompleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountAggregationCompleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Accountattributeschanged defined in the oneOf schemas
+        # try to match AccountAttributesChanged defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccountattributeschanged $Json
+            $matchInstance = ConvertFrom-JsonToAccountAttributesChanged $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accountattributeschanged"
+                    $matchType = "AccountAttributesChanged"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accountattributeschanged' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountAttributesChanged' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Accountcorrelated defined in the oneOf schemas
+        # try to match AccountCorrelated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccountcorrelated $Json
+            $matchInstance = ConvertFrom-JsonToAccountCorrelated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accountcorrelated"
+                    $matchType = "AccountCorrelated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accountcorrelated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountCorrelated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Accountcreated defined in the oneOf schemas
+        # try to match AccountCreated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccountcreated $Json
+            $matchInstance = ConvertFrom-JsonToAccountCreated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accountcreated"
+                    $matchType = "AccountCreated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accountcreated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountCreated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Accountdeleted defined in the oneOf schemas
+        # try to match AccountDeleted defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccountdeleted $Json
+            $matchInstance = ConvertFrom-JsonToAccountDeleted $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accountdeleted"
+                    $matchType = "AccountDeleted"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accountdeleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountDeleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Accountscollectedforaggregation defined in the oneOf schemas
+        # try to match AccountUncorrelated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccountscollectedforaggregation $Json
+            $matchInstance = ConvertFrom-JsonToAccountUncorrelated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accountscollectedforaggregation"
+                    $matchType = "AccountUncorrelated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accountscollectedforaggregation' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountUncorrelated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Accountuncorrelated defined in the oneOf schemas
+        # try to match AccountUpdated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccountuncorrelated $Json
+            $matchInstance = ConvertFrom-JsonToAccountUpdated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accountuncorrelated"
+                    $matchType = "AccountUpdated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accountuncorrelated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountUpdated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Accountupdated defined in the oneOf schemas
+        # try to match AccountsCollectedForAggregation defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccountupdated $Json
+            $matchInstance = ConvertFrom-JsonToAccountsCollectedForAggregation $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Accountupdated"
+                    $matchType = "AccountsCollectedForAggregation"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Accountupdated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountsCollectedForAggregation' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Campaignactivated defined in the oneOf schemas
+        # try to match CampaignActivated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToCampaignactivated $Json
+            $matchInstance = ConvertFrom-JsonToCampaignActivated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Campaignactivated"
+                    $matchType = "CampaignActivated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Campaignactivated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'CampaignActivated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Campaignended defined in the oneOf schemas
+        # try to match CampaignEnded defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToCampaignended $Json
+            $matchInstance = ConvertFrom-JsonToCampaignEnded $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Campaignended"
+                    $matchType = "CampaignEnded"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Campaignended' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'CampaignEnded' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Campaigngenerated defined in the oneOf schemas
+        # try to match CampaignGenerated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToCampaigngenerated $Json
+            $matchInstance = ConvertFrom-JsonToCampaignGenerated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Campaigngenerated"
+                    $matchType = "CampaignGenerated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Campaigngenerated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'CampaignGenerated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Certificationsignedoff defined in the oneOf schemas
+        # try to match CertificationSignedOff defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToCertificationsignedoff $Json
+            $matchInstance = ConvertFrom-JsonToCertificationSignedOff $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Certificationsignedoff"
+                    $matchType = "CertificationSignedOff"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Certificationsignedoff' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'CertificationSignedOff' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Identityattributeschanged defined in the oneOf schemas
+        # try to match IdentityAttributesChanged defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToIdentityattributeschanged $Json
+            $matchInstance = ConvertFrom-JsonToIdentityAttributesChanged $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Identityattributeschanged"
+                    $matchType = "IdentityAttributesChanged"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Identityattributeschanged' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'IdentityAttributesChanged' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Identitycreated defined in the oneOf schemas
+        # try to match IdentityCreated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToIdentitycreated $Json
+            $matchInstance = ConvertFrom-JsonToIdentityCreated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Identitycreated"
+                    $matchType = "IdentityCreated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Identitycreated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'IdentityCreated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Identitydeleted defined in the oneOf schemas
+        # try to match IdentityDeleted defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToIdentitydeleted $Json
+            $matchInstance = ConvertFrom-JsonToIdentityDeleted $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Identitydeleted"
+                    $matchType = "IdentityDeleted"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Identitydeleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'IdentityDeleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Machineidentitycreated defined in the oneOf schemas
+        # try to match MachineIdentityCreated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToMachineidentitycreated $Json
+            $matchInstance = ConvertFrom-JsonToMachineIdentityCreated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Machineidentitycreated"
+                    $matchType = "MachineIdentityCreated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Machineidentitycreated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'MachineIdentityCreated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Machineidentitydeleted defined in the oneOf schemas
+        # try to match MachineIdentityDeleted defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToMachineidentitydeleted $Json
+            $matchInstance = ConvertFrom-JsonToMachineIdentityDeleted $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Machineidentitydeleted"
+                    $matchType = "MachineIdentityDeleted"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Machineidentitydeleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'MachineIdentityDeleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Machineidentityupdated defined in the oneOf schemas
+        # try to match MachineIdentityUpdated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToMachineidentityupdated $Json
+            $matchInstance = ConvertFrom-JsonToMachineIdentityUpdated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Machineidentityupdated"
+                    $matchType = "MachineIdentityUpdated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Machineidentityupdated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'MachineIdentityUpdated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Provisioningcompleted defined in the oneOf schemas
+        # try to match ProvisioningCompleted defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToProvisioningcompleted $Json
+            $matchInstance = ConvertFrom-JsonToProvisioningCompleted $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Provisioningcompleted"
+                    $matchType = "ProvisioningCompleted"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Provisioningcompleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'ProvisioningCompleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Savedsearchcomplete defined in the oneOf schemas
+        # try to match SavedSearchComplete defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToSavedsearchcomplete $Json
+            $matchInstance = ConvertFrom-JsonToSavedSearchComplete $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Savedsearchcomplete"
+                    $matchType = "SavedSearchComplete"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Savedsearchcomplete' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'SavedSearchComplete' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Sourceaccountcreated defined in the oneOf schemas
+        # try to match SourceAccountCreated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToSourceaccountcreated $Json
+            $matchInstance = ConvertFrom-JsonToSourceAccountCreated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Sourceaccountcreated"
+                    $matchType = "SourceAccountCreated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Sourceaccountcreated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'SourceAccountCreated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Sourceaccountdeleted defined in the oneOf schemas
+        # try to match SourceAccountDeleted defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToSourceaccountdeleted $Json
+            $matchInstance = ConvertFrom-JsonToSourceAccountDeleted $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Sourceaccountdeleted"
+                    $matchType = "SourceAccountDeleted"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Sourceaccountdeleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'SourceAccountDeleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Sourceaccountupdated defined in the oneOf schemas
+        # try to match SourceAccountUpdated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToSourceaccountupdated $Json
+            $matchInstance = ConvertFrom-JsonToSourceAccountUpdated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Sourceaccountupdated"
+                    $matchType = "SourceAccountUpdated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Sourceaccountupdated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'SourceAccountUpdated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Sourcecreated defined in the oneOf schemas
+        # try to match SourceCreated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToSourcecreated $Json
+            $matchInstance = ConvertFrom-JsonToSourceCreated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Sourcecreated"
+                    $matchType = "SourceCreated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Sourcecreated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'SourceCreated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Sourcedeleted defined in the oneOf schemas
+        # try to match SourceDeleted defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToSourcedeleted $Json
+            $matchInstance = ConvertFrom-JsonToSourceDeleted $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Sourcedeleted"
+                    $matchType = "SourceDeleted"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Sourcedeleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'SourceDeleted' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Sourceupdated defined in the oneOf schemas
+        # try to match SourceUpdated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToSourceupdated $Json
+            $matchInstance = ConvertFrom-JsonToSourceUpdated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Sourceupdated"
+                    $matchType = "SourceUpdated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Sourceupdated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'SourceUpdated' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match Vaclusterstatuschangeevent defined in the oneOf schemas
+        # try to match VAClusterStatusChangeEvent defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToVaclusterstatuschangeevent $Json
+            $matchInstance = ConvertFrom-JsonToVAClusterStatusChangeEvent $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Vaclusterstatuschangeevent"
+                    $matchType = "VAClusterStatusChangeEvent"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Vaclusterstatuschangeevent' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'VAClusterStatusChangeEvent' defined in oneOf (TriggerExampleInput). Proceeding to the next one if any."
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([Accessrequestdynamicapprover, Accessrequestpostapproval, Accessrequestpreapproval, Accountaggregationcompleted, Accountattributeschanged, Accountcorrelated, Accountcreated, Accountdeleted, Accountscollectedforaggregation, Accountuncorrelated, Accountupdated, Campaignactivated, Campaignended, Campaigngenerated, Certificationsignedoff, Identityattributeschanged, Identitycreated, Identitydeleted, Machineidentitycreated, Machineidentitydeleted, Machineidentityupdated, Provisioningcompleted, Savedsearchcomplete, Sourceaccountcreated, Sourceaccountdeleted, Sourceaccountupdated, Sourcecreated, Sourcedeleted, Sourceupdated, Vaclusterstatuschangeevent]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessRequestDynamicApprover, AccessRequestPostApproval, AccessRequestPreApproval, AccountAggregationCompleted, AccountAttributesChanged, AccountCorrelated, AccountCreated, AccountDeleted, AccountUncorrelated, AccountUpdated, AccountsCollectedForAggregation, CampaignActivated, CampaignEnded, CampaignGenerated, CertificationSignedOff, IdentityAttributesChanged, IdentityCreated, IdentityDeleted, MachineIdentityCreated, MachineIdentityDeleted, MachineIdentityUpdated, ProvisioningCompleted, SavedSearchComplete, SourceAccountCreated, SourceAccountDeleted, SourceAccountUpdated, SourceCreated, SourceDeleted, SourceUpdated, VAClusterStatusChangeEvent]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("Accessrequestdynamicapprover", "Accessrequestpostapproval", "Accessrequestpreapproval", "Accountaggregationcompleted", "Accountattributeschanged", "Accountcorrelated", "Accountcreated", "Accountdeleted", "Accountscollectedforaggregation", "Accountuncorrelated", "Accountupdated", "Campaignactivated", "Campaignended", "Campaigngenerated", "Certificationsignedoff", "Identityattributeschanged", "Identitycreated", "Identitydeleted", "Machineidentitycreated", "Machineidentitydeleted", "Machineidentityupdated", "Provisioningcompleted", "Savedsearchcomplete", "Sourceaccountcreated", "Sourceaccountdeleted", "Sourceaccountupdated", "Sourcecreated", "Sourcedeleted", "Sourceupdated", "Vaclusterstatuschangeevent")
+                "OneOfSchemas" = @("AccessRequestDynamicApprover", "AccessRequestPostApproval", "AccessRequestPreApproval", "AccountAggregationCompleted", "AccountAttributesChanged", "AccountCorrelated", "AccountCreated", "AccountDeleted", "AccountUncorrelated", "AccountUpdated", "AccountsCollectedForAggregation", "CampaignActivated", "CampaignEnded", "CampaignGenerated", "CertificationSignedOff", "IdentityAttributesChanged", "IdentityCreated", "IdentityDeleted", "MachineIdentityCreated", "MachineIdentityDeleted", "MachineIdentityUpdated", "ProvisioningCompleted", "SavedSearchComplete", "SourceAccountCreated", "SourceAccountDeleted", "SourceAccountUpdated", "SourceCreated", "SourceDeleted", "SourceUpdated", "VAClusterStatusChangeEvent")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([Accessrequestdynamicapprover, Accessrequestpostapproval, Accessrequestpreapproval, Accountaggregationcompleted, Accountattributeschanged, Accountcorrelated, Accountcreated, Accountdeleted, Accountscollectedforaggregation, Accountuncorrelated, Accountupdated, Campaignactivated, Campaignended, Campaigngenerated, Certificationsignedoff, Identityattributeschanged, Identitycreated, Identitydeleted, Machineidentitycreated, Machineidentitydeleted, Machineidentityupdated, Provisioningcompleted, Savedsearchcomplete, Sourceaccountcreated, Sourceaccountdeleted, Sourceaccountupdated, Sourcecreated, Sourcedeleted, Sourceupdated, Vaclusterstatuschangeevent]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessRequestDynamicApprover, AccessRequestPostApproval, AccessRequestPreApproval, AccountAggregationCompleted, AccountAttributesChanged, AccountCorrelated, AccountCreated, AccountDeleted, AccountUncorrelated, AccountUpdated, AccountsCollectedForAggregation, CampaignActivated, CampaignEnded, CampaignGenerated, CertificationSignedOff, IdentityAttributesChanged, IdentityCreated, IdentityDeleted, MachineIdentityCreated, MachineIdentityDeleted, MachineIdentityUpdated, ProvisioningCompleted, SavedSearchComplete, SourceAccountCreated, SourceAccountDeleted, SourceAccountUpdated, SourceCreated, SourceDeleted, SourceUpdated, VAClusterStatusChangeEvent]). JSON Payload: $($Json)"
         }
     }
 }

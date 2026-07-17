@@ -14,7 +14,7 @@ Create access model metadata attribute
 
 Create a new Access Model Metadata Attribute. 
 
-.PARAMETER Attributedto
+.PARAMETER AttributeDTO
 Attribute to create
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attributedto
+AttributeDTO
 #>
 function New-AccessModelMetadataAttributeV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Attributedto},
+        ${AttributeDTO},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-AccessModelMetadataAttributeV1 {
 
         $LocalVarUri = '/access-model-metadata/v1/attributes'
 
-        if (!$Attributedto) {
-            throw "Error! The required parameter `Attributedto` missing when calling createAccessModelMetadataAttributeV1."
+        if (!$AttributeDTO) {
+            throw "Error! The required parameter `AttributeDTO` missing when calling createAccessModelMetadataAttributeV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Attributedto -is [array])) {
-            $LocalVarBodyParameter = $Attributedto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AttributeDTO -is [array])) {
+            $LocalVarBodyParameter = $AttributeDTO | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Attributedto | ForEach-Object {
+            $LocalVarBodyParameter = $AttributeDTO | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-AccessModelMetadataAttributeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attributedto" `
+                                -ReturnType "AttributeDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -105,7 +105,7 @@ Create a new value for an existing Access Model Metadata Attribute.
 .PARAMETER Key
 Technical name of the Attribute.
 
-.PARAMETER Attributevaluedto
+.PARAMETER AttributeValueDTO
 Attribute value to create
 
 .PARAMETER WithHttpInfo
@@ -114,7 +114,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attributevaluedto
+AttributeValueDTO
 #>
 function New-AccessModelMetadataAttributeValueV1 {
     [CmdletBinding()]
@@ -124,7 +124,7 @@ function New-AccessModelMetadataAttributeValueV1 {
         ${Key},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Attributevaluedto},
+        ${AttributeValueDTO},
         [Switch]
         $WithHttpInfo
     )
@@ -154,14 +154,14 @@ function New-AccessModelMetadataAttributeValueV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{key}', [System.Web.HTTPUtility]::UrlEncode($Key))
 
-        if (!$Attributevaluedto) {
-            throw "Error! The required parameter `Attributevaluedto` missing when calling createAccessModelMetadataAttributeValueV1."
+        if (!$AttributeValueDTO) {
+            throw "Error! The required parameter `AttributeValueDTO` missing when calling createAccessModelMetadataAttributeValueV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Attributevaluedto -is [array])) {
-            $LocalVarBodyParameter = $Attributevaluedto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AttributeValueDTO -is [array])) {
+            $LocalVarBodyParameter = $AttributeValueDTO | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Attributevaluedto | ForEach-Object {
+            $LocalVarBodyParameter = $AttributeValueDTO | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -180,7 +180,7 @@ function New-AccessModelMetadataAttributeValueV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attributevaluedto" `
+                                -ReturnType "AttributeValueDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -209,7 +209,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attributedto
+AttributeDTO
 #>
 function Get-AccessModelMetadataAttributeV1 {
     [CmdletBinding()]
@@ -252,7 +252,7 @@ function Get-AccessModelMetadataAttributeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attributedto" `
+                                -ReturnType "AttributeDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -284,7 +284,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attributevaluedto
+AttributeValueDTO
 #>
 function Get-AccessModelMetadataAttributeValueV1 {
     [CmdletBinding()]
@@ -334,7 +334,7 @@ function Get-AccessModelMetadataAttributeValueV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attributevaluedto" `
+                                -ReturnType "AttributeValueDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -372,7 +372,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attributedto[]
+AttributeDTO[]
 #>
 function Get-AccessModelMetadataAttributeV1 {
     [CmdletBinding()]
@@ -436,7 +436,7 @@ function Get-AccessModelMetadataAttributeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attributedto[]" `
+                                -ReturnType "AttributeDTO[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -471,7 +471,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attributevaluedto[]
+AttributeValueDTO[]
 #>
 function Get-AccessModelMetadataAttributeValueV1 {
     [CmdletBinding()]
@@ -528,7 +528,7 @@ function Get-AccessModelMetadataAttributeValueV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attributevaluedto[]" `
+                                -ReturnType "AttributeValueDTO[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -551,7 +551,7 @@ Update an existing Access Model Metadata Attribute.   The following fields are p
 .PARAMETER Key
 Technical name of the Attribute.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 JSON Patch array to apply
 
 .PARAMETER WithHttpInfo
@@ -560,7 +560,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attributedto
+AttributeDTO
 #>
 function Update-AccessModelMetadataAttributeV1 {
     [CmdletBinding()]
@@ -570,7 +570,7 @@ function Update-AccessModelMetadataAttributeV1 {
         ${Key},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -600,14 +600,14 @@ function Update-AccessModelMetadataAttributeV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{key}', [System.Web.HTTPUtility]::UrlEncode($Key))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateAccessModelMetadataAttributeV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateAccessModelMetadataAttributeV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -626,7 +626,7 @@ function Update-AccessModelMetadataAttributeV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attributedto" `
+                                -ReturnType "AttributeDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -652,7 +652,7 @@ Technical name of the Attribute.
 .PARAMETER Value
 Technical name of the Attribute value.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 JSON Patch array to apply
 
 .PARAMETER WithHttpInfo
@@ -661,7 +661,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Attributevaluedto
+AttributeValueDTO
 #>
 function Update-AccessModelMetadataAttributeValueV1 {
     [CmdletBinding()]
@@ -674,7 +674,7 @@ function Update-AccessModelMetadataAttributeValueV1 {
         ${Value},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -708,14 +708,14 @@ function Update-AccessModelMetadataAttributeValueV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{value}', [System.Web.HTTPUtility]::UrlEncode($Value))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateAccessModelMetadataAttributeValueV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateAccessModelMetadataAttributeValueV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -734,7 +734,7 @@ function Update-AccessModelMetadataAttributeValueV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Attributevaluedto" `
+                                -ReturnType "AttributeValueDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -754,7 +754,7 @@ Metadata Attribute update by filter
 
 Bulk update Access Model Metadata Attribute Values using a filter
 
-.PARAMETER Entitlementattributebulkupdatefilterrequest
+.PARAMETER EntitlementAttributeBulkUpdateFilterRequest
 Attribute metadata bulk update request body.
 
 .PARAMETER WithHttpInfo
@@ -763,14 +763,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessmodelmetadatabulkupdateresponse
+AccessModelMetadataBulkUpdateResponse
 #>
 function Update-AccessModelMetadataByFilterV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Entitlementattributebulkupdatefilterrequest},
+        ${EntitlementAttributeBulkUpdateFilterRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -796,14 +796,14 @@ function Update-AccessModelMetadataByFilterV1 {
 
         $LocalVarUri = '/access-model-metadata/v1/bulk-update/filter'
 
-        if (!$Entitlementattributebulkupdatefilterrequest) {
-            throw "Error! The required parameter `Entitlementattributebulkupdatefilterrequest` missing when calling updateAccessModelMetadataByFilterV1."
+        if (!$EntitlementAttributeBulkUpdateFilterRequest) {
+            throw "Error! The required parameter `EntitlementAttributeBulkUpdateFilterRequest` missing when calling updateAccessModelMetadataByFilterV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Entitlementattributebulkupdatefilterrequest -is [array])) {
-            $LocalVarBodyParameter = $Entitlementattributebulkupdatefilterrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementAttributeBulkUpdateFilterRequest -is [array])) {
+            $LocalVarBodyParameter = $EntitlementAttributeBulkUpdateFilterRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Entitlementattributebulkupdatefilterrequest | ForEach-Object {
+            $LocalVarBodyParameter = $EntitlementAttributeBulkUpdateFilterRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -822,7 +822,7 @@ function Update-AccessModelMetadataByFilterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessmodelmetadatabulkupdateresponse" `
+                                -ReturnType "AccessModelMetadataBulkUpdateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -842,7 +842,7 @@ Metadata Attribute update by ids
 
 Bulk update Access Model Metadata Attribute Values using ids.
 
-.PARAMETER Entitlementattributebulkupdateidsrequest
+.PARAMETER EntitlementAttributeBulkUpdateIdsRequest
 Attribute metadata bulk update request body.
 
 .PARAMETER WithHttpInfo
@@ -851,14 +851,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessmodelmetadatabulkupdateresponse
+AccessModelMetadataBulkUpdateResponse
 #>
 function Update-AccessModelMetadataByIdsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Entitlementattributebulkupdateidsrequest},
+        ${EntitlementAttributeBulkUpdateIdsRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -884,14 +884,14 @@ function Update-AccessModelMetadataByIdsV1 {
 
         $LocalVarUri = '/access-model-metadata/v1/bulk-update/ids'
 
-        if (!$Entitlementattributebulkupdateidsrequest) {
-            throw "Error! The required parameter `Entitlementattributebulkupdateidsrequest` missing when calling updateAccessModelMetadataByIdsV1."
+        if (!$EntitlementAttributeBulkUpdateIdsRequest) {
+            throw "Error! The required parameter `EntitlementAttributeBulkUpdateIdsRequest` missing when calling updateAccessModelMetadataByIdsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Entitlementattributebulkupdateidsrequest -is [array])) {
-            $LocalVarBodyParameter = $Entitlementattributebulkupdateidsrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementAttributeBulkUpdateIdsRequest -is [array])) {
+            $LocalVarBodyParameter = $EntitlementAttributeBulkUpdateIdsRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Entitlementattributebulkupdateidsrequest | ForEach-Object {
+            $LocalVarBodyParameter = $EntitlementAttributeBulkUpdateIdsRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -910,7 +910,7 @@ function Update-AccessModelMetadataByIdsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessmodelmetadatabulkupdateresponse" `
+                                -ReturnType "AccessModelMetadataBulkUpdateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -930,7 +930,7 @@ Metadata Attribute update by query
 
 Bulk update Access Model Metadata Attribute Values using a query
 
-.PARAMETER Entitlementattributebulkupdatequeryrequest
+.PARAMETER EntitlementAttributeBulkUpdateQueryRequest
 Attribute metadata bulk update request body.
 
 .PARAMETER WithHttpInfo
@@ -939,14 +939,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessmodelmetadatabulkupdateresponse
+AccessModelMetadataBulkUpdateResponse
 #>
 function Update-AccessModelMetadataByQueryV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Entitlementattributebulkupdatequeryrequest},
+        ${EntitlementAttributeBulkUpdateQueryRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -972,14 +972,14 @@ function Update-AccessModelMetadataByQueryV1 {
 
         $LocalVarUri = '/access-model-metadata/v1/bulk-update/query'
 
-        if (!$Entitlementattributebulkupdatequeryrequest) {
-            throw "Error! The required parameter `Entitlementattributebulkupdatequeryrequest` missing when calling updateAccessModelMetadataByQueryV1."
+        if (!$EntitlementAttributeBulkUpdateQueryRequest) {
+            throw "Error! The required parameter `EntitlementAttributeBulkUpdateQueryRequest` missing when calling updateAccessModelMetadataByQueryV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Entitlementattributebulkupdatequeryrequest -is [array])) {
-            $LocalVarBodyParameter = $Entitlementattributebulkupdatequeryrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementAttributeBulkUpdateQueryRequest -is [array])) {
+            $LocalVarBodyParameter = $EntitlementAttributeBulkUpdateQueryRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Entitlementattributebulkupdatequeryrequest | ForEach-Object {
+            $LocalVarBodyParameter = $EntitlementAttributeBulkUpdateQueryRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -998,7 +998,7 @@ function Update-AccessModelMetadataByQueryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessmodelmetadatabulkupdateresponse" `
+                                -ReturnType "AccessModelMetadataBulkUpdateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -1,0 +1,37 @@
+---
+id: outlier-feature-translation
+title: OutlierFeatureTranslation
+pagination_label: OutlierFeatureTranslation
+sidebar_label: OutlierFeatureTranslation
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierFeatureTranslation', 'OutlierFeatureTranslation'] 
+slug: /tools/sdk/powershell/iaioutliers/models/outlier-feature-translation
+tags: ['SDK', 'Software Development Kit', 'OutlierFeatureTranslation', 'OutlierFeatureTranslation']
+---
+
+
+# OutlierFeatureTranslation
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**DisplayName** | [**TranslationMessage**](translation-message) |  | [optional] 
+**Description** | [**TranslationMessage**](translation-message) |  | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$OutlierFeatureTranslation = Initialize-OutlierFeatureTranslation  -DisplayName null `
+ -Description null
+```
+
+- Convert the resource to JSON
+```powershell
+$OutlierFeatureTranslation | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

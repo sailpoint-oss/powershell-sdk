@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.SimIntegrations.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -77,32 +77,32 @@ FunctionsToExport = 'New-SIMIntegrationV1', 'Remove-SIMIntegrationV1',
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
                'Get-ConfigurationHttpSigning', 'ConvertFrom-JsonToArrayInner', 
-               'Initialize-Basecommondto', 'ConvertFrom-JsonToBasecommondto', 
-               'Initialize-Beforeprovisioningruledto', 
-               'ConvertFrom-JsonToBeforeprovisioningruledto', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-BaseCommonDto', 'ConvertFrom-JsonToBaseCommonDto', 
+               'Initialize-BeforeProvisioningRuleDto', 
+               'ConvertFrom-JsonToBeforeProvisioningRuleDto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetSIMIntegrationV1401Response', 
                'ConvertFrom-JsonToGetSIMIntegrationV1401Response', 
                'Initialize-GetSIMIntegrationV1429Response', 
                'ConvertFrom-JsonToGetSIMIntegrationV1429Response', 
-               'Initialize-Jsonpatch', 'ConvertFrom-JsonToJsonpatch', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 'Initialize-Ownerdto', 
-               'ConvertFrom-JsonToOwnerdto', 'Initialize-Provisioningconfig', 
-               'ConvertFrom-JsonToProvisioningconfig', 
-               'Initialize-ProvisioningconfigPlanInitializerScript', 
-               'ConvertFrom-JsonToProvisioningconfigPlanInitializerScript', 
-               'Initialize-Servicedeskintegrationdto', 
-               'ConvertFrom-JsonToServicedeskintegrationdto', 
-               'Initialize-Servicedesksource', 
-               'ConvertFrom-JsonToServicedesksource', 
-               'Initialize-Simintegrationdetails', 
-               'ConvertFrom-JsonToSimintegrationdetails', 
-               'Initialize-SimintegrationdetailsAllOfBeforeProvisioningRule', 
-               'ConvertFrom-JsonToSimintegrationdetailsAllOfBeforeProvisioningRule', 
-               'Initialize-Sourceclusterdto', 'ConvertFrom-JsonToSourceclusterdto'
+               'Initialize-JsonPatch', 'ConvertFrom-JsonToJsonPatch', 
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 'Initialize-OwnerDto', 
+               'ConvertFrom-JsonToOwnerDto', 'Initialize-ProvisioningConfig', 
+               'ConvertFrom-JsonToProvisioningConfig', 
+               'Initialize-ProvisioningConfigPlanInitializerScript', 
+               'ConvertFrom-JsonToProvisioningConfigPlanInitializerScript', 
+               'Initialize-ServiceDeskIntegrationDto', 
+               'ConvertFrom-JsonToServiceDeskIntegrationDto', 
+               'Initialize-ServiceDeskSource', 
+               'ConvertFrom-JsonToServiceDeskSource', 
+               'Initialize-SimIntegrationDetails', 
+               'ConvertFrom-JsonToSimIntegrationDetails', 
+               'Initialize-SimIntegrationDetailsAllOfBeforeProvisioningRule', 
+               'ConvertFrom-JsonToSimIntegrationDetailsAllOfBeforeProvisioningRule', 
+               'Initialize-SourceClusterDto', 'ConvertFrom-JsonToSourceClusterDto'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

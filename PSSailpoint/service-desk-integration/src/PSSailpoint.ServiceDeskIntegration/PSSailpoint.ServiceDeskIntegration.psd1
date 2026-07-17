@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.ServiceDeskIntegration.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -79,34 +79,34 @@ FunctionsToExport = 'New-ServiceDeskIntegrationV1', 'Remove-ServiceDeskIntegrati
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'ConvertFrom-JsonToArrayInner', 'Initialize-Basecommondto', 
-               'ConvertFrom-JsonToBasecommondto', 
-               'Initialize-Beforeprovisioningruledto', 
-               'ConvertFrom-JsonToBeforeprovisioningruledto', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'ConvertFrom-JsonToArrayInner', 'Initialize-BaseCommonDto', 
+               'ConvertFrom-JsonToBaseCommonDto', 
+               'Initialize-BeforeProvisioningRuleDto', 
+               'ConvertFrom-JsonToBeforeProvisioningRuleDto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetServiceDeskIntegrationsV1401Response', 
                'ConvertFrom-JsonToGetServiceDeskIntegrationsV1401Response', 
                'Initialize-GetServiceDeskIntegrationsV1429Response', 
                'ConvertFrom-JsonToGetServiceDeskIntegrationsV1429Response', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 'Initialize-Ownerdto', 
-               'ConvertFrom-JsonToOwnerdto', 'Initialize-Provisioningconfig', 
-               'ConvertFrom-JsonToProvisioningconfig', 
-               'Initialize-ProvisioningconfigPlanInitializerScript', 
-               'ConvertFrom-JsonToProvisioningconfigPlanInitializerScript', 
-               'Initialize-Queuedcheckconfigdetails', 
-               'ConvertFrom-JsonToQueuedcheckconfigdetails', 
-               'Initialize-Servicedeskintegrationdto', 
-               'ConvertFrom-JsonToServicedeskintegrationdto', 
-               'Initialize-Servicedeskintegrationtemplatedto', 
-               'ConvertFrom-JsonToServicedeskintegrationtemplatedto', 
-               'Initialize-Servicedeskintegrationtemplatetype', 
-               'ConvertFrom-JsonToServicedeskintegrationtemplatetype', 
-               'Initialize-Servicedesksource', 
-               'ConvertFrom-JsonToServicedesksource', 
-               'Initialize-Sourceclusterdto', 'ConvertFrom-JsonToSourceclusterdto'
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 'Initialize-OwnerDto', 
+               'ConvertFrom-JsonToOwnerDto', 'Initialize-ProvisioningConfig', 
+               'ConvertFrom-JsonToProvisioningConfig', 
+               'Initialize-ProvisioningConfigPlanInitializerScript', 
+               'ConvertFrom-JsonToProvisioningConfigPlanInitializerScript', 
+               'Initialize-QueuedCheckConfigDetails', 
+               'ConvertFrom-JsonToQueuedCheckConfigDetails', 
+               'Initialize-ServiceDeskIntegrationDto', 
+               'ConvertFrom-JsonToServiceDeskIntegrationDto', 
+               'Initialize-ServiceDeskIntegrationTemplateDto', 
+               'ConvertFrom-JsonToServiceDeskIntegrationTemplateDto', 
+               'Initialize-ServiceDeskIntegrationTemplateType', 
+               'ConvertFrom-JsonToServiceDeskIntegrationTemplateType', 
+               'Initialize-ServiceDeskSource', 
+               'ConvertFrom-JsonToServiceDeskSource', 
+               'Initialize-SourceClusterDto', 'ConvertFrom-JsonToSourceClusterDto'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

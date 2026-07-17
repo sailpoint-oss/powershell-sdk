@@ -14,7 +14,7 @@ Bulk approve entitlement recommendations
 
 Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
 
-.PARAMETER Bulkapproveentitlementrecommendationrequest
+.PARAMETER BulkApproveEntitlementRecommendationRequest
 The list of recommendation items to approve.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Bulkapproveentitlementrecommendationresult[]
+BulkApproveEntitlementRecommendationResult[]
 #>
 function Approve-BulkEntitlementRecommendationsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Bulkapproveentitlementrecommendationrequest},
+        ${BulkApproveEntitlementRecommendationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function Approve-BulkEntitlementRecommendationsV1 {
 
         $LocalVarUri = '/entitlement-recommendations/v1/bulk-approve'
 
-        if (!$Bulkapproveentitlementrecommendationrequest) {
-            throw "Error! The required parameter `Bulkapproveentitlementrecommendationrequest` missing when calling approveBulkEntitlementRecommendationsV1."
+        if (!$BulkApproveEntitlementRecommendationRequest) {
+            throw "Error! The required parameter `BulkApproveEntitlementRecommendationRequest` missing when calling approveBulkEntitlementRecommendationsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Bulkapproveentitlementrecommendationrequest -is [array])) {
-            $LocalVarBodyParameter = $Bulkapproveentitlementrecommendationrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkApproveEntitlementRecommendationRequest -is [array])) {
+            $LocalVarBodyParameter = $BulkApproveEntitlementRecommendationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Bulkapproveentitlementrecommendationrequest | ForEach-Object {
+            $LocalVarBodyParameter = $BulkApproveEntitlementRecommendationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function Approve-BulkEntitlementRecommendationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Bulkapproveentitlementrecommendationresult[]" `
+                                -ReturnType "BulkApproveEntitlementRecommendationResult[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -102,7 +102,7 @@ Create auto-write settings for SED
 
 Create the initial auto-write settings for a tenant. Returns 409 Conflict if settings already exist. Use PATCH to update existing settings.
 
-.PARAMETER Autowritesetting
+.PARAMETER AutoWriteSetting
 Auto-write settings to create
 
 .PARAMETER WithHttpInfo
@@ -111,14 +111,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Autowritesettingresponse
+AutoWriteSettingResponse
 #>
 function New-AutoWriteSettingsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Autowritesetting},
+        ${AutoWriteSetting},
         [Switch]
         $WithHttpInfo
     )
@@ -144,14 +144,14 @@ function New-AutoWriteSettingsV1 {
 
         $LocalVarUri = '/suggested-entitlement-descriptions/v1/auto-write-settings'
 
-        if (!$Autowritesetting) {
-            throw "Error! The required parameter `Autowritesetting` missing when calling createAutoWriteSettingsV1."
+        if (!$AutoWriteSetting) {
+            throw "Error! The required parameter `AutoWriteSetting` missing when calling createAutoWriteSettingsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Autowritesetting -is [array])) {
-            $LocalVarBodyParameter = $Autowritesetting | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AutoWriteSetting -is [array])) {
+            $LocalVarBodyParameter = $AutoWriteSetting | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Autowritesetting | ForEach-Object {
+            $LocalVarBodyParameter = $AutoWriteSetting | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -170,7 +170,7 @@ function New-AutoWriteSettingsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Autowritesettingresponse" `
+                                -ReturnType "AutoWriteSettingResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -196,7 +196,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Autowritesettingresponse
+AutoWriteSettingResponse
 #>
 function Get-AutoWriteSettingsV1 {
     [CmdletBinding()]
@@ -232,7 +232,7 @@ function Get-AutoWriteSettingsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Autowritesettingresponse" `
+                                -ReturnType "AutoWriteSettingResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -261,7 +261,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sedbatchstats
+SedBatchStats
 #>
 function Get-SedBatchStatsV1 {
     [CmdletBinding()]
@@ -304,7 +304,7 @@ function Get-SedBatchStatsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sedbatchstats" `
+                                -ReturnType "SedBatchStats" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -345,7 +345,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sedbatchrecord[]
+SedBatchRecord[]
 #>
 function Get-SedBatchesV1 {
     [CmdletBinding()]
@@ -416,7 +416,7 @@ function Get-SedBatchesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sedbatchrecord[]" `
+                                -ReturnType "SedBatchRecord[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -448,7 +448,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementrecommendationrecord[]
+EntitlementRecommendationRecord[]
 #>
 function Get-PendingEntitlementRecommendationApprovalsV1 {
     [CmdletBinding()]
@@ -498,7 +498,7 @@ function Get-PendingEntitlementRecommendationApprovalsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementrecommendationrecord[]" `
+                                -ReturnType "EntitlementRecommendationRecord[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -530,7 +530,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Privilegedrecommendationgroup[]
+PrivilegedRecommendationGroup[]
 #>
 function Get-PrivilegedEntitlementRecommendationsV1 {
     [CmdletBinding()]
@@ -580,7 +580,7 @@ function Get-PrivilegedEntitlementRecommendationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Privilegedrecommendationgroup[]" `
+                                -ReturnType "PrivilegedRecommendationGroup[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -745,7 +745,7 @@ Partially update a single entitlement recommendation record by its ID. Use this 
 .PARAMETER Id
 The unique identifier of the entitlement recommendation to update.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 The patch operations to apply to the entitlement recommendation record.
 
 .PARAMETER WithHttpInfo
@@ -754,7 +754,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementrecommendationrecord
+EntitlementRecommendationRecord
 #>
 function Update-EntitlementRecommendationV1 {
     [CmdletBinding()]
@@ -764,7 +764,7 @@ function Update-EntitlementRecommendationV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -794,14 +794,14 @@ function Update-EntitlementRecommendationV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling patchEntitlementRecommendationV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchEntitlementRecommendationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -820,7 +820,7 @@ function Update-EntitlementRecommendationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementrecommendationrecord" `
+                                -ReturnType "EntitlementRecommendationRecord" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -843,7 +843,7 @@ Patch Suggested Entitlement Description
 .PARAMETER Id
 id is sed id
 
-.PARAMETER Sedpatch
+.PARAMETER SedPatch
 Sed Patch Request
 
 .PARAMETER WithHttpInfo
@@ -862,7 +862,7 @@ function Update-SedV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Sedpatch},
+        ${SedPatch},
         [Switch]
         $WithHttpInfo
     )
@@ -892,14 +892,14 @@ function Update-SedV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Sedpatch) {
-            throw "Error! The required parameter `Sedpatch` missing when calling patchSedV1."
+        if (!$SedPatch) {
+            throw "Error! The required parameter `SedPatch` missing when calling patchSedV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sedpatch -is [array])) {
-            $LocalVarBodyParameter = $Sedpatch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SedPatch -is [array])) {
+            $LocalVarBodyParameter = $SedPatch | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sedpatch | ForEach-Object {
+            $LocalVarBodyParameter = $SedPatch | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -938,7 +938,7 @@ Assign entitlement recommendations for review
 
 Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
 
-.PARAMETER Entitlementrecommendationassignrequest
+.PARAMETER EntitlementRecommendationAssignRequest
 The recommendation IDs and the target assignee.
 
 .PARAMETER WithHttpInfo
@@ -947,14 +947,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlementrecommendationassignresult
+EntitlementRecommendationAssignResult
 #>
 function Submit-EntitlementRecommendationsAssignmentV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Entitlementrecommendationassignrequest},
+        ${EntitlementRecommendationAssignRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -980,14 +980,14 @@ function Submit-EntitlementRecommendationsAssignmentV1 {
 
         $LocalVarUri = '/entitlement-recommendations/v1/assign'
 
-        if (!$Entitlementrecommendationassignrequest) {
-            throw "Error! The required parameter `Entitlementrecommendationassignrequest` missing when calling submitEntitlementRecommendationsAssignmentV1."
+        if (!$EntitlementRecommendationAssignRequest) {
+            throw "Error! The required parameter `EntitlementRecommendationAssignRequest` missing when calling submitEntitlementRecommendationsAssignmentV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Entitlementrecommendationassignrequest -is [array])) {
-            $LocalVarBodyParameter = $Entitlementrecommendationassignrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementRecommendationAssignRequest -is [array])) {
+            $LocalVarBodyParameter = $EntitlementRecommendationAssignRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Entitlementrecommendationassignrequest | ForEach-Object {
+            $LocalVarBodyParameter = $EntitlementRecommendationAssignRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1006,7 +1006,7 @@ function Submit-EntitlementRecommendationsAssignmentV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlementrecommendationassignresult" `
+                                -ReturnType "EntitlementRecommendationAssignResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1026,7 +1026,7 @@ Submit bulk approval request
 
 Submit Bulk Approval Request for SED. Request body takes list of SED Ids. API responses with list of SED Approval Status
 
-.PARAMETER Sedapproval
+.PARAMETER SedApproval
 Sed Approval
 
 .PARAMETER WithHttpInfo
@@ -1035,14 +1035,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sedapprovalstatus[]
+SedApprovalStatus[]
 #>
 function Submit-SedApprovalV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Sedapproval},
+        ${SedApproval},
         [Switch]
         $WithHttpInfo
     )
@@ -1068,14 +1068,14 @@ function Submit-SedApprovalV1 {
 
         $LocalVarUri = '/suggested-entitlement-description-approvals/v1'
 
-        if (!$Sedapproval) {
-            throw "Error! The required parameter `Sedapproval` missing when calling submitSedApprovalV1."
+        if (!$SedApproval) {
+            throw "Error! The required parameter `SedApproval` missing when calling submitSedApprovalV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sedapproval -is [array])) {
-            $LocalVarBodyParameter = $Sedapproval | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SedApproval -is [array])) {
+            $LocalVarBodyParameter = $SedApproval | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sedapproval | ForEach-Object {
+            $LocalVarBodyParameter = $SedApproval | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1094,7 +1094,7 @@ function Submit-SedApprovalV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sedapprovalstatus[]" `
+                                -ReturnType "SedApprovalStatus[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1114,7 +1114,7 @@ Submit sed assignment request
 
 Submit Assignment Request. Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
 
-.PARAMETER Sedassignment
+.PARAMETER SedAssignment
 Sed Assignment Request
 
 .PARAMETER WithHttpInfo
@@ -1123,14 +1123,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sedassignmentresponse
+SedAssignmentResponse
 #>
 function Submit-SedAssignmentV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Sedassignment},
+        ${SedAssignment},
         [Switch]
         $WithHttpInfo
     )
@@ -1156,14 +1156,14 @@ function Submit-SedAssignmentV1 {
 
         $LocalVarUri = '/suggested-entitlement-description-assignments/v1'
 
-        if (!$Sedassignment) {
-            throw "Error! The required parameter `Sedassignment` missing when calling submitSedAssignmentV1."
+        if (!$SedAssignment) {
+            throw "Error! The required parameter `SedAssignment` missing when calling submitSedAssignmentV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sedassignment -is [array])) {
-            $LocalVarBodyParameter = $Sedassignment | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SedAssignment -is [array])) {
+            $LocalVarBodyParameter = $SedAssignment | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sedassignment | ForEach-Object {
+            $LocalVarBodyParameter = $SedAssignment | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1182,7 +1182,7 @@ function Submit-SedAssignmentV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sedassignmentresponse" `
+                                -ReturnType "SedAssignmentResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1202,7 +1202,7 @@ Submit sed batch request
 
 Submit Sed Batch Request. Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM.  API responses with batchId that groups Ids together
 
-.PARAMETER Sedbatchrequest
+.PARAMETER SedBatchRequest
 Sed Batch Request
 
 .PARAMETER WithHttpInfo
@@ -1211,14 +1211,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Sedbatchresponse
+SedBatchResponse
 #>
 function Submit-SedBatchRequestV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Sedbatchrequest},
+        ${SedBatchRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1244,10 +1244,10 @@ function Submit-SedBatchRequestV1 {
 
         $LocalVarUri = '/suggested-entitlement-description-batches/v1'
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Sedbatchrequest -is [array])) {
-            $LocalVarBodyParameter = $Sedbatchrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SedBatchRequest -is [array])) {
+            $LocalVarBodyParameter = $SedBatchRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Sedbatchrequest | ForEach-Object {
+            $LocalVarBodyParameter = $SedBatchRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1266,7 +1266,7 @@ function Submit-SedBatchRequestV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Sedbatchresponse" `
+                                -ReturnType "SedBatchResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1286,7 +1286,7 @@ Update auto-write settings for SED
 
 Partially update the auto-write settings for a tenant using JSON Patch operations. Only the ""replace"" operation is supported. Returns 404 if no settings exist yet - use POST to create them first.
 
-.PARAMETER Autowritesettingpatch
+.PARAMETER AutoWriteSettingPatch
 Patch operations for auto-write settings
 
 .PARAMETER WithHttpInfo
@@ -1295,14 +1295,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Autowritesettingresponse
+AutoWriteSettingResponse
 #>
 function Update-AutoWriteSettingsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Autowritesettingpatch},
+        ${AutoWriteSettingPatch},
         [Switch]
         $WithHttpInfo
     )
@@ -1328,14 +1328,14 @@ function Update-AutoWriteSettingsV1 {
 
         $LocalVarUri = '/suggested-entitlement-descriptions/v1/auto-write-settings'
 
-        if (!$Autowritesettingpatch) {
-            throw "Error! The required parameter `Autowritesettingpatch` missing when calling updateAutoWriteSettingsV1."
+        if (!$AutoWriteSettingPatch) {
+            throw "Error! The required parameter `AutoWriteSettingPatch` missing when calling updateAutoWriteSettingsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Autowritesettingpatch -is [array])) {
-            $LocalVarBodyParameter = $Autowritesettingpatch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AutoWriteSettingPatch -is [array])) {
+            $LocalVarBodyParameter = $AutoWriteSettingPatch | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Autowritesettingpatch | ForEach-Object {
+            $LocalVarBodyParameter = $AutoWriteSettingPatch | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1354,7 +1354,7 @@ function Update-AutoWriteSettingsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Autowritesettingresponse" `
+                                -ReturnType "AutoWriteSettingResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

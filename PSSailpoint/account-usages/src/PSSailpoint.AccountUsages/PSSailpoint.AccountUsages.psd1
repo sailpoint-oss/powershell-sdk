@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.AccountUsages.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -73,10 +73,10 @@ FunctionsToExport = 'Get-UsagesByAccountIdV1', 'Get-Configuration', 'Set-Configu
                'Set-ConfigurationApiKey', 'Set-ConfigurationApiKeyPrefix', 
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
-               'Get-ConfigurationHttpSigning', 'Initialize-Accountusage', 
-               'ConvertFrom-JsonToAccountusage', 'Initialize-Errormessagedto', 
-               'ConvertFrom-JsonToErrormessagedto', 'Initialize-Errorresponsedto', 
-               'ConvertFrom-JsonToErrorresponsedto', 
+               'Get-ConfigurationHttpSigning', 'Initialize-AccountUsage', 
+               'ConvertFrom-JsonToAccountUsage', 'Initialize-ErrorMessageDto', 
+               'ConvertFrom-JsonToErrorMessageDto', 'Initialize-ErrorResponseDto', 
+               'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetUsagesByAccountIdV1401Response', 
                'ConvertFrom-JsonToGetUsagesByAccountIdV1401Response', 
                'Initialize-GetUsagesByAccountIdV1429Response', 

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.ManagedClients' -name 'ManagedClientsApi' {
     Context 'New-ManagedClientV1' {
         It 'Test New-ManagedClientV1' {
-            #$TestResult = New-ManagedClientV1 -Managedclientrequest "TEST_VALUE"
+            #$TestResult = New-ManagedClientV1 -ManagedClientRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.ManagedClients' -name 'ManagedClientsApi' {
 
     Context 'Update-ManagedClientV1' {
         It 'Test Update-ManagedClientV1' {
-            #$TestResult = Update-ManagedClientV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-ManagedClientV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

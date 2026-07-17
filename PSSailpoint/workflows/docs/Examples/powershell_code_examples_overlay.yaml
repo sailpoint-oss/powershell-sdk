@@ -302,17 +302,21 @@
       label: SDK_tools/sdk/powershell/workflows/methods/workflows#patch-workflow-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
-        $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"Send Email"},{"op":"replace","path":"/owner","value":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"}},{"op":"replace","path":"/description","value":"Send an email to the identity who's attributes changed."},{"op":"replace","path":"/enabled","value":false},{"op":"replace","path":"/definition","value":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}}},{"op":"replace","path":"/trigger","value":{"type":"EVENT","attributes":{"id":"idn:identity-attributes-changed"}}}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Patch workflow
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-WorkflowV1 -Id $Id -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-WorkflowV1 -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-WorkflowV1 -Id $Id -Jsonpatchoperation $Result   
+            # Update-WorkflowV1 -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-WorkflowV1"
             Write-Host $_.ErrorDetails
@@ -324,18 +328,58 @@
       label: SDK_tools/sdk/powershell/workflows/methods/workflows#put-workflow-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
-        $Workflowbody = @"
-        
+        $WorkflowBody = @"
+        {
+          "owner" : {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          },
+          "name" : "Send Email",
+          "description" : "Send an email to the identity who's attributes changed.",
+          "definition" : {
+            "start" : "Send Email Test",
+            "steps" : {
+              "Send Email" : {
+                "actionId" : "sp:send-email",
+                "attributes" : {
+                  "body" : "This is a test",
+                  "from" : "sailpoint@sailpoint.com",
+                  "recipientId.$" : "$.identity.id",
+                  "subject" : "test"
+                },
+                "nextStep" : "success",
+                "selectResult" : null,
+                "type" : "ACTION"
+              },
+              "success" : {
+                "type" : "success"
+              }
+            }
+          },
+          "trigger" : {
+            "displayName" : "displayName",
+            "attributes" : {
+              "description" : "Triggered when an identity's manager attribute changes",
+              "formDefinitionId" : "Admin_Access_Request_Form",
+              "attributeToFilter" : "LifecycleState",
+              "id" : "idn:identity-attributes-changed",
+              "filter.$" : "$.changes[?(@.attribute == 'manager')]"
+            },
+            "type" : "EVENT"
+          },
+          "enabled" : false
+        }
         "@
         
         # Update workflow
         
         try {
-            $Result = ConvertFrom-JsonToWorkflowbody -Json $Workflowbody
-            Send-WorkflowV1 -Id $Id -Workflowbody $Result 
+            $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
+            Send-WorkflowV1 -Id $Id -WorkflowBody $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-WorkflowV1 -Id $Id -Workflowbody $Result   
+            # Send-WorkflowV1 -Id $Id -WorkflowBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-WorkflowV1"
             Write-Host $_.ErrorDetails

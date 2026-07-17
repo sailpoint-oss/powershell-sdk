@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.ParameterStorage' -name 'ParameterStorageApi' {
     Context 'New-ParameterV1' {
         It 'Test New-ParameterV1' {
-            #$TestResult = New-ParameterV1 -Parameterstoragenewparameter "TEST_VALUE"
+            #$TestResult = New-ParameterV1 -ParameterStorageNewParameter "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.ParameterStorage' -name 'ParameterStorageApi' {
 
     Context 'Update-ParameterV1' {
         It 'Test Update-ParameterV1' {
-            #$TestResult = Update-ParameterV1 -Id "TEST_VALUE" -Parameterstorageupdateparameter "TEST_VALUE"
+            #$TestResult = Update-ParameterV1 -Id "TEST_VALUE" -ParameterStorageUpdateParameter "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

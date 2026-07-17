@@ -115,7 +115,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Summaryresponse[]
+SummaryResponse[]
 #>
 function Get-ApiSummaryV1 {
     [CmdletBinding()]
@@ -180,7 +180,7 @@ function Get-ApiSummaryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Summaryresponse[]" `
+                                -ReturnType "SummaryResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

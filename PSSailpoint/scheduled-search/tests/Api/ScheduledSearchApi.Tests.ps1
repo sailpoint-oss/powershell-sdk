@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.ScheduledSearch' -name 'ScheduledSearchApi' {
 
     Context 'Invoke-UnsubscribeScheduledSearchV1' {
         It 'Test Invoke-UnsubscribeScheduledSearchV1' {
-            #$TestResult = Invoke-UnsubscribeScheduledSearchV1 -Id "TEST_VALUE" -Typedreference "TEST_VALUE"
+            #$TestResult = Invoke-UnsubscribeScheduledSearchV1 -Id "TEST_VALUE" -TypedReference "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.ScheduledSearch' -name 'ScheduledSearchApi' {
 
     Context 'Update-ScheduledSearchV1' {
         It 'Test Update-ScheduledSearchV1' {
-            #$TestResult = Update-ScheduledSearchV1 -Id "TEST_VALUE" -Scheduledsearch "TEST_VALUE"
+            #$TestResult = Update-ScheduledSearchV1 -Id "TEST_VALUE" -ScheduledSearch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

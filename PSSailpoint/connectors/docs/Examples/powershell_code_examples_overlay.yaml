@@ -4,18 +4,24 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/connectors/methods/connectors#create-custom-connector-v1
       source: |
-        $V3createconnectordto = @"
-        
+        $V3CreateConnectorDto = @"
+        {
+          "name" : "custom connector",
+          "directConnect" : true,
+          "className" : "sailpoint.connector.OpenConnectorAdapter",
+          "type" : "custom connector type",
+          "status" : "RELEASED"
+        }
         "@
         
         # Create custom connector
         
         try {
-            $Result = ConvertFrom-JsonToV3createconnectordto -Json $V3createconnectordto
-            New-CustomConnectorV1 -V3createconnectordto $Result 
+            $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
+            New-CustomConnectorV1 -V3CreateConnectorDto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-CustomConnectorV1 -V3createconnectordto $Result   
+            # New-CustomConnectorV1 -V3CreateConnectorDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CustomConnectorV1"
             Write-Host $_.ErrorDetails
@@ -246,17 +252,21 @@
       label: SDK_tools/sdk/powershell/connectors/methods/connectors#update-connector-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-        $Jsonpatchoperation = @""@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update connector by script name
         
         try {
-            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
-            Update-ConnectorV1 -ScriptName $ScriptName -Jsonpatchoperation $Result 
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-ConnectorV1 -ScriptName $ScriptName -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-ConnectorV1 -ScriptName $ScriptName -Jsonpatchoperation $Result   
+            # Update-ConnectorV1 -ScriptName $ScriptName -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ConnectorV1"
             Write-Host $_.ErrorDetails

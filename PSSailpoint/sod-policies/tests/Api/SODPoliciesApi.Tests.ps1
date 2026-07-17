@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.SodPolicies' -name 'SODPoliciesApi' {
     Context 'New-SodPolicyV1' {
         It 'Test New-SodPolicyV1' {
-            #$TestResult = New-SodPolicyV1 -Sodpolicy "TEST_VALUE"
+            #$TestResult = New-SodPolicyV1 -SodPolicy "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.SodPolicies' -name 'SODPoliciesApi' {
 
     Context 'Update-SodPolicyV1' {
         It 'Test Update-SodPolicyV1' {
-            #$TestResult = Update-SodPolicyV1 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult = Update-SodPolicyV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.SodPolicies' -name 'SODPoliciesApi' {
 
     Context 'Send-PolicyScheduleV1' {
         It 'Test Send-PolicyScheduleV1' {
-            #$TestResult = Send-PolicyScheduleV1 -Id "TEST_VALUE" -Sodpolicyschedule "TEST_VALUE"
+            #$TestResult = Send-PolicyScheduleV1 -Id "TEST_VALUE" -SodPolicySchedule "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.SodPolicies' -name 'SODPoliciesApi' {
 
     Context 'Send-SodPolicyV1' {
         It 'Test Send-SodPolicyV1' {
-            #$TestResult = Send-SodPolicyV1 -Id "TEST_VALUE" -Sodpolicy "TEST_VALUE"
+            #$TestResult = Send-SodPolicyV1 -Id "TEST_VALUE" -SodPolicy "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -128,7 +128,7 @@ Describe -tag 'PSSailpoint.SodPolicies' -name 'SODPoliciesApi' {
 
     Context 'Start-SodAllPoliciesForOrgV1' {
         It 'Test Start-SodAllPoliciesForOrgV1' {
-            #$TestResult = Start-SodAllPoliciesForOrgV1 -Multipolicyrequest "TEST_VALUE"
+            #$TestResult = Start-SodAllPoliciesForOrgV1 -MultiPolicyRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

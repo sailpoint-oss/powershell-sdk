@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.ReportsDataExtraction' -name 'ReportsDataExtractionAp
 
     Context 'Start-ReportV1' {
         It 'Test Start-ReportV1' {
-            #$TestResult = Start-ReportV1 -Reportdetails "TEST_VALUE"
+            #$TestResult = Start-ReportV1 -ReportDetails "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

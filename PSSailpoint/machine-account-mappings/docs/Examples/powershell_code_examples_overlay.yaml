@@ -5,18 +5,38 @@
       label: SDK_tools/sdk/powershell/machineaccountmappings/methods/machine-account-mappings#create-machine-account-mappings-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
-        $Attributemappings = @"
-        
+        $AttributeMappings = @"
+        {
+          "transformDefinition" : {
+            "attributes" : {
+              "input" : {
+                "attributes" : {
+                  "name" : "8d3e0094e99445de98eef6c75e25jc04",
+                  "attributeName" : "givenName",
+                  "sourceName" : "delimited-src"
+                },
+                "type" : "accountAttribute"
+              }
+            },
+            "id" : "ToUpper",
+            "type" : "reference"
+          },
+          "target" : {
+            "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+            "attributeName" : "businessApplication",
+            "type" : "IDENTITY"
+          }
+        }
         "@
         
         # Create machine account mappings
         
         try {
-            $Result = ConvertFrom-JsonToAttributemappings -Json $Attributemappings
-            New-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result 
+            $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+            New-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result 
     
             # Below is a request that includes all optional parameters
-            # New-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result   
+            # New-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountMappingsV1"
             Write-Host $_.ErrorDetails
@@ -68,18 +88,38 @@
       label: SDK_tools/sdk/powershell/machineaccountmappings/methods/machine-account-mappings#set-machine-account-mappings-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
-        $Attributemappings = @"
-        
+        $AttributeMappings = @"
+        {
+          "transformDefinition" : {
+            "attributes" : {
+              "input" : {
+                "attributes" : {
+                  "name" : "8d3e0094e99445de98eef6c75e25jc04",
+                  "attributeName" : "givenName",
+                  "sourceName" : "delimited-src"
+                },
+                "type" : "accountAttribute"
+              }
+            },
+            "id" : "ToUpper",
+            "type" : "reference"
+          },
+          "target" : {
+            "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+            "attributeName" : "businessApplication",
+            "type" : "IDENTITY"
+          }
+        }
         "@
         
         # Update source's machine account mappings
         
         try {
-            $Result = ConvertFrom-JsonToAttributemappings -Json $Attributemappings
-            Set-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result 
+            $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+            Set-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result   
+            # Set-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MachineAccountMappingsV1"
             Write-Host $_.ErrorDetails

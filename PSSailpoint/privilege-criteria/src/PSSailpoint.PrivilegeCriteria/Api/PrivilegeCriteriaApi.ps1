@@ -14,7 +14,7 @@ Create custom privilege criteria
 
 Use this API to create a custom privilege criteria
 
-.PARAMETER Createprivilegecriteriarequest
+.PARAMETER CreatePrivilegeCriteriaRequest
 Create custom privilege criteria request body.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Privilegecriteriadto
+PrivilegeCriteriaDTO
 #>
 function New-CustomPrivilegeCriteriaV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Createprivilegecriteriarequest},
+        ${CreatePrivilegeCriteriaRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-CustomPrivilegeCriteriaV1 {
 
         $LocalVarUri = '/criteria/v1/privilege'
 
-        if (!$Createprivilegecriteriarequest) {
-            throw "Error! The required parameter `Createprivilegecriteriarequest` missing when calling createCustomPrivilegeCriteriaV1."
+        if (!$CreatePrivilegeCriteriaRequest) {
+            throw "Error! The required parameter `CreatePrivilegeCriteriaRequest` missing when calling createCustomPrivilegeCriteriaV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Createprivilegecriteriarequest -is [array])) {
-            $LocalVarBodyParameter = $Createprivilegecriteriarequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreatePrivilegeCriteriaRequest -is [array])) {
+            $LocalVarBodyParameter = $CreatePrivilegeCriteriaRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Createprivilegecriteriarequest | ForEach-Object {
+            $LocalVarBodyParameter = $CreatePrivilegeCriteriaRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-CustomPrivilegeCriteriaV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Privilegecriteriadto" `
+                                -ReturnType "PrivilegeCriteriaDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -183,7 +183,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Privilegecriteriadto
+PrivilegeCriteriaDTO
 #>
 function Get-PrivilegeCriteriaV1 {
     [CmdletBinding()]
@@ -226,7 +226,7 @@ function Get-PrivilegeCriteriaV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Privilegecriteriadto" `
+                                -ReturnType "PrivilegeCriteriaDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -255,7 +255,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Privilegecriteriadto[]
+PrivilegeCriteriaDTO[]
 #>
 function Get-PrivilegeCriteriaV1 {
     [CmdletBinding()]
@@ -299,7 +299,7 @@ function Get-PrivilegeCriteriaV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Privilegecriteriadto[]" `
+                                -ReturnType "PrivilegeCriteriaDTO[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -322,7 +322,7 @@ Use this API to update a specific custom privilege criteria by overwriting the i
 .PARAMETER CriteriaId
 The Id of the privilege criteria record to return.
 
-.PARAMETER Privilegecriteriadto
+.PARAMETER PrivilegeCriteriaDTO
 The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
 
 .PARAMETER WithHttpInfo
@@ -331,7 +331,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Privilegecriteriadto
+PrivilegeCriteriaDTO
 #>
 function Send-CustomPrivilegeCriteriaValueV1 {
     [CmdletBinding()]
@@ -341,7 +341,7 @@ function Send-CustomPrivilegeCriteriaValueV1 {
         ${CriteriaId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Privilegecriteriadto},
+        ${PrivilegeCriteriaDTO},
         [Switch]
         $WithHttpInfo
     )
@@ -371,14 +371,14 @@ function Send-CustomPrivilegeCriteriaValueV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{criteriaId}', [System.Web.HTTPUtility]::UrlEncode($CriteriaId))
 
-        if (!$Privilegecriteriadto) {
-            throw "Error! The required parameter `Privilegecriteriadto` missing when calling putCustomPrivilegeCriteriaValueV1."
+        if (!$PrivilegeCriteriaDTO) {
+            throw "Error! The required parameter `PrivilegeCriteriaDTO` missing when calling putCustomPrivilegeCriteriaValueV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Privilegecriteriadto -is [array])) {
-            $LocalVarBodyParameter = $Privilegecriteriadto | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PrivilegeCriteriaDTO -is [array])) {
+            $LocalVarBodyParameter = $PrivilegeCriteriaDTO | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Privilegecriteriadto | ForEach-Object {
+            $LocalVarBodyParameter = $PrivilegeCriteriaDTO | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -397,7 +397,7 @@ function Send-CustomPrivilegeCriteriaValueV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Privilegecriteriadto" `
+                                -ReturnType "PrivilegeCriteriaDTO" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

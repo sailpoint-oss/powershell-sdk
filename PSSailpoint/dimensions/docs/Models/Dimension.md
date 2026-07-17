@@ -21,10 +21,10 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | Date the Dimension was created | [optional] [readonly] 
 **Modified** | **System.DateTime** | Date the Dimension was last modified. | [optional] [readonly] 
 **Description** | **String** | A human-readable description of the Dimension | [optional] 
-**Owner** | [**Ownerreference**](ownerreference) |  | [required]
-**AccessProfiles** | [**[]Accessprofileref**](accessprofileref) |  | [optional] 
-**Entitlements** | [**[]Entitlementref**](entitlementref) |  | [optional] 
-**Membership** | [**Dimensionmembershipselector**](dimensionmembershipselector) |  | [optional] 
+**Owner** | [**OwnerReference**](owner-reference) |  | [required]
+**AccessProfiles** | [**[]AccessProfileRef**](access-profile-ref) |  | [optional] 
+**Entitlements** | [**[]EntitlementRef**](entitlement-ref) |  | [optional] 
+**Membership** | [**DimensionMembershipSelector**](dimension-membership-selector) |  | [optional] 
 **ParentId** | **String** | The ID of the parent role. This field can be left null when creating a dimension, but if provided, it must match the role ID specified in the path variable of the API call. | [optional] 
 
 ## Examples

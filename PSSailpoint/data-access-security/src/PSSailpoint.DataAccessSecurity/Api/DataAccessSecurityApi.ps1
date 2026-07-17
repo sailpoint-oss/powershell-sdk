@@ -86,7 +86,7 @@ Create application
 
 This endpoint creates a new application in Data Access Security with the specified configuration.
 
-.PARAMETER Basecreateapplicationrequest
+.PARAMETER BaseCreateApplicationRequest
 Request body containing the details required to create a new application.
 
 .PARAMETER WithHttpInfo
@@ -102,7 +102,7 @@ function New-ApplicationV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Basecreateapplicationrequest},
+        ${BaseCreateApplicationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -128,14 +128,14 @@ function New-ApplicationV1 {
 
         $LocalVarUri = '/das/v1/applications'
 
-        if (!$Basecreateapplicationrequest) {
-            throw "Error! The required parameter `Basecreateapplicationrequest` missing when calling createApplicationV1."
+        if (!$BaseCreateApplicationRequest) {
+            throw "Error! The required parameter `BaseCreateApplicationRequest` missing when calling createApplicationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Basecreateapplicationrequest -is [array])) {
-            $LocalVarBodyParameter = $Basecreateapplicationrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BaseCreateApplicationRequest -is [array])) {
+            $LocalVarBodyParameter = $BaseCreateApplicationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Basecreateapplicationrequest | ForEach-Object {
+            $LocalVarBodyParameter = $BaseCreateApplicationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -262,7 +262,7 @@ Create a new schedule.
 
 No description or notes available.
 
-.PARAMETER Createschedulerequest
+.PARAMETER CreateScheduleRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -278,7 +278,7 @@ function New-ScheduleV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Createschedulerequest},
+        ${CreateScheduleRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -304,14 +304,14 @@ function New-ScheduleV1 {
 
         $LocalVarUri = '/das/v1/tasks/schedules'
 
-        if (!$Createschedulerequest) {
-            throw "Error! The required parameter `Createschedulerequest` missing when calling createScheduleV1."
+        if (!$CreateScheduleRequest) {
+            throw "Error! The required parameter `CreateScheduleRequest` missing when calling createScheduleV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Createschedulerequest -is [array])) {
-            $LocalVarBodyParameter = $Createschedulerequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreateScheduleRequest -is [array])) {
+            $LocalVarBodyParameter = $CreateScheduleRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Createschedulerequest | ForEach-Object {
+            $LocalVarBodyParameter = $CreateScheduleRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -350,7 +350,7 @@ Assign owner to application resource.
 
 No description or notes available.
 
-.PARAMETER Assignresourceownerrequest
+.PARAMETER AssignResourceOwnerRequest
 The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
 
 .PARAMETER WithHttpInfo
@@ -366,7 +366,7 @@ function Invoke-DasV1OwnersAssignPost {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Assignresourceownerrequest},
+        ${AssignResourceOwnerRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -392,14 +392,14 @@ function Invoke-DasV1OwnersAssignPost {
 
         $LocalVarUri = '/das/v1/owners/assign'
 
-        if (!$Assignresourceownerrequest) {
-            throw "Error! The required parameter `Assignresourceownerrequest` missing when calling dasV1OwnersAssignPost."
+        if (!$AssignResourceOwnerRequest) {
+            throw "Error! The required parameter `AssignResourceOwnerRequest` missing when calling dasV1OwnersAssignPost."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Assignresourceownerrequest -is [array])) {
-            $LocalVarBodyParameter = $Assignresourceownerrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AssignResourceOwnerRequest -is [array])) {
+            $LocalVarBodyParameter = $AssignResourceOwnerRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Assignresourceownerrequest | ForEach-Object {
+            $LocalVarBodyParameter = $AssignResourceOwnerRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -453,7 +453,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Resourcemodel[]
+ResourceModel[]
 #>
 function Invoke-DasV1OwnersOwnerIdentityIdResourcesGet {
     [CmdletBinding()]
@@ -510,7 +510,7 @@ function Invoke-DasV1OwnersOwnerIdentityIdResourcesGet {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Resourcemodel[]" `
+                                -ReturnType "ResourceModel[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -530,7 +530,7 @@ Re-elect resource owner.
 
 No description or notes available.
 
-.PARAMETER Reelectrequest
+.PARAMETER ReelectRequest
 The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
 
 .PARAMETER WithHttpInfo
@@ -546,7 +546,7 @@ function Invoke-DasV1OwnersReelectPost {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Reelectrequest},
+        ${ReelectRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -572,14 +572,14 @@ function Invoke-DasV1OwnersReelectPost {
 
         $LocalVarUri = '/das/v1/owners/reelect'
 
-        if (!$Reelectrequest) {
-            throw "Error! The required parameter `Reelectrequest` missing when calling dasV1OwnersReelectPost."
+        if (!$ReelectRequest) {
+            throw "Error! The required parameter `ReelectRequest` missing when calling dasV1OwnersReelectPost."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Reelectrequest -is [array])) {
-            $LocalVarBodyParameter = $Reelectrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ReelectRequest -is [array])) {
+            $LocalVarBodyParameter = $ReelectRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Reelectrequest | ForEach-Object {
+            $LocalVarBodyParameter = $ReelectRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1089,7 +1089,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Applicationitem
+ApplicationItem
 #>
 function Get-ApplicationV1 {
     [CmdletBinding()]
@@ -1132,7 +1132,7 @@ function Get-ApplicationV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Applicationitem" `
+                                -ReturnType "ApplicationItem" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1170,7 +1170,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Applicationitem[]
+ApplicationItem[]
 #>
 function Get-ApplicationsV1 {
     [CmdletBinding()]
@@ -1234,7 +1234,7 @@ function Get-ApplicationsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Applicationitem[]" `
+                                -ReturnType "ApplicationItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1269,7 +1269,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Dataownermodel[]
+DataOwnerModel[]
 #>
 function Get-OwnersV1 {
     [CmdletBinding()]
@@ -1326,7 +1326,7 @@ function Get-OwnersV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Dataownermodel[]" `
+                                -ReturnType "DataOwnerModel[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1355,7 +1355,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Scheduleinfo
+ScheduleInfo
 #>
 function Get-ScheduleV1 {
     [CmdletBinding()]
@@ -1398,7 +1398,7 @@ function Get-ScheduleV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Scheduleinfo" `
+                                -ReturnType "ScheduleInfo" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1436,7 +1436,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Scheduleinfo[]
+ScheduleInfo[]
 #>
 function Get-SchedulesV1 {
     [CmdletBinding()]
@@ -1500,7 +1500,7 @@ function Get-SchedulesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Scheduleinfo[]" `
+                                -ReturnType "ScheduleInfo[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1529,7 +1529,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskinfo
+TaskInfo
 #>
 function Get-TaskV1 {
     [CmdletBinding()]
@@ -1572,7 +1572,7 @@ function Get-TaskV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskinfo" `
+                                -ReturnType "TaskInfo" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1610,7 +1610,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskinfo[]
+TaskInfo[]
 #>
 function Get-TasksV1 {
     [CmdletBinding()]
@@ -1674,7 +1674,7 @@ function Get-TasksV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskinfo[]" `
+                                -ReturnType "TaskInfo[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1799,7 +1799,7 @@ This endpoint updates an existing application in Data Access Security with the s
 .PARAMETER Id
 The unique identifier of the application to update.
 
-.PARAMETER Basecreateapplicationrequest
+.PARAMETER BaseCreateApplicationRequest
 Request body containing the updated details for the application.
 
 .PARAMETER WithHttpInfo
@@ -1818,7 +1818,7 @@ function Send-ApplicationV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Basecreateapplicationrequest},
+        ${BaseCreateApplicationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1848,14 +1848,14 @@ function Send-ApplicationV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Basecreateapplicationrequest) {
-            throw "Error! The required parameter `Basecreateapplicationrequest` missing when calling putApplicationV1."
+        if (!$BaseCreateApplicationRequest) {
+            throw "Error! The required parameter `BaseCreateApplicationRequest` missing when calling putApplicationV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Basecreateapplicationrequest -is [array])) {
-            $LocalVarBodyParameter = $Basecreateapplicationrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BaseCreateApplicationRequest -is [array])) {
+            $LocalVarBodyParameter = $BaseCreateApplicationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Basecreateapplicationrequest | ForEach-Object {
+            $LocalVarBodyParameter = $BaseCreateApplicationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1995,7 +1995,7 @@ No description or notes available.
 .PARAMETER Id
 The unique identifier of the schedule to update.
 
-.PARAMETER Updateschedulerequest
+.PARAMETER UpdateScheduleRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -2014,7 +2014,7 @@ function Send-ScheduleV1 {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Updateschedulerequest},
+        ${UpdateScheduleRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -2044,14 +2044,14 @@ function Send-ScheduleV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Updateschedulerequest) {
-            throw "Error! The required parameter `Updateschedulerequest` missing when calling putScheduleV1."
+        if (!$UpdateScheduleRequest) {
+            throw "Error! The required parameter `UpdateScheduleRequest` missing when calling putScheduleV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Updateschedulerequest -is [array])) {
-            $LocalVarBodyParameter = $Updateschedulerequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($UpdateScheduleRequest -is [array])) {
+            $LocalVarBodyParameter = $UpdateScheduleRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Updateschedulerequest | ForEach-Object {
+            $LocalVarBodyParameter = $UpdateScheduleRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

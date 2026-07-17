@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.OauthClients.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,17 +76,17 @@ FunctionsToExport = 'New-OauthClientV1', 'Remove-OauthClientV1', 'Get-OauthClien
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
                'ConvertFrom-JsonToArrayInner', 
-               'Initialize-Createoauthclientrequest', 
-               'ConvertFrom-JsonToCreateoauthclientrequest', 
-               'Initialize-Createoauthclientresponse', 
-               'ConvertFrom-JsonToCreateoauthclientresponse', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Getoauthclientresponse', 
-               'ConvertFrom-JsonToGetoauthclientresponse', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue', 
+               'Initialize-CreateOAuthClientRequest', 
+               'ConvertFrom-JsonToCreateOAuthClientRequest', 
+               'Initialize-CreateOAuthClientResponse', 
+               'ConvertFrom-JsonToCreateOAuthClientResponse', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-GetOAuthClientResponse', 
+               'ConvertFrom-JsonToGetOAuthClientResponse', 
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue', 
                'Initialize-ListOauthClientsV1401Response', 
                'ConvertFrom-JsonToListOauthClientsV1401Response', 
                'Initialize-ListOauthClientsV1429Response', 

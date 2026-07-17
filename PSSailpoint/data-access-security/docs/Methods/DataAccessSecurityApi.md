@@ -63,12 +63,12 @@ Path   | Id | **Int64** | True  | The unique identifier of the task to cancel.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -100,7 +100,7 @@ This endpoint creates a new application in Data Access Security with the specifi
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Basecreateapplicationrequest | [**Basecreateapplicationrequest**](../models/basecreateapplicationrequest) | True  | Request body containing the details required to create a new application.
+ Body  | BaseCreateApplicationRequest | [**BaseCreateApplicationRequest**](../models/base-create-application-request) | True  | Request body containing the details required to create a new application.
 
 ### Return type
  (empty response body)
@@ -109,12 +109,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -122,16 +122,62 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Basecreateapplicationrequest = @""@
+$BaseCreateApplicationRequest = @"{
+  "adIdentityCollectorId" : 987654321,
+  "applicationType" : 9,
+  "nisIdentityCollectorId" : 192837465,
+  "executeNow" : false,
+  "name" : "HR File Server",
+  "description" : "Stores HR documents and employee records.",
+  "dataClassificationSettings" : {
+    "isEnabled" : true,
+    "clusterId" : "cluster-001"
+  },
+  "activityConfigurationSettings" : {
+    "excludeFolders" : [ "/tmp", "/archive" ],
+    "excludeFileExtensions" : [ ".log", ".bak" ],
+    "excludeActions" : [ "delete", "move" ],
+    "isEnabled" : true,
+    "retentionTimePeriod" : 30,
+    "retentionTimeType" : "days",
+    "clusterId" : "cluster-001",
+    "excludeUsers" : [ "user1", "user2" ]
+  },
+  "applicationCrawlerSettings" : {
+    "calculateResourceSize" : 2,
+    "excludedResources" : [ "resourceA", "resourceB" ],
+    "crawlPublicFolders" : true,
+    "excludedPathsByRegex" : "^/archive/.*",
+    "isEnabled" : true,
+    "crawlSnapshotsFolder" : true,
+    "crawlMailboxes" : false,
+    "crawlTopLevelShares" : [ "share1", "share2" ],
+    "clusterId" : "cluster-001",
+    "includeResources" : [ "resourceX", "resourceY" ]
+  },
+  "identityCollectorId" : 123456789,
+  "permissionCollectorSettings" : {
+    "analyzeUniquePermissions" : true,
+    "calculateRiskiestPermissions" : false,
+    "isEnabled" : true,
+    "calculateEffectivePermissions" : true,
+    "clusterId" : "cluster-001",
+    "effectivePermissionsSource" : "S3"
+  },
+  "tags" : [ {
+    "key" : 1,
+    "value" : "Confidential"
+  } ]
+}"@
 
 # Create application
 
 try {
-    $Result = ConvertFrom-JsonToBasecreateapplicationrequest -Json $Basecreateapplicationrequest
-    New-ApplicationV1 -Basecreateapplicationrequest $Result 
+    $Result = ConvertFrom-JsonToBaseCreateApplicationRequest -Json $BaseCreateApplicationRequest
+    New-ApplicationV1 -BaseCreateApplicationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ApplicationV1 -Basecreateapplicationrequest $Result  
+    # New-ApplicationV1 -BaseCreateApplicationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ApplicationV1"
     Write-Host $_.ErrorDetails
@@ -156,12 +202,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | The identity collector was created successfully. | CreateIdentityCollectorV1200Response
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -169,7 +215,10 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Createidentitycollectorrequest = @""@
+$Createidentitycollectorrequest = @"{
+  "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+  "name" : "Active Directory Identity Collector"
+}"@
 
 # Create identity collector
 
@@ -194,7 +243,7 @@ try {
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Createschedulerequest | [**Createschedulerequest**](../models/createschedulerequest) | True  | 
+ Body  | CreateScheduleRequest | [**CreateScheduleRequest**](../models/create-schedule-request) | True  | 
 
 ### Return type
 **Int64**
@@ -203,12 +252,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | OK | Int64
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -216,16 +265,27 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Createschedulerequest = @""@
+$CreateScheduleRequest = @"{
+  "scheduleTaskName" : "Daily Data Sync",
+  "scheduleType" : "Daily",
+  "active" : true,
+  "interval" : 1440,
+  "startTime" : 1762237200,
+  "endTime" : 1762240800,
+  "taskTypeName" : "DataSync",
+  "daysOfWeek" : [ "Monday", "Wednesday", "Friday" ],
+  "applicationId" : 2001,
+  "runAfterScheduleTaskId" : 1000
+}"@
 
 # Create a new schedule.
 
 try {
-    $Result = ConvertFrom-JsonToCreateschedulerequest -Json $Createschedulerequest
-    New-ScheduleV1 -Createschedulerequest $Result 
+    $Result = ConvertFrom-JsonToCreateScheduleRequest -Json $CreateScheduleRequest
+    New-ScheduleV1 -CreateScheduleRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ScheduleV1 -Createschedulerequest $Result  
+    # New-ScheduleV1 -CreateScheduleRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ScheduleV1"
     Write-Host $_.ErrorDetails
@@ -241,7 +301,7 @@ try {
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Assignresourceownerrequest | [**Assignresourceownerrequest**](../models/assignresourceownerrequest) | True  | The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
+ Body  | AssignResourceOwnerRequest | [**AssignResourceOwnerRequest**](../models/assign-resource-owner-request) | True  | The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
 
 ### Return type
 **Int32**
@@ -250,12 +310,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | 1 - success, otherwise failure. | Int32
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -263,16 +323,20 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Assignresourceownerrequest = @""@
+$AssignResourceOwnerRequest = @"{
+  "fullPath" : "/shared/hr/documents/employee-records.pdf",
+  "identityId" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "appId" : 12345
+}"@
 
 # Assign owner to application resource.
 
 try {
-    $Result = ConvertFrom-JsonToAssignresourceownerrequest -Json $Assignresourceownerrequest
-    Invoke-DasV1OwnersAssignPost -Assignresourceownerrequest $Result 
+    $Result = ConvertFrom-JsonToAssignResourceOwnerRequest -Json $AssignResourceOwnerRequest
+    Invoke-DasV1OwnersAssignPost -AssignResourceOwnerRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-DasV1OwnersAssignPost -Assignresourceownerrequest $Result  
+    # Invoke-DasV1OwnersAssignPost -AssignResourceOwnerRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-DasV1OwnersAssignPost"
     Write-Host $_.ErrorDetails
@@ -293,18 +357,18 @@ Path   | OwnerIdentityId | **String** | True  | Unique identifier for the owner.
   Query | Offset | **Int32** |   (optional) (default to 0) | Not applicable for this endpoint. Do not use.
 
 ### Return type
-[**Resourcemodel[]**](../models/resourcemodel)
+[**ResourceModel[]**](../models/resource-model)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of resources owned by the specified identity was retrieved successfully. | Resourcemodel[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of resources owned by the specified identity was retrieved successfully. | ResourceModel[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -338,7 +402,7 @@ try {
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Reelectrequest | [**Reelectrequest**](../models/reelectrequest) | True  | The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
+ Body  | ReelectRequest | [**ReelectRequest**](../models/reelect-request) | True  | The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
 
 ### Return type
 **Int32**
@@ -347,12 +411,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | The number of elections CREATED. In case of failure, some elections may not be STARTED. | Int32
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -360,16 +424,20 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Reelectrequest = @""@
+$ReelectRequest = @"{
+  "ownerId" : "c1a2b3d4-e5f6-7890-abcd-1234567890ab",
+  "campaignName" : "Annual Resource Owner Election",
+  "reviewers" : [ "d4e5f6a7-b8c9-0123-4567-89abcdef0123", "e7f8g9h0-i1j2-3456-7890-klmnopqrstuv" ]
+}"@
 
 # Re-elect resource owner.
 
 try {
-    $Result = ConvertFrom-JsonToReelectrequest -Json $Reelectrequest
-    Invoke-DasV1OwnersReelectPost -Reelectrequest $Result 
+    $Result = ConvertFrom-JsonToReelectRequest -Json $ReelectRequest
+    Invoke-DasV1OwnersReelectPost -ReelectRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-DasV1OwnersReelectPost -Reelectrequest $Result  
+    # Invoke-DasV1OwnersReelectPost -ReelectRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-DasV1OwnersReelectPost"
     Write-Host $_.ErrorDetails
@@ -396,12 +464,12 @@ Path   | ResourceId | **Int64** | True  | Unique identifier for the resource.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | A list of owner identity UUIDs for the specified resource was retrieved successfully. | String[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -445,12 +513,12 @@ Path   | DestinationIdentityId | **String** | True  | Unique identifier for the 
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | The number of resources whose owners were overwritten. | Int32
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -492,12 +560,12 @@ Path   | Id | **Int64** | True  | The unique identifier of the application to de
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -538,12 +606,12 @@ Path   | Id | **Int64** | True  | The unique identifier of the identity collecto
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -584,12 +652,12 @@ Path   | Id | **Int64** | True  | The unique identifier of the schedule to delet
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -631,12 +699,12 @@ Path   | Id | **Int64** | True  | The unique identifier of the task to delete.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -671,18 +739,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **Int64** | True  | The unique identifier of the application to retrieve.
 
 ### Return type
-[**Applicationitem**](../models/applicationitem)
+[**ApplicationItem**](../models/application-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The application details were retrieved successfully. | Applicationitem
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The application details were retrieved successfully. | ApplicationItem
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -720,18 +788,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Applicationitem[]**](../models/applicationitem)
+[**ApplicationItem[]**](../models/application-item)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A list of applications matching the filter criteria. | Applicationitem[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A list of applications matching the filter criteria. | ApplicationItem[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -771,18 +839,18 @@ Path   | AppId | **Int64** | True  | The unique identifier of the application fo
   Query | Offset | **Int32** |   (optional) (default to 0) | Not applicable for this endpoint. Do not use.
 
 ### Return type
-[**Dataownermodel[]**](../models/dataownermodel)
+[**DataOwnerModel[]**](../models/data-owner-model)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK. Returns a list of DataOwnerModel objects. | Dataownermodel[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK. Returns a list of DataOwnerModel objects. | DataOwnerModel[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -819,18 +887,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **Int64** | True  | The unique identifier of the schedule to retrieve.
 
 ### Return type
-[**Scheduleinfo**](../models/scheduleinfo)
+[**ScheduleInfo**](../models/schedule-info)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A schedule object. | Scheduleinfo
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A schedule object. | ScheduleInfo
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -868,18 +936,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Scheduleinfo[]**](../models/scheduleinfo)
+[**ScheduleInfo[]**](../models/schedule-info)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Schedule objects. | Scheduleinfo[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List of Schedule objects. | ScheduleInfo[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -917,18 +985,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **Int64** | True  | The unique identifier of the task to retrieve.
 
 ### Return type
-[**Taskinfo**](../models/taskinfo)
+[**TaskInfo**](../models/task-info)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A Task object. | Taskinfo
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | A Task object. | TaskInfo
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -966,18 +1034,18 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Taskinfo[]**](../models/taskinfo)
+[**TaskInfo[]**](../models/task-info)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK. Returns a list of Data Access Security tasks. | Taskinfo[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | OK. Returns a list of Data Access Security tasks. | TaskInfo[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1026,12 +1094,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | A list of identity collectors matching the filter criteria. | Identitycollectorlistitem[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -1067,7 +1135,7 @@ This endpoint updates an existing application in Data Access Security with the s
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **Int64** | True  | The unique identifier of the application to update.
- Body  | Basecreateapplicationrequest | [**Basecreateapplicationrequest**](../models/basecreateapplicationrequest) | True  | Request body containing the updated details for the application.
+ Body  | BaseCreateApplicationRequest | [**BaseCreateApplicationRequest**](../models/base-create-application-request) | True  | Request body containing the updated details for the application.
 
 ### Return type
  (empty response body)
@@ -1076,12 +1144,12 @@ Path   | Id | **Int64** | True  | The unique identifier of the application to up
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -1090,16 +1158,62 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = 12345 # Int64 | The unique identifier of the application to update.
-$Basecreateapplicationrequest = @""@
+$BaseCreateApplicationRequest = @"{
+  "adIdentityCollectorId" : 987654321,
+  "applicationType" : 9,
+  "nisIdentityCollectorId" : 192837465,
+  "executeNow" : false,
+  "name" : "HR File Server",
+  "description" : "Stores HR documents and employee records.",
+  "dataClassificationSettings" : {
+    "isEnabled" : true,
+    "clusterId" : "cluster-001"
+  },
+  "activityConfigurationSettings" : {
+    "excludeFolders" : [ "/tmp", "/archive" ],
+    "excludeFileExtensions" : [ ".log", ".bak" ],
+    "excludeActions" : [ "delete", "move" ],
+    "isEnabled" : true,
+    "retentionTimePeriod" : 30,
+    "retentionTimeType" : "days",
+    "clusterId" : "cluster-001",
+    "excludeUsers" : [ "user1", "user2" ]
+  },
+  "applicationCrawlerSettings" : {
+    "calculateResourceSize" : 2,
+    "excludedResources" : [ "resourceA", "resourceB" ],
+    "crawlPublicFolders" : true,
+    "excludedPathsByRegex" : "^/archive/.*",
+    "isEnabled" : true,
+    "crawlSnapshotsFolder" : true,
+    "crawlMailboxes" : false,
+    "crawlTopLevelShares" : [ "share1", "share2" ],
+    "clusterId" : "cluster-001",
+    "includeResources" : [ "resourceX", "resourceY" ]
+  },
+  "identityCollectorId" : 123456789,
+  "permissionCollectorSettings" : {
+    "analyzeUniquePermissions" : true,
+    "calculateRiskiestPermissions" : false,
+    "isEnabled" : true,
+    "calculateEffectivePermissions" : true,
+    "clusterId" : "cluster-001",
+    "effectivePermissionsSource" : "S3"
+  },
+  "tags" : [ {
+    "key" : 1,
+    "value" : "Confidential"
+  } ]
+}"@
 
 # Update application by identifier.
 
 try {
-    $Result = ConvertFrom-JsonToBasecreateapplicationrequest -Json $Basecreateapplicationrequest
-    Send-ApplicationV1 -Id $Id -Basecreateapplicationrequest $Result 
+    $Result = ConvertFrom-JsonToBaseCreateApplicationRequest -Json $BaseCreateApplicationRequest
+    Send-ApplicationV1 -Id $Id -BaseCreateApplicationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-ApplicationV1 -Id $Id -Basecreateapplicationrequest $Result  
+    # Send-ApplicationV1 -Id $Id -BaseCreateApplicationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ApplicationV1"
     Write-Host $_.ErrorDetails
@@ -1125,13 +1239,13 @@ Path   | Id | **Int64** | True  | The unique identifier of the identity collecto
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 409 | Conflict - Returned if an identity collector with the same name already exists. | PutIdentityCollectorV1409Response
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -1140,7 +1254,11 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = 12345 # Int64 | The unique identifier of the identity collector to update.
-$Updateidentitycollectorrequest = @""@
+$Updateidentitycollectorrequest = @"{
+  "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+  "name" : "Active Directory Identity Collector",
+  "type" : "Active Directory"
+}"@
 
 # Update identity collector by identifier
 
@@ -1166,7 +1284,7 @@ try {
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **Int64** | True  | The unique identifier of the schedule to update.
- Body  | Updateschedulerequest | [**Updateschedulerequest**](../models/updateschedulerequest) | True  | 
+ Body  | UpdateScheduleRequest | [**UpdateScheduleRequest**](../models/update-schedule-request) | True  | 
 
 ### Return type
  (empty response body)
@@ -1175,12 +1293,12 @@ Path   | Id | **Int64** | True  | The unique identifier of the schedule to updat
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -1189,16 +1307,27 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = 1001 # Int64 | The unique identifier of the schedule to update.
-$Updateschedulerequest = @""@
+$UpdateScheduleRequest = @"{
+  "scheduleTaskName" : "Daily Data Sync",
+  "scheduleType" : "Daily",
+  "active" : true,
+  "interval" : 1440,
+  "startTime" : 1762237200,
+  "endTime" : 1762240800,
+  "taskTypeName" : "DataSync",
+  "daysOfWeek" : [ "Monday", "Wednesday", "Friday" ],
+  "applicationId" : 2001,
+  "runAfterScheduleTaskId" : 1000
+}"@
 
 # Update a schedule.
 
 try {
-    $Result = ConvertFrom-JsonToUpdateschedulerequest -Json $Updateschedulerequest
-    Send-ScheduleV1 -Id $Id -Updateschedulerequest $Result 
+    $Result = ConvertFrom-JsonToUpdateScheduleRequest -Json $UpdateScheduleRequest
+    Send-ScheduleV1 -Id $Id -UpdateScheduleRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-ScheduleV1 -Id $Id -Updateschedulerequest $Result  
+    # Send-ScheduleV1 -Id $Id -UpdateScheduleRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ScheduleV1"
     Write-Host $_.ErrorDetails
@@ -1223,12 +1352,12 @@ Path   | Id | **Int64** | True  | The unique identifier of the task to rerun.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No Content | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined

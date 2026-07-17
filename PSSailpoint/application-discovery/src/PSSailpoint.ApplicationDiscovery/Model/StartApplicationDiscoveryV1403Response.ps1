@@ -34,20 +34,20 @@ function ConvertFrom-JsonToStartApplicationDiscoveryV1403Response {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match Errorresponsedto defined in the oneOf schemas
+        # try to match ErrorResponseDto defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToErrorresponsedto $Json
+            $matchInstance = ConvertFrom-JsonToErrorResponseDto $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Errorresponsedto"
+                    $matchType = "ErrorResponseDto"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Errorresponsedto' defined in oneOf (StartApplicationDiscoveryV1403Response). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'ErrorResponseDto' defined in oneOf (StartApplicationDiscoveryV1403Response). Proceeding to the next one if any."
         }
 
         # try to match StartApplicationDiscoveryV1403ResponseOneOf defined in the oneOf schemas
@@ -67,15 +67,15 @@ function ConvertFrom-JsonToStartApplicationDiscoveryV1403Response {
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([Errorresponsedto, StartApplicationDiscoveryV1403ResponseOneOf]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([ErrorResponseDto, StartApplicationDiscoveryV1403ResponseOneOf]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("Errorresponsedto", "StartApplicationDiscoveryV1403ResponseOneOf")
+                "OneOfSchemas" = @("ErrorResponseDto", "StartApplicationDiscoveryV1403ResponseOneOf")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([Errorresponsedto, StartApplicationDiscoveryV1403ResponseOneOf]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([ErrorResponseDto, StartApplicationDiscoveryV1403ResponseOneOf]). JSON Payload: $($Json)"
         }
     }
 }

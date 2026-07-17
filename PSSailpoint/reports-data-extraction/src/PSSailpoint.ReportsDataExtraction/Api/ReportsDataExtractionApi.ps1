@@ -98,7 +98,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Reportresults
+ReportResults
 #>
 function Get-ReportResultV1 {
     [CmdletBinding()]
@@ -148,7 +148,7 @@ function Get-ReportResultV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Reportresults" `
+                                -ReturnType "ReportResults" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -284,7 +284,7 @@ Run report
 
 Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
 
-.PARAMETER Reportdetails
+.PARAMETER ReportDetails
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -293,14 +293,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskresultdetails
+TaskResultDetails
 #>
 function Start-ReportV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Reportdetails},
+        ${ReportDetails},
         [Switch]
         $WithHttpInfo
     )
@@ -326,14 +326,14 @@ function Start-ReportV1 {
 
         $LocalVarUri = '/reports/v1/run'
 
-        if (!$Reportdetails) {
-            throw "Error! The required parameter `Reportdetails` missing when calling startReportV1."
+        if (!$ReportDetails) {
+            throw "Error! The required parameter `ReportDetails` missing when calling startReportV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Reportdetails -is [array])) {
-            $LocalVarBodyParameter = $Reportdetails | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ReportDetails -is [array])) {
+            $LocalVarBodyParameter = $ReportDetails | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Reportdetails | ForEach-Object {
+            $LocalVarBodyParameter = $ReportDetails | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -352,7 +352,7 @@ function Start-ReportV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskresultdetails" `
+                                -ReturnType "TaskResultDetails" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

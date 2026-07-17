@@ -36,20 +36,20 @@ Create a connector customizer.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Connectorcustomizercreaterequest | [**Connectorcustomizercreaterequest**](../models/connectorcustomizercreaterequest) | True  | Connector customizer to create.
+ Body  | ConnectorCustomizerCreateRequest | [**ConnectorCustomizerCreateRequest**](../models/connector-customizer-create-request) | True  | Connector customizer to create.
 
 ### Return type
-[**Connectorcustomizercreateresponse**](../models/connectorcustomizercreateresponse)
+[**ConnectorCustomizerCreateResponse**](../models/connector-customizer-create-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Created connector customizer. | Connectorcustomizercreateresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+201 | Created connector customizer. | ConnectorCustomizerCreateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListConnectorCustomizersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListConnectorCustomizersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -57,16 +57,18 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Connectorcustomizercreaterequest = @""@
+$ConnectorCustomizerCreateRequest = @"{
+  "name" : "My Custom Connector"
+}"@
 
 # Create connector customizer
 
 try {
-    $Result = ConvertFrom-JsonToConnectorcustomizercreaterequest -Json $Connectorcustomizercreaterequest
-    New-ConnectorCustomizerV1 -Connectorcustomizercreaterequest $Result 
+    $Result = ConvertFrom-JsonToConnectorCustomizerCreateRequest -Json $ConnectorCustomizerCreateRequest
+    New-ConnectorCustomizerV1 -ConnectorCustomizerCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ConnectorCustomizerV1 -Connectorcustomizercreaterequest $Result  
+    # New-ConnectorCustomizerV1 -ConnectorCustomizerCreateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ConnectorCustomizerV1"
     Write-Host $_.ErrorDetails
@@ -85,18 +87,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the connector customizer.
 
 ### Return type
-[**Connectorcustomizerversioncreateresponse**](../models/connectorcustomizerversioncreateresponse)
+[**ConnectorCustomizerVersionCreateResponse**](../models/connector-customizer-version-create-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The created connector customizer version object. | Connectorcustomizerversioncreateresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | The created connector customizer version object. | ConnectorCustomizerVersionCreateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListConnectorCustomizersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListConnectorCustomizersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -137,12 +139,12 @@ Path   | Id | **String** | True  | ID of the connector customizer to delete.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListConnectorCustomizersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListConnectorCustomizersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -177,18 +179,18 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the connector customizer to get.
 
 ### Return type
-[**Connectorcustomizersresponse**](../models/connectorcustomizersresponse)
+[**ConnectorCustomizersResponse**](../models/connector-customizers-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Connector customizer with the given ID. | Connectorcustomizersresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Connector customizer with the given ID. | ConnectorCustomizersResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListConnectorCustomizersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListConnectorCustomizersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -224,17 +226,17 @@ Param Type | Name | Data Type | Required  | Description
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**Connectorcustomizersresponse[]**](../models/connectorcustomizersresponse)
+[**ConnectorCustomizersResponse[]**](../models/connector-customizers-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List all connector customizers. | Connectorcustomizersresponse[]
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | List all connector customizers. | ConnectorCustomizersResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListConnectorCustomizersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListConnectorCustomizersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -268,21 +270,21 @@ Update an existing connector customizer with the one provided in the request bod
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the connector customizer to update.
- Body  | Connectorcustomizerupdaterequest | [**Connectorcustomizerupdaterequest**](../models/connectorcustomizerupdaterequest) |   (optional) | Connector rule with updated data.
+ Body  | ConnectorCustomizerUpdateRequest | [**ConnectorCustomizerUpdateRequest**](../models/connector-customizer-update-request) |   (optional) | Connector rule with updated data.
 
 ### Return type
-[**Connectorcustomizerupdateresponse**](../models/connectorcustomizerupdateresponse)
+[**ConnectorCustomizerUpdateResponse**](../models/connector-customizer-update-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated connector customizer. | Connectorcustomizerupdateresponse
-400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+200 | Updated connector customizer. | ConnectorCustomizerUpdateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListConnectorCustomizersV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListConnectorCustomizersV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -291,7 +293,9 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to update.
-$Connectorcustomizerupdaterequest = @""@
+$ConnectorCustomizerUpdateRequest = @"{
+  "name" : "My Custom Connector"
+}"@
 
 # Update connector customizer
 
@@ -299,7 +303,7 @@ try {
     Send-ConnectorCustomizerV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Send-ConnectorCustomizerV1 -Id $Id -Connectorcustomizerupdaterequest $Result  
+    # Send-ConnectorCustomizerV1 -Id $Id -ConnectorCustomizerUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ConnectorCustomizerV1"
     Write-Host $_.ErrorDetails

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementAccessModelMetadata', 'Ent
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** | [**[]Accessmodelmetadata**](accessmodelmetadata) |  | [optional] 
+**Attributes** | [**[]AccessModelMetadata**](access-model-metadata) |  | [optional] 
 
 ## Examples
 

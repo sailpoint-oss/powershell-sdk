@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.CertificationCampaignFilters' -name 'CertificationCampaignFiltersApi' {
     Context 'New-CampaignFilterV1' {
         It 'Test New-CampaignFilterV1' {
-            #$TestResult = New-CampaignFilterV1 -Campaignfilterdetails "TEST_VALUE"
+            #$TestResult = New-CampaignFilterV1 -CampaignFilterDetails "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.CertificationCampaignFilters' -name 'CertificationCam
 
     Context 'Update-CampaignFilterV1' {
         It 'Test Update-CampaignFilterV1' {
-            #$TestResult = Update-CampaignFilterV1 -Id "TEST_VALUE" -Campaignfilterdetails "TEST_VALUE"
+            #$TestResult = Update-CampaignFilterV1 -Id "TEST_VALUE" -CampaignFilterDetails "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

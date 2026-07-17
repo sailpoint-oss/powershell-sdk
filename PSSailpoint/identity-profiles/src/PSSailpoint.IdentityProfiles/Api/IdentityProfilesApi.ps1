@@ -14,7 +14,7 @@ Create identity profile
 
 Creates an identity profile.    
 
-.PARAMETER Identityprofile
+.PARAMETER IdentityProfile
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -23,14 +23,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityprofile
+IdentityProfile
 #>
 function New-IdentityProfileV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Identityprofile},
+        ${IdentityProfile},
         [Switch]
         $WithHttpInfo
     )
@@ -56,14 +56,14 @@ function New-IdentityProfileV1 {
 
         $LocalVarUri = '/identity-profiles/v1'
 
-        if (!$Identityprofile) {
-            throw "Error! The required parameter `Identityprofile` missing when calling createIdentityProfileV1."
+        if (!$IdentityProfile) {
+            throw "Error! The required parameter `IdentityProfile` missing when calling createIdentityProfileV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Identityprofile -is [array])) {
-            $LocalVarBodyParameter = $Identityprofile | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityProfile -is [array])) {
+            $LocalVarBodyParameter = $IdentityProfile | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Identityprofile | ForEach-Object {
+            $LocalVarBodyParameter = $IdentityProfile | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -82,7 +82,7 @@ function New-IdentityProfileV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityprofile" `
+                                -ReturnType "IdentityProfile" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -111,7 +111,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskresultsimplified
+TaskResultSimplified
 #>
 function Remove-IdentityProfileV1 {
     [CmdletBinding()]
@@ -154,7 +154,7 @@ function Remove-IdentityProfileV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskresultsimplified" `
+                                -ReturnType "TaskResultSimplified" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -183,7 +183,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Taskresultsimplified
+TaskResultSimplified
 #>
 function Remove-IdentityProfilesV1 {
     [CmdletBinding()]
@@ -242,7 +242,7 @@ function Remove-IdentityProfilesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Taskresultsimplified" `
+                                -ReturnType "TaskResultSimplified" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -283,7 +283,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityprofileexportedobject[]
+IdentityProfileExportedObject[]
 #>
 function Export-IdentityProfilesV1 {
     [CmdletBinding()]
@@ -354,7 +354,7 @@ function Export-IdentityProfilesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityprofileexportedobject[]" `
+                                -ReturnType "IdentityProfileExportedObject[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -374,7 +374,7 @@ Generate identity profile preview
 
 This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy''s attribute config is applied.
 
-.PARAMETER Identitypreviewrequest
+.PARAMETER IdentityPreviewRequest
 Identity Preview request body.
 
 .PARAMETER WithHttpInfo
@@ -383,14 +383,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identitypreviewresponse
+IdentityPreviewResponse
 #>
 function New-IdentityPreviewV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Identitypreviewrequest},
+        ${IdentityPreviewRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -416,14 +416,14 @@ function New-IdentityPreviewV1 {
 
         $LocalVarUri = '/identity-profiles/v1/identity-preview'
 
-        if (!$Identitypreviewrequest) {
-            throw "Error! The required parameter `Identitypreviewrequest` missing when calling generateIdentityPreviewV1."
+        if (!$IdentityPreviewRequest) {
+            throw "Error! The required parameter `IdentityPreviewRequest` missing when calling generateIdentityPreviewV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Identitypreviewrequest -is [array])) {
-            $LocalVarBodyParameter = $Identitypreviewrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityPreviewRequest -is [array])) {
+            $LocalVarBodyParameter = $IdentityPreviewRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Identitypreviewrequest | ForEach-Object {
+            $LocalVarBodyParameter = $IdentityPreviewRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -442,7 +442,7 @@ function New-IdentityPreviewV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identitypreviewresponse" `
+                                -ReturnType "IdentityPreviewResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -471,7 +471,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityattributeconfig
+IdentityAttributeConfig
 #>
 function Get-DefaultIdentityAttributeConfigV1 {
     [CmdletBinding()]
@@ -514,7 +514,7 @@ function Get-DefaultIdentityAttributeConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityattributeconfig" `
+                                -ReturnType "IdentityAttributeConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -543,7 +543,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityprofile
+IdentityProfile
 #>
 function Get-IdentityProfileV1 {
     [CmdletBinding()]
@@ -586,7 +586,7 @@ function Get-IdentityProfileV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityprofile" `
+                                -ReturnType "IdentityProfile" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -606,7 +606,7 @@ Import identity profiles
 
 This imports previously exported identity profiles.
 
-.PARAMETER Identityprofileexportedobject
+.PARAMETER IdentityProfileExportedObject
 Previously exported Identity Profiles.
 
 .PARAMETER WithHttpInfo
@@ -615,14 +615,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Objectimportresult
+ObjectImportResult
 #>
 function Import-IdentityProfilesV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Identityprofileexportedobject},
+        ${IdentityProfileExportedObject},
         [Switch]
         $WithHttpInfo
     )
@@ -648,14 +648,14 @@ function Import-IdentityProfilesV1 {
 
         $LocalVarUri = '/identity-profiles/v1/import'
 
-        if (!$Identityprofileexportedobject) {
-            throw "Error! The required parameter `Identityprofileexportedobject` missing when calling importIdentityProfilesV1."
+        if (!$IdentityProfileExportedObject) {
+            throw "Error! The required parameter `IdentityProfileExportedObject` missing when calling importIdentityProfilesV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Identityprofileexportedobject -is [array])) {
-            $LocalVarBodyParameter = $Identityprofileexportedobject | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityProfileExportedObject -is [array])) {
+            $LocalVarBodyParameter = $IdentityProfileExportedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Identityprofileexportedobject | ForEach-Object {
+            $LocalVarBodyParameter = $IdentityProfileExportedObject | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -674,7 +674,7 @@ function Import-IdentityProfilesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Objectimportresult" `
+                                -ReturnType "ObjectImportResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -715,7 +715,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityprofile[]
+IdentityProfile[]
 #>
 function Get-IdentityProfilesV1 {
     [CmdletBinding()]
@@ -786,7 +786,7 @@ function Get-IdentityProfilesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityprofile[]" `
+                                -ReturnType "IdentityProfile[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -881,7 +881,7 @@ Update a specified identity profile with this PATCH request.    You cannot updat
 .PARAMETER IdentityProfileId
 Identity profile ID.
 
-.PARAMETER Jsonpatchoperation
+.PARAMETER JsonPatchOperation
 List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER WithHttpInfo
@@ -890,7 +890,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Identityprofile
+IdentityProfile
 #>
 function Update-IdentityProfileV1 {
     [CmdletBinding()]
@@ -900,7 +900,7 @@ function Update-IdentityProfileV1 {
         ${IdentityProfileId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Jsonpatchoperation},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -930,14 +930,14 @@ function Update-IdentityProfileV1 {
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
 
-        if (!$Jsonpatchoperation) {
-            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateIdentityProfileV1."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateIdentityProfileV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -956,7 +956,7 @@ function Update-IdentityProfileV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Identityprofile" `
+                                -ReturnType "IdentityProfile" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

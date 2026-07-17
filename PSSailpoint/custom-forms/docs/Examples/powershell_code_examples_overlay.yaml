@@ -5,7 +5,15 @@
       label: SDK_tools/sdk/powershell/customforms/methods/custom-forms#create-form-definition-dynamic-schema-v1
       source: |
         $Body = @"
-        {"id":"sp:forms","attributes":{"formDefinitionId":"00000000-0000-0000-0000-000000000000"},"description":"AnotherDescription","type":"action","versionNumber":1}
+        {
+          "description" : "A description",
+          "attributes" : {
+            "formDefinitionId" : "00000000-0000-0000-0000-000000000000"
+          },
+          "id" : "00000000-0000-0000-0000-000000000000",
+          "type" : "action",
+          "versionNumber" : 1
+        }
         "@
         
         # Generate json schema dynamically.
@@ -46,7 +54,117 @@
       label: SDK_tools/sdk/powershell/customforms/methods/custom-forms#create-form-definition-v1
       source: |
         $Body = @"
-        {"name":"my form","description":"my form description","owner":{"type":"IDENTITY","id":"00000000-0000-0000-0000-000000000000"},"formElements":[{"id":"000000000000","elementType":"SECTION","config":{"alignment":"LEFT","description":"elementType must be 'SECTION' for the root formElements,  child formElements must be within the 'config' attribute","label":"Section","labelStyle":"h2","showLabel":true,"formElements":[{"id":"0000000000000","key":"textField","elementType":"TEXT","config":{"default":"","description":"","helpText":"form element type text","label":"Text Field","placeholder":"","required":false},"validations":[]}]}}]}
+        {
+          "owner" : {
+            "name" : "Grant Smith",
+            "id" : "2c9180867624cbd7017642d8c8c81f67",
+            "type" : "IDENTITY"
+          },
+          "formConditions" : [ {
+            "ruleOperator" : "AND",
+            "effects" : [ {
+              "config" : {
+                "defaultValueLabel" : "Access to Remove",
+                "element" : "8110662963316867"
+              },
+              "effectType" : "HIDE"
+            }, {
+              "config" : {
+                "defaultValueLabel" : "Access to Remove",
+                "element" : "8110662963316867"
+              },
+              "effectType" : "HIDE"
+            } ],
+            "rules" : [ {
+              "sourceType" : "ELEMENT",
+              "valueType" : "STRING",
+              "source" : "department",
+              "value" : "Engineering",
+              "operator" : "EQ"
+            }, {
+              "sourceType" : "ELEMENT",
+              "valueType" : "STRING",
+              "source" : "department",
+              "value" : "Engineering",
+              "operator" : "EQ"
+            } ]
+          }, {
+            "ruleOperator" : "AND",
+            "effects" : [ {
+              "config" : {
+                "defaultValueLabel" : "Access to Remove",
+                "element" : "8110662963316867"
+              },
+              "effectType" : "HIDE"
+            }, {
+              "config" : {
+                "defaultValueLabel" : "Access to Remove",
+                "element" : "8110662963316867"
+              },
+              "effectType" : "HIDE"
+            } ],
+            "rules" : [ {
+              "sourceType" : "ELEMENT",
+              "valueType" : "STRING",
+              "source" : "department",
+              "value" : "Engineering",
+              "operator" : "EQ"
+            }, {
+              "sourceType" : "ELEMENT",
+              "valueType" : "STRING",
+              "source" : "department",
+              "value" : "Engineering",
+              "operator" : "EQ"
+            } ]
+          } ],
+          "formInput" : [ {
+            "description" : "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic",
+            "id" : "00000000-0000-0000-0000-000000000000",
+            "label" : "input1",
+            "type" : "STRING"
+          }, {
+            "description" : "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic",
+            "id" : "00000000-0000-0000-0000-000000000000",
+            "label" : "input1",
+            "type" : "STRING"
+          } ],
+          "name" : "My form",
+          "description" : "My form description",
+          "usedBy" : [ {
+            "name" : "Access Request Form",
+            "id" : "61940a92-5484-42bc-bc10-b9982b218cdf",
+            "type" : "WORKFLOW"
+          }, {
+            "name" : "Access Request Form",
+            "id" : "61940a92-5484-42bc-bc10-b9982b218cdf",
+            "type" : "WORKFLOW"
+          } ],
+          "formElements" : [ {
+            "id" : "00000000-0000-0000-0000-000000000000",
+            "validations" : [ {
+              "validationType" : "REQUIRED"
+            }, {
+              "validationType" : "REQUIRED"
+            } ],
+            "elementType" : "TEXT",
+            "config" : {
+              "label" : "Department"
+            },
+            "key" : "department"
+          }, {
+            "id" : "00000000-0000-0000-0000-000000000000",
+            "validations" : [ {
+              "validationType" : "REQUIRED"
+            }, {
+              "validationType" : "REQUIRED"
+            } ],
+            "elementType" : "TEXT",
+            "config" : {
+              "label" : "Department"
+            },
+            "key" : "department"
+          } ]
+        }
         "@
         
         # Creates a form definition.
@@ -67,7 +185,27 @@
       label: SDK_tools/sdk/powershell/customforms/methods/custom-forms#create-form-instance-v1
       source: |
         $Body = @"
-        {"expire":"2023-06-20T15:57:55.332882Z","formDefinitionId":"00000000-0000-0000-0000-000000000000","recipients":[{"type":"IDENTITY","id":"an-identity-id"}],"createdBy":{"type":"WORKFLOW_EXECUTION","id":"a-workflow-execution-id"}}
+        {
+          "formInput" : {
+            "input1" : "Sales"
+          },
+          "standAloneForm" : false,
+          "createdBy" : {
+            "id" : "00000000-0000-0000-0000-000000000000",
+            "type" : "WORKFLOW_EXECUTION"
+          },
+          "recipients" : [ {
+            "id" : "00000000-0000-0000-0000-000000000000",
+            "type" : "IDENTITY"
+          }, {
+            "id" : "00000000-0000-0000-0000-000000000000",
+            "type" : "IDENTITY"
+          } ],
+          "expire" : "2023-08-12T20:14:57.74486Z",
+          "formDefinitionId" : "00000000-0000-0000-0000-000000000000",
+          "state" : "ASSIGNED",
+          "ttl" : 1571827560
+        }
         "@
         
         # Creates a form instance.
@@ -364,8 +502,18 @@
         $Limit = 10 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 10)
         $Filters = "value eq "ID01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (""ID01"")` (optional)
         $Query = "ac" # String | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a ""starts with"" filter against  several fields. (optional)
-        $Formelementpreviewrequest = @"
-        
+        $FormElementPreviewRequest = @"
+        {
+          "dataSource" : {
+            "config" : {
+              "indices" : [ "identities" ],
+              "query" : "*",
+              "aggregationBucketField" : "attributes.cloudStatus.exact",
+              "objectType" : "IDENTITY"
+            },
+            "dataSourceType" : "STATIC"
+          }
+        }
         "@
         
         # Preview form definition data source.
@@ -374,7 +522,7 @@
             Show-PreviewDataSourceV1 -FormDefinitionID $FormDefinitionID 
     
             # Below is a request that includes all optional parameters
-            # Show-PreviewDataSourceV1 -FormDefinitionID $FormDefinitionID -Limit $Limit -Filters $Filters -Query $Query -Formelementpreviewrequest $Result   
+            # Show-PreviewDataSourceV1 -FormDefinitionID $FormDefinitionID -Limit $Limit -Filters $Filters -Query $Query -FormElementPreviewRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-PreviewDataSourceV1"
             Write-Host $_.ErrorDetails

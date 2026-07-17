@@ -20,7 +20,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Mfaduoconfig
+MfaDuoConfig
 #>
 function Get-MFADuoConfigV1 {
     [CmdletBinding()]
@@ -56,7 +56,7 @@ function Get-MFADuoConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Mfaduoconfig" `
+                                -ReturnType "MfaDuoConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -85,7 +85,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Kbaquestion[]
+KbaQuestion[]
 #>
 function Get-MFAKbaConfigV1 {
     [CmdletBinding()]
@@ -128,7 +128,7 @@ function Get-MFAKbaConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Kbaquestion[]" `
+                                -ReturnType "KbaQuestion[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -154,7 +154,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Mfaoktaconfig
+MfaOktaConfig
 #>
 function Get-MFAOktaConfigV1 {
     [CmdletBinding()]
@@ -190,7 +190,7 @@ function Get-MFAOktaConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Mfaoktaconfig" `
+                                -ReturnType "MfaOktaConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -210,7 +210,7 @@ Set duo mfa configuration
 
 This API sets the configuration of an Duo MFA method.
 
-.PARAMETER Mfaduoconfig
+.PARAMETER MfaDuoConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -219,14 +219,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Mfaduoconfig
+MfaDuoConfig
 #>
 function Set-MFADuoConfigV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Mfaduoconfig},
+        ${MfaDuoConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -252,14 +252,14 @@ function Set-MFADuoConfigV1 {
 
         $LocalVarUri = '/mfa/v1/duo-web/config'
 
-        if (!$Mfaduoconfig) {
-            throw "Error! The required parameter `Mfaduoconfig` missing when calling setMFADuoConfigV1."
+        if (!$MfaDuoConfig) {
+            throw "Error! The required parameter `MfaDuoConfig` missing when calling setMFADuoConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Mfaduoconfig -is [array])) {
-            $LocalVarBodyParameter = $Mfaduoconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MfaDuoConfig -is [array])) {
+            $LocalVarBodyParameter = $MfaDuoConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Mfaduoconfig | ForEach-Object {
+            $LocalVarBodyParameter = $MfaDuoConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -278,7 +278,7 @@ function Set-MFADuoConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Mfaduoconfig" `
+                                -ReturnType "MfaDuoConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -298,7 +298,7 @@ Set mfa kba configuration
 
 This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
 
-.PARAMETER Kbaanswerrequestitem
+.PARAMETER KbaAnswerRequestItem
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -307,14 +307,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Kbaanswerresponseitem[]
+KbaAnswerResponseItem[]
 #>
 function Set-MFAKBAConfigV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${Kbaanswerrequestitem},
+        ${KbaAnswerRequestItem},
         [Switch]
         $WithHttpInfo
     )
@@ -340,14 +340,14 @@ function Set-MFAKBAConfigV1 {
 
         $LocalVarUri = '/mfa/v1/kba/config/answers'
 
-        if (!$Kbaanswerrequestitem) {
-            throw "Error! The required parameter `Kbaanswerrequestitem` missing when calling setMFAKBAConfigV1."
+        if (!$KbaAnswerRequestItem) {
+            throw "Error! The required parameter `KbaAnswerRequestItem` missing when calling setMFAKBAConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Kbaanswerrequestitem -is [array])) {
-            $LocalVarBodyParameter = $Kbaanswerrequestitem | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($KbaAnswerRequestItem -is [array])) {
+            $LocalVarBodyParameter = $KbaAnswerRequestItem | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Kbaanswerrequestitem | ForEach-Object {
+            $LocalVarBodyParameter = $KbaAnswerRequestItem | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -366,7 +366,7 @@ function Set-MFAKBAConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Kbaanswerresponseitem[]" `
+                                -ReturnType "KbaAnswerResponseItem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -386,7 +386,7 @@ Set okta mfa configuration
 
 This API sets the configuration of an Okta MFA method.
 
-.PARAMETER Mfaoktaconfig
+.PARAMETER MfaOktaConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -395,14 +395,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Mfaoktaconfig
+MfaOktaConfig
 #>
 function Set-MFAOktaConfigV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Mfaoktaconfig},
+        ${MfaOktaConfig},
         [Switch]
         $WithHttpInfo
     )
@@ -428,14 +428,14 @@ function Set-MFAOktaConfigV1 {
 
         $LocalVarUri = '/mfa/v1/okta-verify/config'
 
-        if (!$Mfaoktaconfig) {
-            throw "Error! The required parameter `Mfaoktaconfig` missing when calling setMFAOktaConfigV1."
+        if (!$MfaOktaConfig) {
+            throw "Error! The required parameter `MfaOktaConfig` missing when calling setMFAOktaConfigV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Mfaoktaconfig -is [array])) {
-            $LocalVarBodyParameter = $Mfaoktaconfig | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MfaOktaConfig -is [array])) {
+            $LocalVarBodyParameter = $MfaOktaConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Mfaoktaconfig | ForEach-Object {
+            $LocalVarBodyParameter = $MfaOktaConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -454,7 +454,7 @@ function Set-MFAOktaConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Mfaoktaconfig" `
+                                -ReturnType "MfaOktaConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -483,7 +483,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Mfaconfigtestresponse
+MfaConfigTestResponse
 #>
 function Test-MFAConfigV1 {
     [CmdletBinding()]
@@ -527,7 +527,7 @@ function Test-MFAConfigV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Mfaconfigtestresponse" `
+                                -ReturnType "MfaConfigTestResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

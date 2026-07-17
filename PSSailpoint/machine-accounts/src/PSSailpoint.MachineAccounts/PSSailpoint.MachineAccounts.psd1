@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.MachineAccounts.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -80,18 +80,18 @@ FunctionsToExport = 'New-MachineAccountSubtypeV1',
                'Set-ConfigurationApiKey', 'Set-ConfigurationApiKeyPrefix', 
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
-               'Get-ConfigurationHttpSigning', 'Initialize-Basecommondto', 
-               'ConvertFrom-JsonToBasecommondto', 
+               'Get-ConfigurationHttpSigning', 'Initialize-BaseCommonDto', 
+               'ConvertFrom-JsonToBaseCommonDto', 
                'Initialize-CreateMachineAccountSubtypeV1Request', 
                'ConvertFrom-JsonToCreateMachineAccountSubtypeV1Request', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-ListMachineAccountsV1401Response', 
                'ConvertFrom-JsonToListMachineAccountsV1401Response', 
                'Initialize-ListMachineAccountsV1429Response', 
                'ConvertFrom-JsonToListMachineAccountsV1429Response', 
-               'Initialize-Machineaccount', 'ConvertFrom-JsonToMachineaccount', 
-               'Initialize-Sourcesubtype', 'ConvertFrom-JsonToSourcesubtype'
+               'Initialize-MachineAccount', 'ConvertFrom-JsonToMachineAccount', 
+               'Initialize-SourceSubtype', 'ConvertFrom-JsonToSourceSubtype'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

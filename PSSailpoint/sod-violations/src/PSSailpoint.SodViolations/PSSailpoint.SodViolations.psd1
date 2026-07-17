@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.SodViolations.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -74,32 +74,32 @@ FunctionsToExport = 'Start-PredictSodViolationsV1', 'Start-ViolationCheckV1',
                'Set-ConfigurationApiKeyPrefix', 'Set-ConfigurationDefaultHeader', 
                'Get-HostSetting', 'Get-UrlFromHostSetting', 
                'Set-ConfigurationHttpSigning', 'Get-ConfigurationHttpSigning', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
-               'Initialize-Exceptionaccesscriteria', 
-               'ConvertFrom-JsonToExceptionaccesscriteria', 
-               'Initialize-Exceptioncriteria', 
-               'ConvertFrom-JsonToExceptioncriteria', 
-               'Initialize-Exceptioncriteriaaccess', 
-               'ConvertFrom-JsonToExceptioncriteriaaccess', 
-               'Initialize-ExceptioncriteriaCriteriaListInner', 
-               'ConvertFrom-JsonToExceptioncriteriaCriteriaListInner', 
-               'Initialize-Identitywithnewaccess', 
-               'ConvertFrom-JsonToIdentitywithnewaccess', 
-               'Initialize-IdentitywithnewaccessAccessRefsInner', 
-               'ConvertFrom-JsonToIdentitywithnewaccessAccessRefsInner', 
-               'Initialize-Sodpolicydto2', 'ConvertFrom-JsonToSodpolicydto2', 
-               'Initialize-Sodviolationcheck', 
-               'ConvertFrom-JsonToSodviolationcheck', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
+               'Initialize-ExceptionAccessCriteria', 
+               'ConvertFrom-JsonToExceptionAccessCriteria', 
+               'Initialize-ExceptionCriteria', 
+               'ConvertFrom-JsonToExceptionCriteria', 
+               'Initialize-ExceptionCriteriaAccess', 
+               'ConvertFrom-JsonToExceptionCriteriaAccess', 
+               'Initialize-ExceptionCriteriaCriteriaListInner', 
+               'ConvertFrom-JsonToExceptionCriteriaCriteriaListInner', 
+               'Initialize-IdentityWithNewAccess', 
+               'ConvertFrom-JsonToIdentityWithNewAccess', 
+               'Initialize-IdentityWithNewAccessAccessRefsInner', 
+               'ConvertFrom-JsonToIdentityWithNewAccessAccessRefsInner', 
+               'Initialize-SodPolicyDto2', 'ConvertFrom-JsonToSodPolicyDto2', 
+               'Initialize-SodViolationCheck', 
+               'ConvertFrom-JsonToSodViolationCheck', 
                'Initialize-StartPredictSodViolationsV1401Response', 
                'ConvertFrom-JsonToStartPredictSodViolationsV1401Response', 
                'Initialize-StartPredictSodViolationsV1429Response', 
                'ConvertFrom-JsonToStartPredictSodViolationsV1429Response', 
-               'Initialize-Violationcontext', 'ConvertFrom-JsonToViolationcontext', 
-               'Initialize-ViolationcontextPolicy', 
-               'ConvertFrom-JsonToViolationcontextPolicy', 
-               'Initialize-Violationprediction', 
-               'ConvertFrom-JsonToViolationprediction'
+               'Initialize-ViolationContext', 'ConvertFrom-JsonToViolationContext', 
+               'Initialize-ViolationContextPolicy', 
+               'ConvertFrom-JsonToViolationContextPolicy', 
+               'Initialize-ViolationPrediction', 
+               'ConvertFrom-JsonToViolationPrediction'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

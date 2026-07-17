@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ListDeploysV1200Response', 'ListDeplo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]Deployresponse**](deployresponse) | list of deployments | [optional] 
+**Items** | [**[]DeployResponse**](deploy-response) | list of deployments | [optional] 
 
 ## Examples
 

@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.AuthProfile.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.17'
+ModuleVersion = '2.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,18 +75,18 @@ FunctionsToExport = 'Get-ProfileConfigListV1', 'Get-ProfileConfigV1',
                'Set-ConfigurationDefaultHeader', 'Get-HostSetting', 
                'Get-UrlFromHostSetting', 'Set-ConfigurationHttpSigning', 
                'Get-ConfigurationHttpSigning', 'ConvertFrom-JsonToArrayInner', 
-               'Initialize-Authprofile', 'ConvertFrom-JsonToAuthprofile', 
-               'Initialize-Authprofilesummary', 
-               'ConvertFrom-JsonToAuthprofilesummary', 
-               'Initialize-Errormessagedto', 'ConvertFrom-JsonToErrormessagedto', 
-               'Initialize-Errorresponsedto', 'ConvertFrom-JsonToErrorresponsedto', 
+               'Initialize-AuthProfile', 'ConvertFrom-JsonToAuthProfile', 
+               'Initialize-AuthProfileSummary', 
+               'ConvertFrom-JsonToAuthProfileSummary', 
+               'Initialize-ErrorMessageDto', 'ConvertFrom-JsonToErrorMessageDto', 
+               'Initialize-ErrorResponseDto', 'ConvertFrom-JsonToErrorResponseDto', 
                'Initialize-GetProfileConfigListV1401Response', 
                'ConvertFrom-JsonToGetProfileConfigListV1401Response', 
                'Initialize-GetProfileConfigListV1429Response', 
                'ConvertFrom-JsonToGetProfileConfigListV1429Response', 
-               'Initialize-Jsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperation', 
-               'ConvertFrom-JsonToJsonpatchoperationValue'
+               'Initialize-JsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperation', 
+               'ConvertFrom-JsonToJsonPatchOperationValue'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

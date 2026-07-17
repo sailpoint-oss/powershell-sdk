@@ -150,7 +150,10 @@ function applyPrescriptFixes(tempApisDir) {
 
 function bundlePartition(partitionName, tempApisDir) {
   const inputSpec  = path.join(tempApisDir, partitionName, "openapi.yaml");
-  const outputSpec = path.join(BUNDLED_DIR, `${partitionName}.yaml`);
+  // Bundle to JSON so the casing-normalization step below can parse and rewrite
+  // it with plain JSON.parse/stringify (no YAML dependency). openapi-generator
+  // accepts JSON and YAML specs interchangeably.
+  const outputSpec = path.join(BUNDLED_DIR, `${partitionName}.json`);
 
   fs.mkdirSync(BUNDLED_DIR, { recursive: true });
 
@@ -192,6 +195,165 @@ function partitionGuid(partitionName) {
     hash.slice(16, 20),
     hash.slice(20, 32),
   ].join("-").toUpperCase();
+}
+
+// ---------------------------------------------------------------------------
+// Model-name casing normalization
+//
+// redocly bundles each file-$ref'd schema into components/schemas/<filename>,
+// using the on-disk filename verbatim as the key. In the apis/ partition layout
+// every schema filename is lowercase (accessduration.yaml), so openapi-generator
+// only uppercases the first letter and emits `Accessduration` instead of the
+// intended `AccessDuration`. We fix this in the bundled spec, before generation,
+// by renaming each lowercase component-schema key to a properly-cased PascalCase
+// name and rewriting every #/components/schemas/... $ref to match.
+//
+// The correct casing (i.e. the lost word boundaries) is recovered, in priority
+// order, from:
+//   1. the PascalCase filename of the same schema in the versioned spec dirs
+//      (idn/v3, v2024, v2025, v2026, beta) — these carry proper CamelCase names
+//   2. the schema's `title` field (Title Case words → PascalCase)
+//   3. first-letter capitalization (openapi-generator's default) as a last resort
+// ---------------------------------------------------------------------------
+
+let _versionedNameMap = null;
+
+// Given two casings of the same (lowercased) name, pick the one that reads as a
+// class name: uppercase-first wins, then the one with more uppercase letters
+// (favours PascalCase words / acronyms), then lexical order for stability.
+function betterCasedName(a, b) {
+  const au = /^[A-Z]/.test(a), bu = /^[A-Z]/.test(b);
+  if (au !== bu) return au ? a : b;
+  const ac = (a.match(/[A-Z]/g) || []).length;
+  const bc = (b.match(/[A-Z]/g) || []).length;
+  if (ac !== bc) return ac > bc ? a : b;
+  return a <= b ? a : b;
+}
+
+// Scan the versioned (non-apis) spec dirs once and map each lowercased schema
+// basename to its best PascalCase spelling. Cached across partitions.
+function buildVersionedNameMap(idnRoot) {
+  if (_versionedNameMap) return _versionedNameMap;
+  const map = new Map(); // lowercased basename -> best PascalCase basename
+
+  const versionDirs = fs.existsSync(idnRoot)
+    ? fs.readdirSync(idnRoot, { withFileTypes: true })
+        .filter(e => e.isDirectory() && e.name !== "apis")
+        .map(e => path.join(idnRoot, e.name))
+    : [];
+
+  for (const dir of versionDirs) {
+    for (const file of walkSync(dir)) {
+      if (!file.endsWith(".yaml")) continue;
+      // Only files under a schemas/ dir carry model names; skip openapi.yaml,
+      // path files, etc.
+      if (!file.split(path.sep).includes("schemas")) continue;
+      const basename = path.basename(file, ".yaml");
+      const lc  = basename.toLowerCase();
+      const cur = map.get(lc);
+      map.set(lc, cur ? betterCasedName(cur, basename) : basename);
+    }
+  }
+
+  _versionedNameMap = map;
+  return map;
+}
+
+function pascalFromTitle(title) {
+  return title
+    .split(/[^A-Za-z0-9]+/)
+    .filter(Boolean)
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join("");
+}
+
+// Compute the desired PascalCase model name for a lowercase component key.
+function desiredModelName(key, schema, nameMap) {
+  // redocly appends -<n> to de-duplicate colliding bundled names; keep that
+  // suffix (as _<n>) so distinct schemas stay distinct, but resolve the casing
+  // on the base name.
+  const suffixMatch = key.match(/^(.*?)-(\d+)$/);
+  const base   = suffixMatch ? suffixMatch[1] : key;
+  const suffix = suffixMatch ? `_${suffixMatch[2]}` : "";
+
+  let name =
+    nameMap.get(base.toLowerCase()) ||
+    (schema && typeof schema.title === "string" && schema.title.trim()
+      ? pascalFromTitle(schema.title)
+      : "");
+
+  if (!name) name = base; // last resort — leave word boundaries as-is
+
+  // Strip anything that can't appear in a class name (the generator sanitizes
+  // too, but doing it here keeps the uniqueness check below accurate).
+  name = name.replace(/[^A-Za-z0-9]/g, "");
+  if (!name) name = base.replace(/[^A-Za-z0-9]/g, "") || "Model";
+  name = name.charAt(0).toUpperCase() + name.slice(1);
+  return name + suffix;
+}
+
+// Rename lowercase component-schema keys to PascalCase and rewrite all $refs.
+// Returns { renamed } — the number of schema keys that were changed.
+function normalizeSchemaNames(bundledJsonPath, idnRoot) {
+  const spec    = JSON.parse(fs.readFileSync(bundledJsonPath, "utf8"));
+  const schemas = spec.components && spec.components.schemas;
+  if (!schemas) return { renamed: 0 };
+
+  const nameMap = buildVersionedNameMap(idnRoot);
+  const oldKeys = Object.keys(schemas);
+
+  // A key needs fixing only if it is filename-derived (all lowercase). Keys that
+  // already contain an uppercase letter are intentional inline names — leave them
+  // and reserve them so we never rename onto one.
+  const needsFix = k => !/[A-Z]/.test(k);
+  const taken    = new Set(oldKeys.filter(k => !needsFix(k)));
+
+  const rename = new Map(); // old key -> new key
+  for (const key of oldKeys) {
+    if (!needsFix(key)) continue;
+    let name = desiredModelName(key, schemas[key], nameMap);
+    if (name === key) continue; // already correct (e.g. single-word "bound")
+    if (taken.has(name)) {
+      let n = 2, candidate = `${name}_${n}`;
+      while (taken.has(candidate)) candidate = `${name}_${++n}`;
+      console.log(`    name collision: ${key} -> ${name} taken, using ${candidate}`);
+      name = candidate;
+    }
+    taken.add(name);
+    rename.set(key, name);
+  }
+
+  if (rename.size === 0) return { renamed: 0 };
+
+  // Rewrite every #/components/schemas/<old> reference anywhere in the tree
+  // (covers $ref values and discriminator.mapping values). Exact-string match
+  // avoids prefix collisions (e.g. accessprofile vs accessprofilebulkdelete).
+  const refRewrite = new Map();
+  for (const [oldKey, newKey] of rename) {
+    refRewrite.set(`#/components/schemas/${oldKey}`, `#/components/schemas/${newKey}`);
+  }
+  const walk = (node) => {
+    if (Array.isArray(node)) { node.forEach(walk); return; }
+    if (node && typeof node === "object") {
+      for (const k of Object.keys(node)) {
+        const v = node[k];
+        if (typeof v === "string") {
+          if (refRewrite.has(v)) node[k] = refRewrite.get(v);
+        } else {
+          walk(v);
+        }
+      }
+    }
+  };
+  walk(spec);
+
+  // Rebuild components.schemas with renamed keys, preserving original order.
+  const rebuilt = {};
+  for (const key of oldKeys) rebuilt[rename.get(key) || key] = schemas[key];
+  spec.components.schemas = rebuilt;
+
+  fs.writeFileSync(bundledJsonPath, JSON.stringify(spec, null, 2), "utf8");
+  return { renamed: rename.size };
 }
 
 // ---------------------------------------------------------------------------
@@ -615,6 +777,18 @@ function main() {
       console.error(`  ✗ bundling failed`);
       const reportPath = writeErrorReport(partition, "bundling", errorOutput, TEMP_DIR, apisDir);
       results.failed.push({ partition, step: "bundling", reportPath });
+      continue;
+    }
+
+    // --- Step 1b: Normalize model-name casing in the bundled spec ---
+    console.log("  [1b/4] Normalizing model-name casing ...");
+    try {
+      const norm = normalizeSchemaNames(bundle.outputSpec, path.dirname(apisDir));
+      console.log(`         renamed ${norm.renamed} lowercase model name(s)`);
+    } catch (err) {
+      console.error(`  ✗ casing normalization failed`);
+      const reportPath = writeErrorReport(partition, "normalization", String(err.stack || err), TEMP_DIR, apisDir);
+      results.failed.push({ partition, step: "normalization", reportPath });
       continue;
     }
 

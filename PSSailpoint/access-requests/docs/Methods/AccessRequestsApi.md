@@ -185,11 +185,11 @@ try {
 [[Back to top]](#) 
 
 ## close-access-request-v1
-This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
+This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/docs/api/cancel-access-request-v-1).
 
 To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND "Access Request". Use the Column Chooser to select 'Tracking Number', and use the 'Download' button to export a CSV containing the tracking numbers.
 
-To find pending access requests with the API, use the [List Account Activities endpoint](https://developer.sailpoint.com/idn/api/v3/list-account-activities/).
+To find pending access requests with the API, use the [List Account Activities endpoint](https://developer.sailpoint.com/docs/api/list-account-activities-v-1).
 
 Input the IDs from either source.
 
@@ -260,8 +260,8 @@ has been submitted to ISC and is queued for processing. Because this endpoint is
 if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.
 
 It is best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can
-be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also
-use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting
+be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/docs/api/list-access-request-status-v-1) or the [Pending Access Request Approvals](https://developer.sailpoint.com/docs/api/list-pending-approvals-v-1) APIs. You can also
+use the [Search API](https://developer.sailpoint.com/docs/api/search) to check the existing access items an identity has before submitting
 an access request to ensure that you aren't requesting access that is already granted. If you use this API to request access that an identity already has, 
 without changing the account details or end date information from the existing assignment, 
 the API will cancel the request as a duplicate.
@@ -270,7 +270,7 @@ There are two types of access request:
 
 __GRANT_ACCESS__
 * Can be requested for multiple identities in a single request.
-* Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.  
+* Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/docs/api/get-access-request-config-v-2) endpoint for request configuration options.  
 * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
 * Roles, access profiles and entitlements can be requested.
 * You can specify a `startDate` to set or alter a sunrise date-time on an assignment. The startDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunrise date and its yet to be provisioned, you can also submit a request without a `startDate` to request immediate provisioning after approval.

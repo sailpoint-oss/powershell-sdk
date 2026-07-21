@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.Tenant - the PowerShell module for Identity Security Cloud API - Tenant'
 
-    ModuleVersion = '2.1.0'
+    ModuleVersion = '2.1.1'
 
     RootModule = 'PSSailpoint.Tenant.psm1'
     Guid = '15E7F157-FD30-ACBA-0BC1-09447858F022' # Has to be static, otherwise each new build will be considered different module

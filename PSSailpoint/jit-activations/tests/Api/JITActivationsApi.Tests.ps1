@@ -6,6 +6,22 @@
 #
 
 Describe -tag 'PSSailpoint.JitActivations' -name 'JITActivationsApi' {
+    Context 'Get-JitActivationHistoryForCurrentIdentityV1' {
+        It 'Test Get-JitActivationHistoryForCurrentIdentityV1' {
+            #$TestResult = Get-JitActivationHistoryForCurrentIdentityV1 -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -SearchAfter "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-JitActivationHistoryV1' {
+        It 'Test Get-JitActivationHistoryV1' {
+            #$TestResult = Get-JitActivationHistoryV1 -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -SearchAfter "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Start-ActivateWorkflowV1' {
         It 'Test Start-ActivateWorkflowV1' {
             #$TestResult = Start-ActivateWorkflowV1 -JitActivationActivateRequest "TEST_VALUE"

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.PrivilegeCriteriaConfiguration - the PowerShell module for Identity Security Cloud API - Privilege Criteria Configuration'
 
-    ModuleVersion = '2.1.1'
+    ModuleVersion = '2.1.2'
 
     RootModule = 'PSSailpoint.PrivilegeCriteriaConfiguration.psm1'
     Guid = '0BED042B-83EB-3DB2-9E32-53BFFE5754CE' # Has to be static, otherwise each new build will be considered different module

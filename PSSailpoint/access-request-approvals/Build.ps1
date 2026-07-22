@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.AccessRequestApprovals - the PowerShell module for Identity Security Cloud API - Access Request Approvals'
 
-    ModuleVersion = '2.1.1'
+    ModuleVersion = '2.1.2'
 
     RootModule = 'PSSailpoint.AccessRequestApprovals.psm1'
     Guid = '0B168E43-39DC-D518-2628-958CEE04C7C7' # Has to be static, otherwise each new build will be considered different module

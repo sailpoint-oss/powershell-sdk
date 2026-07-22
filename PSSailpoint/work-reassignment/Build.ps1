@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.WorkReassignment - the PowerShell module for Identity Security Cloud API - Work Reassignment'
 
-    ModuleVersion = '2.1.1'
+    ModuleVersion = '2.1.2'
 
     RootModule = 'PSSailpoint.WorkReassignment.psm1'
     Guid = '43E0D79D-DBE2-3106-EFAF-6B2138F8A4B7' # Has to be static, otherwise each new build will be considered different module

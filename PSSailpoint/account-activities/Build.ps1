@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.AccountActivities - the PowerShell module for Identity Security Cloud API - Account Activities'
 
-    ModuleVersion = '2.1.1'
+    ModuleVersion = '2.1.2'
 
     RootModule = 'PSSailpoint.AccountActivities.psm1'
     Guid = 'ABE5B8E9-C55E-39A9-2602-18576C8C29B1' # Has to be static, otherwise each new build will be considered different module

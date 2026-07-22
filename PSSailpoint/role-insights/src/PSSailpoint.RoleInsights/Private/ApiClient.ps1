@@ -77,7 +77,7 @@ function Invoke-ApiClient {
     }
 
     # Build User-Agent header
-    $UserAgent = "SailPoint-SDK-PowerShell/2.1.1"
+    $UserAgent = "SailPoint-SDK-PowerShell/2.1.2"
     if ($Configuration["ConsumerIdentifier"] -and $Configuration["ConsumerVersion"]) {
         $UserAgent = "$UserAgent ($($Configuration["ConsumerIdentifier"])/$($Configuration["ConsumerVersion"]))"
     }

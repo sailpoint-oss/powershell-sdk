@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.RoleInsights - the PowerShell module for Identity Security Cloud API - Role Insights'
 
-    ModuleVersion = '2.1.2'
+    ModuleVersion = '2.1.3'
 
     RootModule = 'PSSailpoint.RoleInsights.psm1'
     Guid = '1EC17571-25A0-8817-D6ED-7F7EBBDE8941' # Has to be static, otherwise each new build will be considered different module

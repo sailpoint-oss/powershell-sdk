@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.GovernanceGroups - the PowerShell module for Identity Security Cloud API - Governance Groups'
 
-    ModuleVersion = '2.1.3'
+    ModuleVersion = '2.1.4'
 
     RootModule = 'PSSailpoint.GovernanceGroups.psm1'
     Guid = 'C1961C5E-28F8-9EC7-3028-B2C44128BCDF' # Has to be static, otherwise each new build will be considered different module

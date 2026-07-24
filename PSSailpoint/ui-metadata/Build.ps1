@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.UiMetadata - the PowerShell module for Identity Security Cloud API - UI Metadata'
 
-    ModuleVersion = '2.1.3'
+    ModuleVersion = '2.1.4'
 
     RootModule = 'PSSailpoint.UiMetadata.psm1'
     Guid = '9624D6A0-5BCF-4F53-A2DE-D2D1218AC2CD' # Has to be static, otherwise each new build will be considered different module

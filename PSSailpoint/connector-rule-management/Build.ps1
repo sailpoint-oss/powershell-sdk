@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.ConnectorRuleManagement - the PowerShell module for Identity Security Cloud API - Connector Rule Management'
 
-    ModuleVersion = '2.1.3'
+    ModuleVersion = '2.1.4'
 
     RootModule = 'PSSailpoint.ConnectorRuleManagement.psm1'
     Guid = '41E26208-B6C6-2BA0-0D3C-532BD2F87937' # Has to be static, otherwise each new build will be considered different module

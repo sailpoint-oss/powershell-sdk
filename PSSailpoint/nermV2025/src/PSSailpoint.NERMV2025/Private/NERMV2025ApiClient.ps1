@@ -77,7 +77,7 @@ function Invoke-NERMV2025ApiClient {
     }
 
     # Build User-Agent header
-    $UserAgent = "SailPoint-SDK-PowerShell/2.1.4"
+    $UserAgent = "SailPoint-SDK-PowerShell/2.1.5"
     if ($Configuration["ConsumerIdentifier"] -and $Configuration["ConsumerVersion"]) {
         $UserAgent = "$UserAgent ($($Configuration["ConsumerIdentifier"])/$($Configuration["ConsumerVersion"]))"
     }

@@ -1963,9 +1963,6 @@ This API gets the current entitlement request configuration for a source. This s
 .PARAMETER Id
 The Source id
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1980,9 +1977,6 @@ function Get-SourceEntitlementRequestConfigV1 {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -2008,11 +2002,6 @@ function Get-SourceEntitlementRequestConfigV1 {
             throw "Error! The required parameter `Id` missing when calling getSourceEntitlementRequestConfigV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSourceEntitlementRequestConfigV1."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -5243,9 +5232,6 @@ This API replaces the current entitlement request configuration for a source. Th
 .PARAMETER Id
 The Source id
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER SourceEntitlementRequestConfig
 No description available.
 
@@ -5264,9 +5250,6 @@ function Update-SourceEntitlementRequestConfigV1 {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${SourceEntitlementRequestConfig},
         [Switch]
@@ -5297,11 +5280,6 @@ function Update-SourceEntitlementRequestConfigV1 {
             throw "Error! The required parameter `Id` missing when calling updateSourceEntitlementRequestConfigV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling updateSourceEntitlementRequestConfigV1."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$SourceEntitlementRequestConfig) {
             throw "Error! The required parameter `SourceEntitlementRequestConfig` missing when calling updateSourceEntitlementRequestConfigV1."

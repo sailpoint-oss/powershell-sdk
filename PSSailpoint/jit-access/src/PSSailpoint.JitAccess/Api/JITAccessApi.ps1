@@ -17,6 +17,9 @@ Returns the tenant's current JIT activation policy configuration, including gove
 .PARAMETER ConfigType
 Configuration kind to read. Only **policy** (JIT activation policy) is supported today. 
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -32,6 +35,9 @@ function Get-JitActivationConfigV1 {
         [ValidateSet("policy")]
         [String]
         ${ConfigType},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -57,6 +63,11 @@ function Get-JitActivationConfigV1 {
             throw "Error! The required parameter `ConfigType` missing when calling getJitActivationConfigV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{configType}', [System.Web.HTTPUtility]::UrlEncode($ConfigType))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getJitActivationConfigV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -90,6 +101,9 @@ Updates the tenant's JIT activation policy configuration by applying one or more
 .PARAMETER ConfigType
 Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER JitAccessOperationRequest
 No description available.
 
@@ -109,6 +123,9 @@ function Update-JitActivationConfigV1 {
         [String]
         ${ConfigType},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${JitAccessOperationRequest},
         [Switch]
@@ -139,6 +156,11 @@ function Update-JitActivationConfigV1 {
             throw "Error! The required parameter `ConfigType` missing when calling patchJitActivationConfigV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{configType}', [System.Web.HTTPUtility]::UrlEncode($ConfigType))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchJitActivationConfigV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JitAccessOperationRequest) {
             throw "Error! The required parameter `JitAccessOperationRequest` missing when calling patchJitActivationConfigV1."

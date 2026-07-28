@@ -17,6 +17,9 @@ Use this API to remove Classification Config for a Source.  A token with ORG_ADM
 .PARAMETER SourceId
 Source ID.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -31,6 +34,9 @@ function Remove-MachineClassificationConfigV1 {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -56,6 +62,11 @@ function Remove-MachineClassificationConfigV1 {
             throw "Error! The required parameter `SourceId` missing when calling deleteMachineClassificationConfigV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteMachineClassificationConfigV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
@@ -89,6 +100,9 @@ This API returns a Machine Classification Config for a Source using Source ID.
 .PARAMETER SourceId
 Source ID
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -103,6 +117,9 @@ function Get-MachineClassificationConfigV1 {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -128,6 +145,11 @@ function Get-MachineClassificationConfigV1 {
             throw "Error! The required parameter `SourceId` missing when calling getMachineClassificationConfigV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getMachineClassificationConfigV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -161,6 +183,9 @@ Use this API to update Classification Config for a Source. A token with ORG_ADMI
 .PARAMETER SourceId
 Source ID.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER MachineClassificationConfig
 No description available.
 
@@ -179,6 +204,9 @@ function Set-MachineClassificationConfigV1 {
         [String]
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${MachineClassificationConfig},
         [Switch]
@@ -209,6 +237,11 @@ function Set-MachineClassificationConfigV1 {
             throw "Error! The required parameter `SourceId` missing when calling setMachineClassificationConfigV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling setMachineClassificationConfigV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$MachineClassificationConfig) {
             throw "Error! The required parameter `MachineClassificationConfig` missing when calling setMachineClassificationConfigV1."

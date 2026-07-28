@@ -14,6 +14,9 @@ Bulk approve entitlement recommendations
 
 Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER BulkApproveEntitlementRecommendationRequest
 The list of recommendation items to approve.
 
@@ -29,6 +32,9 @@ function Approve-BulkEntitlementRecommendationsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${BulkApproveEntitlementRecommendationRequest},
         [Switch]
@@ -55,6 +61,11 @@ function Approve-BulkEntitlementRecommendationsV1 {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/entitlement-recommendations/v1/bulk-approve'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling approveBulkEntitlementRecommendationsV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$BulkApproveEntitlementRecommendationRequest) {
             throw "Error! The required parameter `BulkApproveEntitlementRecommendationRequest` missing when calling approveBulkEntitlementRecommendationsV1."
@@ -436,6 +447,9 @@ List pending entitlement recommendation approvals
 
 Returns a list of entitlement recommendations (SED and/or privilege) that are currently awaiting review or approval. Each record includes the recommendation type, entitlement details, and any AI-generated suggestions.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -454,9 +468,12 @@ function Get-PendingEntitlementRecommendationApprovalsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
         [Switch]
@@ -480,6 +497,11 @@ function Get-PendingEntitlementRecommendationApprovalsV1 {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/entitlement-recommendations/v1/pending-approvals'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling listPendingEntitlementRecommendationApprovalsV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
@@ -518,6 +540,9 @@ List privileged entitlement recommendations
 
 Returns a list of privileged entitlement recommendation groups. Each group aggregates individual entitlement instances that share the same entitlement name and connector type, along with a recommendation score and instance count.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -536,9 +561,12 @@ function Get-PrivilegedEntitlementRecommendationsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
         [Switch]
@@ -562,6 +590,11 @@ function Get-PrivilegedEntitlementRecommendationsV1 {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/privileged-recommendations/v1'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling listPrivilegedEntitlementRecommendationsV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
@@ -745,6 +778,9 @@ Partially update a single entitlement recommendation record by its ID. Use this 
 .PARAMETER Id
 The unique identifier of the entitlement recommendation to update.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER JsonPatchOperation
 The patch operations to apply to the entitlement recommendation record.
 
@@ -763,6 +799,9 @@ function Update-EntitlementRecommendationV1 {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${JsonPatchOperation},
         [Switch]
@@ -793,6 +832,11 @@ function Update-EntitlementRecommendationV1 {
             throw "Error! The required parameter `Id` missing when calling patchEntitlementRecommendationV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchEntitlementRecommendationV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JsonPatchOperation) {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchEntitlementRecommendationV1."
@@ -938,6 +982,9 @@ Assign entitlement recommendations for review
 
 Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER EntitlementRecommendationAssignRequest
 The recommendation IDs and the target assignee.
 
@@ -953,6 +1000,9 @@ function Submit-EntitlementRecommendationsAssignmentV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${EntitlementRecommendationAssignRequest},
         [Switch]
@@ -979,6 +1029,11 @@ function Submit-EntitlementRecommendationsAssignmentV1 {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/entitlement-recommendations/v1/assign'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling submitEntitlementRecommendationsAssignmentV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$EntitlementRecommendationAssignRequest) {
             throw "Error! The required parameter `EntitlementRecommendationAssignRequest` missing when calling submitEntitlementRecommendationsAssignmentV1."

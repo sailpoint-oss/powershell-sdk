@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.DeclassifySource' -name 'DeclassifySourceApi' {
     Context 'Send-DeclassifyMachineAccountFromSourceV1' {
         It 'Test Send-DeclassifyMachineAccountFromSourceV1' {
-            #$TestResult = Send-DeclassifyMachineAccountFromSourceV1 -SourceId "TEST_VALUE"
+            #$TestResult = Send-DeclassifyMachineAccountFromSourceV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

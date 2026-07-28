@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.MachineClassificationConfig' -name 'MachineClassificationConfigApi' {
     Context 'Remove-MachineClassificationConfigV1' {
         It 'Test Remove-MachineClassificationConfigV1' {
-            #$TestResult = Remove-MachineClassificationConfigV1 -SourceId "TEST_VALUE"
+            #$TestResult = Remove-MachineClassificationConfigV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.MachineClassificationConfig' -name 'MachineClassifica
 
     Context 'Get-MachineClassificationConfigV1' {
         It 'Test Get-MachineClassificationConfigV1' {
-            #$TestResult = Get-MachineClassificationConfigV1 -SourceId "TEST_VALUE"
+            #$TestResult = Get-MachineClassificationConfigV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.MachineClassificationConfig' -name 'MachineClassifica
 
     Context 'Set-MachineClassificationConfigV1' {
         It 'Test Set-MachineClassificationConfigV1' {
-            #$TestResult = Set-MachineClassificationConfigV1 -SourceId "TEST_VALUE" -MachineClassificationConfig "TEST_VALUE"
+            #$TestResult = Set-MachineClassificationConfigV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -MachineClassificationConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

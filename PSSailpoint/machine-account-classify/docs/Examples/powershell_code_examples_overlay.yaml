@@ -5,15 +5,16 @@
       label: SDK_tools/sdk/powershell/machineaccountclassify/methods/machine-account-classify#send-classify-machine-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $ClassificationMode = "default" # String | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human. (optional) (default to "default")
         
         # Classify single machine account
         
         try {
-            Send-ClassifyMachineAccountV1 -Id $Id 
+            Send-ClassifyMachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Send-ClassifyMachineAccountV1 -Id $Id -ClassificationMode $ClassificationMode   
+            # Send-ClassifyMachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -ClassificationMode $ClassificationMode   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ClassifyMachineAccountV1"
             Write-Host $_.ErrorDetails

@@ -23,6 +23,9 @@ Method | HTTP request | Description
 
 
 ## delete-machine-classification-config-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to remove Classification Config for a Source. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
@@ -32,6 +35,7 @@ A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required t
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -54,14 +58,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete source's classification config
 
 try {
-    Remove-MachineClassificationConfigV1 -SourceId $SourceId 
+    Remove-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-MachineClassificationConfigV1 -SourceId $SourceId  
+    # Remove-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineClassificationConfigV1"
     Write-Host $_.ErrorDetails
@@ -70,6 +75,9 @@ try {
 [[Back to top]](#) 
 
 ## get-machine-classification-config-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a Machine Classification Config for a Source using Source ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-machine-classification-config-v-1)
@@ -78,6 +86,7 @@ This API returns a Machine Classification Config for a Source using Source ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**MachineClassificationConfig**](../models/machine-classification-config)
@@ -100,14 +109,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Machine classification config for source
 
 try {
-    Get-MachineClassificationConfigV1 -SourceId $SourceId 
+    Get-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-MachineClassificationConfigV1 -SourceId $SourceId  
+    # Get-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineClassificationConfigV1"
     Write-Host $_.ErrorDetails
@@ -116,6 +126,9 @@ try {
 [[Back to top]](#) 
 
 ## set-machine-classification-config-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to update Classification Config for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/set-machine-classification-config-v-1)
@@ -124,6 +137,7 @@ Use this API to update Classification Config for a Source. A token with ORG_ADMI
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | MachineClassificationConfig | [**MachineClassificationConfig**](../models/machine-classification-config) | True  | 
 
 ### Return type
@@ -147,6 +161,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $MachineClassificationConfig = @"{
   "criteria" : {
     "children" : [ {
@@ -208,10 +223,10 @@ $MachineClassificationConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMachineClassificationConfig -Json $MachineClassificationConfig
-    Set-MachineClassificationConfigV1 -SourceId $SourceId -MachineClassificationConfig $Result 
+    Set-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineClassificationConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-MachineClassificationConfigV1 -SourceId $SourceId -MachineClassificationConfig $Result  
+    # Set-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineClassificationConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MachineClassificationConfigV1"
     Write-Host $_.ErrorDetails

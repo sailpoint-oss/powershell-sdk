@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
 
     Context 'Update-AccessProfilesInBulkV1' {
         It 'Test Update-AccessProfilesInBulkV1' {
-            #$TestResult = Update-AccessProfilesInBulkV1 -XSailPointExperimental "TEST_VALUE" -AccessProfileBulkUpdateRequestInner "TEST_VALUE"
+            #$TestResult = Update-AccessProfilesInBulkV1 -AccessProfileBulkUpdateRequestInner "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

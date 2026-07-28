@@ -47,9 +47,6 @@ Method | HTTP request | Description
 
 
 ## delete-identity-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 The API returns successful response if the requested identity was deleted.
 
 [API Spec](https://developer.sailpoint.com/docs/api/delete-identity-v-1)
@@ -58,7 +55,6 @@ The API returns successful response if the requested identity was deleted.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Identity Id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -81,15 +77,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete identity
 
 try {
-    Remove-IdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Remove-IdentityV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-IdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Remove-IdentityV1 -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IdentityV1"
     Write-Host $_.ErrorDetails

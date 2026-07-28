@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.ClassifySource' -name 'ClassifySourceApi' {
     Context 'Remove-ClassifyMachineAccountFromSourceV1' {
         It 'Test Remove-ClassifyMachineAccountFromSourceV1' {
-            #$TestResult = Remove-ClassifyMachineAccountFromSourceV1 -SourceId "TEST_VALUE"
+            #$TestResult = Remove-ClassifyMachineAccountFromSourceV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.ClassifySource' -name 'ClassifySourceApi' {
 
     Context 'Get-ClassifyMachineAccountFromSourceStatusV1' {
         It 'Test Get-ClassifyMachineAccountFromSourceStatusV1' {
-            #$TestResult = Get-ClassifyMachineAccountFromSourceStatusV1 -SourceId "TEST_VALUE"
+            #$TestResult = Get-ClassifyMachineAccountFromSourceStatusV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.ClassifySource' -name 'ClassifySourceApi' {
 
     Context 'Send-ClassifyMachineAccountFromSourceV1' {
         It 'Test Send-ClassifyMachineAccountFromSourceV1' {
-            #$TestResult = Send-ClassifyMachineAccountFromSourceV1 -SourceId "TEST_VALUE"
+            #$TestResult = Send-ClassifyMachineAccountFromSourceV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

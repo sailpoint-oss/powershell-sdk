@@ -5,6 +5,7 @@
       label: SDK_tools/sdk/powershell/machineaccountmappings/methods/machine-account-mappings#create-machine-account-mappings-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $AttributeMappings = @"
         {
           "transformDefinition" : {
@@ -33,10 +34,10 @@
         
         try {
             $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
-            New-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result 
+            New-MachineAccountMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -AttributeMappings $Result 
     
             # Below is a request that includes all optional parameters
-            # New-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result   
+            # New-MachineAccountMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -AttributeMappings $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountMappingsV1"
             Write-Host $_.ErrorDetails
@@ -48,14 +49,15 @@
       label: SDK_tools/sdk/powershell/machineaccountmappings/methods/machine-account-mappings#delete-machine-account-mappings-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | source ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete source's machine account mappings
         
         try {
-            Remove-MachineAccountMappingsV1 -SourceId $SourceId 
+            Remove-MachineAccountMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Remove-MachineAccountMappingsV1 -SourceId $SourceId   
+            # Remove-MachineAccountMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountMappingsV1"
             Write-Host $_.ErrorDetails
@@ -67,16 +69,17 @@
       label: SDK_tools/sdk/powershell/machineaccountmappings/methods/machine-account-mappings#list-machine-account-mappings-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
         # Machine account mapping for source
         
         try {
-            Get-MachineAccountMappingsV1 -SourceId $SourceId 
+            Get-MachineAccountMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-MachineAccountMappingsV1 -SourceId $SourceId -Limit $Limit -Offset $Offset   
+            # Get-MachineAccountMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountMappingsV1"
             Write-Host $_.ErrorDetails

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.JitAccess' -name 'JITAccessApi' {
     Context 'Get-JitActivationConfigV1' {
         It 'Test Get-JitActivationConfigV1' {
-            #$TestResult = Get-JitActivationConfigV1 -ConfigType "TEST_VALUE"
+            #$TestResult = Get-JitActivationConfigV1 -ConfigType "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.JitAccess' -name 'JITAccessApi' {
 
     Context 'Update-JitActivationConfigV1' {
         It 'Test Update-JitActivationConfigV1' {
-            #$TestResult = Update-JitActivationConfigV1 -ConfigType "TEST_VALUE" -JitAccessOperationRequest "TEST_VALUE"
+            #$TestResult = Update-JitActivationConfigV1 -ConfigType "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JitAccessOperationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

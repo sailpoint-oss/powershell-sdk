@@ -280,7 +280,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#update-access-profiles-in-bulk-v1
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $AccessProfileBulkUpdateRequestInner = @"[{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]"@ 
         
         
@@ -288,10 +287,10 @@
         
         try {
             $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
-            Update-AccessProfilesInBulkV1 -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result 
+            Update-AccessProfilesInBulkV1 -AccessProfileBulkUpdateRequestInner $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AccessProfilesInBulkV1 -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result   
+            # Update-AccessProfilesInBulkV1 -AccessProfileBulkUpdateRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesInBulkV1"
             Write-Host $_.ErrorDetails

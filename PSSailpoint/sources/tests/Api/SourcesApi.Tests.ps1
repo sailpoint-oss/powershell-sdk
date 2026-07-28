@@ -192,7 +192,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Get-SourceEntitlementRequestConfigV1' {
         It 'Test Get-SourceEntitlementRequestConfigV1' {
-            #$TestResult = Get-SourceEntitlementRequestConfigV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-SourceEntitlementRequestConfigV1 -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -472,7 +472,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
 
     Context 'Update-SourceEntitlementRequestConfigV1' {
         It 'Test Update-SourceEntitlementRequestConfigV1' {
-            #$TestResult = Update-SourceEntitlementRequestConfigV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SourceEntitlementRequestConfig "TEST_VALUE"
+            #$TestResult = Update-SourceEntitlementRequestConfigV1 -Id "TEST_VALUE" -SourceEntitlementRequestConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

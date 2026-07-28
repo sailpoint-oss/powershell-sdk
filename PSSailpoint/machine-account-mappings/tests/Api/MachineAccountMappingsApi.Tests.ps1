@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.MachineAccountMappings' -name 'MachineAccountMappingsApi' {
     Context 'New-MachineAccountMappingsV1' {
         It 'Test New-MachineAccountMappingsV1' {
-            #$TestResult = New-MachineAccountMappingsV1 -SourceId "TEST_VALUE" -AttributeMappings "TEST_VALUE"
+            #$TestResult = New-MachineAccountMappingsV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -AttributeMappings "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.MachineAccountMappings' -name 'MachineAccountMappings
 
     Context 'Remove-MachineAccountMappingsV1' {
         It 'Test Remove-MachineAccountMappingsV1' {
-            #$TestResult = Remove-MachineAccountMappingsV1 -SourceId "TEST_VALUE"
+            #$TestResult = Remove-MachineAccountMappingsV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.MachineAccountMappings' -name 'MachineAccountMappings
 
     Context 'Get-MachineAccountMappingsV1' {
         It 'Test Get-MachineAccountMappingsV1' {
-            #$TestResult = Get-MachineAccountMappingsV1 -SourceId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-MachineAccountMappingsV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

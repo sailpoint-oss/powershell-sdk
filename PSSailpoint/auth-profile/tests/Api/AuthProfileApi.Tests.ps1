@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.AuthProfile' -name 'AuthProfileApi' {
     Context 'Get-ProfileConfigListV1' {
         It 'Test Get-ProfileConfigListV1' {
-            #$TestResult = Get-ProfileConfigListV1 -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-ProfileConfigListV1
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.AuthProfile' -name 'AuthProfileApi' {
 
     Context 'Get-ProfileConfigV1' {
         It 'Test Get-ProfileConfigV1' {
-            #$TestResult = Get-ProfileConfigV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE"
+            #$TestResult = Get-ProfileConfigV1 -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.AuthProfile' -name 'AuthProfileApi' {
 
     Context 'Update-ProfileConfigV1' {
         It 'Test Update-ProfileConfigV1' {
-            #$TestResult = Update-ProfileConfigV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-ProfileConfigV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

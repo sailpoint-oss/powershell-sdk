@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.DataSegmentation' -name 'DataSegmentationApi' {
     Context 'New-DataSegmentV1' {
         It 'Test New-DataSegmentV1' {
-            #$TestResult = New-DataSegmentV1 -DataSegment "TEST_VALUE"
+            #$TestResult = New-DataSegmentV1 -XSailPointExperimental "TEST_VALUE" -DataSegment "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

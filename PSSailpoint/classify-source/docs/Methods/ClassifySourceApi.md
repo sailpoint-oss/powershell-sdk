@@ -23,6 +23,9 @@ Method | HTTP request | Description
 
 
 ## delete-classify-machine-account-from-source-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to cancel account classification process on a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
@@ -32,6 +35,7 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -53,14 +57,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Cancel classify source's accounts process
 
 try {
-    Remove-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId 
+    Remove-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId  
+    # Remove-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ClassifyMachineAccountFromSourceV1"
     Write-Host $_.ErrorDetails
@@ -69,6 +74,9 @@ try {
 [[Back to top]](#) 
 
 ## get-classify-machine-account-from-source-status-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to get the status of Machine Account Classification process for a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
@@ -78,6 +86,7 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**SourceClassificationStatus**](../models/source-classification-status)
@@ -100,14 +109,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Source accounts classification status
 
 try {
-    Get-ClassifyMachineAccountFromSourceStatusV1 -SourceId $SourceId 
+    Get-ClassifyMachineAccountFromSourceStatusV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-ClassifyMachineAccountFromSourceStatusV1 -SourceId $SourceId  
+    # Get-ClassifyMachineAccountFromSourceStatusV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ClassifyMachineAccountFromSourceStatusV1"
     Write-Host $_.ErrorDetails
@@ -116,6 +126,9 @@ try {
 [[Back to top]](#) 
 
 ## send-classify-machine-account-from-source-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to classify all the accounts from a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
@@ -125,6 +138,7 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**SendClassifyMachineAccountFromSourceV1200Response**](../models/send-classify-machine-account-from-source-v1200-response)
@@ -146,14 +160,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Classify source's all accounts
 
 try {
-    Send-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId 
+    Send-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Send-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId  
+    # Send-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ClassifyMachineAccountFromSourceV1"
     Write-Host $_.ErrorDetails

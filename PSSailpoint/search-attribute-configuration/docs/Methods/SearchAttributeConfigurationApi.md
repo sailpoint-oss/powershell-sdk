@@ -43,9 +43,6 @@ Method | HTTP request | Description
 
 
 ## create-search-attribute-config-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Create and configure extended search attributes.  This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
 >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes' `applicationAttributes`.**
 
@@ -54,7 +51,6 @@ Create and configure extended search attributes.  This API accepts an attribute 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SearchAttributeConfig | [**SearchAttributeConfig**](../models/search-attribute-config) | True  | 
 
 ### Return type
@@ -77,7 +73,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SearchAttributeConfig = @"{
   "displayName" : "New Mail Attribute",
   "name" : "newMailAttribute",
@@ -91,10 +86,10 @@ $SearchAttributeConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-    New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result 
+    New-SearchAttributeConfigV1 -SearchAttributeConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result  
+    # New-SearchAttributeConfigV1 -SearchAttributeConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SearchAttributeConfigV1"
     Write-Host $_.ErrorDetails
@@ -103,9 +98,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-search-attribute-config-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Delete an extended attribute configuration by name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/delete-search-attribute-config-v-1)
@@ -114,7 +106,6 @@ Delete an extended attribute configuration by name.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Name | **String** | True  | Name of the extended search attribute configuration to delete.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -136,15 +127,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete extended search attribute
 
 try {
-    Remove-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental 
+    Remove-SearchAttributeConfigV1 -Name $Name 
     
     # Below is a request that includes all optional parameters
-    # Remove-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental  
+    # Remove-SearchAttributeConfigV1 -Name $Name  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SearchAttributeConfigV1"
     Write-Host $_.ErrorDetails
@@ -153,9 +143,6 @@ try {
 [[Back to top]](#) 
 
 ## get-search-attribute-config-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-search-attribute-config-v-1)
@@ -163,7 +150,6 @@ Get a list of attribute/application attributes currently configured in Identity 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -186,17 +172,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
 # List extended search attributes
 
 try {
-    Get-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental 
+    Get-SearchAttributeConfigV1 
     
     # Below is a request that includes all optional parameters
-    # Get-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset  
+    # Get-SearchAttributeConfigV1 -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SearchAttributeConfigV1"
     Write-Host $_.ErrorDetails
@@ -205,9 +190,6 @@ try {
 [[Back to top]](#) 
 
 ## get-single-search-attribute-config-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get an extended attribute configuration by name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-single-search-attribute-config-v-1)
@@ -216,7 +198,6 @@ Get an extended attribute configuration by name.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Name | **String** | True  | Name of the extended search attribute configuration to get.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**SearchAttributeConfig**](../models/search-attribute-config)
@@ -239,15 +220,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to get.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get extended search attribute
 
 try {
-    Get-SingleSearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental 
+    Get-SingleSearchAttributeConfigV1 -Name $Name 
     
     # Below is a request that includes all optional parameters
-    # Get-SingleSearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental  
+    # Get-SingleSearchAttributeConfigV1 -Name $Name  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SingleSearchAttributeConfigV1"
     Write-Host $_.ErrorDetails
@@ -256,9 +236,6 @@ try {
 [[Back to top]](#) 
 
 ## patch-search-attribute-config-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Update an existing search attribute configuration. 
 You can patch these fields:
 * name  * displayName * applicationAttributes
@@ -269,7 +246,6 @@ You can patch these fields:
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Name | **String** | True  | Name of the search attribute configuration to patch.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
@@ -293,7 +269,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Name = "promotedMailAttribute" # String | Name of the search attribute configuration to patch.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
@@ -305,10 +280,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    Update-SearchAttributeConfigV1 -Name $Name -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
+    # Update-SearchAttributeConfigV1 -Name $Name -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SearchAttributeConfigV1"
     Write-Host $_.ErrorDetails

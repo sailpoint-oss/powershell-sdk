@@ -52,6 +52,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-activate-workflow-v1
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JitActivationActivateRequest = @"
         {
           "activationPeriodMins" : 120,
@@ -63,10 +64,10 @@
         
         try {
             $Result = ConvertFrom-JsonToJitActivationActivateRequest -Json $JitActivationActivateRequest
-            Start-ActivateWorkflowV1 -JitActivationActivateRequest $Result 
+            Start-ActivateWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationActivateRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-ActivateWorkflowV1 -JitActivationActivateRequest $Result   
+            # Start-ActivateWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationActivateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ActivateWorkflowV1"
             Write-Host $_.ErrorDetails
@@ -77,6 +78,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-deactivate-workflow-v1
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JitActivationDeactivateRequest = @"
         {
           "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
@@ -87,10 +89,10 @@
         
         try {
             $Result = ConvertFrom-JsonToJitActivationDeactivateRequest -Json $JitActivationDeactivateRequest
-            Start-DeactivateWorkflowV1 -JitActivationDeactivateRequest $Result 
+            Start-DeactivateWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationDeactivateRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-DeactivateWorkflowV1 -JitActivationDeactivateRequest $Result   
+            # Start-DeactivateWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationDeactivateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-DeactivateWorkflowV1"
             Write-Host $_.ErrorDetails
@@ -101,6 +103,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-extend-workflow-v1
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JitActivationExtendRequest = @"
         {
           "activationPeriodExtensionMins" : 120,
@@ -112,10 +115,10 @@
         
         try {
             $Result = ConvertFrom-JsonToJitActivationExtendRequest -Json $JitActivationExtendRequest
-            Start-ExtendWorkflowV1 -JitActivationExtendRequest $Result 
+            Start-ExtendWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationExtendRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-ExtendWorkflowV1 -JitActivationExtendRequest $Result   
+            # Start-ExtendWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationExtendRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ExtendWorkflowV1"
             Write-Host $_.ErrorDetails

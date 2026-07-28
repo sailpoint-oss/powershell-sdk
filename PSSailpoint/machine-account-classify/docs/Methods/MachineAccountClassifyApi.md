@@ -21,6 +21,9 @@ Method | HTTP request | Description
 
 
 ## send-classify-machine-account-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to classify a single machine account.
 A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
@@ -30,6 +33,7 @@ A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is requi
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Account ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | ClassificationMode | **String** |   (optional) (default to "default") | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
 
 ### Return type
@@ -52,15 +56,16 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $ClassificationMode = "default" # String | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human. (optional) (default to "default")
 
 # Classify single machine account
 
 try {
-    Send-ClassifyMachineAccountV1 -Id $Id 
+    Send-ClassifyMachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Send-ClassifyMachineAccountV1 -Id $Id -ClassificationMode $ClassificationMode  
+    # Send-ClassifyMachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -ClassificationMode $ClassificationMode  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ClassifyMachineAccountV1"
     Write-Host $_.ErrorDetails

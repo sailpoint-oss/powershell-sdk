@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.Roles' -name 'RolesApi' {
 
     Context 'Get-RoleEntitlementsV1' {
         It 'Test Get-RoleEntitlementsV1' {
-            #$TestResult = Get-RoleEntitlementsV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-RoleEntitlementsV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

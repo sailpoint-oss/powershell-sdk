@@ -30,6 +30,9 @@ Method | HTTP request | Description
 
 
 ## create-data-segment-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 
@@ -38,6 +41,7 @@ This API creates a segment.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | DataSegment | [**DataSegment**](../models/data-segment) | True  | 
 
 ### Return type
@@ -59,6 +63,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $DataSegment = @"{
   "memberFilter" : {
     "expression" : {
@@ -101,10 +106,10 @@ $DataSegment = @"{
 
 try {
     $Result = ConvertFrom-JsonToDataSegment -Json $DataSegment
-    New-DataSegmentV1 -DataSegment $Result 
+    New-DataSegmentV1 -XSailPointExperimental $XSailPointExperimental -DataSegment $Result 
     
     # Below is a request that includes all optional parameters
-    # New-DataSegmentV1 -DataSegment $Result  
+    # New-DataSegmentV1 -XSailPointExperimental $XSailPointExperimental -DataSegment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-DataSegmentV1"
     Write-Host $_.ErrorDetails

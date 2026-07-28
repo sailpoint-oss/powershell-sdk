@@ -1460,9 +1460,6 @@ try {
 [[Back to top]](#) 
 
 ## get-source-entitlement-request-config-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
 Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined.
@@ -1475,7 +1472,6 @@ Access request to any entitlements in the source should follow this configuratio
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The Source id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**SourceEntitlementRequestConfig**](../models/source-entitlement-request-config)
@@ -1497,15 +1493,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get source entitlement request configuration
 
 try {
-    Get-SourceEntitlementRequestConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-SourceEntitlementRequestConfigV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-SourceEntitlementRequestConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-SourceEntitlementRequestConfigV1 -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceEntitlementRequestConfigV1"
     Write-Host $_.ErrorDetails
@@ -3571,9 +3566,6 @@ try {
 [[Back to top]](#) 
 
 ## update-source-entitlement-request-config-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
 Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined.
@@ -3586,7 +3578,6 @@ Access request to any entitlements in the source should follow this configuratio
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The Source id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SourceEntitlementRequestConfig | [**SourceEntitlementRequestConfig**](../models/source-entitlement-request-config) | True  | 
 
 ### Return type
@@ -3609,7 +3600,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SourceEntitlementRequestConfig = @"{
   "accessRequestConfig" : {
     "denialCommentRequired" : false,
@@ -3643,10 +3633,10 @@ $SourceEntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-    Update-SourceEntitlementRequestConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result 
+    Update-SourceEntitlementRequestConfigV1 -Id $Id -SourceEntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-SourceEntitlementRequestConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result  
+    # Update-SourceEntitlementRequestConfigV1 -Id $Id -SourceEntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceEntitlementRequestConfigV1"
     Write-Host $_.ErrorDetails

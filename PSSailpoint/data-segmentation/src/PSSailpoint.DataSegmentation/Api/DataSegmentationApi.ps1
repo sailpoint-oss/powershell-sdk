@@ -14,6 +14,9 @@ Create segment
 
 This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER DataSegment
 No description available.
 
@@ -29,6 +32,9 @@ function New-DataSegmentV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${DataSegment},
         [Switch]
@@ -55,6 +61,11 @@ function New-DataSegmentV1 {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/data-segments/v1'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling createDataSegmentV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$DataSegment) {
             throw "Error! The required parameter `DataSegment` missing when calling createDataSegmentV1."

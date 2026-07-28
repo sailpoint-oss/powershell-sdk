@@ -152,6 +152,9 @@ try {
 [[Back to top]](#) 
 
 ## start-activate-workflow-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration.
 The service performs quick validation; the workflow performs additional validation.
 
@@ -163,6 +166,7 @@ The response is returned with HTTP 202 Accepted while the workflow initializes.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JitActivationActivateRequest | [**JitActivationActivateRequest**](../models/jit-activation-activate-request) | True  | 
 
 ### Return type
@@ -184,6 +188,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $JitActivationActivateRequest = @"{
   "activationPeriodMins" : 120,
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
@@ -193,10 +198,10 @@ $JitActivationActivateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToJitActivationActivateRequest -Json $JitActivationActivateRequest
-    Start-ActivateWorkflowV1 -JitActivationActivateRequest $Result 
+    Start-ActivateWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationActivateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-ActivateWorkflowV1 -JitActivationActivateRequest $Result  
+    # Start-ActivateWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationActivateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ActivateWorkflowV1"
     Write-Host $_.ErrorDetails
@@ -205,6 +210,9 @@ try {
 [[Back to top]](#) 
 
 ## start-deactivate-workflow-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Sends a signal to a running JIT Privileged (JIT P) activation workflow to deactivate.
 
 This request cannot be applied to a workflow that does not exist or whose execution has already completed.
@@ -218,6 +226,7 @@ The response is returned with HTTP 202 Accepted after the signal is sent.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JitActivationDeactivateRequest | [**JitActivationDeactivateRequest**](../models/jit-activation-deactivate-request) | True  | 
 
 ### Return type
@@ -240,6 +249,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $JitActivationDeactivateRequest = @"{
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }"@
@@ -248,10 +258,10 @@ $JitActivationDeactivateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToJitActivationDeactivateRequest -Json $JitActivationDeactivateRequest
-    Start-DeactivateWorkflowV1 -JitActivationDeactivateRequest $Result 
+    Start-DeactivateWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationDeactivateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-DeactivateWorkflowV1 -JitActivationDeactivateRequest $Result  
+    # Start-DeactivateWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationDeactivateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-DeactivateWorkflowV1"
     Write-Host $_.ErrorDetails
@@ -260,6 +270,9 @@ try {
 [[Back to top]](#) 
 
 ## start-extend-workflow-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Sends a signal to a running JIT Privileged (JIT P) activation workflow to extend the activation period
 by the requested number of minutes.
 
@@ -274,6 +287,7 @@ The response is returned with HTTP 202 Accepted after the signal is sent.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JitActivationExtendRequest | [**JitActivationExtendRequest**](../models/jit-activation-extend-request) | True  | 
 
 ### Return type
@@ -296,6 +310,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $JitActivationExtendRequest = @"{
   "activationPeriodExtensionMins" : 120,
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
@@ -305,10 +320,10 @@ $JitActivationExtendRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToJitActivationExtendRequest -Json $JitActivationExtendRequest
-    Start-ExtendWorkflowV1 -JitActivationExtendRequest $Result 
+    Start-ExtendWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationExtendRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-ExtendWorkflowV1 -JitActivationExtendRequest $Result  
+    # Start-ExtendWorkflowV1 -XSailPointExperimental $XSailPointExperimental -JitActivationExtendRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ExtendWorkflowV1"
     Write-Host $_.ErrorDetails

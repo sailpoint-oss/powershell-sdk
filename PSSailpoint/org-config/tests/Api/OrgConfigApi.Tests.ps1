@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.OrgConfig' -name 'OrgConfigApi' {
 
     Context 'Get-ValidTimeZonesV1' {
         It 'Test Get-ValidTimeZonesV1' {
-            #$TestResult = Get-ValidTimeZonesV1 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-ValidTimeZonesV1 -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

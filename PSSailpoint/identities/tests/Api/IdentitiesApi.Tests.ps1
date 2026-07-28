@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.Identities' -name 'IdentitiesApi' {
     Context 'Remove-IdentityV1' {
         It 'Test Remove-IdentityV1' {
-            #$TestResult = Remove-IdentityV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-IdentityV1 -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

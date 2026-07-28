@@ -5,14 +5,15 @@
       label: SDK_tools/sdk/powershell/jitaccess/methods/jit-access#get-jit-activation-config-v1
       source: |
         $ConfigType = "policy" # String | Configuration kind to read. Only **policy** (JIT activation policy) is supported today. 
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get JIT activation policy configuration
         
         try {
-            Get-JitActivationConfigV1 -ConfigType $ConfigType 
+            Get-JitActivationConfigV1 -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-JitActivationConfigV1 -ConfigType $ConfigType   
+            # Get-JitActivationConfigV1 -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-JitActivationConfigV1"
             Write-Host $_.ErrorDetails
@@ -24,6 +25,7 @@
       label: SDK_tools/sdk/powershell/jitaccess/methods/jit-access#patch-jit-activation-config-v1
       source: |
         $ConfigType = "policy" # String | Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JitAccessOperationRequest = @"{
           "op" : "replace",
           "path" : "/maxActivationPeriodMins",
@@ -35,10 +37,10 @@
         
         try {
             $Result = ConvertFrom-JsonToJitAccessOperationRequest -Json $JitAccessOperationRequest
-            Update-JitActivationConfigV1 -ConfigType $ConfigType -JitAccessOperationRequest $Result 
+            Update-JitActivationConfigV1 -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental -JitAccessOperationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-JitActivationConfigV1 -ConfigType $ConfigType -JitAccessOperationRequest $Result   
+            # Update-JitActivationConfigV1 -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental -JitAccessOperationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-JitActivationConfigV1"
             Write-Host $_.ErrorDetails

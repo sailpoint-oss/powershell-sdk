@@ -29,9 +29,6 @@ Method | HTTP request | Description
 
 
 ## get-profile-config-list-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API returns a list of auth profiles.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-profile-config-list-v-1)
@@ -39,7 +36,6 @@ This API returns a list of auth profiles.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**AuthProfileSummary[]**](../models/auth-profile-summary)
@@ -60,15 +56,14 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get list of auth profiles
 
 try {
-    Get-ProfileConfigListV1 -XSailPointExperimental $XSailPointExperimental 
+    Get-ProfileConfigListV1 
     
     # Below is a request that includes all optional parameters
-    # Get-ProfileConfigListV1 -XSailPointExperimental $XSailPointExperimental  
+    # Get-ProfileConfigListV1  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ProfileConfigListV1"
     Write-Host $_.ErrorDetails
@@ -77,9 +72,6 @@ try {
 [[Back to top]](#) 
 
 ## get-profile-config-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API returns auth profile information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-profile-config-v-1)
@@ -87,7 +79,6 @@ This API returns auth profile information.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | Id | **String** | True  | ID of the Auth Profile to patch.
 
 ### Return type
@@ -110,16 +101,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
 
 # Get auth profile
 
 try {
-    Get-ProfileConfigV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    Get-ProfileConfigV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-ProfileConfigV1 -XSailPointExperimental $XSailPointExperimental -Id $Id  
+    # Get-ProfileConfigV1 -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ProfileConfigV1"
     Write-Host $_.ErrorDetails
@@ -128,9 +118,6 @@ try {
 [[Back to top]](#) 
 
 ## patch-profile-config-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
 
@@ -140,7 +127,6 @@ This API updates an existing Auth Profile. The following fields are patchable:
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Auth Profile to patch.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
@@ -163,7 +149,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
@@ -175,10 +160,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-ProfileConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    Update-ProfileConfigV1 -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ProfileConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
+    # Update-ProfileConfigV1 -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ProfileConfigV1"
     Write-Host $_.ErrorDetails

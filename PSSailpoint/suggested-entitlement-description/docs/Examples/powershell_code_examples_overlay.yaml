@@ -4,6 +4,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#approve-bulk-entitlement-recommendations-v1
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $BulkApproveEntitlementRecommendationRequest = @"
         {
           "items" : [ {
@@ -22,10 +23,10 @@
         
         try {
             $Result = ConvertFrom-JsonToBulkApproveEntitlementRecommendationRequest -Json $BulkApproveEntitlementRecommendationRequest
-            Approve-BulkEntitlementRecommendationsV1 -BulkApproveEntitlementRecommendationRequest $Result 
+            Approve-BulkEntitlementRecommendationsV1 -XSailPointExperimental $XSailPointExperimental -BulkApproveEntitlementRecommendationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Approve-BulkEntitlementRecommendationsV1 -BulkApproveEntitlementRecommendationRequest $Result   
+            # Approve-BulkEntitlementRecommendationsV1 -XSailPointExperimental $XSailPointExperimental -BulkApproveEntitlementRecommendationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BulkEntitlementRecommendationsV1"
             Write-Host $_.ErrorDetails
@@ -122,16 +123,17 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#list-pending-entitlement-recommendation-approvals-v1
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         
         # List pending entitlement recommendation approvals
         
         try {
-            Get-PendingEntitlementRecommendationApprovalsV1 
+            Get-PendingEntitlementRecommendationApprovalsV1 -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-PendingEntitlementRecommendationApprovalsV1 -Offset $Offset -Limit $Limit   
+            # Get-PendingEntitlementRecommendationApprovalsV1 -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PendingEntitlementRecommendationApprovalsV1"
             Write-Host $_.ErrorDetails
@@ -142,16 +144,17 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#list-privileged-entitlement-recommendations-v1
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         
         # List privileged entitlement recommendations
         
         try {
-            Get-PrivilegedEntitlementRecommendationsV1 
+            Get-PrivilegedEntitlementRecommendationsV1 -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-PrivilegedEntitlementRecommendationsV1 -Offset $Offset -Limit $Limit   
+            # Get-PrivilegedEntitlementRecommendationsV1 -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PrivilegedEntitlementRecommendationsV1"
             Write-Host $_.ErrorDetails
@@ -189,6 +192,7 @@
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#patch-entitlement-recommendation-v1
       source: |
         $Id = "79db50d4-723c-4aa0-a824-83c2205d82d1" # String | The unique identifier of the entitlement recommendation to update.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -200,10 +204,10 @@
         
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-EntitlementRecommendationV1 -Id $Id -JsonPatchOperation $Result 
+            Update-EntitlementRecommendationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-EntitlementRecommendationV1 -Id $Id -JsonPatchOperation $Result   
+            # Update-EntitlementRecommendationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementRecommendationV1"
             Write-Host $_.ErrorDetails
@@ -240,6 +244,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-entitlement-recommendations-assignment-v1
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $EntitlementRecommendationAssignRequest = @"
         {
           "assignee" : {
@@ -254,10 +259,10 @@
         
         try {
             $Result = ConvertFrom-JsonToEntitlementRecommendationAssignRequest -Json $EntitlementRecommendationAssignRequest
-            Submit-EntitlementRecommendationsAssignmentV1 -EntitlementRecommendationAssignRequest $Result 
+            Submit-EntitlementRecommendationsAssignmentV1 -XSailPointExperimental $XSailPointExperimental -EntitlementRecommendationAssignRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Submit-EntitlementRecommendationsAssignmentV1 -EntitlementRecommendationAssignRequest $Result   
+            # Submit-EntitlementRecommendationsAssignmentV1 -XSailPointExperimental $XSailPointExperimental -EntitlementRecommendationAssignRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-EntitlementRecommendationsAssignmentV1"
             Write-Host $_.ErrorDetails

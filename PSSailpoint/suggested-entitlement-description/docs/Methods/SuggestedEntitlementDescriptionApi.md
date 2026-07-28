@@ -38,6 +38,9 @@ Method | HTTP request | Description
 
 
 ## approve-bulk-entitlement-recommendations-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
 
 [API Spec](https://developer.sailpoint.com/docs/api/approve-bulk-entitlement-recommendations-v-1)
@@ -45,6 +48,7 @@ Approve multiple entitlement recommendations in a single request. Each item in t
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | BulkApproveEntitlementRecommendationRequest | [**BulkApproveEntitlementRecommendationRequest**](../models/bulk-approve-entitlement-recommendation-request) | True  | The list of recommendation items to approve.
 
 ### Return type
@@ -66,6 +70,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $BulkApproveEntitlementRecommendationRequest = @"{
   "items" : [ {
     "id" : "79db50d4-723c-4aa0-a824-83c2205d82d1",
@@ -82,10 +87,10 @@ $BulkApproveEntitlementRecommendationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkApproveEntitlementRecommendationRequest -Json $BulkApproveEntitlementRecommendationRequest
-    Approve-BulkEntitlementRecommendationsV1 -BulkApproveEntitlementRecommendationRequest $Result 
+    Approve-BulkEntitlementRecommendationsV1 -XSailPointExperimental $XSailPointExperimental -BulkApproveEntitlementRecommendationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-BulkEntitlementRecommendationsV1 -BulkApproveEntitlementRecommendationRequest $Result  
+    # Approve-BulkEntitlementRecommendationsV1 -XSailPointExperimental $XSailPointExperimental -BulkApproveEntitlementRecommendationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BulkEntitlementRecommendationsV1"
     Write-Host $_.ErrorDetails
@@ -294,6 +299,9 @@ try {
 [[Back to top]](#) 
 
 ## list-pending-entitlement-recommendation-approvals-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Returns a list of entitlement recommendations (SED and/or privilege) that are currently awaiting review or approval. Each record includes the recommendation type, entitlement details, and any AI-generated suggestions.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-pending-entitlement-recommendation-approvals-v-1)
@@ -301,6 +309,7 @@ Returns a list of entitlement recommendations (SED and/or privilege) that are cu
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -323,16 +332,17 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 
 # List pending entitlement recommendation approvals
 
 try {
-    Get-PendingEntitlementRecommendationApprovalsV1 
+    Get-PendingEntitlementRecommendationApprovalsV1 -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-PendingEntitlementRecommendationApprovalsV1 -Offset $Offset -Limit $Limit  
+    # Get-PendingEntitlementRecommendationApprovalsV1 -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PendingEntitlementRecommendationApprovalsV1"
     Write-Host $_.ErrorDetails
@@ -341,6 +351,9 @@ try {
 [[Back to top]](#) 
 
 ## list-privileged-entitlement-recommendations-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Returns a list of privileged entitlement recommendation groups. Each group aggregates individual entitlement instances that share the same entitlement name and connector type, along with a recommendation score and instance count.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-privileged-entitlement-recommendations-v-1)
@@ -348,6 +361,7 @@ Returns a list of privileged entitlement recommendation groups. Each group aggre
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -370,16 +384,17 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 
 # List privileged entitlement recommendations
 
 try {
-    Get-PrivilegedEntitlementRecommendationsV1 
+    Get-PrivilegedEntitlementRecommendationsV1 -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-PrivilegedEntitlementRecommendationsV1 -Offset $Offset -Limit $Limit  
+    # Get-PrivilegedEntitlementRecommendationsV1 -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PrivilegedEntitlementRecommendationsV1"
     Write-Host $_.ErrorDetails
@@ -462,6 +477,9 @@ try {
 [[Back to top]](#) 
 
 ## patch-entitlement-recommendation-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Partially update a single entitlement recommendation record by its ID. Use this endpoint to update the status, description, or privilege level of a specific SED or privilege recommendation.
 
 [API Spec](https://developer.sailpoint.com/docs/api/patch-entitlement-recommendation-v-1)
@@ -470,6 +488,7 @@ Partially update a single entitlement recommendation record by its ID. Use this 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The unique identifier of the entitlement recommendation to update.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The patch operations to apply to the entitlement recommendation record.
 
 ### Return type
@@ -493,6 +512,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "79db50d4-723c-4aa0-a824-83c2205d82d1" # String | The unique identifier of the entitlement recommendation to update.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
@@ -504,10 +524,10 @@ $Id = "79db50d4-723c-4aa0-a824-83c2205d82d1" # String | The unique identifier of
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-EntitlementRecommendationV1 -Id $Id -JsonPatchOperation $Result 
+    Update-EntitlementRecommendationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-EntitlementRecommendationV1 -Id $Id -JsonPatchOperation $Result  
+    # Update-EntitlementRecommendationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementRecommendationV1"
     Write-Host $_.ErrorDetails
@@ -570,6 +590,9 @@ try {
 [[Back to top]](#) 
 
 ## submit-entitlement-recommendations-assignment-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
 
 [API Spec](https://developer.sailpoint.com/docs/api/submit-entitlement-recommendations-assignment-v-1)
@@ -577,6 +600,7 @@ Assign a set of entitlement recommendation records to a reviewer. The assignee c
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | EntitlementRecommendationAssignRequest | [**EntitlementRecommendationAssignRequest**](../models/entitlement-recommendation-assign-request) | True  | The recommendation IDs and the target assignee.
 
 ### Return type
@@ -598,6 +622,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $EntitlementRecommendationAssignRequest = @"{
   "assignee" : {
     "type" : "IDENTITY",
@@ -610,10 +635,10 @@ $EntitlementRecommendationAssignRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementRecommendationAssignRequest -Json $EntitlementRecommendationAssignRequest
-    Submit-EntitlementRecommendationsAssignmentV1 -EntitlementRecommendationAssignRequest $Result 
+    Submit-EntitlementRecommendationsAssignmentV1 -XSailPointExperimental $XSailPointExperimental -EntitlementRecommendationAssignRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-EntitlementRecommendationsAssignmentV1 -EntitlementRecommendationAssignRequest $Result  
+    # Submit-EntitlementRecommendationsAssignmentV1 -XSailPointExperimental $XSailPointExperimental -EntitlementRecommendationAssignRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-EntitlementRecommendationsAssignmentV1"
     Write-Host $_.ErrorDetails

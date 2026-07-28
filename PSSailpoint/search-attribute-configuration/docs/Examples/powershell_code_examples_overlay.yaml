@@ -4,7 +4,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/searchattributeconfiguration/methods/search-attribute-configuration#create-search-attribute-config-v1
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SearchAttributeConfig = @"
         {
           "displayName" : "New Mail Attribute",
@@ -20,10 +19,10 @@
         
         try {
             $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-            New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result 
+            New-SearchAttributeConfigV1 -SearchAttributeConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # New-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result   
+            # New-SearchAttributeConfigV1 -SearchAttributeConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SearchAttributeConfigV1"
             Write-Host $_.ErrorDetails
@@ -35,15 +34,14 @@
       label: SDK_tools/sdk/powershell/searchattributeconfiguration/methods/search-attribute-configuration#delete-search-attribute-config-v1
       source: |
         $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete extended search attribute
         
         try {
-            Remove-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental 
+            Remove-SearchAttributeConfigV1 -Name $Name 
     
             # Below is a request that includes all optional parameters
-            # Remove-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental   
+            # Remove-SearchAttributeConfigV1 -Name $Name   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SearchAttributeConfigV1"
             Write-Host $_.ErrorDetails
@@ -54,17 +52,16 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/searchattributeconfiguration/methods/search-attribute-configuration#get-search-attribute-config-v1
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
         # List extended search attributes
         
         try {
-            Get-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental 
+            Get-SearchAttributeConfigV1 
     
             # Below is a request that includes all optional parameters
-            # Get-SearchAttributeConfigV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset   
+            # Get-SearchAttributeConfigV1 -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SearchAttributeConfigV1"
             Write-Host $_.ErrorDetails
@@ -76,15 +73,14 @@
       label: SDK_tools/sdk/powershell/searchattributeconfiguration/methods/search-attribute-configuration#get-single-search-attribute-config-v1
       source: |
         $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to get.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get extended search attribute
         
         try {
-            Get-SingleSearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental 
+            Get-SingleSearchAttributeConfigV1 -Name $Name 
     
             # Below is a request that includes all optional parameters
-            # Get-SingleSearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental   
+            # Get-SingleSearchAttributeConfigV1 -Name $Name   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SingleSearchAttributeConfigV1"
             Write-Host $_.ErrorDetails
@@ -96,7 +92,6 @@
       label: SDK_tools/sdk/powershell/searchattributeconfiguration/methods/search-attribute-configuration#patch-search-attribute-config-v1
       source: |
         $Name = "promotedMailAttribute" # String | Name of the search attribute configuration to patch.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -108,10 +103,10 @@
         
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+            Update-SearchAttributeConfigV1 -Name $Name -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-SearchAttributeConfigV1 -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+            # Update-SearchAttributeConfigV1 -Name $Name -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SearchAttributeConfigV1"
             Write-Host $_.ErrorDetails

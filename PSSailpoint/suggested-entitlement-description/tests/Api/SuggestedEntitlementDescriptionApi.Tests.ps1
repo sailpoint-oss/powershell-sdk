@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEntitlementDescriptionApi' {
     Context 'Approve-BulkEntitlementRecommendationsV1' {
         It 'Test Approve-BulkEntitlementRecommendationsV1' {
-            #$TestResult = Approve-BulkEntitlementRecommendationsV1 -BulkApproveEntitlementRecommendationRequest "TEST_VALUE"
+            #$TestResult = Approve-BulkEntitlementRecommendationsV1 -XSailPointExperimental "TEST_VALUE" -BulkApproveEntitlementRecommendationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'Get-PendingEntitlementRecommendationApprovalsV1' {
         It 'Test Get-PendingEntitlementRecommendationApprovalsV1' {
-            #$TestResult = Get-PendingEntitlementRecommendationApprovalsV1 -Offset "TEST_VALUE" -Limit "TEST_VALUE"
+            #$TestResult = Get-PendingEntitlementRecommendationApprovalsV1 -XSailPointExperimental "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'Get-PrivilegedEntitlementRecommendationsV1' {
         It 'Test Get-PrivilegedEntitlementRecommendationsV1' {
-            #$TestResult = Get-PrivilegedEntitlementRecommendationsV1 -Offset "TEST_VALUE" -Limit "TEST_VALUE"
+            #$TestResult = Get-PrivilegedEntitlementRecommendationsV1 -XSailPointExperimental "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'Update-EntitlementRecommendationV1' {
         It 'Test Update-EntitlementRecommendationV1' {
-            #$TestResult = Update-EntitlementRecommendationV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-EntitlementRecommendationV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.SuggestedEntitlementDescription' -name 'SuggestedEnti
 
     Context 'Submit-EntitlementRecommendationsAssignmentV1' {
         It 'Test Submit-EntitlementRecommendationsAssignmentV1' {
-            #$TestResult = Submit-EntitlementRecommendationsAssignmentV1 -EntitlementRecommendationAssignRequest "TEST_VALUE"
+            #$TestResult = Submit-EntitlementRecommendationsAssignmentV1 -XSailPointExperimental "TEST_VALUE" -EntitlementRecommendationAssignRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

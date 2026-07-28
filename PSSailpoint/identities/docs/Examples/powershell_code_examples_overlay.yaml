@@ -5,15 +5,14 @@
       label: SDK_tools/sdk/powershell/identities/methods/identities#delete-identity-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete identity
         
         try {
-            Remove-IdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Remove-IdentityV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Remove-IdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Remove-IdentityV1 -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IdentityV1"
             Write-Host $_.ErrorDetails

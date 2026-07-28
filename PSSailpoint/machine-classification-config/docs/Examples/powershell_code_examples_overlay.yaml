@@ -5,14 +5,15 @@
       label: SDK_tools/sdk/powershell/machineclassificationconfig/methods/machine-classification-config#delete-machine-classification-config-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete source's classification config
         
         try {
-            Remove-MachineClassificationConfigV1 -SourceId $SourceId 
+            Remove-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Remove-MachineClassificationConfigV1 -SourceId $SourceId   
+            # Remove-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineClassificationConfigV1"
             Write-Host $_.ErrorDetails
@@ -24,14 +25,15 @@
       label: SDK_tools/sdk/powershell/machineclassificationconfig/methods/machine-classification-config#get-machine-classification-config-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Machine classification config for source
         
         try {
-            Get-MachineClassificationConfigV1 -SourceId $SourceId 
+            Get-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-MachineClassificationConfigV1 -SourceId $SourceId   
+            # Get-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineClassificationConfigV1"
             Write-Host $_.ErrorDetails
@@ -43,6 +45,7 @@
       label: SDK_tools/sdk/powershell/machineclassificationconfig/methods/machine-classification-config#set-machine-classification-config-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $MachineClassificationConfig = @"
         {
           "criteria" : {
@@ -106,10 +109,10 @@
         
         try {
             $Result = ConvertFrom-JsonToMachineClassificationConfig -Json $MachineClassificationConfig
-            Set-MachineClassificationConfigV1 -SourceId $SourceId -MachineClassificationConfig $Result 
+            Set-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineClassificationConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-MachineClassificationConfigV1 -SourceId $SourceId -MachineClassificationConfig $Result   
+            # Set-MachineClassificationConfigV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineClassificationConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MachineClassificationConfigV1"
             Write-Host $_.ErrorDetails

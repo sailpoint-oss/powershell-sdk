@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.MachineAccountClassify' -name 'MachineAccountClassifyApi' {
     Context 'Send-ClassifyMachineAccountV1' {
         It 'Test Send-ClassifyMachineAccountV1' {
-            #$TestResult = Send-ClassifyMachineAccountV1 -Id "TEST_VALUE" -ClassificationMode "TEST_VALUE"
+            #$TestResult = Send-ClassifyMachineAccountV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -ClassificationMode "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

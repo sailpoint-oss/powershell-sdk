@@ -17,6 +17,9 @@ Use this API to classify a single machine account. A token with API, ORG_ADMIN, 
 .PARAMETER Id
 Account ID.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER ClassificationMode
 Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
 
@@ -35,6 +38,9 @@ function Send-ClassifyMachineAccountV1 {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [ValidateSet("default", "ignoreManual", "forceMachine", "forceHuman")]
         [String]
         ${ClassificationMode},
@@ -63,6 +69,11 @@ function Send-ClassifyMachineAccountV1 {
             throw "Error! The required parameter `Id` missing when calling sendClassifyMachineAccountV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling sendClassifyMachineAccountV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($ClassificationMode) {
             $LocalVarQueryParameters['classificationMode'] = $ClassificationMode

@@ -25,6 +25,9 @@ Method | HTTP request | Description
 
 
 ## get-jit-activation-config-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Returns the tenant's current JIT activation policy configuration, including governed entitlement IDs, activation and extension time limits, default periods, notification settings, and whether the policy applies to future assignments.
 
 The tenant comes from the authenticated request context (not the URL). Use **configType** to select which configuration to read. Returns **404** if that configuration has not been stored yet.
@@ -38,6 +41,7 @@ The tenant comes from the authenticated request context (not the URL). Use **con
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | ConfigType | **String** | True  | Configuration kind to read. Only **policy** (JIT activation policy) is supported today. 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**JITActivationConfigResponse**](../models/jit-activation-config-response)
@@ -60,14 +64,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $ConfigType = "policy" # String | Configuration kind to read. Only **policy** (JIT activation policy) is supported today. 
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get JIT activation policy configuration
 
 try {
-    Get-JitActivationConfigV1 -ConfigType $ConfigType 
+    Get-JitActivationConfigV1 -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-JitActivationConfigV1 -ConfigType $ConfigType  
+    # Get-JitActivationConfigV1 -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-JitActivationConfigV1"
     Write-Host $_.ErrorDetails
@@ -76,6 +81,9 @@ try {
 [[Back to top]](#) 
 
 ## patch-jit-activation-config-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Updates the tenant's JIT activation policy configuration by applying one or more **replace** operations (same shape as JSON Patch: **op**, **path**, **value**). Use this to change entitlement lists, max/default activation and extension durations, notification recipients or template, and the apply-to-future-assignments flag.
 
 The body must be a non-empty array. Only **replace** is supported; each **path** must be one of the values documented on the request item schema. The tenant is taken from the request context. **configType** selects which configuration to update. Returns **404** if the configuration does not exist, or **400** for an empty body, unknown **configType**, or invalid path/value.
@@ -89,6 +97,7 @@ The body must be a non-empty array. Only **replace** is supported; each **path**
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | ConfigType | **String** | True  | Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JitAccessOperationRequest | [**[]JitAccessOperationRequest**](../models/jit-access-operation-request) | True  | 
 
 ### Return type
@@ -112,6 +121,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $ConfigType = "policy" # String | Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $JitAccessOperationRequest = @"{
   "op" : "replace",
   "path" : "/maxActivationPeriodMins",
@@ -123,10 +133,10 @@ $ConfigType = "policy" # String | Configuration kind to update. Only **policy** 
 
 try {
     $Result = ConvertFrom-JsonToJitAccessOperationRequest -Json $JitAccessOperationRequest
-    Update-JitActivationConfigV1 -ConfigType $ConfigType -JitAccessOperationRequest $Result 
+    Update-JitActivationConfigV1 -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental -JitAccessOperationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-JitActivationConfigV1 -ConfigType $ConfigType -JitAccessOperationRequest $Result  
+    # Update-JitActivationConfigV1 -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental -JitAccessOperationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-JitActivationConfigV1"
     Write-Host $_.ErrorDetails

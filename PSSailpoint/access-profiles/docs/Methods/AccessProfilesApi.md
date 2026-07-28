@@ -575,9 +575,6 @@ try {
 [[Back to top]](#) 
 
 ## update-access-profiles-in-bulk-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API initiates a bulk update of field requestable for one or more Access Profiles.
 
 >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**
@@ -591,7 +588,6 @@ This API initiates a bulk update of field requestable for one or more Access Pro
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | AccessProfileBulkUpdateRequestInner | [**[]AccessProfileBulkUpdateRequestInner**](../models/access-profile-bulk-update-request-inner) | True  | 
 
 ### Return type
@@ -614,7 +610,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $AccessProfileBulkUpdateRequestInner = @"[{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]"@ # AccessProfileBulkUpdateRequestInner[] | 
  
 
@@ -622,10 +617,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
-    Update-AccessProfilesInBulkV1 -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result 
+    Update-AccessProfilesInBulkV1 -AccessProfileBulkUpdateRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AccessProfilesInBulkV1 -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result  
+    # Update-AccessProfilesInBulkV1 -AccessProfileBulkUpdateRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesInBulkV1"
     Write-Host $_.ErrorDetails

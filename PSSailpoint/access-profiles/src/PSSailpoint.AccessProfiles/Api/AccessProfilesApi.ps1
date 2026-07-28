@@ -696,9 +696,6 @@ Update access profile(s) requestable field.
 
 This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER AccessProfileBulkUpdateRequestInner
 No description available.
 
@@ -714,9 +711,6 @@ function Update-AccessProfilesInBulkV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${AccessProfileBulkUpdateRequestInner},
         [Switch]
@@ -743,11 +737,6 @@ function Update-AccessProfilesInBulkV1 {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/access-profiles/v1/bulk-update-requestable'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling updateAccessProfilesInBulkV1."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$AccessProfileBulkUpdateRequestInner) {
             throw "Error! The required parameter `AccessProfileBulkUpdateRequestInner` missing when calling updateAccessProfilesInBulkV1."

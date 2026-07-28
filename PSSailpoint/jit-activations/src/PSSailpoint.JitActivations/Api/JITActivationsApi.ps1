@@ -258,6 +258,9 @@ Start JIT activation workflow
 
 Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER JitActivationActivateRequest
 No description available.
 
@@ -273,6 +276,9 @@ function Start-ActivateWorkflowV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${JitActivationActivateRequest},
         [Switch]
@@ -299,6 +305,11 @@ function Start-ActivateWorkflowV1 {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/jit-activations/v1/activate'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling startActivateWorkflowV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JitActivationActivateRequest) {
             throw "Error! The required parameter `JitActivationActivateRequest` missing when calling startActivateWorkflowV1."
@@ -346,6 +357,9 @@ Deactivate JIT activation workflow
 
 Sends a signal to a running JIT Privileged (JIT P) activation workflow to deactivate.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER JitActivationDeactivateRequest
 No description available.
 
@@ -361,6 +375,9 @@ function Start-DeactivateWorkflowV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${JitActivationDeactivateRequest},
         [Switch]
@@ -387,6 +404,11 @@ function Start-DeactivateWorkflowV1 {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/jit-activations/v1/deactivate'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling startDeactivateWorkflowV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JitActivationDeactivateRequest) {
             throw "Error! The required parameter `JitActivationDeactivateRequest` missing when calling startDeactivateWorkflowV1."
@@ -434,6 +456,9 @@ Extend JIT activation workflow
 
 Sends a signal to a running JIT Privileged (JIT P) activation workflow to extend the activation period by the requested number of minutes.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER JitActivationExtendRequest
 No description available.
 
@@ -449,6 +474,9 @@ function Start-ExtendWorkflowV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${JitActivationExtendRequest},
         [Switch]
@@ -475,6 +503,11 @@ function Start-ExtendWorkflowV1 {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/jit-activations/v1/extend'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling startExtendWorkflowV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JitActivationExtendRequest) {
             throw "Error! The required parameter `JitActivationExtendRequest` missing when calling startExtendWorkflowV1."

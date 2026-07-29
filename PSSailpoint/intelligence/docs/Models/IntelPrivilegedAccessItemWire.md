@@ -17,6 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'IntelPrivilegedAccessItemWire', 'Inte
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Privileged** | **Boolean** | True when this item is classified as privileged access for the identity. | [required]
+**PrivilegeLevel** | [**Intelprivilegelevel**](intelprivilegelevel) |  | [optional] 
 **Id** | **String** | Identifier of the privileged access item. | [required]
 **Type** | **String** | Type of privileged access object. | [required]
 **DisplayName** | **String** | Display label for the privileged access item in administrative experiences. | [optional] 
@@ -30,6 +31,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IntelPrivilegedAccessItemWire = Initialize-IntelPrivilegedAccessItemWire  -Privileged true `
+ -PrivilegeLevel null `
  -Id ent-1 `
  -Type entitlement `
  -DisplayName Example_Admin_Access `

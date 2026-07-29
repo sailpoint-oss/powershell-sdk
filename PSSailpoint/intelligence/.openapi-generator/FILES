@@ -24,6 +24,7 @@ docs/IntelPrivilegedAccessSlice.md
 docs/IntelRareAccessSlice.md
 docs/IntelligenceApi.md
 docs/IntelligenceApideveloperSite_code_examples.yaml
+docs/Intelprivilegelevel.md
 docs/LocaleOrigin.md
 docs/Methods/Index.md
 src/PSSailpoint.Intelligence/Api/IntelligenceApi.ps1
@@ -47,6 +48,7 @@ src/PSSailpoint.Intelligence/Model/IntelPrivilegedAccessItemWire.ps1
 src/PSSailpoint.Intelligence/Model/IntelPrivilegedAccessItemWireSource.ps1
 src/PSSailpoint.Intelligence/Model/IntelPrivilegedAccessSlice.ps1
 src/PSSailpoint.Intelligence/Model/IntelRareAccessSlice.ps1
+src/PSSailpoint.Intelligence/Model/Intelprivilegelevel.ps1
 src/PSSailpoint.Intelligence/Model/LocaleOrigin.ps1
 src/PSSailpoint.Intelligence/PSSailpoint.Intelligence.psm1
 src/PSSailpoint.Intelligence/Private/ApiClient.ps1
@@ -75,4 +77,5 @@ tests/Model/IntelPrivilegedAccessItemWire.Tests.ps1
 tests/Model/IntelPrivilegedAccessItemWireSource.Tests.ps1
 tests/Model/IntelPrivilegedAccessSlice.Tests.ps1
 tests/Model/IntelRareAccessSlice.Tests.ps1
+tests/Model/Intelprivilegelevel.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1

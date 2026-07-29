@@ -16,6 +16,8 @@ No description available.
 
 .PARAMETER Privileged
 True when this item is classified as privileged access for the identity.
+.PARAMETER PrivilegeLevel
+No description available.
 .PARAMETER Id
 Identifier of the privileged access item.
 .PARAMETER Type
@@ -41,6 +43,9 @@ function Initialize-IntelPrivilegedAccessItemWire {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Privileged},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${PrivilegeLevel},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
@@ -83,6 +88,7 @@ function Initialize-IntelPrivilegedAccessItemWire {
 
         $PSO = [PSCustomObject]@{
             "privileged" = ${Privileged}
+            "privilegeLevel" = ${PrivilegeLevel}
             "id" = ${Id}
             "type" = ${Type}
             "displayName" = ${DisplayName}
@@ -126,7 +132,7 @@ function ConvertFrom-JsonToIntelPrivilegedAccessItemWire {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in IntelPrivilegedAccessItemWire
-        $AllProperties = ("privileged", "id", "type", "displayName", "name", "source", "attribute", "value")
+        $AllProperties = ("privileged", "privilegeLevel", "id", "type", "displayName", "name", "source", "attribute", "value")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -153,6 +159,12 @@ function ConvertFrom-JsonToIntelPrivilegedAccessItemWire {
             throw "Error! JSON cannot be serialized due to the required property 'type' missing."
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "privilegeLevel"))) { #optional property not found
+            $PrivilegeLevel = $null
+        } else {
+            $PrivilegeLevel = $JsonParameters.PSobject.Properties["privilegeLevel"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
@@ -187,6 +199,7 @@ function ConvertFrom-JsonToIntelPrivilegedAccessItemWire {
 
         $PSO = [PSCustomObject]@{
             "privileged" = ${Privileged}
+            "privilegeLevel" = ${PrivilegeLevel}
             "id" = ${Id}
             "type" = ${Type}
             "displayName" = ${DisplayName}

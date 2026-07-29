@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelPrivilegedAccessItemWire' {
     Context 'IntelPrivilegedAccessItemWire' {
         It 'Initialize-IntelPrivilegedAccessItemWire' {
             # a simple test to create an object
-            #$NewObject = Initialize-IntelPrivilegedAccessItemWire -Privileged "TEST_VALUE" -Id "TEST_VALUE" -Type "TEST_VALUE" -DisplayName "TEST_VALUE" -Name "TEST_VALUE" -Source "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE"
+            #$NewObject = Initialize-IntelPrivilegedAccessItemWire -Privileged "TEST_VALUE" -PrivilegeLevel "TEST_VALUE" -Id "TEST_VALUE" -Type "TEST_VALUE" -DisplayName "TEST_VALUE" -Name "TEST_VALUE" -Source "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE"
             #$NewObject | Should -BeOfType IntelPrivilegedAccessItemWire
             #$NewObject.property | Should -Be 0
         }

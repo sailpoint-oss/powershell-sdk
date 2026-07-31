@@ -24,7 +24,7 @@ Method | HTTP request | Description
 [**New-WorkflowV1**](#create-workflow-v1) | **POST** `/workflows/v1` | Create workflow
 [**Remove-WorkflowV1**](#delete-workflow-v1) | **DELETE** `/workflows/v1/{id}` | Delete workflow by id
 [**Get-WorkflowExecutionHistoryV1**](#get-workflow-execution-history-v1) | **GET** `/workflow-executions/v1/{id}/history` | Get workflow execution history
-[**Get-WorkflowExecutionHistoryV2**](#get-workflow-execution-history-v2) | **GET** `/workflow-executions/v1/{id}/history-v2` | Get updated workflow execution history
+[**Get-WorkflowExecutionHistoryV2ForV1**](#get-workflow-execution-history-v2-for-v1) | **GET** `/workflow-executions/v1/{id}/history-v2` | Get updated workflow execution history
 [**Get-WorkflowExecutionV1**](#get-workflow-execution-v1) | **GET** `/workflow-executions/v1/{id}` | Get workflow execution
 [**Get-WorkflowExecutionsV1**](#get-workflow-executions-v1) | **GET** `/workflows/v1/{id}/executions` | List workflow executions
 [**Get-WorkflowV1**](#get-workflow-v1) | **GET** `/workflows/v1/{id}` | Get workflow by id
@@ -277,6 +277,8 @@ Get a detailed history of a single workflow execution.  Workflow executions are 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Id of the workflow execution
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**WorkflowExecutionEvent[]**](../models/workflow-execution-event)
@@ -299,6 +301,8 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
 # Get workflow execution history
 
@@ -306,7 +310,7 @@ try {
     Get-WorkflowExecutionHistoryV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-WorkflowExecutionHistoryV1 -Id $Id  
+    # Get-WorkflowExecutionHistoryV1 -Id $Id -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowExecutionHistoryV1"
     Write-Host $_.ErrorDetails
@@ -314,10 +318,10 @@ try {
 ```
 [[Back to top]](#) 
 
-## get-workflow-execution-history-v2
+## get-workflow-execution-history-v2-for-v1
 Gets a workflow execution history, trigger input, and workflow definition of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-execution-history-v-2)
+[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-execution-history-v2-for-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -349,12 +353,12 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execu
 # Get updated workflow execution history
 
 try {
-    Get-WorkflowExecutionHistoryV2 -Id $Id 
+    Get-WorkflowExecutionHistoryV2ForV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-WorkflowExecutionHistoryV2 -Id $Id  
+    # Get-WorkflowExecutionHistoryV2ForV1 -Id $Id  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowExecutionHistoryV2"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowExecutionHistoryV2ForV1"
     Write-Host $_.ErrorDetails
 }
 ```

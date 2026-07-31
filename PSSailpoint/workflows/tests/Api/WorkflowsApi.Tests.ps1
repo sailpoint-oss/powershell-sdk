@@ -48,15 +48,15 @@ Describe -tag 'PSSailpoint.Workflows' -name 'WorkflowsApi' {
 
     Context 'Get-WorkflowExecutionHistoryV1' {
         It 'Test Get-WorkflowExecutionHistoryV1' {
-            #$TestResult = Get-WorkflowExecutionHistoryV1 -Id "TEST_VALUE"
+            #$TestResult = Get-WorkflowExecutionHistoryV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-WorkflowExecutionHistoryV2' {
-        It 'Test Get-WorkflowExecutionHistoryV2' {
-            #$TestResult = Get-WorkflowExecutionHistoryV2 -Id "TEST_VALUE"
+    Context 'Get-WorkflowExecutionHistoryV2ForV1' {
+        It 'Test Get-WorkflowExecutionHistoryV2ForV1' {
+            #$TestResult = Get-WorkflowExecutionHistoryV2ForV1 -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

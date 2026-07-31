@@ -415,6 +415,12 @@ Get a detailed history of a single workflow execution.  Workflow executions are 
 .PARAMETER Id
 Id of the workflow execution
 
+.PARAMETER Limit
+Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -429,6 +435,12 @@ function Get-WorkflowExecutionHistoryV1 {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
         [Switch]
         $WithHttpInfo
     )
@@ -454,6 +466,14 @@ function Get-WorkflowExecutionHistoryV1 {
             throw "Error! The required parameter `Id` missing when calling getWorkflowExecutionHistoryV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -495,7 +515,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkflowExecutionHistory
 #>
-function Get-WorkflowExecutionHistoryV2 {
+function Get-WorkflowExecutionHistoryV2ForV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -506,7 +526,7 @@ function Get-WorkflowExecutionHistoryV2 {
     )
 
     Process {
-        'Calling method: Get-WorkflowExecutionHistoryV2' | Write-Debug
+        'Calling method: Get-WorkflowExecutionHistoryV2ForV1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -523,7 +543,7 @@ function Get-WorkflowExecutionHistoryV2 {
 
         $LocalVarUri = '/workflow-executions/v1/{id}/history-v2'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getWorkflowExecutionHistoryV2."
+            throw "Error! The required parameter `Id` missing when calling getWorkflowExecutionHistoryV2ForV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 

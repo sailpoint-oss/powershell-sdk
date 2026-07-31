@@ -106,6 +106,8 @@
       label: SDK_tools/sdk/powershell/workflows/methods/workflows#get-workflow-execution-history-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
         # Get workflow execution history
         
@@ -113,7 +115,7 @@
             Get-WorkflowExecutionHistoryV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-WorkflowExecutionHistoryV1 -Id $Id   
+            # Get-WorkflowExecutionHistoryV1 -Id $Id -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowExecutionHistoryV1"
             Write-Host $_.ErrorDetails
@@ -122,19 +124,19 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflows/methods/workflows#get-workflow-execution-history-v2
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#get-workflow-execution-history-v2-for-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
         
         # Get updated workflow execution history
         
         try {
-            Get-WorkflowExecutionHistoryV2 -Id $Id 
+            Get-WorkflowExecutionHistoryV2ForV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-WorkflowExecutionHistoryV2 -Id $Id   
+            # Get-WorkflowExecutionHistoryV2ForV1 -Id $Id   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowExecutionHistoryV2"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowExecutionHistoryV2ForV1"
             Write-Host $_.ErrorDetails
         }
 - path: /workflow-executions/v1/{id}

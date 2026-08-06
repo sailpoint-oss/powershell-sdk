@@ -91,7 +91,7 @@ Describe 'Entitlements' {
         $ENT = @(
             @{
                 op    = "replace"
-                path  = "/privileged"
+                path  = "/requestable"
                 value = $false
             }
         )

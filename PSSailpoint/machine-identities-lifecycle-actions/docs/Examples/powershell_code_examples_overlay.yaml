@@ -1,0 +1,106 @@
+- path: /machine-identities/v1/lifecycle-actions/{requestId}/cancel
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitieslifecycleactions/methods/machine-identity-lifecycle-actions#cancel-machine-identity-lifecycle-action-v1
+      source: |
+        $RequestId = "a1b2c3d4-e5f6-7890-abcd-ef1234567890" # String | Lifecycle request identifier.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CancelLifecycleActionRequest = @"
+        {
+          "comment" : "Cancelling - will resubmit after maintenance window"
+        }
+        "@
+        
+        # Cancel lifecycle action
+        
+        try {
+            Suspend-MachineIdentityLifecycleActionV1 -RequestId $RequestId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-MachineIdentityLifecycleActionV1 -RequestId $RequestId -XSailPointExperimental $XSailPointExperimental -CancelLifecycleActionRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-MachineIdentityLifecycleActionV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-identities/v1/lifecycle-actions/{requestId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitieslifecycleactions/methods/machine-identity-lifecycle-actions#get-machine-identity-lifecycle-action-v1
+      source: |
+        $RequestId = "a1b2c3d4-e5f6-7890-abcd-ef1234567890" # String | Lifecycle request identifier.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get lifecycle action by requestId
+        
+        try {
+            Get-MachineIdentityLifecycleActionV1 -RequestId $RequestId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineIdentityLifecycleActionV1 -RequestId $RequestId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentityLifecycleActionV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-identities/v1/lifecycle-actions
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitieslifecycleactions/methods/machine-identity-lifecycle-actions#list-machine-identity-lifecycle-actions-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "status in ("RECEIVED","COMPLETED")" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **resourceType**: *eq, in*  **operationType**: *eq, in*  **status**: *eq, in*  **completed**: *eq*  **targetId**: *eq*  **targetName**: *eq, sw*  **sourceId**: *eq*  **created**: *gt, ge, lt, le* (optional)
+        $Sorters = "-created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, status**  Default sort is **-created** (newest first). (optional)
+        $Limit = 50 # Int32 | Max number of results to return. When omitted, the default limit is 50. The maximum allowed limit is 250.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List lifecycle actions
+        
+        try {
+            Get-MachineIdentityLifecycleActionsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineIdentityLifecycleActionsV1 -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentityLifecycleActionsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-identities/v1/{id}/lifecycle-actions
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitieslifecycleactions/methods/machine-identity-lifecycle-actions#submit-machine-identity-lifecycle-action-v1
+      source: |
+        $Id = "1c9c8e1f-2f5f-4f77-9f7e-5d37e4fb3ef0" # String | Machine identity ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $LifecycleActionSubmitRequest = @"
+        {
+          "comments" : [ {
+            "comment" : "Suspending agent until security review completes"
+          }, {
+            "comment" : "Suspending agent until security review completes"
+          }, {
+            "comment" : "Suspending agent until security review completes"
+          }, {
+            "comment" : "Suspending agent until security review completes"
+          }, {
+            "comment" : "Suspending agent until security review completes"
+          } ],
+          "action" : "DEACTIVATE"
+        }
+        "@
+        
+        # Submit machine identity lifecycle action
+        
+        try {
+            $Result = ConvertFrom-JsonToLifecycleActionSubmitRequest -Json $LifecycleActionSubmitRequest
+            Submit-MachineIdentityLifecycleActionV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -LifecycleActionSubmitRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-MachineIdentityLifecycleActionV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -LifecycleActionSubmitRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-MachineIdentityLifecycleActionV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -12,7 +12,7 @@ Get identity by filter
 
 .DESCRIPTION
 
-Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Each paged slice includes `totalCount` from upstream `X-Total-Count` when `items` is non-empty, and carries a `next` continuation URL when `totalCount` exceeds the items returned on this page. Empty slices render as `items: []` with no `totalCount`. The privilegedAccess slice contains the full result and is not paged; it never carries `next` or `totalCount`. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
 
 .PARAMETER Filters
 Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
@@ -85,7 +85,7 @@ List identity access item history
 
 .DESCRIPTION
 
-Continuation endpoint for the parent response's `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+Continuation endpoint for the parent response's `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
 
 .PARAMETER Id
 Non-empty identity id path segment for Intelligence sub-resources.
@@ -95,6 +95,9 @@ Page size. Defaults to 250; values above 250 are rejected with 400.
 
 .PARAMETER Offset
 Zero-based page offset. Defaults to 0.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER WithHttpInfo
 
@@ -116,6 +119,9 @@ function Get-IntelIdentityAccessItemHistoryV1 {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
         [Switch]
         $WithHttpInfo
     )
@@ -150,6 +156,10 @@ function Get-IntelIdentityAccessItemHistoryV1 {
             $LocalVarQueryParameters['offset'] = $Offset
         }
 
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -177,7 +187,7 @@ List identity accounts
 
 .DESCRIPTION
 
-Continuation endpoint for the parent response's `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Requires tenant license idn:response-and-remediation. 
+Continuation endpoint for the parent response's `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Requires tenant license idn:response-and-remediation. 
 
 .PARAMETER Id
 Non-empty identity id path segment for Intelligence sub-resources.
@@ -187,6 +197,9 @@ Page size. Defaults to 250; values above 250 are rejected with 400.
 
 .PARAMETER Offset
 Zero-based page offset. Defaults to 0.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER WithHttpInfo
 
@@ -208,6 +221,9 @@ function Get-IntelIdentityAccountsV1 {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
         [Switch]
         $WithHttpInfo
     )
@@ -242,6 +258,10 @@ function Get-IntelIdentityAccountsV1 {
             $LocalVarQueryParameters['offset'] = $Offset
         }
 
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -269,7 +289,7 @@ List identity certification history
 
 .DESCRIPTION
 
-Continuation endpoint for the parent response's `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+Continuation endpoint for the parent response's `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
 
 .PARAMETER Id
 Non-empty identity id path segment for Intelligence sub-resources.
@@ -279,6 +299,9 @@ Page size. Defaults to 250; values above 250 are rejected with 400.
 
 .PARAMETER Offset
 Zero-based page offset. Defaults to 0.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER WithHttpInfo
 
@@ -300,6 +323,9 @@ function Get-IntelIdentityCertificationHistoryV1 {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
         [Switch]
         $WithHttpInfo
     )
@@ -334,6 +360,10 @@ function Get-IntelIdentityCertificationHistoryV1 {
             $LocalVarQueryParameters['offset'] = $Offset
         }
 
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -361,7 +391,7 @@ List identity rare access
 
 .DESCRIPTION
 
-Continuation endpoint for the parent response's `outliers.rareAccess.next` link. Resolves the identity's first outlier, then returns one page of rare access items for the supplied limit and offset values. An identity with no outlier returns an empty array. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
+Continuation endpoint for the parent response's `outliers.rareAccess.next` link. Resolves the identity's first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
 
 .PARAMETER Id
 Non-empty identity id path segment for Intelligence sub-resources.
@@ -371,6 +401,9 @@ Page size. Defaults to 250; values above 250 are rejected with 400.
 
 .PARAMETER Offset
 Zero-based page offset. Defaults to 0.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER WithHttpInfo
 
@@ -392,6 +425,9 @@ function Get-IntelIdentityRareAccessV1 {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
         [Switch]
         $WithHttpInfo
     )
@@ -424,6 +460,10 @@ function Get-IntelIdentityRareAccessV1 {
 
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
         }
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `

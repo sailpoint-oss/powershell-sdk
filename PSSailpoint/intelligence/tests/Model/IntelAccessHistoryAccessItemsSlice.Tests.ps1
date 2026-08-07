@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelAccessHistoryAccessItemsSli
     Context 'IntelAccessHistoryAccessItemsSlice' {
         It 'Initialize-IntelAccessHistoryAccessItemsSlice' {
             # a simple test to create an object
-            #$NewObject = Initialize-IntelAccessHistoryAccessItemsSlice -Items "TEST_VALUE" -Next "TEST_VALUE"
+            #$NewObject = Initialize-IntelAccessHistoryAccessItemsSlice -Items "TEST_VALUE" -TotalCount "TEST_VALUE" -Next "TEST_VALUE"
             #$NewObject | Should -BeOfType IntelAccessHistoryAccessItemsSlice
             #$NewObject.property | Should -Be 0
         }

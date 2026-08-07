@@ -97,6 +97,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'machine-account-subtypes' 'src' 'P
 Import-Module -Name (Join-Path $PSScriptRoot 'machine-accounts' 'src' 'PSSailpoint.MachineAccounts') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'machine-classification-config' 'src' 'PSSailpoint.MachineClassificationConfig') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'machine-identities' 'src' 'PSSailpoint.MachineIdentities') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'machine-identities-lifecycle-actions' 'src' 'PSSailpoint.MachineIdentitiesLifecycleActions') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'managed-clients' 'src' 'PSSailpoint.ManagedClients') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'managed-cluster-types' 'src' 'PSSailpoint.ManagedClusterTypes') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'managed-clusters' 'src' 'PSSailpoint.ManagedClusters') -Force -Global

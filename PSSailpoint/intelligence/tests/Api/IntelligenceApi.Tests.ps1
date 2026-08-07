@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelligenceApi' {
 
     Context 'Get-IntelIdentityAccessItemHistoryV1' {
         It 'Test Get-IntelIdentityAccessItemHistoryV1' {
-            #$TestResult = Get-IntelIdentityAccessItemHistoryV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-IntelIdentityAccessItemHistoryV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelligenceApi' {
 
     Context 'Get-IntelIdentityAccountsV1' {
         It 'Test Get-IntelIdentityAccountsV1' {
-            #$TestResult = Get-IntelIdentityAccountsV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-IntelIdentityAccountsV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelligenceApi' {
 
     Context 'Get-IntelIdentityCertificationHistoryV1' {
         It 'Test Get-IntelIdentityCertificationHistoryV1' {
-            #$TestResult = Get-IntelIdentityCertificationHistoryV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-IntelIdentityCertificationHistoryV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelligenceApi' {
 
     Context 'Get-IntelIdentityRareAccessV1' {
         It 'Test Get-IntelIdentityRareAccessV1' {
-            #$TestResult = Get-IntelIdentityRareAccessV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-IntelIdentityRareAccessV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

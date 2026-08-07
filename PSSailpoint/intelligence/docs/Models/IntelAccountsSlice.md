@@ -17,14 +17,16 @@ tags: ['SDK', 'Software Development Kit', 'IntelAccountsSlice', 'IntelAccountsSl
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | [**[]IntelAccessAccountWire**](intel-access-account-wire) | First page of accounts for the identity. | [required]
-**Next** | **String** | Absolute URL to the next accounts page; present only when more results exist. | [optional] 
+**TotalCount** | **Int32** | Total number of accounts for this identity; omitted when `items` is empty. | [optional] 
+**Next** | **String** | Absolute URL to the next accounts page; present when totalCount exceeds the items returned on this page. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $IntelAccountsSlice = Initialize-IntelAccountsSlice  -Items null `
- -Next https://tenant.example.api.cloud.sailpoint.com/intelligence/identities/v1/ef38f94347e94562b5bb8424a56397d8/accounts?limit=10&offset=10
+ -TotalCount 42 `
+ -Next https://tenant.example.api.cloud.sailpoint.com/intelligence/identities/v1/ef38f94347e94562b5bb8424a56397d8/accounts?limit=10&offset=10&count=true
 ```
 
 - Convert the resource to JSON

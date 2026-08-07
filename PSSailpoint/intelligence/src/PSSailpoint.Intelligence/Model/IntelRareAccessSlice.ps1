@@ -16,8 +16,10 @@ Rare access slice embedded in the aggregate identity response.
 
 .PARAMETER Items
 First page of rare access items for the identity.
+.PARAMETER TotalCount
+Total number of rare-access items for the resolved outlier; omitted when `items` is empty.
 .PARAMETER Next
-Absolute URL to the next rareAccess page; present only when more results exist.
+Absolute URL to the next rareAccess page; present when totalCount exceeds the items returned on this page.
 .OUTPUTS
 
 IntelRareAccessSlice<PSCustomObject>
@@ -29,6 +31,9 @@ function Initialize-IntelRareAccessSlice {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Items},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${TotalCount},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Next}
@@ -42,9 +47,14 @@ function Initialize-IntelRareAccessSlice {
             throw "invalid value for 'Items', 'Items' cannot be null."
         }
 
+        if ($TotalCount -and $TotalCount -lt 1) {
+          throw "invalid value for 'TotalCount', must be greater than or equal to 1."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "items" = ${Items}
+            "totalCount" = ${TotalCount}
             "next" = ${Next}
         }
 
@@ -82,7 +92,7 @@ function ConvertFrom-JsonToIntelRareAccessSlice {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in IntelRareAccessSlice
-        $AllProperties = ("items", "next")
+        $AllProperties = ("items", "totalCount", "next")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -99,6 +109,12 @@ function ConvertFrom-JsonToIntelRareAccessSlice {
             $Items = $JsonParameters.PSobject.Properties["items"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalCount"))) { #optional property not found
+            $TotalCount = $null
+        } else {
+            $TotalCount = $JsonParameters.PSobject.Properties["totalCount"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "next"))) { #optional property not found
             $Next = $null
         } else {
@@ -107,6 +123,7 @@ function ConvertFrom-JsonToIntelRareAccessSlice {
 
         $PSO = [PSCustomObject]@{
             "items" = ${Items}
+            "totalCount" = ${TotalCount}
             "next" = ${Next}
         }
 

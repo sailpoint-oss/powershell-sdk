@@ -37,8 +37,8 @@ Name | Type | Description | Notes
 **Resource** | [**ResourceV2**](resource-v2) |  | [optional] 
 **Source** | [**MachineIdentityV2Source**](machine-identity-v2-source) |  | [optional] 
 **UserEntitlements** | [**[]UserEntitlementV2**](user-entitlement-v2) | The user entitlements associated to the machine identity. | [optional] 
-**BusinessApplicationRefs** | [**[]BusinessApplicationRef**](business-application-ref) | Optional Business Application references associated with this machine identity. | [optional] 
-**EffectiveSanctionedStatus** | **SanctionedStatus** |  | [optional] 
+**BusinessApplicationRefs** | [**[]BusinessApplicationRef**](business-application-ref) | Optional Business Application references associated with this machine identity. Available when Business Applications is enabled for the tenant. On create and patch, at most one reference is allowed and is persisted as a `MANUAL` correlation. When Business Applications is not enabled, this field is null on responses and is rejected (`400`) if supplied on write. | [optional] 
+**EffectiveSanctionedStatus** | **SanctionedStatus** | Derived sanctioned status from linked Business Applications; `UNKNOWN` when no refs are present. Available when Business Applications is enabled for the tenant; null when it is not enabled. Read-only on create and patch input. | [optional] [readonly] 
 **Risk** | [**MachineIdentityV2Risk**](machine-identity-v2-risk) |  | [optional] 
 
 ## Examples

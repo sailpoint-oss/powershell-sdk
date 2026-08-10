@@ -37,6 +37,7 @@
             "id" : "2c9180a46faadee4016fb4e018c20639",
             "type" : "IDENTITY"
           },
+          "level" : "HIGH",
           "created" : "2020-01-01T00:00:00Z",
           "scheduled" : true,
           "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
@@ -51,7 +52,17 @@
             }
           },
           "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
+          "allowedControls" : [ {
+            "type" : "COMPENSATING_CONTROL",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "name" : "Mitigating Control 1"
+          } ],
           "type" : "GENERAL",
+          "secondaryOwnerRefs" : [ {
+            "type" : "IDENTITY",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "name" : "Support"
+          } ],
           "tags" : [ "TAG1", "TAG2" ],
           "name" : "policy-xyz",
           "modified" : "2020-01-01T00:00:00Z",
@@ -256,8 +267,8 @@
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "id eq "bc693f07e7b645539626c25954c58554"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* (optional)
-        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional)
+        $Filters = "id eq "bc693f07e7b645539626c25954c58554"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **state**: *eq, in*  **level**: *eq, in*  **type**: *eq*  **description**: *eq, co, sw*  **ownerRef.name**: *eq, sw* (optional)
+        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description, ownerRef.name** (optional)
         
         # List sod policies
         
@@ -396,6 +407,7 @@
             "id" : "2c9180a46faadee4016fb4e018c20639",
             "type" : "IDENTITY"
           },
+          "level" : "HIGH",
           "created" : "2020-01-01T00:00:00Z",
           "scheduled" : true,
           "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
@@ -410,7 +422,17 @@
             }
           },
           "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
+          "allowedControls" : [ {
+            "type" : "COMPENSATING_CONTROL",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "name" : "Mitigating Control 1"
+          } ],
           "type" : "GENERAL",
+          "secondaryOwnerRefs" : [ {
+            "type" : "IDENTITY",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "name" : "Support"
+          } ],
           "tags" : [ "TAG1", "TAG2" ],
           "name" : "policy-xyz",
           "modified" : "2020-01-01T00:00:00Z",

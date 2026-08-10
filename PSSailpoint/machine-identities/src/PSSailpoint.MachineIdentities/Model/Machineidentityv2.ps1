@@ -51,9 +51,7 @@ No description available.
 .PARAMETER UserEntitlements
 The user entitlements associated to the machine identity.
 .PARAMETER BusinessApplicationRefs
-Optional Business Application references associated with this machine identity.
-.PARAMETER EffectiveSanctionedStatus
-No description available.
+Optional Business Application references associated with this machine identity. Available when Business Applications is enabled for the tenant. On create and patch, at most one reference is allowed and is persisted as a `MANUAL` correlation. When Business Applications is not enabled, this field is null on responses and is rejected (`400`) if supplied on write.
 .PARAMETER Risk
 No description available.
 .OUTPUTS
@@ -122,10 +120,6 @@ function Initialize-Machineidentityv2 {
         [PSCustomObject[]]
         ${BusinessApplicationRefs},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SANCTIONED", "UNSANCTIONED", "UNKNOWN")]
-        [PSCustomObject]
-        ${EffectiveSanctionedStatus},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Risk}
     )
@@ -133,6 +127,10 @@ function Initialize-Machineidentityv2 {
     Process {
         'Creating PSCustomObject: PSSailpoint.MachineIdentities => Machineidentityv2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$BusinessApplicationRefs -and $BusinessApplicationRefs.length -gt 1) {
+            throw "invalid value for 'BusinessApplicationRefs', number of items must be less than or equal to 1."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -155,7 +153,6 @@ function Initialize-Machineidentityv2 {
             "source" = ${Source}
             "userEntitlements" = ${UserEntitlements}
             "businessApplicationRefs" = ${BusinessApplicationRefs}
-            "effectiveSanctionedStatus" = ${EffectiveSanctionedStatus}
             "risk" = ${Risk}
         }
 

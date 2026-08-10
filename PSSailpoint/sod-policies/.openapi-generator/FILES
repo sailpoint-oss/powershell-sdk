@@ -27,9 +27,11 @@ docs/ScheduleType.md
 docs/Selector.md
 docs/SelectorType.md
 docs/SodPolicy.md
+docs/SodPolicyAllowedControlsInner.md
 docs/SodPolicyConflictingAccessCriteria.md
 docs/SodPolicyOwnerRef.md
 docs/SodPolicySchedule.md
+docs/SodPolicySecondaryOwnerRefsInner.md
 docs/SodRecipient.md
 docs/SodReportResultDto.md
 docs/ViolationOwnerAssignmentConfig.md
@@ -57,9 +59,11 @@ src/PSSailpoint.SodPolicies/Model/ScheduleType.ps1
 src/PSSailpoint.SodPolicies/Model/Selector.ps1
 src/PSSailpoint.SodPolicies/Model/SelectorType.ps1
 src/PSSailpoint.SodPolicies/Model/SodPolicy.ps1
+src/PSSailpoint.SodPolicies/Model/SodPolicyAllowedControlsInner.ps1
 src/PSSailpoint.SodPolicies/Model/SodPolicyConflictingAccessCriteria.ps1
 src/PSSailpoint.SodPolicies/Model/SodPolicyOwnerRef.ps1
 src/PSSailpoint.SodPolicies/Model/SodPolicySchedule.ps1
+src/PSSailpoint.SodPolicies/Model/SodPolicySecondaryOwnerRefsInner.ps1
 src/PSSailpoint.SodPolicies/Model/SodRecipient.ps1
 src/PSSailpoint.SodPolicies/Model/SodReportResultDto.ps1
 src/PSSailpoint.SodPolicies/Model/ViolationOwnerAssignmentConfig.ps1
@@ -93,9 +97,11 @@ tests/Model/ScheduleType.Tests.ps1
 tests/Model/Selector.Tests.ps1
 tests/Model/SelectorType.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
+tests/Model/SodPolicyAllowedControlsInner.Tests.ps1
 tests/Model/SodPolicyConflictingAccessCriteria.Tests.ps1
 tests/Model/SodPolicyOwnerRef.Tests.ps1
 tests/Model/SodPolicySchedule.Tests.ps1
+tests/Model/SodPolicySecondaryOwnerRefsInner.Tests.ps1
 tests/Model/SodRecipient.Tests.ps1
 tests/Model/SodReportResultDto.Tests.ps1
 tests/Model/ViolationOwnerAssignmentConfig.Tests.ps1

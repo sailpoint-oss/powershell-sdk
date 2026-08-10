@@ -20,6 +20,12 @@ Policy Business Name
 Optional description of the SOD policy
 .PARAMETER OwnerRef
 No description available.
+.PARAMETER SecondaryOwnerRefs
+Additional owners of the SOD policy.(Max 10). Applicable only to Conflicting Access Based policies.
+.PARAMETER AllowedControls
+Compensating or other controls allowed for this policy.(Max 10). Applicable only to Conflicting Access Based policies.
+.PARAMETER Level
+Policy severity or priority level. Applicable only to Conflicting Access Based policies. If not specified, default will be HIGH.
 .PARAMETER ExternalPolicyReference
 Optional External Policy Reference
 .PARAMETER PolicyQuery
@@ -57,6 +63,16 @@ function Initialize-SodPolicy {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OwnerRef},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${SecondaryOwnerRefs},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${AllowedControls},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CRITICAL", "HIGH", "MEDIUM", "LOW")]
+        [String]
+        ${Level},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ExternalPolicyReference},
@@ -100,6 +116,9 @@ function Initialize-SodPolicy {
             "name" = ${Name}
             "description" = ${Description}
             "ownerRef" = ${OwnerRef}
+            "secondaryOwnerRefs" = ${SecondaryOwnerRefs}
+            "allowedControls" = ${AllowedControls}
+            "level" = ${Level}
             "externalPolicyReference" = ${ExternalPolicyReference}
             "policyQuery" = ${PolicyQuery}
             "compensatingControls" = ${CompensatingControls}
@@ -146,7 +165,7 @@ function ConvertFrom-JsonToSodPolicy {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SodPolicy
-        $AllProperties = ("id", "name", "created", "modified", "description", "ownerRef", "externalPolicyReference", "policyQuery", "compensatingControls", "correctionAdvice", "state", "tags", "creatorId", "modifierId", "violationOwnerAssignmentConfig", "scheduled", "type", "conflictingAccessCriteria")
+        $AllProperties = ("id", "name", "created", "modified", "description", "ownerRef", "secondaryOwnerRefs", "allowedControls", "level", "externalPolicyReference", "policyQuery", "compensatingControls", "correctionAdvice", "state", "tags", "creatorId", "modifierId", "violationOwnerAssignmentConfig", "scheduled", "type", "conflictingAccessCriteria")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -187,6 +206,24 @@ function ConvertFrom-JsonToSodPolicy {
             $OwnerRef = $null
         } else {
             $OwnerRef = $JsonParameters.PSobject.Properties["ownerRef"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "secondaryOwnerRefs"))) { #optional property not found
+            $SecondaryOwnerRefs = $null
+        } else {
+            $SecondaryOwnerRefs = $JsonParameters.PSobject.Properties["secondaryOwnerRefs"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "allowedControls"))) { #optional property not found
+            $AllowedControls = $null
+        } else {
+            $AllowedControls = $JsonParameters.PSobject.Properties["allowedControls"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "level"))) { #optional property not found
+            $Level = $null
+        } else {
+            $Level = $JsonParameters.PSobject.Properties["level"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "externalPolicyReference"))) { #optional property not found
@@ -268,6 +305,9 @@ function ConvertFrom-JsonToSodPolicy {
             "modified" = ${Modified}
             "description" = ${Description}
             "ownerRef" = ${OwnerRef}
+            "secondaryOwnerRefs" = ${SecondaryOwnerRefs}
+            "allowedControls" = ${AllowedControls}
+            "level" = ${Level}
             "externalPolicyReference" = ${ExternalPolicyReference}
             "policyQuery" = ${PolicyQuery}
             "compensatingControls" = ${CompensatingControls}

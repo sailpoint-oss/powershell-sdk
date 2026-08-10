@@ -6,6 +6,46 @@
 #
 
 Describe -tag 'PSSailpoint.SodViolations' -name 'SODViolationsApi' {
+    Context 'Get-ViolationV1' {
+        It 'Test Get-ViolationV1' {
+            #$TestResult = Get-ViolationV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-MyViolationsV1' {
+        It 'Test Get-MyViolationsV1' {
+            #$TestResult = Get-MyViolationsV1 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-ViolationsV1' {
+        It 'Test Get-ViolationsV1' {
+            #$TestResult = Get-ViolationsV1 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Move-ViolationV1' {
+        It 'Test Move-ViolationV1' {
+            #$TestResult = Move-ViolationV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -Violationreassigninput "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Start-ApplyControlV1' {
+        It 'Test Start-ApplyControlV1' {
+            #$TestResult = Start-ApplyControlV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -Appliedcontrolcreate "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Start-PredictSodViolationsV1' {
         It 'Test Start-PredictSodViolationsV1' {
             #$TestResult = Start-PredictSodViolationsV1 -IdentityWithNewAccess "TEST_VALUE"

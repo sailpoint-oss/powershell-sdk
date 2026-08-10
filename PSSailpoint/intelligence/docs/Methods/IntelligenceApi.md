@@ -43,15 +43,49 @@ Method | HTTP request | Description
 ## get-identity-intelligence-v1
 Requires tenant license idn:response-and-remediation.
 
-Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope.
-Supported queryable fields are id and email only.
-The response embeds the first page of accounts, rare access, access-history access items, and
-access-history certifications. Each paged slice includes `totalCount` from upstream
-`X-Total-Count` when `items` is non-empty, and carries a `next` continuation URL when
-`totalCount` exceeds the items returned on this page. Empty slices render as `items: []` with no
-`totalCount`. The privilegedAccess slice contains the full result and is not paged; it never
-carries `next` or `totalCount`.
-The outliers slice is omitted when the tenant lacks the IDA-outliers license.
+**Authentication and data segmentation**
+
+Intelligence forwards the caller JWT to downstream identity and search services (context client).
+Enriched results, including non-human identity resolution, are filtered to the caller's Data
+Segmentation visibility.
+
+**Caution:** Generic API Management API keys are not tied to a user identity. When Data
+Segmentation is enabled, API key authentication may fail or return incomplete data because
+downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token)
+or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html)
+and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).
+
+Resolves exactly one identity using a single SCIM-style filters expression.
+
+**Supported filters**
+
+| Filter field | Lookup mode | Notes |
+|---|---|---|
+| id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. |
+| email eq | Human only | Human identity lookup by email only. |
+| opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |
+
+Single-clause filters only; composite and or expressions are rejected with HTTP 400.
+
+**Human envelope (type Human)**
+
+Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount
+from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when
+totalCount exceeds the items returned on this page. Slices are always present (empty uses
+items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries
+next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500,
+except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license
+(upstream 401 or 403). identityGraph is omitted when the tenant lacks the idg:base license.
+
+**Non-human identity envelope (type NHI)**
+
+Returns flat non-human identity fields at the top level plus correlated machine accounts on the
+aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary).
+Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child
+routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity
+returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409
+with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. identityGraph is omitted
+when the tenant lacks the idg:base license.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-identity-intelligence-v-1)
@@ -59,22 +93,22 @@ The outliers slice is omitted when the tenant lacks the IDA-outliers license.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Filters | **String** | True  | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
+  Query | Filters | **String** | True  | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
 
 ### Return type
-[**IntelIdentityAggregate**](../models/intel-identity-aggregate)
+[**Intelidentityenvelope**](../models/intelidentityenvelope)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Exactly one identity matched. | IntelIdentityAggregate
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+200 | Exactly one identity matched. | Intelidentityenvelope
+400 | Missing or invalid filters, unsupported filter field or operator, composite and or filter combination, or opaqueIdentifier lookup when non-human machine resolution is disabled for the tenant.  | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
-409 | Multiple identities matched the filter. | ErrorResponseDto
+403 | Unauthorized access | ErrorResponseDto
+404 | No identity matched the filter (detailCode IDC_IDENTITY_NOT_FOUND). | IntelIdentityNotFoundBody
+409 | Multiple identities matched the filter (detailCode IDC_IDENTITY_AMBIGUOUS), including human email or id multi-hit, human and machine id eq clash, and non-human opaque resolution ambiguity. Response includes candidates with id and displayName for refinement.  | Intelidentityambiguousbody
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+500 | Upstream or internal failure. Identity resolution may pass an upstream non-2xx through; enrichment-slice failures are sanitized to a generic HTTP 500.  | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -82,7 +116,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
+$Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
 
 # Get identity by filter
 
@@ -105,6 +139,8 @@ Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages).
 Unsupported event types and per-record decode failures are dropped server-side.
 Requires tenant license idn:response-and-remediation.
 
+Not applicable to non-human identities.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-intel-identity-access-item-history-v-1)
 
@@ -125,7 +161,7 @@ Code | Description  | Data Type
 200 | One page of access-item history events. | IntelAccessItemHistoryEvent[]
 400 | Invalid path or query parameters. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+403 | Unauthorized access | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
 500 | Internal or upstream server failure. | ErrorResponseDto
 
@@ -155,9 +191,10 @@ try {
 [[Back to top]](#) 
 
 ## get-intel-identity-accounts-v1
-Continuation endpoint for the parent response's `accounts.next` link.
+Continuation endpoint for a Human identity's `accounts.next` link.
 Returns one page of account rows for the supplied limit and offset values.
 Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages).
+Not applicable to non-human identities (NHI accounts are returned on the NHI aggregate only).
 Requires tenant license idn:response-and-remediation.
 
 
@@ -180,7 +217,7 @@ Code | Description  | Data Type
 200 | One page of accounts. | IntelAccessAccountWire[]
 400 | Invalid path or query parameters. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+403 | Unauthorized access | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
 500 | Internal or upstream server failure. | ErrorResponseDto
 
@@ -216,6 +253,8 @@ Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages).
 Per-record decode failures are dropped server-side.
 Requires tenant license idn:response-and-remediation.
 
+Not applicable to non-human identities.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-intel-identity-certification-history-v-1)
 
@@ -236,7 +275,7 @@ Code | Description  | Data Type
 200 | One page of certification history events. | IntelCertificationHistoryEvent[]
 400 | Invalid path or query parameters. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+403 | Unauthorized access | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
 500 | Internal or upstream server failure. | ErrorResponseDto
 
@@ -273,6 +312,8 @@ items for the supplied limit and offset values. Pass `count=true` to receive
 returns an empty array with `X-Total-Count: 0` when `count=true`. Requires
 tenant license idn:response-and-remediation and the IDA-outliers license.
 
+Not applicable to non-human identities (no outliers slice on the NHI envelope).
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-intel-identity-rare-access-v-1)
 
@@ -293,7 +334,7 @@ Code | Description  | Data Type
 200 | One page of rare access items. | IntelOutlierAccessItem[]
 400 | Invalid path or query parameters. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+403 | Unauthorized access | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
 500 | Internal or upstream server failure. | ErrorResponseDto
 

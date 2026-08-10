@@ -1,3 +1,128 @@
+- path: /violations/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodviolations/methods/sod-violations#get-violation-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "3e078865-55ed-43cf-b83c-85c58d2016e6" # String | The ID of the policy violation to fetch
+        
+        # Get policy violation by ID
+        
+        try {
+            Get-ViolationV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ViolationV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ViolationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /my-violations/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodviolations/methods/sod-violations#list-my-violations-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "status in ("Open","Mitigated") and level eq "High"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, in*  **policyId**: *eq*  **level**: *eq, in*  **policyName**: *eq, in, sw, co*  **ownerName**: *eq, in, sw, co*  **targetName**: *eq, in, sw, co*  **targetId**: *eq, in* (optional)
+        $Sorters = "-level" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **level**  Prefix a field with - for descending order, for example -level. If omitted, default ordering matches GET /violations (created descending, then id descending). (optional)
+        
+        # List My Policy Violations
+        
+        try {
+            Get-MyViolationsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MyViolationsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MyViolationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /violations/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodviolations/methods/sod-violations#list-violations-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "status in ("Open","Mitigated") and level eq "High" and policyId eq "bc693f07-e7b6-4553-9626-c25954c58554" and ownerId eq "de305d54-75b4-431b-adb2-eb6b9e546014"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, in*  **policyId**: *eq*  **ownerId**: *eq*  **level**: *eq, in*  **policyName**: *eq, in, sw, co*  **ownerName**: *eq, in, sw, co*  **targetName**: *eq, in, sw, co*  **targetId**: *eq, in* (optional)
+        $Sorters = "-level" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **level**  Prefix a field with - for descending order, for example -level. If no sorters are provided, results default to created descending, then id descending. (optional)
+        
+        # List Policy Violations
+        
+        try {
+            Get-ViolationsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ViolationsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ViolationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /violations/v1/{id}/reassign
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodviolations/methods/sod-violations#move-violation-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "3e078865-55ed-43cf-b83c-85c58d2016e6" # String | The ID of the policy violation to fetch
+        $Violationreassigninput = @"
+        {
+          "comments" : "some comments about the reassignment",
+          "reassignTo" : {
+            "assigneeType" : "IDENTITY",
+            "assigneeId" : "3e07886555ed43cfb83c85c58d2016e6"
+          }
+        }
+        "@
+        
+        # Reassign policy violation
+        
+        try {
+            $Result = ConvertFrom-JsonToViolationreassigninput -Json $Violationreassigninput
+            Move-ViolationV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Violationreassigninput $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Move-ViolationV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Violationreassigninput $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-ViolationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /violations/v1/{id}/controls
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodviolations/methods/sod-violations#start-apply-control-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "3e078865-55ed-43cf-b83c-85c58d2016e6" # String | The ID of the policy violation to fetch
+        $Appliedcontrolcreate = @"
+        {
+          "comments" : "Some comments about the applied control",
+          "control" : "3e07886555ed43cfb83c85c58d2016e6"
+        }
+        "@
+        
+        # Apply control to violation
+        
+        try {
+            $Result = ConvertFrom-JsonToAppliedcontrolcreate -Json $Appliedcontrolcreate
+            Start-ApplyControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Appliedcontrolcreate $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-ApplyControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Appliedcontrolcreate $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ApplyControlV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sod-violations/v1/predict
   method: POST
   xCodeSample:

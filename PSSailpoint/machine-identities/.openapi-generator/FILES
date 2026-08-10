@@ -11,6 +11,7 @@ docs/CorrelationCondition.md
 docs/CorrelationConfig.md
 docs/CorrelationRule.md
 docs/CorrelationRuleAction.md
+docs/CorrelationType.md
 docs/DtoType.md
 docs/ErrorMessageDto.md
 docs/ErrorResponseDto.md
@@ -58,6 +59,7 @@ src/PSSailpoint.MachineIdentities/Model/CorrelationCondition.ps1
 src/PSSailpoint.MachineIdentities/Model/CorrelationConfig.ps1
 src/PSSailpoint.MachineIdentities/Model/CorrelationRule.ps1
 src/PSSailpoint.MachineIdentities/Model/CorrelationRuleAction.ps1
+src/PSSailpoint.MachineIdentities/Model/CorrelationType.ps1
 src/PSSailpoint.MachineIdentities/Model/DtoType.ps1
 src/PSSailpoint.MachineIdentities/Model/ErrorMessageDto.ps1
 src/PSSailpoint.MachineIdentities/Model/ErrorResponseDto.ps1
@@ -108,6 +110,7 @@ tests/Model/CorrelationCondition.Tests.ps1
 tests/Model/CorrelationConfig.Tests.ps1
 tests/Model/CorrelationRule.Tests.ps1
 tests/Model/CorrelationRuleAction.Tests.ps1
+tests/Model/CorrelationType.Tests.ps1
 tests/Model/DtoType.Tests.ps1
 tests/Model/ErrorMessageDto.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1

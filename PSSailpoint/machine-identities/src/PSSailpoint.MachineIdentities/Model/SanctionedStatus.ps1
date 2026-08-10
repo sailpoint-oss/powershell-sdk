@@ -12,7 +12,7 @@ Enum SanctionedStatus.
 
 .DESCRIPTION
 
-Sanctioned status for a Business Application or derived machine identity effective status.
+Sanctioned status for a Business Application or the derived effective status on a machine identity. Values are case-sensitive.
 #>
 
 enum SanctionedStatus {

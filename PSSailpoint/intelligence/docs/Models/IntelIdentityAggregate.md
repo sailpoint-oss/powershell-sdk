@@ -17,11 +17,10 @@ tags: ['SDK', 'Software Development Kit', 'IntelIdentityAggregate', 'IntelIdenti
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Identity Security Cloud identifier for this identity. | [required]
-**Type** |  **Enum** [  "HUMAN" ] | Identity type for the matched record. | [required]
+**Type** |  **Enum** [  "Human" ] | Identity type for the matched record. | [required]
 **DisplayName** | **String** | Preferred display name for the identity across administrative experiences. | [optional] 
 **Description** | **String** | Optional free-text description assigned to the identity profile when present. | [optional] 
 **Subtype** |  **Enum** [  "Employee",    "Non Employee",    "Cannot Determine" ] | NERM classification for the identity. | [optional] 
-**Owners** | **String** | Serialized owner reference information when populated by upstream identity services. | [optional] 
 **Attributes** | **map[string]AnyType** | Arbitrary SCIM-style attribute bag returned for the identity context view. | [optional] 
 **Created** | **System.DateTime** | Timestamp when the identity record was created in Identity Security Cloud. | [optional] 
 **Modified** | **System.DateTime** | Timestamp when the identity record was last modified in Identity Security Cloud. | [optional] 
@@ -29,6 +28,7 @@ Name | Type | Description | Notes
 **Email** | **String** | Primary business email address for the identity. | [optional] 
 **IdentityStatus** | **String** | Current identity lifecycle status label from Identity Security Cloud. | [optional] 
 **IsManager** | **Boolean** | True when the identity is flagged as a people manager in the organization. | [optional] [default to $false]
+**IdentityGraph** | [**Intelidentitygraphlink**](intelidentitygraphlink) | Omitted when the tenant lacks the idg:base license. | [optional] 
 **Accounts** | [**IntelAccountsSlice**](intel-accounts-slice) | First page of accounts for the identity. | [required]
 **PrivilegedAccess** | [**IntelPrivilegedAccessSlice**](intel-privileged-access-slice) | Full privileged access result for the identity. | [required]
 **Outliers** | [**IntelOutliersSlice**](intel-outliers-slice) | Rare access slice; omitted when the tenant lacks the IDA-outliers license. | [optional] 
@@ -39,11 +39,10 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IntelIdentityAggregate = Initialize-IntelIdentityAggregate  -Id ef38f94347e94562b5bb8424a56397d8 `
- -Type HUMAN `
+ -Type Human `
  -DisplayName Example User `
  -Description Example description. `
  -Subtype Employee `
- -Owners governance-group-001 `
  -Attributes {"department":"Engineering","region":"US"} `
  -Created 2026-05-12T08:00Z `
  -Modified 2026-05-12T09:15:30Z `
@@ -51,6 +50,7 @@ $IntelIdentityAggregate = Initialize-IntelIdentityAggregate  -Id ef38f94347e9456
  -Email user@example.com `
  -IdentityStatus ACTIVE `
  -IsManager false `
+ -IdentityGraph null `
  -Accounts null `
  -PrivilegedAccess null `
  -Outliers null `

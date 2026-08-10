@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-Flat identity response with identity attributes hoisted to the top level. The accounts, privilegedAccess, and accessHistory slices are always present. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+Human identity response (type Human). Identity attributes are hoisted to the top level. The accounts, privilegedAccess, and accessHistory slices are always present (empty slices use items []). The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
 
 .PARAMETER Id
 Identity Security Cloud identifier for this identity.
@@ -24,8 +24,6 @@ Preferred display name for the identity across administrative experiences.
 Optional free-text description assigned to the identity profile when present.
 .PARAMETER Subtype
 NERM classification for the identity.
-.PARAMETER Owners
-Serialized owner reference information when populated by upstream identity services.
 .PARAMETER Attributes
 Arbitrary SCIM-style attribute bag returned for the identity context view.
 .PARAMETER Created
@@ -40,6 +38,8 @@ Primary business email address for the identity.
 Current identity lifecycle status label from Identity Security Cloud.
 .PARAMETER IsManager
 True when the identity is flagged as a people manager in the organization.
+.PARAMETER IdentityGraph
+Omitted when the tenant lacks the idg:base license.
 .PARAMETER Accounts
 First page of accounts for the identity.
 .PARAMETER PrivilegedAccess
@@ -60,7 +60,7 @@ function Initialize-IntelIdentityAggregate {
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("HUMAN")]
+        [ValidateSet("Human")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -73,9 +73,6 @@ function Initialize-IntelIdentityAggregate {
         [ValidateSet("Employee", "Non Employee", "Cannot Determine")]
         [String]
         ${Subtype},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Owners},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
@@ -97,6 +94,9 @@ function Initialize-IntelIdentityAggregate {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsManager} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${IdentityGraph},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Accounts},
@@ -142,7 +142,6 @@ function Initialize-IntelIdentityAggregate {
             "displayName" = ${DisplayName}
             "description" = ${Description}
             "subtype" = ${Subtype}
-            "owners" = ${Owners}
             "attributes" = ${Attributes}
             "created" = ${Created}
             "modified" = ${Modified}
@@ -150,6 +149,7 @@ function Initialize-IntelIdentityAggregate {
             "email" = ${Email}
             "identityStatus" = ${IdentityStatus}
             "isManager" = ${IsManager}
+            "identityGraph" = ${IdentityGraph}
             "accounts" = ${Accounts}
             "privilegedAccess" = ${PrivilegedAccess}
             "outliers" = ${Outliers}
@@ -190,7 +190,7 @@ function ConvertFrom-JsonToIntelIdentityAggregate {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in IntelIdentityAggregate
-        $AllProperties = ("id", "type", "displayName", "description", "subtype", "owners", "attributes", "created", "modified", "alias", "email", "identityStatus", "isManager", "accounts", "privilegedAccess", "outliers", "accessHistory")
+        $AllProperties = ("id", "type", "displayName", "description", "subtype", "attributes", "created", "modified", "alias", "email", "identityStatus", "isManager", "identityGraph", "accounts", "privilegedAccess", "outliers", "accessHistory")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -249,12 +249,6 @@ function ConvertFrom-JsonToIntelIdentityAggregate {
             $Subtype = $JsonParameters.PSobject.Properties["subtype"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owners"))) { #optional property not found
-            $Owners = $null
-        } else {
-            $Owners = $JsonParameters.PSobject.Properties["owners"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) { #optional property not found
             $Attributes = $null
         } else {
@@ -297,6 +291,12 @@ function ConvertFrom-JsonToIntelIdentityAggregate {
             $IsManager = $JsonParameters.PSobject.Properties["isManager"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityGraph"))) { #optional property not found
+            $IdentityGraph = $null
+        } else {
+            $IdentityGraph = $JsonParameters.PSobject.Properties["identityGraph"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "outliers"))) { #optional property not found
             $Outliers = $null
         } else {
@@ -309,7 +309,6 @@ function ConvertFrom-JsonToIntelIdentityAggregate {
             "displayName" = ${DisplayName}
             "description" = ${Description}
             "subtype" = ${Subtype}
-            "owners" = ${Owners}
             "attributes" = ${Attributes}
             "created" = ${Created}
             "modified" = ${Modified}
@@ -317,6 +316,7 @@ function ConvertFrom-JsonToIntelIdentityAggregate {
             "email" = ${Email}
             "identityStatus" = ${IdentityStatus}
             "isManager" = ${IsManager}
+            "identityGraph" = ${IdentityGraph}
             "accounts" = ${Accounts}
             "privilegedAccess" = ${PrivilegedAccess}
             "outliers" = ${Outliers}

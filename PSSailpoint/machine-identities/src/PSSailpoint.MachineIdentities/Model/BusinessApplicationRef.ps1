@@ -12,18 +12,16 @@ No summary available.
 
 .DESCRIPTION
 
-Reference to a Business Application associated with a machine identity.
+Reference to a Business Application associated with a machine identity. Available when Business Applications is enabled for the tenant. At most one Business Application reference is supported per machine identity on create and patch.
 
 .PARAMETER Type
-Reference type.
+Reference type. Must be `BUSINESS_APPLICATION`.
 .PARAMETER Id
-Business Application ID.
+Existing Business Application id in the tenant.
 .PARAMETER Name
-Business Application display name.
-.PARAMETER SanctionedStatus
-No description available.
+Business Application display name. Ignored on write; responses are enriched from the Business Application.
 .PARAMETER CorrelationType
-Whether the Business Application reference was manually assigned or automatically correlated.
+Correlation type for this reference. On write: omit or `MANUAL` (default). `AUTOMATIC` is rejected (`400`). On response: may be `MANUAL` or `AUTOMATIC`.
 .OUTPUTS
 
 BusinessApplicationRef<PSCustomObject>
@@ -33,6 +31,7 @@ function Initialize-BusinessApplicationRef {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("BUSINESS_APPLICATION")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -42,12 +41,8 @@ function Initialize-BusinessApplicationRef {
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SANCTIONED", "UNSANCTIONED", "UNKNOWN")]
-        [PSCustomObject]
-        ${SanctionedStatus},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("MANUAL", "AUTOMATIC")]
-        [String]
+        [PSCustomObject]
         ${CorrelationType}
     )
 
@@ -55,12 +50,19 @@ function Initialize-BusinessApplicationRef {
         'Creating PSCustomObject: PSSailpoint.MachineIdentities => BusinessApplicationRef' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$Type) {
+            throw "invalid value for 'Type', 'Type' cannot be null."
+        }
+
+        if (!$Id) {
+            throw "invalid value for 'Id', 'Id' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
-            "sanctionedStatus" = ${SanctionedStatus}
             "correlationType" = ${CorrelationType}
         }
 
@@ -105,14 +107,18 @@ function ConvertFrom-JsonToBusinessApplicationRef {
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'type' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'type' missing."
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }

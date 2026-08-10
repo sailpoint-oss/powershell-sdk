@@ -120,6 +120,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'privilege-criteria' 'src' 'PSSailp
 Import-Module -Name (Join-Path $PSScriptRoot 'privilege-criteria-configuration' 'src' 'PSSailpoint.PrivilegeCriteriaConfiguration') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'public-identities' 'src' 'PSSailpoint.PublicIdentities') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'public-identities-config' 'src' 'PSSailpoint.PublicIdentitiesConfig') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'public-machine-identities' 'src' 'PSSailpoint.PublicMachineIdentities') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'reports-data-extraction' 'src' 'PSSailpoint.ReportsDataExtraction') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'requestable-objects' 'src' 'PSSailpoint.RequestableObjects') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'role-insights' 'src' 'PSSailpoint.RoleInsights') -Force -Global
@@ -133,6 +134,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'segments' 'src' 'PSSailpoint.Segme
 Import-Module -Name (Join-Path $PSScriptRoot 'service-desk-integration' 'src' 'PSSailpoint.ServiceDeskIntegration') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'shared-signals-framework-ssf' 'src' 'PSSailpoint.SharedSignalsFrameworkSsf') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'sim-integrations' 'src' 'PSSailpoint.SimIntegrations') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'sod-controls' 'src' 'PSSailpoint.SodControls') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'sod-policies' 'src' 'PSSailpoint.SodPolicies') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'sod-violations' 'src' 'PSSailpoint.SodViolations') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'source-usages' 'src' 'PSSailpoint.SourceUsages') -Force -Global

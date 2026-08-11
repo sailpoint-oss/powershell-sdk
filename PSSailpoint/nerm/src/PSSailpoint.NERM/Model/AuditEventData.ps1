@@ -24,6 +24,16 @@ The workflow name associated with the event
 The workflow uid associated with the event
 .PARAMETER ProfileTypeId
 The profile type associated with the event
+.PARAMETER WorkflowVersionId
+The workflow version a change belongs to. Can be used for both Workflow configurations and Workflow Session events.
+.PARAMETER Version
+The workflow version SHA.
+.PARAMETER StepId
+The id of the workflow action or condition the step event refers to.
+.PARAMETER StepLabel
+The name associated to an action configuration.
+.PARAMETER Source
+What triggered the versioning change.
 .OUTPUTS
 
 AuditEventData<PSCustomObject>
@@ -46,7 +56,23 @@ function Initialize-NERMAuditEventData {
         ${WorkflowUid},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ProfileTypeId}
+        ${ProfileTypeId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${WorkflowVersionId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Version},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${StepId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${StepLabel},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ui", "import", "fork", "cleanup_worker", "delete_worker")]
+        [String]
+        ${Source}
     )
 
     Process {
@@ -60,6 +86,11 @@ function Initialize-NERMAuditEventData {
             "workflow_name" = ${WorkflowName}
             "workflow_uid" = ${WorkflowUid}
             "profile_type_id" = ${ProfileTypeId}
+            "workflow_version_id" = ${WorkflowVersionId}
+            "version" = ${Version}
+            "step_id" = ${StepId}
+            "step_label" = ${StepLabel}
+            "source" = ${Source}
         }
 
         return $PSO
@@ -96,7 +127,7 @@ function ConvertFrom-NERMJsonToAuditEventData {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in NERMAuditEventData
-        $AllProperties = ("profile_id", "workflow_id", "workflow_name", "workflow_uid", "profile_type_id")
+        $AllProperties = ("profile_id", "workflow_id", "workflow_name", "workflow_uid", "profile_type_id", "workflow_version_id", "version", "step_id", "step_label", "source")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -133,12 +164,47 @@ function ConvertFrom-NERMJsonToAuditEventData {
             $ProfileTypeId = $JsonParameters.PSobject.Properties["profile_type_id"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "workflow_version_id"))) { #optional property not found
+            $WorkflowVersionId = $null
+        } else {
+            $WorkflowVersionId = $JsonParameters.PSobject.Properties["workflow_version_id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "version"))) { #optional property not found
+            $Version = $null
+        } else {
+            $Version = $JsonParameters.PSobject.Properties["version"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "step_id"))) { #optional property not found
+            $StepId = $null
+        } else {
+            $StepId = $JsonParameters.PSobject.Properties["step_id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "step_label"))) { #optional property not found
+            $StepLabel = $null
+        } else {
+            $StepLabel = $JsonParameters.PSobject.Properties["step_label"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "source"))) { #optional property not found
+            $Source = $null
+        } else {
+            $Source = $JsonParameters.PSobject.Properties["source"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "profile_id" = ${ProfileId}
             "workflow_id" = ${WorkflowId}
             "workflow_name" = ${WorkflowName}
             "workflow_uid" = ${WorkflowUid}
             "profile_type_id" = ${ProfileTypeId}
+            "workflow_version_id" = ${WorkflowVersionId}
+            "version" = ${Version}
+            "step_id" = ${StepId}
+            "step_label" = ${StepLabel}
+            "source" = ${Source}
         }
 
         return $PSO

@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-Human identity response (type Human). Identity attributes are hoisted to the top level. The accounts, privilegedAccess, and accessHistory slices are always present (empty slices use items []). The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+Human identity response (type Human). Identity attributes are hoisted to the top level. The accounts, privilegedAccess, and accessHistory slices are always present (empty slices use items []). The outliers slice is omitted when the tenant lacks the IDA-outliers license. The identityGraph deep link is omitted when the tenant lacks the idg:base license. 
 
 .PARAMETER Id
 Identity Security Cloud identifier for this identity.

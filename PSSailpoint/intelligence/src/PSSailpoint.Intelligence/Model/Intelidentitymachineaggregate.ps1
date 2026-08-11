@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-Non-human identity response (type NHI). Machine identity fields are hoisted to the top level (no machine wrapper). Omits human-only fields and slices (email, alias, privilegedAccess, outliers, accessHistory). Top-level sourceId is omitted; use source.id when present. matchConfidence is present for opaque prefix resolution (exact or partial); omitted for direct id eq and exact opaque matches. 
+Non-human identity response (type NHI). Machine identity fields are hoisted to the top level (no machine wrapper). Omits human-only fields and slices (email, alias, privilegedAccess, outliers, accessHistory). Top-level sourceId is omitted; use source.id when present. matchConfidence is present for opaque prefix resolution (exact or partial); omitted for direct id eq and exact opaque matches. The identityGraph deep link is omitted when the tenant lacks the idg:base license. 
 
 .PARAMETER Id
 Identity Security Cloud identifier for this non-human identity.

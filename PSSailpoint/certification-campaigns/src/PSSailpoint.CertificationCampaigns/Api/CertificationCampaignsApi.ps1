@@ -194,7 +194,7 @@ Create a campaign
 
 .DESCRIPTION
 
-Use this API to create a certification campaign with the information provided in the request body.     
+Use this API to create a certification campaign with the information provided in the request body.  When the request body references a campaign filter (`filter.type: CAMPAIGN_FILTER`), the token must include both `idn:campaign:manage` and `idn:campaign-filter:read`. 
 
 .PARAMETER Campaign2
 No description available.
@@ -1739,7 +1739,7 @@ Generate a campaign from template
 
 .DESCRIPTION
 
-Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, ""%Y"" inserts the current year, and a campaign template named ""Campaign for %y"" generates a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). 
+Use this API to generate a new certification campaign from a campaign template.  When the template campaign references a campaign filter (`filter.type: CAMPAIGN_FILTER`), the token must include both `idn:campaign-template:manage` and `idn:campaign-filter:read`.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, ""%Y"" inserts the current year, and a campaign template named ""Campaign for %y"" generates a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). 
 
 .PARAMETER Id
 ID of the campaign template to use for generation.

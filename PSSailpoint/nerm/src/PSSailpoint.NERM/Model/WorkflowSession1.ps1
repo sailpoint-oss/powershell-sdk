@@ -41,7 +41,7 @@ function Initialize-NERMWorkflowSession1 {
         [String]
         ${RequesterId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("User", "NeprofileUser", "NeaccessUser")]
+        [ValidateSet("User", "NeprofileUser", "NeaccessUser", "NeaccessRegistrant")]
         [String]
         ${RequesterType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

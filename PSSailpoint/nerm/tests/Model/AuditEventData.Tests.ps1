@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.NERM' -name 'NERMAuditEventData' {
     Context 'NERMAuditEventData' {
         It 'Initialize-NERMAuditEventData' {
             # a simple test to create an object
-            #$NewObject = Initialize-NERMAuditEventData -ProfileId "TEST_VALUE" -WorkflowId "TEST_VALUE" -WorkflowName "TEST_VALUE" -WorkflowUid "TEST_VALUE" -ProfileTypeId "TEST_VALUE"
+            #$NewObject = Initialize-NERMAuditEventData -ProfileId "TEST_VALUE" -WorkflowId "TEST_VALUE" -WorkflowName "TEST_VALUE" -WorkflowUid "TEST_VALUE" -ProfileTypeId "TEST_VALUE" -WorkflowVersionId "TEST_VALUE" -Version "TEST_VALUE" -StepId "TEST_VALUE" -StepLabel "TEST_VALUE" -Source "TEST_VALUE"
             #$NewObject | Should -BeOfType AuditEventData
             #$NewObject.property | Should -Be 0
         }

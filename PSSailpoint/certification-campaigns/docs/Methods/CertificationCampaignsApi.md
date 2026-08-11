@@ -338,7 +338,10 @@ try {
 [[Back to top]](#) 
 
 ## create-campaign-v1
-Use this API to create a certification campaign with the information provided in the request body.    
+Use this API to create a certification campaign with the information provided in the request body.
+
+When the request body references a campaign filter (`filter.type: CAMPAIGN_FILTER`), the token must include both
+`idn:campaign:manage` and `idn:campaign-filter:read`.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-campaign-v-1)
@@ -1233,6 +1236,8 @@ try {
 
 ## start-generate-campaign-template-v1
 Use this API to generate a new certification campaign from a campaign template.
+
+When the template campaign references a campaign filter (`filter.type: CAMPAIGN_FILTER`), the token must include both `idn:campaign-template:manage` and `idn:campaign-filter:read`.
 
 The campaign object contained in the template has special formatting applied to its name and description
 fields that determine the generated campaign's name/description. Placeholders in those fields are

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Sources' -name 'ApprovalConfigSerialChainInner' {
     Context 'ApprovalConfigSerialChainInner' {
         It 'Initialize-ApprovalConfigSerialChainInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-ApprovalConfigSerialChainInner -Tier "TEST_VALUE" -IdentityId "TEST_VALUE" -IdentityType "TEST_VALUE"
+            #$NewObject = Initialize-ApprovalConfigSerialChainInner -IdentityId "TEST_VALUE" -IdentityType "TEST_VALUE"
             #$NewObject | Should -BeOfType ApprovalConfigSerialChainInner
             #$NewObject.property | Should -Be 0
         }

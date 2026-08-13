@@ -452,7 +452,7 @@ Get access request configuration
 
 .DESCRIPTION
 
-This endpoint returns the current access-request configuration.
+This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
 
 .PARAMETER WithHttpInfo
 
@@ -514,7 +514,7 @@ Get access request configuration
 
 .DESCRIPTION
 
-This endpoint returns the current access-request configuration.
+This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
 
 .PARAMETER WithHttpInfo
 
@@ -1092,7 +1092,7 @@ Update access request configuration
 
 .DESCRIPTION
 
-This endpoint replaces the current access-request configuration.
+This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
 
 .PARAMETER AccessRequestConfig
 No description available.
@@ -1180,7 +1180,7 @@ Update access request configuration
 
 .DESCRIPTION
 
-This endpoint replaces the current access-request configuration.
+This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
 
 .PARAMETER AccessRequestConfig2
 No description available.

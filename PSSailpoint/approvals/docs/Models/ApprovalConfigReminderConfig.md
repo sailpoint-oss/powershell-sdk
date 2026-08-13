@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 ```powershell
 $ApprovalConfigReminderConfig = Initialize-ApprovalConfigReminderConfig  -Enabled false `
  -DaysUntilFirstReminder 0 `
- -ReminderCronSchedule 1 1 1 1 1 `
+ -ReminderCronSchedule @every 24h `
  -MaxReminders 5
 ```
 

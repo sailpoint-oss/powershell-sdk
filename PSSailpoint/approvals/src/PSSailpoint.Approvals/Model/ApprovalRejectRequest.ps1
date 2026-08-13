@@ -16,6 +16,8 @@ Request body for rejecting an approval request.
 
 .PARAMETER Comment
 Comment associated with the reject request.
+.PARAMETER OverrideApproverID
+Optional field for ServiceNow Administrators to specify which member of a governance group to override/reject on behalf of.
 .OUTPUTS
 
 ApprovalRejectRequest<PSCustomObject>
@@ -26,7 +28,10 @@ function Initialize-ApprovalRejectRequest {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Comment}
+        ${Comment},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${OverrideApproverID}
     )
 
     Process {
@@ -36,6 +41,7 @@ function Initialize-ApprovalRejectRequest {
 
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
+            "overrideApproverID" = ${OverrideApproverID}
         }
 
         return $PSO
@@ -72,7 +78,7 @@ function ConvertFrom-JsonToApprovalRejectRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ApprovalRejectRequest
-        $AllProperties = ("comment")
+        $AllProperties = ("comment", "overrideApproverID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -85,8 +91,15 @@ function ConvertFrom-JsonToApprovalRejectRequest {
             $Comment = $JsonParameters.PSobject.Properties["comment"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "overrideApproverID"))) { #optional property not found
+            $OverrideApproverID = $null
+        } else {
+            $OverrideApproverID = $JsonParameters.PSobject.Properties["overrideApproverID"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
+            "overrideApproverID" = ${OverrideApproverID}
         }
 
         return $PSO

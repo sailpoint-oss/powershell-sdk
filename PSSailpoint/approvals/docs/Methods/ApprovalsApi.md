@@ -125,6 +125,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to approve.
 $ApprovalApproveRequest = @"{
+  "overrideApproverID" : "12345678901234567890123456789012",
   "comment" : "comment",
   "additionalAttributes" : {
     "additionalProp1" : "string",
@@ -260,8 +261,8 @@ Configurations at the APPROVAL_REQUEST scope cannot be deleted.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-Path   | Scope | **String** | True  | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+Path   | Id | **String** | True  | The ID defined by the scope field, where id/scope is the following:  * `{accountID}`/`ACCOUNT` * `{roleID}`/`ROLE` * `{entitlementID}`/`ENTITLEMENT` * `{accessProfileID}`/`ACCESS_PROFILE` * `{domainObjectID}`/`DOMAIN_OBJECT` * `ENTITLEMENT_DESCRIPTIONS`/`APPROVAL_TYPE` * `ACCESS_REQUEST_APPROVAL`/`APPROVAL_TYPE` * `ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `AGENT_ACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `AGENT_DEACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `{tenantID}`/`TENANT`  Replace placeholders such as `{roleID}` with the actual resource ID. 
+Path   | Scope | **String** | True  | The scope that defines the type of id, where id/scope is the following:  * `{accountID}`/`ACCOUNT` * `{roleID}`/`ROLE` * `{entitlementID}`/`ENTITLEMENT` * `{accessProfileID}`/`ACCESS_PROFILE` * `{domainObjectID}`/`DOMAIN_OBJECT` * `ENTITLEMENT_DESCRIPTIONS`/`APPROVAL_TYPE` * `ACCESS_REQUEST_APPROVAL`/`APPROVAL_TYPE` * `ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `AGENT_ACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `AGENT_DEACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `{tenantID}`/`TENANT`  Replace placeholders such as `{roleID}` with the actual resource ID. 
 
 ### Return type
  (empty response body)
@@ -283,8 +284,8 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-$Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+$Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where id/scope is the following:  * `{accountID}`/`ACCOUNT` * `{roleID}`/`ROLE` * `{entitlementID}`/`ENTITLEMENT` * `{accessProfileID}`/`ACCESS_PROFILE` * `{domainObjectID}`/`DOMAIN_OBJECT` * `ENTITLEMENT_DESCRIPTIONS`/`APPROVAL_TYPE` * `ACCESS_REQUEST_APPROVAL`/`APPROVAL_TYPE` * `ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `AGENT_ACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `AGENT_DEACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `{tenantID}`/`TENANT`  Replace placeholders such as `{roleID}` with the actual resource ID. 
+$Scope = "DOMAIN_OBJECT" # String | The scope that defines the type of id, where id/scope is the following:  * `{accountID}`/`ACCOUNT` * `{roleID}`/`ROLE` * `{entitlementID}`/`ENTITLEMENT` * `{accessProfileID}`/`ACCESS_PROFILE` * `{domainObjectID}`/`DOMAIN_OBJECT` * `ENTITLEMENT_DESCRIPTIONS`/`APPROVAL_TYPE` * `ACCESS_REQUEST_APPROVAL`/`APPROVAL_TYPE` * `ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `AGENT_ACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `AGENT_DEACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `{tenantID}`/`TENANT`  Replace placeholders such as `{roleID}` with the actual resource ID. 
 
 # Delete Approval Configuration
 
@@ -354,7 +355,7 @@ Retrieves a singular approval configuration that matches the given ID
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", ""ACCOUNT_CREATE_APPROVAL_REQUEST"", ""ACCOUNT_DELETE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST"", ""AGENT_ACTIVATE_APPROVAL"", ""AGENT_DEACTIVATE_APPROVAL"", (tenantID)]
+Path   | Id | **String** | True  | The ID defined by the scope field, where id/scope is the following:  * `{accountID}`/`ACCOUNT` * `{roleID}`/`ROLE` * `{entitlementID}`/`ENTITLEMENT` * `{accessProfileID}`/`ACCESS_PROFILE` * `{domainObjectID}`/`DOMAIN_OBJECT` * `ENTITLEMENT_DESCRIPTIONS`/`APPROVAL_TYPE` * `ACCESS_REQUEST_APPROVAL`/`APPROVAL_TYPE` * `ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `AGENT_ACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `AGENT_DEACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `{tenantID}`/`TENANT`  Replace placeholders such as `{roleID}` with the actual resource ID. 
 
 ### Return type
 [**ApprovalConfig**](../models/approval-config)
@@ -375,7 +376,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "1.2345678901234567E+31" # String | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", ""ACCOUNT_CREATE_APPROVAL_REQUEST"", ""ACCOUNT_DELETE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST"", ""AGENT_ACTIVATE_APPROVAL"", ""AGENT_DEACTIVATE_APPROVAL"", (tenantID)]
+$Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where id/scope is the following:  * `{accountID}`/`ACCOUNT` * `{roleID}`/`ROLE` * `{entitlementID}`/`ENTITLEMENT` * `{accessProfileID}`/`ACCESS_PROFILE` * `{domainObjectID}`/`DOMAIN_OBJECT` * `ENTITLEMENT_DESCRIPTIONS`/`APPROVAL_TYPE` * `ACCESS_REQUEST_APPROVAL`/`APPROVAL_TYPE` * `ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `AGENT_ACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `AGENT_DEACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `{tenantID}`/`TENANT`  Replace placeholders such as `{roleID}` with the actual resource ID. 
 
 # Get Approval Config
 
@@ -530,8 +531,8 @@ For example to update the approval configurations for all Access Request Approva
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-Path   | Scope | **String** | True  | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+Path   | Id | **String** | True  | The ID defined by the scope field, where id/scope is the following:  * `{accountID}`/`ACCOUNT` * `{roleID}`/`ROLE` * `{entitlementID}`/`ENTITLEMENT` * `{accessProfileID}`/`ACCESS_PROFILE` * `{domainObjectID}`/`DOMAIN_OBJECT` * `ENTITLEMENT_DESCRIPTIONS`/`APPROVAL_TYPE` * `ACCESS_REQUEST_APPROVAL`/`APPROVAL_TYPE` * `ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `AGENT_ACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `AGENT_DEACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `{tenantID}`/`TENANT`  Replace placeholders such as `{roleID}` with the actual resource ID. 
+Path   | Scope | **String** | True  | The scope that defines the type of id, where id/scope is the following:  * `{accountID}`/`ACCOUNT` * `{roleID}`/`ROLE` * `{entitlementID}`/`ENTITLEMENT` * `{accessProfileID}`/`ACCESS_PROFILE` * `{domainObjectID}`/`DOMAIN_OBJECT` * `ENTITLEMENT_DESCRIPTIONS`/`APPROVAL_TYPE` * `ACCESS_REQUEST_APPROVAL`/`APPROVAL_TYPE` * `ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `AGENT_ACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `AGENT_DEACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `{tenantID}`/`TENANT`  Replace placeholders such as `{roleID}` with the actual resource ID. 
  Body  | ApprovalConfig | [**ApprovalConfig**](../models/approval-config) | True  | 
 
 ### Return type
@@ -554,8 +555,8 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-$Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+$Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where id/scope is the following:  * `{accountID}`/`ACCOUNT` * `{roleID}`/`ROLE` * `{entitlementID}`/`ENTITLEMENT` * `{accessProfileID}`/`ACCESS_PROFILE` * `{domainObjectID}`/`DOMAIN_OBJECT` * `ENTITLEMENT_DESCRIPTIONS`/`APPROVAL_TYPE` * `ACCESS_REQUEST_APPROVAL`/`APPROVAL_TYPE` * `ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `AGENT_ACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `AGENT_DEACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `{tenantID}`/`TENANT`  Replace placeholders such as `{roleID}` with the actual resource ID. 
+$Scope = "DOMAIN_OBJECT" # String | The scope that defines the type of id, where id/scope is the following:  * `{accountID}`/`ACCOUNT` * `{roleID}`/`ROLE` * `{entitlementID}`/`ENTITLEMENT` * `{accessProfileID}`/`ACCESS_PROFILE` * `{domainObjectID}`/`DOMAIN_OBJECT` * `ENTITLEMENT_DESCRIPTIONS`/`APPROVAL_TYPE` * `ACCESS_REQUEST_APPROVAL`/`APPROVAL_TYPE` * `ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE` * `AGENT_ACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `AGENT_DEACTIVATE_APPROVAL`/`APPROVAL_TYPE` * `{tenantID}`/`TENANT`  Replace placeholders such as `{roleID}` with the actual resource ID. 
 $ApprovalConfig = @"{
   "timeoutConfig" : {
     "daysUntilTimeout" : 2,
@@ -572,20 +573,18 @@ $ApprovalConfig = @"{
     "type" : "MANAGER_OF"
   },
   "reminderConfig" : {
-    "reminderCronSchedule" : "1 1 1 1 1",
+    "reminderCronSchedule" : "@every 24h",
     "daysUntilFirstReminder" : 0,
     "maxReminders" : 5,
     "enabled" : false
   },
   "circumventApprovalProcess" : false,
   "escalationConfig" : {
-    "escalationCronSchedule" : "*/5 * * * *",
+    "escalationCronSchedule" : "@every 72h",
     "escalationChain" : [ {
-      "tier" : 1,
       "identityType" : "IDENTITY",
       "identityId" : "fdfda352157d4cc79bb749953131b457"
     }, {
-      "tier" : 1,
       "identityType" : "IDENTITY",
       "identityId" : "fdfda352157d4cc79bb749953131b457"
     } ],
@@ -593,11 +592,9 @@ $ApprovalConfig = @"{
     "enabled" : true
   },
   "serialChain" : [ {
-    "tier" : 1,
     "identityType" : "IDENTITY",
     "identityId" : "2c9180858090ea8801809a0465e829da"
   }, {
-    "tier" : 1,
     "identityType" : "IDENTITY",
     "identityId" : "2c9180858090ea8801809a0465e829da"
   } ],
@@ -704,6 +701,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to reject.
 $ApprovalRejectRequest = @"{
+  "overrideApproverID" : "12345678901234567890123456789012",
   "comment" : "string"
 }"@
 

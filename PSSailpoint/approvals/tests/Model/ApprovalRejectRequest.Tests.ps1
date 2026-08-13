@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalRejectRequest' {
     Context 'ApprovalRejectRequest' {
         It 'Initialize-ApprovalRejectRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-ApprovalRejectRequest -Comment "TEST_VALUE"
+            #$NewObject = Initialize-ApprovalRejectRequest -Comment "TEST_VALUE" -OverrideApproverID "TEST_VALUE"
             #$NewObject | Should -BeOfType ApprovalRejectRequest
             #$NewObject.property | Should -Be 0
         }

@@ -1,0 +1,129 @@
+- path: /business-applications/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/businessapplications/methods/business-applications#create-business-application-v1
+      source: |
+        $BusinessApplication = @"
+        {
+          "owner" : {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          },
+          "vendor" : "Cursor",
+          "created" : "2026-01-15T13:45:12.312Z",
+          "origin" : "",
+          "name" : "Cursor",
+          "description" : "AI coding assistant used by the platform engineering team.",
+          "modified" : "2026-02-20T09:31:47.882Z",
+          "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "source" : {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          },
+          "signatures" : [ {
+            "name" : "cursor",
+            "type" : "AI Agent"
+          }, {
+            "name" : "cursor",
+            "type" : "AI Agent"
+          } ],
+          "additionalOwners" : [ {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          }, {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          } ],
+          "sanctionedStatus" : ""
+        }
+        "@
+        
+        # Create Business Application
+        
+        try {
+            $Result = ConvertFrom-JsonToBusinessApplication -Json $BusinessApplication
+            New-BusinessApplicationV1 -BusinessApplication $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-BusinessApplicationV1 -BusinessApplication $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BusinessApplicationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /business-applications/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/businessapplications/methods/business-applications#get-business-application-v1
+      source: |
+        $Id = "a1b2c3d4-e5f6-7890-abcd-ef1234567890" # String | Business Application ID.
+        
+        # Get Business Application
+        
+        try {
+            Get-BusinessApplicationV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BusinessApplicationV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BusinessApplicationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /business-applications/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/businessapplications/methods/business-applications#list-business-applications-v1
+      source: |
+        $Filters = "sanctionedStatus eq "SANCTIONED"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq, co*  **vendor**: *eq, co*  **signatures.type**: *eq, co*  **signatures.name**: *eq, co*  **source.name**: *eq, co*  **sanctionedStatus**: *eq* (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, sanctionedStatus** (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List Business Applications
+        
+        try {
+            Get-BusinessApplicationsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BusinessApplicationsV1 -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BusinessApplicationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /business-applications/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/businessapplications/methods/business-applications#update-business-application-v1
+      source: |
+        $Id = "a1b2c3d4-e5f6-7890-abcd-ef1234567890" # String | Business Application ID.
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update Business Application
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-BusinessApplicationV1 -Id $Id -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-BusinessApplicationV1 -Id $Id -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BusinessApplicationV1"
+            Write-Host $_.ErrorDetails
+        }

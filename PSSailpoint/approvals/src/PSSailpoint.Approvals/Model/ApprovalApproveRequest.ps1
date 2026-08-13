@@ -18,6 +18,8 @@ Approval Approve Request
 Additional attributes as key-value pairs that are not part of the standard schema but can be included for custom data.
 .PARAMETER Comment
 Comment associated with the request.
+.PARAMETER OverrideApproverID
+Optional field for ServiceNow Administrators to specify which member of a governance group to override/approve on behalf of.
 .OUTPUTS
 
 ApprovalApproveRequest<PSCustomObject>
@@ -31,7 +33,10 @@ function Initialize-ApprovalApproveRequest {
         ${AdditionalAttributes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Comment}
+        ${Comment},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${OverrideApproverID}
     )
 
     Process {
@@ -42,6 +47,7 @@ function Initialize-ApprovalApproveRequest {
         $PSO = [PSCustomObject]@{
             "additionalAttributes" = ${AdditionalAttributes}
             "comment" = ${Comment}
+            "overrideApproverID" = ${OverrideApproverID}
         }
 
         return $PSO
@@ -78,7 +84,7 @@ function ConvertFrom-JsonToApprovalApproveRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ApprovalApproveRequest
-        $AllProperties = ("additionalAttributes", "comment")
+        $AllProperties = ("additionalAttributes", "comment", "overrideApproverID")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -97,9 +103,16 @@ function ConvertFrom-JsonToApprovalApproveRequest {
             $Comment = $JsonParameters.PSobject.Properties["comment"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "overrideApproverID"))) { #optional property not found
+            $OverrideApproverID = $null
+        } else {
+            $OverrideApproverID = $JsonParameters.PSobject.Properties["overrideApproverID"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "additionalAttributes" = ${AdditionalAttributes}
             "comment" = ${Comment}
+            "overrideApproverID" = ${OverrideApproverID}
         }
 
         return $PSO

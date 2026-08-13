@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 ```powershell
 $ApprovalConfigEscalationConfig = Initialize-ApprovalConfigEscalationConfig  -Enabled true `
  -DaysUntilFirstEscalation 2 `
- -EscalationCronSchedule */5 * * * * `
+ -EscalationCronSchedule @every 72h `
  -EscalationChain null
 ```
 

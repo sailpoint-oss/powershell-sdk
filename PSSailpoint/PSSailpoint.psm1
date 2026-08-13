@@ -54,6 +54,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'apps' 'src' 'PSSailpoint.Apps') -F
 Import-Module -Name (Join-Path $PSScriptRoot 'auth-profile' 'src' 'PSSailpoint.AuthProfile') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'auth-users' 'src' 'PSSailpoint.AuthUsers') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'branding' 'src' 'PSSailpoint.Branding') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'business-applications' 'src' 'PSSailpoint.BusinessApplications') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'certification-campaign-filters' 'src' 'PSSailpoint.CertificationCampaignFilters') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'certification-campaigns' 'src' 'PSSailpoint.CertificationCampaigns') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'certification-summaries' 'src' 'PSSailpoint.CertificationSummaries') -Force -Global

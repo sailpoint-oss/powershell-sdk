@@ -70,6 +70,14 @@ Describe -tag 'PSSailpoint.MachineIdentities' -name 'MachineIdentitiesApi' {
         }
     }
 
+    Context 'Get-UnsanctionedAnomalySummaryV1' {
+        It 'Test Get-UnsanctionedAnomalySummaryV1' {
+            #$TestResult = Get-UnsanctionedAnomalySummaryV1 -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-MachineIdentitiesV1' {
         It 'Test Get-MachineIdentitiesV1' {
             #$TestResult = Get-MachineIdentitiesV1 -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
@@ -81,6 +89,14 @@ Describe -tag 'PSSailpoint.MachineIdentities' -name 'MachineIdentitiesApi' {
     Context 'Get-MachineIdentitiesV2' {
         It 'Test Get-MachineIdentitiesV2' {
             #$TestResult = Get-MachineIdentitiesV2 -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-MachineIdentityAnomaliesV1' {
+        It 'Test Get-MachineIdentityAnomaliesV1' {
+            #$TestResult = Get-MachineIdentityAnomaliesV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

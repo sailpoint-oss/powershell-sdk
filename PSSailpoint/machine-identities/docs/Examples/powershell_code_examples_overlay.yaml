@@ -270,6 +270,25 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OwnershipCorrelationConfigV1"
             Write-Host $_.ErrorDetails
         }
+- path: /machine-identities/v1/anomaly-summaries/unsanctioned
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#get-unsanctioned-anomaly-summary-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get unsanctioned application anomaly summary
+        
+        try {
+            Get-UnsanctionedAnomalySummaryV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-UnsanctionedAnomalySummaryV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-UnsanctionedAnomalySummaryV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-identities/v1
   method: GET
   xCodeSample:
@@ -315,6 +334,30 @@
             # Get-MachineIdentitiesV2 -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentitiesV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-identities/v1/{id}/anomalies
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#list-machine-identity-anomalies-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine identity (agent) ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Sorters = "-detectedAt" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **detectedAt**  The default sort is **-detectedAt** (most recent first). (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List machine identity anomalies
+        
+        try {
+            Get-MachineIdentityAnomaliesV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineIdentityAnomaliesV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentityAnomaliesV1"
             Write-Host $_.ErrorDetails
         }
 - path: /machine-identity-user-entitlements/v1

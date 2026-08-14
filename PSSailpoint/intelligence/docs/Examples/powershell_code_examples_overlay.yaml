@@ -1,3 +1,36 @@
+- path: /intelligence/v1/response-actions
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligence/methods/intelligence#create-response-action-v1
+      source: |
+        $Responseactioncreaterequest = @"
+        {
+          "actionType" : "DISABLE_ACCOUNT",
+          "identityType" : "HUMAN",
+          "identityId" : "2c918085842e69ae018428c919680149",
+          "accountIds" : [ "2c918085abc000000000000000000001" ],
+          "context" : {
+            "reason" : "Contain compromised account",
+            "externalAlertId" : "CS-FALCON-12345",
+            "source" : "CROWDSTRIKE",
+            "operator" : "soc-analyst@customer.com"
+          }
+        }
+        "@
+        
+        # Create a response action
+        
+        try {
+            $Result = ConvertFrom-JsonToResponseactioncreaterequest -Json $Responseactioncreaterequest
+            New-ResponseActionV1 -Responseactioncreaterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ResponseActionV1 -Responseactioncreaterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ResponseActionV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /intelligence/v1/identities
   method: GET
   xCodeSample:
@@ -103,5 +136,24 @@
             # Get-IntelIdentityRareAccessV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityRareAccessV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /intelligence/v1/response-actions/{id}/status
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligence/methods/intelligence#get-response-action-status-v1
+      source: |
+        $Id = "3f1e6c9a-8b2d-4e5f-9a1b-2c3d4e5f6a7b" # String | The requestId of the response action to look up.
+        
+        # Get response action status
+        
+        try {
+            Get-ResponseActionStatusV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ResponseActionStatusV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ResponseActionStatusV1"
             Write-Host $_.ErrorDetails
         }

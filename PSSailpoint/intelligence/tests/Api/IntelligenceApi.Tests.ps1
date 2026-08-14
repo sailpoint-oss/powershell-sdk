@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpoint.Intelligence' -name 'IntelligenceApi' {
+    Context 'New-ResponseActionV1' {
+        It 'Test New-ResponseActionV1' {
+            #$TestResult = New-ResponseActionV1 -Responseactioncreaterequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-IdentityIntelligenceV1' {
         It 'Test Get-IdentityIntelligenceV1' {
             #$TestResult = Get-IdentityIntelligenceV1 -Filters "TEST_VALUE"
@@ -41,6 +49,14 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelligenceApi' {
     Context 'Get-IntelIdentityRareAccessV1' {
         It 'Test Get-IntelIdentityRareAccessV1' {
             #$TestResult = Get-IntelIdentityRareAccessV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-ResponseActionStatusV1' {
+        It 'Test Get-ResponseActionStatusV1' {
+            #$TestResult = Get-ResponseActionStatusV1 -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

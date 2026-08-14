@@ -8,6 +8,94 @@
 <#
 .SYNOPSIS
 
+Create a response action
+
+.DESCRIPTION
+
+Requires tenant license idn:response-and-remediation.  Creates a response action: the request is validated, a requestId (the correlation id) is minted, the action is recorded as SUBMITTED, and an event is published that triggers the correlated workflow(s).  Returns HTTP 202 with the requestId, an initial SUBMITTED status, and a statusUrl. Poll GET /intelligence/v1/response-actions/{requestId}/status for progress. 
+
+.PARAMETER Responseactioncreaterequest
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Responseactionaccepted
+#>
+function New-ResponseActionV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Responseactioncreaterequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: New-ResponseActionV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/intelligence/v1/response-actions'
+
+        if (!$Responseactioncreaterequest) {
+            throw "Error! The required parameter `Responseactioncreaterequest` missing when calling createResponseActionV1."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Responseactioncreaterequest -is [array])) {
+            $LocalVarBodyParameter = $Responseactioncreaterequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Responseactioncreaterequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Responseactionaccepted" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get identity by filter
 
 .DESCRIPTION
@@ -479,6 +567,78 @@ function Get-IntelIdentityRareAccessV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "IntelOutlierAccessItem[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get response action status
+
+.DESCRIPTION
+
+Requires tenant license idn:response-and-remediation.  Returns the current aggregate status of a previously submitted response action, identified by the requestId returned from POST /intelligence/v1/response-actions.  Supported actionType values: DISABLE_IDENTITY, DISABLE_ACCOUNT. 
+
+.PARAMETER Id
+The requestId of the response action to look up.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Responseactionstatus
+#>
+function Get-ResponseActionStatusV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-ResponseActionStatusV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/intelligence/v1/response-actions/{id}/status'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getResponseActionStatusV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Responseactionstatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

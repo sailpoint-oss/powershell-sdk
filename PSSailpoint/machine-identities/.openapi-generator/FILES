@@ -3,6 +3,10 @@ Build.ps1
 Index.md
 README.md
 appveyor.yml
+docs/Anomaly.md
+docs/AnomalyBaseline.md
+docs/AnomalyEvidence.md
+docs/AnomalyEvidenceTimestamp.md
 docs/ArrayInner.md
 docs/BaseCommonDto.md
 docs/BaseReferenceDto.md
@@ -47,10 +51,15 @@ docs/TaskDefinitionSummary.md
 docs/TaskReturnDetails.md
 docs/TaskStatusMessage.md
 docs/TaskStatusMessageParametersInner.md
+docs/UnsanctionedApplicationAnomalySummary.md
 docs/UserEntitlementV2.md
 docs/UserEntitlementV2Source.md
 src/PSSailpoint.MachineIdentities/Api/MachineIdentitiesApi.ps1
 src/PSSailpoint.MachineIdentities/Client/Configuration.ps1
+src/PSSailpoint.MachineIdentities/Model/Anomaly.ps1
+src/PSSailpoint.MachineIdentities/Model/AnomalyBaseline.ps1
+src/PSSailpoint.MachineIdentities/Model/AnomalyEvidence.ps1
+src/PSSailpoint.MachineIdentities/Model/AnomalyEvidenceTimestamp.ps1
 src/PSSailpoint.MachineIdentities/Model/ArrayInner.ps1
 src/PSSailpoint.MachineIdentities/Model/BaseCommonDto.ps1
 src/PSSailpoint.MachineIdentities/Model/BaseReferenceDto.ps1
@@ -92,6 +101,7 @@ src/PSSailpoint.MachineIdentities/Model/TaskDefinitionSummary.ps1
 src/PSSailpoint.MachineIdentities/Model/TaskReturnDetails.ps1
 src/PSSailpoint.MachineIdentities/Model/TaskStatusMessage.ps1
 src/PSSailpoint.MachineIdentities/Model/TaskStatusMessageParametersInner.ps1
+src/PSSailpoint.MachineIdentities/Model/UnsanctionedApplicationAnomalySummary.ps1
 src/PSSailpoint.MachineIdentities/Model/UserEntitlementV2.ps1
 src/PSSailpoint.MachineIdentities/Model/UserEntitlementV2Source.ps1
 src/PSSailpoint.MachineIdentities/PSSailpoint.MachineIdentities.psm1
@@ -102,6 +112,10 @@ src/PSSailpoint.MachineIdentities/Private/Out-DebugParameter.ps1
 src/PSSailpoint.MachineIdentities/Private/RSAEncryptionProvider.cs
 src/PSSailpoint.MachineIdentities/en-US/about_PSSailpoint.MachineIdentities.help.txt
 tests/Api/MachineIdentitiesApi.Tests.ps1
+tests/Model/Anomaly.Tests.ps1
+tests/Model/AnomalyBaseline.Tests.ps1
+tests/Model/AnomalyEvidence.Tests.ps1
+tests/Model/AnomalyEvidenceTimestamp.Tests.ps1
 tests/Model/ArrayInner.Tests.ps1
 tests/Model/BaseCommonDto.Tests.ps1
 tests/Model/BaseReferenceDto.Tests.ps1
@@ -143,5 +157,6 @@ tests/Model/TaskDefinitionSummary.Tests.ps1
 tests/Model/TaskReturnDetails.Tests.ps1
 tests/Model/TaskStatusMessage.Tests.ps1
 tests/Model/TaskStatusMessageParametersInner.Tests.ps1
+tests/Model/UnsanctionedApplicationAnomalySummary.Tests.ps1
 tests/Model/UserEntitlementV2.Tests.ps1
 tests/Model/UserEntitlementV2Source.Tests.ps1

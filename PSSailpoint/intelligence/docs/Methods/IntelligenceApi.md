@@ -10,10 +10,10 @@ tags: ['SDK', 'Software Development Kit', 'Intelligence', 'Intelligence']
 ---
 
 # Intelligence
-  Read-only HTTP API that returns the Intelligence (identity context)
-for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
-extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
-SDS Search, IDA-outliers, and identity-history.
+  HTTP API that returns the Intelligence (identity context) for SecOps enrichment
+use cases (SIEM/SOAR connectors, MCP, browser extension), and accepts asynchronous
+response actions for remediation. Identity reads are backed by Atlas internal-REST
+calls to MICE, Shelby List Accounts, SDS Search, IDA-outliers, and identity-history.
 
 ## License-based segmentation
 
@@ -41,12 +41,79 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-ResponseActionV1**](#create-response-action-v1) | **POST** `/intelligence/v1/response-actions` | Create a response action
 [**Get-IdentityIntelligenceV1**](#get-identity-intelligence-v1) | **GET** `/intelligence/v1/identities` | Get identity by filter
 [**Get-IntelIdentityAccessItemHistoryV1**](#get-intel-identity-access-item-history-v1) | **GET** `/intelligence/v1/identities/{id}/access-history/access-items` | List identity access item history
 [**Get-IntelIdentityAccountsV1**](#get-intel-identity-accounts-v1) | **GET** `/intelligence/v1/identities/{id}/accounts` | List identity accounts
 [**Get-IntelIdentityCertificationHistoryV1**](#get-intel-identity-certification-history-v1) | **GET** `/intelligence/v1/identities/{id}/access-history/certifications` | List identity certification history
 [**Get-IntelIdentityRareAccessV1**](#get-intel-identity-rare-access-v1) | **GET** `/intelligence/v1/identities/{id}/outliers/rare-access` | List identity rare access
+[**Get-ResponseActionStatusV1**](#get-response-action-status-v1) | **GET** `/intelligence/v1/response-actions/{id}/status` | Get response action status
 
+
+## create-response-action-v1
+Requires tenant license idn:response-and-remediation.
+
+Creates a response action: the request is validated, a requestId (the correlation id) is
+minted, the action is recorded as SUBMITTED, and an event is published that triggers the
+correlated workflow(s).
+
+Returns HTTP 202 with the requestId, an initial SUBMITTED status, and a statusUrl. Poll
+GET /intelligence/v1/response-actions/{requestId}/status for progress.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/create-response-action-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | Responseactioncreaterequest | [**Responseactioncreaterequest**](../models/responseactioncreaterequest) | True  | 
+
+### Return type
+[**Responseactionaccepted**](../models/responseactionaccepted)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | The response action was accepted and is being processed asynchronously. | Responseactionaccepted
+400 | Missing or invalid request body. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
+500 | Internal or upstream server failure. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Responseactioncreaterequest = @"{
+  "actionType" : "DISABLE_ACCOUNT",
+  "identityType" : "HUMAN",
+  "identityId" : "2c918085842e69ae018428c919680149",
+  "accountIds" : [ "2c918085abc000000000000000000001" ],
+  "context" : {
+    "reason" : "Contain compromised account",
+    "externalAlertId" : "CS-FALCON-12345",
+    "source" : "CROWDSTRIKE",
+    "operator" : "soc-analyst@customer.com"
+  }
+}"@
+
+# Create a response action
+
+try {
+    $Result = ConvertFrom-JsonToResponseactioncreaterequest -Json $Responseactioncreaterequest
+    New-ResponseActionV1 -Responseactioncreaterequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-ResponseActionV1 -Responseactioncreaterequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ResponseActionV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
 
 ## get-identity-intelligence-v1
 Requires tenant license idn:response-and-remediation.
@@ -372,6 +439,58 @@ try {
     # Get-IntelIdentityRareAccessV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityRareAccessV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-response-action-status-v1
+Requires tenant license idn:response-and-remediation.
+
+Returns the current aggregate status of a previously submitted response action, identified by
+the requestId returned from POST /intelligence/v1/response-actions.
+
+Supported actionType values: DISABLE_IDENTITY, DISABLE_ACCOUNT.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-response-action-status-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | The requestId of the response action to look up.
+
+### Return type
+[**Responseactionstatus**](../models/responseactionstatus)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The current status of the response action. | Responseactionstatus
+400 | Invalid path parameter. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | No response action exists for the supplied requestId. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
+500 | Internal or upstream server failure. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "3f1e6c9a-8b2d-4e5f-9a1b-2c3d4e5f6a7b" # String | The requestId of the response action to look up.
+
+# Get response action status
+
+try {
+    Get-ResponseActionStatusV1 -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Get-ResponseActionStatusV1 -Id $Id  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ResponseActionStatusV1"
     Write-Host $_.ErrorDetails
 }
 ```

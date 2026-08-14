@@ -41,6 +41,12 @@ docs/Intelmachineuserentitlement.md
 docs/Intelprivilegelevel.md
 docs/LocaleOrigin.md
 docs/Methods/Index.md
+docs/Responseactionaccepted.md
+docs/Responseactioncontext.md
+docs/Responseactioncreaterequest.md
+docs/ResponseactioncreaterequestOneOf.md
+docs/ResponseactioncreaterequestOneOf1.md
+docs/Responseactionstatus.md
 src/PSSailpoint.Intelligence/Api/IntelligenceApi.ps1
 src/PSSailpoint.Intelligence/Client/Configuration.ps1
 src/PSSailpoint.Intelligence/Model/ErrorMessageDto.ps1
@@ -78,6 +84,12 @@ src/PSSailpoint.Intelligence/Model/Intelmachinesourcewire.ps1
 src/PSSailpoint.Intelligence/Model/Intelmachineuserentitlement.ps1
 src/PSSailpoint.Intelligence/Model/Intelprivilegelevel.ps1
 src/PSSailpoint.Intelligence/Model/LocaleOrigin.ps1
+src/PSSailpoint.Intelligence/Model/Responseactionaccepted.ps1
+src/PSSailpoint.Intelligence/Model/Responseactioncontext.ps1
+src/PSSailpoint.Intelligence/Model/Responseactioncreaterequest.ps1
+src/PSSailpoint.Intelligence/Model/ResponseactioncreaterequestOneOf.ps1
+src/PSSailpoint.Intelligence/Model/ResponseactioncreaterequestOneOf1.ps1
+src/PSSailpoint.Intelligence/Model/Responseactionstatus.ps1
 src/PSSailpoint.Intelligence/PSSailpoint.Intelligence.psm1
 src/PSSailpoint.Intelligence/Private/ApiClient.ps1
 src/PSSailpoint.Intelligence/Private/Get-CommonParameters.ps1
@@ -121,3 +133,9 @@ tests/Model/Intelmachinesourcewire.Tests.ps1
 tests/Model/Intelmachineuserentitlement.Tests.ps1
 tests/Model/Intelprivilegelevel.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1
+tests/Model/Responseactionaccepted.Tests.ps1
+tests/Model/Responseactioncontext.Tests.ps1
+tests/Model/Responseactioncreaterequest.Tests.ps1
+tests/Model/ResponseactioncreaterequestOneOf.Tests.ps1
+tests/Model/ResponseactioncreaterequestOneOf1.Tests.ps1
+tests/Model/Responseactionstatus.Tests.ps1

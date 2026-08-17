@@ -18,6 +18,10 @@ No description available.
 If this is true, anyone can request access for anyone.
 .PARAMETER AllowRequestOnBehalfOfEmployeeByManager
 If this is true, a manager can request access for his or her direct reports.
+.PARAMETER AllowRequestOnBehalfOfForMachineIdentity
+If this is true, anyone can request access on behalf of machine identities. Machine access request authorization is evaluated as follows: 1. If this flag is true, any requester is allowed. 2. Else if `allowRequestForMachineByOwner` is true, the requester must be an admin or a primary/secondary owner of every requested machine identity. 3. Else admins are still allowed; non-admins receive 403. 
+.PARAMETER AllowRequestForMachineByOwner
+When `allowRequestOnBehalfOfForMachineIdentity` is false and this flag is true, only admins and primary/secondary owners of the requested machine identities may submit machine access requests. Defaults to false (opt-in). 
 .OUTPUTS
 
 RequestOnBehalfOfConfig<PSCustomObject>
@@ -31,7 +35,13 @@ function Initialize-RequestOnBehalfOfConfig {
         ${AllowRequestOnBehalfOfAnyoneByAnyone} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${AllowRequestOnBehalfOfEmployeeByManager} = $false
+        ${AllowRequestOnBehalfOfEmployeeByManager} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${AllowRequestOnBehalfOfForMachineIdentity} = $true,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${AllowRequestForMachineByOwner} = $false
     )
 
     Process {
@@ -42,6 +52,8 @@ function Initialize-RequestOnBehalfOfConfig {
         $PSO = [PSCustomObject]@{
             "allowRequestOnBehalfOfAnyoneByAnyone" = ${AllowRequestOnBehalfOfAnyoneByAnyone}
             "allowRequestOnBehalfOfEmployeeByManager" = ${AllowRequestOnBehalfOfEmployeeByManager}
+            "allowRequestOnBehalfOfForMachineIdentity" = ${AllowRequestOnBehalfOfForMachineIdentity}
+            "allowRequestForMachineByOwner" = ${AllowRequestForMachineByOwner}
         }
 
         return $PSO
@@ -78,7 +90,7 @@ function ConvertFrom-JsonToRequestOnBehalfOfConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in RequestOnBehalfOfConfig
-        $AllProperties = ("allowRequestOnBehalfOfAnyoneByAnyone", "allowRequestOnBehalfOfEmployeeByManager")
+        $AllProperties = ("allowRequestOnBehalfOfAnyoneByAnyone", "allowRequestOnBehalfOfEmployeeByManager", "allowRequestOnBehalfOfForMachineIdentity", "allowRequestForMachineByOwner")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -97,9 +109,23 @@ function ConvertFrom-JsonToRequestOnBehalfOfConfig {
             $AllowRequestOnBehalfOfEmployeeByManager = $JsonParameters.PSobject.Properties["allowRequestOnBehalfOfEmployeeByManager"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "allowRequestOnBehalfOfForMachineIdentity"))) { #optional property not found
+            $AllowRequestOnBehalfOfForMachineIdentity = $null
+        } else {
+            $AllowRequestOnBehalfOfForMachineIdentity = $JsonParameters.PSobject.Properties["allowRequestOnBehalfOfForMachineIdentity"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "allowRequestForMachineByOwner"))) { #optional property not found
+            $AllowRequestForMachineByOwner = $null
+        } else {
+            $AllowRequestForMachineByOwner = $JsonParameters.PSobject.Properties["allowRequestForMachineByOwner"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "allowRequestOnBehalfOfAnyoneByAnyone" = ${AllowRequestOnBehalfOfAnyoneByAnyone}
             "allowRequestOnBehalfOfEmployeeByManager" = ${AllowRequestOnBehalfOfEmployeeByManager}
+            "allowRequestOnBehalfOfForMachineIdentity" = ${AllowRequestOnBehalfOfForMachineIdentity}
+            "allowRequestForMachineByOwner" = ${AllowRequestForMachineByOwner}
         }
 
         return $PSO

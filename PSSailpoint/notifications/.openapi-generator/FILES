@@ -3,6 +3,8 @@ Build.ps1
 Index.md
 README.md
 appveyor.yml
+docs/CcBccPreferenceEntry.md
+docs/CcBccRecipientType.md
 docs/CreateDomainDkimV1405Response.md
 docs/DkimAttributes.md
 docs/DomainAddress.md
@@ -36,6 +38,8 @@ docs/TemplateVariable.md
 docs/TemplateVariablesDto.md
 src/PSSailpoint.Notifications/Api/NotificationsApi.ps1
 src/PSSailpoint.Notifications/Client/Configuration.ps1
+src/PSSailpoint.Notifications/Model/CcBccPreferenceEntry.ps1
+src/PSSailpoint.Notifications/Model/CcBccRecipientType.ps1
 src/PSSailpoint.Notifications/Model/CreateDomainDkimV1405Response.ps1
 src/PSSailpoint.Notifications/Model/DkimAttributes.ps1
 src/PSSailpoint.Notifications/Model/DomainAddress.ps1
@@ -72,6 +76,8 @@ src/PSSailpoint.Notifications/Private/Out-DebugParameter.ps1
 src/PSSailpoint.Notifications/Private/RSAEncryptionProvider.cs
 src/PSSailpoint.Notifications/en-US/about_PSSailpoint.Notifications.help.txt
 tests/Api/NotificationsApi.Tests.ps1
+tests/Model/CcBccPreferenceEntry.Tests.ps1
+tests/Model/CcBccRecipientType.Tests.ps1
 tests/Model/CreateDomainDkimV1405Response.Tests.ps1
 tests/Model/DkimAttributes.Tests.ps1
 tests/Model/DomainAddress.Tests.ps1

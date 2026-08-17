@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Notifications' -name 'PreferencesDto' {
     Context 'PreferencesDto' {
         It 'Initialize-PreferencesDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-PreferencesDto -Key "TEST_VALUE" -Mediums "TEST_VALUE" -Modified "TEST_VALUE"
+            #$NewObject = Initialize-PreferencesDto -Key "TEST_VALUE" -Mediums "TEST_VALUE" -Modified "TEST_VALUE" -CcList "TEST_VALUE" -BccList "TEST_VALUE"
             #$NewObject | Should -BeOfType PreferencesDto
             #$NewObject.property | Should -Be 0
         }

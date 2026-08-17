@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusRequestedFor', 'Re
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **Enum** [  "IDENTITY" ] | Type of the object to which this reference applies | [optional] 
+**Type** |  **Enum** [  "IDENTITY",    "MACHINE_IDENTITY" ] | Type of the object to which this reference applies | [optional] 
 **Id** | **String** | ID of the object to which this reference applies | [optional] 
 **Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
 

@@ -21,6 +21,8 @@ tags: ['SDK', 'Software Development Kit', 'Medium', 'Medium']
 
 * `TEAMS` (value: `"TEAMS"`)
 
+* `INBOX` (value: `"INBOX"`)
+
 
 [[Back to top]](#) 
 

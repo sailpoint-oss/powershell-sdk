@@ -15,7 +15,7 @@ No summary available.
 Identity the access item is requested for.
 
 .PARAMETER Type
-DTO type of identity the access item is requested for.
+DTO type of identity the access item is requested for. `IDENTITY` for human identities. `MACHINE_IDENTITY` for machine identities. When `MACHINE_IDENTITY`, `id` is the machine identity id. 
 .PARAMETER Id
 ID of identity the access item is requested for.
 .PARAMETER Name
@@ -29,7 +29,7 @@ function Initialize-AccessItemRequestedFor {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY")]
+        [ValidateSet("IDENTITY", "MACHINE_IDENTITY")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **RequestOnBehalfOfConfig** | [**RequestOnBehalfOfConfig2**](request-on-behalf-of-config2) |  | [optional] 
 **EntitlementRequestConfig** | [**EntitlementRequestConfig2**](entitlement-request-config2) |  | [optional] 
 **GovGroupVisibilityEnabled** | **Boolean** | If this is true, requesters and requested-for users will be able to see the names of governance group members when a request is awaiting the group's approval. Up to the first 10 members of the group will be listed. | [optional] [default to $false]
+**MachineIdentityAccessRequestEnabled** | **Boolean** | If this is false, machine identity access requests and machine accounts-selection are rejected with 403 (for example, ""Machine identity access request is disabled in access request configuration.""). Defaults to true. Exposed on access-request-config v2 only.  | [optional] [default to $true]
 
 ## Examples
 
@@ -30,7 +31,8 @@ $AccessRequestConfig2 = Initialize-AccessRequestConfig2  -ApprovalsMustBeExterna
  -ReauthorizationEnabled true `
  -RequestOnBehalfOfConfig null `
  -EntitlementRequestConfig null `
- -GovGroupVisibilityEnabled true
+ -GovGroupVisibilityEnabled true `
+ -MachineIdentityAccessRequestEnabled true
 ```
 
 - Convert the resource to JSON

@@ -224,15 +224,16 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-notification-preferences-v1
       source: |
-        $Key = "MyKey" # String | The key.
+        $Key = "approval_completed_notification" # String | The notification key.
+        $FilterUnavailableMediums = $true # Boolean | When `true`, excludes SLACK and TEAMS from the returned mediums if they are not configured for the tenant. (optional) (default to $false)
         
-        # List notification preferences for tenant.
+        # Get notification preferences by key
         
         try {
             Get-NotificationPreferencesV1 -Key $Key 
     
             # Below is a request that includes all optional parameters
-            # Get-NotificationPreferencesV1 -Key $Key   
+            # Get-NotificationPreferencesV1 -Key $Key -FilterUnavailableMediums $FilterUnavailableMediums   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NotificationPreferencesV1"
             Write-Host $_.ErrorDetails
@@ -316,6 +317,29 @@
             # Get-FromAddressesV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-FromAddressesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /notification-preferences/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#list-notification-preferences-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "key eq "approval_completed_notification"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in* (optional)
+        $Sorters = "key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key** (optional)
+        
+        # List notification preferences for tenant
+        
+        try {
+            Get-NotificationPreferencesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NotificationPreferencesV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NotificationPreferencesV1"
             Write-Host $_.ErrorDetails
         }
 - path: /notification-template-defaults/v1
@@ -417,5 +441,44 @@
             # Send-TestNotificationV1 -SendTestNotificationRequestDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TestNotificationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /notification-preferences/v1/{key}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#set-notification-preferences-v1
+      source: |
+        $Key = "approval_completed_notification" # String | The notification key.
+        $PreferencesDto = @"
+        {
+          "modified" : "2020-05-15T14:37:06.909Z",
+          "ccList" : [ {
+            "type" : "IDENTITY",
+            "id" : "6b0b8e47cc1f4c3fa961a38fc718e989"
+          }, {
+            "type" : "STATIC_EMAIL",
+            "email" : "cc-recipient@example.com"
+          } ],
+          "bccList" : [ {
+            "type" : "MANAGER_OF"
+          }, {
+            "type" : "ORG_ADMINS"
+          } ],
+          "mediums" : [ "EMAIL" ],
+          "key" : "cloud_manual_work_item_summary"
+        }
+        "@
+        
+        # Set notification preferences by key
+        
+        try {
+            $Result = ConvertFrom-JsonToPreferencesDto -Json $PreferencesDto
+            Set-NotificationPreferencesV1 -Key $Key -PreferencesDto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-NotificationPreferencesV1 -Key $Key -PreferencesDto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-NotificationPreferencesV1"
             Write-Host $_.ErrorDetails
         }

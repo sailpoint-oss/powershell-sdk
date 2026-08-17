@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.Notifications' -name 'NotificationsApi' {
 
     Context 'Get-NotificationPreferencesV1' {
         It 'Test Get-NotificationPreferencesV1' {
-            #$TestResult = Get-NotificationPreferencesV1 -Key "TEST_VALUE"
+            #$TestResult = Get-NotificationPreferencesV1 -Key "TEST_VALUE" -FilterUnavailableMediums "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -102,6 +102,14 @@ Describe -tag 'PSSailpoint.Notifications' -name 'NotificationsApi' {
         }
     }
 
+    Context 'Get-NotificationPreferencesV1' {
+        It 'Test Get-NotificationPreferencesV1' {
+            #$TestResult = Get-NotificationPreferencesV1 -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-NotificationTemplateDefaultsV1' {
         It 'Test Get-NotificationTemplateDefaultsV1' {
             #$TestResult = Get-NotificationTemplateDefaultsV1 -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
@@ -129,6 +137,14 @@ Describe -tag 'PSSailpoint.Notifications' -name 'NotificationsApi' {
     Context 'Send-TestNotificationV1' {
         It 'Test Send-TestNotificationV1' {
             #$TestResult = Send-TestNotificationV1 -SendTestNotificationRequestDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Set-NotificationPreferencesV1' {
+        It 'Test Set-NotificationPreferencesV1' {
+            #$TestResult = Set-NotificationPreferencesV1 -Key "TEST_VALUE" -PreferencesDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

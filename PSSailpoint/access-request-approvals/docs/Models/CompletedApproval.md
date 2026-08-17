@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | When the approval was modified last time. | [optional] 
 **RequestCreated** | **System.DateTime** | When the access-request was created. | [optional] 
 **RequestType** | **AccessRequestType** |  | [optional] 
+**IdentityType** |  **Enum** [  "HUMAN",    "MACHINE" ] | Type of identity the access was requested for. Requests without a stored identity type are returned as `HUMAN`.  | [optional] 
 **Requester** | [**AccessItemRequester**](access-item-requester) |  | [optional] 
 **RequestedFor** | [**CompletedApprovalRequestedFor**](completed-approval-requested-for) |  | [optional] 
 **ReviewedBy** | [**AccessItemReviewedBy**](access-item-reviewed-by) |  | [optional] 
@@ -57,6 +58,7 @@ $CompletedApproval = Initialize-CompletedApproval  -Id id12345 `
  -Modified 2018-07-25T20:22:28.104Z `
  -RequestCreated 2017-07-11T18:45:35.098Z `
  -RequestType null `
+ -IdentityType HUMAN `
  -Requester null `
  -RequestedFor null `
  -ReviewedBy null `

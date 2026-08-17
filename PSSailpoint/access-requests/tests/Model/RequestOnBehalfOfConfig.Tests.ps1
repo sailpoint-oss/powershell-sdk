@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'RequestOnBehalfOfConfig' {
     Context 'RequestOnBehalfOfConfig' {
         It 'Initialize-RequestOnBehalfOfConfig' {
             # a simple test to create an object
-            #$NewObject = Initialize-RequestOnBehalfOfConfig -AllowRequestOnBehalfOfAnyoneByAnyone "TEST_VALUE" -AllowRequestOnBehalfOfEmployeeByManager "TEST_VALUE"
+            #$NewObject = Initialize-RequestOnBehalfOfConfig -AllowRequestOnBehalfOfAnyoneByAnyone "TEST_VALUE" -AllowRequestOnBehalfOfEmployeeByManager "TEST_VALUE" -AllowRequestOnBehalfOfForMachineIdentity "TEST_VALUE" -AllowRequestForMachineByOwner "TEST_VALUE"
             #$NewObject | Should -BeOfType RequestOnBehalfOfConfig
             #$NewObject.property | Should -Be 0
         }

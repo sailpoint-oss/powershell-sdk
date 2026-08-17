@@ -42,6 +42,8 @@ When the request was created.
 No description available.
 .PARAMETER RequestedFor
 No description available.
+.PARAMETER IdentityType
+Type of identity the access was requested for. Requests without a stored identity type are returned as `HUMAN`. 
 .PARAMETER RequesterComment
 No description available.
 .PARAMETER SodViolationContext
@@ -120,6 +122,10 @@ function Initialize-AccessRequestAdminItemStatus {
         [PSCustomObject]
         ${RequestedFor},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("HUMAN", "MACHINE")]
+        [String]
+        ${IdentityType},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RequesterComment},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -177,6 +183,7 @@ function Initialize-AccessRequestAdminItemStatus {
             "created" = ${Created}
             "requester" = ${Requester}
             "requestedFor" = ${RequestedFor}
+            "identityType" = ${IdentityType}
             "requesterComment" = ${RequesterComment}
             "sodViolationContext" = ${SodViolationContext}
             "provisioningDetails" = ${ProvisioningDetails}
@@ -225,7 +232,7 @@ function ConvertFrom-JsonToAccessRequestAdminItemStatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccessRequestAdminItemStatus
-        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "reauthorizationRequired", "accessRequestId", "clientMetadata")
+        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "identityType", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "reauthorizationRequired", "accessRequestId", "clientMetadata")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -316,6 +323,12 @@ function ConvertFrom-JsonToAccessRequestAdminItemStatus {
             $RequestedFor = $JsonParameters.PSobject.Properties["requestedFor"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityType"))) { #optional property not found
+            $IdentityType = $null
+        } else {
+            $IdentityType = $JsonParameters.PSobject.Properties["identityType"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "requesterComment"))) { #optional property not found
             $RequesterComment = $null
         } else {
@@ -403,6 +416,7 @@ function ConvertFrom-JsonToAccessRequestAdminItemStatus {
             "created" = ${Created}
             "requester" = ${Requester}
             "requestedFor" = ${RequestedFor}
+            "identityType" = ${IdentityType}
             "requesterComment" = ${RequesterComment}
             "sodViolationContext" = ${SodViolationContext}
             "provisioningDetails" = ${ProvisioningDetails}

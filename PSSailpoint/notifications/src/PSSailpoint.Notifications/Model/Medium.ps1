@@ -12,7 +12,7 @@ Enum Medium.
 
 .DESCRIPTION
 
-The notification medium (EMAIL, SLACK, or TEAMS)
+The notification medium (EMAIL, SLACK, TEAMS, or INBOX)
 #>
 
 enum Medium {
@@ -22,5 +22,7 @@ enum Medium {
     SLACK
     # enum value: "TEAMS"
     TEAMS
+    # enum value: "INBOX"
+    INBOX
 }
 

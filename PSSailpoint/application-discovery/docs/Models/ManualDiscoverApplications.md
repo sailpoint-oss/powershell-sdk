@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManualDiscoverApplications = Initialize-ManualDiscoverApplications  -File [B@6831d8fd
+$ManualDiscoverApplications = Initialize-ManualDiscoverApplications  -File [B@27dc79f7
 ```
 
 - Convert the resource to JSON

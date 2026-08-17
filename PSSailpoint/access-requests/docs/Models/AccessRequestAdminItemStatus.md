@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | When the request was created. | [optional] 
 **Requester** | [**AccessItemRequester**](access-item-requester) |  | [optional] 
 **RequestedFor** | [**RequestedItemStatusRequestedFor**](requested-item-status-requested-for) |  | [optional] 
+**IdentityType** |  **Enum** [  "HUMAN",    "MACHINE" ] | Type of identity the access was requested for. Requests without a stored identity type are returned as `HUMAN`.  | [optional] 
 **RequesterComment** | [**RequestedItemStatusRequesterComment**](requested-item-status-requester-comment) |  | [optional] 
 **SodViolationContext** | [**RequestedItemStatusSodViolationContext**](requested-item-status-sod-violation-context) |  | [optional] 
 **ProvisioningDetails** | [**RequestedItemStatusProvisioningDetails**](requested-item-status-provisioning-details) |  | [optional] 
@@ -61,6 +62,7 @@ $AccessRequestAdminItemStatus = Initialize-AccessRequestAdminItemStatus  -Id 2c9
  -Created 2019-08-23T18:40:35.772Z `
  -Requester null `
  -RequestedFor null `
+ -IdentityType HUMAN `
  -RequesterComment null `
  -SodViolationContext null `
  -ProvisioningDetails null `

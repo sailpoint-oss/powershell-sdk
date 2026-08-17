@@ -44,6 +44,8 @@ When the request was created.
 No description available.
 .PARAMETER RequestedFor
 No description available.
+.PARAMETER IdentityType
+Type of identity the access was requested for. Legacy requests without a stored identity type are returned as `HUMAN`. 
 .PARAMETER RequesterComment
 No description available.
 .PARAMETER SodViolationContext
@@ -67,7 +69,7 @@ This is the account activity id.
 .PARAMETER ClientMetadata
 Arbitrary key-value pairs, if any were included in the corresponding access request
 .PARAMETER RequestedAccounts
-The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
+The accounts selected for the access to be provisioned on, in case the requested-for identity has multiple accounts on one or more sources.
 .PARAMETER PrivilegeLevel
 The privilege level of the requested access item, if applicable.
 .PARAMETER JitDetails
@@ -128,6 +130,10 @@ function Initialize-RequestedItemStatus {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RequestedFor},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("HUMAN", "MACHINE")]
+        [String]
+        ${IdentityType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RequesterComment},
@@ -193,6 +199,7 @@ function Initialize-RequestedItemStatus {
             "created" = ${Created}
             "requester" = ${Requester}
             "requestedFor" = ${RequestedFor}
+            "identityType" = ${IdentityType}
             "requesterComment" = ${RequesterComment}
             "sodViolationContext" = ${SodViolationContext}
             "provisioningDetails" = ${ProvisioningDetails}
@@ -243,7 +250,7 @@ function ConvertFrom-JsonToRequestedItemStatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in RequestedItemStatus
-        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "approvalIds", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "accessRequestId", "clientMetadata", "requestedAccounts", "privilegeLevel", "jitDetails")
+        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "approvalIds", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "identityType", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "accessRequestId", "clientMetadata", "requestedAccounts", "privilegeLevel", "jitDetails")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -338,6 +345,12 @@ function ConvertFrom-JsonToRequestedItemStatus {
             $RequestedFor = $null
         } else {
             $RequestedFor = $JsonParameters.PSobject.Properties["requestedFor"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityType"))) { #optional property not found
+            $IdentityType = $null
+        } else {
+            $IdentityType = $JsonParameters.PSobject.Properties["identityType"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "requesterComment"))) { #optional property not found
@@ -440,6 +453,7 @@ function ConvertFrom-JsonToRequestedItemStatus {
             "created" = ${Created}
             "requester" = ${Requester}
             "requestedFor" = ${RequestedFor}
+            "identityType" = ${IdentityType}
             "requesterComment" = ${RequesterComment}
             "sodViolationContext" = ${SodViolationContext}
             "provisioningDetails" = ${ProvisioningDetails}

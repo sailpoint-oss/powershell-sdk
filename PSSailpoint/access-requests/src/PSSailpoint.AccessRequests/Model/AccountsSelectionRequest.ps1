@@ -12,16 +12,18 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Prefetch account selections for an access request before submit. Machine identity accounts-selection must use `requestedForWithRequestedItems` with `identityType: MACHINE` on each entry and only `ENTITLEMENT` items. Flat `requestedFor` / `requestedItems` must be omitted (do not send an empty array) for machine requests. 
 
 .PARAMETER RequestedFor
-A list of Identity IDs for whom the Access is requested.
+A list of Identity IDs for whom the Access is requested. * Must be omitted (do not send an empty array) when using `requestedForWithRequestedItems`   (including all machine identity requests).
 .PARAMETER RequestType
 No description available.
 .PARAMETER RequestedItems
-No description available.
+Access items requested. * Must be omitted (do not send an empty array) when using `requestedForWithRequestedItems`. 
 .PARAMETER ClientMetadata
-Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities.  
+Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities.
+.PARAMETER RequestedForWithRequestedItems
+Nested payload pairing each identity with its requested items. * Required for machine identity accounts-selection. Set `identityType: MACHINE` on each entry. * Machine requests support `ENTITLEMENT` items only and do not allow mixed human and machine identities. * When present, `requestedFor` and `requestedItems` must be omitted (do not send an empty array).
 .OUTPUTS
 
 AccountsSelectionRequest<PSCustomObject>
@@ -42,26 +44,21 @@ function Initialize-AccountsSelectionRequest {
         ${RequestedItems},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
-        ${ClientMetadata}
+        ${ClientMetadata},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${RequestedForWithRequestedItems}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.AccessRequests => AccountsSelectionRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$RequestedFor) {
-            throw "invalid value for 'RequestedFor', 'RequestedFor' cannot be null."
-        }
-
-        if (!$RequestedItems) {
-            throw "invalid value for 'RequestedItems', 'RequestedItems' cannot be null."
-        }
-
-        if ($RequestedItems.length -gt 25) {
+        if (!$RequestedItems -and $RequestedItems.length -gt 25) {
             throw "invalid value for 'RequestedItems', number of items must be less than or equal to 25."
         }
 
-        if ($RequestedItems.length -lt 1) {
+        if (!$RequestedItems -and $RequestedItems.length -lt 1) {
             throw "invalid value for 'RequestedItems', number of items must be greater than or equal to 1."
         }
 
@@ -71,6 +68,7 @@ function Initialize-AccountsSelectionRequest {
             "requestType" = ${RequestType}
             "requestedItems" = ${RequestedItems}
             "clientMetadata" = ${ClientMetadata}
+            "requestedForWithRequestedItems" = ${RequestedForWithRequestedItems}
         }
 
         return $PSO
@@ -107,27 +105,17 @@ function ConvertFrom-JsonToAccountsSelectionRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccountsSelectionRequest
-        $AllProperties = ("requestedFor", "requestType", "requestedItems", "clientMetadata")
+        $AllProperties = ("requestedFor", "requestType", "requestedItems", "clientMetadata", "requestedForWithRequestedItems")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'requestedFor' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedFor"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'requestedFor' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedFor"))) { #optional property not found
+            $RequestedFor = $null
         } else {
             $RequestedFor = $JsonParameters.PSobject.Properties["requestedFor"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedItems"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'requestedItems' missing."
-        } else {
-            $RequestedItems = $JsonParameters.PSobject.Properties["requestedItems"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestType"))) { #optional property not found
@@ -136,10 +124,22 @@ function ConvertFrom-JsonToAccountsSelectionRequest {
             $RequestType = $JsonParameters.PSobject.Properties["requestType"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedItems"))) { #optional property not found
+            $RequestedItems = $null
+        } else {
+            $RequestedItems = $JsonParameters.PSobject.Properties["requestedItems"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "clientMetadata"))) { #optional property not found
             $ClientMetadata = $null
         } else {
             $ClientMetadata = $JsonParameters.PSobject.Properties["clientMetadata"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedForWithRequestedItems"))) { #optional property not found
+            $RequestedForWithRequestedItems = $null
+        } else {
+            $RequestedForWithRequestedItems = $JsonParameters.PSobject.Properties["requestedForWithRequestedItems"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -147,6 +147,7 @@ function ConvertFrom-JsonToAccountsSelectionRequest {
             "requestType" = ${RequestType}
             "requestedItems" = ${RequestedItems}
             "clientMetadata" = ${ClientMetadata}
+            "requestedForWithRequestedItems" = ${RequestedForWithRequestedItems}
         }
 
         return $PSO

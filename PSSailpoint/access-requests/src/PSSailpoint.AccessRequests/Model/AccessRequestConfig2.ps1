@@ -24,6 +24,8 @@ No description available.
 No description available.
 .PARAMETER GovGroupVisibilityEnabled
 If this is true, requesters and requested-for users will be able to see the names of governance group members when a request is awaiting the group's approval. Up to the first 10 members of the group will be listed.
+.PARAMETER MachineIdentityAccessRequestEnabled
+If this is false, machine identity access requests and machine accounts-selection are rejected with 403 (for example, ""Machine identity access request is disabled in access request configuration.""). Defaults to true. Exposed on access-request-config v2 only. 
 .OUTPUTS
 
 AccessRequestConfig2<PSCustomObject>
@@ -46,7 +48,10 @@ function Initialize-AccessRequestConfig2 {
         ${EntitlementRequestConfig},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${GovGroupVisibilityEnabled} = $false
+        ${GovGroupVisibilityEnabled} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${MachineIdentityAccessRequestEnabled} = $true
     )
 
     Process {
@@ -60,6 +65,7 @@ function Initialize-AccessRequestConfig2 {
             "requestOnBehalfOfConfig" = ${RequestOnBehalfOfConfig}
             "entitlementRequestConfig" = ${EntitlementRequestConfig}
             "govGroupVisibilityEnabled" = ${GovGroupVisibilityEnabled}
+            "machineIdentityAccessRequestEnabled" = ${MachineIdentityAccessRequestEnabled}
         }
 
         return $PSO
@@ -96,7 +102,7 @@ function ConvertFrom-JsonToAccessRequestConfig2 {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccessRequestConfig2
-        $AllProperties = ("approvalsMustBeExternal", "reauthorizationEnabled", "requestOnBehalfOfConfig", "entitlementRequestConfig", "govGroupVisibilityEnabled")
+        $AllProperties = ("approvalsMustBeExternal", "reauthorizationEnabled", "requestOnBehalfOfConfig", "entitlementRequestConfig", "govGroupVisibilityEnabled", "machineIdentityAccessRequestEnabled")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -133,12 +139,19 @@ function ConvertFrom-JsonToAccessRequestConfig2 {
             $GovGroupVisibilityEnabled = $JsonParameters.PSobject.Properties["govGroupVisibilityEnabled"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "machineIdentityAccessRequestEnabled"))) { #optional property not found
+            $MachineIdentityAccessRequestEnabled = $null
+        } else {
+            $MachineIdentityAccessRequestEnabled = $JsonParameters.PSobject.Properties["machineIdentityAccessRequestEnabled"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "approvalsMustBeExternal" = ${ApprovalsMustBeExternal}
             "reauthorizationEnabled" = ${ReauthorizationEnabled}
             "requestOnBehalfOfConfig" = ${RequestOnBehalfOfConfig}
             "entitlementRequestConfig" = ${EntitlementRequestConfig}
             "govGroupVisibilityEnabled" = ${GovGroupVisibilityEnabled}
+            "machineIdentityAccessRequestEnabled" = ${MachineIdentityAccessRequestEnabled}
         }
 
         return $PSO

@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-Identity access was requested for.
+Identity access was requested for. For machine identity requests, `type` is `MACHINE_IDENTITY` and `id` is the machine identity id.
 
 .PARAMETER Type
 Type of the object to which this reference applies
@@ -29,7 +29,7 @@ function Initialize-CompletedApprovalRequestedFor {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY")]
+        [ValidateSet("IDENTITY", "MACHINE_IDENTITY")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

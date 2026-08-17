@@ -26,6 +26,8 @@ When the approval was modified last time.
 When the access-request was created.
 .PARAMETER RequestType
 No description available.
+.PARAMETER IdentityType
+Type of identity the access was requested for. Requests without a stored identity type are returned as `HUMAN`. 
 .PARAMETER Requester
 No description available.
 .PARAMETER RequestedFor
@@ -101,6 +103,10 @@ function Initialize-CompletedApproval {
         [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS", "MODIFY_ACCESS", "")]
         [PSCustomObject]
         ${RequestType},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("HUMAN", "MACHINE")]
+        [String]
+        ${IdentityType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Requester},
@@ -188,6 +194,7 @@ function Initialize-CompletedApproval {
             "modified" = ${Modified}
             "requestCreated" = ${RequestCreated}
             "requestType" = ${RequestType}
+            "identityType" = ${IdentityType}
             "requester" = ${Requester}
             "requestedFor" = ${RequestedFor}
             "reviewedBy" = ${ReviewedBy}
@@ -248,7 +255,7 @@ function ConvertFrom-JsonToCompletedApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CompletedApproval
-        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "startDate", "startUpdateRequested", "currentStartDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration", "jitDetails")
+        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "identityType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "startDate", "startUpdateRequested", "currentStartDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration", "jitDetails")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -289,6 +296,12 @@ function ConvertFrom-JsonToCompletedApproval {
             $RequestType = $null
         } else {
             $RequestType = $JsonParameters.PSobject.Properties["requestType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityType"))) { #optional property not found
+            $IdentityType = $null
+        } else {
+            $IdentityType = $JsonParameters.PSobject.Properties["identityType"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "requester"))) { #optional property not found
@@ -442,6 +455,7 @@ function ConvertFrom-JsonToCompletedApproval {
             "modified" = ${Modified}
             "requestCreated" = ${RequestCreated}
             "requestType" = ${RequestType}
+            "identityType" = ${IdentityType}
             "requester" = ${Requester}
             "requestedFor" = ${RequestedFor}
             "reviewedBy" = ${ReviewedBy}

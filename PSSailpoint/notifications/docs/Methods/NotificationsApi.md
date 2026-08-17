@@ -24,15 +24,17 @@ Method | HTTP request | Description
 [**Remove-VerifiedFromAddressV1**](#delete-verified-from-address-v1) | **DELETE** `/verified-from-addresses/v1/{id}` | Delete verified from address
 [**Get-DkimAttributesV1**](#get-dkim-attributes-v1) | **GET** `/verified-domains/v1` | Get dkim attributes
 [**Get-MailFromAttributesV1**](#get-mail-from-attributes-v1) | **GET** `/mail-from-attributes/v1/{identity}` | Get mail from attributes
-[**Get-NotificationPreferencesV1**](#get-notification-preferences-v1) | **GET** `/notification-preferences/v1/{key}` | List notification preferences for tenant.
+[**Get-NotificationPreferencesV1**](#get-notification-preferences-v1) | **GET** `/notification-preferences/v1/{key}` | Get notification preferences by key
 [**Get-NotificationTemplateV1**](#get-notification-template-v1) | **GET** `/notification-templates/v1/{id}` | Get notification template by id
 [**Get-NotificationTemplateVariablesV1**](#get-notification-template-variables-v1) | **GET** `/notification-template-variables/v1/{key}/{medium}` | Get notification template variables
 [**Get-NotificationsTemplateContextV1**](#get-notifications-template-context-v1) | **GET** `/notification-template-context/v1` | Get notification template context
 [**Get-FromAddressesV1**](#list-from-addresses-v1) | **GET** `/verified-from-addresses/v1` | List from addresses
+[**Get-NotificationPreferencesV1**](#list-notification-preferences-v1) | **GET** `/notification-preferences/v1` | List notification preferences for tenant
 [**Get-NotificationTemplateDefaultsV1**](#list-notification-template-defaults-v1) | **GET** `/notification-template-defaults/v1` | List notification template defaults
 [**Get-NotificationTemplatesV1**](#list-notification-templates-v1) | **GET** `/notification-templates/v1` | List notification templates
 [**Send-MailFromAttributesV1**](#put-mail-from-attributes-v1) | **PUT** `/mail-from-attributes/v1` | Change mail from domain
 [**Send-TestNotificationV1**](#send-test-notification-v1) | **POST** `/send-test-notification/v1` | Send test notification
+[**Set-NotificationPreferencesV1**](#set-notification-preferences-v1) | **PUT** `/notification-preferences/v1/{key}` | Set notification preferences by key
 
 
 ## create-domain-dkim-v1
@@ -438,14 +440,15 @@ try {
 [[Back to top]](#) 
 
 ## get-notification-preferences-v1
-Returns a list of notification preferences for tenant.
+Returns the notification preferences for a specific notification key, including preferred mediums and optional CC/BCC email recipients. If no custom preferences exist, returns the default settings from the interest definition. If the key does not exist, a 404 is returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-notification-preferences-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Key | **String** | True  | The key.
+Path   | Key | **String** | True  | The notification key.
+  Query | FilterUnavailableMediums | **Boolean** |   (optional) (default to $false) | When `true`, excludes SLACK and TEAMS from the returned mediums if they are not configured for the tenant.
 
 ### Return type
 [**PreferencesDto**](../models/preferences-dto)
@@ -453,7 +456,7 @@ Path   | Key | **String** | True  | The key.
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Return preference for the given notification key. | PreferencesDto
+200 | Notification preferences for the given key. | PreferencesDto
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -467,15 +470,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Key = "MyKey" # String | The key.
+$Key = "approval_completed_notification" # String | The notification key.
+$FilterUnavailableMediums = $true # Boolean | When `true`, excludes SLACK and TEAMS from the returned mediums if they are not configured for the tenant. (optional) (default to $false)
 
-# List notification preferences for tenant.
+# Get notification preferences by key
 
 try {
     Get-NotificationPreferencesV1 -Key $Key 
     
     # Below is a request that includes all optional parameters
-    # Get-NotificationPreferencesV1 -Key $Key  
+    # Get-NotificationPreferencesV1 -Key $Key -FilterUnavailableMediums $FilterUnavailableMediums  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NotificationPreferencesV1"
     Write-Host $_.ErrorDetails
@@ -673,6 +677,59 @@ try {
     # Get-FromAddressesV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-FromAddressesV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## list-notification-preferences-v1
+Returns a list of notification preferences for the current tenant, including preferred mediums and optional CC/BCC email recipients for each notification key. Supports standard V3 filtering, sorting, and offset/limit pagination.
+
+[API Spec](https://developer.sailpoint.com/docs/api/list-notification-preferences-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key**
+
+### Return type
+[**PreferencesDto[]**](../models/preferences-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of notification preferences for the tenant. | PreferencesDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Filters = 'key eq "approval_completed_notification"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in* (optional)
+$Sorters = "key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key** (optional)
+
+# List notification preferences for tenant
+
+try {
+    Get-NotificationPreferencesV1 
+    
+    # Below is a request that includes all optional parameters
+    # Get-NotificationPreferencesV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NotificationPreferencesV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -880,6 +937,71 @@ try {
     # Send-TestNotificationV1 -SendTestNotificationRequestDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TestNotificationV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## set-notification-preferences-v1
+Overwrites the notification preferences for a specific notification key. Controls which mediums are enabled and optional CC/BCC email recipients. The `key` property in the request body is optional; if provided, it must match the key in the path or a 400 is returned. Each of `ccList` and `bccList` supports a maximum of five entries, and the same recipient cannot appear in both lists. CC/BCC configuration requires EMAIL to be enabled in `mediums` and is only allowed for templates which support it (i.e., templates which contain sensitive data like reset tokens do not allow for carbon copy emails to be configured).
+
+[API Spec](https://developer.sailpoint.com/docs/api/set-notification-preferences-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Key | **String** | True  | The notification key.
+ Body  | PreferencesDto | [**PreferencesDto**](../models/preferences-dto) | True  | 
+
+### Return type
+[**PreferencesDto**](../models/preferences-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Preferences updated successfully. An echo of the saved preferences is returned. | PreferencesDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetNotificationTemplateVariablesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetNotificationTemplateVariablesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Key = "approval_completed_notification" # String | The notification key.
+$PreferencesDto = @"{
+  "modified" : "2020-05-15T14:37:06.909Z",
+  "ccList" : [ {
+    "type" : "IDENTITY",
+    "id" : "6b0b8e47cc1f4c3fa961a38fc718e989"
+  }, {
+    "type" : "STATIC_EMAIL",
+    "email" : "cc-recipient@example.com"
+  } ],
+  "bccList" : [ {
+    "type" : "MANAGER_OF"
+  }, {
+    "type" : "ORG_ADMINS"
+  } ],
+  "mediums" : [ "EMAIL" ],
+  "key" : "cloud_manual_work_item_summary"
+}"@
+
+# Set notification preferences by key
+
+try {
+    $Result = ConvertFrom-JsonToPreferencesDto -Json $PreferencesDto
+    Set-NotificationPreferencesV1 -Key $Key -PreferencesDto $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Set-NotificationPreferencesV1 -Key $Key -PreferencesDto $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-NotificationPreferencesV1"
     Write-Host $_.ErrorDetails
 }
 ```

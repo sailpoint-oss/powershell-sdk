@@ -15,7 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER IdentityId
-The identity id for which the access is requested
+The identity id the access is requested for. * `HUMAN` (default): the human identity id. * `MACHINE`: the machine identity id (hyphenated RFC-4122 UUID, not the correlated human identity). 
+.PARAMETER IdentityType
+Type of identity the access is requested for. * `HUMAN` (default) - standard human identity access request. * `MACHINE` - machine identity access request. When `MACHINE`, all entries in the request must also be `MACHINE` (mixed human and machine identities in one request are not supported), and only `ENTITLEMENT` items are allowed. 
 .PARAMETER RequestedItems
 the details for the access items that are requested for the identity
 .OUTPUTS
@@ -29,6 +31,10 @@ function Initialize-RequestedForDtoRef {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("HUMAN", "MACHINE")]
+        [String]
+        ${IdentityType} = "HUMAN",
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${RequestedItems}
@@ -49,6 +55,7 @@ function Initialize-RequestedForDtoRef {
 
         $PSO = [PSCustomObject]@{
             "identityId" = ${IdentityId}
+            "identityType" = ${IdentityType}
             "requestedItems" = ${RequestedItems}
         }
 
@@ -86,7 +93,7 @@ function ConvertFrom-JsonToRequestedForDtoRef {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in RequestedForDtoRef
-        $AllProperties = ("identityId", "requestedItems")
+        $AllProperties = ("identityId", "identityType", "requestedItems")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,8 +116,15 @@ function ConvertFrom-JsonToRequestedForDtoRef {
             $RequestedItems = $JsonParameters.PSobject.Properties["requestedItems"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityType"))) { #optional property not found
+            $IdentityType = $null
+        } else {
+            $IdentityType = $JsonParameters.PSobject.Properties["identityType"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "identityId" = ${IdentityId}
+            "identityType" = ${IdentityType}
             "requestedItems" = ${RequestedItems}
         }
 

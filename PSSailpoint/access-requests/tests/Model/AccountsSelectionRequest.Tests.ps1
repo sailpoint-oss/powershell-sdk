@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'AccountsSelectionRequest' {
     Context 'AccountsSelectionRequest' {
         It 'Initialize-AccountsSelectionRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-AccountsSelectionRequest -RequestedFor "TEST_VALUE" -RequestType "TEST_VALUE" -RequestedItems "TEST_VALUE" -ClientMetadata "TEST_VALUE"
+            #$NewObject = Initialize-AccountsSelectionRequest -RequestedFor "TEST_VALUE" -RequestType "TEST_VALUE" -RequestedItems "TEST_VALUE" -ClientMetadata "TEST_VALUE" -RequestedForWithRequestedItems "TEST_VALUE"
             #$NewObject | Should -BeOfType AccountsSelectionRequest
             #$NewObject.property | Should -Be 0
         }

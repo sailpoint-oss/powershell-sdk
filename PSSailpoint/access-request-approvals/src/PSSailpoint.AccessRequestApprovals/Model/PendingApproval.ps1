@@ -28,6 +28,8 @@ When the approval was modified last time.
 When the access-request was created.
 .PARAMETER RequestType
 No description available.
+.PARAMETER IdentityType
+Type of identity the access was requested for. Requests without a stored identity type are returned as `HUMAN`. 
 .PARAMETER Requester
 No description available.
 .PARAMETER RequestedFor
@@ -100,6 +102,10 @@ function Initialize-PendingApproval {
         [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS", "MODIFY_ACCESS", "")]
         [PSCustomObject]
         ${RequestType},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("HUMAN", "MACHINE")]
+        [String]
+        ${IdentityType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Requester},
@@ -179,6 +185,7 @@ function Initialize-PendingApproval {
             "modified" = ${Modified}
             "requestCreated" = ${RequestCreated}
             "requestType" = ${RequestType}
+            "identityType" = ${IdentityType}
             "requester" = ${Requester}
             "requestedFor" = ${RequestedFor}
             "owner" = ${Owner}
@@ -236,7 +243,7 @@ function ConvertFrom-JsonToPendingApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PendingApproval
-        $AllProperties = ("id", "accessRequestId", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "startDate", "startUpdateRequested", "currentStartDate", "sodViolationContext", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration", "jitDetails")
+        $AllProperties = ("id", "accessRequestId", "name", "created", "modified", "requestCreated", "requestType", "identityType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "startDate", "startUpdateRequested", "currentStartDate", "sodViolationContext", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration", "jitDetails")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -283,6 +290,12 @@ function ConvertFrom-JsonToPendingApproval {
             $RequestType = $null
         } else {
             $RequestType = $JsonParameters.PSobject.Properties["requestType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityType"))) { #optional property not found
+            $IdentityType = $null
+        } else {
+            $IdentityType = $JsonParameters.PSobject.Properties["identityType"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "requester"))) { #optional property not found
@@ -419,6 +432,7 @@ function ConvertFrom-JsonToPendingApproval {
             "modified" = ${Modified}
             "requestCreated" = ${RequestCreated}
             "requestType" = ${RequestType}
+            "identityType" = ${IdentityType}
             "requester" = ${Requester}
             "requestedFor" = ${RequestedFor}
             "owner" = ${Owner}

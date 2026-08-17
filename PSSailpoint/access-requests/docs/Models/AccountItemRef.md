@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AccountItemRef', 'AccountItemRef']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountUuid** | **String** | The uuid for the account, available under the 'objectguid' attribute | [optional] 
-**NativeIdentity** | **String** | The 'distinguishedName' attribute for the account | [optional] 
+**AccountUuid** | **String** | The uuid for the account on the source, available under the 'objectguid' attribute * Corresponds to the account's unique identifier as returned by accounts-selection or the accounts APIs. * For machine identity GRANT_ACCESS / MODIFY_ACCESS, provide `accountUuid` and/or `nativeIdentity`. Submitted values must match a real machine account for the requested machine identity on the selected source. | [optional] 
+**NativeIdentity** | **String** | The 'distinguishedName' attribute for the account. * For machine identity GRANT_ACCESS / MODIFY_ACCESS, provide `accountUuid` and/or `nativeIdentity`. Submitted values must match a real machine account for the requested machine identity on the selected source. | [optional] 
 
 ## Examples
 

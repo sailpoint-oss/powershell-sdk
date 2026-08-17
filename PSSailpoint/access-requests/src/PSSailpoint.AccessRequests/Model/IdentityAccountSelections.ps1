@@ -21,7 +21,7 @@ A boolean indicating whether any account selections will be required for the use
 .PARAMETER Type
 No description available.
 .PARAMETER Id
-The identity id for the user
+The identity id for the requested-for identity. * `IDENTITY`: the human identity id. * `MACHINE_IDENTITY`: the machine identity id (not the correlated human identity). 
 .PARAMETER Name
 The name of the identity
 .OUTPUTS

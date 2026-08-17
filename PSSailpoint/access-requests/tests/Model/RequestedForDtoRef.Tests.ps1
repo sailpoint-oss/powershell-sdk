@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'RequestedForDtoRef' {
     Context 'RequestedForDtoRef' {
         It 'Initialize-RequestedForDtoRef' {
             # a simple test to create an object
-            #$NewObject = Initialize-RequestedForDtoRef -IdentityId "TEST_VALUE" -RequestedItems "TEST_VALUE"
+            #$NewObject = Initialize-RequestedForDtoRef -IdentityId "TEST_VALUE" -IdentityType "TEST_VALUE" -RequestedItems "TEST_VALUE"
             #$NewObject | Should -BeOfType RequestedForDtoRef
             #$NewObject.property | Should -Be 0
         }

@@ -279,6 +279,22 @@ __GRANT_ACCESS__
 * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
 * Now supports an alternate field 'requestedForWithRequestedItems' for users to specify account selections while requesting items where they have more than one account on the source.
 
+__MACHINE IDENTITY ACCESS REQUESTS__
+* Machine identity access requests reuse this same endpoint. They must use `requestedForWithRequestedItems` with `identityType: MACHINE` on each entry. Do not use the flat `requestedFor` / `requestedItems` shape for machines. Mixed human and machine identities in one request are not supported.
+* Request `identityType` uses `HUMAN` / `MACHINE`. List, status, and approval responses use `IDENTITY` / `MACHINE_IDENTITY` on `requestedFor.type` for the same distinction.
+
+Prerequisites and authorization:
+* The organization must have Machine Identity Security licensed; otherwise the request is rejected with 403.
+* Access request config v2 `machineIdentityAccessRequestEnabled` must be true (default true); otherwise 403.
+* Request-on-behalf-of for machines is controlled by `allowRequestOnBehalfOfForMachineIdentity` and `allowRequestForMachineByOwner` on the access request configuration. See those schema fields for the authorization cascade (open ROBO, owner/admin ROBO, then admin-only fallback).
+
+Constraints for machine requests:
+* Only `ENTITLEMENT` items are supported (roles and access profiles are rejected).
+* GRANT_ACCESS and MODIFY_ACCESS requests require `accountSelection` to be provided with `accountUuid` and/or `nativeIdentity`  that match a real machine account for that machine identity on the selected source. Prefer values returned by the accounts-selection API.
+* MODIFY_ACCESS requests additionally require each item to have `startDate` and/or `removeDate` to denote date modifications.
+* REVOKE_ACCESS must target exactly one machine identity. Per entitlement item, provide `nativeIdentity` (or it may be auto-resolved when the machine has exactly one account on the entitlement source). Do not send `accountSelection` on machine revoke.
+* Multi-machine GRANT_ACCESS is allowed within existing recipient limits; multi-machine REVOKE_ACCESS is not.
+
 :::caution
 
 If any entitlements are being requested, then the maximum number of entitlements that can be requested is 25, and the maximum number of identities that can be requested for is 10. If you exceed these limits, the request will fail with a 400 error. If you are not requesting any entitlements, then there are no limits.
@@ -296,7 +312,7 @@ __REVOKE_ACCESS__
 * You can specify a `removeDate` to add or alter a sunset date and time on an assignment. The `removeDate` must be a future date-time, in the UTC timezone. If the user already has the access assigned with a sunset date and time, the removeDate must be a date-time earlier than the existing sunset date and time. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
 * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields. These fields should be used within the 'requestedItems' section for the revoke requests. 
-* Usage of 'requestedForWithRequestedItems' field is not supported for revoke requests.
+* For human identities, usage of 'requestedForWithRequestedItems' is not supported for revoke requests. Machine identity revoke requests must use 'requestedForWithRequestedItems' with `identityType: MACHINE` as described above.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-access-request-v-1)
@@ -358,6 +374,7 @@ $AccessRequest = @"{
     "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
   } ],
   "requestedForWithRequestedItems" : [ {
+    "identityType" : "HUMAN",
     "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
     "requestedItems" : [ {
       "clientMetadata" : {
@@ -387,7 +404,8 @@ $AccessRequest = @"{
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
       "type" : "ACCESS_PROFILE",
-      "startDate" : "2020-06-12T21:22:23Z"
+      "startDate" : "2020-06-12T21:22:23Z",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
     }, {
       "clientMetadata" : {
         "requestedAppName" : "test-app",
@@ -416,9 +434,11 @@ $AccessRequest = @"{
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
       "type" : "ACCESS_PROFILE",
-      "startDate" : "2020-06-12T21:22:23Z"
+      "startDate" : "2020-06-12T21:22:23Z",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
     } ]
   }, {
+    "identityType" : "HUMAN",
     "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
     "requestedItems" : [ {
       "clientMetadata" : {
@@ -448,7 +468,8 @@ $AccessRequest = @"{
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
       "type" : "ACCESS_PROFILE",
-      "startDate" : "2020-06-12T21:22:23Z"
+      "startDate" : "2020-06-12T21:22:23Z",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
     }, {
       "clientMetadata" : {
         "requestedAppName" : "test-app",
@@ -477,7 +498,8 @@ $AccessRequest = @"{
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
       "type" : "ACCESS_PROFILE",
-      "startDate" : "2020-06-12T21:22:23Z"
+      "startDate" : "2020-06-12T21:22:23Z",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
     } ]
   } ]
 }"@
@@ -641,7 +663,7 @@ try {
 ## list-access-request-status-v1
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
-Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
+Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users. For access requests for machines, each status item will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Requests without a stored identity type are returned as `HUMAN` / `IDENTITY`.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-access-request-status-v-1)
 
@@ -780,6 +802,26 @@ Use this API to fetch account information for an identity against the items in a
 
 Used to fetch accountSelection for the AccessRequest prior to submitting for async processing.
 
+__Machine identities__
+
+* Must use `requestedForWithRequestedItems` with `identityType: MACHINE` on each entry.
+
+* Fields `requestedFor` / `requestedItems` are not supported and should be omitted.
+
+* Only `ENTITLEMENT` items are supported.
+
+* Mixed human and machine identities in one request are not supported.
+
+* Response identities use `type: MACHINE_IDENTITY`. Use the returned account `accountUuid` / `nativeIdentity`
+values when submitting the access request; invalid or mismatched account details are rejected on create.
+
+* If the machine has no account on a requested source, the item may be returned with
+`accountsSelectionBlocked: true` and `accountsSelectionBlockedReason: NO_ACCOUNT_ON_SOURCE` (empty accounts on the
+response in that blocked case is expected).
+
+* Same licensing, `machineIdentityAccessRequestEnabled`, and request-on-behalf-of rules as create access request
+apply.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/load-account-selections-v-1)
 
@@ -876,6 +918,135 @@ $AccountsSelectionRequest = @"{
     "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
     "startDate" : "2020-06-12T21:22:23Z",
     "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  } ],
+  "requestedForWithRequestedItems" : [ {
+    "identityType" : "HUMAN",
+    "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+    "requestedItems" : [ {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+    }, {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+    } ]
+  }, {
+    "identityType" : "HUMAN",
+    "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+    "requestedItems" : [ {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+    }, {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+    } ]
   } ]
 }"@
 
@@ -931,7 +1102,9 @@ Code | Description  | Data Type
 $AccessRequestConfig = @"{
   "requestOnBehalfOfConfig" : {
     "allowRequestOnBehalfOfEmployeeByManager" : true,
-    "allowRequestOnBehalfOfAnyoneByAnyone" : true
+    "allowRequestOnBehalfOfForMachineIdentity" : true,
+    "allowRequestOnBehalfOfAnyoneByAnyone" : true,
+    "allowRequestForMachineByOwner" : false
   },
   "approvalReminderAndEscalationConfig" : {
     "fallbackApproverRef" : {

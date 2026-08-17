@@ -12,14 +12,16 @@ No summary available.
 
 .DESCRIPTION
 
-Maps an Identity's attribute key to a list of preferred notification mediums.
+Tenant notification preferences for a notification key, including preferred mediums and optional CC/BCC email recipients.
 
 .PARAMETER Key
 The template notification key.
 .PARAMETER Mediums
-List of preferred notification mediums, i.e., the mediums (or method) for which notifications are enabled. More mediums may be added in the future.
-.PARAMETER Modified
-Modified date of preference
+List of preferred notification mediums, i.e., the mediums (or method) for which notifications are enabled. An empty list means the notification is disabled for the tenant. More mediums may be added in the future.
+.PARAMETER CcList
+Optional CC recipients for email notifications for this key. Requires EMAIL to be included in `mediums`. Maximum of five entries. The same recipient cannot appear in both `ccList` and `bccList`.
+.PARAMETER BccList
+Optional BCC recipients for email notifications for this key. Requires EMAIL to be included in `mediums`. Maximum of five entries. The same recipient cannot appear in both `ccList` and `bccList`.
 .OUTPUTS
 
 PreferencesDto<PSCustomObject>
@@ -35,19 +37,31 @@ function Initialize-PreferencesDto {
         [PSCustomObject[]]
         ${Mediums},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified}
+        [PSCustomObject[]]
+        ${CcList},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${BccList}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.Notifications => PreferencesDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$CcList -and $CcList.length -gt 5) {
+            throw "invalid value for 'CcList', number of items must be less than or equal to 5."
+        }
+
+        if (!$BccList -and $BccList.length -gt 5) {
+            throw "invalid value for 'BccList', number of items must be less than or equal to 5."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "key" = ${Key}
             "mediums" = ${Mediums}
-            "modified" = ${Modified}
+            "ccList" = ${CcList}
+            "bccList" = ${BccList}
         }
 
         return $PSO
@@ -84,7 +98,7 @@ function ConvertFrom-JsonToPreferencesDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PreferencesDto
-        $AllProperties = ("key", "mediums", "modified")
+        $AllProperties = ("key", "mediums", "modified", "ccList", "bccList")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,10 +123,24 @@ function ConvertFrom-JsonToPreferencesDto {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ccList"))) { #optional property not found
+            $CcList = $null
+        } else {
+            $CcList = $JsonParameters.PSobject.Properties["ccList"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "bccList"))) { #optional property not found
+            $BccList = $null
+        } else {
+            $BccList = $JsonParameters.PSobject.Properties["bccList"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "key" = ${Key}
             "mediums" = ${Mediums}
             "modified" = ${Modified}
+            "ccList" = ${CcList}
+            "bccList" = ${BccList}
         }
 
         return $PSO

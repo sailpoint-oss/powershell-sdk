@@ -30,6 +30,8 @@ The date and time the role or access profile or entitlement is no longer assigne
 The accounts where the access item will be provisioned to.  * Includes selections performed by the user in the event of multiple accounts existing on the same source.  * Also includes details for sources where user only has one account.  * For machine identity GRANT_ACCESS and MODIFY_ACCESS: required. Provide exactly one source entry and exactly one account on that source. `accountUuid` and/or `nativeIdentity` must match a real machine account for the requested machine identity on that source. Prefer values returned by the accounts-selection API.  * For machine identity REVOKE_ACCESS: not supported. Use `nativeIdentity` on the item instead. 
 .PARAMETER NativeIdentity
 The unique identifier for an account on the identity, designated as the account ID attribute in the source's account schema. * For machine identity REVOKE_ACCESS: required per entitlement item (or auto-resolved when the machine has exactly one account on the entitlement source). Must match a machine account on that source. Do not send `accountSelection` on machine revoke. Human REVOKE_ACCESS cannot use this nested item schema; use flat `requestedItems` instead. 
+.PARAMETER FormInstanceId
+Optional ID of a completed form instance for this line item. * For human GRANT_ACCESS: include when the requested role, access profile, or entitlement has an associated `formDefinitionId` in its request configuration. An empty `formInstanceId` on a GRANT_ACCESS item is rejected with HTTP 400. * Not supported for machine identity access requests.
 .OUTPUTS
 
 RequestedItemDtoRef<PSCustomObject>
@@ -62,7 +64,10 @@ function Initialize-RequestedItemDtoRef {
         ${AccountSelection},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${NativeIdentity}
+        ${NativeIdentity},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${FormInstanceId}
     )
 
     Process {
@@ -87,6 +92,7 @@ function Initialize-RequestedItemDtoRef {
             "removeDate" = ${RemoveDate}
             "accountSelection" = ${AccountSelection}
             "nativeIdentity" = ${NativeIdentity}
+            "formInstanceId" = ${FormInstanceId}
         }
 
         return $PSO
@@ -123,7 +129,7 @@ function ConvertFrom-JsonToRequestedItemDtoRef {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in RequestedItemDtoRef
-        $AllProperties = ("type", "id", "comment", "clientMetadata", "startDate", "removeDate", "accountSelection", "nativeIdentity")
+        $AllProperties = ("type", "id", "comment", "clientMetadata", "startDate", "removeDate", "accountSelection", "nativeIdentity", "formInstanceId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -182,6 +188,12 @@ function ConvertFrom-JsonToRequestedItemDtoRef {
             $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "formInstanceId"))) { #optional property not found
+            $FormInstanceId = $null
+        } else {
+            $FormInstanceId = $JsonParameters.PSobject.Properties["formInstanceId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
@@ -191,6 +203,7 @@ function ConvertFrom-JsonToRequestedItemDtoRef {
             "removeDate" = ${RemoveDate}
             "accountSelection" = ${AccountSelection}
             "nativeIdentity" = ${NativeIdentity}
+            "formInstanceId" = ${FormInstanceId}
         }
 
         return $PSO

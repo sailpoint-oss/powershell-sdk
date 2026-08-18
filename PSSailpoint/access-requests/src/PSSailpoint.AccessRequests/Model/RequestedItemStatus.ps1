@@ -74,6 +74,8 @@ The accounts selected for the access to be provisioned on, in case the requested
 The privilege level of the requested access item, if applicable.
 .PARAMETER JitDetails
 JIT (Just-In-Time) details for the requested access item, if applicable.
+.PARAMETER Form
+No description available.
 .OUTPUTS
 
 RequestedItemStatus<PSCustomObject>
@@ -175,7 +177,10 @@ function Initialize-RequestedItemStatus {
         ${PrivilegeLevel},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${JitDetails}
+        ${JitDetails},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Form}
     )
 
     Process {
@@ -214,6 +219,7 @@ function Initialize-RequestedItemStatus {
             "requestedAccounts" = ${RequestedAccounts}
             "privilegeLevel" = ${PrivilegeLevel}
             "jitDetails" = ${JitDetails}
+            "form" = ${Form}
         }
 
         return $PSO
@@ -250,7 +256,7 @@ function ConvertFrom-JsonToRequestedItemStatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in RequestedItemStatus
-        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "approvalIds", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "identityType", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "accessRequestId", "clientMetadata", "requestedAccounts", "privilegeLevel", "jitDetails")
+        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "approvalIds", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "identityType", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "accessRequestId", "clientMetadata", "requestedAccounts", "privilegeLevel", "jitDetails", "form")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -437,6 +443,12 @@ function ConvertFrom-JsonToRequestedItemStatus {
             $JitDetails = $JsonParameters.PSobject.Properties["jitDetails"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "form"))) { #optional property not found
+            $Form = $null
+        } else {
+            $Form = $JsonParameters.PSobject.Properties["form"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -468,6 +480,7 @@ function ConvertFrom-JsonToRequestedItemStatus {
             "requestedAccounts" = ${RequestedAccounts}
             "privilegeLevel" = ${PrivilegeLevel}
             "jitDetails" = ${JitDetails}
+            "form" = ${Form}
         }
 
         return $PSO

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Triggers' -name 'AccessRequestDynamicApproverRequeste
     Context 'AccessRequestDynamicApproverRequestedItemsInner' {
         It 'Initialize-AccessRequestDynamicApproverRequestedItemsInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-AccessRequestDynamicApproverRequestedItemsInner -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Type "TEST_VALUE" -Operation "TEST_VALUE" -Comment "TEST_VALUE"
+            #$NewObject = Initialize-AccessRequestDynamicApproverRequestedItemsInner -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Type "TEST_VALUE" -Operation "TEST_VALUE" -Comment "TEST_VALUE" -Form "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessRequestDynamicApproverRequestedItemsInner
             #$NewObject.property | Should -Be 0
         }

@@ -26,6 +26,8 @@ The type of access item being requested.
 Grant or revoke the access item
 .PARAMETER Comment
 A comment from the requestor on why the access is needed.
+.PARAMETER Form
+No description available.
 .OUTPUTS
 
 AccessRequestDynamicApproverRequestedItemsInner<PSCustomObject>
@@ -53,7 +55,10 @@ function Initialize-AccessRequestDynamicApproverRequestedItemsInner {
         ${Operation},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Comment}
+        ${Comment},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Form}
     )
 
     Process {
@@ -84,6 +89,7 @@ function Initialize-AccessRequestDynamicApproverRequestedItemsInner {
             "type" = ${Type}
             "operation" = ${Operation}
             "comment" = ${Comment}
+            "form" = ${Form}
         }
 
         return $PSO
@@ -120,7 +126,7 @@ function ConvertFrom-JsonToAccessRequestDynamicApproverRequestedItemsInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccessRequestDynamicApproverRequestedItemsInner
-        $AllProperties = ("id", "name", "description", "type", "operation", "comment")
+        $AllProperties = ("id", "name", "description", "type", "operation", "comment", "form")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -167,6 +173,12 @@ function ConvertFrom-JsonToAccessRequestDynamicApproverRequestedItemsInner {
             $Comment = $JsonParameters.PSobject.Properties["comment"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "form"))) { #optional property not found
+            $Form = $null
+        } else {
+            $Form = $JsonParameters.PSobject.Properties["form"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -174,6 +186,7 @@ function ConvertFrom-JsonToAccessRequestDynamicApproverRequestedItemsInner {
             "type" = ${Type}
             "operation" = ${Operation}
             "comment" = ${Comment}
+            "form" = ${Form}
         }
 
         return $PSO

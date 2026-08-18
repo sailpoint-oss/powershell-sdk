@@ -40,6 +40,7 @@ Production ready event triggers that are available in all tenants.
 | [Source Deleted](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-deleted/) | idn:source-deleted | FIRE_AND_FORGET | After a source is deleted. |
 | [Source Updated](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-updated/) | idn:source-updated | FIRE_AND_FORGET | After configuration changes have been made to a source. |
 | [VA Cluster Status Change](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/va-cluster-status-change/) | idn:va-cluster-status-change | FIRE_AND_FORGET | After the status of a VA cluster has changed. |
+Access request pre-approval and dynamic approver trigger inputs may include a &#x60;form&#x60; object on each entry in &#x60;requestedItems&#x60; when that item has associated form data. The post-approval trigger includes &#x60;form&#x60; on each entry in &#x60;requestedItemsStatus&#x60;.
  
   
 

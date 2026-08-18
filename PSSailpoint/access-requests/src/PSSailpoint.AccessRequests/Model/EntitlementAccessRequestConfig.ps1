@@ -26,6 +26,8 @@ Is Reauthorization Required
 If true, then remove date or sunset date is required in access request of the entitlement.
 .PARAMETER MaxPermittedAccessDuration
 No description available.
+.PARAMETER FormDefinitionId
+The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process.
 .OUTPUTS
 
 EntitlementAccessRequestConfig<PSCustomObject>
@@ -51,7 +53,10 @@ function Initialize-EntitlementAccessRequestConfig {
         ${RequireEndDate} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${MaxPermittedAccessDuration}
+        ${MaxPermittedAccessDuration},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${FormDefinitionId}
     )
 
     Process {
@@ -66,6 +71,7 @@ function Initialize-EntitlementAccessRequestConfig {
             "reauthorizationRequired" = ${ReauthorizationRequired}
             "requireEndDate" = ${RequireEndDate}
             "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
+            "formDefinitionId" = ${FormDefinitionId}
         }
 
         return $PSO
@@ -102,7 +108,7 @@ function ConvertFrom-JsonToEntitlementAccessRequestConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in EntitlementAccessRequestConfig
-        $AllProperties = ("approvalSchemes", "requestCommentRequired", "denialCommentRequired", "reauthorizationRequired", "requireEndDate", "maxPermittedAccessDuration")
+        $AllProperties = ("approvalSchemes", "requestCommentRequired", "denialCommentRequired", "reauthorizationRequired", "requireEndDate", "maxPermittedAccessDuration", "formDefinitionId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -145,6 +151,12 @@ function ConvertFrom-JsonToEntitlementAccessRequestConfig {
             $MaxPermittedAccessDuration = $JsonParameters.PSobject.Properties["maxPermittedAccessDuration"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "formDefinitionId"))) { #optional property not found
+            $FormDefinitionId = $null
+        } else {
+            $FormDefinitionId = $JsonParameters.PSobject.Properties["formDefinitionId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "approvalSchemes" = ${ApprovalSchemes}
             "requestCommentRequired" = ${RequestCommentRequired}
@@ -152,6 +164,7 @@ function ConvertFrom-JsonToEntitlementAccessRequestConfig {
             "reauthorizationRequired" = ${ReauthorizationRequired}
             "requireEndDate" = ${RequireEndDate}
             "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
+            "formDefinitionId" = ${FormDefinitionId}
         }
 
         return $PSO

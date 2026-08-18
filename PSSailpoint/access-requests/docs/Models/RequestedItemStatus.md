@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **RequestedAccounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected for the access to be provisioned on, in case the requested-for identity has multiple accounts on one or more sources. | [optional] 
 **PrivilegeLevel** | **String** | The privilege level of the requested access item, if applicable. | [optional] 
 **JitDetails** | **[]EntitlementStateSnapshotJitDetail** | JIT (Just-In-Time) details for the requested access item, if applicable. | [optional] 
+**Form** | [**RequestedItemStatusForm**](requested-item-status-form) |  | [optional] 
 
 ## Examples
 
@@ -80,7 +81,8 @@ $RequestedItemStatus = Initialize-RequestedItemStatus  -Id 2c9180926cbfbddd016cb
  -ClientMetadata {"key1":"value1","key2":"value2"} `
  -RequestedAccounts null `
  -PrivilegeLevel High `
- -JitDetails null
+ -JitDetails null `
+ -Form null
 ```
 
 - Convert the resource to JSON

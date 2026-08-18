@@ -196,7 +196,7 @@ Get entitlement request config
 
 .DESCRIPTION
 
-This API returns the entitlement request config for a specified entitlement.
+This API returns the entitlement request config for a specified entitlement. The `accessRequestConfig.formDefinitionId` field associates an optional custom form with entitlement access requests.
 
 .PARAMETER Id
 Entitlement Id
@@ -1057,7 +1057,7 @@ Replace entitlement request config
 
 .DESCRIPTION
 
-This API replaces the entitlement request config for a specified entitlement.
+This API replaces the entitlement request config for a specified entitlement. Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with entitlement access requests.
 
 .PARAMETER Id
 Entitlement ID

@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **ReauthorizationRequired** | **Boolean** | True if re-auth is required. | [optional] [default to $false]
 **AccessRequestId** | **String** | This is the account activity id. | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request | [optional] 
+**Form** | [**RequestedItemStatusForm**](requested-item-status-form) |  | [optional] 
 
 ## Examples
 
@@ -74,7 +75,8 @@ $AccessRequestAdminItemStatus = Initialize-AccessRequestAdminItemStatus  -Id 2c9
  -Cancelable true `
  -ReauthorizationRequired true `
  -AccessRequestId 2b838de9-db9b-abcf-e646-d4f274ad4238 `
- -ClientMetadata {"key1":"value1","key2":"value2"}
+ -ClientMetadata {"key1":"value1","key2":"value2"} `
+ -Form null
 ```
 
 - Convert the resource to JSON

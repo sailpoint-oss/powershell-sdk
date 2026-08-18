@@ -68,6 +68,8 @@ True if re-auth is required.
 This is the account activity id.
 .PARAMETER ClientMetadata
 Arbitrary key-value pairs, if any were included in the corresponding access request
+.PARAMETER Form
+No description available.
 .OUTPUTS
 
 AccessRequestAdminItemStatus<PSCustomObject>
@@ -160,7 +162,10 @@ function Initialize-AccessRequestAdminItemStatus {
         ${AccessRequestId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
-        ${ClientMetadata}
+        ${ClientMetadata},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Form}
     )
 
     Process {
@@ -196,6 +201,7 @@ function Initialize-AccessRequestAdminItemStatus {
             "reauthorizationRequired" = ${ReauthorizationRequired}
             "accessRequestId" = ${AccessRequestId}
             "clientMetadata" = ${ClientMetadata}
+            "form" = ${Form}
         }
 
         return $PSO
@@ -232,7 +238,7 @@ function ConvertFrom-JsonToAccessRequestAdminItemStatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccessRequestAdminItemStatus
-        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "identityType", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "reauthorizationRequired", "accessRequestId", "clientMetadata")
+        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "identityType", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "reauthorizationRequired", "accessRequestId", "clientMetadata", "form")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -401,6 +407,12 @@ function ConvertFrom-JsonToAccessRequestAdminItemStatus {
             $ClientMetadata = $JsonParameters.PSobject.Properties["clientMetadata"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "form"))) { #optional property not found
+            $Form = $null
+        } else {
+            $Form = $JsonParameters.PSobject.Properties["form"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -429,6 +441,7 @@ function ConvertFrom-JsonToAccessRequestAdminItemStatus {
             "reauthorizationRequired" = ${ReauthorizationRequired}
             "accessRequestId" = ${AccessRequestId}
             "clientMetadata" = ${ClientMetadata}
+            "form" = ${Form}
         }
 
         return $PSO

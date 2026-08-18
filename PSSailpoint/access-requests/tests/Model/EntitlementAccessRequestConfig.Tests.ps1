@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'EntitlementAccessRequestConfig
     Context 'EntitlementAccessRequestConfig' {
         It 'Initialize-EntitlementAccessRequestConfig' {
             # a simple test to create an object
-            #$NewObject = Initialize-EntitlementAccessRequestConfig -ApprovalSchemes "TEST_VALUE" -RequestCommentRequired "TEST_VALUE" -DenialCommentRequired "TEST_VALUE" -ReauthorizationRequired "TEST_VALUE" -RequireEndDate "TEST_VALUE" -MaxPermittedAccessDuration "TEST_VALUE"
+            #$NewObject = Initialize-EntitlementAccessRequestConfig -ApprovalSchemes "TEST_VALUE" -RequestCommentRequired "TEST_VALUE" -DenialCommentRequired "TEST_VALUE" -ReauthorizationRequired "TEST_VALUE" -RequireEndDate "TEST_VALUE" -MaxPermittedAccessDuration "TEST_VALUE" -FormDefinitionId "TEST_VALUE"
             #$NewObject | Should -BeOfType EntitlementAccessRequestConfig
             #$NewObject.property | Should -Be 0
         }

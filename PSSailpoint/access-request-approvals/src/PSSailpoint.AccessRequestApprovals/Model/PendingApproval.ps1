@@ -72,6 +72,8 @@ The privilege level of the requested access item, if applicable.
 No description available.
 .PARAMETER JitDetails
 JIT (Just-In-Time) details for the requested access item, if applicable.
+.PARAMETER Form
+No description available.
 .OUTPUTS
 
 PendingApproval<PSCustomObject>
@@ -169,7 +171,10 @@ function Initialize-PendingApproval {
         ${MaxPermittedAccessDuration},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${JitDetails}
+        ${JitDetails},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Form}
     )
 
     Process {
@@ -207,6 +212,7 @@ function Initialize-PendingApproval {
             "privilegeLevel" = ${PrivilegeLevel}
             "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
             "jitDetails" = ${JitDetails}
+            "form" = ${Form}
         }
 
         return $PSO
@@ -243,7 +249,7 @@ function ConvertFrom-JsonToPendingApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PendingApproval
-        $AllProperties = ("id", "accessRequestId", "name", "created", "modified", "requestCreated", "requestType", "identityType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "startDate", "startUpdateRequested", "currentStartDate", "sodViolationContext", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration", "jitDetails")
+        $AllProperties = ("id", "accessRequestId", "name", "created", "modified", "requestCreated", "requestType", "identityType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "startDate", "startUpdateRequested", "currentStartDate", "sodViolationContext", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration", "jitDetails", "form")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -424,6 +430,12 @@ function ConvertFrom-JsonToPendingApproval {
             $JitDetails = $JsonParameters.PSobject.Properties["jitDetails"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "form"))) { #optional property not found
+            $Form = $null
+        } else {
+            $Form = $JsonParameters.PSobject.Properties["form"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "accessRequestId" = ${AccessRequestId}
@@ -454,6 +466,7 @@ function ConvertFrom-JsonToPendingApproval {
             "privilegeLevel" = ${PrivilegeLevel}
             "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
             "jitDetails" = ${JitDetails}
+            "form" = ${Form}
         }
 
         return $PSO

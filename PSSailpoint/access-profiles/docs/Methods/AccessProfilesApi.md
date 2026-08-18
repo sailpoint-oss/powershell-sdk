@@ -63,6 +63,7 @@ Method | HTTP request | Description
 
 ## create-access-profile-v1
 Create an access profile.
+Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with access profile access requests.
 A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile's source.
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
 >**Note:** To use this endpoint, you need all the listed scopes.
@@ -145,6 +146,7 @@ $AccessProfile = @"{
       "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
       "approverType" : "GOVERNANCE_GROUP"
     } ],
+    "formDefinitionId" : "78258e80-e9e2-4e1a-a11f-ce0b7c62f25d",
     "denialCommentsRequired" : true,
     "requireEndDate" : true,
     "maxPermittedAccessDuration" : {
@@ -387,6 +389,7 @@ try {
 
 ## get-access-profile-v1
 This API returns an Access Profile by its ID.
+The `accessRequestConfig.formDefinitionId` field associates an optional custom form with access profile access requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-access-profile-v-1)
 
@@ -518,6 +521,8 @@ This API updates an existing Access Profile. The following fields are patchable:
 **source** (must be updated with entitlements belonging to new source in the same API call)
 
 If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example "Replace Source" in the examples dropdown.
+
+Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with access profile access requests.
 
 A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer.
 >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.

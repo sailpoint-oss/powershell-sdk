@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | The type of access item. | [required]
 **Operation** |  **Enum** [  "Add",    "Remove" ] | The action to perform on the access item. | [required]
 **Comment** | **String** | A comment from the identity requesting the access. | [optional] 
+**Form** | [**AccessRequestDynamicApproverRequestedItemsInnerForm**](access-request-dynamic-approver-requested-items-inner-form) |  | [optional] 
 
 ## Examples
 
@@ -32,7 +33,8 @@ $AccessRequestPreApprovalRequestedItemsInner = Initialize-AccessRequestPreApprov
  -Description Access to engineering database `
  -Type ACCESS_PROFILE `
  -Operation Add `
- -Comment William needs this access to do his job.
+ -Comment William needs this access to do his job. `
+ -Form null
 ```
 
 - Convert the resource to JSON

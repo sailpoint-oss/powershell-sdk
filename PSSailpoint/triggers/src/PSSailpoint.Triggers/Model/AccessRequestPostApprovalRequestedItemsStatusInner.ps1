@@ -28,6 +28,8 @@ The action to perform on the access item.
 A comment from the identity requesting the access.
 .PARAMETER ClientMetadata
 Additional customer defined metadata about the access item.
+.PARAMETER Form
+No description available.
 .PARAMETER ApprovalInfo
 A list of one or more approvers for the access request.
 .OUTPUTS
@@ -61,6 +63,9 @@ function Initialize-AccessRequestPostApprovalRequestedItemsStatusInner {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${ClientMetadata},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Form},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalInfo}
@@ -99,6 +104,7 @@ function Initialize-AccessRequestPostApprovalRequestedItemsStatusInner {
             "operation" = ${Operation}
             "comment" = ${Comment}
             "clientMetadata" = ${ClientMetadata}
+            "form" = ${Form}
             "approvalInfo" = ${ApprovalInfo}
         }
 
@@ -136,7 +142,7 @@ function ConvertFrom-JsonToAccessRequestPostApprovalRequestedItemsStatusInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccessRequestPostApprovalRequestedItemsStatusInner
-        $AllProperties = ("id", "name", "description", "type", "operation", "comment", "clientMetadata", "approvalInfo")
+        $AllProperties = ("id", "name", "description", "type", "operation", "comment", "clientMetadata", "form", "approvalInfo")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -195,6 +201,12 @@ function ConvertFrom-JsonToAccessRequestPostApprovalRequestedItemsStatusInner {
             $ClientMetadata = $JsonParameters.PSobject.Properties["clientMetadata"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "form"))) { #optional property not found
+            $Form = $null
+        } else {
+            $Form = $JsonParameters.PSobject.Properties["form"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -203,6 +215,7 @@ function ConvertFrom-JsonToAccessRequestPostApprovalRequestedItemsStatusInner {
             "operation" = ${Operation}
             "comment" = ${Comment}
             "clientMetadata" = ${ClientMetadata}
+            "form" = ${Form}
             "approvalInfo" = ${ApprovalInfo}
         }
 

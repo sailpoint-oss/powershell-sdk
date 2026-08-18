@@ -45,6 +45,7 @@ Name | Type | Description | Notes
 **PrivilegeLevel** | **String** | The privilege level of the requested access item, if applicable. | [optional] 
 **MaxPermittedAccessDuration** | [**PendingApprovalMaxPermittedAccessDuration**](pending-approval-max-permitted-access-duration) |  | [optional] 
 **JitDetails** | **[]EntitlementStateSnapshotJitDetail** | JIT (Just-In-Time) details for the requested access item, if applicable. | [optional] 
+**Form** | [**PendingApprovalForm**](pending-approval-form) |  | [optional] 
 
 ## Examples
 
@@ -78,7 +79,8 @@ $PendingApproval = Initialize-PendingApproval  -Id id12345 `
  -RequestedAccounts null `
  -PrivilegeLevel High `
  -MaxPermittedAccessDuration null `
- -JitDetails null
+ -JitDetails null `
+ -Form null
 ```
 
 - Convert the resource to JSON

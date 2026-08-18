@@ -30,6 +30,8 @@ The date and time the role or access profile or entitlement is no longer assigne
 The assignmentId for a specific role assignment on the identity. This id is used to revoke that specific roleAssignment on that identity. * For use with REVOKE_ACCESS requests for roles for identities with multiple accounts on a single source. 
 .PARAMETER NativeIdentity
 The unique identifier for an account on the identity, designated as the account ID attribute in the source's account schema. This is used to revoke a specific attributeAssignment on the identity. * For use with REVOKE_ACCESS requests for entitlements for identities with multiple accounts on a single source. 
+.PARAMETER FormInstanceId
+Optional ID of a completed form instance for this line item. For human GRANT_ACCESS requests, include when the requested role, access profile, or entitlement has an associated `formDefinitionId` in its request configuration. An empty `formInstanceId` on a GRANT_ACCESS item is rejected with HTTP 400. Not used for REVOKE_ACCESS.
 .OUTPUTS
 
 AccessRequestItem<PSCustomObject>
@@ -62,7 +64,10 @@ function Initialize-AccessRequestItem {
         ${AssignmentId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${NativeIdentity}
+        ${NativeIdentity},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${FormInstanceId}
     )
 
     Process {
@@ -87,6 +92,7 @@ function Initialize-AccessRequestItem {
             "removeDate" = ${RemoveDate}
             "assignmentId" = ${AssignmentId}
             "nativeIdentity" = ${NativeIdentity}
+            "formInstanceId" = ${FormInstanceId}
         }
 
         return $PSO
@@ -123,7 +129,7 @@ function ConvertFrom-JsonToAccessRequestItem {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccessRequestItem
-        $AllProperties = ("type", "id", "comment", "clientMetadata", "startDate", "removeDate", "assignmentId", "nativeIdentity")
+        $AllProperties = ("type", "id", "comment", "clientMetadata", "startDate", "removeDate", "assignmentId", "nativeIdentity", "formInstanceId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -182,6 +188,12 @@ function ConvertFrom-JsonToAccessRequestItem {
             $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "formInstanceId"))) { #optional property not found
+            $FormInstanceId = $null
+        } else {
+            $FormInstanceId = $JsonParameters.PSobject.Properties["formInstanceId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
@@ -191,6 +203,7 @@ function ConvertFrom-JsonToAccessRequestItem {
             "removeDate" = ${RemoveDate}
             "assignmentId" = ${AssignmentId}
             "nativeIdentity" = ${NativeIdentity}
+            "formInstanceId" = ${FormInstanceId}
         }
 
         return $PSO

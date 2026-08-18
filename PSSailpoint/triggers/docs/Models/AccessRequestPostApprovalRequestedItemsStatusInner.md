@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **Operation** |  **Enum** [  "Add",    "Remove" ] | The action to perform on the access item. | [required]
 **Comment** | **String** | A comment from the identity requesting the access. | [optional] 
 **ClientMetadata** | **map[string]AnyType** | Additional customer defined metadata about the access item. | [optional] 
+**Form** | [**AccessRequestDynamicApproverRequestedItemsInnerForm**](access-request-dynamic-approver-requested-items-inner-form) |  | [optional] 
 **ApprovalInfo** | [**[]AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner**](access-request-post-approval-requested-items-status-inner-approval-info-inner) | A list of one or more approvers for the access request. | [required]
 
 ## Examples
@@ -36,6 +37,7 @@ $AccessRequestPostApprovalRequestedItemsStatusInner = Initialize-AccessRequestPo
  -Operation Add `
  -Comment William needs this access to do his job. `
  -ClientMetadata {"applicationName":"My application"} `
+ -Form null `
  -ApprovalInfo null
 ```
 

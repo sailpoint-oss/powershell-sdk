@@ -9,6 +9,7 @@ docs/AccessItemReviewedBy.md
 docs/AccessRequestApprovalsApi.md
 docs/AccessRequestApprovalsApideveloperSite_code_examples.yaml
 docs/AccessRequestApproversListResponse.md
+docs/AccessRequestItemForm.md
 docs/AccessRequestType.md
 docs/ApprovalForwardHistory.md
 docs/ApprovalSummary.md
@@ -32,6 +33,7 @@ docs/Methods/Index.md
 docs/OwnerDto.md
 docs/PendingApproval.md
 docs/PendingApprovalAction.md
+docs/PendingApprovalForm.md
 docs/PendingApprovalMaxPermittedAccessDuration.md
 docs/PendingApprovalOwner.md
 docs/ReassignmentType.md
@@ -50,6 +52,7 @@ src/PSSailpoint.AccessRequestApprovals/Model/AccessItemRequestedFor.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/AccessItemRequester.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/AccessItemReviewedBy.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/AccessRequestApproversListResponse.ps1
+src/PSSailpoint.AccessRequestApprovals/Model/AccessRequestItemForm.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/AccessRequestType.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/ApprovalForwardHistory.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/ApprovalSummary.ps1
@@ -72,6 +75,7 @@ src/PSSailpoint.AccessRequestApprovals/Model/LocaleOrigin.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/OwnerDto.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/PendingApproval.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/PendingApprovalAction.ps1
+src/PSSailpoint.AccessRequestApprovals/Model/PendingApprovalForm.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/PendingApprovalMaxPermittedAccessDuration.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/PendingApprovalOwner.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/ReassignmentType.ps1
@@ -96,6 +100,7 @@ tests/Model/AccessItemRequestedFor.Tests.ps1
 tests/Model/AccessItemRequester.Tests.ps1
 tests/Model/AccessItemReviewedBy.Tests.ps1
 tests/Model/AccessRequestApproversListResponse.Tests.ps1
+tests/Model/AccessRequestItemForm.Tests.ps1
 tests/Model/AccessRequestType.Tests.ps1
 tests/Model/ApprovalForwardHistory.Tests.ps1
 tests/Model/ApprovalSummary.Tests.ps1
@@ -118,6 +123,7 @@ tests/Model/LocaleOrigin.Tests.ps1
 tests/Model/OwnerDto.Tests.ps1
 tests/Model/PendingApproval.Tests.ps1
 tests/Model/PendingApprovalAction.Tests.ps1
+tests/Model/PendingApprovalForm.Tests.ps1
 tests/Model/PendingApprovalMaxPermittedAccessDuration.Tests.ps1
 tests/Model/PendingApprovalOwner.Tests.ps1
 tests/Model/ReassignmentType.Tests.ps1

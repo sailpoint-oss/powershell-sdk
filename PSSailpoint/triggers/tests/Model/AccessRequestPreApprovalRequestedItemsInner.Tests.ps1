@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Triggers' -name 'AccessRequestPreApprovalRequestedIte
     Context 'AccessRequestPreApprovalRequestedItemsInner' {
         It 'Initialize-AccessRequestPreApprovalRequestedItemsInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-AccessRequestPreApprovalRequestedItemsInner -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Type "TEST_VALUE" -Operation "TEST_VALUE" -Comment "TEST_VALUE"
+            #$NewObject = Initialize-AccessRequestPreApprovalRequestedItemsInner -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Type "TEST_VALUE" -Operation "TEST_VALUE" -Comment "TEST_VALUE" -Form "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessRequestPreApprovalRequestedItemsInner
             #$NewObject.property | Should -Be 0
         }

@@ -9,6 +9,8 @@ docs/AccessItemRequesterDto.md
 docs/AccessRequestDynamicApprover.md
 docs/AccessRequestDynamicApprover2.md
 docs/AccessRequestDynamicApproverRequestedItemsInner.md
+docs/AccessRequestDynamicApproverRequestedItemsInnerForm.md
+docs/AccessRequestItemForm.md
 docs/AccessRequestPostApproval.md
 docs/AccessRequestPostApprovalRequestedItemsStatusInner.md
 docs/AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner.md
@@ -163,6 +165,8 @@ src/PSSailpoint.Triggers/Model/AccessItemRequesterDto.ps1
 src/PSSailpoint.Triggers/Model/AccessRequestDynamicApprover.ps1
 src/PSSailpoint.Triggers/Model/AccessRequestDynamicApprover2.ps1
 src/PSSailpoint.Triggers/Model/AccessRequestDynamicApproverRequestedItemsInner.ps1
+src/PSSailpoint.Triggers/Model/AccessRequestDynamicApproverRequestedItemsInnerForm.ps1
+src/PSSailpoint.Triggers/Model/AccessRequestItemForm.ps1
 src/PSSailpoint.Triggers/Model/AccessRequestPostApproval.ps1
 src/PSSailpoint.Triggers/Model/AccessRequestPostApprovalRequestedItemsStatusInner.ps1
 src/PSSailpoint.Triggers/Model/AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner.ps1
@@ -320,6 +324,8 @@ tests/Model/AccessItemRequesterDto.Tests.ps1
 tests/Model/AccessRequestDynamicApprover.Tests.ps1
 tests/Model/AccessRequestDynamicApprover2.Tests.ps1
 tests/Model/AccessRequestDynamicApproverRequestedItemsInner.Tests.ps1
+tests/Model/AccessRequestDynamicApproverRequestedItemsInnerForm.Tests.ps1
+tests/Model/AccessRequestItemForm.Tests.ps1
 tests/Model/AccessRequestPostApproval.Tests.ps1
 tests/Model/AccessRequestPostApprovalRequestedItemsStatusInner.Tests.ps1
 tests/Model/AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner.Tests.ps1

@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-Human identity response (type Human). Identity attributes are hoisted to the top level. The accounts, privilegedAccess, and accessHistory slices are always present (empty slices use items []). The outliers slice is omitted when the tenant lacks the IDA-outliers license. The identityGraph deep link is omitted when the tenant lacks the idg:base license. 
+Human identity response (type Human). Identity attributes are hoisted to the top level. The accounts, privilegedAccess, and accessHistory slices are always present (empty slices use items []). The outliers slice is omitted when the tenant lacks the IDA-outliers license. The identityGraph deep link is omitted when the tenant lacks the idg:base license. The nonHumanIdentityOwnership slice is omitted when the tenant lacks idn:machine-identity-security. 
 
 .PARAMETER Id
 Identity Security Cloud identifier for this identity.
@@ -40,6 +40,8 @@ Current identity lifecycle status label from Identity Security Cloud.
 True when the identity is flagged as a people manager in the organization.
 .PARAMETER IdentityGraph
 Omitted when the tenant lacks the idg:base license.
+.PARAMETER NonHumanIdentityOwnership
+Omitted when the tenant lacks `idn:machine-identity-security`. When present, both `agents` and `applications` always render. 
 .PARAMETER Accounts
 First page of accounts for the identity.
 .PARAMETER PrivilegedAccess
@@ -99,6 +101,9 @@ function Initialize-IntelIdentityAggregate {
         ${IdentityGraph},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
+        ${NonHumanIdentityOwnership},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
         ${Accounts},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
@@ -150,6 +155,7 @@ function Initialize-IntelIdentityAggregate {
             "identityStatus" = ${IdentityStatus}
             "isManager" = ${IsManager}
             "identityGraph" = ${IdentityGraph}
+            "nonHumanIdentityOwnership" = ${NonHumanIdentityOwnership}
             "accounts" = ${Accounts}
             "privilegedAccess" = ${PrivilegedAccess}
             "outliers" = ${Outliers}
@@ -190,7 +196,7 @@ function ConvertFrom-JsonToIntelIdentityAggregate {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in IntelIdentityAggregate
-        $AllProperties = ("id", "type", "displayName", "description", "subtype", "attributes", "created", "modified", "alias", "email", "identityStatus", "isManager", "identityGraph", "accounts", "privilegedAccess", "outliers", "accessHistory")
+        $AllProperties = ("id", "type", "displayName", "description", "subtype", "attributes", "created", "modified", "alias", "email", "identityStatus", "isManager", "identityGraph", "nonHumanIdentityOwnership", "accounts", "privilegedAccess", "outliers", "accessHistory")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -297,6 +303,12 @@ function ConvertFrom-JsonToIntelIdentityAggregate {
             $IdentityGraph = $JsonParameters.PSobject.Properties["identityGraph"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "nonHumanIdentityOwnership"))) { #optional property not found
+            $NonHumanIdentityOwnership = $null
+        } else {
+            $NonHumanIdentityOwnership = $JsonParameters.PSobject.Properties["nonHumanIdentityOwnership"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "outliers"))) { #optional property not found
             $Outliers = $null
         } else {
@@ -317,6 +329,7 @@ function ConvertFrom-JsonToIntelIdentityAggregate {
             "identityStatus" = ${IdentityStatus}
             "isManager" = ${IsManager}
             "identityGraph" = ${IdentityGraph}
+            "nonHumanIdentityOwnership" = ${NonHumanIdentityOwnership}
             "accounts" = ${Accounts}
             "privilegedAccess" = ${PrivilegedAccess}
             "outliers" = ${Outliers}

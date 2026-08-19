@@ -46,6 +46,14 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelligenceApi' {
         }
     }
 
+    Context 'Get-IntelIdentityNonHumanIdentityOwnershipV1' {
+        It 'Test Get-IntelIdentityNonHumanIdentityOwnershipV1' {
+            #$TestResult = Get-IntelIdentityNonHumanIdentityOwnershipV1 -Id "TEST_VALUE" -Category "TEST_VALUE" -OwnershipRole "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-IntelIdentityRareAccessV1' {
         It 'Test Get-IntelIdentityRareAccessV1' {
             #$TestResult = Get-IntelIdentityRareAccessV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"

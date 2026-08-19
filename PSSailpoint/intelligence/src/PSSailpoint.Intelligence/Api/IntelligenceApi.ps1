@@ -100,7 +100,7 @@ Get identity by filter
 
 .DESCRIPTION
 
-Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller's Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
+Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller's Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. When the tenant has idn:machine-identity-security, nonHumanIdentityOwnership is included with agents and applications categories; each category is a flat object with independently paged primaryOwned and secondaryOwned buckets, and optional message/reason when upstream ownership fetch fails for that category (reason UPSTREAM_UNAVAILABLE). When the tenant lacks that license, nonHumanIdentityOwnership is omitted. Continue ownership paging with GET .../non-human-identity-ownership/{category} and optional ownershipRole=primary|secondary (defaults to primary). If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers (omitted when the tenant lacks the IDA-outliers license) and nonHumanIdentityOwnership category-level degrade (aggregate still returns HTTP 200).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory, nonHumanIdentityOwnership). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
 
 .PARAMETER Filters
 Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
@@ -465,6 +465,130 @@ function Get-IntelIdentityCertificationHistoryV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "IntelCertificationHistoryEvent[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+List owned NHI identities
+
+.DESCRIPTION
+
+Continuation endpoint for a human parent's `nonHumanIdentityOwnership.{category}.primaryOwned.next` or `nonHumanIdentityOwnership.{category}.secondaryOwned.next` link. Returns a bare JSON array of owned non-human identity summary rows for the given `category`, optional `ownershipRole`, `limit`, and `offset`. Wire items match the aggregate ownership item shape (`{ id, displayName, source? }`).  When `ownershipRole` is omitted, the request defaults to `primary`. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). The `filters` query parameter is not supported on this route (HTTP 400).  Requires tenant licenses `idn:response-and-remediation` and `idn:machine-identity-security`. Tenants without `idn:machine-identity-security` receive HTTP 403.  Not applicable to non-human identities (no ownership slice on the NHI envelope). 
+
+.PARAMETER Id
+Non-empty identity id path segment for Intelligence sub-resources.
+
+.PARAMETER Category
+Non-human identity ownership category. Use `agents` for AI Agent subtypes and `applications` for Application subtypes. 
+
+.PARAMETER OwnershipRole
+Optional ownership role discriminator. When set to `primary` or `secondary`, returns one paged role bucket. When omitted, defaults to `primary`. 
+
+.PARAMETER Limit
+Page size. Defaults to 250; values above 250 are rejected with 400.
+
+.PARAMETER Offset
+Zero-based page offset. Defaults to 0.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Intelnonhumanidentityownershipitem[]
+#>
+function Get-IntelIdentityNonHumanIdentityOwnershipV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("agents", "applications")]
+        [String]
+        ${Category},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("primary", "secondary")]
+        [String]
+        ${OwnershipRole},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-IntelIdentityNonHumanIdentityOwnershipV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/intelligence/v1/identities/{id}/non-human-identity-ownership/{category}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getIntelIdentityNonHumanIdentityOwnershipV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        if (!$Category) {
+            throw "Error! The required parameter `Category` missing when calling getIntelIdentityNonHumanIdentityOwnershipV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{category}', [System.Web.HTTPUtility]::UrlEncode($Category))
+
+        if ($OwnershipRole) {
+            $LocalVarQueryParameters['ownershipRole'] = $OwnershipRole
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Intelnonhumanidentityownershipitem[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

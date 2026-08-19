@@ -38,6 +38,10 @@ docs/Intelmachineentityref.md
 docs/Intelmachineidentityowners.md
 docs/Intelmachinesourcewire.md
 docs/Intelmachineuserentitlement.md
+docs/Intelnonhumanidentityownedslice.md
+docs/Intelnonhumanidentityownership.md
+docs/Intelnonhumanidentityownershipcategory.md
+docs/Intelnonhumanidentityownershipitem.md
 docs/Intelprivilegelevel.md
 docs/LocaleOrigin.md
 docs/Methods/Index.md
@@ -82,6 +86,10 @@ src/PSSailpoint.Intelligence/Model/Intelmachineentityref.ps1
 src/PSSailpoint.Intelligence/Model/Intelmachineidentityowners.ps1
 src/PSSailpoint.Intelligence/Model/Intelmachinesourcewire.ps1
 src/PSSailpoint.Intelligence/Model/Intelmachineuserentitlement.ps1
+src/PSSailpoint.Intelligence/Model/Intelnonhumanidentityownedslice.ps1
+src/PSSailpoint.Intelligence/Model/Intelnonhumanidentityownership.ps1
+src/PSSailpoint.Intelligence/Model/Intelnonhumanidentityownershipcategory.ps1
+src/PSSailpoint.Intelligence/Model/Intelnonhumanidentityownershipitem.ps1
 src/PSSailpoint.Intelligence/Model/Intelprivilegelevel.ps1
 src/PSSailpoint.Intelligence/Model/LocaleOrigin.ps1
 src/PSSailpoint.Intelligence/Model/Responseactionaccepted.ps1
@@ -131,6 +139,10 @@ tests/Model/Intelmachineentityref.Tests.ps1
 tests/Model/Intelmachineidentityowners.Tests.ps1
 tests/Model/Intelmachinesourcewire.Tests.ps1
 tests/Model/Intelmachineuserentitlement.Tests.ps1
+tests/Model/Intelnonhumanidentityownedslice.Tests.ps1
+tests/Model/Intelnonhumanidentityownership.Tests.ps1
+tests/Model/Intelnonhumanidentityownershipcategory.Tests.ps1
+tests/Model/Intelnonhumanidentityownershipitem.Tests.ps1
 tests/Model/Intelprivilegelevel.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1
 tests/Model/Responseactionaccepted.Tests.ps1

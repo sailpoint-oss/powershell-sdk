@@ -116,6 +116,30 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityCertificationHistoryV1"
             Write-Host $_.ErrorDetails
         }
+- path: /intelligence/v1/identities/{id}/non-human-identity-ownership/{category}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligence/methods/intelligence#get-intel-identity-non-human-identity-ownership-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence sub-resources.
+        $Category = "agents" # String | Non-human identity ownership category. Use `agents` for AI Agent subtypes and `applications` for Application subtypes. 
+        $OwnershipRole = "primary" # String | Optional ownership role discriminator. When set to `primary` or `secondary`, returns one paged role bucket. When omitted, defaults to `primary`.  (optional) (default to "primary")
+        $Limit = 250 # Int32 | Page size. Defaults to 250; values above 250 are rejected with 400. (optional) (default to 250)
+        $Offset = 0 # Int32 | Zero-based page offset. Defaults to 0. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List owned NHI identities
+        
+        try {
+            Get-IntelIdentityNonHumanIdentityOwnershipV1 -Id $Id -Category $Category 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IntelIdentityNonHumanIdentityOwnershipV1 -Id $Id -Category $Category -OwnershipRole $OwnershipRole -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityNonHumanIdentityOwnershipV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /intelligence/v1/identities/{id}/outliers/rare-access
   method: GET
   xCodeSample:

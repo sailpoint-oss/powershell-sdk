@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelIdentityAggregate' {
     Context 'IntelIdentityAggregate' {
         It 'Initialize-IntelIdentityAggregate' {
             # a simple test to create an object
-            #$NewObject = Initialize-IntelIdentityAggregate -Id "TEST_VALUE" -Type "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE" -Subtype "TEST_VALUE" -Attributes "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Alias "TEST_VALUE" -Email "TEST_VALUE" -IdentityStatus "TEST_VALUE" -IsManager "TEST_VALUE" -IdentityGraph "TEST_VALUE" -Accounts "TEST_VALUE" -PrivilegedAccess "TEST_VALUE" -Outliers "TEST_VALUE" -AccessHistory "TEST_VALUE"
+            #$NewObject = Initialize-IntelIdentityAggregate -Id "TEST_VALUE" -Type "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE" -Subtype "TEST_VALUE" -Attributes "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Alias "TEST_VALUE" -Email "TEST_VALUE" -IdentityStatus "TEST_VALUE" -IsManager "TEST_VALUE" -IdentityGraph "TEST_VALUE" -NonHumanIdentityOwnership "TEST_VALUE" -Accounts "TEST_VALUE" -PrivilegedAccess "TEST_VALUE" -Outliers "TEST_VALUE" -AccessHistory "TEST_VALUE"
             #$NewObject | Should -BeOfType IntelIdentityAggregate
             #$NewObject.property | Should -Be 0
         }

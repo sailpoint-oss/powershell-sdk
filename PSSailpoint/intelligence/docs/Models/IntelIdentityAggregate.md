@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **IdentityStatus** | **String** | Current identity lifecycle status label from Identity Security Cloud. | [optional] 
 **IsManager** | **Boolean** | True when the identity is flagged as a people manager in the organization. | [optional] [default to $false]
 **IdentityGraph** | [**Intelidentitygraphlink**](intelidentitygraphlink) | Omitted when the tenant lacks the idg:base license. | [optional] 
+**NonHumanIdentityOwnership** | [**Intelnonhumanidentityownership**](intelnonhumanidentityownership) | Omitted when the tenant lacks `idn:machine-identity-security`. When present, both `agents` and `applications` always render.  | [optional] 
 **Accounts** | [**IntelAccountsSlice**](intel-accounts-slice) | First page of accounts for the identity. | [required]
 **PrivilegedAccess** | [**IntelPrivilegedAccessSlice**](intel-privileged-access-slice) | Full privileged access result for the identity. | [required]
 **Outliers** | [**IntelOutliersSlice**](intel-outliers-slice) | Rare access slice; omitted when the tenant lacks the IDA-outliers license. | [optional] 
@@ -51,6 +52,7 @@ $IntelIdentityAggregate = Initialize-IntelIdentityAggregate  -Id ef38f94347e9456
  -IdentityStatus ACTIVE `
  -IsManager false `
  -IdentityGraph null `
+ -NonHumanIdentityOwnership null `
  -Accounts null `
  -PrivilegedAccess null `
  -Outliers null `

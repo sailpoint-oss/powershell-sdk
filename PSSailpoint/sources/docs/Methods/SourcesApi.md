@@ -76,6 +76,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-ProvisioningPolicyV1**](#create-provisioning-policy-v1) | **POST** `/sources/v1/{sourceId}/provisioning-policies` | Create provisioning policy
 [**New-ProvisioningPolicyV2**](#create-provisioning-policy-v2) | **POST** `/sources/v2/{sourceId}/provisioning-policies` | Create provisioning policy
+[**New-SourceDatasetV1**](#create-source-dataset-v1) | **POST** `/sources/v1/{sourceId}/datasets` | Create dataset on source
+[**New-SourceResourceV1**](#create-source-resource-v1) | **POST** `/sources/v1/{sourceId}/resources` | Create resource on source
 [**New-SourceScheduleV1**](#create-source-schedule-v1) | **POST** `/sources/v1/{sourceId}/schedules` | Create schedule on source
 [**New-SourceSchemaV1**](#create-source-schema-v1) | **POST** `/sources/v1/{sourceId}/schemas` | Create schema on source
 [**New-SourceV1**](#create-source-v1) | **POST** `/sources/v1` | Creates a source in identitynow.
@@ -83,6 +85,9 @@ Method | HTTP request | Description
 [**Remove-NativeChangeDetectionConfigV1**](#delete-native-change-detection-config-v1) | **DELETE** `/sources/v1/{sourceId}/native-change-detection-config` | Delete native change detection configuration
 [**Remove-ProvisioningPolicyV1**](#delete-provisioning-policy-v1) | **DELETE** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
 [**Remove-ProvisioningPolicyV2**](#delete-provisioning-policy-v2) | **DELETE** `/sources/v2/{sourceId}/provisioning-policies/{id}` | Delete provisioning policy by ID
+[**Remove-SourceDatasetObjectsV1**](#delete-source-dataset-objects-v1) | **POST** `/sources/v1/{sourceId}/datasets/{datasetId}/delete-objects` | Delete objects for source dataset
+[**Remove-SourceDatasetV1**](#delete-source-dataset-v1) | **DELETE** `/sources/v1/{sourceId}/datasets/{datasetId}` | Delete source dataset by id
+[**Remove-SourceResourceV1**](#delete-source-resource-v1) | **DELETE** `/sources/v1/{sourceId}/resources/{resourceId}` | Delete source resource by id
 [**Remove-SourceScheduleV1**](#delete-source-schedule-v1) | **DELETE** `/sources/v1/{sourceId}/schedules/{scheduleType}` | Delete source schedule by type.
 [**Remove-SourceSchemaV1**](#delete-source-schema-v1) | **DELETE** `/sources/v1/{sourceId}/schemas/{schemaId}` | Delete source schema by id
 [**Remove-SourceV1**](#delete-source-v1) | **DELETE** `/sources/v1/{id}` | Delete source by id
@@ -97,8 +102,13 @@ Method | HTTP request | Description
 [**Get-SourceAttrSyncConfigV1**](#get-source-attr-sync-config-v1) | **GET** `/sources/v1/{id}/attribute-sync-config` | Attribute sync config
 [**Get-SourceConfigV1**](#get-source-config-v1) | **GET** `/sources/v1/{id}/connectors/source-config` | Gets source config with language-translations
 [**Get-SourceConnectionsV1**](#get-source-connections-v1) | **GET** `/sources/v1/{sourceId}/connections` | Get source connections by id
+[**Get-SourceDatasetV1**](#get-source-dataset-v1) | **GET** `/sources/v1/{sourceId}/datasets/{datasetId}` | Get source dataset by id
+[**Get-SourceDatasetsV1**](#get-source-datasets-v1) | **GET** `/sources/v1/{sourceId}/datasets` | List datasets on source
 [**Get-SourceEntitlementRequestConfigV1**](#get-source-entitlement-request-config-v1) | **GET** `/sources/v1/{id}/entitlement-request-config` | Get source entitlement request configuration
 [**Get-SourceHealthV1**](#get-source-health-v1) | **GET** `/sources/v1/{sourceId}/source-health` | Fetches source health by id
+[**Get-SourceResourceMappingsV1**](#get-source-resource-mappings-v1) | **GET** `/sources/v1/{sourceId}/resources/mappings` | Get source resource mappings
+[**Get-SourceResourceV1**](#get-source-resource-v1) | **GET** `/sources/v1/{sourceId}/resources/{resourceId}` | Get source resource by id
+[**Get-SourceResourcesV1**](#get-source-resources-v1) | **GET** `/sources/v1/{sourceId}/resources` | List resources for a source
 [**Get-SourceScheduleV1**](#get-source-schedule-v1) | **GET** `/sources/v1/{sourceId}/schedules/{scheduleType}` | Get source schedule by type
 [**Get-SourceSchedulesV1**](#get-source-schedules-v1) | **GET** `/sources/v1/{sourceId}/schedules` | List schedules on source
 [**Get-SourceSchemaV1**](#get-source-schema-v1) | **GET** `/sources/v1/{sourceId}/schemas/{schemaId}` | Get source schema by id
@@ -109,6 +119,7 @@ Method | HTTP request | Description
 [**Import-ConnectorFileV1**](#import-connector-file-v1) | **POST** `/sources/v1/{sourceId}/upload-connector-file` | Upload connector file to source
 [**Import-EntitlementsSchemaV1**](#import-entitlements-schema-v1) | **POST** `/sources/v1/{id}/schemas/entitlements` | Uploads source entitlements schema template
 [**Import-EntitlementsV1**](#import-entitlements-v1) | **POST** `/sources/v1/{sourceId}/load-entitlements` | Entitlement aggregation
+[**Import-SourceDatasetV1**](#import-source-dataset-v1) | **POST** `/sources/v1/{sourceId}/datasets/{datasetId}/aggregate` | Aggregate source dataset
 [**Import-UncorrelatedAccountsV1**](#import-uncorrelated-accounts-v1) | **POST** `/sources/v1/{id}/load-uncorrelated-accounts` | Process uncorrelated accounts
 [**Get-PasswordPolicyHoldersOnSourceV1**](#list-password-policy-holders-on-source-v1) | **GET** `/sources/v1/{sourceId}/password-policies` | Get Password Policy for source
 [**Get-ProvisioningPoliciesV1**](#list-provisioning-policies-v1) | **GET** `/sources/v1/{sourceId}/provisioning-policies` | Lists provisioningpolicies
@@ -120,6 +131,8 @@ Method | HTTP request | Description
 [**Send-ProvisioningPolicyV1**](#put-provisioning-policy-v1) | **PUT** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Update provisioning policy by usagetype
 [**Send-ProvisioningPolicyV2**](#put-provisioning-policy-v2) | **PUT** `/sources/v2/{sourceId}/provisioning-policies/{id}` | Update provisioning policy by ID
 [**Send-SourceAttrSyncConfigV1**](#put-source-attr-sync-config-v1) | **PUT** `/sources/v1/{id}/attribute-sync-config` | Update attribute sync config
+[**Send-SourceDatasetV1**](#put-source-dataset-v1) | **PUT** `/sources/v1/{sourceId}/datasets/{datasetId}` | Update source dataset (full)
+[**Send-SourceResourceV1**](#put-source-resource-v1) | **PUT** `/sources/v1/{sourceId}/resources/{resourceId}` | Update source resource (full)
 [**Send-SourceSchemaV1**](#put-source-schema-v1) | **PUT** `/sources/v1/{sourceId}/schemas/{schemaId}` | Update source schema (full)
 [**Send-SourceV1**](#put-source-v1) | **PUT** `/sources/v1/{id}` | Update source (full)
 [**Search-ResourceObjectsV1**](#search-resource-objects-v1) | **POST** `/sources/v1/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
@@ -132,7 +145,9 @@ Method | HTTP request | Description
 [**Update-ProvisioningPoliciesInBulkV1**](#update-provisioning-policies-in-bulk-v1) | **POST** `/sources/v1/{sourceId}/provisioning-policies/bulk-update` | Bulk update provisioning policies
 [**Update-ProvisioningPolicyV1**](#update-provisioning-policy-v1) | **PATCH** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Partial update of provisioning policy
 [**Update-ProvisioningPolicyV2**](#update-provisioning-policy-v2) | **PATCH** `/sources/v2/{sourceId}/provisioning-policies/{id}` | Partial update of provisioning policy
+[**Update-SourceDatasetV1**](#update-source-dataset-v1) | **PATCH** `/sources/v1/{sourceId}/datasets/{datasetId}` | Update source dataset (partial)
 [**Update-SourceEntitlementRequestConfigV1**](#update-source-entitlement-request-config-v1) | **PUT** `/sources/v1/{id}/entitlement-request-config` | Update source entitlement request configuration
+[**Update-SourceResourceV1**](#update-source-resource-v1) | **PATCH** `/sources/v1/{sourceId}/resources/{resourceId}` | Update source resource (partial)
 [**Update-SourceScheduleV1**](#update-source-schedule-v1) | **PATCH** `/sources/v1/{sourceId}/schedules/{scheduleType}` | Update source schedule (partial)
 [**Update-SourceSchemaV1**](#update-source-schema-v1) | **PATCH** `/sources/v1/{sourceId}/schemas/{schemaId}` | Update source schema (partial)
 [**Update-SourceV1**](#update-source-v1) | **PATCH** `/sources/v1/{id}` | Update source (partial)
@@ -324,6 +339,182 @@ try {
     # New-ProvisioningPolicyV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -ProvisioningPolicyDtoV2 $Result -UseDefaultFields $UseDefaultFields  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ProvisioningPolicyV2"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## create-source-dataset-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to create a dataset on the specified source in Identity Security Cloud (ISC).
+
+
+This operation requires a connector with the `supportDatasetCreation` label. `name` is required.
+The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of
+the name; any client-supplied `id` is ignored.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/create-source-dataset-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | SourceDataset | [**SourceDataset**](../models/source-dataset) | True  | 
+
+### Return type
+[**SourceDataset**](../models/source-dataset)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+201 | The dataset was successfully created on the specified source. | SourceDataset
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$SourceDataset = @"{
+  "name" : "Applications",
+  "description" : "CMDB application records for this source.",
+  "resources" : [ {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  }, {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  } ],
+  "id" : "cmdb-servicenow:applications",
+  "aggregationEnabled" : true
+}"@
+
+# Create dataset on source
+
+try {
+    $Result = ConvertFrom-JsonToSourceDataset -Json $SourceDataset
+    New-SourceDatasetV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceDataset $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-SourceDatasetV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceDataset $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourceDatasetV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## create-source-resource-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to create a resource on the specified source in Identity Security Cloud (ISC).
+
+
+This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`,
+`datasetId`, and `schema` are required. The `schema` must define at least one attribute plus
+`identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from
+`name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored.
+After creation, schema attribute edits are made through the source schema APIs.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/create-source-resource-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | SourceDatasetResource | [**SourceDatasetResource**](../models/source-dataset-resource) | True  | 
+
+### Return type
+[**SourceDatasetResource**](../models/source-dataset-resource)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+201 | The resource was successfully created on the specified source. | SourceDatasetResource
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$SourceDatasetResource = @"{
+  "schema" : {
+    "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+    "nativeObjectType" : "User",
+    "configuration" : {
+      "groupMemberAttribute" : "member"
+    },
+    "created" : "2019-12-24T22:32:58.104Z",
+    "includePermissions" : false,
+    "name" : "account",
+    "hierarchyAttribute" : "memberOf",
+    "modified" : "2019-12-31T20:22:28.104Z",
+    "attributes" : [ {
+      "name" : "sAMAccountName",
+      "type" : "STRING",
+      "isMultiValued" : false,
+      "isEntitlement" : false,
+      "isGroup" : false
+    }, {
+      "name" : "memberOf",
+      "type" : "STRING",
+      "schema" : {
+        "type" : "CONNECTOR_SCHEMA",
+        "id" : "2c9180887671ff8c01767b4671fc7d60",
+        "name" : "group"
+      },
+      "description" : "Group membership",
+      "isMultiValued" : true,
+      "isEntitlement" : true,
+      "isGroup" : true
+    } ],
+    "id" : "2c9180835d191a86015d28455b4a2329",
+    "displayAttribute" : "distinguishedName",
+    "identityAttribute" : "sAMAccountName"
+  },
+  "features" : [ "Create", "Delete" ],
+  "name" : "Account",
+  "datasetId" : "cmdb-servicenow:applications",
+  "id" : "aws:iam-role",
+  "type" : "std:resource"
+}"@
+
+# Create resource on source
+
+try {
+    $Result = ConvertFrom-JsonToSourceDatasetResource -Json $SourceDatasetResource
+    New-SourceResourceV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceDatasetResource $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-SourceResourceV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceDatasetResource $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourceResourceV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -783,6 +974,176 @@ try {
     # Remove-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ProvisioningPolicyV2"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-source-dataset-objects-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Starts a task to delete aggregated objects for the specified dataset on the source in Identity
+Security Cloud (ISC). Linked dataset and resource definitions are not deleted.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-dataset-objects-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | DatasetId | **String** | True  | Dataset ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**TaskResultDetails**](../models/task-result-details)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Delete objects task. | TaskResultDetails
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Delete objects for source dataset
+
+try {
+    Remove-SourceDatasetObjectsV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-SourceDatasetObjectsV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SourceDatasetObjectsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-source-dataset-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).
+
+
+This operation requires a connector with the `supportDatasetCreation` label. Linked resource
+schemas are not deleted.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-dataset-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | DatasetId | **String** | True  | Dataset ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Delete source dataset by id
+
+try {
+    Remove-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SourceDatasetV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-source-resource-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).
+
+
+The resource schema is deleted and the resource is unlinked from any dataset rows on the source.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-resource-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | ResourceId | **String** | True  | Resource ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$ResourceId = "account" # String | Resource ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Delete source resource by id
+
+try {
+    Remove-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SourceResourceV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -1459,6 +1820,118 @@ try {
 ```
 [[Back to top]](#) 
 
+## get-source-dataset-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-dataset-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | DatasetId | **String** | True  | Dataset ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**SourceDataset**](../models/source-dataset)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The requested dataset was successfully retrieved. | SourceDataset
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Get source dataset by id
+
+try {
+    Get-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceDatasetV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-source-datasets-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to list datasets for the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-datasets-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+### Return type
+[**SourceDataset[]**](../models/source-dataset)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The datasets were successfully retrieved. | SourceDataset[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
+# List datasets on source
+
+try {
+    Get-SourceDatasetsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-SourceDatasetsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceDatasetsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## get-source-entitlement-request-config-v1
 This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
@@ -1549,6 +2022,174 @@ try {
     # Get-SourceHealthV1 -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceHealthV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-source-resource-mappings-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to get aggregation metadata for resources on the specified source in Identity
+Security Cloud (ISC). The response is keyed by resource id. Each value includes the linked
+dataset id, resource type, and connector object type. Resources without a matching schema are
+omitted.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-resource-mappings-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**System.Collections.Hashtable**](../models/source-resource-mapping-value)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The source resource mappings were successfully retrieved. | System.Collections.Hashtable
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Get source resource mappings
+
+try {
+    Get-SourceResourceMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-SourceResourceMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceResourceMappingsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-source-resource-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC).
+The response includes the full CIS schema for the resource.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-resource-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | ResourceId | **String** | True  | Resource ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**SourceDatasetResource**](../models/source-dataset-resource)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The requested source resource was successfully retrieved. | SourceDatasetResource
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$ResourceId = "account" # String | Resource ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Get source resource by id
+
+try {
+    Get-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceResourceV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-source-resources-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to list resources defined on the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-resources-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+### Return type
+[**SourceDatasetResource[]**](../models/source-dataset-resource)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The source resources were successfully retrieved. | SourceDatasetResource[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
+# List resources for a source
+
+try {
+    Get-SourceResourcesV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-SourceResourcesV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceResourcesV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -2053,6 +2694,67 @@ try {
     # Import-EntitlementsV1 -SourceId $SourceId -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-EntitlementsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## import-source-dataset-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Starts an aggregation for the specified dataset on the source in Identity Security Cloud (ISC).
+An optional `config` object can be supplied for connector-specific aggregation settings.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/import-source-dataset-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | DatasetId | **String** | True  | Dataset ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | DatasetAggregationRequest | [**DatasetAggregationRequest**](../models/dataset-aggregation-request) |   (optional) | 
+
+### Return type
+[**TaskResultDetails**](../models/task-result-details)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Dataset aggregation task. | TaskResultDetails
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$DatasetAggregationRequest = @"{
+  "config" : {
+    "region" : "us-east-1"
+  }
+}"@
+
+# Aggregate source dataset
+
+try {
+    Import-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Import-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental -DatasetAggregationRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-SourceDatasetV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -2753,6 +3455,183 @@ try {
     # Send-SourceAttrSyncConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -AttrSyncSourceConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SourceAttrSyncConfigV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## put-source-dataset-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).
+
+
+Callers should round-trip the GET representation. `id` is required in the request body and must
+match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources`
+can be changed only when the connector has the `supportDatasetCreation` label.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/put-source-dataset-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | DatasetId | **String** | True  | Dataset ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | SourceDataset | [**SourceDataset**](../models/source-dataset) | True  | 
+
+### Return type
+[**SourceDataset**](../models/source-dataset)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The dataset was successfully replaced. | SourceDataset
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$SourceDataset = @"{
+  "name" : "Applications",
+  "description" : "CMDB application records for this source.",
+  "resources" : [ {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  }, {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  } ],
+  "id" : "cmdb-servicenow:applications",
+  "aggregationEnabled" : true
+}"@
+
+# Update source dataset (full)
+
+try {
+    $Result = ConvertFrom-JsonToSourceDataset -Json $SourceDataset
+    Send-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental -SourceDataset $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Send-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental -SourceDataset $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SourceDatasetV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## put-source-resource-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).
+
+
+After creation, schema attribute edits should be made through the source schema APIs. Connectors
+with the `supportDatasetCreation` label can update additional resource fields.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/put-source-resource-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | ResourceId | **String** | True  | Resource ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | SourceDatasetResource | [**SourceDatasetResource**](../models/source-dataset-resource) | True  | 
+
+### Return type
+[**SourceDatasetResource**](../models/source-dataset-resource)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The resource was successfully replaced. | SourceDatasetResource
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$ResourceId = "account" # String | Resource ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$SourceDatasetResource = @"{
+  "schema" : {
+    "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+    "nativeObjectType" : "User",
+    "configuration" : {
+      "groupMemberAttribute" : "member"
+    },
+    "created" : "2019-12-24T22:32:58.104Z",
+    "includePermissions" : false,
+    "name" : "account",
+    "hierarchyAttribute" : "memberOf",
+    "modified" : "2019-12-31T20:22:28.104Z",
+    "attributes" : [ {
+      "name" : "sAMAccountName",
+      "type" : "STRING",
+      "isMultiValued" : false,
+      "isEntitlement" : false,
+      "isGroup" : false
+    }, {
+      "name" : "memberOf",
+      "type" : "STRING",
+      "schema" : {
+        "type" : "CONNECTOR_SCHEMA",
+        "id" : "2c9180887671ff8c01767b4671fc7d60",
+        "name" : "group"
+      },
+      "description" : "Group membership",
+      "isMultiValued" : true,
+      "isEntitlement" : true,
+      "isGroup" : true
+    } ],
+    "id" : "2c9180835d191a86015d28455b4a2329",
+    "displayAttribute" : "distinguishedName",
+    "identityAttribute" : "sAMAccountName"
+  },
+  "features" : [ "Create", "Delete" ],
+  "name" : "Account",
+  "datasetId" : "cmdb-servicenow:applications",
+  "id" : "aws:iam-role",
+  "type" : "std:resource"
+}"@
+
+# Update source resource (full)
+
+try {
+    $Result = ConvertFrom-JsonToSourceDatasetResource -Json $SourceDatasetResource
+    Send-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental -SourceDatasetResource $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Send-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental -SourceDatasetResource $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SourceResourceV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -3565,6 +4444,72 @@ try {
 ```
 [[Back to top]](#) 
 
+## update-source-dataset-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to selectively update an existing dataset using a JSONPatch payload.
+
+
+`aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed
+only when the connector has the `supportDatasetCreation` label. `id` is immutable.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-source-dataset-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | DatasetId | **String** | True  | Dataset ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the dataset.
+
+### Return type
+[**SourceDataset**](../models/source-dataset)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The dataset was successfully updated. | SourceDataset
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | The JSONPatch payload used to update the dataset.
+ 
+
+# Update source dataset (partial)
+
+try {
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceDatasetV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## update-source-entitlement-request-config-v1
 This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
@@ -3640,6 +4585,72 @@ try {
     # Update-SourceEntitlementRequestConfigV1 -Id $Id -SourceEntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceEntitlementRequestConfigV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-source-resource-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to selectively update an existing resource using a JSONPatch payload.
+
+
+After creation, schema attribute edits should be made through the source schema APIs. Connectors
+with the `supportDatasetCreation` label can update additional resource fields.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-source-resource-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | ResourceId | **String** | True  | Resource ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the resource.
+
+### Return type
+[**SourceDatasetResource**](../models/source-dataset-resource)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The resource was successfully updated. | SourceDatasetResource
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$ResourceId = "account" # String | Resource ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | The JSONPatch payload used to update the resource.
+ 
+
+# Update source resource (partial)
+
+try {
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceResourceV1"
     Write-Host $_.ErrorDetails
 }
 ```

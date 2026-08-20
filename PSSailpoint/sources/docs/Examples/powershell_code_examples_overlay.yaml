@@ -126,6 +126,108 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ProvisioningPolicyV2"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/v1/{sourceId}/datasets
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#create-source-dataset-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceDataset = @"
+        {
+          "name" : "Applications",
+          "description" : "CMDB application records for this source.",
+          "resources" : [ {
+            "name" : "Role",
+            "id" : "aws:iam-role",
+            "type" : "std:resource"
+          }, {
+            "name" : "Role",
+            "id" : "aws:iam-role",
+            "type" : "std:resource"
+          } ],
+          "id" : "cmdb-servicenow:applications",
+          "aggregationEnabled" : true
+        }
+        "@
+        
+        # Create dataset on source
+        
+        try {
+            $Result = ConvertFrom-JsonToSourceDataset -Json $SourceDataset
+            New-SourceDatasetV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceDataset $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-SourceDatasetV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceDataset $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourceDatasetV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/resources
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#create-source-resource-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceDatasetResource = @"
+        {
+          "schema" : {
+            "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+            "nativeObjectType" : "User",
+            "configuration" : {
+              "groupMemberAttribute" : "member"
+            },
+            "created" : "2019-12-24T22:32:58.104Z",
+            "includePermissions" : false,
+            "name" : "account",
+            "hierarchyAttribute" : "memberOf",
+            "modified" : "2019-12-31T20:22:28.104Z",
+            "attributes" : [ {
+              "name" : "sAMAccountName",
+              "type" : "STRING",
+              "isMultiValued" : false,
+              "isEntitlement" : false,
+              "isGroup" : false
+            }, {
+              "name" : "memberOf",
+              "type" : "STRING",
+              "schema" : {
+                "type" : "CONNECTOR_SCHEMA",
+                "id" : "2c9180887671ff8c01767b4671fc7d60",
+                "name" : "group"
+              },
+              "description" : "Group membership",
+              "isMultiValued" : true,
+              "isEntitlement" : true,
+              "isGroup" : true
+            } ],
+            "id" : "2c9180835d191a86015d28455b4a2329",
+            "displayAttribute" : "distinguishedName",
+            "identityAttribute" : "sAMAccountName"
+          },
+          "features" : [ "Create", "Delete" ],
+          "name" : "Account",
+          "datasetId" : "cmdb-servicenow:applications",
+          "id" : "aws:iam-role",
+          "type" : "std:resource"
+        }
+        "@
+        
+        # Create resource on source
+        
+        try {
+            $Result = ConvertFrom-JsonToSourceDatasetResource -Json $SourceDatasetResource
+            New-SourceResourceV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceDatasetResource $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-SourceResourceV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceDatasetResource $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourceResourceV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/v1/{sourceId}/schedules
   method: POST
   xCodeSample:
@@ -387,6 +489,69 @@
             # Remove-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ProvisioningPolicyV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/datasets/{datasetId}/delete-objects
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#delete-source-dataset-objects-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete objects for source dataset
+        
+        try {
+            Remove-SourceDatasetObjectsV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-SourceDatasetObjectsV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SourceDatasetObjectsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/datasets/{datasetId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#delete-source-dataset-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete source dataset by id
+        
+        try {
+            Remove-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SourceDatasetV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/resources/{resourceId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#delete-source-resource-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $ResourceId = "account" # String | Resource ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete source resource by id
+        
+        try {
+            Remove-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SourceResourceV1"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/{sourceId}/schedules/{scheduleType}
@@ -663,6 +828,50 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceConnectionsV1"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/v1/{sourceId}/datasets/{datasetId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-dataset-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get source dataset by id
+        
+        try {
+            Get-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceDatasetV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/datasets
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-datasets-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List datasets on source
+        
+        try {
+            Get-SourceDatasetsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SourceDatasetsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceDatasetsV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/v1/{id}/entitlement-request-config
   method: GET
   xCodeSample:
@@ -699,6 +908,70 @@
             # Get-SourceHealthV1 -SourceId $SourceId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceHealthV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/resources/mappings
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-resource-mappings-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get source resource mappings
+        
+        try {
+            Get-SourceResourceMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SourceResourceMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceResourceMappingsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/resources/{resourceId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-resource-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $ResourceId = "account" # String | Resource ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get source resource by id
+        
+        try {
+            Get-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceResourceV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/resources
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-resources-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List resources for a source
+        
+        try {
+            Get-SourceResourcesV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SourceResourcesV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceResourcesV1"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/{sourceId}/schedules/{scheduleType}
@@ -900,6 +1173,34 @@
             # Import-EntitlementsV1 -SourceId $SourceId -File $File   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-EntitlementsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/datasets/{datasetId}/aggregate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#import-source-dataset-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $DatasetAggregationRequest = @"
+        {
+          "config" : {
+            "region" : "us-east-1"
+          }
+        }
+        "@
+        
+        # Aggregate source dataset
+        
+        try {
+            Import-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Import-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental -DatasetAggregationRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-SourceDatasetV1"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/{id}/load-uncorrelated-accounts
@@ -1273,6 +1574,110 @@
             # Send-SourceAttrSyncConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -AttrSyncSourceConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SourceAttrSyncConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/datasets/{datasetId}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#put-source-dataset-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceDataset = @"
+        {
+          "name" : "Applications",
+          "description" : "CMDB application records for this source.",
+          "resources" : [ {
+            "name" : "Role",
+            "id" : "aws:iam-role",
+            "type" : "std:resource"
+          }, {
+            "name" : "Role",
+            "id" : "aws:iam-role",
+            "type" : "std:resource"
+          } ],
+          "id" : "cmdb-servicenow:applications",
+          "aggregationEnabled" : true
+        }
+        "@
+        
+        # Update source dataset (full)
+        
+        try {
+            $Result = ConvertFrom-JsonToSourceDataset -Json $SourceDataset
+            Send-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental -SourceDataset $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental -SourceDataset $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SourceDatasetV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/resources/{resourceId}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#put-source-resource-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $ResourceId = "account" # String | Resource ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceDatasetResource = @"
+        {
+          "schema" : {
+            "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+            "nativeObjectType" : "User",
+            "configuration" : {
+              "groupMemberAttribute" : "member"
+            },
+            "created" : "2019-12-24T22:32:58.104Z",
+            "includePermissions" : false,
+            "name" : "account",
+            "hierarchyAttribute" : "memberOf",
+            "modified" : "2019-12-31T20:22:28.104Z",
+            "attributes" : [ {
+              "name" : "sAMAccountName",
+              "type" : "STRING",
+              "isMultiValued" : false,
+              "isEntitlement" : false,
+              "isGroup" : false
+            }, {
+              "name" : "memberOf",
+              "type" : "STRING",
+              "schema" : {
+                "type" : "CONNECTOR_SCHEMA",
+                "id" : "2c9180887671ff8c01767b4671fc7d60",
+                "name" : "group"
+              },
+              "description" : "Group membership",
+              "isMultiValued" : true,
+              "isEntitlement" : true,
+              "isGroup" : true
+            } ],
+            "id" : "2c9180835d191a86015d28455b4a2329",
+            "displayAttribute" : "distinguishedName",
+            "identityAttribute" : "sAMAccountName"
+          },
+          "features" : [ "Create", "Delete" ],
+          "name" : "Account",
+          "datasetId" : "cmdb-servicenow:applications",
+          "id" : "aws:iam-role",
+          "type" : "std:resource"
+        }
+        "@
+        
+        # Update source resource (full)
+        
+        try {
+            $Result = ConvertFrom-JsonToSourceDatasetResource -Json $SourceDatasetResource
+            Send-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental -SourceDatasetResource $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental -SourceDatasetResource $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SourceResourceV1"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/{sourceId}/schemas/{schemaId}
@@ -1711,6 +2116,34 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ProvisioningPolicyV2"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/v1/{sourceId}/datasets/{datasetId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-source-dataset-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update source dataset (partial)
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-SourceDatasetV1 -SourceId $SourceId -DatasetId $DatasetId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceDatasetV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/v1/{id}/entitlement-request-config
   method: PUT
   xCodeSample:
@@ -1760,6 +2193,34 @@
             # Update-SourceEntitlementRequestConfigV1 -Id $Id -SourceEntitlementRequestConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceEntitlementRequestConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/resources/{resourceId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-source-resource-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $ResourceId = "account" # String | Resource ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update source resource (partial)
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-SourceResourceV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceResourceV1"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/{sourceId}/schedules/{scheduleType}

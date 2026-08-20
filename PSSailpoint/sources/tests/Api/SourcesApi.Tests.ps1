@@ -22,6 +22,22 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
         }
     }
 
+    Context 'New-SourceDatasetV1' {
+        It 'Test New-SourceDatasetV1' {
+            #$TestResult = New-SourceDatasetV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SourceDataset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'New-SourceResourceV1' {
+        It 'Test New-SourceResourceV1' {
+            #$TestResult = New-SourceResourceV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SourceDatasetResource "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-SourceScheduleV1' {
         It 'Test New-SourceScheduleV1' {
             #$TestResult = New-SourceScheduleV1 -SourceId "TEST_VALUE" -Schedule3 "TEST_VALUE"
@@ -73,6 +89,30 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
     Context 'Remove-ProvisioningPolicyV2' {
         It 'Test Remove-ProvisioningPolicyV2' {
             #$TestResult = Remove-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-SourceDatasetObjectsV1' {
+        It 'Test Remove-SourceDatasetObjectsV1' {
+            #$TestResult = Remove-SourceDatasetObjectsV1 -SourceId "TEST_VALUE" -DatasetId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-SourceDatasetV1' {
+        It 'Test Remove-SourceDatasetV1' {
+            #$TestResult = Remove-SourceDatasetV1 -SourceId "TEST_VALUE" -DatasetId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-SourceResourceV1' {
+        It 'Test Remove-SourceResourceV1' {
+            #$TestResult = Remove-SourceResourceV1 -SourceId "TEST_VALUE" -ResourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -190,6 +230,22 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
         }
     }
 
+    Context 'Get-SourceDatasetV1' {
+        It 'Test Get-SourceDatasetV1' {
+            #$TestResult = Get-SourceDatasetV1 -SourceId "TEST_VALUE" -DatasetId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SourceDatasetsV1' {
+        It 'Test Get-SourceDatasetsV1' {
+            #$TestResult = Get-SourceDatasetsV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-SourceEntitlementRequestConfigV1' {
         It 'Test Get-SourceEntitlementRequestConfigV1' {
             #$TestResult = Get-SourceEntitlementRequestConfigV1 -Id "TEST_VALUE"
@@ -201,6 +257,30 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
     Context 'Get-SourceHealthV1' {
         It 'Test Get-SourceHealthV1' {
             #$TestResult = Get-SourceHealthV1 -SourceId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SourceResourceMappingsV1' {
+        It 'Test Get-SourceResourceMappingsV1' {
+            #$TestResult = Get-SourceResourceMappingsV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SourceResourceV1' {
+        It 'Test Get-SourceResourceV1' {
+            #$TestResult = Get-SourceResourceV1 -SourceId "TEST_VALUE" -ResourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SourceResourcesV1' {
+        It 'Test Get-SourceResourcesV1' {
+            #$TestResult = Get-SourceResourcesV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -281,6 +361,14 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
     Context 'Import-EntitlementsV1' {
         It 'Test Import-EntitlementsV1' {
             #$TestResult = Import-EntitlementsV1 -SourceId "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Import-SourceDatasetV1' {
+        It 'Test Import-SourceDatasetV1' {
+            #$TestResult = Import-SourceDatasetV1 -SourceId "TEST_VALUE" -DatasetId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -DatasetAggregationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -369,6 +457,22 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
     Context 'Send-SourceAttrSyncConfigV1' {
         It 'Test Send-SourceAttrSyncConfigV1' {
             #$TestResult = Send-SourceAttrSyncConfigV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -AttrSyncSourceConfig "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-SourceDatasetV1' {
+        It 'Test Send-SourceDatasetV1' {
+            #$TestResult = Send-SourceDatasetV1 -SourceId "TEST_VALUE" -DatasetId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SourceDataset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-SourceResourceV1' {
+        It 'Test Send-SourceResourceV1' {
+            #$TestResult = Send-SourceResourceV1 -SourceId "TEST_VALUE" -ResourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SourceDatasetResource "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -470,9 +574,25 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
         }
     }
 
+    Context 'Update-SourceDatasetV1' {
+        It 'Test Update-SourceDatasetV1' {
+            #$TestResult = Update-SourceDatasetV1 -SourceId "TEST_VALUE" -DatasetId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-SourceEntitlementRequestConfigV1' {
         It 'Test Update-SourceEntitlementRequestConfigV1' {
             #$TestResult = Update-SourceEntitlementRequestConfigV1 -Id "TEST_VALUE" -SourceEntitlementRequestConfig "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-SourceResourceV1' {
+        It 'Test Update-SourceResourceV1' {
+            #$TestResult = Update-SourceResourceV1 -SourceId "TEST_VALUE" -ResourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

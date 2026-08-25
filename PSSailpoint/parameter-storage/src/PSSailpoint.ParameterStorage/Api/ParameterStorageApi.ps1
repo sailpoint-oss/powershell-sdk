@@ -382,7 +382,7 @@ function Get-ParameterStorageSpecificationV1 {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/parameter-storage/v1/specification'
+        $LocalVarUri = '/parameter-storage/v1/specifications'
 
         if ($AcceptLanguage) {
             $LocalVarHeaderParameters['Accept-Language'] = $AcceptLanguage

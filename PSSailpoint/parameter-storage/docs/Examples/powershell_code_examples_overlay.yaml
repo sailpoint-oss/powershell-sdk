@@ -86,7 +86,7 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ParameterReferencesV1"
             Write-Host $_.ErrorDetails
         }
-- path: /parameter-storage/v1/specification
+- path: /parameter-storage/v1/specifications
   method: GET
   xCodeSample:
     - lang: PowerShell

@@ -38,7 +38,7 @@ Method | HTTP request | Description
 [**Remove-ParameterV1**](#delete-parameter-v1) | **DELETE** `/parameter-storage/v1/parameters/{id}` | Delete a parameter.
 [**Get-AttestationDocumentV1**](#get-attestation-document-v1) | **GET** `/parameter-storage/v1/attestation` | Get an attestation document.
 [**Get-ParameterReferencesV1**](#get-parameter-references-v1) | **GET** `/parameter-storage/v1/parameters/{id}/references` | Get parameter references.
-[**Get-ParameterStorageSpecificationV1**](#get-parameter-storage-specification-v1) | **GET** `/parameter-storage/v1/specification` | Get specifications for parameter types.
+[**Get-ParameterStorageSpecificationV1**](#get-parameter-storage-specification-v1) | **GET** `/parameter-storage/v1/specifications` | Get specifications for parameter types.
 [**Get-ParameterV1**](#get-parameter-v1) | **GET** `/parameter-storage/v1/parameters/{id}` | Get a specific parameter.
 [**Search-ParametersV1**](#search-parameters-v1) | **GET** `/parameter-storage/v1/parameters` | Query stored parameters.
 [**Update-ParameterV1**](#update-parameter-v1) | **PATCH** `/parameter-storage/v1/parameters/{id}` | Update a parameter.

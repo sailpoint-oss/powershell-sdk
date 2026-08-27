@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AttributeDTO' {
     Context 'AttributeDTO' {
         It 'Initialize-AttributeDTO' {
             # a simple test to create an object
-            #$NewObject = Initialize-AttributeDTO -Key "TEST_VALUE" -Name "TEST_VALUE" -Multiselect "TEST_VALUE" -Status "TEST_VALUE" -Type "TEST_VALUE" -ObjectTypes "TEST_VALUE" -Description "TEST_VALUE" -Values "TEST_VALUE"
+            #$NewObject = Initialize-AttributeDTO -Key "TEST_VALUE" -Name "TEST_VALUE" -Multiselect "TEST_VALUE" -IsAdhoc "TEST_VALUE" -Status "TEST_VALUE" -Type "TEST_VALUE" -ObjectTypes "TEST_VALUE" -Description "TEST_VALUE" -Values "TEST_VALUE"
             #$NewObject | Should -BeOfType AttributeDTO
             #$NewObject.property | Should -Be 0
         }

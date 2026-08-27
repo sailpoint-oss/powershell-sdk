@@ -43,6 +43,8 @@ docs/SearchAggregationSpecification.md
 docs/SearchFilterType.md
 docs/SubSearchAggregationSpecification.md
 docs/TextQuery.md
+docs/TrackerKeyDTO.md
+docs/TrackerValueDTO.md
 docs/TypeAheadQuery.md
 src/PSSailpoint.AccessModelMetadata/Api/AccessModelMetadataApi.ps1
 src/PSSailpoint.AccessModelMetadata/Client/Configuration.ps1
@@ -83,6 +85,8 @@ src/PSSailpoint.AccessModelMetadata/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint.AccessModelMetadata/Model/SearchFilterType.ps1
 src/PSSailpoint.AccessModelMetadata/Model/SubSearchAggregationSpecification.ps1
 src/PSSailpoint.AccessModelMetadata/Model/TextQuery.ps1
+src/PSSailpoint.AccessModelMetadata/Model/TrackerKeyDTO.ps1
+src/PSSailpoint.AccessModelMetadata/Model/TrackerValueDTO.ps1
 src/PSSailpoint.AccessModelMetadata/Model/TypeAheadQuery.ps1
 src/PSSailpoint.AccessModelMetadata/PSSailpoint.AccessModelMetadata.psm1
 src/PSSailpoint.AccessModelMetadata/Private/ApiClient.ps1
@@ -129,4 +133,6 @@ tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchFilterType.Tests.ps1
 tests/Model/SubSearchAggregationSpecification.Tests.ps1
 tests/Model/TextQuery.Tests.ps1
+tests/Model/TrackerKeyDTO.Tests.ps1
+tests/Model/TrackerValueDTO.Tests.ps1
 tests/Model/TypeAheadQuery.Tests.ps1

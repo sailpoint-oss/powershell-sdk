@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.AccessModelMetadata' -name 'AttributeValueDTO' {
     Context 'AttributeValueDTO' {
         It 'Initialize-AttributeValueDTO' {
             # a simple test to create an object
-            #$NewObject = Initialize-AttributeValueDTO -Value "TEST_VALUE" -Name "TEST_VALUE" -Status "TEST_VALUE"
+            #$NewObject = Initialize-AttributeValueDTO -Value "TEST_VALUE" -Name "TEST_VALUE" -Status "TEST_VALUE" -Type "TEST_VALUE"
             #$NewObject | Should -BeOfType AttributeValueDTO
             #$NewObject.property | Should -Be 0
         }

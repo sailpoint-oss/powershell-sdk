@@ -15,11 +15,13 @@ No summary available.
 No description available.
 
 .PARAMETER Value
-Technical name of the Attribute value. This is unique and cannot be changed after creation.
+Technical name of the Attribute value. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot start or end with a dash or underscore.
 .PARAMETER Name
-The display name of the Attribute value.
+The display name of the Attribute value. Allowed characters are letters, numbers, whitespace, and the following special characters: . / | , ( ) & _ -
 .PARAMETER Status
 The status of the Attribute value.
+.PARAMETER Type
+Indicates how this Attribute value was created. static values are pre-defined and created directly through this API. adhoc values are created dynamically through an internal service-to-service flow when the parent Attribute has isAdhoc set to true, and cannot be created directly through the public create-value API.
 .OUTPUTS
 
 AttributeValueDTO<PSCustomObject>
@@ -29,6 +31,7 @@ function Initialize-AttributeValueDTO {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidatePattern("^[a-zA-Z0-9]([a-zA-Z0-9_-]*[a-zA-Z0-9])?$")]
         [String]
         ${Value},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -36,18 +39,31 @@ function Initialize-AttributeValueDTO {
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Status}
+        ${Status},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("static", "adhoc")]
+        [String]
+        ${Type}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.AccessProfiles => AttributeValueDTO' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$Value -and $Value.length -gt 255) {
+            throw "invalid value for 'Value', the character length must be smaller than or equal to 255."
+        }
+
+        if (!$Name -and $Name.length -gt 100) {
+            throw "invalid value for 'Name', the character length must be smaller than or equal to 100."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "value" = ${Value}
             "name" = ${Name}
             "status" = ${Status}
+            "type" = ${Type}
         }
 
         return $PSO
@@ -84,7 +100,7 @@ function ConvertFrom-JsonToAttributeValueDTO {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AttributeValueDTO
-        $AllProperties = ("value", "name", "status")
+        $AllProperties = ("value", "name", "status", "type")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,10 +125,17 @@ function ConvertFrom-JsonToAttributeValueDTO {
             $Status = $JsonParameters.PSobject.Properties["status"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "value" = ${Value}
             "name" = ${Name}
             "status" = ${Status}
+            "type" = ${Type}
         }
 
         return $PSO

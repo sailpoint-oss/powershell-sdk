@@ -15,11 +15,13 @@ No summary available.
 No description available.
 
 .PARAMETER Key
-Technical name of the Attribute. This is unique and cannot be changed after creation.
+Technical name of the Attribute. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot start or end with a dash or underscore.
 .PARAMETER Name
-The display name of the key.
+The display name of the key. Allowed characters are letters, numbers, whitespace, and the following special characters: . / | , ( ) & _ -
 .PARAMETER Multiselect
 Indicates whether the attribute can have multiple values.
+.PARAMETER IsAdhoc
+Indicates whether this Attribute supports ad-hoc (dynamically created) values, in addition to pre-defined static values. Ad-hoc values are created dynamically through an internal service-to-service flow rather than through the public create-value API. This field can be set when creating an Attribute; if omitted, it defaults to false.
 .PARAMETER Status
 The status of the Attribute.
 .PARAMETER Type
@@ -27,7 +29,7 @@ The type of the Attribute. This can be either ""custom"" or ""governance"".
 .PARAMETER ObjectTypes
 An array of object types this attributes values can be applied to. Possible values are ""all"" or ""entitlement"". Value ""all"" means this attribute can be used with all object types that are supported.
 .PARAMETER Description
-The description of the Attribute.
+The description of the Attribute. Allowed characters are letters, numbers, whitespace, and the following special characters: . / | , ( ) & _ : -
 .PARAMETER Values
 No description available.
 .OUTPUTS
@@ -39,6 +41,7 @@ function Initialize-AttributeDTO {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidatePattern("^[a-zA-Z0-9]([a-zA-Z0-9_-]*[a-zA-Z0-9])?$")]
         [String]
         ${Key},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -47,6 +50,9 @@ function Initialize-AttributeDTO {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Multiselect} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsAdhoc} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status},
@@ -68,11 +74,24 @@ function Initialize-AttributeDTO {
         'Creating PSCustomObject: PSSailpoint.AccessModelMetadata => AttributeDTO' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$Key -and $Key.length -gt 255) {
+            throw "invalid value for 'Key', the character length must be smaller than or equal to 255."
+        }
+
+        if (!$Name -and $Name.length -gt 100) {
+            throw "invalid value for 'Name', the character length must be smaller than or equal to 100."
+        }
+
+        if (!$Description -and $Description.length -gt 500) {
+            throw "invalid value for 'Description', the character length must be smaller than or equal to 500."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "key" = ${Key}
             "name" = ${Name}
             "multiselect" = ${Multiselect}
+            "isAdhoc" = ${IsAdhoc}
             "status" = ${Status}
             "type" = ${Type}
             "objectTypes" = ${ObjectTypes}
@@ -114,7 +133,7 @@ function ConvertFrom-JsonToAttributeDTO {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AttributeDTO
-        $AllProperties = ("key", "name", "multiselect", "status", "type", "objectTypes", "description", "values")
+        $AllProperties = ("key", "name", "multiselect", "isAdhoc", "status", "type", "objectTypes", "description", "values")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -137,6 +156,12 @@ function ConvertFrom-JsonToAttributeDTO {
             $Multiselect = $null
         } else {
             $Multiselect = $JsonParameters.PSobject.Properties["multiselect"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isAdhoc"))) { #optional property not found
+            $IsAdhoc = $null
+        } else {
+            $IsAdhoc = $JsonParameters.PSobject.Properties["isAdhoc"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
@@ -173,6 +198,7 @@ function ConvertFrom-JsonToAttributeDTO {
             "key" = ${Key}
             "name" = ${Name}
             "multiselect" = ${Multiselect}
+            "isAdhoc" = ${IsAdhoc}
             "status" = ${Status}
             "type" = ${Type}
             "objectTypes" = ${ObjectTypes}

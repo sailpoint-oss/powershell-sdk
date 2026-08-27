@@ -22,6 +22,22 @@ Describe -tag 'PSSailpoint.AccessModelMetadata' -name 'AccessModelMetadataApi' {
         }
     }
 
+    Context 'Remove-AccessModelMetadataAttributeV1' {
+        It 'Test Remove-AccessModelMetadataAttributeV1' {
+            #$TestResult = Remove-AccessModelMetadataAttributeV1 -Key "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-AccessModelMetadataAttributeValueV1' {
+        It 'Test Remove-AccessModelMetadataAttributeValueV1' {
+            #$TestResult = Remove-AccessModelMetadataAttributeValueV1 -Key "TEST_VALUE" -Value "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-AccessModelMetadataAttributeV1' {
         It 'Test Get-AccessModelMetadataAttributeV1' {
             #$TestResult = Get-AccessModelMetadataAttributeV1 -Key "TEST_VALUE"
@@ -40,7 +56,7 @@ Describe -tag 'PSSailpoint.AccessModelMetadata' -name 'AccessModelMetadataApi' {
 
     Context 'Get-AccessModelMetadataAttributeV1' {
         It 'Test Get-AccessModelMetadataAttributeV1' {
-            #$TestResult = Get-AccessModelMetadataAttributeV1 -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-AccessModelMetadataAttributeV1 -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +64,7 @@ Describe -tag 'PSSailpoint.AccessModelMetadata' -name 'AccessModelMetadataApi' {
 
     Context 'Get-AccessModelMetadataAttributeValueV1' {
         It 'Test Get-AccessModelMetadataAttributeValueV1' {
-            #$TestResult = Get-AccessModelMetadataAttributeValueV1 -Key "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-AccessModelMetadataAttributeValueV1 -Key "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

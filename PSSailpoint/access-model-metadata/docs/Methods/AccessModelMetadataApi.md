@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessModelMetadata', 'AccessModelMet
 
 # AccessModelMetadata
   Use this API to create and manage metadata attributes for your Access Model.
-Access Model Metadata allows you to add contextual information to your ISC Access Model items using pre-defined metadata for risk, regulations, privacy levels, etc., or by creating your own metadata attributes to reflect the unique needs of your organization. This release of the API includes support for entitlement metadata. Support for role and access profile metadata will be introduced in a subsequent release.
+Access Model Metadata allows you to add contextual information to your ISC Access Model items using pre-defined metadata for risk, regulations, privacy levels, etc., or by creating your own metadata attributes to reflect the unique needs of your organization. This release of the API includes support for entitlement, role, and access profile metadata.
 
 Common usages for Access Model metadata include:
 
@@ -29,6 +29,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-AccessModelMetadataAttributeV1**](#create-access-model-metadata-attribute-v1) | **POST** `/access-model-metadata/v1/attributes` | Create access model metadata attribute
 [**New-AccessModelMetadataAttributeValueV1**](#create-access-model-metadata-attribute-value-v1) | **POST** `/access-model-metadata/v1/attributes/{key}/values` | Create access model metadata value
+[**Remove-AccessModelMetadataAttributeV1**](#delete-access-model-metadata-attribute-v1) | **DELETE** `/access-model-metadata/v1/attributes/{key}` | Delete access model metadata attribute
+[**Remove-AccessModelMetadataAttributeValueV1**](#delete-access-model-metadata-attribute-value-v1) | **DELETE** `/access-model-metadata/v1/attributes/{key}/values/{value}` | Delete access model metadata value
 [**Get-AccessModelMetadataAttributeV1**](#get-access-model-metadata-attribute-v1) | **GET** `/access-model-metadata/v1/attributes/{key}` | Get access model metadata attribute
 [**Get-AccessModelMetadataAttributeValueV1**](#get-access-model-metadata-attribute-value-v1) | **GET** `/access-model-metadata/v1/attributes/{key}/values/{value}` | Get access model metadata value
 [**Get-AccessModelMetadataAttributeV1**](#list-access-model-metadata-attribute-v1) | **GET** `/access-model-metadata/v1/attributes` | List access model metadata attributes
@@ -42,6 +44,13 @@ Method | HTTP request | Description
 
 ## create-access-model-metadata-attribute-v1
 Create a new Access Model Metadata Attribute.
+
+The **isAdhoc** field can be set on creation to indicate whether the Attribute supports ad-hoc
+(dynamically created) values in addition to static values; if omitted, it defaults to *false*.
+
+Any **values** provided at creation time must each have a *type* of *static* (or omit/leave *type*
+blank); *adhoc* is not an allowed value on this public API and results in a *400* error. Ad-hoc
+values are created dynamically through an internal service-to-service flow, not through this API.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-access-model-metadata-attribute-v-1)
@@ -72,12 +81,15 @@ Code | Description  | Data Type
 ```powershell
 $AttributeDTO = @"{
   "multiselect" : false,
+  "isAdhoc" : false,
   "values" : [ {
     "name" : "Public",
+    "type" : "static",
     "value" : "public",
     "status" : "active"
   }, {
     "name" : "Public",
+    "type" : "static",
     "value" : "public",
     "status" : "active"
   } ],
@@ -105,7 +117,12 @@ try {
 [[Back to top]](#) 
 
 ## create-access-model-metadata-attribute-value-v1
-Create a new value for an existing Access Model Metadata Attribute.    
+Create a new value for an existing Access Model Metadata Attribute.
+
+The **type** field must be omitted, blank, or *static* (case-insensitive); *adhoc* is not an
+allowed value on this public API and results in a *400* error. Ad-hoc values are created
+dynamically through an internal service-to-service flow when the parent Attribute has *isAdhoc*
+set to *true*, not through this API.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-access-model-metadata-attribute-value-v-1)
@@ -139,6 +156,7 @@ Code | Description  | Data Type
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 $AttributeValueDTO = @"{
   "name" : "Public",
+  "type" : "static",
   "value" : "public",
   "status" : "active"
 }"@
@@ -153,6 +171,104 @@ try {
     # New-AccessModelMetadataAttributeValueV1 -Key $Key -AttributeValueDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessModelMetadataAttributeValueV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-access-model-metadata-attribute-v1
+Delete an existing Access Model Metadata Attribute and all of its values.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-model-metadata-attribute-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Key | **String** | True  | Technical name of the Attribute.
+
+### Return type
+[**TrackerKeyDTO**](../models/tracker-key-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | OK - Attribute deleted successfully | TrackerKeyDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttributeV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+410 | Gone - returned if the requested operation is not yet available for your tenant because the underlying capability is still being rolled out. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttributeV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Key = "iscPrivacy" # String | Technical name of the Attribute.
+
+# Delete access model metadata attribute
+
+try {
+    Remove-AccessModelMetadataAttributeV1 -Key $Key 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-AccessModelMetadataAttributeV1 -Key $Key  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessModelMetadataAttributeV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-access-model-metadata-attribute-value-v1
+Delete an existing Access Model Metadata Attribute Value.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-model-metadata-attribute-value-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Key | **String** | True  | Technical name of the Attribute.
+Path   | Value | **String** | True  | Technical name of the Attribute value.
+
+### Return type
+[**TrackerValueDTO**](../models/tracker-value-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | OK - Attribute value deleted successfully | TrackerValueDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttributeV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+410 | Gone - returned if the requested operation is not yet available for your tenant because the underlying capability is still being rolled out. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttributeV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Key = "iscPrivacy" # String | Technical name of the Attribute.
+$Value = "public" # String | Technical name of the Attribute value.
+
+# Delete access model metadata value
+
+try {
+    Remove-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessModelMetadataAttributeValueV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -253,16 +369,17 @@ try {
 [[Back to top]](#) 
 
 ## list-access-model-metadata-attribute-v1
-Get a list of Access Model Metadata Attributes
+Get a list of Access Model Metadata Attributes. Supports pagination through limit and offset parameters.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or*
-  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key**
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, co*  **name**: *eq, co*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, type, status**
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
@@ -285,9 +402,10 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = 'name eq "Privacy"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
-$Sorters = "name,-key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
+$Filters = 'name eq "Privacy"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, co*  **name**: *eq, co*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
+$Sorters = "name,-key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, type, status** (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
 # List access model metadata attributes
@@ -296,7 +414,7 @@ try {
     Get-AccessModelMetadataAttributeV1 
     
     # Below is a request that includes all optional parameters
-    # Get-AccessModelMetadataAttributeV1 -Filters $Filters -Sorters $Sorters -Limit $Limit -Count $Count  
+    # Get-AccessModelMetadataAttributeV1 -Filters $Filters -Sorters $Sorters -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessModelMetadataAttributeV1"
     Write-Host $_.ErrorDetails
@@ -305,7 +423,7 @@ try {
 [[Back to top]](#) 
 
 ## list-access-model-metadata-attribute-value-v1
-Get a list of Access Model Metadata Attribute Values
+Get a list of Access Model Metadata Attribute Values. Supports pagination through limit and offset parameters.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-value-v-1)
 
@@ -313,7 +431,10 @@ Get a list of Access Model Metadata Attribute Values
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Key | **String** | True  | Technical name of the Attribute.
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, co*  **name**: *eq, co*  **status**: *eq*  **type**: *eq*  Supported composite operators are *and, or*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **value, name, status, type**
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
@@ -337,7 +458,10 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
+$Filters = 'name eq "Public"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, co*  **name**: *eq, co*  **status**: *eq*  **type**: *eq*  Supported composite operators are *and, or* (optional)
+$Sorters = "name,-value" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **value, name, status, type** (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
 # List access model metadata values
@@ -346,7 +470,7 @@ try {
     Get-AccessModelMetadataAttributeValueV1 -Key $Key 
     
     # Below is a request that includes all optional parameters
-    # Get-AccessModelMetadataAttributeValueV1 -Key $Key -Limit $Limit -Count $Count  
+    # Get-AccessModelMetadataAttributeValueV1 -Key $Key -Filters $Filters -Sorters $Sorters -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessModelMetadataAttributeValueV1"
     Write-Host $_.ErrorDetails
@@ -356,7 +480,7 @@ try {
 
 ## update-access-model-metadata-attribute-v1
 Update an existing Access Model Metadata Attribute.  
-The following fields are patchable: **name**, **description**, **multiselect**, **values**
+The following fields are patchable: **name**, **description**, **multiselect**, **isAdhoc**, **values**
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/update-access-model-metadata-attribute-v-1)

@@ -7,12 +7,15 @@
         $AttributeDTO = @"
         {
           "multiselect" : false,
+          "isAdhoc" : false,
           "values" : [ {
             "name" : "Public",
+            "type" : "static",
             "value" : "public",
             "status" : "active"
           }, {
             "name" : "Public",
+            "type" : "static",
             "value" : "public",
             "status" : "active"
           } ],
@@ -47,6 +50,7 @@
         $AttributeValueDTO = @"
         {
           "name" : "Public",
+          "type" : "static",
           "value" : "public",
           "status" : "active"
         }
@@ -62,6 +66,45 @@
             # New-AccessModelMetadataAttributeValueV1 -Key $Key -AttributeValueDTO $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessModelMetadataAttributeValueV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/attributes/{key}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#delete-access-model-metadata-attribute-v1
+      source: |
+        $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        
+        # Delete access model metadata attribute
+        
+        try {
+            Remove-AccessModelMetadataAttributeV1 -Key $Key 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-AccessModelMetadataAttributeV1 -Key $Key   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessModelMetadataAttributeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/attributes/{key}/values/{value}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#delete-access-model-metadata-attribute-value-v1
+      source: |
+        $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        $Value = "public" # String | Technical name of the Attribute value.
+        
+        # Delete access model metadata value
+        
+        try {
+            Remove-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessModelMetadataAttributeValueV1"
             Write-Host $_.ErrorDetails
         }
 - path: /access-model-metadata/v1/attributes/{key}
@@ -109,9 +152,10 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#list-access-model-metadata-attribute-v1
       source: |
-        $Filters = "name eq "Privacy"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
-        $Sorters = "name,-key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
+        $Filters = "name eq "Privacy"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, co*  **name**: *eq, co*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
+        $Sorters = "name,-key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, type, status** (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         
         # List access model metadata attributes
@@ -120,7 +164,7 @@
             Get-AccessModelMetadataAttributeV1 
     
             # Below is a request that includes all optional parameters
-            # Get-AccessModelMetadataAttributeV1 -Filters $Filters -Sorters $Sorters -Limit $Limit -Count $Count   
+            # Get-AccessModelMetadataAttributeV1 -Filters $Filters -Sorters $Sorters -Limit $Limit -Offset $Offset -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessModelMetadataAttributeV1"
             Write-Host $_.ErrorDetails
@@ -132,7 +176,10 @@
       label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#list-access-model-metadata-attribute-value-v1
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        $Filters = "name eq "Public"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, co*  **name**: *eq, co*  **status**: *eq*  **type**: *eq*  Supported composite operators are *and, or* (optional)
+        $Sorters = "name,-value" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **value, name, status, type** (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         
         # List access model metadata values
@@ -141,7 +188,7 @@
             Get-AccessModelMetadataAttributeValueV1 -Key $Key 
     
             # Below is a request that includes all optional parameters
-            # Get-AccessModelMetadataAttributeValueV1 -Key $Key -Limit $Limit -Count $Count   
+            # Get-AccessModelMetadataAttributeValueV1 -Key $Key -Filters $Filters -Sorters $Sorters -Limit $Limit -Offset $Offset -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessModelMetadataAttributeValueV1"
             Write-Host $_.ErrorDetails

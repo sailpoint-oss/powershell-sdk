@@ -56,14 +56,13 @@ function Get-RequestableObjectsV1 {
         [String]
         ${IdentityId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [ValidateSet("ACCESS_PROFILE", "ROLE")]
-        [String[]]
+        [String]
         ${Types},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Term},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject[]]
+        [String]
         ${Statuses},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]

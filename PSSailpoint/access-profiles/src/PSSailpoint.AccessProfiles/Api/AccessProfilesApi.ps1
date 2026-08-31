@@ -256,6 +256,98 @@ function Remove-AccessProfilesInBulkV1 {
 <#
 .SYNOPSIS
 
+Remove metadata from access profile
+
+.DESCRIPTION
+
+This API removes a single Access Model Metadata value from an access profile by attribute key and attribute value.
+
+.PARAMETER Id
+The access profile's ID.
+
+.PARAMETER AttributeKey
+Technical name of the Attribute.
+
+.PARAMETER AttributeValue
+Technical name of the Attribute Value.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+None
+#>
+function Remove-MetadataFromAccessProfileByKeyAndValueV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AttributeKey},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AttributeValue},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Remove-MetadataFromAccessProfileByKeyAndValueV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling deleteMetadataFromAccessProfileByKeyAndValueV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        if (!$AttributeKey) {
+            throw "Error! The required parameter `AttributeKey` missing when calling deleteMetadataFromAccessProfileByKeyAndValueV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{attributeKey}', [System.Web.HTTPUtility]::UrlEncode($AttributeKey))
+        if (!$AttributeValue) {
+            throw "Error! The required parameter `AttributeValue` missing when calling deleteMetadataFromAccessProfileByKeyAndValueV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{attributeValue}', [System.Web.HTTPUtility]::UrlEncode($AttributeValue))
+
+        $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 List access profile's entitlements
 
 .DESCRIPTION
@@ -765,6 +857,362 @@ function Update-AccessProfilesInBulkV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "AccessProfileUpdateItem[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Bulk-update metadata by filter
+
+.DESCRIPTION
+
+This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied filter expression.  The update is processed asynchronously. The response returns the ID of the task performing the update.  A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+
+.PARAMETER Accessprofilemetadatabulkupdatebyfilterrequest
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Accessprofilemetadatabulkupdateresponse
+#>
+function Update-AccessProfilesMetadataByFilterV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Accessprofilemetadatabulkupdatebyfilterrequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-AccessProfilesMetadataByFilterV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/access-profiles/v1/access-model-metadata/bulk-update/filter'
+
+        if (!$Accessprofilemetadatabulkupdatebyfilterrequest) {
+            throw "Error! The required parameter `Accessprofilemetadatabulkupdatebyfilterrequest` missing when calling updateAccessProfilesMetadataByFilterV1."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessprofilemetadatabulkupdatebyfilterrequest -is [array])) {
+            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyfilterrequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyfilterrequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Accessprofilemetadatabulkupdateresponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Bulk-update metadata by ids
+
+.DESCRIPTION
+
+This API initiates a bulk update of Access Model Metadata for one or more access profiles by a list of access profile IDs.  The update is processed asynchronously. The response returns the ID of the task performing the update.  The maximum access profile count in a single request is 3000. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+
+.PARAMETER Accessprofilemetadatabulkupdatebyidrequest
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Accessprofilemetadatabulkupdateresponse
+#>
+function Update-AccessProfilesMetadataByIdsV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Accessprofilemetadatabulkupdatebyidrequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-AccessProfilesMetadataByIdsV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/access-profiles/v1/access-model-metadata/bulk-update/ids'
+
+        if (!$Accessprofilemetadatabulkupdatebyidrequest) {
+            throw "Error! The required parameter `Accessprofilemetadatabulkupdatebyidrequest` missing when calling updateAccessProfilesMetadataByIdsV1."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessprofilemetadatabulkupdatebyidrequest -is [array])) {
+            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyidrequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyidrequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Accessprofilemetadatabulkupdateresponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Bulk-update metadata by query
+
+.DESCRIPTION
+
+This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied search query.  The update is processed asynchronously. The response returns the ID of the task performing the update.  A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+
+.PARAMETER Accessprofilemetadatabulkupdatebyqueryrequest
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Accessprofilemetadatabulkupdateresponse
+#>
+function Update-AccessProfilesMetadataByQueryV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Accessprofilemetadatabulkupdatebyqueryrequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-AccessProfilesMetadataByQueryV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/access-profiles/v1/access-model-metadata/bulk-update/query'
+
+        if (!$Accessprofilemetadatabulkupdatebyqueryrequest) {
+            throw "Error! The required parameter `Accessprofilemetadatabulkupdatebyqueryrequest` missing when calling updateAccessProfilesMetadataByQueryV1."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessprofilemetadatabulkupdatebyqueryrequest -is [array])) {
+            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyqueryrequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyqueryrequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Accessprofilemetadatabulkupdateresponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Add metadata to access profile
+
+.DESCRIPTION
+
+This API adds a single Access Model Metadata value to an access profile by attribute key and attribute value. A single access profile cannot be assigned more than 25 metadata values. Adding custom metadata requires a suite license.
+
+.PARAMETER Id
+The access profile's ID.
+
+.PARAMETER AttributeKey
+Technical name of the Attribute.
+
+.PARAMETER AttributeValue
+Technical name of the Attribute Value.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+AccessProfile
+#>
+function Update-AttributeKeyAndValueToAccessProfileV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AttributeKey},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AttributeValue},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-AttributeKeyAndValueToAccessProfileV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling updateAttributeKeyAndValueToAccessProfileV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        if (!$AttributeKey) {
+            throw "Error! The required parameter `AttributeKey` missing when calling updateAttributeKeyAndValueToAccessProfileV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{attributeKey}', [System.Web.HTTPUtility]::UrlEncode($AttributeKey))
+        if (!$AttributeValue) {
+            throw "Error! The required parameter `AttributeValue` missing when calling updateAttributeKeyAndValueToAccessProfileV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{attributeValue}', [System.Web.HTTPUtility]::UrlEncode($AttributeValue))
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "AccessProfile" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

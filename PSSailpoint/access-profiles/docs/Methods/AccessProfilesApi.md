@@ -54,11 +54,16 @@ Method | HTTP request | Description
 [**New-AccessProfileV1**](#create-access-profile-v1) | **POST** `/access-profiles/v1` | Create access profile
 [**Remove-AccessProfileV1**](#delete-access-profile-v1) | **DELETE** `/access-profiles/v1/{id}` | Delete the specified access profile
 [**Remove-AccessProfilesInBulkV1**](#delete-access-profiles-in-bulk-v1) | **POST** `/access-profiles/v1/bulk-delete` | Delete access profile(s)
+[**Remove-MetadataFromAccessProfileByKeyAndValueV1**](#delete-metadata-from-access-profile-by-key-and-value-v1) | **DELETE** `/access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from access profile
 [**Get-AccessProfileEntitlementsV1**](#get-access-profile-entitlements-v1) | **GET** `/access-profiles/v1/{id}/entitlements` | List access profile&#39;s entitlements
 [**Get-AccessProfileV1**](#get-access-profile-v1) | **GET** `/access-profiles/v1/{id}` | Get an access profile
 [**Get-AccessProfilesV1**](#list-access-profiles-v1) | **GET** `/access-profiles/v1` | List access profiles
 [**Update-AccessProfileV1**](#patch-access-profile-v1) | **PATCH** `/access-profiles/v1/{id}` | Patch a specified access profile
 [**Update-AccessProfilesInBulkV1**](#update-access-profiles-in-bulk-v1) | **POST** `/access-profiles/v1/bulk-update-requestable` | Update access profile(s) requestable field.
+[**Update-AccessProfilesMetadataByFilterV1**](#update-access-profiles-metadata-by-filter-v1) | **POST** `/access-profiles/v1/access-model-metadata/bulk-update/filter` | Bulk-update metadata by filter
+[**Update-AccessProfilesMetadataByIdsV1**](#update-access-profiles-metadata-by-ids-v1) | **POST** `/access-profiles/v1/access-model-metadata/bulk-update/ids` | Bulk-update metadata by ids
+[**Update-AccessProfilesMetadataByQueryV1**](#update-access-profiles-metadata-by-query-v1) | **POST** `/access-profiles/v1/access-model-metadata/bulk-update/query` | Bulk-update metadata by query
+[**Update-AttributeKeyAndValueToAccessProfileV1**](#update-attribute-key-and-value-to-access-profile-v1) | **POST** `/access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add metadata to access profile
 
 
 ## create-access-profile-v1
@@ -325,6 +330,56 @@ try {
     # Remove-AccessProfilesInBulkV1 -AccessProfileBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessProfilesInBulkV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-metadata-from-access-profile-by-key-and-value-v1
+This API removes a single Access Model Metadata value from an access profile by attribute key and attribute value.
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-metadata-from-access-profile-by-key-and-value-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | The access profile's ID.
+Path   | AttributeKey | **String** | True  | Technical name of the Attribute.
+Path   | AttributeValue | **String** | True  | Technical name of the Attribute Value.
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Request accepted | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "2c91808c74ff913f0175097daa9d59cd" # String | The access profile's ID.
+$AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+$AttributeValue = "public" # String | Technical name of the Attribute Value.
+
+# Remove metadata from access profile
+
+try {
+    Remove-MetadataFromAccessProfileByKeyAndValueV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-MetadataFromAccessProfileByKeyAndValueV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MetadataFromAccessProfileByKeyAndValueV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -628,6 +683,240 @@ try {
     # Update-AccessProfilesInBulkV1 -AccessProfileBulkUpdateRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesInBulkV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-access-profiles-metadata-by-filter-v1
+This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied filter expression.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-profiles-metadata-by-filter-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | Accessprofilemetadatabulkupdatebyfilterrequest | [**Accessprofilemetadatabulkupdatebyfilterrequest**](../models/accessprofilemetadatabulkupdatebyfilterrequest) | True  | 
+
+### Return type
+[**Accessprofilemetadatabulkupdateresponse**](../models/accessprofilemetadatabulkupdateresponse)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Returned if the bulk update request was created. | Accessprofilemetadatabulkupdateresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Accessprofilemetadatabulkupdatebyfilterrequest = @"{
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "filters" : "requestable eq false",
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}"@
+
+# Bulk-update metadata by filter
+
+try {
+    $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyfilterrequest -Json $Accessprofilemetadatabulkupdatebyfilterrequest
+    Update-AccessProfilesMetadataByFilterV1 -Accessprofilemetadatabulkupdatebyfilterrequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-AccessProfilesMetadataByFilterV1 -Accessprofilemetadatabulkupdatebyfilterrequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByFilterV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-access-profiles-metadata-by-ids-v1
+This API initiates a bulk update of Access Model Metadata for one or more access profiles by a list of access profile IDs.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+The maximum access profile count in a single request is 3000. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-profiles-metadata-by-ids-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | Accessprofilemetadatabulkupdatebyidrequest | [**Accessprofilemetadatabulkupdatebyidrequest**](../models/accessprofilemetadatabulkupdatebyidrequest) | True  | 
+
+### Return type
+[**Accessprofilemetadatabulkupdateresponse**](../models/accessprofilemetadatabulkupdateresponse)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Returned if the bulk update request was created. | Accessprofilemetadatabulkupdateresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Accessprofilemetadatabulkupdatebyidrequest = @"{
+  "accessProfiles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}"@
+
+# Bulk-update metadata by ids
+
+try {
+    $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyidrequest -Json $Accessprofilemetadatabulkupdatebyidrequest
+    Update-AccessProfilesMetadataByIdsV1 -Accessprofilemetadatabulkupdatebyidrequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-AccessProfilesMetadataByIdsV1 -Accessprofilemetadatabulkupdatebyidrequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByIdsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-access-profiles-metadata-by-query-v1
+This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied search query.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-profiles-metadata-by-query-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | Accessprofilemetadatabulkupdatebyqueryrequest | [**Accessprofilemetadatabulkupdatebyqueryrequest**](../models/accessprofilemetadatabulkupdatebyqueryrequest) | True  | 
+
+### Return type
+[**Accessprofilemetadatabulkupdateresponse**](../models/accessprofilemetadatabulkupdateresponse)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Returned if the bulk update request was created. | Accessprofilemetadatabulkupdateresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Accessprofilemetadatabulkupdatebyqueryrequest = @"{
+  "query" : {
+    "indices" : [ "accessprofiles" ],
+    "queryType" : "TEXT",
+    "textQuery" : {
+      "terms" : [ "test123" ],
+      "fields" : [ "id" ],
+      "matchAny" : false,
+      "contains" : true
+    },
+    "includeNested" : false
+  },
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}"@
+
+# Bulk-update metadata by query
+
+try {
+    $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyqueryrequest -Json $Accessprofilemetadatabulkupdatebyqueryrequest
+    Update-AccessProfilesMetadataByQueryV1 -Accessprofilemetadatabulkupdatebyqueryrequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-AccessProfilesMetadataByQueryV1 -Accessprofilemetadatabulkupdatebyqueryrequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByQueryV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-attribute-key-and-value-to-access-profile-v1
+This API adds a single Access Model Metadata value to an access profile by attribute key and attribute value. A single access profile cannot be assigned more than 25 metadata values. Adding custom metadata requires a suite license.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-attribute-key-and-value-to-access-profile-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | The access profile's ID.
+Path   | AttributeKey | **String** | True  | Technical name of the Attribute.
+Path   | AttributeValue | **String** | True  | Technical name of the Attribute Value.
+
+### Return type
+[**AccessProfile**](../models/access-profile)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Responds with the access profile as updated. | AccessProfile
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "c24359c389374d0fb8585698a2189e3d" # String | The access profile's ID.
+$AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+$AttributeValue = "public" # String | Technical name of the Attribute Value.
+
+# Add metadata to access profile
+
+try {
+    Update-AttributeKeyAndValueToAccessProfileV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
+    
+    # Below is a request that includes all optional parameters
+    # Update-AttributeKeyAndValueToAccessProfileV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AttributeKeyAndValueToAccessProfileV1"
     Write-Host $_.ErrorDetails
 }
 ```

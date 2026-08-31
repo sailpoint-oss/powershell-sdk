@@ -17,6 +17,11 @@ docs/AccessProfileUsage.md
 docs/AccessProfileUsageUsedByInner.md
 docs/AccessProfilesApi.md
 docs/AccessProfilesApideveloperSite_code_examples.yaml
+docs/Accessprofilemetadatabulkupdatebyfilterrequest.md
+docs/Accessprofilemetadatabulkupdatebyidrequest.md
+docs/AccessprofilemetadatabulkupdatebyidrequestValuesInner.md
+docs/Accessprofilemetadatabulkupdatebyqueryrequest.md
+docs/Accessprofilemetadatabulkupdateresponse.md
 docs/AdditionalOwnerRef.md
 docs/ArrayInner.md
 docs/AttributeDTO.md
@@ -58,6 +63,11 @@ src/PSSailpoint.AccessProfiles/Model/AccessProfileSourceRef.ps1
 src/PSSailpoint.AccessProfiles/Model/AccessProfileUpdateItem.ps1
 src/PSSailpoint.AccessProfiles/Model/AccessProfileUsage.ps1
 src/PSSailpoint.AccessProfiles/Model/AccessProfileUsageUsedByInner.ps1
+src/PSSailpoint.AccessProfiles/Model/Accessprofilemetadatabulkupdatebyfilterrequest.ps1
+src/PSSailpoint.AccessProfiles/Model/Accessprofilemetadatabulkupdatebyidrequest.ps1
+src/PSSailpoint.AccessProfiles/Model/AccessprofilemetadatabulkupdatebyidrequestValuesInner.ps1
+src/PSSailpoint.AccessProfiles/Model/Accessprofilemetadatabulkupdatebyqueryrequest.ps1
+src/PSSailpoint.AccessProfiles/Model/Accessprofilemetadatabulkupdateresponse.ps1
 src/PSSailpoint.AccessProfiles/Model/AdditionalOwnerRef.ps1
 src/PSSailpoint.AccessProfiles/Model/ArrayInner.ps1
 src/PSSailpoint.AccessProfiles/Model/AttributeDTO.ps1
@@ -104,6 +114,11 @@ tests/Model/AccessProfileSourceRef.Tests.ps1
 tests/Model/AccessProfileUpdateItem.Tests.ps1
 tests/Model/AccessProfileUsage.Tests.ps1
 tests/Model/AccessProfileUsageUsedByInner.Tests.ps1
+tests/Model/Accessprofilemetadatabulkupdatebyfilterrequest.Tests.ps1
+tests/Model/Accessprofilemetadatabulkupdatebyidrequest.Tests.ps1
+tests/Model/AccessprofilemetadatabulkupdatebyidrequestValuesInner.Tests.ps1
+tests/Model/Accessprofilemetadatabulkupdatebyqueryrequest.Tests.ps1
+tests/Model/Accessprofilemetadatabulkupdateresponse.Tests.ps1
 tests/Model/AdditionalOwnerRef.Tests.ps1
 tests/Model/ArrayInner.Tests.ps1
 tests/Model/AttributeDTO.Tests.ps1

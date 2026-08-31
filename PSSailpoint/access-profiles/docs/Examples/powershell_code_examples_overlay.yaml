@@ -180,6 +180,27 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessProfilesInBulkV1"
             Write-Host $_.ErrorDetails
         }
+- path: /access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#delete-metadata-from-access-profile-by-key-and-value-v1
+      source: |
+        $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The access profile's ID.
+        $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+        $AttributeValue = "public" # String | Technical name of the Attribute Value.
+        
+        # Remove metadata from access profile
+        
+        try {
+            Remove-MetadataFromAccessProfileByKeyAndValueV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MetadataFromAccessProfileByKeyAndValueV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MetadataFromAccessProfileByKeyAndValueV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /access-profiles/v1/{id}/entitlements
   method: GET
   xCodeSample:
@@ -294,5 +315,126 @@
             # Update-AccessProfilesInBulkV1 -AccessProfileBulkUpdateRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/v1/access-model-metadata/bulk-update/filter
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#update-access-profiles-metadata-by-filter-v1
+      source: |
+        $Accessprofilemetadatabulkupdatebyfilterrequest = @"
+        {
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "filters" : "requestable eq false",
+          "replaceScope" : "ATTRIBUTE",
+          "operation" : "REPLACE"
+        }
+        "@
+        
+        # Bulk-update metadata by filter
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyfilterrequest -Json $Accessprofilemetadatabulkupdatebyfilterrequest
+            Update-AccessProfilesMetadataByFilterV1 -Accessprofilemetadatabulkupdatebyfilterrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AccessProfilesMetadataByFilterV1 -Accessprofilemetadatabulkupdatebyfilterrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByFilterV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/v1/access-model-metadata/bulk-update/ids
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#update-access-profiles-metadata-by-ids-v1
+      source: |
+        $Accessprofilemetadatabulkupdatebyidrequest = @"
+        {
+          "accessProfiles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "replaceScope" : "ATTRIBUTE",
+          "operation" : "REPLACE"
+        }
+        "@
+        
+        # Bulk-update metadata by ids
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyidrequest -Json $Accessprofilemetadatabulkupdatebyidrequest
+            Update-AccessProfilesMetadataByIdsV1 -Accessprofilemetadatabulkupdatebyidrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AccessProfilesMetadataByIdsV1 -Accessprofilemetadatabulkupdatebyidrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByIdsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/v1/access-model-metadata/bulk-update/query
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#update-access-profiles-metadata-by-query-v1
+      source: |
+        $Accessprofilemetadatabulkupdatebyqueryrequest = @"
+        {
+          "query" : {
+            "indices" : [ "accessprofiles" ],
+            "queryType" : "TEXT",
+            "textQuery" : {
+              "terms" : [ "test123" ],
+              "fields" : [ "id" ],
+              "matchAny" : false,
+              "contains" : true
+            },
+            "includeNested" : false
+          },
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "replaceScope" : "ATTRIBUTE",
+          "operation" : "REPLACE"
+        }
+        "@
+        
+        # Bulk-update metadata by query
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyqueryrequest -Json $Accessprofilemetadatabulkupdatebyqueryrequest
+            Update-AccessProfilesMetadataByQueryV1 -Accessprofilemetadatabulkupdatebyqueryrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AccessProfilesMetadataByQueryV1 -Accessprofilemetadatabulkupdatebyqueryrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByQueryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#update-attribute-key-and-value-to-access-profile-v1
+      source: |
+        $Id = "c24359c389374d0fb8585698a2189e3d" # String | The access profile's ID.
+        $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+        $AttributeValue = "public" # String | Technical name of the Attribute Value.
+        
+        # Add metadata to access profile
+        
+        try {
+            Update-AttributeKeyAndValueToAccessProfileV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AttributeKeyAndValueToAccessProfileV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AttributeKeyAndValueToAccessProfileV1"
             Write-Host $_.ErrorDetails
         }

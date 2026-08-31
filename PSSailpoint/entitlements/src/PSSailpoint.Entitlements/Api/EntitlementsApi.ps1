@@ -1308,3 +1308,267 @@ function Update-EntitlementsInBulkV1 {
     }
 }
 
+<#
+.SYNOPSIS
+
+Bulk-update metadata by filter
+
+.DESCRIPTION
+
+This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied filter expression.  The update is processed asynchronously. The response returns the ID of the task performing the update.  Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByFilterV1` operation.
+
+.PARAMETER Entitlementmetadatabulkupdatebyfilterrequest
+Attribute metadata bulk update request body.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Entitlementmetadatabulkupdateresponse
+#>
+function Update-EntitlementsMetadataByFilterV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Entitlementmetadatabulkupdatebyfilterrequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-EntitlementsMetadataByFilterV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/entitlements/v1/access-model-metadata/bulk-update/filter'
+
+        if (!$Entitlementmetadatabulkupdatebyfilterrequest) {
+            throw "Error! The required parameter `Entitlementmetadatabulkupdatebyfilterrequest` missing when calling updateEntitlementsMetadataByFilterV1."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Entitlementmetadatabulkupdatebyfilterrequest -is [array])) {
+            $LocalVarBodyParameter = $Entitlementmetadatabulkupdatebyfilterrequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Entitlementmetadatabulkupdatebyfilterrequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Entitlementmetadatabulkupdateresponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Bulk-update metadata by ids
+
+.DESCRIPTION
+
+This API initiates a bulk update of Access Model Metadata for one or more entitlements by a list of entitlement IDs.  The update is processed asynchronously. The response returns the ID of the task performing the update.  The maximum entitlement count in a single request is 3000. Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByIdsV1` operation.
+
+.PARAMETER Entitlementmetadatabulkupdatebyidrequest
+Attribute metadata bulk update request body.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Entitlementmetadatabulkupdateresponse
+#>
+function Update-EntitlementsMetadataByIdsV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Entitlementmetadatabulkupdatebyidrequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-EntitlementsMetadataByIdsV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/entitlements/v1/access-model-metadata/bulk-update/ids'
+
+        if (!$Entitlementmetadatabulkupdatebyidrequest) {
+            throw "Error! The required parameter `Entitlementmetadatabulkupdatebyidrequest` missing when calling updateEntitlementsMetadataByIdsV1."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Entitlementmetadatabulkupdatebyidrequest -is [array])) {
+            $LocalVarBodyParameter = $Entitlementmetadatabulkupdatebyidrequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Entitlementmetadatabulkupdatebyidrequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Entitlementmetadatabulkupdateresponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Bulk-update metadata by query
+
+.DESCRIPTION
+
+This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied search query.  The update is processed asynchronously. The response returns the ID of the task performing the update.  Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByQueryV1` operation.
+
+.PARAMETER Entitlementmetadatabulkupdatebyqueryrequest
+Attribute metadata bulk update request body.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Entitlementmetadatabulkupdateresponse
+#>
+function Update-EntitlementsMetadataByQueryV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Entitlementmetadatabulkupdatebyqueryrequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-EntitlementsMetadataByQueryV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/entitlements/v1/access-model-metadata/bulk-update/query'
+
+        if (!$Entitlementmetadatabulkupdatebyqueryrequest) {
+            throw "Error! The required parameter `Entitlementmetadatabulkupdatebyqueryrequest` missing when calling updateEntitlementsMetadataByQueryV1."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Entitlementmetadatabulkupdatebyqueryrequest -is [array])) {
+            $LocalVarBodyParameter = $Entitlementmetadatabulkupdatebyqueryrequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Entitlementmetadatabulkupdatebyqueryrequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Entitlementmetadatabulkupdateresponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+

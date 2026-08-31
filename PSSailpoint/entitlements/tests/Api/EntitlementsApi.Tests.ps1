@@ -110,4 +110,28 @@ Describe -tag 'PSSailpoint.Entitlements' -name 'EntitlementsApi' {
         }
     }
 
+    Context 'Update-EntitlementsMetadataByFilterV1' {
+        It 'Test Update-EntitlementsMetadataByFilterV1' {
+            #$TestResult = Update-EntitlementsMetadataByFilterV1 -Entitlementmetadatabulkupdatebyfilterrequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-EntitlementsMetadataByIdsV1' {
+        It 'Test Update-EntitlementsMetadataByIdsV1' {
+            #$TestResult = Update-EntitlementsMetadataByIdsV1 -Entitlementmetadatabulkupdatebyidrequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-EntitlementsMetadataByQueryV1' {
+        It 'Test Update-EntitlementsMetadataByQueryV1' {
+            #$TestResult = Update-EntitlementsMetadataByQueryV1 -Entitlementmetadatabulkupdatebyqueryrequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

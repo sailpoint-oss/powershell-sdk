@@ -30,6 +30,9 @@ Method | HTTP request | Description
 [**Send-EntitlementRequestConfigV1**](#put-entitlement-request-config-v1) | **PUT** `/entitlements/v1/{id}/entitlement-request-config` | Replace entitlement request config
 [**Reset-SourceEntitlementsV1**](#reset-source-entitlements-v1) | **POST** `/entitlements/v1/reset/sources/{id}` | Reset source entitlements
 [**Update-EntitlementsInBulkV1**](#update-entitlements-in-bulk-v1) | **POST** `/entitlements/v1/bulk-update` | Bulk update an entitlement list
+[**Update-EntitlementsMetadataByFilterV1**](#update-entitlements-metadata-by-filter-v1) | **POST** `/entitlements/v1/access-model-metadata/bulk-update/filter` | Bulk-update metadata by filter
+[**Update-EntitlementsMetadataByIdsV1**](#update-entitlements-metadata-by-ids-v1) | **POST** `/entitlements/v1/access-model-metadata/bulk-update/ids` | Bulk-update metadata by ids
+[**Update-EntitlementsMetadataByQueryV1**](#update-entitlements-metadata-by-query-v1) | **POST** `/entitlements/v1/access-model-metadata/bulk-update/query` | Bulk-update metadata by query
 
 
 ## create-access-model-metadata-for-entitlement-v1
@@ -756,6 +759,196 @@ try {
     # Update-EntitlementsInBulkV1 -EntitlementBulkUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsInBulkV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-entitlements-metadata-by-filter-v1
+This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied filter expression.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+Adding or replacing custom metadata requires a suite license.
+
+This API replaces the deprecated `updateAccessModelMetadataByFilterV1` operation.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-entitlements-metadata-by-filter-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | Entitlementmetadatabulkupdatebyfilterrequest | [**Entitlementmetadatabulkupdatebyfilterrequest**](../models/entitlementmetadatabulkupdatebyfilterrequest) | True  | Attribute metadata bulk update request body.
+
+### Return type
+[**Entitlementmetadatabulkupdateresponse**](../models/entitlementmetadatabulkupdateresponse)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Returned if the bulk update request was created. | Entitlementmetadatabulkupdateresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Entitlementmetadatabulkupdatebyfilterrequest = @"{
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "filters" : "id eq 2c9180867817ac4d017817c491119a20",
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}"@
+
+# Bulk-update metadata by filter
+
+try {
+    $Result = ConvertFrom-JsonToEntitlementmetadatabulkupdatebyfilterrequest -Json $Entitlementmetadatabulkupdatebyfilterrequest
+    Update-EntitlementsMetadataByFilterV1 -Entitlementmetadatabulkupdatebyfilterrequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-EntitlementsMetadataByFilterV1 -Entitlementmetadatabulkupdatebyfilterrequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsMetadataByFilterV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-entitlements-metadata-by-ids-v1
+This API initiates a bulk update of Access Model Metadata for one or more entitlements by a list of entitlement IDs.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+The maximum entitlement count in a single request is 3000. Adding or replacing custom metadata requires a suite license.
+
+This API replaces the deprecated `updateAccessModelMetadataByIdsV1` operation.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-entitlements-metadata-by-ids-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | Entitlementmetadatabulkupdatebyidrequest | [**Entitlementmetadatabulkupdatebyidrequest**](../models/entitlementmetadatabulkupdatebyidrequest) | True  | Attribute metadata bulk update request body.
+
+### Return type
+[**Entitlementmetadatabulkupdateresponse**](../models/entitlementmetadatabulkupdateresponse)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Returned if the bulk update request was created. | Entitlementmetadatabulkupdateresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Entitlementmetadatabulkupdatebyidrequest = @"{
+  "entitlements" : [ "2c9180867817ac4d017817c491119a20", "2c9180867817ac4d017817c491119a21" ],
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}"@
+
+# Bulk-update metadata by ids
+
+try {
+    $Result = ConvertFrom-JsonToEntitlementmetadatabulkupdatebyidrequest -Json $Entitlementmetadatabulkupdatebyidrequest
+    Update-EntitlementsMetadataByIdsV1 -Entitlementmetadatabulkupdatebyidrequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-EntitlementsMetadataByIdsV1 -Entitlementmetadatabulkupdatebyidrequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsMetadataByIdsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-entitlements-metadata-by-query-v1
+This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied search query.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+Adding or replacing custom metadata requires a suite license.
+
+This API replaces the deprecated `updateAccessModelMetadataByQueryV1` operation.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-entitlements-metadata-by-query-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | Entitlementmetadatabulkupdatebyqueryrequest | [**Entitlementmetadatabulkupdatebyqueryrequest**](../models/entitlementmetadatabulkupdatebyqueryrequest) | True  | Attribute metadata bulk update request body.
+
+### Return type
+[**Entitlementmetadatabulkupdateresponse**](../models/entitlementmetadatabulkupdateresponse)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Returned if the bulk update request was created. | Entitlementmetadatabulkupdateresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListEntitlementsV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListEntitlementsV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Entitlementmetadatabulkupdatebyqueryrequest = @"{
+  "query" : {
+    "indices" : [ "entitlements" ],
+    "queryType" : "TEXT",
+    "textQuery" : {
+      "terms" : [ "test123" ],
+      "fields" : [ "id" ],
+      "matchAny" : false,
+      "contains" : true
+    },
+    "includeNested" : false
+  },
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}"@
+
+# Bulk-update metadata by query
+
+try {
+    $Result = ConvertFrom-JsonToEntitlementmetadatabulkupdatebyqueryrequest -Json $Entitlementmetadatabulkupdatebyqueryrequest
+    Update-EntitlementsMetadataByQueryV1 -Entitlementmetadatabulkupdatebyqueryrequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-EntitlementsMetadataByQueryV1 -Entitlementmetadatabulkupdatebyqueryrequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsMetadataByQueryV1"
     Write-Host $_.ErrorDetails
 }
 ```

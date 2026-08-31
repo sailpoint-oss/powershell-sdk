@@ -327,3 +327,103 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsInBulkV1"
             Write-Host $_.ErrorDetails
         }
+- path: /entitlements/v1/access-model-metadata/bulk-update/filter
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#update-entitlements-metadata-by-filter-v1
+      source: |
+        $Entitlementmetadatabulkupdatebyfilterrequest = @"
+        {
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "filters" : "id eq 2c9180867817ac4d017817c491119a20",
+          "replaceScope" : "ATTRIBUTE",
+          "operation" : "REPLACE"
+        }
+        "@
+        
+        # Bulk-update metadata by filter
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementmetadatabulkupdatebyfilterrequest -Json $Entitlementmetadatabulkupdatebyfilterrequest
+            Update-EntitlementsMetadataByFilterV1 -Entitlementmetadatabulkupdatebyfilterrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-EntitlementsMetadataByFilterV1 -Entitlementmetadatabulkupdatebyfilterrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsMetadataByFilterV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/access-model-metadata/bulk-update/ids
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#update-entitlements-metadata-by-ids-v1
+      source: |
+        $Entitlementmetadatabulkupdatebyidrequest = @"
+        {
+          "entitlements" : [ "2c9180867817ac4d017817c491119a20", "2c9180867817ac4d017817c491119a21" ],
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "replaceScope" : "ATTRIBUTE",
+          "operation" : "REPLACE"
+        }
+        "@
+        
+        # Bulk-update metadata by ids
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementmetadatabulkupdatebyidrequest -Json $Entitlementmetadatabulkupdatebyidrequest
+            Update-EntitlementsMetadataByIdsV1 -Entitlementmetadatabulkupdatebyidrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-EntitlementsMetadataByIdsV1 -Entitlementmetadatabulkupdatebyidrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsMetadataByIdsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/access-model-metadata/bulk-update/query
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#update-entitlements-metadata-by-query-v1
+      source: |
+        $Entitlementmetadatabulkupdatebyqueryrequest = @"
+        {
+          "query" : {
+            "indices" : [ "entitlements" ],
+            "queryType" : "TEXT",
+            "textQuery" : {
+              "terms" : [ "test123" ],
+              "fields" : [ "id" ],
+              "matchAny" : false,
+              "contains" : true
+            },
+            "includeNested" : false
+          },
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "replaceScope" : "ATTRIBUTE",
+          "operation" : "REPLACE"
+        }
+        "@
+        
+        # Bulk-update metadata by query
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementmetadatabulkupdatebyqueryrequest -Json $Entitlementmetadatabulkupdatebyqueryrequest
+            Update-EntitlementsMetadataByQueryV1 -Entitlementmetadatabulkupdatebyqueryrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-EntitlementsMetadataByQueryV1 -Entitlementmetadatabulkupdatebyqueryrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsMetadataByQueryV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -38,4 +38,12 @@ Describe -tag 'PSSailpoint.PersonalAccessTokens' -name 'PersonalAccessTokensApi'
         }
     }
 
+    Context 'Update-BulkPersonalAccessTokensV1' {
+        It 'Test Update-BulkPersonalAccessTokensV1' {
+            #$TestResult = Update-BulkPersonalAccessTokensV1 -BulkUpdatePersonalAccessTokensRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

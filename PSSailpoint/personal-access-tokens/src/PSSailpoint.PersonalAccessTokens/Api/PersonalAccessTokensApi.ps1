@@ -345,3 +345,91 @@ function Update-PersonalAccessTokenV1 {
     }
 }
 
+<#
+.SYNOPSIS
+
+Bulk update personal access tokens
+
+.DESCRIPTION
+
+This applies a single [JSON Patch](https://tools.ietf.org/html/rfc6902) document to multiple personal access tokens (PATs) in the current tenant in one request. The same `patch` is applied to every token referenced in `ids`. Up to **25** tokens can be updated per request. This is an administrative operation intended for org admins managing PATs across their tenant. The caller must have the `idn:all-personal-access-tokens:update` right. API OAuth client credentials are not permitted to call this endpoint. Note: This operation is also accessible via `POST` to the same path; both methods behave identically. Unlike the single-token patch endpoint, the request body uses `Content-Type: application/json` (not `application/json-patch+json`). **Allowed patch paths** Only expiration-related paths may be modified in bulk: * `/expirationDate` - Set or clear the token's expiration date. Any other path (for example `/name` or `/scope`) results in a `400` response. * `/userAwareTokenNeverExpires` - Explicit acknowledgment that the token will never expire. **expirationDate and userAwareTokenNeverExpires Relationship:** When clearing `expirationDate` (either by removing it or replacing it with `null`), `userAwareTokenNeverExpires` must also be set to `true` in the same patch. This serves as an explicit acknowledgment that the caller is aware of the security implications of creating a token that will never expire. When `expirationDate` is set to a valid future date-time, `userAwareTokenNeverExpires` can be omitted. **Note:** `userAwareTokenNeverExpires` is stored internally and is not returned in the response.
+
+.PARAMETER BulkUpdatePersonalAccessTokensRequest
+The IDs of the personal access tokens to update, along with a single JSON Patch document to apply to each of them.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+GetPersonalAccessTokenResponse[]
+#>
+function Update-BulkPersonalAccessTokensV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BulkUpdatePersonalAccessTokensRequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-BulkPersonalAccessTokensV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/personal-access-tokens/v1/bulk-update'
+
+        if (!$BulkUpdatePersonalAccessTokensRequest) {
+            throw "Error! The required parameter `BulkUpdatePersonalAccessTokensRequest` missing when calling updateBulkPersonalAccessTokensV1."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkUpdatePersonalAccessTokensRequest -is [array])) {
+            $LocalVarBodyParameter = $BulkUpdatePersonalAccessTokensRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $BulkUpdatePersonalAccessTokensRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "GetPersonalAccessTokenResponse[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+

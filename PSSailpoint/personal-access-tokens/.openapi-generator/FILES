@@ -4,6 +4,7 @@ Index.md
 README.md
 appveyor.yml
 docs/ArrayInner.md
+docs/BulkUpdatePersonalAccessTokensRequest.md
 docs/CreatePersonalAccessTokenRequest.md
 docs/CreatePersonalAccessTokenResponse.md
 docs/ErrorMessageDto.md
@@ -21,6 +22,7 @@ docs/PersonalAccessTokensApideveloperSite_code_examples.yaml
 src/PSSailpoint.PersonalAccessTokens/Api/PersonalAccessTokensApi.ps1
 src/PSSailpoint.PersonalAccessTokens/Client/Configuration.ps1
 src/PSSailpoint.PersonalAccessTokens/Model/ArrayInner.ps1
+src/PSSailpoint.PersonalAccessTokens/Model/BulkUpdatePersonalAccessTokensRequest.ps1
 src/PSSailpoint.PersonalAccessTokens/Model/CreatePersonalAccessTokenRequest.ps1
 src/PSSailpoint.PersonalAccessTokens/Model/CreatePersonalAccessTokenResponse.ps1
 src/PSSailpoint.PersonalAccessTokens/Model/ErrorMessageDto.ps1
@@ -41,6 +43,7 @@ src/PSSailpoint.PersonalAccessTokens/Private/RSAEncryptionProvider.cs
 src/PSSailpoint.PersonalAccessTokens/en-US/about_PSSailpoint.PersonalAccessTokens.help.txt
 tests/Api/PersonalAccessTokensApi.Tests.ps1
 tests/Model/ArrayInner.Tests.ps1
+tests/Model/BulkUpdatePersonalAccessTokensRequest.Tests.ps1
 tests/Model/CreatePersonalAccessTokenRequest.Tests.ps1
 tests/Model/CreatePersonalAccessTokenResponse.Tests.ps1
 tests/Model/ErrorMessageDto.Tests.ps1

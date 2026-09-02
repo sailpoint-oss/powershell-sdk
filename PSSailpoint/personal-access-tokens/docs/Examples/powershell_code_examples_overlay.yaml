@@ -91,3 +91,32 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PersonalAccessTokenV1"
             Write-Host $_.ErrorDetails
         }
+- path: /personal-access-tokens/v1/bulk-update
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/personalaccesstokens/methods/personal-access-tokens#update-bulk-personal-access-tokens-v1
+      source: |
+        $BulkUpdatePersonalAccessTokensRequest = @"
+        {
+          "patch" : [ {
+            "op" : "replace",
+            "path" : "/expirationDate",
+            "value" : "2026-08-01T00:00:00.000Z"
+          } ],
+          "ids" : [ "695dab70d33d466b81d958dc9fb392db", "abc123def456abc123def456abc12345" ]
+        }
+        "@
+        
+        # Bulk update personal access tokens
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkUpdatePersonalAccessTokensRequest -Json $BulkUpdatePersonalAccessTokensRequest
+            Update-BulkPersonalAccessTokensV1 -BulkUpdatePersonalAccessTokensRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-BulkPersonalAccessTokensV1 -BulkUpdatePersonalAccessTokensRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BulkPersonalAccessTokensV1"
+            Write-Host $_.ErrorDetails
+        }

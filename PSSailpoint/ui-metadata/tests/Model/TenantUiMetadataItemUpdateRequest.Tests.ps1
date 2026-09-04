@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.UiMetadata' -name 'TenantUiMetadataItemUpdateRequest'
     Context 'TenantUiMetadataItemUpdateRequest' {
         It 'Initialize-TenantUiMetadataItemUpdateRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-TenantUiMetadataItemUpdateRequest -IframeWhiteList "TEST_VALUE" -UsernameLabel "TEST_VALUE" -UsernameEmptyText "TEST_VALUE"
+            #$NewObject = Initialize-TenantUiMetadataItemUpdateRequest -IframeWhiteList "TEST_VALUE" -UsernameLabel "TEST_VALUE" -UsernameEmptyText "TEST_VALUE" -InstanceBadgeDisplayName "TEST_VALUE" -InstanceBadgeColor "TEST_VALUE" -InstanceBadgeVisible "TEST_VALUE"
             #$NewObject | Should -BeOfType TenantUiMetadataItemUpdateRequest
             #$NewObject.property | Should -Be 0
         }

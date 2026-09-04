@@ -536,10 +536,16 @@ List reassignment configurations
 
 .DESCRIPTION
 
-Gets all Reassignment configuration for the current org.
+Gets a paginated list of Reassignment configurations for the current org.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
+
+.PARAMETER Limit
+Max number of results to return.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER WithHttpInfo
 
@@ -555,6 +561,12 @@ function Get-ReassignmentConfigurationsV1 {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
         [Switch]
         $WithHttpInfo
     )
@@ -581,6 +593,14 @@ function Get-ReassignmentConfigurationsV1 {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling listReassignmentConfigurationsV1."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `

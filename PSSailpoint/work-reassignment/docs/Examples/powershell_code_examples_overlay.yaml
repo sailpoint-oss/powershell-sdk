@@ -137,6 +137,8 @@
       label: SDK_tools/sdk/powershell/workreassignment/methods/work-reassignment#list-reassignment-configurations-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 20 # Int32 | Max number of results to return. (optional) (default to 20)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
         # List reassignment configurations
         
@@ -144,7 +146,7 @@
             Get-ReassignmentConfigurationsV1 -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-ReassignmentConfigurationsV1 -XSailPointExperimental $XSailPointExperimental   
+            # Get-ReassignmentConfigurationsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ReassignmentConfigurationsV1"
             Write-Host $_.ErrorDetails

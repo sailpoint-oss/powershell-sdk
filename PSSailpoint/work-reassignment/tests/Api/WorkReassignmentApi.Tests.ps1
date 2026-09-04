@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.WorkReassignment' -name 'WorkReassignmentApi' {
 
     Context 'Get-ReassignmentConfigurationsV1' {
         It 'Test Get-ReassignmentConfigurationsV1' {
-            #$TestResult = Get-ReassignmentConfigurationsV1 -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-ReassignmentConfigurationsV1 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

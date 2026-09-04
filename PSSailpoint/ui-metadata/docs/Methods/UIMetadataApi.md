@@ -109,7 +109,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $TenantUiMetadataItemUpdateRequest = @"{
   "usernameEmptyText" : "Please provide your work email address...",
   "usernameLabel" : "Email",
-  "iframeWhiteList" : "http://example.com http://example2.com"
+  "iframeWhiteList" : "http://example.com http://example2.com",
+  "instanceBadgeVisible" : true,
+  "instanceBadgeDisplayName" : "Sandbox",
+  "instanceBadgeColor" : "FFAA00"
 }"@
 
 # Update tenant ui metadata

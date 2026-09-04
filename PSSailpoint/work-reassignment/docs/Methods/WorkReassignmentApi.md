@@ -355,7 +355,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Gets all Reassignment configuration for the current org.
+Gets a paginated list of Reassignment configurations for the current org.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-reassignment-configurations-v-1)
 
@@ -363,6 +363,8 @@ Gets all Reassignment configuration for the current org.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+  Query | Limit | **Int32** |   (optional) (default to 20) | Max number of results to return.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**ConfigurationResponse[]**](../models/configuration-response)
@@ -385,6 +387,8 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Limit = 20 # Int32 | Max number of results to return. (optional) (default to 20)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
 # List reassignment configurations
 
@@ -392,7 +396,7 @@ try {
     Get-ReassignmentConfigurationsV1 -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-ReassignmentConfigurationsV1 -XSailPointExperimental $XSailPointExperimental  
+    # Get-ReassignmentConfigurationsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ReassignmentConfigurationsV1"
     Write-Host $_.ErrorDetails

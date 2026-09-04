@@ -20,6 +20,12 @@ Parameter that organizational administrators can adjust to permit another domain
 Descriptor for the username input field. If you would like to reset the value use ""null"".
 .PARAMETER UsernameEmptyText
 Placeholder text displayed in the username input field. If you would like to reset the value use ""null"".
+.PARAMETER InstanceBadgeDisplayName
+Display name for the instance badge. Null when no display name is configured.
+.PARAMETER InstanceBadgeColor
+Hex value of color for the instance badge. Null when no color is configured.
+.PARAMETER InstanceBadgeVisible
+Whether the instance badge is visible. Defaults to false when no value is stored.
 .OUTPUTS
 
 TenantUiMetadataItemResponse<PSCustomObject>
@@ -36,7 +42,16 @@ function Initialize-TenantUiMetadataItemResponse {
         ${UsernameLabel},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${UsernameEmptyText}
+        ${UsernameEmptyText},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${InstanceBadgeDisplayName},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${InstanceBadgeColor},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${InstanceBadgeVisible} = $false
     )
 
     Process {
@@ -48,6 +63,9 @@ function Initialize-TenantUiMetadataItemResponse {
             "iframeWhiteList" = ${IframeWhiteList}
             "usernameLabel" = ${UsernameLabel}
             "usernameEmptyText" = ${UsernameEmptyText}
+            "instanceBadgeDisplayName" = ${InstanceBadgeDisplayName}
+            "instanceBadgeColor" = ${InstanceBadgeColor}
+            "instanceBadgeVisible" = ${InstanceBadgeVisible}
         }
 
         return $PSO
@@ -84,7 +102,7 @@ function ConvertFrom-JsonToTenantUiMetadataItemResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TenantUiMetadataItemResponse
-        $AllProperties = ("iframeWhiteList", "usernameLabel", "usernameEmptyText")
+        $AllProperties = ("iframeWhiteList", "usernameLabel", "usernameEmptyText", "instanceBadgeDisplayName", "instanceBadgeColor", "instanceBadgeVisible")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,10 +127,31 @@ function ConvertFrom-JsonToTenantUiMetadataItemResponse {
             $UsernameEmptyText = $JsonParameters.PSobject.Properties["usernameEmptyText"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "instanceBadgeDisplayName"))) { #optional property not found
+            $InstanceBadgeDisplayName = $null
+        } else {
+            $InstanceBadgeDisplayName = $JsonParameters.PSobject.Properties["instanceBadgeDisplayName"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "instanceBadgeColor"))) { #optional property not found
+            $InstanceBadgeColor = $null
+        } else {
+            $InstanceBadgeColor = $JsonParameters.PSobject.Properties["instanceBadgeColor"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "instanceBadgeVisible"))) { #optional property not found
+            $InstanceBadgeVisible = $null
+        } else {
+            $InstanceBadgeVisible = $JsonParameters.PSobject.Properties["instanceBadgeVisible"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "iframeWhiteList" = ${IframeWhiteList}
             "usernameLabel" = ${UsernameLabel}
             "usernameEmptyText" = ${UsernameEmptyText}
+            "instanceBadgeDisplayName" = ${InstanceBadgeDisplayName}
+            "instanceBadgeColor" = ${InstanceBadgeColor}
+            "instanceBadgeVisible" = ${InstanceBadgeVisible}
         }
 
         return $PSO

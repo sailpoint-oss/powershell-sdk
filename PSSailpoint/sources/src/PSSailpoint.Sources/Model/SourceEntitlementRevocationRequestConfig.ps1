@@ -15,13 +15,13 @@ No summary available.
 No description available.
 
 .PARAMETER ApprovalSchemes
-Ordered list of approval steps for the access request. Empty when no approval is required.
+Ordered list of approval steps for the revocation request. Empty when no approval is required.
 .OUTPUTS
 
-EntitlementRevocationRequestConfig<PSCustomObject>
+SourceEntitlementRevocationRequestConfig<PSCustomObject>
 #>
 
-function Initialize-EntitlementRevocationRequestConfig {
+function Initialize-SourceEntitlementRevocationRequestConfig {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-EntitlementRevocationRequestConfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Sources => EntitlementRevocationRequestConfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => SourceEntitlementRevocationRequestConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -45,11 +45,11 @@ function Initialize-EntitlementRevocationRequestConfig {
 <#
 .SYNOPSIS
 
-Convert from JSON to EntitlementRevocationRequestConfig<PSCustomObject>
+Convert from JSON to SourceEntitlementRevocationRequestConfig<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to EntitlementRevocationRequestConfig<PSCustomObject>
+Convert from JSON to SourceEntitlementRevocationRequestConfig<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,21 +57,21 @@ Json object
 
 .OUTPUTS
 
-EntitlementRevocationRequestConfig<PSCustomObject>
+SourceEntitlementRevocationRequestConfig<PSCustomObject>
 #>
-function ConvertFrom-JsonToEntitlementRevocationRequestConfig {
+function ConvertFrom-JsonToSourceEntitlementRevocationRequestConfig {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Sources => EntitlementRevocationRequestConfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => SourceEntitlementRevocationRequestConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in EntitlementRevocationRequestConfig
+        # check if Json contains properties not defined in SourceEntitlementRevocationRequestConfig
         $AllProperties = ("approvalSchemes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

@@ -20,10 +20,10 @@ The numeric value of the duration.
 The time unit for the duration.
 .OUTPUTS
 
-EntitlementAccessRequestConfigMaxPermittedAccessDuration<PSCustomObject>
+SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration<PSCustomObject>
 #>
 
-function Initialize-EntitlementAccessRequestConfigMaxPermittedAccessDuration {
+function Initialize-SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -36,7 +36,7 @@ function Initialize-EntitlementAccessRequestConfigMaxPermittedAccessDuration {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Sources => EntitlementAccessRequestConfigMaxPermittedAccessDuration' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -52,11 +52,11 @@ function Initialize-EntitlementAccessRequestConfigMaxPermittedAccessDuration {
 <#
 .SYNOPSIS
 
-Convert from JSON to EntitlementAccessRequestConfigMaxPermittedAccessDuration<PSCustomObject>
+Convert from JSON to SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to EntitlementAccessRequestConfigMaxPermittedAccessDuration<PSCustomObject>
+Convert from JSON to SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration<PSCustomObject>
 
 .PARAMETER Json
 
@@ -64,21 +64,21 @@ Json object
 
 .OUTPUTS
 
-EntitlementAccessRequestConfigMaxPermittedAccessDuration<PSCustomObject>
+SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration<PSCustomObject>
 #>
-function ConvertFrom-JsonToEntitlementAccessRequestConfigMaxPermittedAccessDuration {
+function ConvertFrom-JsonToSourceEntitlementAccessRequestConfigMaxPermittedAccessDuration {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Sources => EntitlementAccessRequestConfigMaxPermittedAccessDuration' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in EntitlementAccessRequestConfigMaxPermittedAccessDuration
+        # check if Json contains properties not defined in SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration
         $AllProperties = ("value", "timeUnit")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SourceEntitlementRequestConfig', 'Sou
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequestConfig** | [**EntitlementAccessRequestConfig**](entitlement-access-request-config) |  | [optional] 
-**RevocationRequestConfig** | [**EntitlementRevocationRequestConfig**](entitlement-revocation-request-config) |  | [optional] 
+**AccessRequestConfig** | [**SourceEntitlementAccessRequestConfig**](source-entitlement-access-request-config) |  | [optional] 
+**RevocationRequestConfig** | [**SourceEntitlementRevocationRequestConfig**](source-entitlement-revocation-request-config) |  | [optional] 
 
 ## Examples
 

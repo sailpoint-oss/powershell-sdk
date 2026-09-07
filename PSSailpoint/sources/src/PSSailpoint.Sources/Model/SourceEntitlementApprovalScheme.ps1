@@ -15,19 +15,19 @@ No summary available.
 No description available.
 
 .PARAMETER ApproverType
-Describes the individual or group that is responsible for an approval step. Values are as follows.  **ENTITLEMENT_OWNER**: Owner of the associated Entitlement  **SOURCE_OWNER**: Owner of the associated Source  **MANAGER**: Manager of the Identity for whom the request is being made  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field, Workflows are exclusive to other types of approvals and License required.     
+Describes the individual or group that is responsible for an approval step. Values are as follows.  **ENTITLEMENT_OWNER**: Owner of the associated Entitlement  **SOURCE_OWNER**: Owner of the associated Source  **MANAGER**: Manager of the Identity for whom the request is being made  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW** is not supported in source-level entitlement request configuration. Use the entitlement-level [Replace entitlement request config](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1) endpoint to configure a workflow approver. A source-level request that contains `WORKFLOW` is rejected with a 400.
 .PARAMETER ApproverId
-Id of the specific approver, used only when approverType is GOVERNANCE_GROUP or WORKFLOW
+Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
 .OUTPUTS
 
-EntitlementApprovalScheme<PSCustomObject>
+SourceEntitlementApprovalScheme<PSCustomObject>
 #>
 
-function Initialize-EntitlementApprovalScheme {
+function Initialize-SourceEntitlementApprovalScheme {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ENTITLEMENT_OWNER", "SOURCE_OWNER", "MANAGER", "GOVERNANCE_GROUP", "WORKFLOW")]
+        [ValidateSet("ENTITLEMENT_OWNER", "SOURCE_OWNER", "MANAGER", "GOVERNANCE_GROUP")]
         [String]
         ${ApproverType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -36,7 +36,7 @@ function Initialize-EntitlementApprovalScheme {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Sources => EntitlementApprovalScheme' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => SourceEntitlementApprovalScheme' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -52,11 +52,11 @@ function Initialize-EntitlementApprovalScheme {
 <#
 .SYNOPSIS
 
-Convert from JSON to EntitlementApprovalScheme<PSCustomObject>
+Convert from JSON to SourceEntitlementApprovalScheme<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to EntitlementApprovalScheme<PSCustomObject>
+Convert from JSON to SourceEntitlementApprovalScheme<PSCustomObject>
 
 .PARAMETER Json
 
@@ -64,21 +64,21 @@ Json object
 
 .OUTPUTS
 
-EntitlementApprovalScheme<PSCustomObject>
+SourceEntitlementApprovalScheme<PSCustomObject>
 #>
-function ConvertFrom-JsonToEntitlementApprovalScheme {
+function ConvertFrom-JsonToSourceEntitlementApprovalScheme {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Sources => EntitlementApprovalScheme' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => SourceEntitlementApprovalScheme' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in EntitlementApprovalScheme
+        # check if Json contains properties not defined in SourceEntitlementApprovalScheme
         $AllProperties = ("approverType", "approverId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

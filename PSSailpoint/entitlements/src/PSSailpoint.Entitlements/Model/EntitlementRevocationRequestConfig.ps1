@@ -15,7 +15,7 @@ No summary available.
 No description available.
 
 .PARAMETER ApprovalSchemes
-Ordered list of approval steps for the access request. Empty when no approval is required.
+Ordered list of approval steps for the revocation request. Empty when no approval is required.
 .OUTPUTS
 
 EntitlementRevocationRequestConfig<PSCustomObject>

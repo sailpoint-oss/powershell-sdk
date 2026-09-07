@@ -30,10 +30,10 @@ No description available.
 The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process.
 .OUTPUTS
 
-EntitlementAccessRequestConfig<PSCustomObject>
+SourceEntitlementAccessRequestConfig<PSCustomObject>
 #>
 
-function Initialize-EntitlementAccessRequestConfig {
+function Initialize-SourceEntitlementAccessRequestConfig {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -60,7 +60,7 @@ function Initialize-EntitlementAccessRequestConfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Sources => EntitlementAccessRequestConfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => SourceEntitlementAccessRequestConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -81,11 +81,11 @@ function Initialize-EntitlementAccessRequestConfig {
 <#
 .SYNOPSIS
 
-Convert from JSON to EntitlementAccessRequestConfig<PSCustomObject>
+Convert from JSON to SourceEntitlementAccessRequestConfig<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to EntitlementAccessRequestConfig<PSCustomObject>
+Convert from JSON to SourceEntitlementAccessRequestConfig<PSCustomObject>
 
 .PARAMETER Json
 
@@ -93,21 +93,21 @@ Json object
 
 .OUTPUTS
 
-EntitlementAccessRequestConfig<PSCustomObject>
+SourceEntitlementAccessRequestConfig<PSCustomObject>
 #>
-function ConvertFrom-JsonToEntitlementAccessRequestConfig {
+function ConvertFrom-JsonToSourceEntitlementAccessRequestConfig {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Sources => EntitlementAccessRequestConfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => SourceEntitlementAccessRequestConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in EntitlementAccessRequestConfig
+        # check if Json contains properties not defined in SourceEntitlementAccessRequestConfig
         $AllProperties = ("approvalSchemes", "requestCommentRequired", "denialCommentRequired", "reauthorizationRequired", "requireEndDate", "maxPermittedAccessDuration", "formDefinitionId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

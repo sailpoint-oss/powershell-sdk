@@ -1,34 +1,34 @@
 ---
-id: entitlement-access-request-config
-title: EntitlementAccessRequestConfig
-pagination_label: EntitlementAccessRequestConfig
-sidebar_label: EntitlementAccessRequestConfig
+id: source-entitlement-access-request-config
+title: SourceEntitlementAccessRequestConfig
+pagination_label: SourceEntitlementAccessRequestConfig
+sidebar_label: SourceEntitlementAccessRequestConfig
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementAccessRequestConfig', 'EntitlementAccessRequestConfig'] 
-slug: /tools/sdk/powershell/sources/models/entitlement-access-request-config
-tags: ['SDK', 'Software Development Kit', 'EntitlementAccessRequestConfig', 'EntitlementAccessRequestConfig']
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceEntitlementAccessRequestConfig', 'SourceEntitlementAccessRequestConfig'] 
+slug: /tools/sdk/powershell/sources/models/source-entitlement-access-request-config
+tags: ['SDK', 'Software Development Kit', 'SourceEntitlementAccessRequestConfig', 'SourceEntitlementAccessRequestConfig']
 ---
 
 
-# EntitlementAccessRequestConfig
+# SourceEntitlementAccessRequestConfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalSchemes** | [**[]EntitlementApprovalScheme**](entitlement-approval-scheme) | Ordered list of approval steps for the access request. Empty when no approval is required. | [optional] 
+**ApprovalSchemes** | [**[]SourceEntitlementApprovalScheme**](source-entitlement-approval-scheme) | Ordered list of approval steps for the access request. Empty when no approval is required. | [optional] 
 **RequestCommentRequired** | **Boolean** | If the requester must provide a comment during access request. | [optional] [default to $false]
 **DenialCommentRequired** | **Boolean** | If the reviewer must provide a comment when denying the access request. | [optional] [default to $false]
 **ReauthorizationRequired** | **Boolean** | Is Reauthorization Required | [optional] [default to $false]
 **RequireEndDate** | **Boolean** | If true, then remove date or sunset date is required in access request of the entitlement. | [optional] [default to $false]
-**MaxPermittedAccessDuration** | [**EntitlementAccessRequestConfigMaxPermittedAccessDuration**](entitlement-access-request-config-max-permitted-access-duration) |  | [optional] 
+**MaxPermittedAccessDuration** | [**SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration**](source-entitlement-access-request-config-max-permitted-access-duration) |  | [optional] 
 **FormDefinitionId** | **String** | The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$EntitlementAccessRequestConfig = Initialize-EntitlementAccessRequestConfig  -ApprovalSchemes null `
+$SourceEntitlementAccessRequestConfig = Initialize-SourceEntitlementAccessRequestConfig  -ApprovalSchemes null `
  -RequestCommentRequired true `
  -DenialCommentRequired false `
  -ReauthorizationRequired false `
@@ -39,7 +39,7 @@ $EntitlementAccessRequestConfig = Initialize-EntitlementAccessRequestConfig  -Ap
 
 - Convert the resource to JSON
 ```powershell
-$EntitlementAccessRequestConfig | ConvertTo-JSON
+$SourceEntitlementAccessRequestConfig | ConvertTo-JSON
 ```
 
 

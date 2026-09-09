@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **ClassName** | **String** | The connector class name | [optional] 
 **ScriptName** | **String** | The connector script name | [optional] 
 **ApplicationXml** | **String** | The connector application xml | [optional] 
+**ProvisioningPolicies** | [**[]ProvisioningPolicyDto**](provisioning-policy-dto) | Default provisioning policies parsed from the connector application XML templates. Always an array; empty when the connector ships no templates. | [optional] 
 **CorrelationConfigXml** | **String** | The connector correlation config xml | [optional] 
 **SourceConfigXml** | **String** | The connector source config xml | [optional] 
 **SourceConfig** | **String** | The connector source config | [optional] 
@@ -45,6 +46,7 @@ $ConnectorDetail = Initialize-ConnectorDetail  -Name name `
 <!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Application connector="sailpoint.connector.OpenConnectorAdapter" name="custom Atlassian Suite - Cloud" type="custom Atlassian Suite - Cloud"/>
  `
+ -ProvisioningPolicies [{"name":"Account","description":"Create Account Profile","usageType":"CREATE","fields":[{"name":"distinguishedName","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":true,"type":"string","isMultiValued":false}]}] `
  -CorrelationConfigXml <?xml version='1.0' encoding='UTF-8'?>
 <!-- Copyright (C) 2021 SailPoint Technologies, Inc.  All rights reserved. -->
 

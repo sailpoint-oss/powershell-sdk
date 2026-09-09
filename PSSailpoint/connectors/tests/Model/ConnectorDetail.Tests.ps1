@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Connectors' -name 'ConnectorDetail' {
     Context 'ConnectorDetail' {
         It 'Initialize-ConnectorDetail' {
             # a simple test to create an object
-            #$NewObject = Initialize-ConnectorDetail -Name "TEST_VALUE" -Type "TEST_VALUE" -ClassName "TEST_VALUE" -ScriptName "TEST_VALUE" -ApplicationXml "TEST_VALUE" -CorrelationConfigXml "TEST_VALUE" -SourceConfigXml "TEST_VALUE" -SourceConfig "TEST_VALUE" -SourceConfigFrom "TEST_VALUE" -S3Location "TEST_VALUE" -UploadedFiles "TEST_VALUE" -FileUpload "TEST_VALUE" -DirectConnect "TEST_VALUE" -TranslationProperties "TEST_VALUE" -ConnectorMetadata "TEST_VALUE" -Status "TEST_VALUE"
+            #$NewObject = Initialize-ConnectorDetail -Name "TEST_VALUE" -Type "TEST_VALUE" -ClassName "TEST_VALUE" -ScriptName "TEST_VALUE" -ApplicationXml "TEST_VALUE" -ProvisioningPolicies "TEST_VALUE" -CorrelationConfigXml "TEST_VALUE" -SourceConfigXml "TEST_VALUE" -SourceConfig "TEST_VALUE" -SourceConfigFrom "TEST_VALUE" -S3Location "TEST_VALUE" -UploadedFiles "TEST_VALUE" -FileUpload "TEST_VALUE" -DirectConnect "TEST_VALUE" -TranslationProperties "TEST_VALUE" -ConnectorMetadata "TEST_VALUE" -Status "TEST_VALUE"
             #$NewObject | Should -BeOfType ConnectorDetail
             #$NewObject.property | Should -Be 0
         }

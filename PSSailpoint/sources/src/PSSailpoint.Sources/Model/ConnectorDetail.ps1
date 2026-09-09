@@ -24,6 +24,8 @@ The connector class name
 The connector script name
 .PARAMETER ApplicationXml
 The connector application xml
+.PARAMETER ProvisioningPolicies
+Default provisioning policies parsed from the connector application XML templates. Always an array; empty when the connector ships no templates.
 .PARAMETER CorrelationConfigXml
 The connector correlation config xml
 .PARAMETER SourceConfigXml
@@ -69,6 +71,9 @@ function Initialize-ConnectorDetail {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ApplicationXml},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${ProvisioningPolicies},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CorrelationConfigXml},
@@ -116,6 +121,7 @@ function Initialize-ConnectorDetail {
             "className" = ${ClassName}
             "scriptName" = ${ScriptName}
             "applicationXml" = ${ApplicationXml}
+            "provisioningPolicies" = ${ProvisioningPolicies}
             "correlationConfigXml" = ${CorrelationConfigXml}
             "sourceConfigXml" = ${SourceConfigXml}
             "sourceConfig" = ${SourceConfig}
@@ -163,7 +169,7 @@ function ConvertFrom-JsonToConnectorDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ConnectorDetail
-        $AllProperties = ("name", "type", "className", "scriptName", "applicationXml", "correlationConfigXml", "sourceConfigXml", "sourceConfig", "sourceConfigFrom", "s3Location", "uploadedFiles", "fileUpload", "directConnect", "translationProperties", "connectorMetadata", "status")
+        $AllProperties = ("name", "type", "className", "scriptName", "applicationXml", "provisioningPolicies", "correlationConfigXml", "sourceConfigXml", "sourceConfig", "sourceConfigFrom", "s3Location", "uploadedFiles", "fileUpload", "directConnect", "translationProperties", "connectorMetadata", "status")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -198,6 +204,12 @@ function ConvertFrom-JsonToConnectorDetail {
             $ApplicationXml = $null
         } else {
             $ApplicationXml = $JsonParameters.PSobject.Properties["applicationXml"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "provisioningPolicies"))) { #optional property not found
+            $ProvisioningPolicies = $null
+        } else {
+            $ProvisioningPolicies = $JsonParameters.PSobject.Properties["provisioningPolicies"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "correlationConfigXml"))) { #optional property not found
@@ -272,6 +284,7 @@ function ConvertFrom-JsonToConnectorDetail {
             "className" = ${ClassName}
             "scriptName" = ${ScriptName}
             "applicationXml" = ${ApplicationXml}
+            "provisioningPolicies" = ${ProvisioningPolicies}
             "correlationConfigXml" = ${CorrelationConfigXml}
             "sourceConfigXml" = ${SourceConfigXml}
             "sourceConfig" = ${SourceConfig}

@@ -20,7 +20,7 @@
             "isMultiValued" : false,
             "name" : "userName",
             "attributes" : {
-              "template" : "${firstname}.${lastname}${uniqueCounter}",
+              "template" : "{firstname}.{lastname}{uniqueCounter}",
               "cloudMaxUniqueChecks" : "50",
               "cloudMaxSize" : "20",
               "cloudRequired" : "true"
@@ -37,7 +37,7 @@
             "isMultiValued" : false,
             "name" : "userName",
             "attributes" : {
-              "template" : "${firstname}.${lastname}${uniqueCounter}",
+              "template" : "{firstname}.{lastname}{uniqueCounter}",
               "cloudMaxUniqueChecks" : "50",
               "cloudMaxSize" : "20",
               "cloudRequired" : "true"
@@ -1429,7 +1429,7 @@
             "isMultiValued" : false,
             "name" : "userName",
             "attributes" : {
-              "template" : "${firstname}.${lastname}${uniqueCounter}",
+              "template" : "{firstname}.{lastname}{uniqueCounter}",
               "cloudMaxUniqueChecks" : "50",
               "cloudMaxSize" : "20",
               "cloudRequired" : "true"
@@ -1446,7 +1446,7 @@
             "isMultiValued" : false,
             "name" : "userName",
             "attributes" : {
-              "template" : "${firstname}.${lastname}${uniqueCounter}",
+              "template" : "{firstname}.{lastname}{uniqueCounter}",
               "cloudMaxUniqueChecks" : "50",
               "cloudMaxSize" : "20",
               "cloudRequired" : "true"
@@ -2021,7 +2021,7 @@
             "isMultiValued" : false,
             "name" : "userName",
             "attributes" : {
-              "template" : "${firstname}.${lastname}${uniqueCounter}",
+              "template" : "{firstname}.{lastname}{uniqueCounter}",
               "cloudMaxUniqueChecks" : "50",
               "cloudMaxSize" : "20",
               "cloudRequired" : "true"
@@ -2038,7 +2038,7 @@
             "isMultiValued" : false,
             "name" : "userName",
             "attributes" : {
-              "template" : "${firstname}.${lastname}${uniqueCounter}",
+              "template" : "{firstname}.{lastname}{uniqueCounter}",
               "cloudMaxUniqueChecks" : "50",
               "cloudMaxSize" : "20",
               "cloudRequired" : "true"

@@ -201,7 +201,7 @@ $ProvisioningPolicyDto = @"{
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -218,7 +218,7 @@ $ProvisioningPolicyDto = @"{
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -3249,7 +3249,7 @@ $ProvisioningPolicyDto = @"{
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -3266,7 +3266,7 @@ $ProvisioningPolicyDto = @"{
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -4282,7 +4282,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -4299,7 +4299,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"

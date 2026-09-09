@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 ```powershell
 $FieldDetailsDto = Initialize-FieldDetailsDto  -Name userName `
  -Transform {"type":"rule","attributes":{"name":"Create Unique LDAP Attribute"}} `
- -Attributes {"template":"${firstname}.${lastname}${uniqueCounter}","cloudMaxUniqueChecks":"50","cloudMaxSize":"20","cloudRequired":"true"} `
+ -Attributes {"template":"{firstname}.{lastname}{uniqueCounter}","cloudMaxUniqueChecks":"50","cloudMaxSize":"20","cloudRequired":"true"} `
  -IsRequired false `
  -Type string `
  -IsMultiValued false

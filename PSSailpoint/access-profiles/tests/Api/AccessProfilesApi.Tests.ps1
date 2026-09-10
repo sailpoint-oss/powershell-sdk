@@ -70,6 +70,14 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
         }
     }
 
+    Context 'Search-AccessProfilesByFilterV1' {
+        It 'Test Search-AccessProfilesByFilterV1' {
+            #$TestResult = Search-AccessProfilesByFilterV1 -AccessProfileListFilterDTO "TEST_VALUE" -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-AccessProfilesInBulkV1' {
         It 'Test Update-AccessProfilesInBulkV1' {
             #$TestResult = Update-AccessProfilesInBulkV1 -AccessProfileBulkUpdateRequestInner "TEST_VALUE"
@@ -80,7 +88,7 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
 
     Context 'Update-AccessProfilesMetadataByFilterV1' {
         It 'Test Update-AccessProfilesMetadataByFilterV1' {
-            #$TestResult = Update-AccessProfilesMetadataByFilterV1 -Accessprofilemetadatabulkupdatebyfilterrequest "TEST_VALUE"
+            #$TestResult = Update-AccessProfilesMetadataByFilterV1 -AccessProfileMetadataBulkUpdateByFilterRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +96,7 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
 
     Context 'Update-AccessProfilesMetadataByIdsV1' {
         It 'Test Update-AccessProfilesMetadataByIdsV1' {
-            #$TestResult = Update-AccessProfilesMetadataByIdsV1 -Accessprofilemetadatabulkupdatebyidrequest "TEST_VALUE"
+            #$TestResult = Update-AccessProfilesMetadataByIdsV1 -AccessProfileMetadataBulkUpdateByIdRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -96,7 +104,7 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
 
     Context 'Update-AccessProfilesMetadataByQueryV1' {
         It 'Test Update-AccessProfilesMetadataByQueryV1' {
-            #$TestResult = Update-AccessProfilesMetadataByQueryV1 -Accessprofilemetadatabulkupdatebyqueryrequest "TEST_VALUE"
+            #$TestResult = Update-AccessProfilesMetadataByQueryV1 -AccessProfileMetadataBulkUpdateByQueryRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

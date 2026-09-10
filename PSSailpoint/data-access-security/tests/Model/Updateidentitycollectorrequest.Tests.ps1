@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'Updateidentitycollectorreq
     Context 'Updateidentitycollectorrequest' {
         It 'Initialize-Updateidentitycollectorrequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-Updateidentitycollectorrequest -Name "TEST_VALUE" -SourceId "TEST_VALUE" -Type "TEST_VALUE"
+            #$NewObject = Initialize-Updateidentitycollectorrequest -Name "TEST_VALUE" -SourceId "TEST_VALUE" -Type "TEST_VALUE" -Users "TEST_VALUE" -Groups "TEST_VALUE"
             #$NewObject | Should -BeOfType Updateidentitycollectorrequest
             #$NewObject.property | Should -Be 0
         }

@@ -782,6 +782,164 @@ function Update-AccessProfileV1 {
 <#
 .SYNOPSIS
 
+Filter access profiles by metadata
+
+.DESCRIPTION
+
+Get a list of access profiles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together.
+
+.PARAMETER AccessProfileListFilterDTO
+No description available.
+
+.PARAMETER ForSubadmin
+Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity's ID.  If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error.
+
+.PARAMETER Limit
+Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Sorters
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+
+.PARAMETER ForSegmentIds
+Filters the returned list to those access profiles assigned to the specified segment IDs.
+
+.PARAMETER IncludeUnsegmented
+Whether the returned list includes unsegmented access profiles.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+AccessProfile[]
+#>
+function Search-AccessProfilesByFilterV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AccessProfileListFilterDTO},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ForSubadmin},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ForSegmentIds},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${IncludeUnsegmented},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Search-AccessProfilesByFilterV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/access-profiles/v1/filter'
+
+        if ($ForSubadmin) {
+            $LocalVarQueryParameters['for-subadmin'] = $ForSubadmin
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
+        if ($ForSegmentIds) {
+            $LocalVarQueryParameters['for-segment-ids'] = $ForSegmentIds
+        }
+
+        if ($IncludeUnsegmented) {
+            $LocalVarQueryParameters['include-unsegmented'] = $IncludeUnsegmented
+        }
+
+        if (!$AccessProfileListFilterDTO) {
+            throw "Error! The required parameter `AccessProfileListFilterDTO` missing when calling searchAccessProfilesByFilterV1."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessProfileListFilterDTO -is [array])) {
+            $LocalVarBodyParameter = $AccessProfileListFilterDTO | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $AccessProfileListFilterDTO | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "AccessProfile[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Update access profile(s) requestable field.
 
 .DESCRIPTION
@@ -876,7 +1034,7 @@ Bulk-update metadata by filter
 
 This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied filter expression.  The update is processed asynchronously. The response returns the ID of the task performing the update.  A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
 
-.PARAMETER Accessprofilemetadatabulkupdatebyfilterrequest
+.PARAMETER AccessProfileMetadataBulkUpdateByFilterRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -885,14 +1043,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofilemetadatabulkupdateresponse
+AccessProfileMetadataBulkUpdateResponse
 #>
 function Update-AccessProfilesMetadataByFilterV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessprofilemetadatabulkupdatebyfilterrequest},
+        ${AccessProfileMetadataBulkUpdateByFilterRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -918,14 +1076,14 @@ function Update-AccessProfilesMetadataByFilterV1 {
 
         $LocalVarUri = '/access-profiles/v1/access-model-metadata/bulk-update/filter'
 
-        if (!$Accessprofilemetadatabulkupdatebyfilterrequest) {
-            throw "Error! The required parameter `Accessprofilemetadatabulkupdatebyfilterrequest` missing when calling updateAccessProfilesMetadataByFilterV1."
+        if (!$AccessProfileMetadataBulkUpdateByFilterRequest) {
+            throw "Error! The required parameter `AccessProfileMetadataBulkUpdateByFilterRequest` missing when calling updateAccessProfilesMetadataByFilterV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessprofilemetadatabulkupdatebyfilterrequest -is [array])) {
-            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyfilterrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessProfileMetadataBulkUpdateByFilterRequest -is [array])) {
+            $LocalVarBodyParameter = $AccessProfileMetadataBulkUpdateByFilterRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyfilterrequest | ForEach-Object {
+            $LocalVarBodyParameter = $AccessProfileMetadataBulkUpdateByFilterRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -944,7 +1102,7 @@ function Update-AccessProfilesMetadataByFilterV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofilemetadatabulkupdateresponse" `
+                                -ReturnType "AccessProfileMetadataBulkUpdateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -964,7 +1122,7 @@ Bulk-update metadata by ids
 
 This API initiates a bulk update of Access Model Metadata for one or more access profiles by a list of access profile IDs.  The update is processed asynchronously. The response returns the ID of the task performing the update.  The maximum access profile count in a single request is 3000. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
 
-.PARAMETER Accessprofilemetadatabulkupdatebyidrequest
+.PARAMETER AccessProfileMetadataBulkUpdateByIdRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -973,14 +1131,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofilemetadatabulkupdateresponse
+AccessProfileMetadataBulkUpdateResponse
 #>
 function Update-AccessProfilesMetadataByIdsV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessprofilemetadatabulkupdatebyidrequest},
+        ${AccessProfileMetadataBulkUpdateByIdRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1006,14 +1164,14 @@ function Update-AccessProfilesMetadataByIdsV1 {
 
         $LocalVarUri = '/access-profiles/v1/access-model-metadata/bulk-update/ids'
 
-        if (!$Accessprofilemetadatabulkupdatebyidrequest) {
-            throw "Error! The required parameter `Accessprofilemetadatabulkupdatebyidrequest` missing when calling updateAccessProfilesMetadataByIdsV1."
+        if (!$AccessProfileMetadataBulkUpdateByIdRequest) {
+            throw "Error! The required parameter `AccessProfileMetadataBulkUpdateByIdRequest` missing when calling updateAccessProfilesMetadataByIdsV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessprofilemetadatabulkupdatebyidrequest -is [array])) {
-            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyidrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessProfileMetadataBulkUpdateByIdRequest -is [array])) {
+            $LocalVarBodyParameter = $AccessProfileMetadataBulkUpdateByIdRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyidrequest | ForEach-Object {
+            $LocalVarBodyParameter = $AccessProfileMetadataBulkUpdateByIdRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1032,7 +1190,7 @@ function Update-AccessProfilesMetadataByIdsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofilemetadatabulkupdateresponse" `
+                                -ReturnType "AccessProfileMetadataBulkUpdateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1052,7 +1210,7 @@ Bulk-update metadata by query
 
 This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied search query.  The update is processed asynchronously. The response returns the ID of the task performing the update.  A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
 
-.PARAMETER Accessprofilemetadatabulkupdatebyqueryrequest
+.PARAMETER AccessProfileMetadataBulkUpdateByQueryRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -1061,14 +1219,14 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Accessprofilemetadatabulkupdateresponse
+AccessProfileMetadataBulkUpdateResponse
 #>
 function Update-AccessProfilesMetadataByQueryV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Accessprofilemetadatabulkupdatebyqueryrequest},
+        ${AccessProfileMetadataBulkUpdateByQueryRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -1094,14 +1252,14 @@ function Update-AccessProfilesMetadataByQueryV1 {
 
         $LocalVarUri = '/access-profiles/v1/access-model-metadata/bulk-update/query'
 
-        if (!$Accessprofilemetadatabulkupdatebyqueryrequest) {
-            throw "Error! The required parameter `Accessprofilemetadatabulkupdatebyqueryrequest` missing when calling updateAccessProfilesMetadataByQueryV1."
+        if (!$AccessProfileMetadataBulkUpdateByQueryRequest) {
+            throw "Error! The required parameter `AccessProfileMetadataBulkUpdateByQueryRequest` missing when calling updateAccessProfilesMetadataByQueryV1."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Accessprofilemetadatabulkupdatebyqueryrequest -is [array])) {
-            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyqueryrequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessProfileMetadataBulkUpdateByQueryRequest -is [array])) {
+            $LocalVarBodyParameter = $AccessProfileMetadataBulkUpdateByQueryRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Accessprofilemetadatabulkupdatebyqueryrequest | ForEach-Object {
+            $LocalVarBodyParameter = $AccessProfileMetadataBulkUpdateByQueryRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1120,7 +1278,7 @@ function Update-AccessProfilesMetadataByQueryV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Accessprofilemetadatabulkupdateresponse" `
+                                -ReturnType "AccessProfileMetadataBulkUpdateResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

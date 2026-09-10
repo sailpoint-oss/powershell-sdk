@@ -19,9 +19,13 @@ The unique identifier of the identity collector.
 .PARAMETER Name
 The display name of the identity collector.
 .PARAMETER Type
-The identity collector type, derived from its underlying source. Possible values include ""Active Directory"", ""Azure Active Directory"", ""Google Drive"", ""Dropbox"", ""Box"", ""Microsoft Entra SaaS"", ""Snowflake"", and ""Databricks"".
+The identity collector type, derived from its underlying source.
 .PARAMETER SourceId
 The identifier of the source the identity collector is associated with, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted.
+.PARAMETER Users
+No description available.
+.PARAMETER Groups
+No description available.
 .OUTPUTS
 
 Identitycollectorlistitem<PSCustomObject>
@@ -41,7 +45,13 @@ function Initialize-Identitycollectorlistitem {
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceId}
+        ${SourceId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Users},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Groups}
     )
 
     Process {
@@ -54,6 +64,8 @@ function Initialize-Identitycollectorlistitem {
             "name" = ${Name}
             "type" = ${Type}
             "sourceId" = ${SourceId}
+            "users" = ${Users}
+            "groups" = ${Groups}
         }
 
         return $PSO
@@ -90,7 +102,7 @@ function ConvertFrom-JsonToIdentitycollectorlistitem {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Identitycollectorlistitem
-        $AllProperties = ("id", "name", "type", "sourceId")
+        $AllProperties = ("id", "name", "type", "sourceId", "users", "groups")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -121,11 +133,25 @@ function ConvertFrom-JsonToIdentitycollectorlistitem {
             $SourceId = $JsonParameters.PSobject.Properties["sourceId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "users"))) { #optional property not found
+            $Users = $null
+        } else {
+            $Users = $JsonParameters.PSobject.Properties["users"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "groups"))) { #optional property not found
+            $Groups = $null
+        } else {
+            $Groups = $JsonParameters.PSobject.Properties["groups"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
             "type" = ${Type}
             "sourceId" = ${SourceId}
+            "users" = ${Users}
+            "groups" = ${Groups}
         }
 
         return $PSO

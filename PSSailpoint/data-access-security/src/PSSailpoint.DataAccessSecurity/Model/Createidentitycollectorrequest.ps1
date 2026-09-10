@@ -18,6 +18,10 @@ No description available.
 The display name for the new identity collector. Must be unique within the tenant.
 .PARAMETER SourceId
 The identifier of the source to create the identity collector for, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted. The identity collector type is derived from this source.
+.PARAMETER Users
+No description available.
+.PARAMETER Groups
+No description available.
 .OUTPUTS
 
 Createidentitycollectorrequest<PSCustomObject>
@@ -31,7 +35,13 @@ function Initialize-Createidentitycollectorrequest {
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceId}
+        ${SourceId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Users},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Groups}
     )
 
     Process {
@@ -50,6 +60,8 @@ function Initialize-Createidentitycollectorrequest {
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "sourceId" = ${SourceId}
+            "users" = ${Users}
+            "groups" = ${Groups}
         }
 
         return $PSO
@@ -86,7 +98,7 @@ function ConvertFrom-JsonToCreateidentitycollectorrequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Createidentitycollectorrequest
-        $AllProperties = ("name", "sourceId")
+        $AllProperties = ("name", "sourceId", "users", "groups")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,9 +121,23 @@ function ConvertFrom-JsonToCreateidentitycollectorrequest {
             $SourceId = $JsonParameters.PSobject.Properties["sourceId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "users"))) { #optional property not found
+            $Users = $null
+        } else {
+            $Users = $JsonParameters.PSobject.Properties["users"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "groups"))) { #optional property not found
+            $Groups = $null
+        } else {
+            $Groups = $JsonParameters.PSobject.Properties["groups"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "sourceId" = ${SourceId}
+            "users" = ${Users}
+            "groups" = ${Groups}
         }
 
         return $PSO

@@ -22,6 +22,14 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
         }
     }
 
+    Context 'New-DataDictionaryFieldV1' {
+        It 'Test New-DataDictionaryFieldV1' {
+            #$TestResult = New-DataDictionaryFieldV1 -Createdatadictionaryfieldrequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-IdentityCollectorV1' {
         It 'Test New-IdentityCollectorV1' {
             #$TestResult = New-IdentityCollectorV1 -Createidentitycollectorrequest "TEST_VALUE"
@@ -86,6 +94,14 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
         }
     }
 
+    Context 'Remove-DataDictionaryFieldV1' {
+        It 'Test Remove-DataDictionaryFieldV1' {
+            #$TestResult = Remove-DataDictionaryFieldV1 -Name "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-IdentityCollectorV1' {
         It 'Test Remove-IdentityCollectorV1' {
             #$TestResult = Remove-IdentityCollectorV1 -Id "TEST_VALUE"
@@ -121,6 +137,22 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
     Context 'Get-ApplicationsV1' {
         It 'Test Get-ApplicationsV1' {
             #$TestResult = Get-ApplicationsV1 -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-IdentityCollectorBuiltinPropertiesV1' {
+        It 'Test Get-IdentityCollectorBuiltinPropertiesV1' {
+            #$TestResult = Get-IdentityCollectorBuiltinPropertiesV1 -Filters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-IdentityCollectorTypesV1' {
+        It 'Test Get-IdentityCollectorTypesV1' {
+            #$TestResult = Get-IdentityCollectorTypesV1 -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -166,6 +198,14 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
         }
     }
 
+    Context 'Get-DataDictionaryFieldsV1' {
+        It 'Test Get-DataDictionaryFieldsV1' {
+            #$TestResult = Get-DataDictionaryFieldsV1 -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-IdentityCollectorsV1' {
         It 'Test Get-IdentityCollectorsV1' {
             #$TestResult = Get-IdentityCollectorsV1 -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
@@ -177,6 +217,14 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
     Context 'Send-ApplicationV1' {
         It 'Test Send-ApplicationV1' {
             #$TestResult = Send-ApplicationV1 -Id "TEST_VALUE" -BaseCreateApplicationRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-DataDictionaryFieldV1' {
+        It 'Test Send-DataDictionaryFieldV1' {
+            #$TestResult = Send-DataDictionaryFieldV1 -Name "TEST_VALUE" -Updatedatadictionaryfieldrequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

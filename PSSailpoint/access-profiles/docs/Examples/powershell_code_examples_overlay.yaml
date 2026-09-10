@@ -296,6 +296,41 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfileV1"
             Write-Host $_.ErrorDetails
         }
+- path: /access-profiles/v1/filter
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#search-access-profiles-by-filter-v1
+      source: |
+        $AccessProfileListFilterDTO = @"
+        {
+          "ammKeyValues" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "secret" ]
+          } ],
+          "filters" : "requestable eq false"
+        }
+        "@
+        $ForSubadmin = "8c190e6787aa4ed9a90bd9d5344523fb" # String | Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity's ID.  If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error. (optional)
+        $Limit = 50 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+        $ForSegmentIds = "0b5c9f2d-1e1b-4b2f-9b1a-0e7f4a6c2d3e" # String | Filters the returned list to those access profiles assigned to the specified segment IDs. (optional)
+        $IncludeUnsegmented = $true # Boolean | Whether the returned list includes unsegmented access profiles. (optional) (default to $true)
+        
+        # Filter access profiles by metadata
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessProfileListFilterDTO -Json $AccessProfileListFilterDTO
+            Search-AccessProfilesByFilterV1 -AccessProfileListFilterDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Search-AccessProfilesByFilterV1 -AccessProfileListFilterDTO $Result -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-AccessProfilesByFilterV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /access-profiles/v1/bulk-update-requestable
   method: POST
   xCodeSample:
@@ -323,7 +358,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#update-access-profiles-metadata-by-filter-v1
       source: |
-        $Accessprofilemetadatabulkupdatebyfilterrequest = @"
+        $AccessProfileMetadataBulkUpdateByFilterRequest = @"
         {
           "values" : [ {
             "attribute" : "iscFederalClassifications",
@@ -338,11 +373,11 @@
         # Bulk-update metadata by filter
         
         try {
-            $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyfilterrequest -Json $Accessprofilemetadatabulkupdatebyfilterrequest
-            Update-AccessProfilesMetadataByFilterV1 -Accessprofilemetadatabulkupdatebyfilterrequest $Result 
+            $Result = ConvertFrom-JsonToAccessProfileMetadataBulkUpdateByFilterRequest -Json $AccessProfileMetadataBulkUpdateByFilterRequest
+            Update-AccessProfilesMetadataByFilterV1 -AccessProfileMetadataBulkUpdateByFilterRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AccessProfilesMetadataByFilterV1 -Accessprofilemetadatabulkupdatebyfilterrequest $Result   
+            # Update-AccessProfilesMetadataByFilterV1 -AccessProfileMetadataBulkUpdateByFilterRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByFilterV1"
             Write-Host $_.ErrorDetails
@@ -353,7 +388,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#update-access-profiles-metadata-by-ids-v1
       source: |
-        $Accessprofilemetadatabulkupdatebyidrequest = @"
+        $AccessProfileMetadataBulkUpdateByIdRequest = @"
         {
           "accessProfiles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
           "values" : [ {
@@ -368,11 +403,11 @@
         # Bulk-update metadata by ids
         
         try {
-            $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyidrequest -Json $Accessprofilemetadatabulkupdatebyidrequest
-            Update-AccessProfilesMetadataByIdsV1 -Accessprofilemetadatabulkupdatebyidrequest $Result 
+            $Result = ConvertFrom-JsonToAccessProfileMetadataBulkUpdateByIdRequest -Json $AccessProfileMetadataBulkUpdateByIdRequest
+            Update-AccessProfilesMetadataByIdsV1 -AccessProfileMetadataBulkUpdateByIdRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AccessProfilesMetadataByIdsV1 -Accessprofilemetadatabulkupdatebyidrequest $Result   
+            # Update-AccessProfilesMetadataByIdsV1 -AccessProfileMetadataBulkUpdateByIdRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByIdsV1"
             Write-Host $_.ErrorDetails
@@ -383,7 +418,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#update-access-profiles-metadata-by-query-v1
       source: |
-        $Accessprofilemetadatabulkupdatebyqueryrequest = @"
+        $AccessProfileMetadataBulkUpdateByQueryRequest = @"
         {
           "query" : {
             "indices" : [ "accessprofiles" ],
@@ -408,11 +443,11 @@
         # Bulk-update metadata by query
         
         try {
-            $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyqueryrequest -Json $Accessprofilemetadatabulkupdatebyqueryrequest
-            Update-AccessProfilesMetadataByQueryV1 -Accessprofilemetadatabulkupdatebyqueryrequest $Result 
+            $Result = ConvertFrom-JsonToAccessProfileMetadataBulkUpdateByQueryRequest -Json $AccessProfileMetadataBulkUpdateByQueryRequest
+            Update-AccessProfilesMetadataByQueryV1 -AccessProfileMetadataBulkUpdateByQueryRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-AccessProfilesMetadataByQueryV1 -Accessprofilemetadatabulkupdatebyqueryrequest $Result   
+            # Update-AccessProfilesMetadataByQueryV1 -AccessProfileMetadataBulkUpdateByQueryRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByQueryV1"
             Write-Host $_.ErrorDetails

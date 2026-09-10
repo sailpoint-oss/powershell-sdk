@@ -24,10 +24,10 @@ The status of the bulk update request.
 Time when the bulk update request was created
 .OUTPUTS
 
-Accessprofilemetadatabulkupdateresponse<PSCustomObject>
+AccessProfileMetadataBulkUpdateResponse<PSCustomObject>
 #>
 
-function Initialize-Accessprofilemetadatabulkupdateresponse {
+function Initialize-AccessProfileMetadataBulkUpdateResponse {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -46,7 +46,7 @@ function Initialize-Accessprofilemetadatabulkupdateresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfiles => Accessprofilemetadatabulkupdateresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => AccessProfileMetadataBulkUpdateResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -64,11 +64,11 @@ function Initialize-Accessprofilemetadatabulkupdateresponse {
 <#
 .SYNOPSIS
 
-Convert from JSON to Accessprofilemetadatabulkupdateresponse<PSCustomObject>
+Convert from JSON to AccessProfileMetadataBulkUpdateResponse<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to Accessprofilemetadatabulkupdateresponse<PSCustomObject>
+Convert from JSON to AccessProfileMetadataBulkUpdateResponse<PSCustomObject>
 
 .PARAMETER Json
 
@@ -76,21 +76,21 @@ Json object
 
 .OUTPUTS
 
-Accessprofilemetadatabulkupdateresponse<PSCustomObject>
+AccessProfileMetadataBulkUpdateResponse<PSCustomObject>
 #>
-function ConvertFrom-JsonToAccessprofilemetadatabulkupdateresponse {
+function ConvertFrom-JsonToAccessProfileMetadataBulkUpdateResponse {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => Accessprofilemetadatabulkupdateresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => AccessProfileMetadataBulkUpdateResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in Accessprofilemetadatabulkupdateresponse
+        # check if Json contains properties not defined in AccessProfileMetadataBulkUpdateResponse
         $AllProperties = ("id", "type", "status", "created")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

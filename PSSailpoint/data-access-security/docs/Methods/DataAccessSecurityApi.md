@@ -21,7 +21,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Suspend-TaskV1**](#cancel-task-v1) | **POST** `/das/v1/tasks/cancel/{id}` | Cancel a DAS task.
 [**New-ApplicationV1**](#create-application-v1) | **POST** `/das/v1/applications` | Create application
-[**New-IdentityCollectorV1**](#create-identity-collector-v1) | **POST** `/das/identity-collectors/v1` | Create identity collector
+[**New-DataDictionaryFieldV1**](#create-data-dictionary-field-v1) | **POST** `/das/v1/permissions/fields` | Create data dictionary field
+[**New-IdentityCollectorV1**](#create-identity-collector-v1) | **POST** `/das/v1/identity-collectors` | Create identity collector
 [**New-ScheduleV1**](#create-schedule-v1) | **POST** `/das/v1/tasks/schedules` | Create a new schedule.
 [**Invoke-DasV1OwnersAssignPost**](#das-v1-owners-assign-post) | **POST** `/das/v1/owners/assign` | Assign owner to application resource.
 [**Invoke-DasV1OwnersOwnerIdentityIdResourcesGet**](#das-v1-owners-owner-identity-id-resources-get) | **GET** `/das/v1/owners/{ownerIdentityId}/resources` | List resources for owner.
@@ -29,19 +30,24 @@ Method | HTTP request | Description
 [**Invoke-DasV1OwnersResourcesResourceIdGet**](#das-v1-owners-resources-resource-id-get) | **GET** `/das/v1/owners/resources/{resourceId}` | List owners for resource.
 [**Invoke-DasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost**](#das-v1-owners-source-identity-id-reassign-destination-identity-id-post) | **POST** `/das/v1/owners/{sourceIdentityId}/reassign/{destinationIdentityId}` | Reassign resource owner.
 [**Remove-ApplicationV1**](#delete-application-v1) | **DELETE** `/das/v1/applications/{id}` | Delete an application by identifier.
-[**Remove-IdentityCollectorV1**](#delete-identity-collector-v1) | **DELETE** `/das/identity-collectors/v1/{id}` | Delete identity collector by identifier
+[**Remove-DataDictionaryFieldV1**](#delete-data-dictionary-field-v1) | **DELETE** `/das/v1/permissions/fields/{name}` | Delete data dictionary field
+[**Remove-IdentityCollectorV1**](#delete-identity-collector-v1) | **DELETE** `/das/v1/identity-collectors/{id}` | Delete identity collector by identifier
 [**Remove-ScheduleV1**](#delete-schedule-v1) | **DELETE** `/das/v1/tasks/schedules/{id}` | Delete a DAS schedule.
 [**Remove-TaskV1**](#delete-task-v1) | **DELETE** `/das/v1/tasks/{id}` | Delete a DAS task.
 [**Get-ApplicationV1**](#get-application-v1) | **GET** `/das/v1/applications/{id}` | Retrieve application details by identifier.
 [**Get-ApplicationsV1**](#get-applications-v1) | **GET** `/das/v1/applications` | Search applications in DAS.
+[**Get-IdentityCollectorBuiltinPropertiesV1**](#get-identity-collector-builtin-properties-v1) | **GET** `/das/v1/identity-collectors/properties` | List built-in identity collector properties
+[**Get-IdentityCollectorTypesV1**](#get-identity-collector-types-v1) | **GET** `/das/v1/identity-collectors/types` | List identity collector types
 [**Get-OwnersV1**](#get-owners-v1) | **GET** `/das/v1/owners/applications/{appId}` | Retrieve owners per application.
 [**Get-ScheduleV1**](#get-schedule-v1) | **GET** `/das/v1/tasks/schedules/{id}` | Get a DAS schedule.
 [**Get-SchedulesV1**](#get-schedules-v1) | **GET** `/das/v1/tasks/schedules` | List all schedules.
 [**Get-TaskV1**](#get-task-v1) | **GET** `/das/v1/tasks/{id}` | Get a DAS task.
 [**Get-TasksV1**](#get-tasks-v1) | **GET** `/das/v1/tasks` | Lists all DAS tasks.
-[**Get-IdentityCollectorsV1**](#list-identity-collectors-v1) | **GET** `/das/identity-collectors/v1` | List identity collectors
+[**Get-DataDictionaryFieldsV1**](#list-data-dictionary-fields-v1) | **GET** `/das/v1/permissions/fields` | List data dictionary fields
+[**Get-IdentityCollectorsV1**](#list-identity-collectors-v1) | **GET** `/das/v1/identity-collectors` | List identity collectors
 [**Send-ApplicationV1**](#put-application-v1) | **PUT** `/das/v1/applications/{id}` | Update application by identifier.
-[**Send-IdentityCollectorV1**](#put-identity-collector-v1) | **PUT** `/das/identity-collectors/v1/{id}` | Update identity collector by identifier
+[**Send-DataDictionaryFieldV1**](#put-data-dictionary-field-v1) | **PUT** `/das/v1/permissions/fields/{name}` | Replace data dictionary field
+[**Send-IdentityCollectorV1**](#put-identity-collector-v1) | **PUT** `/das/v1/identity-collectors/{id}` | Replace identity collector
 [**Send-ScheduleV1**](#put-schedule-v1) | **PUT** `/das/v1/tasks/schedules/{id}` | Update a schedule.
 [**Start-TaskRerunV1**](#start-task-rerun-v1) | **POST** `/das/v1/tasks/rerun/{id}` | Rerun a DAS task.
 
@@ -185,8 +191,60 @@ try {
 ```
 [[Back to top]](#) 
 
+## create-data-dictionary-field-v1
+Creates a custom data dictionary field. The server assigns fieldType String and required false; callers do not supply those values.
+
+[API Spec](https://developer.sailpoint.com/docs/api/create-data-dictionary-field-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | Createdatadictionaryfieldrequest | [**Createdatadictionaryfieldrequest**](../models/createdatadictionaryfieldrequest) | True  | Custom data dictionary field to create.
+
+### Return type
+[**Datadictionaryfieldlistitem**](../models/datadictionaryfieldlistitem)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+201 | The data dictionary field was created. | Datadictionaryfieldlistitem
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+409 | Conflict - Returned if an identity collector with the same name already exists. | PutIdentityCollectorV1409Response
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Createdatadictionaryfieldrequest = @"{
+  "name" : "Department",
+  "dataDictionaryType" : "Users"
+}"@
+
+# Create data dictionary field
+
+try {
+    $Result = ConvertFrom-JsonToCreatedatadictionaryfieldrequest -Json $Createdatadictionaryfieldrequest
+    New-DataDictionaryFieldV1 -Createdatadictionaryfieldrequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-DataDictionaryFieldV1 -Createdatadictionaryfieldrequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-DataDictionaryFieldV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## create-identity-collector-v1
 This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
+
+Optionally configure `users` and `groups` to register source attributes (`properties`) and map them to data dictionary fields by name (`fieldMappings.fieldDictionaryName`). When omitted, both collections are created with fixed columns only.
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-identity-collector-v-1)
 
@@ -217,7 +275,27 @@ Code | Description  | Data Type
 ```powershell
 $Createidentitycollectorrequest = @"{
   "sourceId" : "2c9180835d2e5168015d32f890ca1581",
-  "name" : "Active Directory Identity Collector"
+  "name" : "Active Directory Identity Collector",
+  "groups" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  },
+  "users" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  }
 }"@
 
 # Create identity collector
@@ -589,6 +667,53 @@ try {
 ```
 [[Back to top]](#) 
 
+## delete-data-dictionary-field-v1
+Deletes a custom data dictionary field. Built-in fields where required is true cannot be deleted.
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-data-dictionary-field-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Name | **String** | True  | The field name to delete.
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+204 | No Content | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+409 | Conflict - Returned if an identity collector with the same name already exists. | PutIdentityCollectorV1409Response
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Name = "Department" # String | The field name to delete.
+
+# Delete data dictionary field
+
+try {
+    Remove-DataDictionaryFieldV1 -Name $Name 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-DataDictionaryFieldV1 -Name $Name  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-DataDictionaryFieldV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## delete-identity-collector-v1
 This endpoint deletes an identity collector from Data Access Security by its unique identifier.
 
@@ -821,6 +946,102 @@ try {
     # Get-ApplicationsV1 -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ApplicationsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-identity-collector-builtin-properties-v1
+Returns the built-in source attribute names for users and groups collections. When no filter is provided, built-in properties for all public identity collector types are returned (the same base types listed by [List Identity Collector Types](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1)). When filtered by `type`, only the matching type is returned; the filter accepts any supported type display name, including SaaS variants such as `Box SaaS` or `AWS SaaS`.
+
+These attributes are always available for field mapping without being listed in `properties`.
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-collector-builtin-properties-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq*
+
+### Return type
+[**Identitycollectorbuiltinpropertiesresponse**](../models/identitycollectorbuiltinpropertiesresponse)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Built-in source attribute names for users and groups collections. | Identitycollectorbuiltinpropertiesresponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Filters = 'type eq "Azure Active Directory"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq* (optional)
+
+# List built-in identity collector properties
+
+try {
+    Get-IdentityCollectorBuiltinPropertiesV1 
+    
+    # Below is a request that includes all optional parameters
+    # Get-IdentityCollectorBuiltinPropertiesV1 -Filters $Filters  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityCollectorBuiltinPropertiesV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-identity-collector-types-v1
+Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.
+
+Pagination is not supported for this endpoint; the full set of public types is always returned.
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+### Return type
+**String[]**
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Supported identity collector type display names. | String[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+
+# List identity collector types
+
+try {
+    Get-IdentityCollectorTypesV1 
+    
+    # Below is a request that includes all optional parameters
+    # Get-IdentityCollectorTypesV1 -Limit $Limit -Offset $Offset  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityCollectorTypesV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -1072,6 +1293,57 @@ try {
 ```
 [[Back to top]](#) 
 
+## list-data-dictionary-fields-v1
+Returns custom data dictionary fields that can be used when configuring identity collector field mappings and other permission-related settings. Built-in fields are not included in list responses; only custom fields created via [Create Data Dictionary Field](https://developer.sailpoint.com/docs/api/create-data-dictionary-field-v-1) are returned. All listed fields have `required: false`.
+
+[API Spec](https://developer.sailpoint.com/docs/api/list-data-dictionary-fields-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **dataDictionaryType**: *eq*  **name**: *eq*  Supported composite operators are *and*
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+### Return type
+[**Datadictionaryfieldlistitem[]**](../models/datadictionaryfieldlistitem)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Data dictionary fields matching the filter criteria. | Datadictionaryfieldlistitem[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Filters = 'dataDictionaryType eq "Users" and name eq "Department"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **dataDictionaryType**: *eq*  **name**: *eq*  Supported composite operators are *and* (optional)
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
+# List data dictionary fields
+
+try {
+    Get-DataDictionaryFieldsV1 
+    
+    # Below is a request that includes all optional parameters
+    # Get-DataDictionaryFieldsV1 -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-DataDictionaryFieldsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## list-identity-collectors-v1
 This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.
 
@@ -1221,24 +1493,26 @@ try {
 ```
 [[Back to top]](#) 
 
-## put-identity-collector-v1
-This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
+## put-data-dictionary-field-v1
+Fully replaces a custom data dictionary field. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted properties are rejected. For custom fields, `fieldType`, `dataDictionaryType`, and `required` must match the current values; only `name` may change. Built-in fields where `required` is true cannot be updated.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-identity-collector-v-1)
+List the field first with [List Data Dictionary Fields](https://developer.sailpoint.com/docs/api/list-data-dictionary-fields-v-1) to obtain the current representation before replacing it.
+
+[API Spec](https://developer.sailpoint.com/docs/api/put-data-dictionary-field-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **Int64** | True  | The unique identifier of the identity collector to update.
- Body  | Updateidentitycollectorrequest | [**Updateidentitycollectorrequest**](../models/updateidentitycollectorrequest) | True  | Request body containing the updated details for the identity collector.
+Path   | Name | **String** | True  | The current field name.
+ Body  | Updatedatadictionaryfieldrequest | [**Updatedatadictionaryfieldrequest**](../models/updatedatadictionaryfieldrequest) | True  | Complete data dictionary field representation used to fully replace the existing field.
 
 ### Return type
- (empty response body)
+[**Datadictionaryfieldlistitem**](../models/datadictionaryfieldlistitem)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-204 | No Content | 
+200 | The data dictionary field was fully replaced. | Datadictionaryfieldlistitem
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -1253,14 +1527,91 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = 12345 # Int64 | The unique identifier of the identity collector to update.
+$Name = "Department" # String | The current field name.
+$Updatedatadictionaryfieldrequest = @"{
+  "name" : "Cost Center",
+  "dataDictionaryType" : "Users",
+  "fieldType" : "String",
+  "required" : false
+}"@
+
+# Replace data dictionary field
+
+try {
+    $Result = ConvertFrom-JsonToUpdatedatadictionaryfieldrequest -Json $Updatedatadictionaryfieldrequest
+    Send-DataDictionaryFieldV1 -Name $Name -Updatedatadictionaryfieldrequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Send-DataDictionaryFieldV1 -Name $Name -Updatedatadictionaryfieldrequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-DataDictionaryFieldV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## put-identity-collector-v1
+Fully replaces an existing identity collector in Data Access Security. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted or null top-level properties are rejected. After a successful request, a subsequent list request returns exactly the configuration that was sent.
+
+Retrieve the current configuration with [List Identity Collectors](https://developer.sailpoint.com/docs/api/list-identity-collectors-v-1) before replacing it. The `sourceId` and `type` cannot be changed and must match the current values.
+
+[API Spec](https://developer.sailpoint.com/docs/api/put-identity-collector-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **Int64** | True  | The unique identifier of the identity collector to replace.
+ Body  | Updateidentitycollectorrequest | [**Updateidentitycollectorrequest**](../models/updateidentitycollectorrequest) | True  | Complete identity collector representation used to fully replace the existing resource. Partial updates are not supported.
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+204 | The identity collector was fully replaced. | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+409 | Conflict - Returned if an identity collector with the same name already exists. | PutIdentityCollectorV1409Response
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetTasksV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = 12345 # Int64 | The unique identifier of the identity collector to replace.
 $Updateidentitycollectorrequest = @"{
   "sourceId" : "2c9180835d2e5168015d32f890ca1581",
   "name" : "Active Directory Identity Collector",
-  "type" : "Active Directory"
+  "groups" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  },
+  "type" : "Active Directory",
+  "users" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  }
 }"@
 
-# Update identity collector by identifier
+# Replace identity collector
 
 try {
     $Result = ConvertFrom-JsonToUpdateidentitycollectorrequest -Json $Updateidentitycollectorrequest

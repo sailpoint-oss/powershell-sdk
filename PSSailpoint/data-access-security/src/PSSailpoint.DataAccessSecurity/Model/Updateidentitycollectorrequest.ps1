@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Complete identity collector representation for [Replace Identity Collector](https://developer.sailpoint.com/docs/api/put-identity-collector-v-1). The server fully replaces the existing resource with this payload. Partial updates are not supported; `users` and `groups` must always be supplied and replace the current collection settings in their entirety.
 
 .PARAMETER Name
 The display name of the identity collector. Must be unique within the tenant.
@@ -20,6 +20,10 @@ The display name of the identity collector. Must be unique within the tenant.
 The identifier of the associated source, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted. This value cannot be modified for an existing identity collector and must match the current value.
 .PARAMETER Type
 The identity collector type. This value cannot be modified for an existing identity collector and must match the current value.
+.PARAMETER Users
+No description available.
+.PARAMETER Groups
+No description available.
 .OUTPUTS
 
 Updateidentitycollectorrequest<PSCustomObject>
@@ -36,7 +40,13 @@ function Initialize-Updateidentitycollectorrequest {
         ${SourceId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Type}
+        ${Type},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Users},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Groups}
     )
 
     Process {
@@ -55,11 +65,21 @@ function Initialize-Updateidentitycollectorrequest {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
+        if (!$Users) {
+            throw "invalid value for 'Users', 'Users' cannot be null."
+        }
+
+        if (!$Groups) {
+            throw "invalid value for 'Groups', 'Groups' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "sourceId" = ${SourceId}
             "type" = ${Type}
+            "users" = ${Users}
+            "groups" = ${Groups}
         }
 
         return $PSO
@@ -96,7 +116,7 @@ function ConvertFrom-JsonToUpdateidentitycollectorrequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Updateidentitycollectorrequest
-        $AllProperties = ("name", "sourceId", "type")
+        $AllProperties = ("name", "sourceId", "type", "users", "groups")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -125,10 +145,24 @@ function ConvertFrom-JsonToUpdateidentitycollectorrequest {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "users"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'users' missing."
+        } else {
+            $Users = $JsonParameters.PSobject.Properties["users"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "groups"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'groups' missing."
+        } else {
+            $Groups = $JsonParameters.PSobject.Properties["groups"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "sourceId" = ${SourceId}
             "type" = ${Type}
+            "users" = ${Users}
+            "groups" = ${Groups}
         }
 
         return $PSO

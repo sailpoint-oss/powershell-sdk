@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'Identitycollectorlistitem'
     Context 'Identitycollectorlistitem' {
         It 'Initialize-Identitycollectorlistitem' {
             # a simple test to create an object
-            #$NewObject = Initialize-Identitycollectorlistitem -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE" -SourceId "TEST_VALUE"
+            #$NewObject = Initialize-Identitycollectorlistitem -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE" -SourceId "TEST_VALUE" -Users "TEST_VALUE" -Groups "TEST_VALUE"
             #$NewObject | Should -BeOfType Identitycollectorlistitem
             #$NewObject.property | Should -Be 0
         }

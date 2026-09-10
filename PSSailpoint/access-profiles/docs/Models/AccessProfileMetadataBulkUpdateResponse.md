@@ -1,16 +1,16 @@
 ---
-id: accessprofilemetadatabulkupdateresponse
-title: Accessprofilemetadatabulkupdateresponse
-pagination_label: Accessprofilemetadatabulkupdateresponse
-sidebar_label: Accessprofilemetadatabulkupdateresponse
+id: access-profile-metadata-bulk-update-response
+title: AccessProfileMetadataBulkUpdateResponse
+pagination_label: AccessProfileMetadataBulkUpdateResponse
+sidebar_label: AccessProfileMetadataBulkUpdateResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Accessprofilemetadatabulkupdateresponse', 'Accessprofilemetadatabulkupdateresponse'] 
-slug: /tools/sdk/powershell/accessprofiles/models/accessprofilemetadatabulkupdateresponse
-tags: ['SDK', 'Software Development Kit', 'Accessprofilemetadatabulkupdateresponse', 'Accessprofilemetadatabulkupdateresponse']
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessProfileMetadataBulkUpdateResponse', 'AccessProfileMetadataBulkUpdateResponse'] 
+slug: /tools/sdk/powershell/accessprofiles/models/access-profile-metadata-bulk-update-response
+tags: ['SDK', 'Software Development Kit', 'AccessProfileMetadataBulkUpdateResponse', 'AccessProfileMetadataBulkUpdateResponse']
 ---
 
 
-# Accessprofilemetadatabulkupdateresponse
+# AccessProfileMetadataBulkUpdateResponse
 
 ## Properties
 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Accessprofilemetadatabulkupdateresponse = Initialize-Accessprofilemetadatabulkupdateresponse  -Id 2d82ac17-eb0d-4ba6-9918-dcad6ee0294d `
+$AccessProfileMetadataBulkUpdateResponse = Initialize-AccessProfileMetadataBulkUpdateResponse  -Id 2d82ac17-eb0d-4ba6-9918-dcad6ee0294d `
  -Type ACCESS_PROFILE `
  -Status CREATED `
  -Created 2020-10-08T18:33:52.029Z
@@ -33,7 +33,7 @@ $Accessprofilemetadatabulkupdateresponse = Initialize-Accessprofilemetadatabulku
 
 - Convert the resource to JSON
 ```powershell
-$Accessprofilemetadatabulkupdateresponse | ConvertTo-JSON
+$AccessProfileMetadataBulkUpdateResponse | ConvertTo-JSON
 ```
 
 

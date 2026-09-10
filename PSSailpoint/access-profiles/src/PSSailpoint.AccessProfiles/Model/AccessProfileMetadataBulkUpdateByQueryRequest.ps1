@@ -24,10 +24,10 @@ The choice of update scope. **ATTRIBUTE** replaces only the values of the attrib
 The metadata to be updated, including attribute key and value.
 .OUTPUTS
 
-Accessprofilemetadatabulkupdatebyqueryrequest<PSCustomObject>
+AccessProfileMetadataBulkUpdateByQueryRequest<PSCustomObject>
 #>
 
-function Initialize-Accessprofilemetadatabulkupdatebyqueryrequest {
+function Initialize-AccessProfileMetadataBulkUpdateByQueryRequest {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -47,7 +47,7 @@ function Initialize-Accessprofilemetadatabulkupdatebyqueryrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfiles => Accessprofilemetadatabulkupdatebyqueryrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => AccessProfileMetadataBulkUpdateByQueryRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Query) {
@@ -81,11 +81,11 @@ function Initialize-Accessprofilemetadatabulkupdatebyqueryrequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to Accessprofilemetadatabulkupdatebyqueryrequest<PSCustomObject>
+Convert from JSON to AccessProfileMetadataBulkUpdateByQueryRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to Accessprofilemetadatabulkupdatebyqueryrequest<PSCustomObject>
+Convert from JSON to AccessProfileMetadataBulkUpdateByQueryRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -93,21 +93,21 @@ Json object
 
 .OUTPUTS
 
-Accessprofilemetadatabulkupdatebyqueryrequest<PSCustomObject>
+AccessProfileMetadataBulkUpdateByQueryRequest<PSCustomObject>
 #>
-function ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyqueryrequest {
+function ConvertFrom-JsonToAccessProfileMetadataBulkUpdateByQueryRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => Accessprofilemetadatabulkupdatebyqueryrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => AccessProfileMetadataBulkUpdateByQueryRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in Accessprofilemetadatabulkupdatebyqueryrequest
+        # check if Json contains properties not defined in AccessProfileMetadataBulkUpdateByQueryRequest
         $AllProperties = ("query", "operation", "replaceScope", "values")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

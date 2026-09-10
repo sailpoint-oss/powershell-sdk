@@ -85,7 +85,32 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ApplicationV1"
             Write-Host $_.ErrorDetails
         }
-- path: /das/identity-collectors/v1
+- path: /das/v1/permissions/fields
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#create-data-dictionary-field-v1
+      source: |
+        $Createdatadictionaryfieldrequest = @"
+        {
+          "name" : "Department",
+          "dataDictionaryType" : "Users"
+        }
+        "@
+        
+        # Create data dictionary field
+        
+        try {
+            $Result = ConvertFrom-JsonToCreatedatadictionaryfieldrequest -Json $Createdatadictionaryfieldrequest
+            New-DataDictionaryFieldV1 -Createdatadictionaryfieldrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-DataDictionaryFieldV1 -Createdatadictionaryfieldrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-DataDictionaryFieldV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/identity-collectors
   method: POST
   xCodeSample:
     - lang: PowerShell
@@ -94,7 +119,27 @@
         $Createidentitycollectorrequest = @"
         {
           "sourceId" : "2c9180835d2e5168015d32f890ca1581",
-          "name" : "Active Directory Identity Collector"
+          "name" : "Active Directory Identity Collector",
+          "groups" : {
+            "fieldMappings" : [ {
+              "sourceAttributeName" : "department",
+              "fieldDictionaryName" : "UPTF-1"
+            }, {
+              "sourceAttributeName" : "department",
+              "fieldDictionaryName" : "UPTF-1"
+            } ],
+            "properties" : [ "UserAddress", "department" ]
+          },
+          "users" : {
+            "fieldMappings" : [ {
+              "sourceAttributeName" : "department",
+              "fieldDictionaryName" : "UPTF-1"
+            }, {
+              "sourceAttributeName" : "department",
+              "fieldDictionaryName" : "UPTF-1"
+            } ],
+            "properties" : [ "UserAddress", "department" ]
+          }
         }
         "@
         
@@ -276,7 +321,26 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ApplicationV1"
             Write-Host $_.ErrorDetails
         }
-- path: /das/identity-collectors/v1/{id}
+- path: /das/v1/permissions/fields/{name}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#delete-data-dictionary-field-v1
+      source: |
+        $Name = "Department" # String | The field name to delete.
+        
+        # Delete data dictionary field
+        
+        try {
+            Remove-DataDictionaryFieldV1 -Name $Name 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-DataDictionaryFieldV1 -Name $Name   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-DataDictionaryFieldV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/identity-collectors/{id}
   method: DELETE
   xCodeSample:
     - lang: PowerShell
@@ -372,6 +436,45 @@
             # Get-ApplicationsV1 -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ApplicationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/identity-collectors/properties
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#get-identity-collector-builtin-properties-v1
+      source: |
+        $Filters = "type eq "Azure Active Directory"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq* (optional)
+        
+        # List built-in identity collector properties
+        
+        try {
+            Get-IdentityCollectorBuiltinPropertiesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityCollectorBuiltinPropertiesV1 -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityCollectorBuiltinPropertiesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/identity-collectors/types
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#get-identity-collector-types-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List identity collector types
+        
+        try {
+            Get-IdentityCollectorTypesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityCollectorTypesV1 -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityCollectorTypesV1"
             Write-Host $_.ErrorDetails
         }
 - path: /das/v1/owners/applications/{appId}
@@ -477,7 +580,29 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TasksV1"
             Write-Host $_.ErrorDetails
         }
-- path: /das/identity-collectors/v1
+- path: /das/v1/permissions/fields
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#list-data-dictionary-fields-v1
+      source: |
+        $Filters = "dataDictionaryType eq "Users" and name eq "Department"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **dataDictionaryType**: *eq*  **name**: *eq*  Supported composite operators are *and* (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List data dictionary fields
+        
+        try {
+            Get-DataDictionaryFieldsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-DataDictionaryFieldsV1 -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-DataDictionaryFieldsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/identity-collectors
   method: GET
   xCodeSample:
     - lang: PowerShell
@@ -568,22 +693,70 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ApplicationV1"
             Write-Host $_.ErrorDetails
         }
-- path: /das/identity-collectors/v1/{id}
+- path: /das/v1/permissions/fields/{name}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#put-data-dictionary-field-v1
+      source: |
+        $Name = "Department" # String | The current field name.
+        $Updatedatadictionaryfieldrequest = @"
+        {
+          "name" : "Cost Center",
+          "dataDictionaryType" : "Users",
+          "fieldType" : "String",
+          "required" : false
+        }
+        "@
+        
+        # Replace data dictionary field
+        
+        try {
+            $Result = ConvertFrom-JsonToUpdatedatadictionaryfieldrequest -Json $Updatedatadictionaryfieldrequest
+            Send-DataDictionaryFieldV1 -Name $Name -Updatedatadictionaryfieldrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-DataDictionaryFieldV1 -Name $Name -Updatedatadictionaryfieldrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-DataDictionaryFieldV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/identity-collectors/{id}
   method: PUT
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#put-identity-collector-v1
       source: |
-        $Id = 12345 # Int64 | The unique identifier of the identity collector to update.
+        $Id = 12345 # Int64 | The unique identifier of the identity collector to replace.
         $Updateidentitycollectorrequest = @"
         {
           "sourceId" : "2c9180835d2e5168015d32f890ca1581",
           "name" : "Active Directory Identity Collector",
-          "type" : "Active Directory"
+          "groups" : {
+            "fieldMappings" : [ {
+              "sourceAttributeName" : "department",
+              "fieldDictionaryName" : "UPTF-1"
+            }, {
+              "sourceAttributeName" : "department",
+              "fieldDictionaryName" : "UPTF-1"
+            } ],
+            "properties" : [ "UserAddress", "department" ]
+          },
+          "type" : "Active Directory",
+          "users" : {
+            "fieldMappings" : [ {
+              "sourceAttributeName" : "department",
+              "fieldDictionaryName" : "UPTF-1"
+            }, {
+              "sourceAttributeName" : "department",
+              "fieldDictionaryName" : "UPTF-1"
+            } ],
+            "properties" : [ "UserAddress", "department" ]
+          }
         }
         "@
         
-        # Update identity collector by identifier
+        # Replace identity collector
         
         try {
             $Result = ConvertFrom-JsonToUpdateidentitycollectorrequest -Json $Updateidentitycollectorrequest

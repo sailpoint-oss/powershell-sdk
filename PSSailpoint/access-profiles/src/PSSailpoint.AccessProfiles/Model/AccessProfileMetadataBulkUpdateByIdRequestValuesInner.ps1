@@ -22,10 +22,10 @@ The values of the attribute to be updated.
 The type of the metadata attribute. Set to `custom` for custom metadata attributes, which require a suite license.
 .OUTPUTS
 
-AccessprofilemetadatabulkupdatebyidrequestValuesInner<PSCustomObject>
+AccessProfileMetadataBulkUpdateByIdRequestValuesInner<PSCustomObject>
 #>
 
-function Initialize-AccessprofilemetadatabulkupdatebyidrequestValuesInner {
+function Initialize-AccessProfileMetadataBulkUpdateByIdRequestValuesInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -40,7 +40,7 @@ function Initialize-AccessprofilemetadatabulkupdatebyidrequestValuesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfiles => AccessprofilemetadatabulkupdatebyidrequestValuesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => AccessProfileMetadataBulkUpdateByIdRequestValuesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Attribute) {
@@ -61,11 +61,11 @@ function Initialize-AccessprofilemetadatabulkupdatebyidrequestValuesInner {
 <#
 .SYNOPSIS
 
-Convert from JSON to AccessprofilemetadatabulkupdatebyidrequestValuesInner<PSCustomObject>
+Convert from JSON to AccessProfileMetadataBulkUpdateByIdRequestValuesInner<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to AccessprofilemetadatabulkupdatebyidrequestValuesInner<PSCustomObject>
+Convert from JSON to AccessProfileMetadataBulkUpdateByIdRequestValuesInner<PSCustomObject>
 
 .PARAMETER Json
 
@@ -73,21 +73,21 @@ Json object
 
 .OUTPUTS
 
-AccessprofilemetadatabulkupdatebyidrequestValuesInner<PSCustomObject>
+AccessProfileMetadataBulkUpdateByIdRequestValuesInner<PSCustomObject>
 #>
-function ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyidrequestValuesInner {
+function ConvertFrom-JsonToAccessProfileMetadataBulkUpdateByIdRequestValuesInner {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => AccessprofilemetadatabulkupdatebyidrequestValuesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => AccessProfileMetadataBulkUpdateByIdRequestValuesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in AccessprofilemetadatabulkupdatebyidrequestValuesInner
+        # check if Json contains properties not defined in AccessProfileMetadataBulkUpdateByIdRequestValuesInner
         $AllProperties = ("attribute", "values", "objectType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

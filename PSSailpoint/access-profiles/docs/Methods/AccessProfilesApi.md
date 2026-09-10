@@ -59,6 +59,7 @@ Method | HTTP request | Description
 [**Get-AccessProfileV1**](#get-access-profile-v1) | **GET** `/access-profiles/v1/{id}` | Get an access profile
 [**Get-AccessProfilesV1**](#list-access-profiles-v1) | **GET** `/access-profiles/v1` | List access profiles
 [**Update-AccessProfileV1**](#patch-access-profile-v1) | **PATCH** `/access-profiles/v1/{id}` | Patch a specified access profile
+[**Search-AccessProfilesByFilterV1**](#search-access-profiles-by-filter-v1) | **POST** `/access-profiles/v1/filter` | Filter access profiles by metadata
 [**Update-AccessProfilesInBulkV1**](#update-access-profiles-in-bulk-v1) | **POST** `/access-profiles/v1/bulk-update-requestable` | Update access profile(s) requestable field.
 [**Update-AccessProfilesMetadataByFilterV1**](#update-access-profiles-metadata-by-filter-v1) | **POST** `/access-profiles/v1/access-model-metadata/bulk-update/filter` | Bulk-update metadata by filter
 [**Update-AccessProfilesMetadataByIdsV1**](#update-access-profiles-metadata-by-ids-v1) | **POST** `/access-profiles/v1/access-model-metadata/bulk-update/ids` | Bulk-update metadata by ids
@@ -634,6 +635,72 @@ try {
 ```
 [[Back to top]](#) 
 
+## search-access-profiles-by-filter-v1
+Get a list of access profiles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together.
+
+[API Spec](https://developer.sailpoint.com/docs/api/search-access-profiles-by-filter-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | AccessProfileListFilterDTO | [**AccessProfileListFilterDTO**](../models/access-profile-list-filter-dto) | True  | 
+  Query | ForSubadmin | **String** |   (optional) | Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity's ID.  If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error.
+  Query | Limit | **Int32** |   (optional) (default to 50) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+  Query | ForSegmentIds | **String** |   (optional) | Filters the returned list to those access profiles assigned to the specified segment IDs.
+  Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Whether the returned list includes unsegmented access profiles.
+
+### Return type
+[**AccessProfile[]**](../models/access-profile)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of access profiles matching the filter criteria. | AccessProfile[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$AccessProfileListFilterDTO = @"{
+  "ammKeyValues" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "secret" ]
+  } ],
+  "filters" : "requestable eq false"
+}"@
+$ForSubadmin = "8c190e6787aa4ed9a90bd9d5344523fb" # String | Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity's ID.  If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error. (optional)
+$Limit = 50 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+$ForSegmentIds = "0b5c9f2d-1e1b-4b2f-9b1a-0e7f4a6c2d3e" # String | Filters the returned list to those access profiles assigned to the specified segment IDs. (optional)
+$IncludeUnsegmented = $true # Boolean | Whether the returned list includes unsegmented access profiles. (optional) (default to $true)
+
+# Filter access profiles by metadata
+
+try {
+    $Result = ConvertFrom-JsonToAccessProfileListFilterDTO -Json $AccessProfileListFilterDTO
+    Search-AccessProfilesByFilterV1 -AccessProfileListFilterDTO $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Search-AccessProfilesByFilterV1 -AccessProfileListFilterDTO $Result -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-AccessProfilesByFilterV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## update-access-profiles-in-bulk-v1
 This API initiates a bulk update of field requestable for one or more Access Profiles.
 
@@ -700,15 +767,15 @@ A single access profile cannot be assigned more than 25 metadata values. Adding 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Accessprofilemetadatabulkupdatebyfilterrequest | [**Accessprofilemetadatabulkupdatebyfilterrequest**](../models/accessprofilemetadatabulkupdatebyfilterrequest) | True  | 
+ Body  | AccessProfileMetadataBulkUpdateByFilterRequest | [**AccessProfileMetadataBulkUpdateByFilterRequest**](../models/access-profile-metadata-bulk-update-by-filter-request) | True  | 
 
 ### Return type
-[**Accessprofilemetadatabulkupdateresponse**](../models/accessprofilemetadatabulkupdateresponse)
+[**AccessProfileMetadataBulkUpdateResponse**](../models/access-profile-metadata-bulk-update-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Returned if the bulk update request was created. | Accessprofilemetadatabulkupdateresponse
+202 | Returned if the bulk update request was created. | AccessProfileMetadataBulkUpdateResponse
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -721,7 +788,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Accessprofilemetadatabulkupdatebyfilterrequest = @"{
+$AccessProfileMetadataBulkUpdateByFilterRequest = @"{
   "values" : [ {
     "attribute" : "iscFederalClassifications",
     "values" : [ "topSecret" ]
@@ -734,11 +801,11 @@ $Accessprofilemetadatabulkupdatebyfilterrequest = @"{
 # Bulk-update metadata by filter
 
 try {
-    $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyfilterrequest -Json $Accessprofilemetadatabulkupdatebyfilterrequest
-    Update-AccessProfilesMetadataByFilterV1 -Accessprofilemetadatabulkupdatebyfilterrequest $Result 
+    $Result = ConvertFrom-JsonToAccessProfileMetadataBulkUpdateByFilterRequest -Json $AccessProfileMetadataBulkUpdateByFilterRequest
+    Update-AccessProfilesMetadataByFilterV1 -AccessProfileMetadataBulkUpdateByFilterRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AccessProfilesMetadataByFilterV1 -Accessprofilemetadatabulkupdatebyfilterrequest $Result  
+    # Update-AccessProfilesMetadataByFilterV1 -AccessProfileMetadataBulkUpdateByFilterRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByFilterV1"
     Write-Host $_.ErrorDetails
@@ -758,15 +825,15 @@ The maximum access profile count in a single request is 3000. A single access pr
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Accessprofilemetadatabulkupdatebyidrequest | [**Accessprofilemetadatabulkupdatebyidrequest**](../models/accessprofilemetadatabulkupdatebyidrequest) | True  | 
+ Body  | AccessProfileMetadataBulkUpdateByIdRequest | [**AccessProfileMetadataBulkUpdateByIdRequest**](../models/access-profile-metadata-bulk-update-by-id-request) | True  | 
 
 ### Return type
-[**Accessprofilemetadatabulkupdateresponse**](../models/accessprofilemetadatabulkupdateresponse)
+[**AccessProfileMetadataBulkUpdateResponse**](../models/access-profile-metadata-bulk-update-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Returned if the bulk update request was created. | Accessprofilemetadatabulkupdateresponse
+202 | Returned if the bulk update request was created. | AccessProfileMetadataBulkUpdateResponse
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -779,7 +846,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Accessprofilemetadatabulkupdatebyidrequest = @"{
+$AccessProfileMetadataBulkUpdateByIdRequest = @"{
   "accessProfiles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
   "values" : [ {
     "attribute" : "iscFederalClassifications",
@@ -792,11 +859,11 @@ $Accessprofilemetadatabulkupdatebyidrequest = @"{
 # Bulk-update metadata by ids
 
 try {
-    $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyidrequest -Json $Accessprofilemetadatabulkupdatebyidrequest
-    Update-AccessProfilesMetadataByIdsV1 -Accessprofilemetadatabulkupdatebyidrequest $Result 
+    $Result = ConvertFrom-JsonToAccessProfileMetadataBulkUpdateByIdRequest -Json $AccessProfileMetadataBulkUpdateByIdRequest
+    Update-AccessProfilesMetadataByIdsV1 -AccessProfileMetadataBulkUpdateByIdRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AccessProfilesMetadataByIdsV1 -Accessprofilemetadatabulkupdatebyidrequest $Result  
+    # Update-AccessProfilesMetadataByIdsV1 -AccessProfileMetadataBulkUpdateByIdRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByIdsV1"
     Write-Host $_.ErrorDetails
@@ -816,15 +883,15 @@ A single access profile cannot be assigned more than 25 metadata values. Adding 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | Accessprofilemetadatabulkupdatebyqueryrequest | [**Accessprofilemetadatabulkupdatebyqueryrequest**](../models/accessprofilemetadatabulkupdatebyqueryrequest) | True  | 
+ Body  | AccessProfileMetadataBulkUpdateByQueryRequest | [**AccessProfileMetadataBulkUpdateByQueryRequest**](../models/access-profile-metadata-bulk-update-by-query-request) | True  | 
 
 ### Return type
-[**Accessprofilemetadatabulkupdateresponse**](../models/accessprofilemetadatabulkupdateresponse)
+[**AccessProfileMetadataBulkUpdateResponse**](../models/access-profile-metadata-bulk-update-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Returned if the bulk update request was created. | Accessprofilemetadatabulkupdateresponse
+202 | Returned if the bulk update request was created. | AccessProfileMetadataBulkUpdateResponse
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -837,7 +904,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Accessprofilemetadatabulkupdatebyqueryrequest = @"{
+$AccessProfileMetadataBulkUpdateByQueryRequest = @"{
   "query" : {
     "indices" : [ "accessprofiles" ],
     "queryType" : "TEXT",
@@ -860,11 +927,11 @@ $Accessprofilemetadatabulkupdatebyqueryrequest = @"{
 # Bulk-update metadata by query
 
 try {
-    $Result = ConvertFrom-JsonToAccessprofilemetadatabulkupdatebyqueryrequest -Json $Accessprofilemetadatabulkupdatebyqueryrequest
-    Update-AccessProfilesMetadataByQueryV1 -Accessprofilemetadatabulkupdatebyqueryrequest $Result 
+    $Result = ConvertFrom-JsonToAccessProfileMetadataBulkUpdateByQueryRequest -Json $AccessProfileMetadataBulkUpdateByQueryRequest
+    Update-AccessProfilesMetadataByQueryV1 -AccessProfileMetadataBulkUpdateByQueryRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AccessProfilesMetadataByQueryV1 -Accessprofilemetadatabulkupdatebyqueryrequest $Result  
+    # Update-AccessProfilesMetadataByQueryV1 -AccessProfileMetadataBulkUpdateByQueryRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesMetadataByQueryV1"
     Write-Host $_.ErrorDetails

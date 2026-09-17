@@ -232,6 +232,37 @@ function Set-DefaultConfiguration {
     }
 }
 
+<#
+.SYNOPSIS
+
+Describe a credential value without disclosing it.
+
+.DESCRIPTION
+
+Return a placeholder that is safe to write to the debug stream. Credentials must
+never reach console or CI logs, so only the length of the value is reported.
+
+.PARAMETER Value
+The credential value to describe.
+
+.OUTPUTS
+
+System.String
+#>
+function Format-RedactedValue {
+    Param (
+        [AllowNull()]
+        [AllowEmptyString()]
+        [string]$Value
+    )
+
+    if ([string]::IsNullOrEmpty($Value)) {
+        return "[not set]"
+    }
+
+    return ("[redacted, {0} characters]" -f $Value.Length)
+}
+
 function Get-IDNAccessToken {
     Write-Debug "Getting Access Token"
 
@@ -239,8 +270,8 @@ function Get-IDNAccessToken {
         throw "ClientId, ClientSecret or TokenUrl Missing. Please provide values in the environment or in ~/.sailpoint/config.yaml"
     } else {
         Write-Debug $Script:Configuration["TokenUrl"]
-        Write-Debug $Script:Configuration["ClientId"]
-        Write-Debug $Script:Configuration["ClientSecret"]
+        Write-Debug ("ClientId: {0}" -f (Format-RedactedValue $Script:Configuration["ClientId"]))
+        Write-Debug ("ClientSecret: {0}" -f (Format-RedactedValue $Script:Configuration["ClientSecret"]))
 
             $multipartContent = [System.Net.Http.MultipartFormDataContent]::new()
 
@@ -299,8 +330,14 @@ function Get-IDNAccessToken {
                 } 
 
             } catch {
-                Write-Debug ("Exception occurred when calling Invoke-WebRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-                Write-Debug ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+                if ($null -ne $_.ErrorDetails) {
+                    Write-Debug ("Exception occurred when calling Invoke-WebRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+                } else {
+                    Write-Debug ("Exception occurred when calling Invoke-WebRequest: {0}" -f $_.Exception.Message)
+                }
+                if ($null -ne $_.Exception.Response) {
+                    Write-Debug ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+                }
                 return $null
             }
     }

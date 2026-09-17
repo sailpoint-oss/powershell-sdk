@@ -20,6 +20,9 @@ concurrency:
   group: release-${{ github.repository }}
   cancel-in-progress: false
 
+permissions:
+  contents: read
+
 env:
   SAIL_CLIENT_ID: ${{ secrets.SDK_TEST_TENANT_CLIENT_ID }}
   SAIL_CLIENT_SECRET: ${{ secrets.SDK_TEST_TENANT_CLIENT_SECRET }}
@@ -49,8 +52,10 @@ jobs:
       - name: Determine whether to proceed
         id: check
         shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
         run: |
-          if [ "${{ github.event_name }}" != "schedule" ]; then
+          if [ "$EVENT_NAME" != "schedule" ]; then
             echo "proceed=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -103,20 +108,26 @@ jobs:
       - name: Determine version
         id: version
         shell: bash
+        env:
+          INPUT_VERSION: ${{ github.event.inputs.version }}
         run: |
           LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
           LATEST_VERSION="${LATEST_TAG#v}"
           echo "latest=$LATEST_VERSION" >> "$GITHUB_OUTPUT"
 
-          if [ -n "${{ github.event.inputs.version }}" ]; then
-            NEW_VERSION="${{ github.event.inputs.version }}"
+          if [ -n "$INPUT_VERSION" ]; then
+            if ! [[ "$INPUT_VERSION" =~ ^[0-9]{1,5}\.[0-9]{1,5}\.[0-9]{1,5}$ ]]; then
+              echo "::error::Invalid version input. Expected MAJOR.MINOR.PATCH (e.g. 2.0.0)."
+              exit 1
+            fi
+            NEW_VERSION="$INPUT_VERSION"
           else
             IFS='.' read -r MAJOR MINOR PATCH <<< "$LATEST_VERSION"
             PATCH=$((PATCH + 1))
             NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
           fi
 
-          function ver { printf "%03d%03d%03d%03d" $(echo "$1" | tr '.' ' '); }
+          function ver { printf "%05d%05d%05d%05d" $(echo "$1" | tr '.' ' '); }
           if [ "$(ver "$LATEST_VERSION")" -ge "$(ver "$NEW_VERSION")" ]; then
             echo "::error::New version $NEW_VERSION is not greater than current version $LATEST_VERSION"
             exit 1
@@ -127,8 +138,9 @@ jobs:
 
       - name: Update config files with new version
         shell: bash
+        env:
+          VERSION: ${{ steps.version.outputs.new }}
         run: |
-          VERSION="${{ steps.version.outputs.new }}"
           yq -i ".packageVersion = \"$VERSION\"" sdk-resources/nerm-config.yaml
           yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2025-nerm-config.yaml
           sed -i "s/const PACKAGE_VERSION = \"[^\"]*\"/const PACKAGE_VERSION = \"$VERSION\"/" sdk-resources/build-versioned-sdk.js

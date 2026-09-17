@@ -65,7 +65,6 @@ runs:
     - name: Run Build Scripts
       shell: pwsh
       run: |
-        $DebugPreference = "Continue"
         # Build per-partition modules (dynamically discovered)
         Get-ChildItem -Path './PSSailpoint' -Directory |
           Where-Object { $_.Name -notin @('nerm', 'nermV2025') -and (Test-Path (Join-Path $_.FullName 'src')) } |
@@ -82,7 +81,6 @@ runs:
     - name: Import Modules and Run Tests
       shell: pwsh
       run: |
-        $DebugPreference = "Continue"
         # Import all partition modules via the barrel module
         Import-Module -Name './PSSailpoint/PSSailpoint' -Verbose
         # Import NERM modules (not included in the partition barrel)

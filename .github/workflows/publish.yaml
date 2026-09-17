@@ -21,7 +21,6 @@ jobs:
       - name: Run Build Scripts
         shell: pwsh
         run: |
-          $DebugPreference = "Continue"
           # Build per-partition modules (dynamically discovered)
           Get-ChildItem -Path './PSSailpoint' -Directory |
             Where-Object { $_.Name -notin @('nerm', 'nermV2025') -and (Test-Path (Join-Path $_.FullName 'src')) } |
@@ -38,7 +37,6 @@ jobs:
       - name: Publish Module
         shell: pwsh
         run: |
-          $DebugPreference = "Continue"
 
           # Publish all per-partition modules (dynamically discovered)
           Get-ChildItem -Path './PSSailpoint' -Directory |

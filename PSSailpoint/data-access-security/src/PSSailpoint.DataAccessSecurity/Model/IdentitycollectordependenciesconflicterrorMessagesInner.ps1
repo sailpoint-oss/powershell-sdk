@@ -22,10 +22,10 @@ An indicator of how the locale was selected.
 Actual text of the error message in the indicated locale.
 .OUTPUTS
 
-PutIdentityCollectorV1409ResponseMessagesInner<PSCustomObject>
+IdentitycollectordependenciesconflicterrorMessagesInner<PSCustomObject>
 #>
 
-function Initialize-PutIdentityCollectorV1409ResponseMessagesInner {
+function Initialize-IdentitycollectordependenciesconflicterrorMessagesInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -40,7 +40,7 @@ function Initialize-PutIdentityCollectorV1409ResponseMessagesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => PutIdentityCollectorV1409ResponseMessagesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => IdentitycollectordependenciesconflicterrorMessagesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -57,11 +57,11 @@ function Initialize-PutIdentityCollectorV1409ResponseMessagesInner {
 <#
 .SYNOPSIS
 
-Convert from JSON to PutIdentityCollectorV1409ResponseMessagesInner<PSCustomObject>
+Convert from JSON to IdentitycollectordependenciesconflicterrorMessagesInner<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to PutIdentityCollectorV1409ResponseMessagesInner<PSCustomObject>
+Convert from JSON to IdentitycollectordependenciesconflicterrorMessagesInner<PSCustomObject>
 
 .PARAMETER Json
 
@@ -69,21 +69,21 @@ Json object
 
 .OUTPUTS
 
-PutIdentityCollectorV1409ResponseMessagesInner<PSCustomObject>
+IdentitycollectordependenciesconflicterrorMessagesInner<PSCustomObject>
 #>
-function ConvertFrom-JsonToPutIdentityCollectorV1409ResponseMessagesInner {
+function ConvertFrom-JsonToIdentitycollectordependenciesconflicterrorMessagesInner {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => PutIdentityCollectorV1409ResponseMessagesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => IdentitycollectordependenciesconflicterrorMessagesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in PutIdentityCollectorV1409ResponseMessagesInner
+        # check if Json contains properties not defined in IdentitycollectordependenciesconflicterrorMessagesInner
         $AllProperties = ("locale", "localeOrigin", "text")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

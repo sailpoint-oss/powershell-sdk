@@ -22,10 +22,10 @@ Unique tracking id for the error.
 Generic localized reason for error.
 .OUTPUTS
 
-PutIdentityCollectorV1409Response<PSCustomObject>
+CreateIdentityCollectorV1409Response<PSCustomObject>
 #>
 
-function Initialize-PutIdentityCollectorV1409Response {
+function Initialize-CreateIdentityCollectorV1409Response {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -40,7 +40,7 @@ function Initialize-PutIdentityCollectorV1409Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => PutIdentityCollectorV1409Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => CreateIdentityCollectorV1409Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -57,11 +57,11 @@ function Initialize-PutIdentityCollectorV1409Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to PutIdentityCollectorV1409Response<PSCustomObject>
+Convert from JSON to CreateIdentityCollectorV1409Response<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to PutIdentityCollectorV1409Response<PSCustomObject>
+Convert from JSON to CreateIdentityCollectorV1409Response<PSCustomObject>
 
 .PARAMETER Json
 
@@ -69,21 +69,21 @@ Json object
 
 .OUTPUTS
 
-PutIdentityCollectorV1409Response<PSCustomObject>
+CreateIdentityCollectorV1409Response<PSCustomObject>
 #>
-function ConvertFrom-JsonToPutIdentityCollectorV1409Response {
+function ConvertFrom-JsonToCreateIdentityCollectorV1409Response {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => PutIdentityCollectorV1409Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => CreateIdentityCollectorV1409Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in PutIdentityCollectorV1409Response
+        # check if Json contains properties not defined in CreateIdentityCollectorV1409Response
         $AllProperties = ("detailCode", "trackingId", "messages")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

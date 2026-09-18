@@ -2111,7 +2111,7 @@ List identity collectors
 This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or*
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  **name**: *eq, co*  For `name`, `eq` performs an exact match and `co` performs a contains (substring) match. Use public type display names from [List Identity Collector Types](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1) with `type` filters (for example, `AWS`, not `AWS SaaS`).  Supported composite operators are *and, or*
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.

@@ -355,7 +355,7 @@ function Set-MachineAccountMappingsV1 {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/sources/v1/{sourceId}/machine-mappings'
+        $LocalVarUri = '/sources/v1/{sourceId}/machine-account-mappings'
         if (!$SourceId) {
             throw "Error! The required parameter `SourceId` missing when calling setMachineAccountMappingsV1."
         }

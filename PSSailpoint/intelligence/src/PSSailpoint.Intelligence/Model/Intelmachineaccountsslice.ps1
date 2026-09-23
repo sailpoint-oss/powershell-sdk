@@ -12,10 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Correlated machine accounts embedded on the non-human identity aggregate. Returns the correlated account set on the wire today (account paging via child routes is not yet released). 
+Machine accounts embedded on the non-human identity aggregate (first page).
 
 .PARAMETER Items
-Machine account rows correlated to the non-human identity.
+Machine accounts correlated to the non-human identity.
+.PARAMETER TotalCount
+Correlated machine account count from aggregation; omitted when items is empty.
+.PARAMETER Next
+Next page URL when totalCount exceeds items returned. Includes isNHI=true.
 .OUTPUTS
 
 Intelmachineaccountsslice<PSCustomObject>
@@ -26,7 +30,13 @@ function Initialize-Intelmachineaccountsslice {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${Items}
+        ${Items},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${TotalCount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Next}
     )
 
     Process {
@@ -37,9 +47,15 @@ function Initialize-Intelmachineaccountsslice {
             throw "invalid value for 'Items', 'Items' cannot be null."
         }
 
+        if ($TotalCount -and $TotalCount -lt 1) {
+          throw "invalid value for 'TotalCount', must be greater than or equal to 1."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "items" = ${Items}
+            "totalCount" = ${TotalCount}
+            "next" = ${Next}
         }
 
         return $PSO
@@ -76,7 +92,7 @@ function ConvertFrom-JsonToIntelmachineaccountsslice {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Intelmachineaccountsslice
-        $AllProperties = ("items")
+        $AllProperties = ("items", "totalCount", "next")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -93,8 +109,22 @@ function ConvertFrom-JsonToIntelmachineaccountsslice {
             $Items = $JsonParameters.PSobject.Properties["items"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalCount"))) { #optional property not found
+            $TotalCount = $null
+        } else {
+            $TotalCount = $JsonParameters.PSobject.Properties["totalCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "next"))) { #optional property not found
+            $Next = $null
+        } else {
+            $Next = $JsonParameters.PSobject.Properties["next"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "items" = ${Items}
+            "totalCount" = ${TotalCount}
+            "next" = ${Next}
         }
 
         return $PSO

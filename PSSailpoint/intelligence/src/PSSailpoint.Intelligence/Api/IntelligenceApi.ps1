@@ -100,7 +100,7 @@ Get identity by filter
 
 .DESCRIPTION
 
-Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller's Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. When the tenant has idn:machine-identity-security, nonHumanIdentityOwnership is included with agents and applications categories; each category is a flat object with independently paged primaryOwned and secondaryOwned buckets, and optional message/reason when upstream ownership fetch fails for that category (reason UPSTREAM_UNAVAILABLE). When the tenant lacks that license, nonHumanIdentityOwnership is omitted. Continue ownership paging with GET .../non-human-identity-ownership/{category} and optional ownershipRole=primary|secondary (defaults to primary). If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers (omitted when the tenant lacks the IDA-outliers license) and nonHumanIdentityOwnership category-level degrade (aggregate still returns HTTP 200).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory, nonHumanIdentityOwnership). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
+Requires tenant license idn:response-and-remediation.  **Caution:** When Data Segmentation is enabled, generic API Management API keys are not tied to a user identity and may fail or return incomplete data. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression. Returns an enriched Human or non-human identity (NHI) envelope. Single-clause filters only; unsupported fields or operators return HTTP 400. 
 
 .PARAMETER Filters
 Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
@@ -278,7 +278,7 @@ List identity accounts
 
 .DESCRIPTION
 
-Continuation endpoint for a Human identity's `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Not applicable to non-human identities (NHI accounts are returned on the NHI aggregate only). Requires tenant license idn:response-and-remediation. 
+Continuation endpoint for `accounts.next`. Pass `count=true` for `X-Total-Count`.  - Human (default): omit `isNHI` or set it to `false`. Slice object (`items`). - Non-human identity (NHI): set `isNHI=true` (required for NHI aggregate `accounts.next` links). Bare JSON array. 
 
 .PARAMETER Id
 Non-empty identity id path segment for Intelligence sub-resources.
@@ -292,13 +292,16 @@ Zero-based page offset. Defaults to 0.
 .PARAMETER Count
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
+.PARAMETER IsNHI
+NHI accounts when `true` (bare array). Human accounts when omitted or `false` (slice object). 
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
 
 .OUTPUTS
 
-IntelAccessAccountWire[]
+GetIntelIdentityAccountsV1200Response
 #>
 function Get-IntelIdentityAccountsV1 {
     [CmdletBinding()]
@@ -315,6 +318,9 @@ function Get-IntelIdentityAccountsV1 {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${IsNHI},
         [Switch]
         $WithHttpInfo
     )
@@ -353,6 +359,10 @@ function Get-IntelIdentityAccountsV1 {
             $LocalVarQueryParameters['count'] = $Count
         }
 
+        if ($IsNHI) {
+            $LocalVarQueryParameters['isNHI'] = $IsNHI
+        }
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -362,8 +372,11 @@ function Get-IntelIdentityAccountsV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "IntelAccessAccountWire[]" `
+                                -ReturnType "GetIntelIdentityAccountsV1200Response" `
                                 -IsBodyNullable $false
+
+        # process oneOf response
+        $LocalVarResult["Response"] = ConvertFrom-JsonToGetIntelIdentityAccountsV1200Response (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult

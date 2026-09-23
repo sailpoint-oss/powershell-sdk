@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelligenceApi' {
 
     Context 'Get-IntelIdentityAccountsV1' {
         It 'Test Get-IntelIdentityAccountsV1' {
-            #$TestResult = Get-IntelIdentityAccountsV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-IntelIdentityAccountsV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -IsNHI "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

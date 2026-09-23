@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'Intelmachineaccountsslice' {
     Context 'Intelmachineaccountsslice' {
         It 'Initialize-Intelmachineaccountsslice' {
             # a simple test to create an object
-            #$NewObject = Initialize-Intelmachineaccountsslice -Items "TEST_VALUE"
+            #$NewObject = Initialize-Intelmachineaccountsslice -Items "TEST_VALUE" -TotalCount "TEST_VALUE" -Next "TEST_VALUE"
             #$NewObject | Should -BeOfType Intelmachineaccountsslice
             #$NewObject.property | Should -Be 0
         }

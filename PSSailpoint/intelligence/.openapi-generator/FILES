@@ -7,6 +7,7 @@ docs/ErrorMessageDto.md
 docs/ErrorResponseDto.md
 docs/GetIdentityIntelligenceV1401Response.md
 docs/GetIdentityIntelligenceV1429Response.md
+docs/GetIntelIdentityAccountsV1200Response.md
 docs/IntelAccessAccountWire.md
 docs/IntelAccessHistory.md
 docs/IntelAccessHistoryAccessItemsSlice.md
@@ -57,6 +58,7 @@ src/PSSailpoint.Intelligence/Model/ErrorMessageDto.ps1
 src/PSSailpoint.Intelligence/Model/ErrorResponseDto.ps1
 src/PSSailpoint.Intelligence/Model/GetIdentityIntelligenceV1401Response.ps1
 src/PSSailpoint.Intelligence/Model/GetIdentityIntelligenceV1429Response.ps1
+src/PSSailpoint.Intelligence/Model/GetIntelIdentityAccountsV1200Response.ps1
 src/PSSailpoint.Intelligence/Model/IntelAccessAccountWire.ps1
 src/PSSailpoint.Intelligence/Model/IntelAccessHistory.ps1
 src/PSSailpoint.Intelligence/Model/IntelAccessHistoryAccessItemsSlice.ps1
@@ -110,6 +112,7 @@ tests/Model/ErrorMessageDto.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
 tests/Model/GetIdentityIntelligenceV1401Response.Tests.ps1
 tests/Model/GetIdentityIntelligenceV1429Response.Tests.ps1
+tests/Model/GetIntelIdentityAccountsV1200Response.Tests.ps1
 tests/Model/IntelAccessAccountWire.Tests.ps1
 tests/Model/IntelAccessHistory.Tests.ps1
 tests/Model/IntelAccessHistoryAccessItemsSlice.Tests.ps1

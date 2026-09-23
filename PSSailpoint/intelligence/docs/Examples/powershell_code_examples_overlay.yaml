@@ -82,6 +82,7 @@
         $Limit = 250 # Int32 | Page size. Defaults to 250; values above 250 are rejected with 400. (optional) (default to 250)
         $Offset = 0 # Int32 | Zero-based page offset. Defaults to 0. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $IsNHI = $false # Boolean | NHI accounts when `true` (bare array). Human accounts when omitted or `false` (slice object).  (optional) (default to $false)
         
         # List identity accounts
         
@@ -89,7 +90,7 @@
             Get-IntelIdentityAccountsV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-IntelIdentityAccountsV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count   
+            # Get-IntelIdentityAccountsV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count -IsNHI $IsNHI   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityAccountsV1"
             Write-Host $_.ErrorDetails

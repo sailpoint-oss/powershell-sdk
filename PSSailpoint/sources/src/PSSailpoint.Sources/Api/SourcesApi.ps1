@@ -639,11 +639,11 @@ function New-SourceSchemaV1 {
 <#
 .SYNOPSIS
 
-Creates a source in identitynow.
+Create source
 
 .DESCRIPTION
 
-This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
+This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt.
 
 .PARAMETER Source
 No description available.
@@ -4444,11 +4444,11 @@ function Get-ProvisioningPoliciesV2 {
 <#
 .SYNOPSIS
 
-Lists all sources in identitynow.
+List sources
 
 .DESCRIPTION
 
-This end-point lists all the sources in IdentityNow.
+This end-point lists all the sources.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.

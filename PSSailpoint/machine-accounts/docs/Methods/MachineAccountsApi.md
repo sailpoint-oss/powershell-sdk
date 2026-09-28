@@ -18,13 +18,18 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-MachineAccountSubtypeV1**](#create-machine-account-subtype-v1) | **POST** `/sources/v1/{sourceId}/subtypes` | Create subtype
+[**Remove-MachineAccountAsyncV1**](#delete-machine-account-async-v1) | **POST** `/machine-accounts/v1/{id}/remove` | Remove machine account
 [**Remove-MachineAccountSubtypeByTechnicalNameV1**](#delete-machine-account-subtype-by-technical-name-v1) | **DELETE** `/sources/v1/{sourceId}/subtypes/{technicalName}` | Delete subtype
+[**Disable-MachineAccountV1**](#disable-machine-account-v1) | **POST** `/machine-accounts/v1/{id}/disable` | Disable machine account
+[**Enable-MachineAccountV1**](#enable-machine-account-v1) | **POST** `/machine-accounts/v1/{id}/enable` | Enable machine account
 [**Get-MachineAccountSubtypeByIdV1**](#get-machine-account-subtype-by-id-v1) | **GET** `/sources/v1/subtypes/{subtypeId}` | Retrieve subtype by subtype id
 [**Get-MachineAccountSubtypeByTechnicalNameV1**](#get-machine-account-subtype-by-technical-name-v1) | **GET** `/sources/v1/{sourceId}/subtypes/{technicalName}` | Retrieve subtype by source and technicalName
 [**Get-MachineAccountV1**](#get-machine-account-v1) | **GET** `/machine-accounts/v1/{id}` | Get machine account details
 [**Get-MachineAccountSubtypesV1**](#list-machine-account-subtypes-v1) | **GET** `/sources/v1/{sourceId}/subtypes` | Retrieve all subtypes by source
 [**Get-MachineAccountsV1**](#list-machine-accounts-v1) | **GET** `/machine-accounts/v1` | List machine accounts
 [**Update-MachineAccountSubtypeByTechnicalNameV1**](#patch-machine-account-subtype-by-technical-name-v1) | **PATCH** `/sources/v1/{sourceId}/subtypes/{technicalName}` | Patch subtype
+[**Invoke-ReloadMachineAccountV1**](#reload-machine-account-v1) | **POST** `/machine-accounts/v1/{id}/reload` | Reload machine account
+[**Unlock-MachineAccountV1**](#unlock-machine-account-v1) | **POST** `/machine-accounts/v1/{id}/unlock` | Unlock machine account
 [**Update-MachineAccountV1**](#update-machine-account-v1) | **PATCH** `/machine-accounts/v1/{id}` | Update machine account details
 
 
@@ -84,6 +89,68 @@ try {
 ```
 [[Back to top]](#) 
 
+## delete-machine-account-async-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to remove a machine account from Identity Security Cloud. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.
+
+This endpoint is intended for:
+
+* Removing machine accounts that no longer exist on the source.
+
+* Removing machine accounts that will not be aggregated after a source configuration change.
+
+* Forcing machine accounts to be re-created on the next aggregation so account processing can run again.
+
+A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-machine-account-async-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Machine Account ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**MachineAccountsAsyncResult**](../models/machine-accounts-async-result)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Async task details. | MachineAccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Remove machine account
+
+try {
+    Remove-MachineAccountAsyncV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-MachineAccountAsyncV1 -Id $Id -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountAsyncV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## delete-machine-account-subtype-by-technical-name-v1
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
@@ -134,6 +201,114 @@ try {
     # Remove-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountSubtypeByTechnicalNameV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## disable-machine-account-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API submits a task to disable a machine account and returns the task ID.
+
+A caller who owns the machine account can disable it. Other callers need the **idn:mis-account:disable** right.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/disable-machine-account-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Machine Account ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**MachineAccountsAsyncResult**](../models/machine-accounts-async-result)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Async task details. | MachineAccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Disable machine account
+
+try {
+    Disable-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Disable-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-MachineAccountV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## enable-machine-account-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API submits a task to enable a machine account and returns the task ID.
+
+A caller who owns the machine account can enable it. Other callers need the **idn:mis-account:enable** right.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/enable-machine-account-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Machine Account ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**MachineAccountsAsyncResult**](../models/machine-accounts-async-result)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Async task details. | MachineAccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Enable machine account
+
+try {
+    Enable-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Enable-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-MachineAccountV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -476,6 +651,114 @@ try {
     # Update-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountSubtypeByTechnicalNameV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## reload-machine-account-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API asynchronously reloads the machine account directly from the connector and performs a one-time aggregation. It returns the task ID.
+
+A caller who owns the machine account can reload it. Other callers need the **idn:mis-account:reload** right.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/reload-machine-account-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Machine Account ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**MachineAccountsAsyncResult**](../models/machine-accounts-async-result)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Async task details. | MachineAccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Reload machine account
+
+try {
+    Invoke-ReloadMachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Invoke-ReloadMachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReloadMachineAccountV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## unlock-machine-account-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API submits a task to unlock a machine account and returns the task ID.
+
+A caller who owns the machine account can unlock it. Other callers need the **idn:mis-account:unlock** right.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/unlock-machine-account-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Machine Account ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**MachineAccountsAsyncResult**](../models/machine-accounts-async-result)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Async task details. | MachineAccountsAsyncResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Unlock machine account
+
+try {
+    Unlock-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Unlock-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Unlock-MachineAccountV1"
     Write-Host $_.ErrorDetails
 }
 ```

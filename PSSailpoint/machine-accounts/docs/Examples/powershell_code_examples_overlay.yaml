@@ -22,6 +22,26 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountSubtypeV1"
             Write-Host $_.ErrorDetails
         }
+- path: /machine-accounts/v1/{id}/remove
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#delete-machine-account-async-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Remove machine account
+        
+        try {
+            Remove-MachineAccountAsyncV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MachineAccountAsyncV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountAsyncV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/v1/{sourceId}/subtypes/{technicalName}
   method: DELETE
   xCodeSample:
@@ -41,6 +61,46 @@
             # Remove-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountSubtypeByTechnicalNameV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/{id}/disable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#disable-machine-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Disable machine account
+        
+        try {
+            Disable-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Disable-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-MachineAccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/{id}/enable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#enable-machine-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Enable machine account
+        
+        try {
+            Enable-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Enable-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-MachineAccountV1"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/subtypes/{subtypeId}
@@ -176,6 +236,46 @@
             # Update-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountSubtypeByTechnicalNameV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/{id}/reload
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#reload-machine-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Reload machine account
+        
+        try {
+            Invoke-ReloadMachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-ReloadMachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReloadMachineAccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/{id}/unlock
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#unlock-machine-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Unlock machine account
+        
+        try {
+            Unlock-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Unlock-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Unlock-MachineAccountV1"
             Write-Host $_.ErrorDetails
         }
 - path: /machine-accounts/v1/{id}

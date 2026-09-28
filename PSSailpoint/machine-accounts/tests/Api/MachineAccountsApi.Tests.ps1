@@ -14,9 +14,33 @@ Describe -tag 'PSSailpoint.MachineAccounts' -name 'MachineAccountsApi' {
         }
     }
 
+    Context 'Remove-MachineAccountAsyncV1' {
+        It 'Test Remove-MachineAccountAsyncV1' {
+            #$TestResult = Remove-MachineAccountAsyncV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-MachineAccountSubtypeByTechnicalNameV1' {
         It 'Test Remove-MachineAccountSubtypeByTechnicalNameV1' {
             #$TestResult = Remove-MachineAccountSubtypeByTechnicalNameV1 -SourceId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Disable-MachineAccountV1' {
+        It 'Test Disable-MachineAccountV1' {
+            #$TestResult = Disable-MachineAccountV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Enable-MachineAccountV1' {
+        It 'Test Enable-MachineAccountV1' {
+            #$TestResult = Enable-MachineAccountV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -65,6 +89,22 @@ Describe -tag 'PSSailpoint.MachineAccounts' -name 'MachineAccountsApi' {
     Context 'Update-MachineAccountSubtypeByTechnicalNameV1' {
         It 'Test Update-MachineAccountSubtypeByTechnicalNameV1' {
             #$TestResult = Update-MachineAccountSubtypeByTechnicalNameV1 -SourceId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -RequestBody "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-ReloadMachineAccountV1' {
+        It 'Test Invoke-ReloadMachineAccountV1' {
+            #$TestResult = Invoke-ReloadMachineAccountV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Unlock-MachineAccountV1' {
+        It 'Test Unlock-MachineAccountV1' {
+            #$TestResult = Unlock-MachineAccountV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

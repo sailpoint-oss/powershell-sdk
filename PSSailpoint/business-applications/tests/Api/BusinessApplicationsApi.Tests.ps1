@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.BusinessApplications' -name 'BusinessApplicationsApi' {
     Context 'New-BusinessApplicationV1' {
         It 'Test New-BusinessApplicationV1' {
-            #$TestResult = New-BusinessApplicationV1 -BusinessApplication "TEST_VALUE"
+            #$TestResult = New-BusinessApplicationV1 -XSailPointExperimental "TEST_VALUE" -BusinessApplication "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.BusinessApplications' -name 'BusinessApplicationsApi'
 
     Context 'Get-BusinessApplicationV1' {
         It 'Test Get-BusinessApplicationV1' {
-            #$TestResult = Get-BusinessApplicationV1 -Id "TEST_VALUE"
+            #$TestResult = Get-BusinessApplicationV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.BusinessApplications' -name 'BusinessApplicationsApi'
 
     Context 'Get-BusinessApplicationsV1' {
         It 'Test Get-BusinessApplicationsV1' {
-            #$TestResult = Get-BusinessApplicationsV1 -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-BusinessApplicationsV1 -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.BusinessApplications' -name 'BusinessApplicationsApi'
 
     Context 'Update-BusinessApplicationV1' {
         It 'Test Update-BusinessApplicationV1' {
-            #$TestResult = Update-BusinessApplicationV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-BusinessApplicationV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

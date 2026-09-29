@@ -313,14 +313,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessrequests/methods/access-requests#get-access-request-config-v2
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get access request configuration
         
         try {
-            Get-AccessRequestConfigV2 
+            Get-AccessRequestConfigV2 -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-AccessRequestConfigV2   
+            # Get-AccessRequestConfigV2 -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestConfigV2"
             Write-Host $_.ErrorDetails
@@ -709,6 +710,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/accessrequests/methods/access-requests#set-access-request-config-v2
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $AccessRequestConfig2 = @"
         
         "@
@@ -717,10 +719,10 @@
         
         try {
             $Result = ConvertFrom-JsonToAccessRequestConfig2 -Json $AccessRequestConfig2
-            Set-AccessRequestConfigV2 -AccessRequestConfig2 $Result 
+            Set-AccessRequestConfigV2 -XSailPointExperimental $XSailPointExperimental -AccessRequestConfig2 $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-AccessRequestConfigV2 -AccessRequestConfig2 $Result   
+            # Set-AccessRequestConfigV2 -XSailPointExperimental $XSailPointExperimental -AccessRequestConfig2 $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestConfigV2"
             Write-Host $_.ErrorDetails

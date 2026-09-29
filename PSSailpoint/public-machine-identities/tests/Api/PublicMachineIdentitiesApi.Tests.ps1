@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.PublicMachineIdentities' -name 'PublicMachineIdentitiesApi' {
     Context 'Get-PublicMachineIdentitiesV1' {
         It 'Test Get-PublicMachineIdentitiesV1' {
-            #$TestResult = Get-PublicMachineIdentitiesV1 -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-PublicMachineIdentitiesV1 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

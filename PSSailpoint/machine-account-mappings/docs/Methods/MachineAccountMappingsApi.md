@@ -205,6 +205,9 @@ try {
 [[Back to top]](#) 
 
 ## set-machine-account-mappings-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/set-machine-account-mappings-v-1)
@@ -213,6 +216,7 @@ Use this API to update Machine Account Attribute Mapping for a Source. A token w
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | AttributeMappings | [**AttributeMappings**](../models/attribute-mappings) | True  | 
 
 ### Return type
@@ -236,6 +240,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $AttributeMappings = @"{
   "transformDefinition" : {
     "attributes" : {
@@ -262,10 +267,10 @@ $AttributeMappings = @"{
 
 try {
     $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
-    Set-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result 
+    Set-MachineAccountMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -AttributeMappings $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-MachineAccountMappingsV1 -SourceId $SourceId -AttributeMappings $Result  
+    # Set-MachineAccountMappingsV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -AttributeMappings $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MachineAccountMappingsV1"
     Write-Host $_.ErrorDetails

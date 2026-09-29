@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'AccessRequestsApi' {
 
     Context 'Get-AccessRequestConfigV2' {
         It 'Test Get-AccessRequestConfigV2' {
-            #$TestResult = Get-AccessRequestConfigV2
+            #$TestResult = Get-AccessRequestConfigV2 -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.AccessRequests' -name 'AccessRequestsApi' {
 
     Context 'Set-AccessRequestConfigV2' {
         It 'Test Set-AccessRequestConfigV2' {
-            #$TestResult = Set-AccessRequestConfigV2 -AccessRequestConfig2 "TEST_VALUE"
+            #$TestResult = Set-AccessRequestConfigV2 -XSailPointExperimental "TEST_VALUE" -AccessRequestConfig2 "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

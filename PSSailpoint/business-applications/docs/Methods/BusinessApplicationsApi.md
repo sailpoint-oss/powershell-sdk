@@ -24,6 +24,9 @@ Method | HTTP request | Description
 
 
 ## create-business-application-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Creates a custom Business Application. Requires the `idn:business-application:create` right, the Machine Identity Security product to be enabled, and the custom Business Application feature to be enabled for the tenant. The `name` must be unique within the tenant, and any provided `signatures` must not already be assigned to another Business Application.
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-business-application-v-1)
@@ -31,6 +34,7 @@ Creates a custom Business Application. Requires the `idn:business-application:cr
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | BusinessApplication | [**BusinessApplication**](../models/business-application) | True  | 
 
 ### Return type
@@ -53,6 +57,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $BusinessApplication = @"{
   "owner" : {
     "name" : "William Wilson",
@@ -94,10 +99,10 @@ $BusinessApplication = @"{
 
 try {
     $Result = ConvertFrom-JsonToBusinessApplication -Json $BusinessApplication
-    New-BusinessApplicationV1 -BusinessApplication $Result 
+    New-BusinessApplicationV1 -XSailPointExperimental $XSailPointExperimental -BusinessApplication $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BusinessApplicationV1 -BusinessApplication $Result  
+    # New-BusinessApplicationV1 -XSailPointExperimental $XSailPointExperimental -BusinessApplication $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BusinessApplicationV1"
     Write-Host $_.ErrorDetails
@@ -106,6 +111,9 @@ try {
 [[Back to top]](#) 
 
 ## get-business-application-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Returns a single Business Application by ID for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-business-application-v-1)
@@ -114,6 +122,7 @@ Returns a single Business Application by ID for the requesting tenant. Requires 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Business Application ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**BusinessApplication**](../models/business-application)
@@ -136,14 +145,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "a1b2c3d4-e5f6-7890-abcd-ef1234567890" # String | Business Application ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get Business Application
 
 try {
-    Get-BusinessApplicationV1 -Id $Id 
+    Get-BusinessApplicationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-BusinessApplicationV1 -Id $Id  
+    # Get-BusinessApplicationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BusinessApplicationV1"
     Write-Host $_.ErrorDetails
@@ -152,6 +162,9 @@ try {
 [[Back to top]](#) 
 
 ## list-business-applications-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Returns the list of Business Applications defined for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-business-applications-v-1)
@@ -159,6 +172,7 @@ Returns the list of Business Applications defined for the requesting tenant. Req
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq, co*  **vendor**: *eq, co*  **signatures.type**: *eq, co*  **signatures.name**: *eq, co*  **source.name**: *eq, co*  **sanctionedStatus**: *eq*
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, sanctionedStatus**
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -184,6 +198,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Filters = 'sanctionedStatus eq "SANCTIONED"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq, co*  **vendor**: *eq, co*  **signatures.type**: *eq, co*  **signatures.name**: *eq, co*  **source.name**: *eq, co*  **sanctionedStatus**: *eq* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, sanctionedStatus** (optional)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -193,10 +208,10 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List Business Applications
 
 try {
-    Get-BusinessApplicationsV1 
+    Get-BusinessApplicationsV1 -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-BusinessApplicationsV1 -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset  
+    # Get-BusinessApplicationsV1 -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BusinessApplicationsV1"
     Write-Host $_.ErrorDetails
@@ -205,6 +220,9 @@ try {
 [[Back to top]](#) 
 
 ## update-business-application-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Updates a Business Application using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires the `idn:business-application:update` right and the Machine Identity Security product to be enabled. Patchable fields: `name`, `description`, `owner`, `additionalOwners`, `sanctionedStatus`, and `signatures`. Modifying `signatures` additionally requires the custom Business Application feature to be enabled.
 
 [API Spec](https://developer.sailpoint.com/docs/api/update-business-application-v-1)
@@ -213,6 +231,7 @@ Updates a Business Application using the [JSON Patch](https://tools.ietf.org/htm
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Business Application ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A JSON array of patch operations per RFC 6902.
 
 ### Return type
@@ -237,6 +256,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "a1b2c3d4-e5f6-7890-abcd-ef1234567890" # String | Business Application ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
@@ -252,10 +272,10 @@ $Id = "a1b2c3d4-e5f6-7890-abcd-ef1234567890" # String | Business Application ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BusinessApplicationV1 -Id $Id -JsonPatchOperation $Result 
+    Update-BusinessApplicationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BusinessApplicationV1 -Id $Id -JsonPatchOperation $Result  
+    # Update-BusinessApplicationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BusinessApplicationV1"
     Write-Host $_.ErrorDetails

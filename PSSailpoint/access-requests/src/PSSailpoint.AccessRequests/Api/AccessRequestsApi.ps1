@@ -516,6 +516,9 @@ Get access request configuration
 
 This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -527,6 +530,9 @@ AccessRequestConfig2
 function Get-AccessRequestConfigV2 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -548,6 +554,11 @@ function Get-AccessRequestConfigV2 {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/access-request-config/v2'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getAccessRequestConfigV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -1182,6 +1193,9 @@ Update access request configuration
 
 This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER AccessRequestConfig2
 No description available.
 
@@ -1197,6 +1211,9 @@ function Set-AccessRequestConfigV2 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${AccessRequestConfig2},
         [Switch]
@@ -1223,6 +1240,11 @@ function Set-AccessRequestConfigV2 {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/access-request-config/v2'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling setAccessRequestConfigV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$AccessRequestConfig2) {
             throw "Error! The required parameter `AccessRequestConfig2` missing when calling setAccessRequestConfigV2."

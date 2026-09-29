@@ -57,6 +57,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#create-machine-identity-v2
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Machineidentityv2 = @"
         {
           "sourceId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
@@ -142,10 +143,10 @@
         
         try {
             $Result = ConvertFrom-JsonToMachineidentityv2 -Json $Machineidentityv2
-            New-MachineIdentityV2 -Machineidentityv2 $Result 
+            New-MachineIdentityV2 -XSailPointExperimental $XSailPointExperimental -Machineidentityv2 $Result 
     
             # Below is a request that includes all optional parameters
-            # New-MachineIdentityV2 -Machineidentityv2 $Result   
+            # New-MachineIdentityV2 -XSailPointExperimental $XSailPointExperimental -Machineidentityv2 $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineIdentityV2"
             Write-Host $_.ErrorDetails
@@ -177,14 +178,15 @@
       label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#delete-machine-identity-v2
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete machine identity
         
         try {
-            Remove-MachineIdentityV2 -Id $Id 
+            Remove-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Remove-MachineIdentityV2 -Id $Id   
+            # Remove-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineIdentityV2"
             Write-Host $_.ErrorDetails
@@ -198,14 +200,15 @@
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
         $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation config ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete ownership correlation config
         
         try {
-            Remove-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId 
+            Remove-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Remove-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId   
+            # Remove-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-OwnershipCorrelationConfigV1"
             Write-Host $_.ErrorDetails
@@ -237,14 +240,15 @@
       label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#get-machine-identity-v2
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get machine identity details
         
         try {
-            Get-MachineIdentityV2 -Id $Id 
+            Get-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-MachineIdentityV2 -Id $Id   
+            # Get-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentityV2"
             Write-Host $_.ErrorDetails
@@ -258,14 +262,15 @@
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
         $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation config ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get ownership correlation config
         
         try {
-            Get-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId 
+            Get-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId   
+            # Get-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OwnershipCorrelationConfigV1"
             Write-Host $_.ErrorDetails
@@ -319,6 +324,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#list-machine-identities-v2
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryGovernanceGroup.id**: *eq, in*  **owners.secondaryGovernanceGroup.name**: *eq, in, isnull, pr*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **risk.severity**: *eq, in*  **businessApplicationRefs.id**: *eq*  **effectiveSanctionedStatus**: *eq*  Business Application filters require Business Applications to be enabled for the tenant. Filter values are case-sensitive. When Business Applications is not enabled, these filters are not allowed and return `400`. (optional)
         $Sorters = "nativeIdentity" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified** (optional)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -328,10 +334,10 @@
         # List machine identities
         
         try {
-            Get-MachineIdentitiesV2 
+            Get-MachineIdentitiesV2 -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-MachineIdentitiesV2 -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
+            # Get-MachineIdentitiesV2 -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentitiesV2"
             Write-Host $_.ErrorDetails
@@ -392,6 +398,7 @@
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Type = "OWNER_PRIMARY" # String | When set, filters to the given config type. (optional)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -400,10 +407,10 @@
         # List ownership correlation configs
         
         try {
-            Get-OwnershipCorrelationConfigsV1 -SourceId $SourceId -ResourceId $ResourceId 
+            Get-OwnershipCorrelationConfigsV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-OwnershipCorrelationConfigsV1 -SourceId $SourceId -ResourceId $ResourceId -Type $Type -Count $Count -Limit $Limit -Offset $Offset   
+            # Get-OwnershipCorrelationConfigsV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental -Type $Type -Count $Count -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OwnershipCorrelationConfigsV1"
             Write-Host $_.ErrorDetails
@@ -417,6 +424,7 @@
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
         $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation config ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -428,10 +436,10 @@
         
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -JsonPatchOperation $Result 
+            Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -JsonPatchOperation $Result   
+            # Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-OwnershipCorrelationConfigV1"
             Write-Host $_.ErrorDetails
@@ -494,6 +502,7 @@
       label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#update-machine-identity-v2
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -505,10 +514,10 @@
         
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-MachineIdentityV2 -Id $Id -JsonPatchOperation $Result 
+            Update-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-MachineIdentityV2 -Id $Id -JsonPatchOperation $Result   
+            # Update-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineIdentityV2"
             Write-Host $_.ErrorDetails

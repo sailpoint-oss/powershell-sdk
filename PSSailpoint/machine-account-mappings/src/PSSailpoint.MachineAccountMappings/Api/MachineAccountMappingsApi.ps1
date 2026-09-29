@@ -312,6 +312,9 @@ Use this API to update Machine Account Attribute Mapping for a Source. A token w
 .PARAMETER SourceId
 Source ID.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER AttributeMappings
 No description available.
 
@@ -330,6 +333,9 @@ function Set-MachineAccountMappingsV1 {
         [String]
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${AttributeMappings},
         [Switch]
@@ -360,6 +366,11 @@ function Set-MachineAccountMappingsV1 {
             throw "Error! The required parameter `SourceId` missing when calling setMachineAccountMappingsV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling setMachineAccountMappingsV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$AttributeMappings) {
             throw "Error! The required parameter `AttributeMappings` missing when calling setMachineAccountMappingsV1."

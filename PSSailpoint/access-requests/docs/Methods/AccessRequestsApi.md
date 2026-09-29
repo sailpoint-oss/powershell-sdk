@@ -582,6 +582,9 @@ try {
 [[Back to top]](#) 
 
 ## get-access-request-config-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint returns the current access-request configuration.
 
 To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
@@ -591,6 +594,7 @@ To manage approval configurations, use the [Put approval config](https://develop
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**AccessRequestConfig2**](../models/access-request-config2)
@@ -611,14 +615,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get access request configuration
 
 try {
-    Get-AccessRequestConfigV2 
+    Get-AccessRequestConfigV2 -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-AccessRequestConfigV2  
+    # Get-AccessRequestConfigV2 -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestConfigV2"
     Write-Host $_.ErrorDetails
@@ -1192,6 +1197,9 @@ try {
 [[Back to top]](#) 
 
 ## set-access-request-config-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint replaces the current access-request configuration.
 
 To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
@@ -1201,6 +1209,7 @@ To manage approval configurations, use the [Put approval config](https://develop
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | AccessRequestConfig2 | [**AccessRequestConfig2**](../models/access-request-config2) | True  | 
 
 ### Return type
@@ -1222,16 +1231,17 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $AccessRequestConfig2 = @""@
 
 # Update access request configuration
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig2 -Json $AccessRequestConfig2
-    Set-AccessRequestConfigV2 -AccessRequestConfig2 $Result 
+    Set-AccessRequestConfigV2 -XSailPointExperimental $XSailPointExperimental -AccessRequestConfig2 $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-AccessRequestConfigV2 -AccessRequestConfig2 $Result  
+    # Set-AccessRequestConfigV2 -XSailPointExperimental $XSailPointExperimental -AccessRequestConfig2 $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestConfigV2"
     Write-Host $_.ErrorDetails

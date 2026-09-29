@@ -121,6 +121,9 @@ try {
 [[Back to top]](#) 
 
 ## create-machine-identity-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to create a machine identity. Additional owners may be either up to ten human (IDENTITY) references or exactly one GOVERNANCE_GROUP reference - not both. The maximum supported length for the description field is 2000 characters.
 
 When Business Applications is enabled for the tenant, callers may optionally include a single `businessApplicationRefs` entry (`type`=`BUSINESS_APPLICATION`, `id`=BA UUID). The assignment is stored as a `MANUAL` correlation. `correlationType` may be omitted or `MANUAL`; `AUTOMATIC` is rejected (`400`). Unknown BA id returns `404`. More than one ref returns `400`. When Business Applications is not enabled, supplying `businessApplicationRefs` returns `400`. `sanctionedStatus` and `effectiveSanctionedStatus` are read-only and ignored on input.
@@ -130,6 +133,7 @@ When Business Applications is enabled for the tenant, callers may optionally inc
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | Machineidentityv2 | [**Machineidentityv2**](../models/machineidentityv2) | True  | 
 
 ### Return type
@@ -152,6 +156,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Machineidentityv2 = @"{
   "sourceId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
   "resource" : {
@@ -235,10 +240,10 @@ $Machineidentityv2 = @"{
 
 try {
     $Result = ConvertFrom-JsonToMachineidentityv2 -Json $Machineidentityv2
-    New-MachineIdentityV2 -Machineidentityv2 $Result 
+    New-MachineIdentityV2 -XSailPointExperimental $XSailPointExperimental -Machineidentityv2 $Result 
     
     # Below is a request that includes all optional parameters
-    # New-MachineIdentityV2 -Machineidentityv2 $Result  
+    # New-MachineIdentityV2 -XSailPointExperimental $XSailPointExperimental -Machineidentityv2 $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineIdentityV2"
     Write-Host $_.ErrorDetails
@@ -298,6 +303,9 @@ try {
 [[Back to top]](#) 
 
 ## delete-machine-identity-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 The API returns a successful response if the requested machine identity was deleted.
 
 [API Spec](https://developer.sailpoint.com/docs/api/delete-machine-identity-v-2)
@@ -306,6 +314,7 @@ The API returns a successful response if the requested machine identity was dele
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Machine Identity ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -328,14 +337,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete machine identity
 
 try {
-    Remove-MachineIdentityV2 -Id $Id 
+    Remove-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-MachineIdentityV2 -Id $Id  
+    # Remove-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineIdentityV2"
     Write-Host $_.ErrorDetails
@@ -344,6 +354,9 @@ try {
 [[Back to top]](#) 
 
 ## delete-ownership-correlation-config-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Deletes the ownership correlation config with the specified ID for the given source resource.
 
 [API Spec](https://developer.sailpoint.com/docs/api/delete-ownership-correlation-config-v-1)
@@ -354,6 +367,7 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | The Source ID.
 Path   | ResourceId | **String** | True  | The source resource ID (for example, account or aws:iam-role).
 Path   | ConfigId | **String** | True  | The correlation config ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -378,14 +392,15 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
 $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation config ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete ownership correlation config
 
 try {
-    Remove-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId 
+    Remove-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId  
+    # Remove-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-OwnershipCorrelationConfigV1"
     Write-Host $_.ErrorDetails
@@ -445,6 +460,9 @@ try {
 [[Back to top]](#) 
 
 ## get-machine-identity-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a single machine identity using the Machine Identity ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-machine-identity-v-2)
@@ -453,6 +471,7 @@ This API returns a single machine identity using the Machine Identity ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Machine Identity ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**Machineidentityv2**](../models/machineidentityv2)
@@ -475,14 +494,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get machine identity details
 
 try {
-    Get-MachineIdentityV2 -Id $Id 
+    Get-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-MachineIdentityV2 -Id $Id  
+    # Get-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentityV2"
     Write-Host $_.ErrorDetails
@@ -491,6 +511,9 @@ try {
 [[Back to top]](#) 
 
 ## get-ownership-correlation-config-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This end-point retrieves a single ownership correlation config by ID for the specified source resource.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-ownership-correlation-config-v-1)
@@ -501,6 +524,7 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | The Source ID.
 Path   | ResourceId | **String** | True  | The source resource ID (for example, account or aws:iam-role).
 Path   | ConfigId | **String** | True  | The correlation config ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**CorrelationConfig**](../models/correlation-config)
@@ -525,14 +549,15 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
 $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation config ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get ownership correlation config
 
 try {
-    Get-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId 
+    Get-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId  
+    # Get-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OwnershipCorrelationConfigV1"
     Write-Host $_.ErrorDetails
@@ -649,6 +674,9 @@ try {
 [[Back to top]](#) 
 
 ## list-machine-identities-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a list of machine identities.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-machine-identities-v-2)
@@ -656,6 +684,7 @@ This API returns a list of machine identities.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryGovernanceGroup.id**: *eq, in*  **owners.secondaryGovernanceGroup.name**: *eq, in, isnull, pr*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **risk.severity**: *eq, in*  **businessApplicationRefs.id**: *eq*  **effectiveSanctionedStatus**: *eq*  Business Application filters require Business Applications to be enabled for the tenant. Filter values are case-sensitive. When Business Applications is not enabled, these filters are not allowed and return `400`.
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified**
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -682,6 +711,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Filters = 'identityId eq "2c9180858082150f0180893dbaf44201"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryGovernanceGroup.id**: *eq, in*  **owners.secondaryGovernanceGroup.name**: *eq, in, isnull, pr*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **risk.severity**: *eq, in*  **businessApplicationRefs.id**: *eq*  **effectiveSanctionedStatus**: *eq*  Business Application filters require Business Applications to be enabled for the tenant. Filter values are case-sensitive. When Business Applications is not enabled, these filters are not allowed and return `400`. (optional)
 $Sorters = "nativeIdentity" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified** (optional)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -691,10 +721,10 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List machine identities
 
 try {
-    Get-MachineIdentitiesV2 
+    Get-MachineIdentitiesV2 -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-MachineIdentitiesV2 -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset  
+    # Get-MachineIdentitiesV2 -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentitiesV2"
     Write-Host $_.ErrorDetails
@@ -823,6 +853,9 @@ try {
 [[Back to top]](#) 
 
 ## list-ownership-correlation-configs-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Returns the OWNER_PRIMARY and OWNER_SECONDARY correlation configs for the specified source resource, creating default rows if they are missing. Use the optional type query parameter to return a single matching config.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-ownership-correlation-configs-v-1)
@@ -832,6 +865,7 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source ID.
 Path   | ResourceId | **String** | True  | The source resource ID (for example, account or aws:iam-role).
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Type | **String** |   (optional) | When set, filters to the given config type.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -858,6 +892,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Type = "OWNER_PRIMARY" # String | When set, filters to the given config type. (optional)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -866,10 +901,10 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List ownership correlation configs
 
 try {
-    Get-OwnershipCorrelationConfigsV1 -SourceId $SourceId -ResourceId $ResourceId 
+    Get-OwnershipCorrelationConfigsV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-OwnershipCorrelationConfigsV1 -SourceId $SourceId -ResourceId $ResourceId -Type $Type -Count $Count -Limit $Limit -Offset $Offset  
+    # Get-OwnershipCorrelationConfigsV1 -SourceId $SourceId -ResourceId $ResourceId -XSailPointExperimental $XSailPointExperimental -Type $Type -Count $Count -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OwnershipCorrelationConfigsV1"
     Write-Host $_.ErrorDetails
@@ -878,6 +913,9 @@ try {
 [[Back to top]](#) 
 
 ## patch-ownership-correlation-config-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Selectively updates an ownership correlation config using an RFC 6902 JSONPatch payload. Only replace on /attributes (full object) and replace on /rules (full array; merge by stable rule id, remove rules omitted from the array) are allowed.
 
 [API Spec](https://developer.sailpoint.com/docs/api/patch-ownership-correlation-config-v-1)
@@ -888,6 +926,7 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | The Source ID.
 Path   | ResourceId | **String** | True  | The source resource ID (for example, account or aws:iam-role).
 Path   | ConfigId | **String** | True  | The correlation config ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the correlation config.
 
 ### Return type
@@ -913,6 +952,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
 $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation config ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
@@ -924,10 +964,10 @@ $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation co
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -JsonPatchOperation $Result 
+    Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -JsonPatchOperation $Result  
+    # Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-OwnershipCorrelationConfigV1"
     Write-Host $_.ErrorDetails
@@ -1050,6 +1090,9 @@ try {
 [[Back to top]](#) 
 
 ## update-machine-identity-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to selectively update machine identity details using a JSONPatch payload.
 
 Patchable fields include **name**, **description**, **nativeIdentity**, **subtype**, **environment**, **attributes**, **owners**, **userEntitlements**, **manuallyEdited**, and **businessApplicationRefs** (when Business Applications is enabled for the tenant).
@@ -1066,6 +1109,7 @@ Existing `AUTOMATIC` correlations cannot be overridden (`400` / `ILLEGAL_UPDATE_
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Machine Identity ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
@@ -1089,6 +1133,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
@@ -1100,10 +1145,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-MachineIdentityV2 -Id $Id -JsonPatchOperation $Result 
+    Update-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-MachineIdentityV2 -Id $Id -JsonPatchOperation $Result  
+    # Update-MachineIdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineIdentityV2"
     Write-Host $_.ErrorDetails

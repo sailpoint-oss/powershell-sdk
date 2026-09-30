@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Search' -name 'AccountActivityDocuments' {
     Context 'AccountActivityDocuments' {
         It 'Initialize-AccountActivityDocuments' {
             # a simple test to create an object
-            #$NewObject = Initialize-AccountActivityDocuments -Id "TEST_VALUE" -Action "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Synced "TEST_VALUE" -Stage "TEST_VALUE" -Status "TEST_VALUE" -Requester "TEST_VALUE" -Recipient "TEST_VALUE" -TrackingNumber "TEST_VALUE" -Errors "TEST_VALUE" -Warnings "TEST_VALUE" -Approvals "TEST_VALUE" -OriginalRequests "TEST_VALUE" -ExpansionItems "TEST_VALUE" -AccountRequests "TEST_VALUE" -Sources "TEST_VALUE" -Pod "TEST_VALUE" -Org "TEST_VALUE" -Type "TEST_VALUE" -Type "TEST_VALUE" -Version "TEST_VALUE"
+            #$NewObject = Initialize-AccountActivityDocuments -Id "TEST_VALUE" -Action "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Synced "TEST_VALUE" -Stage "TEST_VALUE" -Status "TEST_VALUE" -Requester "TEST_VALUE" -Recipient "TEST_VALUE" -TrackingNumber "TEST_VALUE" -Errors "TEST_VALUE" -Warnings "TEST_VALUE" -Approvals "TEST_VALUE" -OriginalRequests "TEST_VALUE" -ExpansionItems "TEST_VALUE" -AccountRequests "TEST_VALUE" -Sources "TEST_VALUE" -Pod "TEST_VALUE" -Org "TEST_VALUE" -Type "TEST_VALUE" -Type "TEST_VALUE" -Index "TEST_VALUE"
             #$NewObject | Should -BeOfType AccountActivityDocuments
             #$NewObject.property | Should -Be 0
         }

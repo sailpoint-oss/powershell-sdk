@@ -64,8 +64,8 @@ Name of the tenant.
 No description available.
 .PARAMETER Type
 No description available.
-.PARAMETER Version
-Version number.
+.PARAMETER Index
+Internal metadata field. This field is for SailPoint internal use only and is subject to change without notice. Do not rely on it in your integrations.
 .OUTPUTS
 
 RoleDocuments<PSCustomObject>
@@ -149,7 +149,7 @@ function Initialize-RoleDocuments {
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Version}
+        ${Index}
     )
 
     Process {
@@ -191,7 +191,7 @@ function Initialize-RoleDocuments {
             "org" = ${Org}
             "_type" = ${Type}
             "type" = ${Type}
-            "_version" = ${Version}
+            "_index" = ${Index}
         }
 
         return $PSO
@@ -228,7 +228,7 @@ function ConvertFrom-JsonToRoleDocuments {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in RoleDocuments
-        $AllProperties = ("description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner", "id", "name", "accessProfiles", "accessProfileCount", "tags", "segments", "segmentCount", "entitlements", "entitlementCount", "dimensional", "dimensionSchemaAttributeCount", "dimensionSchemaAttributes", "dimensions", "pod", "org", "_type", "type", "_version")
+        $AllProperties = ("description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner", "id", "name", "accessProfiles", "accessProfileCount", "tags", "segments", "segmentCount", "entitlements", "entitlementCount", "dimensional", "dimensionSchemaAttributeCount", "dimensionSchemaAttributes", "dimensions", "pod", "org", "_type", "type", "_index")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -389,10 +389,10 @@ function ConvertFrom-JsonToRoleDocuments {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "_version"))) { #optional property not found
-            $Version = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "_index"))) { #optional property not found
+            $Index = $null
         } else {
-            $Version = $JsonParameters.PSobject.Properties["_version"].value
+            $Index = $JsonParameters.PSobject.Properties["_index"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -421,7 +421,7 @@ function ConvertFrom-JsonToRoleDocuments {
             "org" = ${Org}
             "_type" = ${Type}
             "type" = ${Type}
-            "_version" = ${Version}
+            "_index" = ${Index}
         }
 
         return $PSO

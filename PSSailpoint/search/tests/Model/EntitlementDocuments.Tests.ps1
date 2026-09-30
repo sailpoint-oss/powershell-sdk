@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Search' -name 'EntitlementDocuments' {
     Context 'EntitlementDocuments' {
         It 'Initialize-EntitlementDocuments' {
             # a simple test to create an object
-            #$NewObject = Initialize-EntitlementDocuments -Id "TEST_VALUE" -Name "TEST_VALUE" -Modified "TEST_VALUE" -Synced "TEST_VALUE" -DisplayName "TEST_VALUE" -Source "TEST_VALUE" -Segments "TEST_VALUE" -SegmentCount "TEST_VALUE" -Requestable "TEST_VALUE" -CloudGoverned "TEST_VALUE" -Created "TEST_VALUE" -Privileged "TEST_VALUE" -Tags "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -SourceSchemaObjectType "TEST_VALUE" -Schema "TEST_VALUE" -Hash "TEST_VALUE" -Attributes "TEST_VALUE" -TruncatedAttributes "TEST_VALUE" -ContainsDataAccess "TEST_VALUE" -ManuallyUpdatedFields "TEST_VALUE" -Permissions "TEST_VALUE" -Pod "TEST_VALUE" -Org "TEST_VALUE" -Type "TEST_VALUE" -Type "TEST_VALUE" -Version "TEST_VALUE"
+            #$NewObject = Initialize-EntitlementDocuments -Id "TEST_VALUE" -Name "TEST_VALUE" -Modified "TEST_VALUE" -Synced "TEST_VALUE" -DisplayName "TEST_VALUE" -Source "TEST_VALUE" -Segments "TEST_VALUE" -SegmentCount "TEST_VALUE" -Requestable "TEST_VALUE" -CloudGoverned "TEST_VALUE" -Created "TEST_VALUE" -Privileged "TEST_VALUE" -Tags "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -SourceSchemaObjectType "TEST_VALUE" -Schema "TEST_VALUE" -Hash "TEST_VALUE" -Attributes "TEST_VALUE" -TruncatedAttributes "TEST_VALUE" -ContainsDataAccess "TEST_VALUE" -ManuallyUpdatedFields "TEST_VALUE" -Permissions "TEST_VALUE" -Pod "TEST_VALUE" -Org "TEST_VALUE" -Type "TEST_VALUE" -Type "TEST_VALUE" -Index "TEST_VALUE"
             #$NewObject | Should -BeOfType EntitlementDocuments
             #$NewObject.property | Should -Be 0
         }

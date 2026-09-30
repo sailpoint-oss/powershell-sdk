@@ -18,6 +18,10 @@ No description available.
 Entitlement connection identifier for the activation to extend.
 .PARAMETER ActivationPeriodExtensionMins
 Number of minutes to extend the activation period.
+.PARAMETER RequestOrigin
+Origin of the request.
+.PARAMETER MetaData
+No description available.
 .OUTPUTS
 
 JitActivationExtendRequest<PSCustomObject>
@@ -31,7 +35,13 @@ function Initialize-JitActivationExtendRequest {
         ${ConnectionId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
-        ${ActivationPeriodExtensionMins}
+        ${ActivationPeriodExtensionMins},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${RequestOrigin},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${MetaData}
     )
 
     Process {
@@ -54,6 +64,8 @@ function Initialize-JitActivationExtendRequest {
         $PSO = [PSCustomObject]@{
             "connectionId" = ${ConnectionId}
             "activationPeriodExtensionMins" = ${ActivationPeriodExtensionMins}
+            "requestOrigin" = ${RequestOrigin}
+            "metaData" = ${MetaData}
         }
 
         return $PSO
@@ -90,7 +102,7 @@ function ConvertFrom-JsonToJitActivationExtendRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in JitActivationExtendRequest
-        $AllProperties = ("connectionId", "activationPeriodExtensionMins")
+        $AllProperties = ("connectionId", "activationPeriodExtensionMins", "requestOrigin", "metaData")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -113,9 +125,23 @@ function ConvertFrom-JsonToJitActivationExtendRequest {
             $ActivationPeriodExtensionMins = $JsonParameters.PSobject.Properties["activationPeriodExtensionMins"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestOrigin"))) { #optional property not found
+            $RequestOrigin = $null
+        } else {
+            $RequestOrigin = $JsonParameters.PSobject.Properties["requestOrigin"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "metaData"))) { #optional property not found
+            $MetaData = $null
+        } else {
+            $MetaData = $JsonParameters.PSobject.Properties["metaData"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "connectionId" = ${ConnectionId}
             "activationPeriodExtensionMins" = ${ActivationPeriodExtensionMins}
+            "requestOrigin" = ${RequestOrigin}
+            "metaData" = ${MetaData}
         }
 
         return $PSO

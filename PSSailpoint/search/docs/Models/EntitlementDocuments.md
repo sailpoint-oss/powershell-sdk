@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 **Org** | **String** | Name of the tenant. | [optional] 
 **Type** | **DocumentType** |  | [optional] 
 **Type** | **DocumentType** |  | [optional] 
-**Version** | **String** | Version number. | [optional] 
+**Index** | **String** | Internal metadata field. This field is for SailPoint internal use only and is subject to change without notice. Do not rely on it in your integrations. | [optional] 
 
 ## Examples
 
@@ -76,7 +76,7 @@ $EntitlementDocuments = Initialize-EntitlementDocuments  -Id 2c91808375d8e80a017
  -Org org-name `
  -Type null `
  -Type null `
- -Version v2
+ -Index 44
 ```
 
 - Convert the resource to JSON

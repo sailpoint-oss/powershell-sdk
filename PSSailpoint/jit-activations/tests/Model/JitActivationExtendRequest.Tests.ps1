@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.JitActivations' -name 'JitActivationExtendRequest' {
     Context 'JitActivationExtendRequest' {
         It 'Initialize-JitActivationExtendRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-JitActivationExtendRequest -ConnectionId "TEST_VALUE" -ActivationPeriodExtensionMins "TEST_VALUE"
+            #$NewObject = Initialize-JitActivationExtendRequest -ConnectionId "TEST_VALUE" -ActivationPeriodExtensionMins "TEST_VALUE" -RequestOrigin "TEST_VALUE" -MetaData "TEST_VALUE"
             #$NewObject | Should -BeOfType JitActivationExtendRequest
             #$NewObject.property | Should -Be 0
         }

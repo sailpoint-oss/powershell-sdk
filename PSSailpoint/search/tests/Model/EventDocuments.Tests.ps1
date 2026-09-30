@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Search' -name 'EventDocuments' {
     Context 'EventDocuments' {
         It 'Initialize-EventDocuments' {
             # a simple test to create an object
-            #$NewObject = Initialize-EventDocuments -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Synced "TEST_VALUE" -Action "TEST_VALUE" -Type "TEST_VALUE" -Actor "TEST_VALUE" -Target "TEST_VALUE" -Stack "TEST_VALUE" -TrackingNumber "TEST_VALUE" -IpAddress "TEST_VALUE" -Details "TEST_VALUE" -Attributes "TEST_VALUE" -Objects "TEST_VALUE" -Operation "TEST_VALUE" -Status "TEST_VALUE" -TechnicalName "TEST_VALUE" -Pod "TEST_VALUE" -Org "TEST_VALUE" -Type "TEST_VALUE" -Version "TEST_VALUE"
+            #$NewObject = Initialize-EventDocuments -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Synced "TEST_VALUE" -Action "TEST_VALUE" -Type "TEST_VALUE" -Actor "TEST_VALUE" -Target "TEST_VALUE" -Stack "TEST_VALUE" -TrackingNumber "TEST_VALUE" -IpAddress "TEST_VALUE" -Details "TEST_VALUE" -Attributes "TEST_VALUE" -Objects "TEST_VALUE" -Operation "TEST_VALUE" -Status "TEST_VALUE" -TechnicalName "TEST_VALUE" -Pod "TEST_VALUE" -Org "TEST_VALUE" -Type "TEST_VALUE" -Index "TEST_VALUE"
             #$NewObject | Should -BeOfType EventDocuments
             #$NewObject.property | Should -Be 0
         }

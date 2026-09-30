@@ -200,7 +200,17 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $JitActivationActivateRequest = @"{
+  "metaData" : {
+    "threadId" : "1699887766.123456",
+    "slackUserId" : "U123",
+    "messageId" : "1699887770.654321",
+    "type" : "slack",
+    "commandText" : "/jit activate",
+    "channelId" : "C456",
+    "workspaceId" : "T789"
+  },
   "activationPeriodMins" : 120,
+  "requestOrigin" : "slack",
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }"@
 
@@ -261,6 +271,16 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $JitActivationDeactivateRequest = @"{
+  "metaData" : {
+    "threadId" : "1699887766.123456",
+    "slackUserId" : "U123",
+    "messageId" : "1699887770.654321",
+    "type" : "slack",
+    "commandText" : "/jit activate",
+    "channelId" : "C456",
+    "workspaceId" : "T789"
+  },
+  "requestOrigin" : "slack",
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }"@
 
@@ -322,7 +342,17 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $JitActivationExtendRequest = @"{
+  "metaData" : {
+    "threadId" : "1699887766.123456",
+    "slackUserId" : "U123",
+    "messageId" : "1699887770.654321",
+    "type" : "slack",
+    "commandText" : "/jit activate",
+    "channelId" : "C456",
+    "workspaceId" : "T789"
+  },
   "activationPeriodExtensionMins" : 120,
+  "requestOrigin" : "slack",
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }"@
 

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Search' -name 'RoleDocuments' {
     Context 'RoleDocuments' {
         It 'Initialize-RoleDocuments' {
             # a simple test to create an object
-            #$NewObject = Initialize-RoleDocuments -Description "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Synced "TEST_VALUE" -Enabled "TEST_VALUE" -Requestable "TEST_VALUE" -RequestCommentsRequired "TEST_VALUE" -Owner "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -AccessProfiles "TEST_VALUE" -AccessProfileCount "TEST_VALUE" -Tags "TEST_VALUE" -Segments "TEST_VALUE" -SegmentCount "TEST_VALUE" -Entitlements "TEST_VALUE" -EntitlementCount "TEST_VALUE" -Dimensional "TEST_VALUE" -DimensionSchemaAttributeCount "TEST_VALUE" -DimensionSchemaAttributes "TEST_VALUE" -Dimensions "TEST_VALUE" -Pod "TEST_VALUE" -Org "TEST_VALUE" -Type "TEST_VALUE" -Type "TEST_VALUE" -Version "TEST_VALUE"
+            #$NewObject = Initialize-RoleDocuments -Description "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Synced "TEST_VALUE" -Enabled "TEST_VALUE" -Requestable "TEST_VALUE" -RequestCommentsRequired "TEST_VALUE" -Owner "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -AccessProfiles "TEST_VALUE" -AccessProfileCount "TEST_VALUE" -Tags "TEST_VALUE" -Segments "TEST_VALUE" -SegmentCount "TEST_VALUE" -Entitlements "TEST_VALUE" -EntitlementCount "TEST_VALUE" -Dimensional "TEST_VALUE" -DimensionSchemaAttributeCount "TEST_VALUE" -DimensionSchemaAttributes "TEST_VALUE" -Dimensions "TEST_VALUE" -Pod "TEST_VALUE" -Org "TEST_VALUE" -Type "TEST_VALUE" -Type "TEST_VALUE" -Index "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleDocuments
             #$NewObject.property | Should -Be 0
         }

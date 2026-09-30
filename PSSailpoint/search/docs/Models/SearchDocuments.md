@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 **Org** | **String** | Name of the tenant. | [optional] 
 **Type** | **DocumentType** |  | [optional] 
 **Type** | **DocumentType** |  | [optional] 
-**Version** | **String** | Version number. | [optional] 
+**Index** | **String** | Internal metadata field. This field is for SailPoint internal use only and is subject to change without notice. Do not rely on it in your integrations. | [optional] 
 **Action** | **String** | Name of the event as it's displayed in audit reports. | [optional] 
 **Stage** | **String** | Activity's current stage. | [optional] 
 **Status** | **String** | Identity's status in SailPoint. | [optional] 
@@ -129,7 +129,7 @@ $SearchDocuments = Initialize-SearchDocuments  -Description Admin access `
  -Org org-name `
  -Type null `
  -Type null `
- -Version v2 `
+ -Index 44 `
  -Action AddEntitlement `
  -Stage Completed `
  -Status UNREGISTERED `

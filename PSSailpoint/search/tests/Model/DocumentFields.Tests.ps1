@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Search' -name 'DocumentFields' {
     Context 'DocumentFields' {
         It 'Initialize-DocumentFields' {
             # a simple test to create an object
-            #$NewObject = Initialize-DocumentFields -Pod "TEST_VALUE" -Org "TEST_VALUE" -Type "TEST_VALUE" -Type "TEST_VALUE" -Version "TEST_VALUE"
+            #$NewObject = Initialize-DocumentFields -Pod "TEST_VALUE" -Org "TEST_VALUE" -Type "TEST_VALUE" -Type "TEST_VALUE" -Index "TEST_VALUE"
             #$NewObject | Should -BeOfType DocumentFields
             #$NewObject.property | Should -Be 0
         }

@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 **Pod** | **String** |  | [optional] 
 **Org** | **String** |  | [optional] 
 **Type** | **DocumentType** |  | [optional] 
-**Version** | **String** |  | [optional] 
+**Index** | **String** | Internal metadata field. This field is for SailPoint internal use only and is subject to change without notice. Do not rely on it in your integrations. | [optional] 
 
 ## Examples
 
@@ -62,7 +62,7 @@ $EventDocuments = Initialize-EventDocuments  -Id 2c91808375d8e80a0175e1f88a57522
  -Pod pod01-useast1 `
  -Org org-name `
  -Type null `
- -Version v2
+ -Index 44
 ```
 
 - Convert the resource to JSON

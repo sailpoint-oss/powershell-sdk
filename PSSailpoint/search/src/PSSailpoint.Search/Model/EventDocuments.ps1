@@ -54,8 +54,8 @@ No description available.
 No description available.
 .PARAMETER Type
 No description available.
-.PARAMETER Version
-No description available.
+.PARAMETER Index
+Internal metadata field. This field is for SailPoint internal use only and is subject to change without notice. Do not rely on it in your integrations.
 .OUTPUTS
 
 EventDocuments<PSCustomObject>
@@ -123,7 +123,7 @@ function Initialize-EventDocuments {
         ${Org},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Version}
+        ${Index}
     )
 
     Process {
@@ -152,7 +152,7 @@ function Initialize-EventDocuments {
             "pod" = ${Pod}
             "org" = ${Org}
             "_type" = ${Type}
-            "_version" = ${Version}
+            "_index" = ${Index}
         }
 
         return $PSO
@@ -189,7 +189,7 @@ function ConvertFrom-JsonToEventDocuments {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in EventDocuments
-        $AllProperties = ("id", "name", "created", "synced", "action", "type", "actor", "target", "stack", "trackingNumber", "ipAddress", "details", "attributes", "objects", "operation", "status", "technicalName", "pod", "org", "_type", "_version")
+        $AllProperties = ("id", "name", "created", "synced", "action", "type", "actor", "target", "stack", "trackingNumber", "ipAddress", "details", "attributes", "objects", "operation", "status", "technicalName", "pod", "org", "_type", "_index")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -316,10 +316,10 @@ function ConvertFrom-JsonToEventDocuments {
             $Type = $JsonParameters.PSobject.Properties["_type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "_version"))) { #optional property not found
-            $Version = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "_index"))) { #optional property not found
+            $Index = $null
         } else {
-            $Version = $JsonParameters.PSobject.Properties["_version"].value
+            $Index = $JsonParameters.PSobject.Properties["_index"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -343,7 +343,7 @@ function ConvertFrom-JsonToEventDocuments {
             "pod" = ${Pod}
             "org" = ${Org}
             "_type" = ${Type}
-            "_version" = ${Version}
+            "_index" = ${Index}
         }
 
         return $PSO

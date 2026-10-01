@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccessAccessRefsInner'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **Enum** [  "ENTITLEMENT" ] | Entitlement's DTO type. | [optional] 
-**Id** | **String** | Entitlement's ID. | [optional] 
+**Type** |  **Enum** [  "ENTITLEMENT",    "ACCESS_PROFILE",    "ROLE" ] | Access item DTO type. | [optional] 
+**Id** | **String** | Access item ID. | [optional] 
 
 ## Examples
 

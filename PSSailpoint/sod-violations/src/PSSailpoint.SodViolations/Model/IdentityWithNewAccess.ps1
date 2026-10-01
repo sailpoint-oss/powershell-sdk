@@ -17,7 +17,7 @@ An identity with a set of access to be added
 .PARAMETER IdentityId
 Identity id to be checked.
 .PARAMETER AccessRefs
-The list of entitlements to consider for possible violations in a preventive check.
+The list of access items to consider for possible violations in a preventive check. Supported types are ENTITLEMENT, ACCESS_PROFILE, and ROLE.
 .OUTPUTS
 
 IdentityWithNewAccess<PSCustomObject>

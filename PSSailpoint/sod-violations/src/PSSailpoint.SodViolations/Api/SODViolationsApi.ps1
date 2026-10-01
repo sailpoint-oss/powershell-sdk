@@ -559,7 +559,7 @@ Predict sod violations for identity.
 
 .DESCRIPTION
 
-This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
+This API is used to check if granting some additional accesses (entitlements, access profiles, or roles) would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
 .PARAMETER IdentityWithNewAccess
 No description available.

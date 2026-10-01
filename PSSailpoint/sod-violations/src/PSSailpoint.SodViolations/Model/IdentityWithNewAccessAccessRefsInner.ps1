@@ -12,12 +12,12 @@ No summary available.
 
 .DESCRIPTION
 
-Entitlement including a specific set of access.
+Reference to an access item that may contribute to an SOD violation.
 
 .PARAMETER Type
-Entitlement's DTO type.
+Access item DTO type.
 .PARAMETER Id
-Entitlement's ID.
+Access item ID.
 .OUTPUTS
 
 IdentityWithNewAccessAccessRefsInner<PSCustomObject>
@@ -27,7 +27,7 @@ function Initialize-IdentityWithNewAccessAccessRefsInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ENTITLEMENT")]
+        [ValidateSet("ENTITLEMENT", "ACCESS_PROFILE", "ROLE")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

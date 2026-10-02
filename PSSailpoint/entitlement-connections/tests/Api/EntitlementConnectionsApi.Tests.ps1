@@ -30,20 +30,4 @@ Describe -tag 'PSSailpoint.EntitlementConnections' -name 'EntitlementConnections
         }
     }
 
-    Context 'Update-EntitlementConnectionByQueryV1' {
-        It 'Test Update-EntitlementConnectionByQueryV1' {
-            #$TestResult = Update-EntitlementConnectionByQueryV1 -EntitlementId "TEST_VALUE" -IdentityId "TEST_VALUE" -AccountId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Update-EntitlementConnectionsBulkV1' {
-        It 'Test Update-EntitlementConnectionsBulkV1' {
-            #$TestResult = Update-EntitlementConnectionsBulkV1 -EntitlementConnectionBulkUpdateItem "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
 }

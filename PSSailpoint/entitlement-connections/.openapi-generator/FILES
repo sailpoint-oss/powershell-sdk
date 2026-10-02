@@ -5,8 +5,6 @@ README.md
 appveyor.yml
 docs/ArrayInner.md
 docs/EntitlementConnection.md
-docs/EntitlementConnectionBulkUpdateItem.md
-docs/EntitlementConnectionBulkUpdateResultItem.md
 docs/EntitlementConnectionSearchHit.md
 docs/EntitlementConnectionSearchHitEntitlement.md
 docs/EntitlementConnectionSearchHitEntitlementPrivilegeLevel.md
@@ -25,8 +23,6 @@ src/PSSailpoint.EntitlementConnections/Api/EntitlementConnectionsApi.ps1
 src/PSSailpoint.EntitlementConnections/Client/Configuration.ps1
 src/PSSailpoint.EntitlementConnections/Model/ArrayInner.ps1
 src/PSSailpoint.EntitlementConnections/Model/EntitlementConnection.ps1
-src/PSSailpoint.EntitlementConnections/Model/EntitlementConnectionBulkUpdateItem.ps1
-src/PSSailpoint.EntitlementConnections/Model/EntitlementConnectionBulkUpdateResultItem.ps1
 src/PSSailpoint.EntitlementConnections/Model/EntitlementConnectionSearchHit.ps1
 src/PSSailpoint.EntitlementConnections/Model/EntitlementConnectionSearchHitEntitlement.ps1
 src/PSSailpoint.EntitlementConnections/Model/EntitlementConnectionSearchHitEntitlementPrivilegeLevel.ps1
@@ -48,8 +44,6 @@ src/PSSailpoint.EntitlementConnections/en-US/about_PSSailpoint.EntitlementConnec
 tests/Api/EntitlementConnectionsApi.Tests.ps1
 tests/Model/ArrayInner.Tests.ps1
 tests/Model/EntitlementConnection.Tests.ps1
-tests/Model/EntitlementConnectionBulkUpdateItem.Tests.ps1
-tests/Model/EntitlementConnectionBulkUpdateResultItem.Tests.ps1
 tests/Model/EntitlementConnectionSearchHit.Tests.ps1
 tests/Model/EntitlementConnectionSearchHitEntitlement.Tests.ps1
 tests/Model/EntitlementConnectionSearchHitEntitlementPrivilegeLevel.Tests.ps1

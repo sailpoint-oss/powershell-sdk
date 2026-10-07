@@ -190,7 +190,7 @@ function ConvertFrom-JsonToMachineidentityv2 {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Machineidentityv2
-        $AllProperties = ("id", "name", "created", "modified", "description", "attributes", "connectorAttributes", "manuallyEdited", "manuallyCreated", "owners", "subtype", "sourceId", "uuid", "nativeIdentity", "datasetId", "environment", "existsOnSource", "status", "resource", "source", "userEntitlements", "businessApplicationRefs", "effectiveSanctionedStatus", "risk")
+        $AllProperties = ("id", "name", "created", "modified", "description", "attributes", "connectorAttributes", "manuallyEdited", "manuallyCreated", "owners", "subtype", "sourceId", "uuid", "nativeIdentity", "datasetId", "environment", "existsOnSource", "status", "resource", "source", "userEntitlements", "businessApplicationRefs", "effectiveSanctionedStatus", "risk", "entroId", "insights", "sessionCount", "suspiciousSessionCount")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -345,6 +345,30 @@ function ConvertFrom-JsonToMachineidentityv2 {
             $Risk = $JsonParameters.PSobject.Properties["risk"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entroId"))) { #optional property not found
+            $EntroId = $null
+        } else {
+            $EntroId = $JsonParameters.PSobject.Properties["entroId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "insights"))) { #optional property not found
+            $Insights = $null
+        } else {
+            $Insights = $JsonParameters.PSobject.Properties["insights"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sessionCount"))) { #optional property not found
+            $SessionCount = $null
+        } else {
+            $SessionCount = $JsonParameters.PSobject.Properties["sessionCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "suspiciousSessionCount"))) { #optional property not found
+            $SuspiciousSessionCount = $null
+        } else {
+            $SuspiciousSessionCount = $JsonParameters.PSobject.Properties["suspiciousSessionCount"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -370,6 +394,10 @@ function ConvertFrom-JsonToMachineidentityv2 {
             "businessApplicationRefs" = ${BusinessApplicationRefs}
             "effectiveSanctionedStatus" = ${EffectiveSanctionedStatus}
             "risk" = ${Risk}
+            "entroId" = ${EntroId}
+            "insights" = ${Insights}
+            "sessionCount" = ${SessionCount}
+            "suspiciousSessionCount" = ${SuspiciousSessionCount}
         }
 
         return $PSO

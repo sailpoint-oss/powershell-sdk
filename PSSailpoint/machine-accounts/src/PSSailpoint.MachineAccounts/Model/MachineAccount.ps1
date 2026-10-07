@@ -50,6 +50,8 @@ Indicates if the account is enabled
 Indicates if the account has entitlements
 .PARAMETER Source
 The source this machine account belongs to.
+.PARAMETER Risk
+No description available.
 .OUTPUTS
 
 MachineAccount<PSCustomObject>
@@ -112,7 +114,10 @@ function Initialize-MachineAccount {
         ${HasEntitlements} = $true,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Source}
+        ${Source},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Risk}
     )
 
     Process {
@@ -163,6 +168,7 @@ function Initialize-MachineAccount {
             "enabled" = ${Enabled}
             "hasEntitlements" = ${HasEntitlements}
             "source" = ${Source}
+            "risk" = ${Risk}
         }
 
         return $PSO
@@ -199,7 +205,7 @@ function ConvertFrom-JsonToMachineAccount {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in MachineAccount
-        $AllProperties = ("id", "name", "created", "modified", "description", "nativeIdentity", "uuid", "classificationMethod", "machineIdentity", "ownerIdentity", "accessType", "subtype", "environment", "attributes", "connectorAttributes", "manuallyCorrelated", "manuallyEdited", "locked", "enabled", "hasEntitlements", "source")
+        $AllProperties = ("id", "name", "created", "modified", "description", "nativeIdentity", "uuid", "classificationMethod", "machineIdentity", "ownerIdentity", "accessType", "subtype", "environment", "attributes", "connectorAttributes", "manuallyCorrelated", "manuallyEdited", "locked", "enabled", "hasEntitlements", "source", "risk", "permissionLevel", "compliance", "lastUsedAt")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -336,6 +342,30 @@ function ConvertFrom-JsonToMachineAccount {
             $ManuallyCorrelated = $JsonParameters.PSobject.Properties["manuallyCorrelated"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "risk"))) { #optional property not found
+            $Risk = $null
+        } else {
+            $Risk = $JsonParameters.PSobject.Properties["risk"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "permissionLevel"))) { #optional property not found
+            $PermissionLevel = $null
+        } else {
+            $PermissionLevel = $JsonParameters.PSobject.Properties["permissionLevel"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "compliance"))) { #optional property not found
+            $Compliance = $null
+        } else {
+            $Compliance = $JsonParameters.PSobject.Properties["compliance"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "lastUsedAt"))) { #optional property not found
+            $LastUsedAt = $null
+        } else {
+            $LastUsedAt = $JsonParameters.PSobject.Properties["lastUsedAt"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -358,6 +388,10 @@ function ConvertFrom-JsonToMachineAccount {
             "enabled" = ${Enabled}
             "hasEntitlements" = ${HasEntitlements}
             "source" = ${Source}
+            "risk" = ${Risk}
+            "permissionLevel" = ${PermissionLevel}
+            "compliance" = ${Compliance}
+            "lastUsedAt" = ${LastUsedAt}
         }
 
         return $PSO

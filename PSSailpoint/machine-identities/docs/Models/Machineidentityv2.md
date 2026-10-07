@@ -40,6 +40,10 @@ Name | Type | Description | Notes
 **BusinessApplicationRefs** | [**[]BusinessApplicationRef**](business-application-ref) | Optional Business Application references associated with this machine identity. Available when Business Applications is enabled for the tenant. On create and patch, at most one reference is allowed and is persisted as a `MANUAL` correlation. When Business Applications is not enabled, this field is null on responses and is rejected (`400`) if supplied on write. | [optional] 
 **EffectiveSanctionedStatus** | **SanctionedStatus** | Derived sanctioned status from linked Business Applications; `UNKNOWN` when no refs are present. Available when Business Applications is enabled for the tenant; null when it is not enabled. Read-only on create and patch input. | [optional] [readonly] 
 **Risk** | [**MachineIdentityV2Risk**](machine-identity-v2-risk) |  | [optional] 
+**EntroId** | **String** | Entro back-reference. Present when Entro enrichment is enabled for the tenant. Null means the identity is not Entro-correlated. Read-only; written only by aggregation. Not returned on older machine-identity versions. | [optional] [readonly] 
+**Insights** | **[]String** | Entro insights. Null means not Entro-correlated; an empty array means enriched with no insights. Read-only; written only by aggregation. Filter matches a whole element, not a substring. | [optional] [readonly] 
+**SessionCount** | **Int32** | Entro session count. Null means not Entro-correlated and is not the same as 0. Read-only; written only by aggregation. | [optional] [readonly] 
+**SuspiciousSessionCount** | **Int32** | Entro suspicious session count. Null means not Entro-correlated and is not the same as 0. Read-only; written only by aggregation. | [optional] [readonly] 
 
 ## Examples
 
@@ -68,7 +72,11 @@ $Machineidentityv2 = Initialize-Machineidentityv2  -Id id12345 `
  -UserEntitlements null `
  -BusinessApplicationRefs null `
  -EffectiveSanctionedStatus null `
- -Risk null
+ -Risk null `
+ -EntroId 117923dfeaaf4a1ab09b6252ea369e44 `
+ -Insights ["Sanctioned Service Access"] `
+ -SessionCount 152 `
+ -SuspiciousSessionCount 22
 ```
 
 - Convert the resource to JSON

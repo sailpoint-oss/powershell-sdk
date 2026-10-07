@@ -11,6 +11,8 @@ docs/ListMachineAccountsV1401Response.md
 docs/ListMachineAccountsV1429Response.md
 docs/LocaleOrigin.md
 docs/MachineAccount.md
+docs/MachineAccountAllOfCompliance.md
+docs/MachineAccountAllOfRisk.md
 docs/MachineAccountsApi.md
 docs/MachineAccountsApideveloperSite_code_examples.yaml
 docs/MachineAccountsAsyncResult.md
@@ -26,6 +28,8 @@ src/PSSailpoint.MachineAccounts/Model/ListMachineAccountsV1401Response.ps1
 src/PSSailpoint.MachineAccounts/Model/ListMachineAccountsV1429Response.ps1
 src/PSSailpoint.MachineAccounts/Model/LocaleOrigin.ps1
 src/PSSailpoint.MachineAccounts/Model/MachineAccount.ps1
+src/PSSailpoint.MachineAccounts/Model/MachineAccountAllOfCompliance.ps1
+src/PSSailpoint.MachineAccounts/Model/MachineAccountAllOfRisk.ps1
 src/PSSailpoint.MachineAccounts/Model/MachineAccountsAsyncResult.ps1
 src/PSSailpoint.MachineAccounts/Model/SourceSubtype.ps1
 src/PSSailpoint.MachineAccounts/PSSailpoint.MachineAccounts.psm1
@@ -44,5 +48,7 @@ tests/Model/ListMachineAccountsV1401Response.Tests.ps1
 tests/Model/ListMachineAccountsV1429Response.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1
 tests/Model/MachineAccount.Tests.ps1
+tests/Model/MachineAccountAllOfCompliance.Tests.ps1
+tests/Model/MachineAccountAllOfRisk.Tests.ps1
 tests/Model/MachineAccountsAsyncResult.Tests.ps1
 tests/Model/SourceSubtype.Tests.ps1

@@ -37,6 +37,10 @@ Name | Type | Description | Notes
 **Enabled** | **Boolean** | Indicates if the account is enabled | [required][default to $false]
 **HasEntitlements** | **Boolean** | Indicates if the account has entitlements | [required][default to $true]
 **Source** | **AnyType** | The source this machine account belongs to. | [required]
+**Risk** | [**MachineAccountAllOfRisk**](machine-account-all-of-risk) |  | [optional] 
+**PermissionLevel** |  **Enum** [  "PRIVILEGED",    "ELEVATED",    "BASIC",    "UNKNOWN" ] | Entro permission level. Null when not enriched. Read-only; written only by aggregation. | [optional] [readonly] 
+**Compliance** | [**[]MachineAccountAllOfCompliance**](machine-account-all-of-compliance) | Entro compliance control ids. Null when absent; empty when Entro recorded no violations. A violations count is the length of this array. There is no `complianceViolationsCount` field, and `compliance` is not a list filter or sort field. Read-only; written only by aggregation. | [optional] [readonly] 
+**LastUsedAt** | **System.DateTime** | When the machine account was last used, from Entro. Null when not enriched. Read-only; written only by aggregation. | [optional] [readonly] 
 
 ## Examples
 
@@ -62,7 +66,11 @@ $MachineAccount = Initialize-MachineAccount  -Id id12345 `
  -Locked false `
  -Enabled false `
  -HasEntitlements false `
- -Source {"id":"8d3e0094e99445de98eef6c75e25jc04","type":"SOURCE","name":"Active Directory"}
+ -Source {"id":"8d3e0094e99445de98eef6c75e25jc04","type":"SOURCE","name":"Active Directory"} `
+ -Risk null `
+ -PermissionLevel PRIVILEGED `
+ -Compliance null `
+ -LastUsedAt 2026-03-10T21:38:25Z
 ```
 
 - Convert the resource to JSON

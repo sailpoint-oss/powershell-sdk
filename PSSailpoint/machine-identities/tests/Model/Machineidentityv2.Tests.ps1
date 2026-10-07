@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.MachineIdentities' -name 'Machineidentityv2' {
     Context 'Machineidentityv2' {
         It 'Initialize-Machineidentityv2' {
             # a simple test to create an object
-            #$NewObject = Initialize-Machineidentityv2 -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Description "TEST_VALUE" -Attributes "TEST_VALUE" -ConnectorAttributes "TEST_VALUE" -ManuallyEdited "TEST_VALUE" -ManuallyCreated "TEST_VALUE" -Owners "TEST_VALUE" -Subtype "TEST_VALUE" -SourceId "TEST_VALUE" -Uuid "TEST_VALUE" -NativeIdentity "TEST_VALUE" -DatasetId "TEST_VALUE" -Environment "TEST_VALUE" -ExistsOnSource "TEST_VALUE" -Status "TEST_VALUE" -Resource "TEST_VALUE" -Source "TEST_VALUE" -UserEntitlements "TEST_VALUE" -BusinessApplicationRefs "TEST_VALUE" -EffectiveSanctionedStatus "TEST_VALUE" -Risk "TEST_VALUE"
+            #$NewObject = Initialize-Machineidentityv2 -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Description "TEST_VALUE" -Attributes "TEST_VALUE" -ConnectorAttributes "TEST_VALUE" -ManuallyEdited "TEST_VALUE" -ManuallyCreated "TEST_VALUE" -Owners "TEST_VALUE" -Subtype "TEST_VALUE" -SourceId "TEST_VALUE" -Uuid "TEST_VALUE" -NativeIdentity "TEST_VALUE" -DatasetId "TEST_VALUE" -Environment "TEST_VALUE" -ExistsOnSource "TEST_VALUE" -Status "TEST_VALUE" -Resource "TEST_VALUE" -Source "TEST_VALUE" -UserEntitlements "TEST_VALUE" -BusinessApplicationRefs "TEST_VALUE" -EffectiveSanctionedStatus "TEST_VALUE" -Risk "TEST_VALUE" -EntroId "TEST_VALUE" -Insights "TEST_VALUE" -SessionCount "TEST_VALUE" -SuspiciousSessionCount "TEST_VALUE"
             #$NewObject | Should -BeOfType Machineidentityv2
             #$NewObject.property | Should -Be 0
         }

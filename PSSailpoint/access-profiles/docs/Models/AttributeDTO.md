@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AttributeDTO', 'AttributeDTO']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **String** | Technical name of the Attribute. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot start or end with a dash or underscore. | [optional] 
+**Key** | **String** | Technical name of the Attribute. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_). Spaces are not supported. The value cannot start or end with a dash or underscore. | [optional] 
 **Name** | **String** | The display name of the key. Allowed characters are letters, numbers, whitespace, and the following special characters: . / | , ( ) & _ - | [optional] 
 **Multiselect** | **Boolean** | Indicates whether the attribute can have multiple values. | [optional] [default to $false]
 **IsAdhoc** | **Boolean** | Indicates whether this Attribute supports ad-hoc (dynamically created) values, in addition to pre-defined static values. Ad-hoc values are created dynamically through an internal service-to-service flow rather than through the public create-value API. This field can be set when creating an Attribute; if omitted, it defaults to false. | [optional] [default to $false]

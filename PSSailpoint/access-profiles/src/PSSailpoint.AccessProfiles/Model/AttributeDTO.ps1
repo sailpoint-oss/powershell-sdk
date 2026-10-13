@@ -15,7 +15,7 @@ No summary available.
 No description available.
 
 .PARAMETER Key
-Technical name of the Attribute. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot start or end with a dash or underscore.
+Technical name of the Attribute. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_). Spaces are not supported. The value cannot start or end with a dash or underscore.
 .PARAMETER Name
 The display name of the key. Allowed characters are letters, numbers, whitespace, and the following special characters: . / | , ( ) & _ -
 .PARAMETER Multiselect

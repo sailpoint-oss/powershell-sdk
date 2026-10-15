@@ -385,7 +385,7 @@ Fetches a single document from the specified index, using the specified document
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Index | **String** | True  | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+Path   | Index | **String** | True  | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, *roles*, and *workflowsummaries*. 
 Path   | Id | **String** | True  | ID of the requested document.
 
 ### Return type
@@ -408,7 +408,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Index = "accessprofiles" # String | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+$Index = "accessprofiles" # String | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, *roles*, and *workflowsummaries*. 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
 # Get a document by id

@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpoint.JitActivations' -name 'JITActivationsApi' {
+    Context 'Get-JitActivationFrictionsV1' {
+        It 'Test Get-JitActivationFrictionsV1' {
+            #$TestResult = Get-JitActivationFrictionsV1 -ActivationId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-JitActivationHistoryForCurrentIdentityV1' {
         It 'Test Get-JitActivationHistoryForCurrentIdentityV1' {
             #$TestResult = Get-JitActivationHistoryForCurrentIdentityV1 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -SearchAfter "TEST_VALUE" -Filters "TEST_VALUE"
@@ -17,6 +25,14 @@ Describe -tag 'PSSailpoint.JitActivations' -name 'JITActivationsApi' {
     Context 'Get-JitActivationHistoryV1' {
         It 'Test Get-JitActivationHistoryV1' {
             #$TestResult = Get-JitActivationHistoryV1 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -SearchAfter "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-JitActivationFrictionsV1' {
+        It 'Test Update-JitActivationFrictionsV1' {
+            #$TestResult = Update-JitActivationFrictionsV1 -ActivationId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JITActivationFrictionPatchRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

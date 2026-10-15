@@ -27,6 +27,8 @@ tags: ['SDK', 'Software Development Kit', 'DocumentType', 'DocumentType']
 
 * `role` (value: `"role"`)
 
+* `workflowsummary` (value: `"workflowsummary"`)
+
 
 [[Back to top]](#) 
 

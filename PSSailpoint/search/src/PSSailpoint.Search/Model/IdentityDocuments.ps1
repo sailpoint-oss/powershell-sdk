@@ -229,7 +229,7 @@ function Initialize-IdentityDocuments {
         [String]
         ${Org},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("accessprofile", "accountactivity", "entitlement", "event", "identity", "role")]
+        [ValidateSet("accessprofile", "accountactivity", "entitlement", "event", "identity", "role", "workflowsummary")]
         [PSCustomObject]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

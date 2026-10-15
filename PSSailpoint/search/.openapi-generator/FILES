@@ -95,6 +95,9 @@ docs/SearchPostV1429Response.md
 docs/SubSearchAggregationSpecification.md
 docs/TextQuery.md
 docs/TypeAheadQuery.md
+docs/WorkflowSummaryDocument.md
+docs/WorkflowSummaryDocumentOwner.md
+docs/WorkflowSummaryDocuments.md
 src/PSSailpoint.Search/Api/SearchApi.ps1
 src/PSSailpoint.Search/Client/Configuration.ps1
 src/PSSailpoint.Search/Model/Access.ps1
@@ -186,6 +189,9 @@ src/PSSailpoint.Search/Model/SearchPostV1429Response.ps1
 src/PSSailpoint.Search/Model/SubSearchAggregationSpecification.ps1
 src/PSSailpoint.Search/Model/TextQuery.ps1
 src/PSSailpoint.Search/Model/TypeAheadQuery.ps1
+src/PSSailpoint.Search/Model/WorkflowSummaryDocument.ps1
+src/PSSailpoint.Search/Model/WorkflowSummaryDocumentOwner.ps1
+src/PSSailpoint.Search/Model/WorkflowSummaryDocuments.ps1
 src/PSSailpoint.Search/PSSailpoint.Search.psm1
 src/PSSailpoint.Search/Private/ApiClient.ps1
 src/PSSailpoint.Search/Private/Get-CommonParameters.ps1
@@ -283,3 +289,6 @@ tests/Model/SearchPostV1429Response.Tests.ps1
 tests/Model/SubSearchAggregationSpecification.Tests.ps1
 tests/Model/TextQuery.Tests.ps1
 tests/Model/TypeAheadQuery.Tests.ps1
+tests/Model/WorkflowSummaryDocument.Tests.ps1
+tests/Model/WorkflowSummaryDocumentOwner.Tests.ps1
+tests/Model/WorkflowSummaryDocuments.Tests.ps1

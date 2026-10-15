@@ -30,7 +30,7 @@ Method | HTTP request | Description
 [**New-FormDefinitionV1**](#create-form-definition-v1) | **POST** `/form-definitions/v1` | Creates a form definition.
 [**New-FormInstanceV1**](#create-form-instance-v1) | **POST** `/form-instances/v1` | Creates a form instance.
 [**Remove-FormDefinitionV1**](#delete-form-definition-v1) | **DELETE** `/form-definitions/v1/{formDefinitionID}` | Deletes a form definition.
-[**Export-FormDefinitionsByTenantV1**](#export-form-definitions-by-tenant-v1) | **GET** `/form-definitions/v1/export` | List form definitions by tenant.
+[**Export-FormDefinitionsByTenantV1**](#export-form-definitions-by-tenant-v1) | **GET** `/form-definitions/v1/export` | Export form definitions by tenant.
 [**Get-FileFromS3V1**](#get-file-from-s3-v1) | **GET** `/form-definitions/v1/{formDefinitionID}/file/{fileID}` | Download definition file by fileid.
 [**Get-FormDefinitionByKeyV1**](#get-form-definition-by-key-v1) | **GET** `/form-definitions/v1/{formDefinitionID}` | Return a form definition.
 [**Get-FormInstanceByKeyV1**](#get-form-instance-by-key-v1) | **GET** `/form-instances/v1/{formInstanceID}` | Returns a form instance.
@@ -38,7 +38,7 @@ Method | HTTP request | Description
 [**Import-FormDefinitionsV1**](#import-form-definitions-v1) | **POST** `/form-definitions/v1/import` | Import form definitions from export.
 [**Update-FormDefinitionV1**](#patch-form-definition-v1) | **PATCH** `/form-definitions/v1/{formDefinitionID}` | Patch a form definition.
 [**Update-FormInstanceV1**](#patch-form-instance-v1) | **PATCH** `/form-instances/v1/{formInstanceID}` | Patch a form instance.
-[**Search-FormDefinitionsByTenantV1**](#search-form-definitions-by-tenant-v1) | **GET** `/form-definitions/v1` | Export form definitions by tenant.
+[**Search-FormDefinitionsByTenantV1**](#search-form-definitions-by-tenant-v1) | **GET** `/form-definitions/v1` | List form definitions by tenant.
 [**Search-FormElementDataByElementIDV1**](#search-form-element-data-by-element-idv1) | **GET** `/form-instances/v1/{formInstanceID}/data-source/{formElementID}` | Retrieves dynamic data by element.
 [**Search-FormInstancesByTenantV1**](#search-form-instances-by-tenant-v1) | **GET** `/form-instances/v1` | List form instances by tenant.
 [**Search-PreDefinedSelectOptionsV1**](#search-pre-defined-select-options-v1) | **GET** `/form-definitions/v1/predefined-select-options` | List predefined select options.
@@ -453,7 +453,7 @@ $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records t
 $Filters = 'name sw "my form"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to "name")
 
-# List form definitions by tenant.
+# Export form definitions by tenant.
 
 try {
     Export-FormDefinitionsByTenantV1 
@@ -851,7 +851,7 @@ $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records t
 $Filters = 'name sw "my form"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to "name")
 
-# Export form definitions by tenant.
+# List form definitions by tenant.
 
 try {
     Search-FormDefinitionsByTenantV1 
@@ -928,7 +928,6 @@ Returns a list of form instances for the tenant. Optionally filter by form defin
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Offset | **Int64** |   (optional) (default to 0) | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
   Query | Limit | **Int64** |   (optional) (default to 250) | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq*
 
@@ -951,7 +950,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
 $Limit = 100 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
 $Filters = 'formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
 
@@ -961,7 +959,7 @@ try {
     Search-FormInstancesByTenantV1 
     
     # Below is a request that includes all optional parameters
-    # Search-FormInstancesByTenantV1 -Offset $Offset -Limit $Limit -Filters $Filters  
+    # Search-FormInstancesByTenantV1 -Limit $Limit -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-FormInstancesByTenantV1"
     Write-Host $_.ErrorDetails

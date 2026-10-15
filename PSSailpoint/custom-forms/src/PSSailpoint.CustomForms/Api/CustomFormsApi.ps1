@@ -418,7 +418,7 @@ function Remove-FormDefinitionV1 {
 <#
 .SYNOPSIS
 
-List form definitions by tenant.
+Export form definitions by tenant.
 
 .DESCRIPTION
 
@@ -1124,7 +1124,7 @@ function Update-FormInstanceV1 {
 <#
 .SYNOPSIS
 
-Export form definitions by tenant.
+List form definitions by tenant.
 
 .DESCRIPTION
 
@@ -1344,9 +1344,6 @@ List form instances by tenant.
 
 Returns a list of form instances for the tenant. Optionally filter by form definition ID.
 
-.PARAMETER Offset
-Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
-
 .PARAMETER Limit
 Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
 
@@ -1366,11 +1363,8 @@ function Search-FormInstancesByTenantV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int64]]
-        ${Offset},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int64]]
         ${Limit},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
         [Switch]
@@ -1394,10 +1388,6 @@ function Search-FormInstancesByTenantV1 {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/form-instances/v1'
-
-        if ($Offset) {
-            $LocalVarQueryParameters['offset'] = $Offset
-        }
 
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit

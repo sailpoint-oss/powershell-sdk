@@ -233,7 +233,7 @@ Get a document by id
 Fetches a single document from the specified index, using the specified document ID. **Note:** Response fields with an underscore (`_`) prefix, such as `_type` and `_index`, are internal metadata fields. These fields are for SailPoint internal use only and are subject to change without notice. Do not rely on them in your integrations.
 
 .PARAMETER Index
-The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, *roles*, and *workflowsummaries*. 
 
 .PARAMETER Id
 ID of the requested document.
@@ -250,7 +250,7 @@ function Search-GetV1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [ValidateSet("accessprofiles", "accountactivities", "entitlements", "events", "identities", "roles")]
+        [ValidateSet("accessprofiles", "accountactivities", "entitlements", "events", "identities", "roles", "workflowsummaries")]
         [String]
         ${Index},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]

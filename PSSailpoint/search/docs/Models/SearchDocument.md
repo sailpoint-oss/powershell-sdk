@@ -17,14 +17,14 @@ tags: ['SDK', 'Software Development Kit', 'SearchDocument', 'SearchDocument']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **String** | Access item's description. | [optional] 
-**Created** | **System.DateTime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
+**Created** | **System.DateTime** | ISO-8601 date-time referring to the time when the event occurred. | [optional] 
 **Modified** | **System.DateTime** | ISO-8601 date-time referring to the time when the object was last modified. | [optional] 
-**Synced** | **System.DateTime** | ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API.  | [optional] 
+**Synced** | **String** | ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API. This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database. There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. | [optional] 
 **Enabled** | **Boolean** | Indicates whether the access item is currently enabled. | [optional] [default to $false]
 **Requestable** | **Boolean** | Indicates whether the access item can be requested. | [optional] [default to $true]
 **RequestCommentsRequired** | **Boolean** | Indicates whether comments are required for requests to access the item. | [optional] [default to $false]
-**Owner** | [**BaseAccessOwner**](base-access-owner) |  | [optional] 
-**Id** | **String** | ID of the role. | [required]
+**Owner** | [**WorkflowSummaryDocumentOwner**](workflow-summary-document-owner) |  | [optional] 
+**Id** | **String** | ID of the workflow summary. The ID is the workflow execution ID, followed by a hyphen and the event ID. | [required]
 **Name** | **String** | Name of the role. | [required]
 **Source** | [**IdentityDocumentAllOfSource**](identity-document-all-of-source) |  | [optional] 
 **Entitlements** | [**[]RoleDocumentAllOfEntitlements**](role-document-all-of-entitlements) | Entitlements included with the role. | [optional] 
@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **Apps** | [**[]App**](app) | List of applications the identity has access to. | [optional] 
 **Action** | **String** | Name of the event as it's displayed in audit reports. | [optional] 
 **Stage** | **String** | Activity's current stage. | [optional] 
-**Status** | **String** | Identity's status in SailPoint. | [optional] 
+**Status** | **String** | Status of the workflow execution at the time of the event. Possible values include `Completed`, `Failed`, `Canceled`, `Running`, and `Queued`. | [optional] 
 **Requester** | [**ActivityIdentity**](activity-identity) |  | [optional] 
 **Recipient** | [**ActivityIdentity**](activity-identity) |  | [optional] 
 **TrackingNumber** | **String** | ID of the group of events. | [optional] 
@@ -54,12 +54,12 @@ Name | Type | Description | Notes
 **SourceSchemaObjectType** | **String** | Source schema object type of the entitlement. | [optional] 
 **Schema** | **String** | Schema type of the entitlement. | [optional] 
 **Hash** | **String** | Read-only calculated hash value of an entitlement. | [optional] 
-**Attributes** | **map[string]AnyType** | Map or dictionary of key/value pairs. | [optional] 
+**Attributes** | **map[string]AnyType** | Attributes of the event. The available attributes depend on the event type. For example, an `ActivityTaskCompleted` event can include `task`, `stepName`, `displayName`, `technicalName`, and `result`. Values that are not strings or integers are serialized as JSON strings. | [optional] 
 **TruncatedAttributes** | **[]String** | Truncated attributes of the entitlement. | [optional] 
 **ContainsDataAccess** | **Boolean** | Indicates whether the entitlement contains data access. | [optional] [default to $false]
 **ManuallyUpdatedFields** | [**EntitlementDocumentAllOfManuallyUpdatedFields**](entitlement-document-all-of-manually-updated-fields) |  | [optional] 
 **Permissions** | [**[]EntitlementDocumentAllOfPermissions**](entitlement-document-all-of-permissions) |  | [optional] 
-**Type** | **String** | Event type. Refer to [Event Types](https://documentation.sailpoint.com/saas/help/search/index.html#event-types) for a list of event types and their meanings. | [optional] 
+**Type** | **String** | Type of the execution history event. Examples include `WorkflowExecutionStarted`, `WorkflowExecutionCompleted`, `WorkflowExecutionFailed`, `ActivityTaskScheduled`, `ActivityTaskCompleted`, and `ActivityTaskFailed`. | [optional] 
 **Actor** | [**EventDocumentActor**](event-document-actor) |  | [optional] 
 **Target** | [**EventDocumentTarget**](event-document-target) |  | [optional] 
 **Stack** | **String** | The event's stack. | [optional] 
@@ -99,20 +99,26 @@ Name | Type | Description | Notes
 **DimensionSchemaAttributeCount** | **Int32** | Number of dimension attributes included with the role. | [optional] 
 **DimensionSchemaAttributes** | [**[]RoleDocumentAllOfDimensionSchemaAttributes**](role-document-all-of-dimension-schema-attributes) | Dimension attributes included with the role. | [optional] 
 **Dimensions** | [**[]RoleDocumentAllOfDimensions**](role-document-all-of-dimensions) |  | [optional] 
+**WorkflowExecutionId** | **String** | ID of the workflow execution that the event belongs to. | [optional] 
+**EventId** | **Int64** | Position of the event in the execution history of the workflow execution. | [optional] 
+**WorkflowName** | **String** | Name of the workflow. | [optional] 
+**WorkflowId** | **String** | ID of the workflow. | [optional] 
+**WorkflowTest** | **Boolean** | Indicates whether the workflow execution was a test execution. | [optional] [default to $false]
+**RequestId** | **String** | Backend ID that tracks a workflow request in the system. Provide this ID in a customer support ticket for debugging purposes. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $SearchDocument = Initialize-SearchDocument  -Description Admin access `
- -Created 2018-06-25T20:22:28.104Z `
+ -Created 2022-02-07T20:13:31.640618296Z `
  -Modified 2018-06-25T20:22:28.104Z `
- -Synced 2018-06-25T20:22:33.104Z `
+ -Synced 2022-02-07T20:13:32.104Z `
  -Enabled true `
  -Requestable true `
  -RequestCommentsRequired false `
  -Owner null `
- -Id 2c91808375d8e80a0175e1f88a575222 `
+ -Id b393f4e2-4785-4d7f-ab27-3a6b8ded4c81-3 `
  -Name Branch Manager Access `
  -Source null `
  -Entitlements null `
@@ -123,7 +129,7 @@ $SearchDocument = Initialize-SearchDocument  -Description Admin access `
  -Apps null `
  -Action AddEntitlement `
  -Stage Completed `
- -Status UNREGISTERED `
+ -Status Completed `
  -Requester null `
  -Recipient null `
  -TrackingNumber 63f891e0735f4cc8bf1968144a1e7440 `
@@ -142,12 +148,12 @@ $SearchDocument = Initialize-SearchDocument  -Description Admin access `
  -SourceSchemaObjectType group `
  -Schema group `
  -Hash c6fab95235584cca98a454a2f51e5683bc77d6a0 `
- -Attributes {country=US, firstname=Carol, cloudStatus=UNREGISTERED} `
+ -Attributes {task=sp:send-email, stepName=sendEmail, displayName=Send Email, technicalName=sendEmail, result={"status":"sent"}} `
  -TruncatedAttributes null `
  -ContainsDataAccess null `
  -ManuallyUpdatedFields null `
  -Permissions null `
- -Type ACCESS_ITEM `
+ -Type ActivityTaskCompleted `
  -Actor null `
  -Target null `
  -Stack tpe `
@@ -186,7 +192,13 @@ $SearchDocument = Initialize-SearchDocument  -Description Admin access `
  -Dimensional false `
  -DimensionSchemaAttributeCount 3 `
  -DimensionSchemaAttributes null `
- -Dimensions null
+ -Dimensions null `
+ -WorkflowExecutionId b393f4e2-4785-4d7f-ab27-3a6b8ded4c81 `
+ -EventId 3 `
+ -WorkflowName Send Email `
+ -WorkflowId d201c5d9-d37b-4a2f-af14-66414f39d568 `
+ -WorkflowTest false `
+ -RequestId 41e12a74fa7b4a6a98ae47887b64acdb
 ```
 
 - Convert the resource to JSON

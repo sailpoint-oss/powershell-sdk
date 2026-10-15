@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'JITActivations', 'JITActivations']
 
 # JITActivations
   Use this API to start and manage Just-In-Time (JIT) Privileged activation workflows for entitlement connections,
-and to search activation history.
+to read and submit activation frictions, and to search activation history.
 
 OAuth scopes: **idn:jit-activation-workflow:*** (activate, extend, deactivate, manage) for workflow APIs.
 **idn:jit-activation-history:read** (admin history view) and **idn:jit-activation-history-self:read** (self history view).
@@ -22,12 +22,75 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Get-JitActivationFrictionsV1**](#get-jit-activation-frictions-v1) | **GET** `/jit-activations/v1/{activationId}/frictions` | Get JIT activation frictions
 [**Get-JitActivationHistoryForCurrentIdentityV1**](#list-jit-activation-history-for-current-identity-v1) | **GET** `/jit-activation-history/v1/current-identity` | List JIT activation history (self)
 [**Get-JitActivationHistoryV1**](#list-jit-activation-history-v1) | **GET** `/jit-activation-history/v1` | List JIT activation history (admin)
+[**Update-JitActivationFrictionsV1**](#patch-jit-activation-frictions-v1) | **PATCH** `/jit-activations/v1/{activationId}/frictions` | Submit JIT activation friction
 [**Start-ActivateWorkflowV1**](#start-activate-workflow-v1) | **POST** `/jit-activations/v1/activate` | Start JIT activation workflow
 [**Start-DeactivateWorkflowV1**](#start-deactivate-workflow-v1) | **POST** `/jit-activations/v1/deactivate` | Deactivate JIT activation workflow
 [**Start-ExtendWorkflowV1**](#start-extend-workflow-v1) | **POST** `/jit-activations/v1/extend` | Extend JIT activation workflow
 
+
+## get-jit-activation-frictions-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Returns evaluated frictions for a JIT Privileged (JIT P) activation.
+
+Requires OAuth scope **idn:jit-activation-workflow:activate** or
+**idn:jit-activation-workflow:manage**. The JWT identity id must match the
+activation identity.
+
+Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or
+**PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.
+
+Returns HTTP 404 when the activation does not exist.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-jit-activation-frictions-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | ActivationId | **String** | True  | Identifier of the activation.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**JITActivationFrictionsResponse**](../models/jit-activation-frictions-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Friction state for the activation. | JITActivationFrictionsResponse
+400 | Frictions could not be loaded within 30 seconds after activation start, or the activation was denied or failed.  | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartActivateWorkflowV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartActivateWorkflowV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$ActivationId = "857fb802-1034-786a-151e-d3a56e4c5bd9" # String | Identifier of the activation.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Get JIT activation frictions
+
+try {
+    Get-JitActivationFrictionsV1 -ActivationId $ActivationId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-JitActivationFrictionsV1 -ActivationId $ActivationId -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-JitActivationFrictionsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
 
 ## list-jit-activation-history-for-current-identity-v1
 :::warning experimental 
@@ -156,6 +219,75 @@ try {
     # Get-JitActivationHistoryV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -SearchAfter $SearchAfter -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-JitActivationHistoryV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## patch-jit-activation-frictions-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Submits the current friction step for a JIT Privileged (JIT P) activation.
+
+Requires OAuth scope **idn:jit-activation-workflow:activate** or
+**idn:jit-activation-workflow:manage**. The JWT identity id must match the
+activation identity.
+
+Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or
+**PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.
+
+Request bodies larger than 16 KB return HTTP 413.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/patch-jit-activation-frictions-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | ActivationId | **String** | True  | Identifier of the activation.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | JITActivationFrictionPatchRequest | [**JITActivationFrictionPatchRequest**](../models/jit-activation-friction-patch-request) | True  | Submission for the current friction step.
+
+### Return type
+[**JITActivationFrictionsResponse**](../models/jit-activation-frictions-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Updated friction state for the activation. | JITActivationFrictionsResponse
+400 | Invalid friction submission, or the activation is not awaiting frictions. This includes frictions that are not loaded yet, a type that is not the active step, and ticket or justification validation failures.  | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | StartActivateWorkflowV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+413 | Request body exceeds the 16 KB limit. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | StartActivateWorkflowV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$ActivationId = "857fb802-1034-786a-151e-d3a56e4c5bd9" # String | Identifier of the activation.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$JITActivationFrictionPatchRequest = @"{
+  "submittedData" : "",
+  "bypass" : false,
+  "type" : ""
+}"@
+
+# Submit JIT activation friction
+
+try {
+    $Result = ConvertFrom-JsonToJITActivationFrictionPatchRequest -Json $JITActivationFrictionPatchRequest
+    Update-JitActivationFrictionsV1 -ActivationId $ActivationId -XSailPointExperimental $XSailPointExperimental -JITActivationFrictionPatchRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-JitActivationFrictionsV1 -ActivationId $ActivationId -XSailPointExperimental $XSailPointExperimental -JITActivationFrictionPatchRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-JitActivationFrictionsV1"
     Write-Host $_.ErrorDetails
 }
 ```

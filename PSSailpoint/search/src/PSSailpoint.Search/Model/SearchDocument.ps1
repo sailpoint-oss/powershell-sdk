@@ -130,16 +130,32 @@ function ConvertFrom-JsonToSearchDocument {
             Write-Debug "Failed to match 'RoleDocument' defined in oneOf (SearchDocument). Proceeding to the next one if any."
         }
 
+        # try to match WorkflowSummaryDocument defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-JsonToWorkflowSummaryDocument $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "WorkflowSummaryDocument"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'WorkflowSummaryDocument' defined in oneOf (SearchDocument). Proceeding to the next one if any."
+        }
+
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessProfileDocument, AccountActivityDocument, EntitlementDocument, EventDocument, IdentityDocument, RoleDocument]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessProfileDocument, AccountActivityDocument, EntitlementDocument, EventDocument, IdentityDocument, RoleDocument, WorkflowSummaryDocument]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("AccessProfileDocument", "AccountActivityDocument", "EntitlementDocument", "EventDocument", "IdentityDocument", "RoleDocument")
+                "OneOfSchemas" = @("AccessProfileDocument", "AccountActivityDocument", "EntitlementDocument", "EventDocument", "IdentityDocument", "RoleDocument", "WorkflowSummaryDocument")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessProfileDocument, AccountActivityDocument, EntitlementDocument, EventDocument, IdentityDocument, RoleDocument]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessProfileDocument, AccountActivityDocument, EntitlementDocument, EventDocument, IdentityDocument, RoleDocument, WorkflowSummaryDocument]). JSON Payload: $($Json)"
         }
     }
 }

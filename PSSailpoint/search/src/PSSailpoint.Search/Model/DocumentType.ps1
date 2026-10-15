@@ -28,5 +28,7 @@ enum DocumentType {
     identity
     # enum value: "role"
     role
+    # enum value: "workflowsummary"
+    workflowsummary
 }
 

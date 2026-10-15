@@ -8,6 +8,89 @@
 <#
 .SYNOPSIS
 
+Get JIT activation frictions
+
+.DESCRIPTION
+
+Returns evaluated frictions for a JIT Privileged (JIT P) activation.  Requires OAuth scope **idn:jit-activation-workflow:activate** or **idn:jit-activation-workflow:manage**. The JWT identity id must match the activation identity.  Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.  Returns HTTP 404 when the activation does not exist. 
+
+.PARAMETER ActivationId
+Identifier of the activation.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+JITActivationFrictionsResponse
+#>
+function Get-JitActivationFrictionsV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ActivationId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-JitActivationFrictionsV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/jit-activations/v1/{activationId}/frictions'
+        if (!$ActivationId) {
+            throw "Error! The required parameter `ActivationId` missing when calling getJitActivationFrictionsV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{activationId}', [System.Web.HTTPUtility]::UrlEncode($ActivationId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getJitActivationFrictionsV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "JITActivationFrictionsResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 List JIT activation history (self)
 
 .DESCRIPTION
@@ -261,6 +344,115 @@ function Get-JitActivationHistoryV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "Jitactivationhistorydocument[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Submit JIT activation friction
+
+.DESCRIPTION
+
+Submits the current friction step for a JIT Privileged (JIT P) activation.  Requires OAuth scope **idn:jit-activation-workflow:activate** or **idn:jit-activation-workflow:manage**. The JWT identity id must match the activation identity.  Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.  Request bodies larger than 16 KB return HTTP 413. 
+
+.PARAMETER ActivationId
+Identifier of the activation.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER JITActivationFrictionPatchRequest
+Submission for the current friction step.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+JITActivationFrictionsResponse
+#>
+function Update-JitActivationFrictionsV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ActivationId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${JITActivationFrictionPatchRequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-JitActivationFrictionsV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/jit-activations/v1/{activationId}/frictions'
+        if (!$ActivationId) {
+            throw "Error! The required parameter `ActivationId` missing when calling patchJitActivationFrictionsV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{activationId}', [System.Web.HTTPUtility]::UrlEncode($ActivationId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchJitActivationFrictionsV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if (!$JITActivationFrictionPatchRequest) {
+            throw "Error! The required parameter `JITActivationFrictionPatchRequest` missing when calling patchJitActivationFrictionsV1."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JITActivationFrictionPatchRequest -is [array])) {
+            $LocalVarBodyParameter = $JITActivationFrictionPatchRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $JITActivationFrictionPatchRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "JITActivationFrictionsResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -10,7 +10,16 @@ tags: ['SDK', 'Software Development Kit', 'Tags', 'Tags']
 ---
 
 # Tags
-   
+  Use this API to manage the tags available in your Identity Security Cloud tenant.
+
+A tag is a reusable label, such as &#x60;PCI&#x60; or &#x60;SOX&#x60;, that you can apply to objects like identities, roles, access profiles, entitlements, and sources to group them and find them more quickly when you search Identity Security Cloud. These APIs manage the tags themselves. To apply tags to objects or remove them from objects, use the Tagged Objects APIs.
+
+Tag names are normalized when a tag is created: spaces are replaced with underscores, letters are converted to uppercase, and any character other than A-Z, 0-9, and underscore is removed. For example, &#x60;pci data&#x60; becomes &#x60;PCI_DATA&#x60;. The normalized name must be between 3 and 128 characters long.
+
+A tag can&#39;t be deleted while it&#39;s still applied to any object. Remove the tag from those objects first.
+
+Refer to [Tagging Items in Search](https://documentation.sailpoint.com/saas/help/search/index.html?h&#x3D;tags#tagging-items-in-search) for more information about tagging objects in Identity Security Cloud.
+ 
   
 
 All URIs are relative to *https://sailpoint.api.identitynow.com*

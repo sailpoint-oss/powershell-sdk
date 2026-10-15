@@ -1,3 +1,23 @@
+- path: /jit-activations/v1/{activationId}/frictions
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#get-jit-activation-frictions-v1
+      source: |
+        $ActivationId = "857fb802-1034-786a-151e-d3a56e4c5bd9" # String | Identifier of the activation.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get JIT activation frictions
+        
+        try {
+            Get-JitActivationFrictionsV1 -ActivationId $ActivationId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-JitActivationFrictionsV1 -ActivationId $ActivationId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-JitActivationFrictionsV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /jit-activation-history/v1/current-identity
   method: GET
   xCodeSample:
@@ -46,6 +66,34 @@
             # Get-JitActivationHistoryV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -SearchAfter $SearchAfter -Filters $Filters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-JitActivationHistoryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /jit-activations/v1/{activationId}/frictions
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#patch-jit-activation-frictions-v1
+      source: |
+        $ActivationId = "857fb802-1034-786a-151e-d3a56e4c5bd9" # String | Identifier of the activation.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JITActivationFrictionPatchRequest = @"
+        {
+          "submittedData" : "",
+          "bypass" : false,
+          "type" : ""
+        }
+        "@
+        
+        # Submit JIT activation friction
+        
+        try {
+            $Result = ConvertFrom-JsonToJITActivationFrictionPatchRequest -Json $JITActivationFrictionPatchRequest
+            Update-JitActivationFrictionsV1 -ActivationId $ActivationId -XSailPointExperimental $XSailPointExperimental -JITActivationFrictionPatchRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-JitActivationFrictionsV1 -ActivationId $ActivationId -XSailPointExperimental $XSailPointExperimental -JITActivationFrictionPatchRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-JitActivationFrictionsV1"
             Write-Host $_.ErrorDetails
         }
 - path: /jit-activations/v1/activate

@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDto', 'ApprovalStatusDt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ApprovalId** | **String** | Unique identifier for the approval. May be null; use the `approvalIds` list on the item status to get the populated approval IDs. | [optional] 
 **Forwarded** | **Boolean** | True if the request for this item was forwarded from one owner to another. | [optional] [default to $false]
 **OriginalOwner** | [**ApprovalStatusDtoOriginalOwner**](approval-status-dto-original-owner) |  | [optional] 
 **CurrentOwner** | [**ApprovalStatusDtoCurrentOwner**](approval-status-dto-current-owner) |  | [optional] 
@@ -30,7 +31,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalStatusDto = Initialize-ApprovalStatusDto  -Forwarded false `
+$ApprovalStatusDto = Initialize-ApprovalStatusDto  -ApprovalId 2c9180877b2b6ea4017b2c545f971429 `
+ -Forwarded false `
  -OriginalOwner null `
  -CurrentOwner null `
  -Modified 2019-08-23T18:52:57.398Z `

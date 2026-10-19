@@ -271,7 +271,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-CreateIdentityCollectorV1200Response
+CreateIdentityCollectorV1201Response
 #>
 function New-IdentityCollectorV1 {
     [CmdletBinding()]
@@ -330,7 +330,7 @@ function New-IdentityCollectorV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "CreateIdentityCollectorV1200Response" `
+                                -ReturnType "CreateIdentityCollectorV1201Response" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1484,7 +1484,7 @@ List identity collector types
 
 .DESCRIPTION
 
-Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.  Pagination is not supported for this endpoint; the full set of public types is always returned.
+Returns the public identity collector types exposed for metadata and UI discovery, including the ISC `connectorName` values to use when listing sources for each type. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed as separate types; create derives the identity collector type from `sourceId`. Existing identity collectors may still report SaaS variant types in list and update responses.  Flagged types (Snowflake, Databricks, Atlassian Suite) are included only when the corresponding tenant feature flag is enabled.  Pagination is not supported for this endpoint; the full set of enabled public types is always returned.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1498,7 +1498,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-String[]
+Identitycollectortypesresponse
 #>
 function Get-IdentityCollectorTypesV1 {
     [CmdletBinding()]
@@ -1548,7 +1548,7 @@ function Get-IdentityCollectorTypesV1 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "String[]" `
+                                -ReturnType "Identitycollectortypesresponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

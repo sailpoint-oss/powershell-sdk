@@ -254,12 +254,12 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Createidentitycollectorrequest | [**Createidentitycollectorrequest**](../models/createidentitycollectorrequest) | True  | Request body containing the details required to create a new identity collector.
 
 ### Return type
-[**CreateIdentityCollectorV1200Response**](../models/create-identity-collector-v1200-response)
+[**CreateIdentityCollectorV1201Response**](../models/create-identity-collector-v1201-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The identity collector was created successfully. | CreateIdentityCollectorV1200Response
+201 | The identity collector was created successfully. | CreateIdentityCollectorV1201Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -1001,9 +1001,11 @@ try {
 [[Back to top]](#) 
 
 ## get-identity-collector-types-v1
-Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.
+Returns the public identity collector types exposed for metadata and UI discovery, including the ISC `connectorName` values to use when listing sources for each type. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed as separate types; create derives the identity collector type from `sourceId`. Existing identity collectors may still report SaaS variant types in list and update responses.
 
-Pagination is not supported for this endpoint; the full set of public types is always returned.
+Flagged types (Snowflake, Databricks, Atlassian Suite) are included only when the corresponding tenant feature flag is enabled.
+
+Pagination is not supported for this endpoint; the full set of enabled public types is always returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1)
 
@@ -1014,12 +1016,12 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-**String[]**
+[**Identitycollectortypesresponse**](../models/identitycollectortypesresponse)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Supported identity collector type display names. | String[]
+200 | Supported identity collector types with ISC connector names. | Identitycollectortypesresponse
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTasksV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

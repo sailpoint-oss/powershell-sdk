@@ -28,6 +28,8 @@ List of localized error messages, if any, encountered during the approval/provis
 No description available.
 .PARAMETER ApprovalDetails
 Approval details for each item.
+.PARAMETER ApprovalIds
+List of approval IDs associated with the request.
 .PARAMETER ManualWorkItemDetails
 Manual work items created for provisioning the item.
 .PARAMETER AccountActivityItemId
@@ -101,6 +103,9 @@ function Initialize-AccessRequestAdminItemStatus {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalDetails},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${ApprovalIds},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ManualWorkItemDetails},
@@ -181,6 +186,7 @@ function Initialize-AccessRequestAdminItemStatus {
             "errorMessages" = ${ErrorMessages}
             "state" = ${State}
             "approvalDetails" = ${ApprovalDetails}
+            "approvalIds" = ${ApprovalIds}
             "manualWorkItemDetails" = ${ManualWorkItemDetails}
             "accountActivityItemId" = ${AccountActivityItemId}
             "requestType" = ${RequestType}
@@ -238,7 +244,7 @@ function ConvertFrom-JsonToAccessRequestAdminItemStatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccessRequestAdminItemStatus
-        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "identityType", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "reauthorizationRequired", "accessRequestId", "clientMetadata", "form")
+        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "approvalIds", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "identityType", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "reauthorizationRequired", "accessRequestId", "clientMetadata", "form")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -285,6 +291,12 @@ function ConvertFrom-JsonToAccessRequestAdminItemStatus {
             $ApprovalDetails = $null
         } else {
             $ApprovalDetails = $JsonParameters.PSobject.Properties["approvalDetails"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvalIds"))) { #optional property not found
+            $ApprovalIds = $null
+        } else {
+            $ApprovalIds = $JsonParameters.PSobject.Properties["approvalIds"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "manualWorkItemDetails"))) { #optional property not found
@@ -421,6 +433,7 @@ function ConvertFrom-JsonToAccessRequestAdminItemStatus {
             "errorMessages" = ${ErrorMessages}
             "state" = ${State}
             "approvalDetails" = ${ApprovalDetails}
+            "approvalIds" = ${ApprovalIds}
             "manualWorkItemDetails" = ${ManualWorkItemDetails}
             "accountActivityItemId" = ${AccountActivityItemId}
             "requestType" = ${RequestType}

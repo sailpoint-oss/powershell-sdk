@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **ErrorMessages** | **[]ErrorMessageDto[]** | List of localized error messages, if any, encountered during the approval/provisioning process. | [optional] 
 **State** | **RequestedItemStatusRequestState** |  | [optional] 
 **ApprovalDetails** | [**[]ApprovalStatusDto**](approval-status-dto) | Approval details for each item. | [optional] 
+**ApprovalIds** | **[]String** | List of approval IDs associated with the request. | [optional] 
 **ManualWorkItemDetails** | [**[]ManualWorkItemDetails**](manual-work-item-details) | Manual work items created for provisioning the item. | [optional] 
 **AccountActivityItemId** | **String** | Id of associated account activity item. | [optional] 
 **RequestType** | **AccessRequestType** |  | [optional] 
@@ -56,6 +57,7 @@ $AccessRequestAdminItemStatus = Initialize-AccessRequestAdminItemStatus  -Id 2c9
  -ErrorMessages null `
  -State null `
  -ApprovalDetails null `
+ -ApprovalIds ["85f0cf482dd44327b593624c07906c21","fa57e1bfa36f41ee85e33ee59fcbeac5"] `
  -ManualWorkItemDetails null `
  -AccountActivityItemId 2c9180926cbfbddd016cbfc7c3b10010 `
  -RequestType null `

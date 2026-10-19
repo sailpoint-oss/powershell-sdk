@@ -20,10 +20,10 @@ The unique identifier of the created identity collector.
 The display name of the created identity collector.
 .OUTPUTS
 
-CreateIdentityCollectorV1200Response<PSCustomObject>
+CreateIdentityCollectorV1201Response<PSCustomObject>
 #>
 
-function Initialize-CreateIdentityCollectorV1200Response {
+function Initialize-CreateIdentityCollectorV1201Response {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -35,7 +35,7 @@ function Initialize-CreateIdentityCollectorV1200Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => CreateIdentityCollectorV1200Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => CreateIdentityCollectorV1201Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -51,11 +51,11 @@ function Initialize-CreateIdentityCollectorV1200Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to CreateIdentityCollectorV1200Response<PSCustomObject>
+Convert from JSON to CreateIdentityCollectorV1201Response<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to CreateIdentityCollectorV1200Response<PSCustomObject>
+Convert from JSON to CreateIdentityCollectorV1201Response<PSCustomObject>
 
 .PARAMETER Json
 
@@ -63,21 +63,21 @@ Json object
 
 .OUTPUTS
 
-CreateIdentityCollectorV1200Response<PSCustomObject>
+CreateIdentityCollectorV1201Response<PSCustomObject>
 #>
-function ConvertFrom-JsonToCreateIdentityCollectorV1200Response {
+function ConvertFrom-JsonToCreateIdentityCollectorV1201Response {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => CreateIdentityCollectorV1200Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => CreateIdentityCollectorV1201Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in CreateIdentityCollectorV1200Response
+        # check if Json contains properties not defined in CreateIdentityCollectorV1201Response
         $AllProperties = ("id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

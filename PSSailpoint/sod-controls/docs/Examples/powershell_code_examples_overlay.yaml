@@ -4,7 +4,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sodcontrols/methods/sod-controls#create-control-v1
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Compensatingcontrolcreate = @"
         {
           "owner" : {
@@ -29,10 +28,10 @@
         
         try {
             $Result = ConvertFrom-JsonToCompensatingcontrolcreate -Json $Compensatingcontrolcreate
-            New-ControlV1 -XSailPointExperimental $XSailPointExperimental -Compensatingcontrolcreate $Result 
+            New-ControlV1 -Compensatingcontrolcreate $Result 
     
             # Below is a request that includes all optional parameters
-            # New-ControlV1 -XSailPointExperimental $XSailPointExperimental -Compensatingcontrolcreate $Result   
+            # New-ControlV1 -Compensatingcontrolcreate $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ControlV1"
             Write-Host $_.ErrorDetails
@@ -43,16 +42,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sodcontrols/methods/sod-controls#delete-control-v1
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Id = "3e078865-55ed-43cf-b83c-85c58d2016e6" # String | the ID (UUID) of the compensating control to delete.
         
         # Delete compensating control by ID
         
         try {
-            Remove-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+            Remove-ControlV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Remove-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+            # Remove-ControlV1 -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ControlV1"
             Write-Host $_.ErrorDetails
@@ -63,16 +61,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sodcontrols/methods/sod-controls#get-control-v1
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Id = "3e078865-55ed-43cf-b83c-85c58d2016e6" # String | The ID of the compensating control to fetch
         
         # Get compensating control by ID
         
         try {
-            Get-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+            Get-ControlV1 -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+            # Get-ControlV1 -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ControlV1"
             Write-Host $_.ErrorDetails
@@ -83,7 +80,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sodcontrols/methods/sod-controls#list-controls-v1
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -93,10 +89,10 @@
         # List Compensating Controls
         
         try {
-            Get-ControlsV1 -XSailPointExperimental $XSailPointExperimental 
+            Get-ControlsV1 
     
             # Below is a request that includes all optional parameters
-            # Get-ControlsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sort $Sort   
+            # Get-ControlsV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sort $Sort   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ControlsV1"
             Write-Host $_.ErrorDetails
@@ -107,7 +103,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/sodcontrols/methods/sod-controls#put-control-v1
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Id = "3e078865-55ed-43cf-b83c-85c58d2016e6" # String | The unique identifier of the Compensating Control to be updated.
         $Compensatingcontrolupdate = @"
         {
@@ -133,10 +128,10 @@
         
         try {
             $Result = ConvertFrom-JsonToCompensatingcontrolupdate -Json $Compensatingcontrolupdate
-            Send-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Compensatingcontrolupdate $Result 
+            Send-ControlV1 -Id $Id -Compensatingcontrolupdate $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Compensatingcontrolupdate $Result   
+            # Send-ControlV1 -Id $Id -Compensatingcontrolupdate $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ControlV1"
             Write-Host $_.ErrorDetails

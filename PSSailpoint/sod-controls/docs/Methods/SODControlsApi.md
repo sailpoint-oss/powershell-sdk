@@ -26,9 +26,6 @@ Method | HTTP request | Description
 
 
 ## create-control-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Creates a compensating control associated with separation-of-duties policies.
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-control-v-1)
@@ -36,7 +33,6 @@ Creates a compensating control associated with separation-of-duties policies.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | Compensatingcontrolcreate | [**Compensatingcontrolcreate**](../models/compensatingcontrolcreate) | True  | Data needed to create a Compensating Control
 
 ### Return type
@@ -59,7 +55,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Compensatingcontrolcreate = @"{
   "owner" : {
     "id" : "3e07886555ed43cfb83c85c58d2016e6",
@@ -82,10 +77,10 @@ $Compensatingcontrolcreate = @"{
 
 try {
     $Result = ConvertFrom-JsonToCompensatingcontrolcreate -Json $Compensatingcontrolcreate
-    New-ControlV1 -XSailPointExperimental $XSailPointExperimental -Compensatingcontrolcreate $Result 
+    New-ControlV1 -Compensatingcontrolcreate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ControlV1 -XSailPointExperimental $XSailPointExperimental -Compensatingcontrolcreate $Result  
+    # New-ControlV1 -Compensatingcontrolcreate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ControlV1"
     Write-Host $_.ErrorDetails
@@ -94,9 +89,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-control-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Deletes the specified compensating control from the data store.
 
 [API Spec](https://developer.sailpoint.com/docs/api/delete-control-v-1)
@@ -104,7 +96,6 @@ Deletes the specified compensating control from the data store.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | Id | **String** | True  | the ID (UUID) of the compensating control to delete.
 
 ### Return type
@@ -127,16 +118,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Id = "3e078865-55ed-43cf-b83c-85c58d2016e6" # String | the ID (UUID) of the compensating control to delete.
 
 # Delete compensating control by ID
 
 try {
-    Remove-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    Remove-ControlV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id  
+    # Remove-ControlV1 -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ControlV1"
     Write-Host $_.ErrorDetails
@@ -145,9 +135,6 @@ try {
 [[Back to top]](#) 
 
 ## get-control-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Returns a single compensating control by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-control-v-1)
@@ -155,7 +142,6 @@ Returns a single compensating control by ID.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | Id | **String** | True  | The ID of the compensating control to fetch
 
 ### Return type
@@ -178,16 +164,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Id = "3e078865-55ed-43cf-b83c-85c58d2016e6" # String | The ID of the compensating control to fetch
 
 # Get compensating control by ID
 
 try {
-    Get-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    Get-ControlV1 -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id  
+    # Get-ControlV1 -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ControlV1"
     Write-Host $_.ErrorDetails
@@ -196,9 +181,6 @@ try {
 [[Back to top]](#) 
 
 ## list-controls-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Returns a list of compensating controls associated with separation-of-duties policies.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-controls-v-1)
@@ -206,7 +188,6 @@ Returns a list of compensating controls associated with separation-of-duties pol
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -233,7 +214,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -243,10 +223,10 @@ $Sort = "-name" # String | Sort results using the standard syntax described in [
 # List Compensating Controls
 
 try {
-    Get-ControlsV1 -XSailPointExperimental $XSailPointExperimental 
+    Get-ControlsV1 
     
     # Below is a request that includes all optional parameters
-    # Get-ControlsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sort $Sort  
+    # Get-ControlsV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sort $Sort  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ControlsV1"
     Write-Host $_.ErrorDetails
@@ -255,9 +235,6 @@ try {
 [[Back to top]](#) 
 
 ## put-control-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Updates the specified compensating control.
 
 [API Spec](https://developer.sailpoint.com/docs/api/put-control-v-1)
@@ -265,7 +242,6 @@ Updates the specified compensating control.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | Id | **String** | True  | The unique identifier of the Compensating Control to be updated.
  Body  | Compensatingcontrolupdate | [**Compensatingcontrolupdate**](../models/compensatingcontrolupdate) | True  | Data needed to put a Compensating Control
 
@@ -289,7 +265,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Id = "3e078865-55ed-43cf-b83c-85c58d2016e6" # String | The unique identifier of the Compensating Control to be updated.
 $Compensatingcontrolupdate = @"{
   "owner" : {
@@ -313,10 +288,10 @@ $Compensatingcontrolupdate = @"{
 
 try {
     $Result = ConvertFrom-JsonToCompensatingcontrolupdate -Json $Compensatingcontrolupdate
-    Send-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Compensatingcontrolupdate $Result 
+    Send-ControlV1 -Id $Id -Compensatingcontrolupdate $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-ControlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Compensatingcontrolupdate $Result  
+    # Send-ControlV1 -Id $Id -Compensatingcontrolupdate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ControlV1"
     Write-Host $_.ErrorDetails

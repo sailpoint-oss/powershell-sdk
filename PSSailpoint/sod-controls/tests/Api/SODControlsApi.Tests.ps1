@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.SodControls' -name 'SODControlsApi' {
     Context 'New-ControlV1' {
         It 'Test New-ControlV1' {
-            #$TestResult = New-ControlV1 -XSailPointExperimental "TEST_VALUE" -Compensatingcontrolcreate "TEST_VALUE"
+            #$TestResult = New-ControlV1 -Compensatingcontrolcreate "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.SodControls' -name 'SODControlsApi' {
 
     Context 'Remove-ControlV1' {
         It 'Test Remove-ControlV1' {
-            #$TestResult = Remove-ControlV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE"
+            #$TestResult = Remove-ControlV1 -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.SodControls' -name 'SODControlsApi' {
 
     Context 'Get-ControlV1' {
         It 'Test Get-ControlV1' {
-            #$TestResult = Get-ControlV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE"
+            #$TestResult = Get-ControlV1 -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.SodControls' -name 'SODControlsApi' {
 
     Context 'Get-ControlsV1' {
         It 'Test Get-ControlsV1' {
-            #$TestResult = Get-ControlsV1 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sort "TEST_VALUE"
+            #$TestResult = Get-ControlsV1 -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sort "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.SodControls' -name 'SODControlsApi' {
 
     Context 'Send-ControlV1' {
         It 'Test Send-ControlV1' {
-            #$TestResult = Send-ControlV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -Compensatingcontrolupdate "TEST_VALUE"
+            #$TestResult = Send-ControlV1 -Id "TEST_VALUE" -Compensatingcontrolupdate "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -121,6 +121,7 @@ docs/SourceOwner.md
 docs/SourcePasswordPoliciesInner.md
 docs/SourceResourceMappingValue.md
 docs/SourceSchemasInner.md
+docs/SourceServiceDeskIntegrationDto.md
 docs/SourceSyncJob.md
 docs/SourceSyncPayload.md
 docs/SourcesApi.md
@@ -259,6 +260,7 @@ src/PSSailpoint.Sources/Model/SourceOwner.ps1
 src/PSSailpoint.Sources/Model/SourcePasswordPoliciesInner.ps1
 src/PSSailpoint.Sources/Model/SourceResourceMappingValue.ps1
 src/PSSailpoint.Sources/Model/SourceSchemasInner.ps1
+src/PSSailpoint.Sources/Model/SourceServiceDeskIntegrationDto.ps1
 src/PSSailpoint.Sources/Model/SourceSyncJob.ps1
 src/PSSailpoint.Sources/Model/SourceSyncPayload.ps1
 src/PSSailpoint.Sources/Model/Split.ps1
@@ -401,6 +403,7 @@ tests/Model/SourceOwner.Tests.ps1
 tests/Model/SourcePasswordPoliciesInner.Tests.ps1
 tests/Model/SourceResourceMappingValue.Tests.ps1
 tests/Model/SourceSchemasInner.Tests.ps1
+tests/Model/SourceServiceDeskIntegrationDto.Tests.ps1
 tests/Model/SourceSyncJob.Tests.ps1
 tests/Model/SourceSyncPayload.Tests.ps1
 tests/Model/Split.Tests.ps1

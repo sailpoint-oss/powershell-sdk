@@ -1,0 +1,1391 @@
+- path: /certification-campaigns/v1/campaigns/{id}/complete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#complete-gov-certification-campaign-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The campaign id
+        $CompleteCampaignOptions = @"
+        {
+          "autoCompleteAction" : "REVOKE"
+        }
+        "@
+        
+        # Complete a Campaign
+        
+        try {
+            Complete-GovCertificationCampaignV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Complete-GovCertificationCampaignV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -CompleteCampaignOptions $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-GovCertificationCampaignV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-templates/{id}/generate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#create-campaign-from-template-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "2c918083-5d19-1a86-a15d-28455b4a2329" # String | The desired campaign template's ID.
+        
+        # Generate campaign from template
+        
+        try {
+            New-CampaignFromTemplateV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # New-CampaignFromTemplateV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CampaignFromTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-filters
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#create-gov-certification-campaign-filter-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CampaignFilterCreate = @"
+        {
+          "mode" : "INCLUSION",
+          "name" : "Identity Attribute Campaign Filter",
+          "description" : "Campaign filter to certify data based on specified property of Identity Attribute.",
+          "criteriaList" : [ {
+            "criteriaType" : "IDENTITY",
+            "criteriaProperty" : "DISPLAY_NAME",
+            "criteriaValue" : "support",
+            "operation" : "EQUALS"
+          } ]
+        }
+        "@
+        
+        # Create a Campaign Filter
+        
+        try {
+            $Result = ConvertFrom-JsonToCampaignFilterCreate -Json $CampaignFilterCreate
+            New-GovCertificationCampaignFilterV1 -XSailPointExperimental $XSailPointExperimental -CampaignFilterCreate $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-GovCertificationCampaignFilterV1 -XSailPointExperimental $XSailPointExperimental -CampaignFilterCreate $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-GovCertificationCampaignFilterV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-templates
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#create-gov-certification-campaign-template-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CampaignTemplateCreate = @"
+        {
+          "recommendationsEnabled" : true,
+          "sunsetCommentsRequired" : true,
+          "deadlineDuration" : "P2W",
+          "searchBasedParams" : {
+            "identityIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ],
+            "searchType" : "ACCESS",
+            "query" : "admin",
+            "accessConstraints" : [ {
+              "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+              "type" : "ENTITLEMENT",
+              "operator" : "SELECTED"
+            }, {
+              "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+              "type" : "ENTITLEMENT",
+              "operator" : "SELECTED"
+            } ]
+          },
+          "description" : "Template for the annual manager campaign.",
+          "reviewer" : {
+            "name" : "William Wilson",
+            "id" : "0fbe863c063c4c88a35fd7f17e8a3df5",
+            "type" : "IDENTITY"
+          },
+          "type" : "IDENTITY",
+          "filterRef" : {
+            "id" : "e9f9a139-7b84-2fd5-a658-42087040d3ac"
+          },
+          "emailNotificationEnabled" : false,
+          "remediatorRef" : {
+            "name" : "Role Admin",
+            "id" : "2c90ad2a70ace7d50170acf22ca90010"
+          },
+          "autoRevokeAllowed" : false,
+          "name" : "Manager Campaign Template",
+          "mandatoryCommentRequirement" : "NO_DECISIONS",
+          "campaignDescription" : "Everyone needs to be reviewed by their manager",
+          "campaignName" : "Manager Campaign",
+          "sourceIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ]
+        }
+        "@
+        
+        # Create a Campaign Template.
+        
+        try {
+            $Result = ConvertFrom-JsonToCampaignTemplateCreate -Json $CampaignTemplateCreate
+            New-GovCertificationCampaignTemplateV1 -XSailPointExperimental $XSailPointExperimental -CampaignTemplateCreate $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-GovCertificationCampaignTemplateV1 -XSailPointExperimental $XSailPointExperimental -CampaignTemplateCreate $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-GovCertificationCampaignTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaigns
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#create-gov-certification-campaign-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CampaignCreate = @"
+        {
+          "inlineFilter" : {
+            "mode" : "INCLUSION",
+            "criteriaList" : [ {
+              "criteriaType" : "IDENTITY",
+              "criteriaProperty" : "DISPLAY_NAME",
+              "criteriaValue" : "support",
+              "operation" : "EQUALS"
+            } ]
+          },
+          "recommendationsEnabled" : true,
+          "sunsetCommentsRequired" : true,
+          "searchBasedParams" : {
+            "identityIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ],
+            "searchType" : "ACCESS",
+            "query" : "admin",
+            "accessConstraints" : [ {
+              "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+              "type" : "ENTITLEMENT",
+              "operator" : "SELECTED"
+            }, {
+              "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+              "type" : "ENTITLEMENT",
+              "operator" : "SELECTED"
+            } ]
+          },
+          "description" : "Everyone needs to be reviewed by their manager",
+          "reviewer" : {
+            "name" : "William Wilson",
+            "id" : "0fbe863c063c4c88a35fd7f17e8a3df5",
+            "type" : "IDENTITY"
+          },
+          "autoActivate" : true,
+          "type" : "IDENTITY",
+          "filterRef" : {
+            "id" : "e9f9a139-7b84-2fd5-a658-42087040d3ac"
+          },
+          "emailNotificationEnabled" : false,
+          "remediatorRef" : {
+            "name" : "Role Admin",
+            "id" : "2c90ad2a70ace7d50170acf22ca90010"
+          },
+          "autoRevokeAllowed" : false,
+          "name" : "Manager Campaign",
+          "mandatoryCommentRequirement" : "NO_DECISIONS",
+          "deadlineTimezone" : "-05:00",
+          "deadline" : "2020-03-15",
+          "sourceIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ]
+        }
+        "@
+        
+        # Create a campaign
+        
+        try {
+            $Result = ConvertFrom-JsonToCampaignCreate -Json $CampaignCreate
+            New-GovCertificationCampaignV1 -XSailPointExperimental $XSailPointExperimental -CampaignCreate $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-GovCertificationCampaignV1 -XSailPointExperimental $XSailPointExperimental -CampaignCreate $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-GovCertificationCampaignV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaigns/{campaignId}/reports
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#create-report-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CampaignId = "e1aeb0b6-0021-4f40-8bc7-5c56533214b3" # String | The ID of the campaign to generate a report for
+        $TriggerCampaignReportRequest = @"
+        {
+          "format" : "PDF",
+          "name" : "My Campaign Report",
+          "type" : "REMEDIATION"
+        }
+        "@
+        
+        # Create campaign report
+        
+        try {
+            $Result = ConvertFrom-JsonToTriggerCampaignReportRequest -Json $TriggerCampaignReportRequest
+            New-ReportV1 -XSailPointExperimental $XSailPointExperimental -CampaignId $CampaignId -TriggerCampaignReportRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ReportV1 -XSailPointExperimental $XSailPointExperimental -CampaignId $CampaignId -TriggerCampaignReportRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ReportV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-filters/delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#delete-gov-certification-campaign-filters-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody = "MyRequestBody" # String[] | A JSON list of IDs of campaign filters to delete.
+        $RequestBody = @""@ 
+        
+        
+        # Deletes Campaign Filters
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Remove-GovCertificationCampaignFiltersV1 -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-GovCertificationCampaignFiltersV1 -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-GovCertificationCampaignFiltersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-templates/{id}/schedule
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#delete-gov-certification-campaign-template-schedule-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "2c918083-5d19-1a86-a15d-28455b4a2329" # String | The ID of the campaign template whose schedule is being deleted.
+        
+        # Delete a Campaign Template Schedule
+        
+        try {
+            Remove-GovCertificationCampaignTemplateScheduleV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-GovCertificationCampaignTemplateScheduleV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-GovCertificationCampaignTemplateScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-templates/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#delete-gov-certification-campaign-template-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "2c918083-5d19-1a86-a15d-28455b4a2329" # String | The ID of the campaign template being deleted.
+        
+        # Delete a Campaign Template
+        
+        try {
+            Remove-GovCertificationCampaignTemplateV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-GovCertificationCampaignTemplateV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-GovCertificationCampaignTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaigns/delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#delete-gov-certification-campaigns-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CampaignsDeleteRequest = @"
+        {
+          "ids" : [ "ef38f943-47e9-4562-b5bb-8424a56397d8", "ef38f943-47e9-4562-b5bb-8424a56397d9" ]
+        }
+        "@
+        
+        # Delete Campaigns
+        
+        try {
+            $Result = ConvertFrom-JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
+            Remove-GovCertificationCampaignsV1 -XSailPointExperimental $XSailPointExperimental -CampaignsDeleteRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-GovCertificationCampaignsV1 -XSailPointExperimental $XSailPointExperimental -CampaignsDeleteRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-GovCertificationCampaignsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/access-summaries/{type}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-access-summaries-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $Type = "ENTITLEMENT" # CertificationItemType | The type of review item to retrieve summaries for
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "completed eq false and sourceName sw 'AD'" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **completed**: *eq, ne*  **targetReference.id**: *eq, ne, in*  **targetReference.name**: *eq, sw, co*  **sourceName**: *eq, sw, co* (optional)
+        $Sorters = "targetReference.name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetReference.name** (optional)
+        
+        # Access Summaries
+        
+        try {
+            Get-AccessSummariesV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -Type $Type 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessSummariesV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessSummariesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/entitlements/{entitlementId}/children
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-certification-entitlement-children-details-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $ReviewItemId = "2478b87b-f0d2-4585-b42d-45e4d580c5cf" # String | The certification item ID
+        $EntitlementId = "ef38f94347e94562b5bb8424a56397d8" # String | The entitlement ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "name eq 'Read Only'" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le* (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id** (optional)
+        
+        # Entitlement Children in a Certification
+        
+        try {
+            Get-CertificationEntitlementChildrenDetailsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -EntitlementId $EntitlementId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CertificationEntitlementChildrenDetailsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -EntitlementId $EntitlementId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CertificationEntitlementChildrenDetailsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/entitlements/{entitlementId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-certification-entitlement-details-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $ReviewItemId = "2478b87b-f0d2-4585-b42d-45e4d580c5cf" # String | The certification item ID
+        $EntitlementId = "ef38f94347e94562b5bb8424a56397d8" # String | The entitlement ID
+        
+        # Get Entitlement in a Certification
+        
+        try {
+            Get-CertificationEntitlementDetailsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -EntitlementId $EntitlementId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CertificationEntitlementDetailsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -EntitlementId $EntitlementId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CertificationEntitlementDetailsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/entitlements/{entitlementId}/parents
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-certification-entitlement-parents-details-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $ReviewItemId = "2478b87b-f0d2-4585-b42d-45e4d580c5cf" # String | The certification item ID
+        $EntitlementId = "ef38f94347e94562b5bb8424a56397d8" # String | The entitlement ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "attribute eq 'role'" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le* (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id** (optional)
+        
+        # Entitlement Parents in a Certification
+        
+        try {
+            Get-CertificationEntitlementParentsDetailsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -EntitlementId $EntitlementId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CertificationEntitlementParentsDetailsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -EntitlementId $EntitlementId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CertificationEntitlementParentsDetailsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/entitlements/{entitlementId}/permissions
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-certification-entitlement-permissions-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $ReviewItemId = "2478b87b-f0d2-4585-b42d-45e4d580c5cf" # String | The certification item ID
+        $EntitlementId = "ef38f94347e94562b5bb8424a56397d8" # String | The entitlement ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Permissions in a Certification
+        
+        try {
+            Get-CertificationEntitlementPermissionsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -EntitlementId $EntitlementId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CertificationEntitlementPermissionsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -EntitlementId $EntitlementId -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CertificationEntitlementPermissionsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/item-id/{entitlementId}/cert-account-details
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-certification-item-account-details-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $ReviewItemId = "2478b87b-f0d2-4585-b42d-45e4d580c5cf" # String | The certification item ID
+        $EntitlementId = "ef38f94347e94562b5bb8424a56397d8" # String | The entitlement ID
+        
+        # Certification Item Account Details
+        
+        try {
+            Get-CertificationItemAccountDetailsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -EntitlementId $EntitlementId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CertificationItemAccountDetailsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -EntitlementId $EntitlementId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CertificationItemAccountDetailsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-certification-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        
+        # Certification by ID
+        
+        try {
+            Get-CertificationV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CertificationV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CertificationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/decision-summary
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-decision-summary-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $Filters = "certificationSubjectSummary.id in ('2c918085-71bc-fcf8-0171-c23e4b4221fc','2c918085-71bc-fcf8-0171-c23e4b4221fd')" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **certificationSubjectSummary.id**: *eq, in* (optional)
+        
+        # Summary of Certification Decisions
+        
+        try {
+            Get-DecisionSummaryV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-DecisionSummaryV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-DecisionSummaryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaigns/{campaignId}/reports/{reportId}/download-url
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-download-url-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CampaignId = "e1aeb0b6-0021-4f40-8bc7-5c56533214b3" # String | The ID of the campaign to be retrieved
+        $ReportId = "e1aeb0b6-0021-4f40-8bc7-5c56533214b3" # String | The ID of the report to be retrieved
+        
+        # Download URL for campaign report
+        
+        try {
+            Get-DownloadUrlV1 -XSailPointExperimental $XSailPointExperimental -CampaignId $CampaignId -ReportId $ReportId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-DownloadUrlV1 -XSailPointExperimental $XSailPointExperimental -CampaignId $CampaignId -ReportId $ReportId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-DownloadUrlV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/access-profiles/{accessProfileId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-gov-certification-access-profile-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $ReviewItemId = "2478b87b-f0d2-4585-b42d-45e4d580c5cf" # String | The certification item ID. This must of review item type either ROLE or ACCESS_PROFILE.
+        $AccessProfileId = "2c9180837ca6693d017ca8d097500149" # String | The Access Profile ID
+        
+        # Get an Access Profile
+        
+        try {
+            Get-GovCertificationAccessProfileV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -AccessProfileId $AccessProfileId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-GovCertificationAccessProfileV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewItemId $ReviewItemId -AccessProfileId $AccessProfileId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-GovCertificationAccessProfileV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-filters/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-gov-certification-campaign-filter-by-id-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "e9f9a139-7b84-2fd5-a658-42087040d3ac" # String | The ID of the campaign filter to be retrieved.
+        
+        # Get Campaign Filter by ID
+        
+        try {
+            Get-GovCertificationCampaignFilterByIdV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-GovCertificationCampaignFilterByIdV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-GovCertificationCampaignFilterByIdV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaigns/{campaignId}/reports/{reportId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-gov-certification-campaign-report-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CampaignId = "e1aeb0b6-0021-4f40-8bc7-5c56533214b3" # String | The ID of the campaign to be retrieved
+        $ReportId = "e1aeb0b6-0021-4f40-8bc7-5c56533214b3" # String | The ID of the report to be retrieved
+        
+        # Get a campaign report
+        
+        try {
+            Get-GovCertificationCampaignReportV1 -XSailPointExperimental $XSailPointExperimental -CampaignId $CampaignId -ReportId $ReportId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-GovCertificationCampaignReportV1 -XSailPointExperimental $XSailPointExperimental -CampaignId $CampaignId -ReportId $ReportId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-GovCertificationCampaignReportV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-templates/{id}/schedule
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-gov-certification-campaign-template-schedule-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "2c918083-5d19-1a86-a15d-28455b4a2329" # String | The campaign template's ID for the desired campaign template schedule.
+        
+        # Get a Campaign Template Schedule
+        
+        try {
+            Get-GovCertificationCampaignTemplateScheduleV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-GovCertificationCampaignTemplateScheduleV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-GovCertificationCampaignTemplateScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-templates/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-gov-certification-campaign-template-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "2c918083-5d19-1a86-a15d-28455b4a2329" # String | The desired campaign template's ID.
+        
+        # Get a Campaign Template
+        
+        try {
+            Get-GovCertificationCampaignTemplateV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-GovCertificationCampaignTemplateV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-GovCertificationCampaignTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaigns/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-gov-certification-campaign-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "2c918085-71bc-4cf8-a171-c23e4b4221fc" # String | The ID of the campaign to be retrieved
+        
+        # Get a campaign
+        
+        try {
+            Get-GovCertificationCampaignV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-GovCertificationCampaignV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-GovCertificationCampaignV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certification-tasks/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-gov-certification-task-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "63b32151-26c0-42f4-9299-8898dc1c9daa" # String | The task ID
+        
+        # Task details by ID
+        
+        try {
+            Get-GovCertificationTaskV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-GovCertificationTaskV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-GovCertificationTaskV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certification-tasks
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-pending-tasks-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $ReviewerIdentity = "Ada.1de82e55078344" # String | The ID of reviewer identity. *me* indicates the current user. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "type eq "REASSIGN_SUBJECTS_AND_ITEMS"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, in*  **type**: *eq, in* (optional)
+        
+        # List of Pending Tasks
+        
+        try {
+            Get-PendingTasksV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PendingTasksV1 -XSailPointExperimental $XSailPointExperimental -ReviewerIdentity $ReviewerIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PendingTasksV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/status-summary
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-status-summary-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Status Summary For Certifications
+        
+        try {
+            Get-StatusSummaryV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-StatusSummaryV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-StatusSummaryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/subject-summary/{subjectId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#get-subject-summary-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $SubjectId = "2c918087-72a5-44f5-a172-a9540e501ba8" # String | The subject summary ID
+        
+        # Summary for a Certification Subject
+        
+        try {
+            Get-SubjectSummaryV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -SubjectId $SubjectId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SubjectSummaryV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -SubjectId $SubjectId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SubjectSummaryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-templates
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#list-campaign-templates-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+        $Filters = "name eq "Campaign Template"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in, gt, ge, lt, le, sw, co*  **name**: *eq, ne, in, gt, ge, lt, le, sw, co* (optional)
+        
+        # List Campaign Templates
+        
+        try {
+            Get-CampaignTemplatesV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CampaignTemplatesV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CampaignTemplatesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaigns
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#list-campaigns-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "name eq "Manager Campaign"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw, co*  **status**: *eq, in, ne*  Possible values are [PENDING, STAGED, CANCELING, ACTIVATING, ACTIVE, COMPLETING, COMPLETED, ERROR] (optional)
+        $Sorters = "name,-created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, deadline, status, totalCertifications, completedCertifications** (optional)
+        
+        # List the campaigns
+        
+        try {
+            Get-CampaignsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CampaignsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CampaignsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#list-certifications-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $ReviewerIdentity = "me" # String | The ID of reviewer identity. *me* indicates the current user. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "name eq "Bob"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **phase**: *eq*  **completed**: *eq*  **campaignRef.campaignType**: *eq, in*  **campaignRef.id**: *eq, in*  **reviewProgress**: *eq, in*  **reviewerDeleted**: *eq*  **reviewerName**: *sw, co* (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, dueDate, dateSigned** (optional)
+        
+        # List Certifications
+        
+        try {
+            Get-CertificationsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CertificationsV1 -XSailPointExperimental $XSailPointExperimental -ReviewerIdentity $ReviewerIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CertificationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-filters
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#list-gov-certification-campaign-filters-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List Campaign Filters
+        
+        try {
+            Get-GovCertificationCampaignFiltersV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-GovCertificationCampaignFiltersV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-GovCertificationCampaignFiltersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/reviewers
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#list-gov-certification-reviewers-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "name eq "Bob"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw, co*  **email**: *eq, sw, co* (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email** (optional)
+        
+        # List of Reviewers for certification
+        
+        try {
+            Get-GovCertificationReviewersV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-GovCertificationReviewersV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-GovCertificationReviewersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaigns/{campaignId}/reports
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#list-reports-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CampaignId = "e1aeb0b6-0021-4f40-8bc7-5c56533214b3" # String | The ID of the campaign to be retrieved
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "type eq "SIGN_OFF"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **name**: *eq, sw, co*  **type**: *eq, in, ne*  Possible values are [STATUS, SIGN_OFF, COMPOSITION, REMEDIATION]  **format**: *eq, in, ne*  Possible values are [PDF, CSV]  **status**: *eq, in, ne*  Possible values are [IN_PROGRESS, FAILED, SUCCESS] (optional)
+        $Sorters = "name,-created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, type, format, created, modified** (optional)
+        
+        # List reports for a campaign
+        
+        try {
+            Get-ReportsV1 -XSailPointExperimental $XSailPointExperimental -CampaignId $CampaignId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ReportsV1 -XSailPointExperimental $XSailPointExperimental -CampaignId $CampaignId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ReportsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#list-review-items-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "ef38f943-47e9-4562-b5bb-8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **completed**: *eq, ne*  **certificationSubjectSummary.id**: *eq, ne, in*  **certificationSubjectSummary.subjectName**: *eq, sw, co*  **certificationSubjectSummary.subjectManagerName**: *eq, sw, co*  **certificationSubjectSummary.subjectEmail**: *eq, sw, co*  **certificationSubjectSummary.identityState**: *eq, in, ne*  **reviewData.targetReference.id**: *eq, ne, in*  **reviewData.targetReference.name**: *eq, sw, co*  **reviewData.targetReference.type**: *eq*  **reviewData.entitlement.provisioningType**: *eq, ne, in*  **sourceName**: *eq, sw, co*  **accountName**: *eq, sw, co*  **reauthRequired**: *eq, ne* (optional)
+        $Sorters = "certificationSubjectSummary.subjectName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **certificationSubjectSummary.subjectName, certificationSubjectSummary.subjectManagerName, reviewData.targetReference.id, reviewData.targetReference.name, sourceName, accountName** (optional)
+        $ActivityData = $false # Boolean | If set to true, the response will include HTTP header ""SLPT-Activity-Data-ID"" which will allow the caller to query for certification items activity data in a separate call. (optional) (default to $false)
+        
+        # List of Review Items
+        
+        try {
+            Get-ReviewItemsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ReviewItemsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ActivityData $ActivityData   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ReviewItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/subject-summaries
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#list-subject-summaries-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "completed eq false and subjectName sw 'Derek'" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, ne, in*  **completed**: *eq, ne*  **subjectName**: *eq, sw, co* (optional)
+        $Sorters = "subjectName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **subjectName, targetDisplayName** (optional)
+        
+        # Subject Summaries for a Certification
+        
+        try {
+            Get-SubjectSummariesV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SubjectSummariesV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SubjectSummariesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaigns/{campaignId}/reassign
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#move-certifications-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CampaignId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification campaign ID.
+        $ReassignCertifications = @"
+        {
+          "certificationIds" : [ "af385946-4779-4712-91bb-8424a563abc1", "af385946-4779-4712-91bb-8424a563abc2", "af385946-4779-4712-91bb-8424a563abc3" ],
+          "reason" : "Reassigning the certifications",
+          "reassignTo" : {
+            "id" : "0fbe863c-063c-4c88-a35f-d7f17e8a3df5",
+            "type" : "IDENTITY"
+          }
+        }
+        "@
+        
+        # Reassign certifications to an identity
+        
+        try {
+            $Result = ConvertFrom-JsonToReassignCertifications -Json $ReassignCertifications
+            Move-CertificationsV1 -XSailPointExperimental $XSailPointExperimental -CampaignId $CampaignId -ReassignCertifications $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Move-CertificationsV1 -XSailPointExperimental $XSailPointExperimental -CampaignId $CampaignId -ReassignCertifications $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-CertificationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/reassign-async
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#move-subject-and-items-async-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the certification which we are going to reassign.
+        $ReassignReference = @"
+        {
+          "reason" : "Reassigning this item to the appropriate reviewer.",
+          "reassignTo" : "ef38f943-47e9-4562-b5bb-8424a56397d8",
+          "reassign" : [ {
+            "id" : "ef38f943-47e9-4562-b5bb-8424a56397d8",
+            "type" : "ITEM"
+          } ]
+        }
+        "@
+        
+        # Reassign certification items asynchronously
+        
+        try {
+            $Result = ConvertFrom-JsonToReassignReference -Json $ReassignReference
+            Move-SubjectAndItemsAsyncV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReassignReference $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Move-SubjectAndItemsAsyncV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReassignReference $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-SubjectAndItemsAsyncV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/reassign
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#move-subject-and-items-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the certification which we are going to reassign.
+        $ReassignReference = @"
+        {
+          "reason" : "Reassigning this item to the appropriate reviewer.",
+          "reassignTo" : "ef38f943-47e9-4562-b5bb-8424a56397d8",
+          "reassign" : [ {
+            "id" : "ef38f943-47e9-4562-b5bb-8424a56397d8",
+            "type" : "ITEM"
+          } ]
+        }
+        "@
+        
+        # Reassign certification subjects or items
+        
+        try {
+            $Result = ConvertFrom-JsonToReassignReference -Json $ReassignReference
+            Move-SubjectAndItemsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReassignReference $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Move-SubjectAndItemsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReassignReference $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-SubjectAndItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaigns/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#patch-campaign-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | ID of the campaign being modified.
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update a campaign
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-CampaignV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-CampaignV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CampaignV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-templates/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#patch-gov-certification-campaign-template-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "2c918083-5d19-1a86-a15d-28455b4a2329" # String | The ID of the campaign template being modified.
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update a Campaign Template
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-GovCertificationCampaignTemplateV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-GovCertificationCampaignTemplateV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-GovCertificationCampaignTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/sign-off
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#process-sign-off-certification-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        
+        # Finalize Certification Decisions
+        
+        try {
+            Invoke-ProcessSignOffCertificationV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-ProcessSignOffCertificationV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ProcessSignOffCertificationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-filters/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#put-campaign-filter-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "e9f9a139-7b84-2fd5-a658-42087040d3ac" # String | The ID of the campaign filter being modified.
+        $CampaignFilterUpdate = @"
+        {
+          "mode" : "INCLUSION",
+          "name" : "Identity Attribute Campaign Filter",
+          "description" : "Campaign filter to certify data based on specified property of Identity Attribute.",
+          "criteriaList" : [ {
+            "criteriaType" : "IDENTITY",
+            "criteriaProperty" : "DISPLAY_NAME",
+            "criteriaValue" : "support",
+            "operation" : "EQUALS"
+          } ]
+        }
+        "@
+        
+        # Updates a Campaign Filter
+        
+        try {
+            $Result = ConvertFrom-JsonToCampaignFilterUpdate -Json $CampaignFilterUpdate
+            Send-CampaignFilterV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -CampaignFilterUpdate $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-CampaignFilterV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -CampaignFilterUpdate $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-CampaignFilterV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-templates/search
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#search-campaign-templates-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SearchRequest = @"
+        {
+          "queryString" : "identity 2023"
+        }
+        "@
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+        $Filters = "name eq "Campaign Template"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in, gt, ge, lt, le, sw, co*  **name**: *eq, ne, in, gt, ge, lt, le, sw, co* (optional)
+        
+        # Search campaign templates
+        
+        try {
+            $Result = ConvertFrom-JsonToSearchRequest -Json $SearchRequest
+            Search-CampaignTemplatesV1 -XSailPointExperimental $XSailPointExperimental -SearchRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Search-CampaignTemplatesV1 -XSailPointExperimental $XSailPointExperimental -SearchRequest $Result -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-CampaignTemplatesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/search
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#search-certifications-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $ReviewerIdentity = "me" # String | The ID of reviewer identity. *me* indicates the current user. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "reviewerName sw "Bob"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **phase**: *eq*  **completed**: *eq*  **campaignRef.campaignType**: *eq, in*  **campaignRef.id**: *eq, in*  **reviewProgress**: *eq, in*  **reviewerDeleted**: *eq*  **reviewerName**: *sw, co* (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, dueDate, dateSigned** (optional)
+        $SearchRequest = @"
+        {
+          "queryString" : "identity 2023"
+        }
+        "@
+        
+        # Search Certifications
+        
+        try {
+            Search-CertificationsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Search-CertificationsV1 -XSailPointExperimental $XSailPointExperimental -ReviewerIdentity $ReviewerIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -SearchRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-CertificationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/insights/access-summary
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#search-insights-access-summary-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $InsightDetails = @"
+        {
+          "campaignType" : "IDENTITY",
+          "identityIdFilter" : [ "2c918085718230600171993742c63558" ],
+          "query" : "admin",
+          "type" : "ENTITLEMENT"
+        }
+        "@
+        
+        # Get Insights Access Summary
+        
+        try {
+            $Result = ConvertFrom-JsonToInsightDetails -Json $InsightDetails
+            Search-InsightsAccessSummaryV1 -XSailPointExperimental $XSailPointExperimental -InsightDetails $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Search-InsightsAccessSummaryV1 -XSailPointExperimental $XSailPointExperimental -InsightDetails $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-InsightsAccessSummaryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/search
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#search-review-items-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "ef38f943-47e9-4562-b5bb-8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **completed**: *eq, ne*  **certificationSubjectSummary.id**: *eq, ne, in*  **certificationSubjectSummary.subjectName**: *eq, sw, co*  **certificationSubjectSummary.subjectManagerName**: *eq, sw, co*  **certificationSubjectSummary.subjectEmail**: *eq, sw, co*  **certificationSubjectSummary.identityState**: *eq, in, ne*  **reviewData.targetReference.id**: *eq, ne, in*  **reviewData.targetReference.name**: *eq, sw, co*  **reviewData.targetReference.type**: *eq*  **reviewData.entitlement.provisioningType**: *eq, ne, in*  **sourceName**: *eq, sw, co*  **accountName**: *eq, sw, co*  **reauthRequired**: *eq, ne* (optional)
+        $Sorters = "certificationSubjectSummary.subjectName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **certificationSubjectSummary.subjectName, certificationSubjectSummary.subjectManagerName, reviewData.targetReference.id, reviewData.targetReference.name, sourceName, accountName** (optional)
+        $ActivityData = $false # Boolean | If set to true, the response will include HTTP header ""SLPT-Activity-Data-ID"" which will allow the caller to query for certification items activity data in a separate call. (optional) (default to $false)
+        $SearchRequest = @"
+        {
+          "queryString" : "identity 2023"
+        }
+        "@
+        
+        # Search certification review items
+        
+        try {
+            Search-ReviewItemsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId 
+    
+            # Below is a request that includes all optional parameters
+            # Search-ReviewItemsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ActivityData $ActivityData -SearchRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-ReviewItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/subject-summaries/search
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#search-subject-summaries-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The certification ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "completed eq false and subjectName sw 'Derek'" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, ne, in*  **completed**: *eq, ne*  **subjectName**: *eq, sw, co* (optional)
+        $Sorters = "subjectName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **subjectName, targetDisplayName** (optional)
+        $SearchRequest = @"
+        {
+          "queryString" : "identity 2023"
+        }
+        "@
+        
+        # Search certification subject summaries
+        
+        try {
+            Search-SubjectSummariesV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId 
+    
+            # Below is a request that includes all optional parameters
+            # Search-SubjectSummariesV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -SearchRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-SubjectSummariesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaign-templates/{id}/schedule
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#set-or-update-campaign-template-schedule-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "2c918083-5d19-1a86-a15d-28455b4a2329" # String | The ID of the campaign template whose schedule is being modified or created.
+        $Schedule = @"
+        {
+          "hours" : {
+            "values" : [ "1", "2", "3" ],
+            "interval" : 2,
+            "type" : "LIST"
+          },
+          "months" : {
+            "values" : [ "1", "2", "3" ],
+            "interval" : 2,
+            "type" : "LIST"
+          },
+          "timeZoneId" : "America/Chicago",
+          "days" : {
+            "values" : [ "1", "2", "3" ],
+            "interval" : 2,
+            "type" : "LIST"
+          },
+          "expiration" : "2025-09-15T16:00:00Z",
+          "type" : "DAILY"
+        }
+        "@
+        
+        # Set a campaign template schedule
+        
+        try {
+            $Result = ConvertFrom-JsonToSchedule -Json $Schedule
+            Set-OrUpdateCampaignTemplateScheduleV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Schedule $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-OrUpdateCampaignTemplateScheduleV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Schedule $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-OrUpdateCampaignTemplateScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/campaigns/{id}/activate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#start-gov-certification-campaign-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The campaign id
+        $ActivateCampaignOptions = @"
+        {
+          "timeZone" : "-05:00"
+        }
+        "@
+        
+        # Activate a Campaign
+        
+        try {
+            Start-GovCertificationCampaignV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Start-GovCertificationCampaignV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -ActivateCampaignOptions $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-GovCertificationCampaignV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-campaigns/v1/certifications/{certificationId}/decide
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/govcertification/methods/next-generation-certification-campaigns#submit-decisions-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CertificationId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the certification on which to make decisions
+        $ReviewDecision = @"{
+          "comments" : "This user no longer needs access to this source",
+          "decision" : "APPROVED",
+          "proposedEndDate" : "2017-07-11T18:45:37.098Z",
+          "recommendation" : {
+            "reasons" : [ "Reason 1", "Reason 2" ],
+            "recommendation" : "APPROVE",
+            "timestamp" : "2020-06-01T13:49:37.385Z"
+          },
+          "id" : "ef38f943-47e9-4562-b5bb-8424a56397d8"
+        }"@ 
+        
+        
+        # Decide on a Certification Item
+        
+        try {
+            $Result = ConvertFrom-JsonToReviewDecision -Json $ReviewDecision
+            Submit-DecisionsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewDecision $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-DecisionsV1 -XSailPointExperimental $XSailPointExperimental -CertificationId $CertificationId -ReviewDecision $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-DecisionsV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1054,6 +1054,27 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceSchemasV1"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/v1/{sourceId}/service-desk-integrations
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-service-desk-integrations-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List source service desk integrations
+        
+        try {
+            Get-SourceServiceDeskIntegrationsV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SourceServiceDeskIntegrationsV1 -SourceId $SourceId -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceServiceDeskIntegrationsV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/v1/{id}
   method: GET
   xCodeSample:

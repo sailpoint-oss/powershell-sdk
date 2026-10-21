@@ -1,0 +1,41 @@
+---
+id: campaign-filter-create
+title: CampaignFilterCreate
+pagination_label: CampaignFilterCreate
+sidebar_label: CampaignFilterCreate
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignFilterCreate', 'CampaignFilterCreate'] 
+slug: /tools/sdk/powershell/govcertification/models/campaign-filter-create
+tags: ['SDK', 'Software Development Kit', 'CampaignFilterCreate', 'CampaignFilterCreate']
+---
+
+
+# CampaignFilterCreate
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Name** | **String** | This is campaign filter's name. | [required]
+**Description** | **String** | This is campaign filter's description. | [required]
+**Mode** | **CampaignFilterType** |  | [required]
+**CriteriaList** | [**[]Criteria**](criteria) | List of criteria. | [required]
+
+## Examples
+
+- Prepare the resource
+```powershell
+$CampaignFilterCreate = Initialize-CampaignFilterCreate  -Name Identity Attribute Campaign Filter `
+ -Description Campaign filter to certify data based on specified property of Identity Attribute. `
+ -Mode null `
+ -CriteriaList [{"criteriaType":"IDENTITY","criteriaProperty":"DISPLAY_NAME","criteriaValue":"support","operation":"EQUALS"}]
+```
+
+- Convert the resource to JSON
+```powershell
+$CampaignFilterCreate | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

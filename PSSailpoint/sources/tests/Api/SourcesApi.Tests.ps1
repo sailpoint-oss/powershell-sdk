@@ -318,6 +318,14 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
         }
     }
 
+    Context 'Get-SourceServiceDeskIntegrationsV1' {
+        It 'Test Get-SourceServiceDeskIntegrationsV1' {
+            #$TestResult = Get-SourceServiceDeskIntegrationsV1 -SourceId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-SourceV1' {
         It 'Test Get-SourceV1' {
             #$TestResult = Get-SourceV1 -Id "TEST_VALUE"

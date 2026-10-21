@@ -1,0 +1,39 @@
+---
+id: source-reference-dto
+title: SourceReferenceDTO
+pagination_label: SourceReferenceDTO
+sidebar_label: SourceReferenceDTO
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceReferenceDTO', 'SourceReferenceDTO'] 
+slug: /tools/sdk/powershell/govcertification/models/source-reference-dto
+tags: ['SDK', 'Software Development Kit', 'SourceReferenceDTO', 'SourceReferenceDTO']
+---
+
+
+# SourceReferenceDTO
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **String** | The source ID | [optional] 
+**Type** | **String** | The source type, will always be ""SOURCE"" | [optional] 
+**Name** | **String** | The source name | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$SourceReferenceDTO = Initialize-SourceReferenceDTO  -Id 2c9180827ca885d7017ca8ce28a000eb `
+ -Type SOURCE `
+ -Name ODS-AD-Source
+```
+
+- Convert the resource to JSON
+```powershell
+$SourceReferenceDTO | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

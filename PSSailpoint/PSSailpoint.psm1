@@ -74,6 +74,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'dimensions' 'src' 'PSSailpoint.Dim
 Import-Module -Name (Join-Path $PSScriptRoot 'entitlement-connections' 'src' 'PSSailpoint.EntitlementConnections') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'entitlements' 'src' 'PSSailpoint.Entitlements') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'global-tenant-security-settings' 'src' 'PSSailpoint.GlobalTenantSecuritySettings') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'gov-certification' 'src' 'PSSailpoint.GovCertification') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'governance-groups' 'src' 'PSSailpoint.GovernanceGroups') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'iai-access-request-recommendations' 'src' 'PSSailpoint.IaiAccessRequestRecommendations') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'iai-common-access' 'src' 'PSSailpoint.IaiCommonAccess') -Force -Global
@@ -88,6 +89,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'identity-history' 'src' 'PSSailpoi
 Import-Module -Name (Join-Path $PSScriptRoot 'identity-profiles' 'src' 'PSSailpoint.IdentityProfiles') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'intelligence' 'src' 'PSSailpoint.Intelligence') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'jit-access' 'src' 'PSSailpoint.JitAccess') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'jit-activation-convert' 'src' 'PSSailpoint.JitActivationConvert') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'jit-activations' 'src' 'PSSailpoint.JitActivations') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'launchers' 'src' 'PSSailpoint.Launchers') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'lifecycle-states' 'src' 'PSSailpoint.LifecycleStates') -Force -Global

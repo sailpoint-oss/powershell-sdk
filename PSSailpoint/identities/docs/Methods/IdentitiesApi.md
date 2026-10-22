@@ -35,10 +35,12 @@ Method | HTTP request | Description
 [**Remove-IdentityV1**](#delete-identity-v1) | **DELETE** `/identities/v1/{id}` | Delete identity
 [**Get-IdentityOwnershipDetailsV1**](#get-identity-ownership-details-v1) | **GET** `/identities/v1/{identityId}/ownership` | Get ownership details
 [**Get-IdentityV1**](#get-identity-v1) | **GET** `/identities/v1/{id}` | Identity details
+[**Get-IdentityV2**](#get-identity-v2) | **GET** `/identities/v2/{id}` | Identity details (search)
 [**Get-RoleAssignmentV1**](#get-role-assignment-v1) | **GET** `/identities/v1/{identityId}/role-assignments/{assignmentId}` | Role assignment details
 [**Get-RoleAssignmentsV1**](#get-role-assignments-v1) | **GET** `/identities/v1/{identityId}/role-assignments` | List role assignments
 [**Get-EntitlementsByIdentityV1**](#list-entitlements-by-identity-v1) | **GET** `/entitlements/v1/identities/{id}/entitlements` | List of entitlements by identity.
 [**Get-IdentitiesV1**](#list-identities-v1) | **GET** `/identities/v1` | List identities
+[**Get-IdentitiesV2**](#list-identities-v2) | **GET** `/identities/v2` | List identities (search)
 [**Reset-IdentityV1**](#reset-identity-v1) | **POST** `/identities/v1/{id}/reset` | Reset an identity
 [**Send-IdentityVerificationAccountTokenV1**](#send-identity-verification-account-token-v1) | **POST** `/identities/v1/{id}/verification/account/send` | Send password reset email
 [**Start-IdentitiesInviteV1**](#start-identities-invite-v1) | **POST** `/identities/v1/invite` | Invite identities to register
@@ -181,6 +183,59 @@ try {
     # Get-IdentityV1 -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-identity-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns a single identity from the identities search index.
+
+`privilegeLevel.effective` is `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level is returned as `NONE`. `privilegeLevel` is null when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is disabled. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase.
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Identity Id
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**IdentityV2**](../models/identity-v2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | An identity object | IdentityV2
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentitiesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentitiesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "01f04e428c484542a241dc89c303b178" # String | Identity Id
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Identity details (search)
+
+try {
+    Get-IdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-IdentityV2 -Id $Id -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityV2"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -386,6 +441,70 @@ try {
     # Get-IdentitiesV1 -Filters $Filters -Sorters $Sorters -DefaultFilter $DefaultFilter -Count $Count -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentitiesV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## list-identities-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+List identities from the identities search index.
+
+Use standard collection parameters for paging (`limit`, `offset`, `count`). Default page size is 25 when no collection parameters are sent. Maximum `limit` is 250. Requests that specify a larger `limit` are capped at 250. `offset + limit` cannot exceed 10,000. To page beyond that window, use `searchAfter` instead of a large offset. `searchAfter` cannot be combined with `offset`. Always include `id` in `sorters` when using `searchAfter`. Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information.
+
+`privilegeLevel` is returned when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is enabled. When the flag is disabled, `privilegeLevel` is null and a filter or sort on `privilegeLevel.effective` is rejected. When the flag is enabled, an identity with no privilege level is returned as `NONE`. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase: `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level matches `privilegeLevel.effective eq "NONE"` and does not match `isnull`.
+
+[API Spec](https://developer.sailpoint.com/docs/api/list-identities-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | SearchAfter | **String** |   (optional) | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to page beyond the offset limit of 10,000 records by shifting the search window to begin at this value.  `searchAfter` cannot be combined with `offset`. When `searchAfter` is provided, `id` must be included in `sorters`.  It is recommended that you always include the ID of the object in addition to any other sort fields in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=John Mathews,01f04e428c484542a241dc89c303b178&sorters=name,id.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging.
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw, isnull, pr*  **alias**: *eq, in, sw, isnull, pr*  **type**: *eq, in, sw, isnull, pr*  **emailAddress**: *eq, in, sw, isnull, pr*  **identityStatus**: *eq, in, sw, isnull, pr*  **processingState**: *eq, in, sw, isnull, pr*  **protected**: *eq*  **correlated**: *eq*  **inactive**: *eq*  **isManager**: *eq*  **locked**: *eq*  **disabled**: *eq*  **manager.id**: *eq, in, sw*  **manager.name**: *eq, in, sw, isnull, pr*  **manager.type**: *eq, in, sw, isnull, pr*  **lifecycleState.stateName**: *eq, in, sw, isnull, pr*  **lifecycleState.manuallyUpdated**: *eq*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*  **synced**: *eq, ge, gt, le, lt*  **lastRefresh**: *eq, ge, gt, le, lt*  **privilegeLevel.effective**: *eq, in, isnull, pr*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, alias, type, emailAddress, identityStatus, processingState, protected, correlated, inactive, isManager, locked, disabled, manager.id, manager.name, manager.type, lifecycleState.stateName, lifecycleState.manuallyUpdated, created, modified, synced, lastRefresh, privilegeLevel.effective**  Sorting on **privilegeLevel.effective** is case-insensitive and is accepted only when `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` is enabled. Returned values are uppercase.  Default sort is **created** when no collection parameters are sent.
+
+### Return type
+[**IdentityV2[]**](../models/identity-v2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of identity objects. | IdentityV2[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListIdentitiesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListIdentitiesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$SearchAfter = "John Mathews,01f04e428c484542a241dc89c303b178" # String | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to page beyond the offset limit of 10,000 records by shifting the search window to begin at this value.  `searchAfter` cannot be combined with `offset`. When `searchAfter` is provided, `id` must be included in `sorters`.  It is recommended that you always include the ID of the object in addition to any other sort fields in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=John Mathews,01f04e428c484542a241dc89c303b178&sorters=name,id.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. (optional)
+$Filters = 'privilegeLevel.effective eq "HIGH"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw, isnull, pr*  **alias**: *eq, in, sw, isnull, pr*  **type**: *eq, in, sw, isnull, pr*  **emailAddress**: *eq, in, sw, isnull, pr*  **identityStatus**: *eq, in, sw, isnull, pr*  **processingState**: *eq, in, sw, isnull, pr*  **protected**: *eq*  **correlated**: *eq*  **inactive**: *eq*  **isManager**: *eq*  **locked**: *eq*  **disabled**: *eq*  **manager.id**: *eq, in, sw*  **manager.name**: *eq, in, sw, isnull, pr*  **manager.type**: *eq, in, sw, isnull, pr*  **lifecycleState.stateName**: *eq, in, sw, isnull, pr*  **lifecycleState.manuallyUpdated**: *eq*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*  **synced**: *eq, ge, gt, le, lt*  **lastRefresh**: *eq, ge, gt, le, lt*  **privilegeLevel.effective**: *eq, in, isnull, pr* (optional)
+$Sorters = "privilegeLevel.effective,id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, alias, type, emailAddress, identityStatus, processingState, protected, correlated, inactive, isManager, locked, disabled, manager.id, manager.name, manager.type, lifecycleState.stateName, lifecycleState.manuallyUpdated, created, modified, synced, lastRefresh, privilegeLevel.effective**  Sorting on **privilegeLevel.effective** is case-insensitive and is accepted only when `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` is enabled. Returned values are uppercase.  Default sort is **created** when no collection parameters are sent. (optional)
+
+# List identities (search)
+
+try {
+    Get-IdentitiesV2 -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-IdentitiesV2 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -SearchAfter $SearchAfter -Filters $Filters -Sorters $Sorters  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentitiesV2"
     Write-Host $_.ErrorDetails
 }
 ```

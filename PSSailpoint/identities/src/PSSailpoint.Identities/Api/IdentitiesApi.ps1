@@ -224,6 +224,89 @@ function Get-IdentityV1 {
 <#
 .SYNOPSIS
 
+Identity details (search)
+
+.DESCRIPTION
+
+This API returns a single identity from the identities search index.  `privilegeLevel.effective` is `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level is returned as `NONE`. `privilegeLevel` is null when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is disabled. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase.
+
+.PARAMETER Id
+Identity Id
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+IdentityV2
+#>
+function Get-IdentityV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-IdentityV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/identities/v2/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getIdentityV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getIdentityV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "IdentityV2" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Role assignment details
 
 .DESCRIPTION
@@ -610,6 +693,139 @@ function Get-IdentitiesV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "Identity[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+List identities (search)
+
+.DESCRIPTION
+
+List identities from the identities search index.  Use standard collection parameters for paging (`limit`, `offset`, `count`). Default page size is 25 when no collection parameters are sent. Maximum `limit` is 250. Requests that specify a larger `limit` are capped at 250. `offset + limit` cannot exceed 10,000. To page beyond that window, use `searchAfter` instead of a large offset. `searchAfter` cannot be combined with `offset`. Always include `id` in `sorters` when using `searchAfter`. Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information.  `privilegeLevel` is returned when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is enabled. When the flag is disabled, `privilegeLevel` is null and a filter or sort on `privilegeLevel.effective` is rejected. When the flag is enabled, an identity with no privilege level is returned as `NONE`. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase: `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level matches `privilegeLevel.effective eq ""NONE""` and does not match `isnull`.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER Limit
+Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER SearchAfter
+Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to page beyond the offset limit of 10,000 records by shifting the search window to begin at this value.  `searchAfter` cannot be combined with `offset`. When `searchAfter` is provided, `id` must be included in `sorters`.  It is recommended that you always include the ID of the object in addition to any other sort fields in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=John Mathews,01f04e428c484542a241dc89c303b178&sorters=name,id.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging.
+
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw, isnull, pr*  **alias**: *eq, in, sw, isnull, pr*  **type**: *eq, in, sw, isnull, pr*  **emailAddress**: *eq, in, sw, isnull, pr*  **identityStatus**: *eq, in, sw, isnull, pr*  **processingState**: *eq, in, sw, isnull, pr*  **protected**: *eq*  **correlated**: *eq*  **inactive**: *eq*  **isManager**: *eq*  **locked**: *eq*  **disabled**: *eq*  **manager.id**: *eq, in, sw*  **manager.name**: *eq, in, sw, isnull, pr*  **manager.type**: *eq, in, sw, isnull, pr*  **lifecycleState.stateName**: *eq, in, sw, isnull, pr*  **lifecycleState.manuallyUpdated**: *eq*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*  **synced**: *eq, ge, gt, le, lt*  **lastRefresh**: *eq, ge, gt, le, lt*  **privilegeLevel.effective**: *eq, in, isnull, pr*
+
+.PARAMETER Sorters
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, alias, type, emailAddress, identityStatus, processingState, protected, correlated, inactive, isManager, locked, disabled, manager.id, manager.name, manager.type, lifecycleState.stateName, lifecycleState.manuallyUpdated, created, modified, synced, lastRefresh, privilegeLevel.effective**  Sorting on **privilegeLevel.effective** is case-insensitive and is accepted only when `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` is enabled. Returned values are uppercase.  Default sort is **created** when no collection parameters are sent.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+IdentityV2[]
+#>
+function Get-IdentitiesV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SearchAfter},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-IdentitiesV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/identities/v2'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling listIdentitiesV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if ($SearchAfter) {
+            $LocalVarQueryParameters['searchAfter'] = $SearchAfter
+        }
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "IdentityV2[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

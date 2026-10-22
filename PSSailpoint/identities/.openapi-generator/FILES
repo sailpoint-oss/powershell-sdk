@@ -27,6 +27,10 @@ docs/IdentityOwnershipAssociationDetails.md
 docs/IdentityOwnershipAssociationDetailsAssociationDetailsInner.md
 docs/IdentitySyncJob.md
 docs/IdentitySyncPayload.md
+docs/IdentityV2.md
+docs/IdentityV2LifecycleState.md
+docs/IdentityV2Manager.md
+docs/IdentityV2PrivilegeLevel.md
 docs/InviteIdentitiesRequest.md
 docs/LifecycleStateDto.md
 docs/ListIdentitiesV1401Response.md
@@ -74,6 +78,10 @@ src/PSSailpoint.Identities/Model/IdentityOwnershipAssociationDetails.ps1
 src/PSSailpoint.Identities/Model/IdentityOwnershipAssociationDetailsAssociationDetailsInner.ps1
 src/PSSailpoint.Identities/Model/IdentitySyncJob.ps1
 src/PSSailpoint.Identities/Model/IdentitySyncPayload.ps1
+src/PSSailpoint.Identities/Model/IdentityV2.ps1
+src/PSSailpoint.Identities/Model/IdentityV2LifecycleState.ps1
+src/PSSailpoint.Identities/Model/IdentityV2Manager.ps1
+src/PSSailpoint.Identities/Model/IdentityV2PrivilegeLevel.ps1
 src/PSSailpoint.Identities/Model/InviteIdentitiesRequest.ps1
 src/PSSailpoint.Identities/Model/LifecycleStateDto.ps1
 src/PSSailpoint.Identities/Model/ListIdentitiesV1401Response.ps1
@@ -126,6 +134,10 @@ tests/Model/IdentityOwnershipAssociationDetails.Tests.ps1
 tests/Model/IdentityOwnershipAssociationDetailsAssociationDetailsInner.Tests.ps1
 tests/Model/IdentitySyncJob.Tests.ps1
 tests/Model/IdentitySyncPayload.Tests.ps1
+tests/Model/IdentityV2.Tests.ps1
+tests/Model/IdentityV2LifecycleState.Tests.ps1
+tests/Model/IdentityV2Manager.Tests.ps1
+tests/Model/IdentityV2PrivilegeLevel.Tests.ps1
 tests/Model/InviteIdentitiesRequest.Tests.ps1
 tests/Model/LifecycleStateDto.Tests.ps1
 tests/Model/ListIdentitiesV1401Response.Tests.ps1

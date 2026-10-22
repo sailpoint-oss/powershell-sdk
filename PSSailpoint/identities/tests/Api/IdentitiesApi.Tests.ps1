@@ -30,6 +30,14 @@ Describe -tag 'PSSailpoint.Identities' -name 'IdentitiesApi' {
         }
     }
 
+    Context 'Get-IdentityV2' {
+        It 'Test Get-IdentityV2' {
+            #$TestResult = Get-IdentityV2 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-RoleAssignmentV1' {
         It 'Test Get-RoleAssignmentV1' {
             #$TestResult = Get-RoleAssignmentV1 -IdentityId "TEST_VALUE" -AssignmentId "TEST_VALUE"
@@ -57,6 +65,14 @@ Describe -tag 'PSSailpoint.Identities' -name 'IdentitiesApi' {
     Context 'Get-IdentitiesV1' {
         It 'Test Get-IdentitiesV1' {
             #$TestResult = Get-IdentitiesV1 -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -DefaultFilter "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-IdentitiesV2' {
+        It 'Test Get-IdentitiesV2' {
+            #$TestResult = Get-IdentitiesV2 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -SearchAfter "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.JitActivationConvert - the PowerShell module for Identity Security Cloud API - JIT Activation Convert'
 
-    ModuleVersion = '2.1.65'
+    ModuleVersion = '2.1.66'
 
     RootModule = 'PSSailpoint.JitActivationConvert.psm1'
     Guid = '207FF8A3-7B64-73E6-D463-F01F5264008D' # Has to be static, otherwise each new build will be considered different module

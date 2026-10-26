@@ -22,3 +22,66 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PublicIdentitiesV1"
             Write-Host $_.ErrorDetails
         }
+- path: /public-identities/v2/visible-attributes
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/publicidentities/methods/public-identities#get-public-identities-visible-attributes-v2
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get public identity visible attributes
+        
+        try {
+            Get-PublicIdentitiesVisibleAttributesV2 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PublicIdentitiesVisibleAttributesV2 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PublicIdentitiesVisibleAttributesV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /public-identities/v2/search
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/publicidentities/methods/public-identities#search-public-identities-v2
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $PublicIdentitiesSearchRequest = @"
+        {
+          "indices" : [ "identities" ],
+          "sort" : [ "name" ],
+          "querySet" : {
+            "entries" : [ {
+              "queryType" : "TEXT",
+              "textQuery" : {
+                "fields" : [ "attributes.identityState.exact" ],
+                "terms" : [ "ACTIVE" ],
+                "matchAny" : false,
+                "contains" : false,
+                "strict" : true
+              }
+            } ],
+            "matchAny" : false
+          },
+          "queryType" : "COMPOSITE",
+          "includeNested" : false
+        }
+        "@
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Search public identities
+        
+        try {
+            $Result = ConvertFrom-JsonToPublicIdentitiesSearchRequest -Json $PublicIdentitiesSearchRequest
+            Search-PublicIdentitiesV2 -XSailPointExperimental $XSailPointExperimental -PublicIdentitiesSearchRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Search-PublicIdentitiesV2 -XSailPointExperimental $XSailPointExperimental -PublicIdentitiesSearchRequest $Result -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-PublicIdentitiesV2"
+            Write-Host $_.ErrorDetails
+        }

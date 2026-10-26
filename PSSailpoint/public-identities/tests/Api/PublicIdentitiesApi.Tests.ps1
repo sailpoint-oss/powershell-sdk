@@ -14,4 +14,20 @@ Describe -tag 'PSSailpoint.PublicIdentities' -name 'PublicIdentitiesApi' {
         }
     }
 
+    Context 'Get-PublicIdentitiesVisibleAttributesV2' {
+        It 'Test Get-PublicIdentitiesVisibleAttributesV2' {
+            #$TestResult = Get-PublicIdentitiesVisibleAttributesV2 -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Search-PublicIdentitiesV2' {
+        It 'Test Search-PublicIdentitiesV2' {
+            #$TestResult = Search-PublicIdentitiesV2 -XSailPointExperimental "TEST_VALUE" -PublicIdentitiesSearchRequest "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

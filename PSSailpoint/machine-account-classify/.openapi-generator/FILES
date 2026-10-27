@@ -3,6 +3,8 @@ Build.ps1
 Index.md
 README.md
 appveyor.yml
+docs/BulkClassifyMachineAccountResult.md
+docs/BulkClassifyMachineAccountsRequest.md
 docs/ErrorMessageDto.md
 docs/ErrorResponseDto.md
 docs/LocaleOrigin.md
@@ -14,6 +16,8 @@ docs/SendClassifyMachineAccountV1401Response.md
 docs/SendClassifyMachineAccountV1429Response.md
 src/PSSailpoint.MachineAccountClassify/Api/MachineAccountClassifyApi.ps1
 src/PSSailpoint.MachineAccountClassify/Client/Configuration.ps1
+src/PSSailpoint.MachineAccountClassify/Model/BulkClassifyMachineAccountResult.ps1
+src/PSSailpoint.MachineAccountClassify/Model/BulkClassifyMachineAccountsRequest.ps1
 src/PSSailpoint.MachineAccountClassify/Model/ErrorMessageDto.ps1
 src/PSSailpoint.MachineAccountClassify/Model/ErrorResponseDto.ps1
 src/PSSailpoint.MachineAccountClassify/Model/LocaleOrigin.ps1
@@ -28,6 +32,8 @@ src/PSSailpoint.MachineAccountClassify/Private/Out-DebugParameter.ps1
 src/PSSailpoint.MachineAccountClassify/Private/RSAEncryptionProvider.cs
 src/PSSailpoint.MachineAccountClassify/en-US/about_PSSailpoint.MachineAccountClassify.help.txt
 tests/Api/MachineAccountClassifyApi.Tests.ps1
+tests/Model/BulkClassifyMachineAccountResult.Tests.ps1
+tests/Model/BulkClassifyMachineAccountsRequest.Tests.ps1
 tests/Model/ErrorMessageDto.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1

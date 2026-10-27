@@ -1,0 +1,40 @@
+- path: /accounts/v1/{id}/recommendation
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountrecommendation/methods/machine-account-recommendation#get-machine-account-recommendation-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "2c9180835d2e5168015d32f890ca1581" # String | Account ID.
+        
+        # Get machine account recommendation
+        
+        try {
+            Get-MachineAccountRecommendationV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountRecommendationV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountRecommendationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-recommendations/v1/reasons/machine-account-discovery
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountrecommendation/methods/machine-account-recommendation#list-machine-account-discovery-reasons-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $AcceptLanguage = "en-US" # String | Preferred language for the reason messages. (optional) (default to "en")
+        
+        # List machine account discovery reasons
+        
+        try {
+            Get-MachineAccountDiscoveryReasonsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountDiscoveryReasonsV1 -XSailPointExperimental $XSailPointExperimental -AcceptLanguage $AcceptLanguage   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountDiscoveryReasonsV1"
+            Write-Host $_.ErrorDetails
+        }

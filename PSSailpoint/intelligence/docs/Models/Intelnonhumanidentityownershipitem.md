@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Intelnonhumanidentityownershipitem', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | Identity Security Cloud identifier for the owned non-human identity. | [required]
+**Id** | **String** | SailPoint Identity Security identifier for the owned non-human identity. | [required]
 **DisplayName** | **String** | Preferred display name for the owned non-human identity. | [required]
 **Source** | [**Intelmachinesourcewire**](intelmachinesourcewire) | Source of the owned non-human identity. | [optional] 
 

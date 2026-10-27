@@ -12,7 +12,7 @@ tags: ['SDK', 'Software Development Kit', 'Launchers', 'Launchers']
 # Launchers
   Use this API to manage Launchers.
 
-A launcher lets users start a workflow on demand from Identity Security Cloud, such as a Privileged Workflow or a workflow that creates an Active Directory group. Each launcher references a workflow. Launching it starts an interactive process that runs that workflow for the user who launched it, and the response returns the ID of that interactive process.
+A launcher lets users start a workflow on demand from SailPoint Identity Security, such as a Privileged Workflow or a workflow that creates an Active Directory group. Each launcher references a workflow. Launching it starts an interactive process that runs that workflow for the user who launched it, and the response returns the ID of that interactive process.
 
 Users can launch only the launchers assigned to them, and only while the launcher is enabled.
 
@@ -191,7 +191,7 @@ Return a list of Launchers for the authenticated tenant
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw*
   Query | Next | **String** |   (optional) | Pagination marker
   Query | Limit | **Int32** |   (optional) (default to 10) | Number of Launchers to return
 
@@ -215,7 +215,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = 'disabled eq "true"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
+$Filters = 'disabled eq "true"' # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
 $Next = "eyJuZXh0IjoxMjN9Cg==" # String | Pagination marker (optional)
 $Limit = 42 # Int32 | Number of Launchers to return (optional) (default to 10)
 

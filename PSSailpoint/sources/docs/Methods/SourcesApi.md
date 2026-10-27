@@ -11,17 +11,17 @@ tags: ['SDK', 'Software Development Kit', 'Sources', 'Sources']
 
 # Sources
   Use this API to implement and customize source functionality. 
-With source functionality in place, organizations can use Identity Security Cloud to connect their various sources and user data sets and manage access across all those different sources in a secure, scalable way. 
+With source functionality in place, organizations can use SailPoint Identity Security to connect their various sources and user data sets and manage access across all those different sources in a secure, scalable way. 
 
-[Sources](https://documentation.sailpoint.com/saas/help/sources/index.html) refer to the Identity Security Cloud representations for external applications, databases, and directory management systems that maintain their own sets of users, like Dropbox, GitHub, and Workday, for example.
+[Sources](https://documentation.sailpoint.com/saas/help/sources/index.html) refer to the SailPoint Identity Security representations for external applications, databases, and directory management systems that maintain their own sets of users, like Dropbox, GitHub, and Workday, for example.
 Organizations may use hundreds, if not thousands, of different source systems, and any one employee within an organization likely has a different user record on each source, often with different permissions on many of those records. 
-Connecting these sources to Identity Security Cloud makes it possible to manage user access across them all.
-Then, if a new hire starts at an organization, Identity Security Cloud can grant the new hire access to all the sources they need.
-If an employee moves to a new department and needs access to new sources but no longer needs access to others, Identity Security Cloud can grant the necessary access and revoke the unnecessary access for all the employee&#39;s various sources. 
-If an employee leaves the company, Identity Security Cloud can revoke access to all the employee&#39;s various source accounts immediately. 
+Connecting these sources to SailPoint Identity Security makes it possible to manage user access across them all.
+Then, if a new hire starts at an organization, SailPoint Identity Security can grant the new hire access to all the sources they need.
+If an employee moves to a new department and needs access to new sources but no longer needs access to others, SailPoint Identity Security can grant the necessary access and revoke the unnecessary access for all the employee&#39;s various sources. 
+If an employee leaves the company, SailPoint Identity Security can revoke access to all the employee&#39;s various source accounts immediately. 
 These are just a few examples of the many ways that source functionality makes identity governance easier, more efficient, and more secure. 
 
-In Identity Security Cloud, administrators can create configure, manage, and edit sources, and they can designate other users as source admins to be able to do so.
+In SailPoint Identity Security, administrators can create configure, manage, and edit sources, and they can designate other users as source admins to be able to do so.
 They can also designate users as source sub-admins, who can perform the same source actions but only on sources associated with their governance groups.
 Admins go to Connections &gt; Sources to see a list of the existing source representations in their organizations. 
 They can create new sources or select existing ones. 
@@ -29,10 +29,10 @@ They can create new sources or select existing ones.
 To create a new source, the following must be specified: Source Name, Description, Source Owner, and Connection Type.
 Refer to [Configuring a Source](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html#configuring-a-source) for more information about the source configuration process. 
 
-Identity Security Cloud connects with its sources either by a direct communication with the source server (connection information specific to the source must be provided) or a flat file feed, a CSV file containing all the relevant information about the accounts to be loaded in.
-Different sources use different connectors to share data with Identity Security Cloud, and each connector&#39;s setup process is specific to that connector. 
+SailPoint Identity Security connects with its sources either by a direct communication with the source server (connection information specific to the source must be provided) or a flat file feed, a CSV file containing all the relevant information about the accounts to be loaded in.
+Different sources use different connectors to share data with SailPoint Identity Security, and each connector&#39;s setup process is specific to that connector. 
 SailPoint has built a number of connectors to come out of the box and connect to the most common sources, and SailPoint actively maintains these connectors.
-Refer to [Identity Security Cloud Connectors](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) for more information about these SailPoint supported connectors. 
+Refer to [SailPoint Identity Security Connectors](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) for more information about these SailPoint supported connectors. 
 Refer to the following links for more information about two useful connectors: 
 
 - [JDBC Connector](https://documentation.sailpoint.com/connectors/jdbc/help/integrating_jdbc/introduction.html): This customizable connector an directly connect to databases that support JDBC (Java Database Connectivity).
@@ -52,12 +52,12 @@ When admins select existing sources, they can view the following information abo
 - Associated access profiles (groupings of entitlements). 
 
 The user account data and the entitlements update with each data aggregation from the source. 
-Organizations generally run scheduled, automated data aggregations to ensure that their data is always in sync between their sources and their Identity Security Cloud tenants so an access change on a source is detected quickly in Identity Security Cloud.
+Organizations generally run scheduled, automated data aggregations to ensure that their data is always in sync between their sources and their SailPoint Identity Security tenants so an access change on a source is detected quickly in SailPoint Identity Security.
 Admins can view a history of these aggregations, and they can also run manual imports. 
 Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about manual and scheduled aggregations. 
 
-Admins can also make changes to determine which user account data Identity Security Cloud collects from the source and how it correlates that account data with identity data. 
-To define which account attributes the source shares with Identity Security Cloud, admins can edit the account schema on the source.
+Admins can also make changes to determine which user account data SailPoint Identity Security collects from the source and how it correlates that account data with identity data. 
+To define which account attributes the source shares with SailPoint Identity Security, admins can edit the account schema on the source.
 Refer to [Managing Source Account Schemas](https://documentation.sailpoint.com/saas/help/accounts/schema.html) for more information about source account schemas and how to edit them. 
 To define the mapping between the source account attributes and their correlating identity attributes, admins can edit the correlation configuration on the source. 
 Refer to [Assigning Source Accounts to Identities](https://documentation.sailpoint.com/saas/help/accounts/correlation.html) for more information about this correlation process between source accounts and identities.
@@ -65,7 +65,7 @@ Refer to [Assigning Source Accounts to Identities](https://documentation.sailpoi
 Admins can also delete sources, but they must first ensure that the sources no longer have any active connections: the source must not be associated with any identity profile or any app, and it must not be referenced by any transform.
 Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/index.html#deleting-sources) for more information about deleting sources. 
 
-Well organized, mapped out connections between sources and Identity Security Cloud are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
+Well organized, mapped out connections between sources and SailPoint Identity Security are essential to achieving comprehensive identity access governance across all the source systems organizations need. 
 Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/index.html) for more information about all the different things admins can do with sources once they are connected.
  
   
@@ -85,6 +85,7 @@ Method | HTTP request | Description
 [**Remove-NativeChangeDetectionConfigV1**](#delete-native-change-detection-config-v1) | **DELETE** `/sources/v1/{sourceId}/native-change-detection-config` | Delete native change detection configuration
 [**Remove-ProvisioningPolicyV1**](#delete-provisioning-policy-v1) | **DELETE** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
 [**Remove-ProvisioningPolicyV2**](#delete-provisioning-policy-v2) | **DELETE** `/sources/v2/{sourceId}/provisioning-policies/{id}` | Delete provisioning policy by ID
+[**Remove-SourceAgentsV1**](#delete-source-agents-v1) | **POST** `/sources/v1/{id}/agents-delete` | Delete source AI agents
 [**Remove-SourceDatasetObjectsV1**](#delete-source-dataset-objects-v1) | **POST** `/sources/v1/{sourceId}/datasets/{datasetId}/delete-objects` | Delete objects for source dataset
 [**Remove-SourceDatasetV1**](#delete-source-dataset-v1) | **DELETE** `/sources/v1/{sourceId}/datasets/{datasetId}` | Delete source dataset by id
 [**Remove-SourceResourceV1**](#delete-source-resource-v1) | **DELETE** `/sources/v1/{sourceId}/resources/{resourceId}` | Delete source resource by id
@@ -106,6 +107,7 @@ Method | HTTP request | Description
 [**Get-SourceDatasetsV1**](#get-source-datasets-v1) | **GET** `/sources/v1/{sourceId}/datasets` | List datasets on source
 [**Get-SourceEntitlementRequestConfigV1**](#get-source-entitlement-request-config-v1) | **GET** `/sources/v1/{id}/entitlement-request-config` | Get source entitlement request configuration
 [**Get-SourceHealthV1**](#get-source-health-v1) | **GET** `/sources/v1/{sourceId}/source-health` | Fetches source health by id
+[**Get-SourceResourceCorrelationReprocessV1**](#get-source-resource-correlation-reprocess-v1) | **GET** `/sources/v1/{sourceId}/resources/{resourceId}/reprocess-correlations` | Get resource correlation reprocess status
 [**Get-SourceResourceMappingsV1**](#get-source-resource-mappings-v1) | **GET** `/sources/v1/{sourceId}/resources/mappings` | Get source resource mappings
 [**Get-SourceResourceV1**](#get-source-resource-v1) | **GET** `/sources/v1/{sourceId}/resources/{resourceId}` | Get source resource by id
 [**Get-SourceResourcesV1**](#get-source-resources-v1) | **GET** `/sources/v1/{sourceId}/resources` | List resources for a source
@@ -137,6 +139,7 @@ Method | HTTP request | Description
 [**Send-SourceSchemaV1**](#put-source-schema-v1) | **PUT** `/sources/v1/{sourceId}/schemas/{schemaId}` | Update source schema (full)
 [**Send-SourceV1**](#put-source-v1) | **PUT** `/sources/v1/{id}` | Update source (full)
 [**Search-ResourceObjectsV1**](#search-resource-objects-v1) | **POST** `/sources/v1/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
+[**Start-SourceResourceCorrelationReprocessV1**](#start-source-resource-correlation-reprocess-v1) | **POST** `/sources/v1/{sourceId}/resources/{resourceId}/reprocess-correlations` | Start resource correlation reprocess
 [**Sync-AttributesForSourceV1**](#sync-attributes-for-source-v1) | **POST** `/sources/v1/{id}/synchronize-attributes` | Synchronize single source attributes.
 [**Test-SourceConfigurationV1**](#test-source-configuration-v1) | **POST** `/sources/v1/{sourceId}/connector/test-configuration` | Test configuration for source connector
 [**Test-SourceConnectionV1**](#test-source-connection-v1) | **POST** `/sources/v1/{sourceId}/connector/check-connection` | Check connection for source connector.
@@ -349,7 +352,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to create a dataset on the specified source in Identity Security Cloud (ISC).
+Use this API to create a dataset on the specified source in SailPoint Identity Security.
 
 
 This operation requires a connector with the `supportDatasetCreation` label. `name` is required.
@@ -423,7 +426,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to create a resource on the specified source in Identity Security Cloud (ISC).
+Use this API to create a resource on the specified source in SailPoint Identity Security.
 
 
 This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`,
@@ -522,7 +525,7 @@ try {
 [[Back to top]](#) 
 
 ## create-source-schedule-v1
-Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC).
+Use this API to create a new schedule for a type on the specified source in SailPoint Identity Security.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-source-schedule-v-1)
@@ -571,7 +574,7 @@ try {
 [[Back to top]](#) 
 
 ## create-source-schema-v1
-Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
+Use this API to create a new schema on the specified source in SailPoint Identity Security.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-source-schema-v-1)
@@ -980,12 +983,78 @@ try {
 ```
 [[Back to top]](#) 
 
+## delete-source-agents-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to delete all AI agents that were aggregated into the given datasets on a source. Deletion runs as an
+asynchronous task, and the response contains the task's initial status.
+
+
+This API returns `400` when the source has no connector instance, when `datasetIds` is missing or empty, or when a
+deletion or aggregation is already running for the source.
+
+
+When agentic identity governance is not enabled for the tenant, or AI agent deletion is not available,
+this API returns `404`.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-agents-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Source ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | DeleteSourceAgentsRequest | [**DeleteSourceAgentsRequest**](../models/delete-source-agents-request) | True  | 
+
+### Return type
+[**SourceAgentDeletionTaskStatus**](../models/source-agent-deletion-task-status)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Accepted. Returns the initial status of the deletion task. | SourceAgentDeletionTaskStatus
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$DeleteSourceAgentsRequest = @"{
+  "datasetIds" : [ "datasetId12345", "datasetId67890" ]
+}"@
+
+# Delete source AI agents
+
+try {
+    $Result = ConvertFrom-JsonToDeleteSourceAgentsRequest -Json $DeleteSourceAgentsRequest
+    Remove-SourceAgentsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -DeleteSourceAgentsRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-SourceAgentsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -DeleteSourceAgentsRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SourceAgentsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## delete-source-dataset-objects-v1
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Starts a task to delete aggregated objects for the specified dataset on the source in Identity
-Security Cloud (ISC). Linked dataset and resource definitions are not deleted.
+Starts a task to delete aggregated objects for the specified dataset on the source in SailPoint Identity
+Security (SailPoint Identity Security). Linked dataset and resource definitions are not deleted.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/delete-source-dataset-objects-v-1)
@@ -1039,7 +1108,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).
+Use this API to delete a dataset on the specified source in SailPoint Identity Security.
 
 
 This operation requires a connector with the `supportDatasetCreation` label. Linked resource
@@ -1097,7 +1166,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).
+Use this API to delete a resource on the specified source in SailPoint Identity Security.
 
 
 The resource schema is deleted and the resource is unlinked from any dataset rows on the source.
@@ -1247,7 +1316,7 @@ try {
 [[Back to top]](#) 
 
 ## delete-source-v1
-Use this API to delete a specific source in Identity Security Cloud (ISC).
+Use this API to delete a specific source in SailPoint Identity Security.
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
 [API Spec](https://developer.sailpoint.com/docs/api/delete-source-v-1)
@@ -1627,7 +1696,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in SailPoint Identity Security.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-provisioning-policy-v-2)
 
@@ -1776,7 +1845,7 @@ try {
 [[Back to top]](#) 
 
 ## get-source-connections-v1
-Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
+Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in SailPoint Identity Security.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-source-connections-v-1)
 
@@ -1825,7 +1894,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC).
+Use this API to get a dataset by id for the specified source in SailPoint Identity Security.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-source-dataset-v-1)
@@ -1879,7 +1948,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to list datasets for the specified source in Identity Security Cloud (ISC).
+Use this API to list datasets for the specified source in SailPoint Identity Security.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-source-datasets-v-1)
@@ -1889,9 +1958,9 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**SourceDataset[]**](../models/source-dataset)
@@ -1915,9 +1984,9 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
 # List datasets on source
 
@@ -2030,12 +2099,74 @@ try {
 ```
 [[Back to top]](#) 
 
+## get-source-resource-correlation-reprocess-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to get the progress of the latest correlation reprocess run of the given `type` for a resource on a
+source. You can call it whatever state the run is in. Finished runs are kept for a limited time. This API returns
+`404` when no run is found for the source resource and `type`.
+
+
+When machine identity security is not enabled for the tenant, or correlation reprocessing is not available,
+this API returns `404`.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-resource-correlation-reprocess-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | ResourceId | **String** | True  | Resource ID.
+  Query | Type | **String** | True  | Kind of correlation reprocess run to get.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**CorrelationReprocessStatus**](../models/correlation-reprocess-status)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Current status of the run. | CorrelationReprocessStatus
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$ResourceId = "account" # String | Resource ID.
+$Type = "OWNER_CORRELATION" # String | Kind of correlation reprocess run to get.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Get resource correlation reprocess status
+
+try {
+    Get-SourceResourceCorrelationReprocessV1 -SourceId $SourceId -ResourceId $ResourceId -Type $Type -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-SourceResourceCorrelationReprocessV1 -SourceId $SourceId -ResourceId $ResourceId -Type $Type -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceResourceCorrelationReprocessV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## get-source-resource-mappings-v1
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to get aggregation metadata for resources on the specified source in Identity
-Security Cloud (ISC). The response is keyed by resource id. Each value includes the linked
+Use this API to get aggregation metadata for resources on the specified source in SailPoint Identity
+Security (SailPoint Identity Security). The response is keyed by resource id. Each value includes the linked
 dataset id, resource type, and connector object type. Resources without a matching schema are
 omitted.
 
@@ -2089,7 +2220,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC).
+Use this API to get a resource by id on the specified source in SailPoint Identity Security.
 The response includes the full CIS schema for the resource.
 
 
@@ -2144,7 +2275,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to list resources defined on the specified source in Identity Security Cloud (ISC).
+Use this API to list resources defined on the specified source in SailPoint Identity Security.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-source-resources-v-1)
@@ -2154,9 +2285,9 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**SourceDatasetResource[]**](../models/source-dataset-resource)
@@ -2180,9 +2311,9 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
 # List resources for a source
 
@@ -2199,7 +2330,7 @@ try {
 [[Back to top]](#) 
 
 ## get-source-schedule-v1
-Get the source schedule by type in Identity Security Cloud (ISC).
+Get the source schedule by type in SailPoint Identity Security.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-source-schedule-v-1)
@@ -2248,7 +2379,7 @@ try {
 [[Back to top]](#) 
 
 ## get-source-schedules-v1
-Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC).
+Use this API to list the schedules that exist on the specified source in SailPoint Identity Security.
 :::info
 This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.
 
@@ -2351,7 +2482,7 @@ try {
 [[Back to top]](#) 
 
 ## get-source-schemas-v1
-Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+Use this API to list the schemas that exist on the specified source in SailPoint Identity Security.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-source-schemas-v-1)
 
@@ -2401,7 +2532,7 @@ try {
 [[Back to top]](#) 
 
 ## get-source-service-desk-integrations-v1
-Use this API to list the Service Desk Integrations that carry out provisioning for a source in Identity Security Cloud (ISC).
+Use this API to list the Service Desk Integrations that carry out provisioning for a source in SailPoint Identity Security (SailPoint Identity Security).
 
 A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source's own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.
 
@@ -2413,8 +2544,8 @@ Use this API to determine why provisioning settings on the source itself have no
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
-  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**SourceServiceDeskIntegrationDto[]**](../models/source-service-desk-integration-dto)
@@ -2437,8 +2568,8 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
-$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
 # List source service desk integrations
 
@@ -2455,7 +2586,7 @@ try {
 [[Back to top]](#) 
 
 ## get-source-v1
-Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
+Use this API to get a source by a specified ID in SailPoint Identity Security.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-source-v-1)
 
@@ -2760,7 +2891,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Starts an aggregation for the specified dataset on the source in Identity Security Cloud (ISC).
+Starts an aggregation for the specified dataset on the source in SailPoint Identity Security.
 An optional `config` object can be supplied for connector-specific aggregation settings.
 
 
@@ -2875,9 +3006,9 @@ Source must support PASSWORD feature.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source id
-  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**PasswordPolicyHoldersDtoInner[]**](../models/password-policy-holders-dto-inner)
@@ -2900,9 +3031,9 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
 # Get Password Policy for source
 
@@ -2927,8 +3058,8 @@ This end-point lists all the ProvisioningPolicies in IdentityNow.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source id
-  Query | Offset | **Int64** |   (optional) (default to 0) | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
-  Query | Limit | **Int64** |   (optional) (default to 250) | Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+  Query | Offset | **Int64** |   (optional) (default to 0) | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+  Query | Limit | **Int64** |   (optional) (default to 250) | Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
 
 ### Return type
 [**ProvisioningPolicyDto[]**](../models/provisioning-policy-dto)
@@ -2951,8 +3082,8 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
-$Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
-$Limit = 250 # Int64 | Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+$Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+$Limit = 250 # Int64 | Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
 
 # Lists provisioningpolicies
 
@@ -2981,9 +3112,9 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
-  Query | Offset | **Int64** |   (optional) (default to 0) | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
-  Query | Limit | **Int64** |   (optional) (default to 250) | Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
+  Query | Offset | **Int64** |   (optional) (default to 0) | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+  Query | Limit | **Int64** |   (optional) (default to 250) | Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
 
 ### Return type
 [**ProvisioningPolicyDtoV2[]**](../models/provisioning-policy-dto-v2)
@@ -3007,9 +3138,9 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Filters = 'subtypeId eq "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq* (optional)
-$Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
-$Limit = 250 # Int64 | Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+$Filters = 'subtypeId eq "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"' # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq* (optional)
+$Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+$Limit = 250 # Int64 | Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
 
 # Lists Provisioning Policies
 
@@ -3033,11 +3164,11 @@ This end-point lists all the sources.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw*
-  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
   Query | ForSubadmin | **String** |   (optional) | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
   Query | IncludeIDNSource | **Boolean** |   (optional) (default to $false) | Include the IdentityNow source in the response.
 
@@ -3061,11 +3192,11 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = 'name eq "Employees"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw* (optional)
-$Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType** (optional)
+$Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Filters = 'name eq "Employees"' # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw* (optional)
+$Sorters = "name" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType** (optional)
 $ForSubadmin = "name" # String | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned. (optional)
 $IncludeIDNSource = $true # Boolean | Include the IdentityNow source in the response. (optional) (default to $false)
 
@@ -3350,7 +3481,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud.
+This end-point updates the provisioning policy with the specified ID on the specified source in SailPoint Identity Security.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
@@ -3521,7 +3652,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).
+Use this API to replace a dataset on the specified source in SailPoint Identity Security.
 
 
 Callers should round-trip the GET representation. `id` is required in the request body and must
@@ -3597,7 +3728,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).
+Use this API to replace a resource on the specified source in SailPoint Identity Security.
 
 
 After creation, schema attribute edits should be made through the source schema APIs. Connectors
@@ -3789,7 +3920,7 @@ try {
 [[Back to top]](#) 
 
 ## put-source-v1
-Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
+Use this API to update a source in SailPoint Identity Security, using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
 These fields are immutable, so they cannot be changed:
 
@@ -3817,7 +3948,7 @@ Path   | Id | **String** | True  | Source ID.
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated Source object. Any passwords will only show the the encrypted cipher-text so that they aren&#39;t decryptable in Identity Security Cloud (ISC) cloud-based services, per ISC security design. | Source
+200 | Updated Source object. Any passwords will only show the the encrypted cipher-text so that they aren&#39;t decryptable in SailPoint Identity Security cloud-based services, per SailPoint Identity Security security design. | Source
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -3978,6 +4109,72 @@ try {
     # Search-ResourceObjectsV1 -SourceId $SourceId -ResourceObjectsRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-ResourceObjectsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## start-source-resource-correlation-reprocess-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to re-run correlation for the machine objects aggregated from a resource on a source, without
+running a new aggregation. The run is asynchronous. Poll its progress with the `GET` method on the same path
+and `type`.
+
+
+Only one run of a given `type` can be in progress for a source resource at a time. Starting another run while one
+is in progress returns `400`. This API returns `404` when the source or resource does not exist.
+
+
+When machine identity security is not enabled for the tenant, or correlation reprocessing is not available,
+this API returns `404`.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/start-source-resource-correlation-reprocess-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | ResourceId | **String** | True  | Resource ID.
+  Query | Type | **String** | True  | Kind of correlation to reprocess. `OWNER_CORRELATION` re-runs owner correlation.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**CorrelationReprocessStatus**](../models/correlation-reprocess-status)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Accepted. Returns the initial status of the run. | CorrelationReprocessStatus
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$ResourceId = "account" # String | Resource ID.
+$Type = "OWNER_CORRELATION" # String | Kind of correlation to reprocess. `OWNER_CORRELATION` re-runs owner correlation.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Start resource correlation reprocess
+
+try {
+    Start-SourceResourceCorrelationReprocessV1 -SourceId $SourceId -ResourceId $ResourceId -Type $Type -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Start-SourceResourceCorrelationReprocessV1 -SourceId $SourceId -ResourceId $ResourceId -Type $Type -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-SourceResourceCorrelationReprocessV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -4862,7 +5059,7 @@ try {
 [[Back to top]](#) 
 
 ## update-source-v1
-Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
+Use this API to partially update a source in SailPoint Identity Security, using a list of patch operations according to the
 [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 These fields are immutable, so they cannot be changed:
@@ -4885,7 +5082,7 @@ Attempts to modify these fields will result in a 400 error.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Source ID.
- Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in SailPoint Identity Security.
 
 ### Return type
 [**Source**](../models/source)
@@ -4893,7 +5090,7 @@ Path   | Id | **String** | True  | Source ID.
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated Source object. Any passwords will only show the the encrypted cipher-text so that they aren&#39;t decryptable in Identity Security Cloud (ISC) cloud-based services, per ISC security design. | Source
+200 | Updated Source object. Any passwords will only show the the encrypted cipher-text so that they aren&#39;t decryptable in SailPoint Identity Security cloud-based services, per SailPoint Identity Security security design. | Source
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -4912,7 +5109,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+}"@ # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in SailPoint Identity Security.
  
 
 # Update source (partial)

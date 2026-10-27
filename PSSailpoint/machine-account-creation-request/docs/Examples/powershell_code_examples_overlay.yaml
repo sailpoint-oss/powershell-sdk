@@ -33,6 +33,90 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountRequestV1"
             Write-Host $_.ErrorDetails
         }
+- path: /account-requests/v2/machine-account-create
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountcreationrequest/methods/machine-account-creation-request#create-machine-account-request-v2
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MachineAccountCreateRequestInputV2 = @"
+        {
+          "sourceId" : "2c9180835d191a86015d28455b4a2329",
+          "formId" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
+          "entitlements" : [ {
+            "id" : "2c91808a7624751a01762f19d67c220e",
+            "comment" : "Needed to read the inventory share.",
+            "startDate" : "2026-11-01T00:00:00Z",
+            "removeDate" : "2027-11-01T00:00:00Z"
+          } ],
+          "entitlementIds" : [ "6d28b7c1620c49c6b6d5cbf81eb4b5fa", "2c91808a7624751a01762f19d67c220e" ],
+          "environment" : "Dev",
+          "description" : "Requesting machine account for tracking the inventory.",
+          "machineIdentityId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+          "ownerIdentityId" : "18104e7e499b4e23882d6323344ab6bc",
+          "userInput" : {
+            "target" : "AD Source",
+            "description" : "Inventory tracking"
+          },
+          "subtypeId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+        }
+        "@
+        
+        # Submit Machine Account Creation Request
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineAccountCreateRequestInputV2 -Json $MachineAccountCreateRequestInputV2
+            New-MachineAccountRequestV2 -XSailPointExperimental $XSailPointExperimental -MachineAccountCreateRequestInputV2 $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-MachineAccountRequestV2 -XSailPointExperimental $XSailPointExperimental -MachineAccountCreateRequestInputV2 $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountRequestV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v2/machine-account-create
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountcreationrequest/methods/machine-account-creation-request#create-machine-account-v2
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MachineAccountCreateRequestInputV2 = @"
+        {
+          "sourceId" : "2c9180835d191a86015d28455b4a2329",
+          "formId" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
+          "entitlements" : [ {
+            "id" : "2c91808a7624751a01762f19d67c220e",
+            "comment" : "Needed to read the inventory share.",
+            "startDate" : "2026-11-01T00:00:00Z",
+            "removeDate" : "2027-11-01T00:00:00Z"
+          } ],
+          "entitlementIds" : [ "6d28b7c1620c49c6b6d5cbf81eb4b5fa", "2c91808a7624751a01762f19d67c220e" ],
+          "environment" : "Dev",
+          "description" : "Requesting machine account for tracking the inventory.",
+          "machineIdentityId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+          "ownerIdentityId" : "18104e7e499b4e23882d6323344ab6bc",
+          "userInput" : {
+            "target" : "AD Source",
+            "description" : "Inventory tracking"
+          },
+          "subtypeId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+        }
+        "@
+        
+        # Create Machine Account V2
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineAccountCreateRequestInputV2 -Json $MachineAccountCreateRequestInputV2
+            New-MachineAccountV2 -XSailPointExperimental $XSailPointExperimental -MachineAccountCreateRequestInputV2 $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-MachineAccountV2 -XSailPointExperimental $XSailPointExperimental -MachineAccountCreateRequestInputV2 $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountV2"
+            Write-Host $_.ErrorDetails
+        }
 - path: /account-requests/v1/machine-account-create/{accountRequestId}
   method: GET
   xCodeSample:
@@ -60,8 +144,8 @@
       label: SDK_tools/sdk/powershell/machineaccountcreationrequest/methods/machine-account-creation-request#get-machine-account-create-access-info-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
-        $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+        $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+        $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
         
         # Machine Account Create Access
         

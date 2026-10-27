@@ -74,7 +74,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/launchers/methods/launchers#get-launchers-v1
       source: |
-        $Filters = "disabled eq "true"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
+        $Filters = "disabled eq "true"" # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
         $Next = "eyJuZXh0IjoxMjN9Cg==" # String | Pagination marker (optional)
         $Limit = 42 # Int32 | Number of Launchers to return (optional) (default to 10)
         

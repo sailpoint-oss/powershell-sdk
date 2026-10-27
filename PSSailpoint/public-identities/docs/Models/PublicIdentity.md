@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Alias** | **String** | Alternate unique identifier for the identity. | [optional] 
 **Email** | **String** | Email address of identity. | [optional] 
 **Status** | **String** | The lifecycle status for the identity | [optional] 
-**IdentityState** |  **Enum** [  "ACTIVE",    "INACTIVE_SHORT_TERM",    "INACTIVE_LONG_TERM" ] | The current state of the identity, which determines how Identity Security Cloud interacts with the identity. An identity that is Active will be included identity picklists in Request Center, identity processing, and more. Identities that are Inactive will be excluded from these features.  | [optional] 
+**IdentityState** |  **Enum** [  "ACTIVE",    "INACTIVE_SHORT_TERM",    "INACTIVE_LONG_TERM" ] | The current state of the identity, which determines how SailPoint Identity Security interacts with the identity. An identity that is Active will be included identity picklists in Request Center, identity processing, and more. Identities that are Inactive will be excluded from these features.  | [optional] 
 **Manager** | [**IdentityReference**](identity-reference) |  | [optional] 
 **Attributes** | [**[]PublicIdentityAttributesInner**](public-identity-attributes-inner) | The public identity attributes of the identity | [optional] 
 

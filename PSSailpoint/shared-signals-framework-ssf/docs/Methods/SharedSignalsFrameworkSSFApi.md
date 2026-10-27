@@ -14,9 +14,9 @@ tags: ['SDK', 'Software Development Kit', 'SharedSignalsFrameworkSSF', 'SharedSi
 and automatically triggers session revocation events when specific lifecycle conditions are met.
 
 Use this API to implement transmitter functionality so administrators can discover the transmitter and manage streams.
-Transmitters send identity data and events from Identity Security Cloud to external receivers over the Secure Sync Framework (SSF).
+Transmitters send identity data and events from SailPoint Identity Security to external receivers over the Secure Sync Framework (SSF).
 The SSF configuration and JWKS endpoints support discovery and verification; the stream management endpoints support creating, updating, and managing streams and verifying receivers.
-In Identity Security Cloud, administrators can use the &quot;Connections&quot; &gt; &quot;Shared Signals&quot; area to view and manage transmitters and their streams.
+In SailPoint Identity Security, administrators can use the &quot;Connections&quot; &gt; &quot;Shared Signals&quot; area to view and manage transmitters and their streams.
  
   
 

@@ -1,0 +1,38 @@
+- path: /machine-mapping-metadata/v1/target-account-attributes
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machinemappingmetadata/methods/machine-mapping-metadata#get-machine-mapping-target-account-attributes-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # List target account attributes
+        
+        try {
+            Get-MachineMappingTargetAccountAttributesV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineMappingTargetAccountAttributesV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineMappingTargetAccountAttributesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-mapping-metadata/v1/target-identity-attributes
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machinemappingmetadata/methods/machine-mapping-metadata#get-machine-mapping-target-identity-attributes-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # List target identity attributes
+        
+        try {
+            Get-MachineMappingTargetIdentityAttributesV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineMappingTargetIdentityAttributesV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineMappingTargetIdentityAttributesV1"
+            Write-Host $_.ErrorDetails
+        }

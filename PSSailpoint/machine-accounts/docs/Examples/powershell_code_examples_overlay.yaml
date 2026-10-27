@@ -63,6 +63,32 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountSubtypeByTechnicalNameV1"
             Write-Host $_.ErrorDetails
         }
+- path: /machine-accounts/v1/{id}/delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#delete-machine-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MachineAccountDeleteRequest = @"
+        {
+          "comments" : "This machine account is no longer used."
+        }
+        "@
+        
+        # Delete machine account
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineAccountDeleteRequest -Json $MachineAccountDeleteRequest
+            Remove-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -MachineAccountDeleteRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -MachineAccountDeleteRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-accounts/v1/{id}/disable
   method: POST
   xCodeSample:
@@ -83,6 +109,31 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-MachineAccountV1"
             Write-Host $_.ErrorDetails
         }
+- path: /machine-accounts/v1/bulk-disable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#disable-machine-accounts-in-bulk-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MachineAccountBulkRequest = @"
+        {
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c9180835d2e5168015d32f890ca1581" ]
+        }
+        "@
+        
+        # Disable machine accounts in bulk
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineAccountBulkRequest -Json $MachineAccountBulkRequest
+            Disable-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Disable-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-MachineAccountsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-accounts/v1/{id}/enable
   method: POST
   xCodeSample:
@@ -101,6 +152,53 @@
             # Enable-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-MachineAccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/bulk-enable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#enable-machine-accounts-in-bulk-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MachineAccountBulkRequest = @"
+        {
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c9180835d2e5168015d32f890ca1581" ]
+        }
+        "@
+        
+        # Enable machine accounts in bulk
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineAccountBulkRequest -Json $MachineAccountBulkRequest
+            Enable-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Enable-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-MachineAccountsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/{id}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#get-machine-account-entitlements-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List machine account entitlements
+        
+        try {
+            Get-MachineAccountEntitlementsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountEntitlementsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountEntitlementsV1"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/subtypes/{subtypeId}
@@ -164,6 +262,66 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountV1"
             Write-Host $_.ErrorDetails
         }
+- path: /machine-accounts/v2/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#get-machine-account-v2
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get machine account details
+        
+        try {
+            Get-MachineAccountV2 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountV2 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/machine-accounts-summary
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#get-machine-accounts-summary-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "source.id eq "8d3e0094e99445de98eef6c75e25jc04"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **source.id**: *eq, in*  Filtering on any other field returns `400`. (optional)
+        
+        # Get machine account candidate summary
+        
+        try {
+            Get-MachineAccountsSummaryV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountsSummaryV1 -XSailPointExperimental $XSailPointExperimental -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountsSummaryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/{id}/machine-identities
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#list-machine-account-machine-identities-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # List linked machine identities
+        
+        try {
+            Get-MachineAccountMachineIdentitiesV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountMachineIdentitiesV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountMachineIdentitiesV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/v1/{sourceId}/subtypes
   method: GET
   xCodeSample:
@@ -172,11 +330,11 @@
       source: |
         $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Filters = "displayName eq "sail"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional)
-        $Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "displayName eq "sail"" # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional)
+        $Sorters = "displayName" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
         # Retrieve all subtypes by source
         
@@ -196,11 +354,11 @@
       label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#list-machine-accounts-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "hasEntitlements eq true" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  `risk.severity`, `permissionLevel`, and `lastUsedAt` require Entro enrichment to be enabled for the tenant. When it is not, those filters return `400`. `compliance` and `complianceViolationsCount` are not filter fields. With unknown-severity enabled, a null stored severity matches `risk.severity eq ""UNKNOWN""`. (optional)
-        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified, risk.severity, permissionLevel, lastUsedAt**  `risk.severity`, `permissionLevel`, and `lastUsedAt` require Entro enrichment to be enabled; otherwise those sorters return `400`. `risk.severity` sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically. Null Entro values sort last. `compliance` is not sortable. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "hasEntitlements eq true" # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  `risk.severity`, `permissionLevel`, and `lastUsedAt` require Entro enrichment to be enabled for the tenant. When it is not, those filters return `400`. `compliance` and `complianceViolationsCount` are not filter fields. With unknown-severity enabled, a null stored severity matches `risk.severity eq ""UNKNOWN""`. (optional)
+        $Sorters = "id,name" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified, risk.severity, permissionLevel, lastUsedAt**  `risk.severity`, `permissionLevel`, and `lastUsedAt` require Entro enrichment to be enabled; otherwise those sorters return `400`. `risk.severity` sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically. Null Entro values sort last. `compliance` is not sortable. (optional)
         
         # List machine accounts
         
@@ -211,6 +369,31 @@
             # Get-MachineAccountsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v2
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#list-machine-accounts-v2
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $OwnerIdentity = "self" # String | Return only machine accounts whose owner identity is this identity ID. Use `self` for the caller's own identity. This parameter can't be combined with a filter on `ownerIdentity.id`; that combination returns `400`. (optional)
+        $Filters = "machineIdentity.id eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **owners.primary.id**: *eq, in*  **owners.primary.name**: *eq, in, sw*  **owners.secondaryIdentity.id**: *eq, in*  **owners.secondaryIdentity.name**: *eq, in, sw*  **owners.governanceGroup.id**: *eq, in*  **owners.governanceGroup.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **connectorAttributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **datasetId**: *eq, in*  **resource.id**: *eq, in*  **type**: *eq, in*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  Use `me` as the value of `ownerIdentity.id` to match the caller's own identity.  The `owners.*` fields are available only when expanded machine account ownership is enabled for the tenant. The `risk.severity`, `permissionLevel` and `lastUsedAt` fields are available only when machine account risk enrichment is enabled for the tenant. Filtering on an unavailable field returns `400`. (optional)
+        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, ownerIdentity, ownerIdentity.id, ownerIdentity.name, owners.primary.id, owners.primary.name, owners.secondaryIdentity.id, owners.secondaryIdentity.name, owners.governanceGroup.id, owners.governanceGroup.name, manuallyCorrelated, enabled, locked, hasEntitlements, attributes, connectorAttributes, source.id, source.name, datasetId, resource.id, type, created, modified, risk.severity, permissionLevel, lastUsedAt**  The same availability rules as for `filters` apply to the `owners.*`, `risk.severity`, `permissionLevel` and `lastUsedAt` fields. `risk.severity` sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically. (optional)
+        
+        # List machine accounts
+        
+        try {
+            Get-MachineAccountsV2 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountsV2 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -OwnerIdentity $OwnerIdentity -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountsV2"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/{sourceId}/subtypes/{technicalName}
@@ -258,6 +441,56 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReloadMachineAccountV1"
             Write-Host $_.ErrorDetails
         }
+- path: /machine-accounts/v1/bulk-reload-async
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#reload-machine-accounts-in-bulk-async-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MachineAccountBulkRequest = @"
+        {
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c9180835d2e5168015d32f890ca1581" ]
+        }
+        "@
+        
+        # Bulk reload machine accounts asynchronously
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineAccountBulkRequest -Json $MachineAccountBulkRequest
+            Invoke-ReloadMachineAccountsInBulkAsyncV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-ReloadMachineAccountsInBulkAsyncV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReloadMachineAccountsInBulkAsyncV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/bulk-reload
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#reload-machine-accounts-in-bulk-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MachineAccountBulkRequest = @"
+        {
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c9180835d2e5168015d32f890ca1581" ]
+        }
+        "@
+        
+        # Reload machine accounts in bulk
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineAccountBulkRequest -Json $MachineAccountBulkRequest
+            Invoke-ReloadMachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-ReloadMachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReloadMachineAccountsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-accounts/v1/{id}/unlock
   method: POST
   xCodeSample:
@@ -300,5 +533,66 @@
             # Update-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v2/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#update-machine-account-v2
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update machine account details
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-MachineAccountV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-MachineAccountV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/bulk-update
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#update-machine-accounts-in-bulk-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MachineAccountBulkUpdateRequest = @"
+        {
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c9180835d2e5168015d32f890ca1581" ],
+          "jsonPatch" : [ {
+            "op" : "replace",
+            "path" : "/environment",
+            "value" : "PROD"
+          } ]
+        }
+        "@
+        
+        # Update machine accounts in bulk
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineAccountBulkUpdateRequest -Json $MachineAccountBulkUpdateRequest
+            Update-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkUpdateRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkUpdateRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountsInBulkV1"
             Write-Host $_.ErrorDetails
         }

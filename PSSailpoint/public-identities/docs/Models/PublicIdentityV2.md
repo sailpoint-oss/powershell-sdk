@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Name** | **String** | Alternate unique identifier for the identity (alias / search field name). | [required]
 **DisplayName** | **String** | Human-readable display name of the identity. | [required]
 **Email** | **String** | Email address of identity. | [required]
-**IdentityState** |  **Enum** [  "ACTIVE",    "INACTIVE_SHORT_TERM",    "INACTIVE_LONG_TERM" ] | The current state of the identity, which determines how Identity Security Cloud interacts with the identity. | [required]
+**IdentityState** |  **Enum** [  "ACTIVE",    "INACTIVE_SHORT_TERM",    "INACTIVE_LONG_TERM" ] | The current state of the identity, which determines how SailPoint Identity Security interacts with the identity. | [required]
 **CloudLifecycleState** | **String** | The lifecycle status for the identity | [required]
 **Manager** | [**PublicIdentityV2Manager**](public-identity-v2-manager) | Manager of this identity, or null when none | [required]
 **Attributes** | **map[string]String** | Configured public identity attributes only (from visible-attributes configuredAttributes). Missing keys are omitted; present null values are returned as null. | [required]

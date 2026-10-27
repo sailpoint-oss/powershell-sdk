@@ -28,6 +28,8 @@ docs/Conditional.md
 docs/ConnectorDetail.md
 docs/CorrelationConfig.md
 docs/CorrelationConfigAttributeAssignmentsInner.md
+docs/CorrelationReprocessStatus.md
+docs/CorrelationReprocessStatusStartedBy.md
 docs/DatasetAggregationRequest.md
 docs/DateCompare.md
 docs/DateCompareFirstDate.md
@@ -37,6 +39,7 @@ docs/DateFormatInputFormat.md
 docs/DateFormatOutputFormat.md
 docs/DateMath.md
 docs/DecomposeDiacriticalMarks.md
+docs/DeleteSourceAgentsRequest.md
 docs/DeleteSourceV1202Response.md
 docs/DependantAppConnections.md
 docs/DependantAppConnectionsAccountSource.md
@@ -75,6 +78,7 @@ docs/LoadUncorrelatedAccountsTaskTask.md
 docs/LoadUncorrelatedAccountsTaskTaskAttributes.md
 docs/LoadUncorrelatedAccountsTaskTaskMessagesInner.md
 docs/LocaleOrigin.md
+docs/LocalizedMessage.md
 docs/Lookup.md
 docs/Lower.md
 docs/ManagerCorrelationMapping.md
@@ -102,6 +106,8 @@ docs/Schema.md
 docs/Source.md
 docs/SourceAccountCorrelationConfig.md
 docs/SourceAccountCorrelationRule.md
+docs/SourceAgentDeletionTaskStatus.md
+docs/SourceAgentDeletionTaskStatusTarget.md
 docs/SourceBeforeProvisioningRule.md
 docs/SourceCluster.md
 docs/SourceConnectionsDto.md
@@ -130,8 +136,12 @@ docs/Split.md
 docs/Static.md
 docs/StatusResponse.md
 docs/Substring.md
+docs/TaskDefinitionSummary.md
 docs/TaskResultDetails.md
 docs/TaskResultDto.md
+docs/TaskReturnDetails.md
+docs/TaskStatusMessage.md
+docs/TaskStatusMessageParametersInner.md
 docs/Transform.md
 docs/TransformAttributes.md
 docs/TransformRead.md
@@ -168,6 +178,8 @@ src/PSSailpoint.Sources/Model/Conditional.ps1
 src/PSSailpoint.Sources/Model/ConnectorDetail.ps1
 src/PSSailpoint.Sources/Model/CorrelationConfig.ps1
 src/PSSailpoint.Sources/Model/CorrelationConfigAttributeAssignmentsInner.ps1
+src/PSSailpoint.Sources/Model/CorrelationReprocessStatus.ps1
+src/PSSailpoint.Sources/Model/CorrelationReprocessStatusStartedBy.ps1
 src/PSSailpoint.Sources/Model/DatasetAggregationRequest.ps1
 src/PSSailpoint.Sources/Model/DateCompare.ps1
 src/PSSailpoint.Sources/Model/DateCompareFirstDate.ps1
@@ -177,6 +189,7 @@ src/PSSailpoint.Sources/Model/DateFormatInputFormat.ps1
 src/PSSailpoint.Sources/Model/DateFormatOutputFormat.ps1
 src/PSSailpoint.Sources/Model/DateMath.ps1
 src/PSSailpoint.Sources/Model/DecomposeDiacriticalMarks.ps1
+src/PSSailpoint.Sources/Model/DeleteSourceAgentsRequest.ps1
 src/PSSailpoint.Sources/Model/DeleteSourceV1202Response.ps1
 src/PSSailpoint.Sources/Model/DependantAppConnections.ps1
 src/PSSailpoint.Sources/Model/DependantAppConnectionsAccountSource.ps1
@@ -215,6 +228,7 @@ src/PSSailpoint.Sources/Model/LoadUncorrelatedAccountsTaskTask.ps1
 src/PSSailpoint.Sources/Model/LoadUncorrelatedAccountsTaskTaskAttributes.ps1
 src/PSSailpoint.Sources/Model/LoadUncorrelatedAccountsTaskTaskMessagesInner.ps1
 src/PSSailpoint.Sources/Model/LocaleOrigin.ps1
+src/PSSailpoint.Sources/Model/LocalizedMessage.ps1
 src/PSSailpoint.Sources/Model/Lookup.ps1
 src/PSSailpoint.Sources/Model/Lower.ps1
 src/PSSailpoint.Sources/Model/ManagerCorrelationMapping.ps1
@@ -241,6 +255,8 @@ src/PSSailpoint.Sources/Model/Schema.ps1
 src/PSSailpoint.Sources/Model/Source.ps1
 src/PSSailpoint.Sources/Model/SourceAccountCorrelationConfig.ps1
 src/PSSailpoint.Sources/Model/SourceAccountCorrelationRule.ps1
+src/PSSailpoint.Sources/Model/SourceAgentDeletionTaskStatus.ps1
+src/PSSailpoint.Sources/Model/SourceAgentDeletionTaskStatusTarget.ps1
 src/PSSailpoint.Sources/Model/SourceBeforeProvisioningRule.ps1
 src/PSSailpoint.Sources/Model/SourceCluster.ps1
 src/PSSailpoint.Sources/Model/SourceConnectionsDto.ps1
@@ -267,8 +283,12 @@ src/PSSailpoint.Sources/Model/Split.ps1
 src/PSSailpoint.Sources/Model/Static.ps1
 src/PSSailpoint.Sources/Model/StatusResponse.ps1
 src/PSSailpoint.Sources/Model/Substring.ps1
+src/PSSailpoint.Sources/Model/TaskDefinitionSummary.ps1
 src/PSSailpoint.Sources/Model/TaskResultDetails.ps1
 src/PSSailpoint.Sources/Model/TaskResultDto.ps1
+src/PSSailpoint.Sources/Model/TaskReturnDetails.ps1
+src/PSSailpoint.Sources/Model/TaskStatusMessage.ps1
+src/PSSailpoint.Sources/Model/TaskStatusMessageParametersInner.ps1
 src/PSSailpoint.Sources/Model/Transform.ps1
 src/PSSailpoint.Sources/Model/TransformAttributes.ps1
 src/PSSailpoint.Sources/Model/TransformRead.ps1
@@ -311,6 +331,8 @@ tests/Model/Conditional.Tests.ps1
 tests/Model/ConnectorDetail.Tests.ps1
 tests/Model/CorrelationConfig.Tests.ps1
 tests/Model/CorrelationConfigAttributeAssignmentsInner.Tests.ps1
+tests/Model/CorrelationReprocessStatus.Tests.ps1
+tests/Model/CorrelationReprocessStatusStartedBy.Tests.ps1
 tests/Model/DatasetAggregationRequest.Tests.ps1
 tests/Model/DateCompare.Tests.ps1
 tests/Model/DateCompareFirstDate.Tests.ps1
@@ -320,6 +342,7 @@ tests/Model/DateFormatInputFormat.Tests.ps1
 tests/Model/DateFormatOutputFormat.Tests.ps1
 tests/Model/DateMath.Tests.ps1
 tests/Model/DecomposeDiacriticalMarks.Tests.ps1
+tests/Model/DeleteSourceAgentsRequest.Tests.ps1
 tests/Model/DeleteSourceV1202Response.Tests.ps1
 tests/Model/DependantAppConnections.Tests.ps1
 tests/Model/DependantAppConnectionsAccountSource.Tests.ps1
@@ -358,6 +381,7 @@ tests/Model/LoadUncorrelatedAccountsTaskTask.Tests.ps1
 tests/Model/LoadUncorrelatedAccountsTaskTaskAttributes.Tests.ps1
 tests/Model/LoadUncorrelatedAccountsTaskTaskMessagesInner.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1
+tests/Model/LocalizedMessage.Tests.ps1
 tests/Model/Lookup.Tests.ps1
 tests/Model/Lower.Tests.ps1
 tests/Model/ManagerCorrelationMapping.Tests.ps1
@@ -384,6 +408,8 @@ tests/Model/Schema.Tests.ps1
 tests/Model/Source.Tests.ps1
 tests/Model/SourceAccountCorrelationConfig.Tests.ps1
 tests/Model/SourceAccountCorrelationRule.Tests.ps1
+tests/Model/SourceAgentDeletionTaskStatus.Tests.ps1
+tests/Model/SourceAgentDeletionTaskStatusTarget.Tests.ps1
 tests/Model/SourceBeforeProvisioningRule.Tests.ps1
 tests/Model/SourceCluster.Tests.ps1
 tests/Model/SourceConnectionsDto.Tests.ps1
@@ -410,8 +436,12 @@ tests/Model/Split.Tests.ps1
 tests/Model/Static.Tests.ps1
 tests/Model/StatusResponse.Tests.ps1
 tests/Model/Substring.Tests.ps1
+tests/Model/TaskDefinitionSummary.Tests.ps1
 tests/Model/TaskResultDetails.Tests.ps1
 tests/Model/TaskResultDto.Tests.ps1
+tests/Model/TaskReturnDetails.Tests.ps1
+tests/Model/TaskStatusMessage.Tests.ps1
+tests/Model/TaskStatusMessageParametersInner.Tests.ps1
 tests/Model/Transform.Tests.ps1
 tests/Model/TransformAttributes.Tests.ps1
 tests/Model/TransformRead.Tests.ps1

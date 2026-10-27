@@ -1,0 +1,49 @@
+- path: /generic-request-approval-config/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/genericrequestapprovalconfig/methods/generic-request-approval-config#get-generic-request-approval-config-v1
+      source: |
+        $TargetType = "RESOURCE" # String | The kind of scope to read.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $TargetId = "aws:bedrock-agent-alias-version" # String | The scope target. Required for **RESOURCE** (the source resource ID) and **SUBTYPE** (the subtype ID). For **SOURCE** the target is the `sourceId`, and for **GLOBAL** it is the tenant; when you supply it for those target types, it must match that value or the request returns `400`. (optional)
+        $SourceId = "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa" # String | The source that owns the scope. Required for **RESOURCE**, **SUBTYPE**, and **SOURCE**. Must be omitted for **GLOBAL**. (optional)
+        
+        # Get generic request approval config
+        
+        try {
+            Get-GenericRequestApprovalConfigV1 -TargetType $TargetType -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-GenericRequestApprovalConfigV1 -TargetType $TargetType -XSailPointExperimental $XSailPointExperimental -TargetId $TargetId -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-GenericRequestApprovalConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-request-approval-config/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/genericrequestapprovalconfig/methods/generic-request-approval-config#update-generic-request-approval-config-v1
+      source: |
+        $Id = "0f2c7a9e-3b4d-4e5f-8a6b-7c8d9e0f1a2b" # String | Approval configuration ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Patch generic request approval config
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-GenericRequestApprovalConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-GenericRequestApprovalConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-GenericRequestApprovalConfigV1"
+            Write-Host $_.ErrorDetails
+        }

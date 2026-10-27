@@ -1,0 +1,19 @@
+- path: /machine-identity-metadata/v1/subtypes
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitymetadata/methods/machine-identity-metadata#list-machine-identity-subtypes-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # List machine identity subtypes
+        
+        try {
+            Get-MachineIdentitySubtypesV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineIdentitySubtypesV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentitySubtypesV1"
+            Write-Host $_.ErrorDetails
+        }

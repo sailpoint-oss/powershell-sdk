@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.MachineMappingMetadata - the PowerShell module for Identity Security Cloud API - Machine Mapping Metadata'
 
-    ModuleVersion = '2.1.68'
+    ModuleVersion = '2.1.69'
 
     RootModule = 'PSSailpoint.MachineMappingMetadata.psm1'
     Guid = 'CCED78F1-A64F-6B47-4198-2B7B4E275652' # Has to be static, otherwise each new build will be considered different module

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.IaiPeerGroupStrategies - the PowerShell module for SailPoint Identity Security API - IAI Peer Group Strategies'
 
-    ModuleVersion = '2.1.68'
+    ModuleVersion = '2.1.69'
 
     RootModule = 'PSSailpoint.IaiPeerGroupStrategies.psm1'
     Guid = '5BD44935-5852-3922-973B-49B1BA9FF2C0' # Has to be static, otherwise each new build will be considered different module

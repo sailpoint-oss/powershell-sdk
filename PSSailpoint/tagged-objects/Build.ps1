@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.TaggedObjects - the PowerShell module for SailPoint Identity Security API - Tagged Objects'
 
-    ModuleVersion = '2.1.68'
+    ModuleVersion = '2.1.69'
 
     RootModule = 'PSSailpoint.TaggedObjects.psm1'
     Guid = 'DDFD15BB-B048-C69B-71F5-6E8236AFFD5B' # Has to be static, otherwise each new build will be considered different module

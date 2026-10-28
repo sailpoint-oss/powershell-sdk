@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.NonEmployeeLifecycleManagement - the PowerShell module for SailPoint Identity Security API - Non-Employee Lifecycle Management'
 
-    ModuleVersion = '2.1.68'
+    ModuleVersion = '2.1.69'
 
     RootModule = 'PSSailpoint.NonEmployeeLifecycleManagement.psm1'
     Guid = 'AC8CE097-AF61-C4A1-4CD1-E4367882B8AD' # Has to be static, otherwise each new build will be considered different module

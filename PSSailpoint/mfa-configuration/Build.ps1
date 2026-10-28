@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.MfaConfiguration - the PowerShell module for SailPoint Identity Security API - MFA Configuration'
 
-    ModuleVersion = '2.1.68'
+    ModuleVersion = '2.1.69'
 
     RootModule = 'PSSailpoint.MfaConfiguration.psm1'
     Guid = 'A1C1B5FA-66CF-9DD0-90E6-A2573A3F7619' # Has to be static, otherwise each new build will be considered different module

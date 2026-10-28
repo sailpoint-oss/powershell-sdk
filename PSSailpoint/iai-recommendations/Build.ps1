@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.IaiRecommendations - the PowerShell module for SailPoint Identity Security API - IAI Recommendations'
 
-    ModuleVersion = '2.1.68'
+    ModuleVersion = '2.1.69'
 
     RootModule = 'PSSailpoint.IaiRecommendations.psm1'
     Guid = 'EDC3E1D5-3F16-8A29-C12B-37B1F5CD3170' # Has to be static, otherwise each new build will be considered different module

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.Dimensions - the PowerShell module for SailPoint Identity Security API - Dimensions'
 
-    ModuleVersion = '2.1.68'
+    ModuleVersion = '2.1.69'
 
     RootModule = 'PSSailpoint.Dimensions.psm1'
     Guid = '9FA92A22-64D1-96A9-D6C0-0146BDF79496' # Has to be static, otherwise each new build will be considered different module

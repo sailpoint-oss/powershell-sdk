@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.Connectors - the PowerShell module for SailPoint Identity Security API - Connectors'
 
-    ModuleVersion = '2.1.68'
+    ModuleVersion = '2.1.69'
 
     RootModule = 'PSSailpoint.Connectors.psm1'
     Guid = 'BE5879E7-87EB-3CCE-63D2-556286073068' # Has to be static, otherwise each new build will be considered different module

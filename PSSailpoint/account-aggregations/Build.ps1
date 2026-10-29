@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.AccountAggregations - the PowerShell module for SailPoint Identity Security API - Account Aggregations'
 
-    ModuleVersion = '2.1.69'
+    ModuleVersion = '2.1.70'
 
     RootModule = 'PSSailpoint.AccountAggregations.psm1'
     Guid = '53960398-C33A-B288-7634-ED835ADC27D2' # Has to be static, otherwise each new build will be considered different module

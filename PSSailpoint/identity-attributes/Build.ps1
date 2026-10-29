@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.IdentityAttributes - the PowerShell module for SailPoint Identity Security API - Identity Attributes'
 
-    ModuleVersion = '2.1.69'
+    ModuleVersion = '2.1.70'
 
     RootModule = 'PSSailpoint.IdentityAttributes.psm1'
     Guid = '54E5DE1C-8CA9-450A-8684-AB4E3C114802' # Has to be static, otherwise each new build will be considered different module

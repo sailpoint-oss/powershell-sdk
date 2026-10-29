@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.TaskManagement - the PowerShell module for SailPoint Identity Security API - Task Management'
 
-    ModuleVersion = '2.1.69'
+    ModuleVersion = '2.1.70'
 
     RootModule = 'PSSailpoint.TaskManagement.psm1'
     Guid = '4DD5EB87-12AE-A4B8-7498-4A9996A3B825' # Has to be static, otherwise each new build will be considered different module

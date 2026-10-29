@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.PasswordDictionary - the PowerShell module for SailPoint Identity Security API - Password Dictionary'
 
-    ModuleVersion = '2.1.69'
+    ModuleVersion = '2.1.70'
 
     RootModule = 'PSSailpoint.PasswordDictionary.psm1'
     Guid = 'B02AED52-4B7D-9556-51F3-C4B0EC00D036' # Has to be static, otherwise each new build will be considered different module

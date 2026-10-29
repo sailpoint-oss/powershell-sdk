@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.GenericRequestApprovalConfig - the PowerShell module for Identity Security Cloud API - Generic Request Approval Config'
 
-    ModuleVersion = '2.1.69'
+    ModuleVersion = '2.1.70'
 
     RootModule = 'PSSailpoint.GenericRequestApprovalConfig.psm1'
     Guid = 'F04500B9-F747-E137-6CEC-7F6290044275' # Has to be static, otherwise each new build will be considered different module

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.SharedSignalsFrameworkSsf - the PowerShell module for SailPoint Identity Security API - Shared Signals Framework (SSF)'
 
-    ModuleVersion = '2.1.70'
+    ModuleVersion = '2.1.71'
 
     RootModule = 'PSSailpoint.SharedSignalsFrameworkSsf.psm1'
     Guid = '9BC40B6F-7E7D-969E-E1EF-12F8055D28BE' # Has to be static, otherwise each new build will be considered different module

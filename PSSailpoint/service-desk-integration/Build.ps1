@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.ServiceDeskIntegration - the PowerShell module for SailPoint Identity Security API - Service Desk Integration'
 
-    ModuleVersion = '2.1.70'
+    ModuleVersion = '2.1.71'
 
     RootModule = 'PSSailpoint.ServiceDeskIntegration.psm1'
     Guid = 'FC49BDE5-B0F3-8950-89FC-5585B0C9CBB7' # Has to be static, otherwise each new build will be considered different module

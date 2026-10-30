@@ -1,0 +1,223 @@
+openapi: 3.0.1
+info:
+  title: SailPoint Identity Security API - Generic
+  description: >-
+    Generic client for the SailPoint Identity Security versioned APIs. Use it to call any endpoint, in any version, by
+    its path, for example `sources/v1` or `sources/v2/{sourceId}/provisioning-policies`, including endpoints that do
+    not have a resource-specific client or documentation yet. The version is part of the path, so this client is not
+    tied to one API version and the base URL has no version segment.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: any (set in the path)
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+
+# Same security block as the partition specs, which declare no securitySchemes:
+# the SDK configuration adds the bearer token to every request, so the generic
+# client authenticates exactly like the resource-specific clients.
+security:
+  - userAuth:
+      - "sp:scopes:all"
+
+tags:
+  - name: Generic
+    description: >-
+      Call any SailPoint Identity Security versioned API by its path. The path includes the API version, for example
+      `sources/v1` or `sources/v2/{sourceId}/provisioning-policies`.
+
+paths:
+  /{path}:
+    get:
+      tags:
+        - Generic
+      summary: Generic GET request
+      description: >-
+        Sends a GET request to any versioned API path, for example `sources/v1/{id}/schemas` or
+        `sources/v2/{sourceId}/provisioning-policies`.
+      operationId: genericGet
+      parameters:
+        - $ref: '#/components/parameters/path'
+        - name: limit
+          in: query
+          description: >-
+            Max number of results to return. See [Standard Collection
+            Parameters](https://developer.sailpoint.com/docs/standard-collection-parameters) for more information.
+          required: false
+          example: 250
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - name: offset
+          in: query
+          description: >-
+            Offset into the full result set. Usually specified with *limit* to paginate through the results.
+          required: false
+          example: 0
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - name: count
+          in: query
+          description: >-
+            If *true* it will populate the *X-Total-Count* response header with the number of results that would be
+            returned if *limit* and *offset* were ignored.
+          required: false
+          example: true
+          schema:
+            type: boolean
+        - name: filters
+          in: query
+          description: >-
+            Filter results using the standard syntax described in [V3 API Standard Collection
+            Parameters](https://developer.sailpoint.com/docs/standard-collection-parameters#filtering-results).
+          required: false
+          example: name eq "Example"
+          schema:
+            type: string
+        - name: sorters
+          in: query
+          description: >-
+            Sort results using the standard syntax described in [V3 API Standard Collection
+            Parameters](https://developer.sailpoint.com/docs/standard-collection-parameters#sorting-results).
+          required: false
+          example: name,-created
+          schema:
+            type: string
+        - $ref: '#/components/parameters/experimental'
+      responses:
+        '200':
+          $ref: '#/components/responses/GenericResponse'
+        '204':
+          description: No content.
+    post:
+      tags:
+        - Generic
+      summary: Generic POST request
+      description: Sends a POST request with a JSON body to any versioned API path.
+      operationId: genericPost
+      x-codegen-request-body-name: requestBody
+      parameters:
+        - $ref: '#/components/parameters/path'
+        - $ref: '#/components/parameters/experimental'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenericRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/GenericResponse'
+        '204':
+          description: No content.
+    put:
+      tags:
+        - Generic
+      summary: Generic PUT request
+      description: Sends a PUT request with a JSON body to any versioned API path.
+      operationId: genericPut
+      x-codegen-request-body-name: requestBody
+      parameters:
+        - $ref: '#/components/parameters/path'
+        - $ref: '#/components/parameters/experimental'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenericRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/GenericResponse'
+        '204':
+          description: No content.
+    patch:
+      tags:
+        - Generic
+      summary: Generic PATCH request
+      description: >-
+        Sends a PATCH request to any versioned API path. The body is a JSON Patch document (RFC 6902): a list of
+        operations such as `[{"op": "replace", "path": "/description", "value": "New description"}]`.
+      operationId: genericPatch
+      x-codegen-request-body-name: requestBody
+      parameters:
+        - $ref: '#/components/parameters/path'
+        - $ref: '#/components/parameters/experimental'
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GenericRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/GenericResponse'
+        '204':
+          description: No content.
+    delete:
+      tags:
+        - Generic
+      summary: Generic DELETE request
+      description: Sends a DELETE request to any versioned API path.
+      operationId: genericDelete
+      parameters:
+        - $ref: '#/components/parameters/path'
+        - $ref: '#/components/parameters/experimental'
+      responses:
+        '200':
+          $ref: '#/components/responses/GenericResponse'
+        '204':
+          description: No content.
+
+components:
+  parameters:
+    path:
+      name: path
+      in: path
+      required: true
+      description: >-
+        API path relative to the tenant base URL, including the API version, for example `accounts/v1`,
+        `sources/v1/2c9180835d2e5168015d32f890ca1581` or `sources/v2/2c9180835d2e5168015d32f890ca1581/provisioning-policies`.
+        Use whichever version the endpoint has. A leading slash is optional. Slashes separate path segments,
+        and the SDK URL-encodes each segment, so pass the segments unencoded. Anything after a `?` is sent as query
+        parameters, for example `accounts/v1?detailLevel=SLIM`.
+      example: accounts/v1
+      schema:
+        type: string
+    experimental:
+      name: X-SailPoint-Experimental
+      in: header
+      description: >-
+        Set this header to `true` to call an experimental API. The SDK configuration must also enable experimental
+        APIs.
+      required: false
+      example: "true"
+      schema:
+        type: string
+  responses:
+    GenericResponse:
+      description: Successful response. The body is the JSON returned by the API.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GenericResponse'
+  schemas:
+    GenericRequest:
+      description: Any JSON value. Most endpoints take an object. PATCH endpoints take a list of JSON Patch operations.
+    GenericResponse:
+      description: Any JSON value returned by the API, usually an object or a list of objects.

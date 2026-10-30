@@ -53,17 +53,25 @@ const API_VERSION     = "v1";
 const PACKAGE_VERSION = "2.1.71";
 const COMMON_VERBS    = "Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select";
 
+// The generic API is built from a standalone spec in sdk-resources/, not from a
+// partition under apis/. Its module has a src/ directory like a partition, so
+// the barrel module imports it and the CI build runs its Build.ps1.
+const GENERIC_SPEC = path.join(__dirname, "generic-api.yaml");
+const GENERIC_DIR  = "generic";
+
 // ---------------------------------------------------------------------------
 // CLI args
 // ---------------------------------------------------------------------------
 
 const args = process.argv.slice(2);
-if (args.length === 0 || args[0].startsWith("--")) {
+const genericOnly = args.includes("--generic-only");
+if (!genericOnly && (args.length === 0 || args[0].startsWith("--"))) {
   console.error("Usage: node sdk-resources/build-versioned-sdk.js <path-to-apis-dir> [--partition <name>] [--keep-tmp]");
+  console.error("       node sdk-resources/build-versioned-sdk.js --generic-only");
   process.exit(1);
 }
 
-const apisDir       = path.resolve(args[0]);
+const apisDir       = genericOnly ? null : path.resolve(args[0]);
 const keepTmp       = args.includes("--keep-tmp");
 const partitionIdx  = args.indexOf("--partition");
 const onlyPartition = partitionIdx !== -1 ? args[partitionIdx + 1] : null;
@@ -360,7 +368,9 @@ function normalizeSchemaNames(bundledJsonPath, idnRoot) {
 // Generate per-partition config YAML
 // ---------------------------------------------------------------------------
 
-function writePartitionConfig(partitionName) {
+// apiVersion labels the docs and builds the NERM URL. The generic API passes
+// null, because it is not tied to one API version: the version is in the path.
+function writePartitionConfig(partitionName, apiVersion = API_VERSION) {
   const pascal        = toPascal(partitionName);
   const packageName   = `PSSailpoint.${pascal}`;
   const subModuleName = pascal;
@@ -370,7 +380,7 @@ function writePartitionConfig(partitionName) {
     `templateDir: ${TEMPLATE_DIR.replace(/\\/g, "/")}`,
     `packageName: ${packageName}`,
     `packageVersion: ${PACKAGE_VERSION}`,
-    `apiVersion: '${API_VERSION}'`,
+    ...(apiVersion ? [`apiVersion: '${apiVersion}'`] : []),
     `companyName: SailPoint Technologies`,
     `packageGuid: ${guid}`,
     `commonVerbs: ${COMMON_VERBS}`,
@@ -443,6 +453,150 @@ function runPostscript(outputDir) {
     stdout: result.stdout || "",
     stderr: result.stderr || "",
   };
+}
+
+// ---------------------------------------------------------------------------
+// Generic API module  (PSSailpoint/generic)
+//
+// The generic cmdlets (Invoke-GenericGet, Invoke-GenericPost, ...) call any
+// versioned endpoint by path, including endpoints that have no resource-specific
+// cmdlet yet. They use the same templates and generator options as the
+// partitions, so they share the configuration, auth and retry handling. The spec
+// has no version segment in its server URL, because the version is part of the
+// path (for example "accounts/v1").
+// ---------------------------------------------------------------------------
+
+// The generator URL-encodes the whole `Path` parameter, which turns the slashes
+// of a multi-segment path ("accounts/v1/1234") into %2F. This helper encodes each
+// segment on its own, and returns anything after a "?" as query parameters, so
+// callers can pass any query parameter. It goes in Private/, which the module
+// loads but Build.ps1 does not export.
+const GENERIC_PATH_HELPER = `
+# Splits the Path of a generic request into the request URI and its query
+# parameters. Path is everything after the tenant base URL, including the API
+# version, for example 'accounts/v1' or 'sources/v1/2c918085/schemas'. Leading and
+# trailing slashes are optional. Each segment is URL-encoded on its own, so the
+# slashes between segments are kept. Anything after a '?' is returned as query
+# parameters, for example 'accounts/v1?detailLevel=SLIM'.
+function ConvertTo-GenericRequestPath {
+    Param (
+        [Parameter(Mandatory = $true)]
+        [String]
+        $Path
+    )
+    $PathPart, $QueryPart = $Path -split '\\?', 2
+    $Segments = @($PathPart -split '/' | Where-Object { $_ -ne '' } | ForEach-Object { [System.Uri]::EscapeDataString($_) })
+    $Query = @{}
+    if ($QueryPart) {
+        $Parsed = [System.Web.HttpUtility]::ParseQueryString($QueryPart)
+        foreach ($Key in $Parsed.AllKeys) {
+            if ($null -ne $Key) {
+                $Query[$Key] = $Parsed[$Key]
+            }
+        }
+    }
+    return @{ Uri = '/' + ($Segments -join '/'); Query = $Query }
+}
+`;
+
+function patchGenericCmdlets(outputDir) {
+  const apiPath = path.join(outputDir, "src", "PSSailpoint.Generic", "Api", "GenericApi.ps1");
+  let content = readFileSafe(apiPath);
+
+  const replacements = [
+    {
+      // Path: encode each segment and merge a query string from the path.
+      label: "path encoder",
+      pattern: /^( +)\$LocalVarUri = \$LocalVarUri\.replace\('\{path\}', \[System\.Web\.HTTPUtility\]::UrlEncode\(\$Path\)\)$/gm,
+      replace: (_, indent) => [
+        `${indent}$GenericRequestPath = ConvertTo-GenericRequestPath -Path $Path`,
+        `${indent}$LocalVarUri = $GenericRequestPath.Uri`,
+        `${indent}foreach ($Key in $GenericRequestPath.Query.Keys) {`,
+        `${indent}    $LocalVarQueryParameters[$Key] = $GenericRequestPath.Query[$Key]`,
+        `${indent}}`,
+      ].join("\n"),
+    },
+    {
+      // The template expects every header parameter to have a default. The
+      // experimental header has none, because sending it must be a choice.
+      label: "header default",
+      pattern: /^( +)\$XSailPointExperimental = ,$/gm,
+      replace: (_, indent) => `${indent}$XSailPointExperimental,`,
+    },
+    {
+      // A body can be any JSON value. PowerShell has no AnyType type.
+      label: "body type",
+      pattern: /\[System\.Nullable\[AnyType\]\]/g,
+      replace: () => "[Object]",
+    },
+    {
+      // Serialize the body as it is. The template drops empty properties of
+      // model objects, which reads the members of a hashtable instead of its keys.
+      label: "body serializer",
+      pattern: /^( +)if \(\$LocalVarContentTypes\.Contains\('application\/json-patch\+json'\)[\s\S]*?\n\1\}\n(?=\s*\$LocalVarResult)/gm,
+      replace: (_, indent) => [
+        `${indent}if ($null -ne $RequestBody) {`,
+        `${indent}    $LocalVarBodyParameter = ConvertTo-Json -InputObject $RequestBody -Depth 100`,
+        `${indent}}`,
+        ``,
+      ].join("\n"),
+    },
+  ];
+
+  const counts = {};
+  for (const { label, pattern, replace } of replacements) {
+    counts[label] = (content.match(pattern) || []).length;
+    if (counts[label] === 0) {
+      throw new Error(`no ${label} found in ${path.relative(SDK_ROOT, apiPath)}`);
+    }
+    content = content.replace(pattern, replace);
+  }
+
+  fs.writeFileSync(apiPath, content, "utf8");
+  const helperPath = path.join(outputDir, "src", "PSSailpoint.Generic", "Private", "ConvertTo-GenericRequestPath.ps1");
+  fs.writeFileSync(helperPath, GENERIC_PATH_HELPER.trimStart(), "utf8");
+
+  // The spec defines no models, but the module loader and Build.ps1 read Model/.
+  const modelDir = path.join(outputDir, "src", "PSSailpoint.Generic", "Model");
+  fs.mkdirSync(modelDir, { recursive: true });
+  fs.writeFileSync(path.join(modelDir, ".gitkeep"), "", "utf8");
+
+  return { patched: counts["path encoder"] };
+}
+
+function buildGenericPackage() {
+  if (!fs.existsSync(GENERIC_SPEC)) {
+    return { ok: false, step: "setup", output: `generic spec not found at ${GENERIC_SPEC}` };
+  }
+  fs.mkdirSync(TEMP_DIR, { recursive: true });
+
+  const gen = generatePartition(GENERIC_DIR, GENERIC_SPEC, writePartitionConfig(GENERIC_DIR, null));
+  if (!gen.ok) {
+    return { ok: false, step: "generation", output: [gen.stdout, gen.stderr].filter(Boolean).join("\n") };
+  }
+
+  const post = runPostscript(gen.outputDir);
+  if (!post.ok) {
+    return { ok: false, step: "postscript", output: [post.stdout, post.stderr].filter(Boolean).join("\n") };
+  }
+
+  try {
+    const { patched } = patchGenericCmdlets(gen.outputDir);
+    return { ok: true, outputDir: gen.outputDir, patched };
+  } catch (err) {
+    return { ok: false, step: "path-encoding", output: String(err.stack || err) };
+  }
+}
+
+// Print the outcome of buildGenericPackage() and return whether it succeeded.
+function reportGenericBuild(built) {
+  if (built.ok) {
+    console.log(`  ✓ generic → PSSailpoint/${GENERIC_DIR}/ (${built.patched} path encoder(s) patched)`);
+    return true;
+  }
+  console.error(`  ✗ generic API failed at ${built.step}`);
+  console.error(built.output);
+  return false;
 }
 
 // ---------------------------------------------------------------------------
@@ -698,6 +852,20 @@ function syncMainModuleVersion() {
 // ---------------------------------------------------------------------------
 
 function main() {
+  if (genericOnly) {
+    if (!fs.existsSync(JAR)) {
+      console.error(`Error: openapi-generator-cli.jar not found at ${JAR}`);
+      process.exit(1);
+    }
+    console.log("\n[GENERIC] Building the generic API module ...");
+    const ok = reportGenericBuild(buildGenericPackage());
+    if (!keepTmp) fs.rmSync(TEMP_DIR, { recursive: true, force: true });
+    console.log("\n[BARREL] Regenerating PSSailpoint/PSSailpoint.psm1 ...");
+    generateBarrelModule();
+    if (!ok) process.exit(1);
+    return;
+  }
+
   if (!fs.existsSync(apisDir)) {
     console.error(`Error: apis directory not found: ${apisDir}`);
     process.exit(1);
@@ -820,6 +988,22 @@ function main() {
 
     results.success.push(partition);
     console.log(`  ✓ ${partition} → PSSailpoint/${partition}/`);
+  }
+
+  // Build the generic API module (independent of the apis/ partitions). Stale
+  // cleanup removed it with the partitions, so a full build always rebuilds it.
+  // A single-partition rebuild leaves it as it is.
+  if (!onlyPartition) {
+    console.log(`\n${"=".repeat(60)}`);
+    console.log("  Building: generic API");
+    console.log(`${"=".repeat(60)}`);
+    results.total += 1;
+    if (reportGenericBuild(buildGenericPackage())) {
+      results.success.push("generic");
+    } else {
+      // The generic spec is not under apis/, so there is no partition report to write.
+      results.failed.push({ partition: "generic", step: "generic", reportPath: GENERIC_SPEC });
+    }
   }
 
   // Cleanup

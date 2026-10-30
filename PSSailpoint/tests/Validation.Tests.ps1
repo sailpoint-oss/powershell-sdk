@@ -77,6 +77,25 @@ Describe 'Sources' {
     }
 }
 
+# The generic cmdlets call any versioned endpoint by path, with the same
+# configuration and token as the resource cmdlets.
+Describe 'Generic' {
+    It 'Returns results for a v1 endpoint' {
+        $Response = Invoke-GenericGet -Path 'sources/v1' -Limit 10 -WithHttpInfo
+
+        $Response.StatusCode | Should -Be 200
+        @($Response.Response).Count | Should -BeLessOrEqual 10
+    }
+
+    # access-request-config/v2 is experimental, so the header is required.
+    It 'Returns results for a v2 endpoint' {
+        $Response = Invoke-GenericGet -Path 'access-request-config/v2' -XSailPointExperimental 'true' -WithHttpInfo
+
+        $Response.StatusCode | Should -Be 200
+        $Response.Response | Should -BeOfType [hashtable]
+    }
+}
+
 Describe 'Connectors' {
     It 'Returns results for Get-ConnectorListV1' {
         $Response = Get-ConnectorListV1 -WithHttpInfo

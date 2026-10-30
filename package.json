@@ -4,7 +4,8 @@
   "private": true,
   "description": "Build tooling for the SailPoint PowerShell SDK",
   "scripts": {
-    "build": "node sdk-resources/build-versioned-sdk.js"
+    "build": "node sdk-resources/build-versioned-sdk.js",
+    "build:generic": "node sdk-resources/build-versioned-sdk.js --generic-only"
   },
   "dependencies": {
     "@redocly/cli": "^2.32.2"

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.MachineAccounts - the PowerShell module for SailPoint Identity Security API - Machine Accounts'
 
-    ModuleVersion = '2.1.71'
+    ModuleVersion = '2.1.72'
 
     RootModule = 'PSSailpoint.MachineAccounts.psm1'
     Guid = 'D4606FA5-8761-D577-6F91-886BF2FD689A' # Has to be static, otherwise each new build will be considered different module

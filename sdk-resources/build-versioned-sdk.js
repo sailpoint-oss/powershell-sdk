@@ -36,6 +36,7 @@ const fs     = require("fs");
 const path   = require("path");
 const crypto = require("crypto");
 const { spawnSync } = require("child_process");
+const scopeManifest = require("./emit-scope-manifest");
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -50,7 +51,7 @@ const POSTSCRIPT   = path.join(__dirname, "postscript.js");
 const TEMPLATE_DIR = path.join(__dirname, "resources");
 
 const API_VERSION     = "v1";
-const PACKAGE_VERSION = "2.1.71";
+const PACKAGE_VERSION = "2.1.72";
 const COMMON_VERBS    = "Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select";
 
 // The generic API is built from a standalone spec in sdk-resources/, not from a
@@ -926,6 +927,9 @@ function main() {
     console.log(`  cleaned ${stale.length} directory/directories\n`);
   }
 
+  // operationId → scope data, written to sailpoint-scopes.json after the loop
+  const scopeOperations = {};
+
   const results = {
     total:   partitions.length,
     success: [],
@@ -986,6 +990,14 @@ function main() {
       continue;
     }
 
+    // --- Scope data for `sail scopes analyze` ---
+    try {
+      const cmdlets = scopeManifest.readPowerShellCmdlets(gen.outputDir);
+      Object.assign(scopeOperations, scopeManifest.collectOperations(bundle.outputSpec, partition, (id, op) => cmdlets[`${op.httpMethod} ${op.path}`]));
+    } catch (err) {
+      console.warn(`  ! could not read scopes: ${err.message}`);
+    }
+
     results.success.push(partition);
     console.log(`  ✓ ${partition} → PSSailpoint/${partition}/`);
   }
@@ -1005,6 +1017,14 @@ function main() {
       results.failed.push({ partition: "generic", step: "generic", reportPath: GENERIC_SPEC });
     }
   }
+  // Scope manifest for `sail scopes analyze`
+  const scopes = scopeManifest.writeScopeManifest(path.join(SDK_ROOT, "PSSailpoint"), {
+    sdk:           "powershell",
+    sdkVersion:    PACKAGE_VERSION,
+    operations:    scopeOperations,
+    onlyPartition,
+  });
+  console.log(`\n[SCOPES] Wrote ${scopes.count} operation(s) to ${path.relative(SDK_ROOT, scopes.outPath)}`);
 
   // Cleanup
   if (!keepTmp) {

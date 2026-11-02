@@ -1,0 +1,108 @@
+- path: /{path}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/generic/methods/generic#generic-delete
+      source: |
+        $Path = "accounts/v1" # String | API path relative to the tenant base URL, including the API version, for example `accounts/v1`, `sources/v1/2c9180835d2e5168015d32f890ca1581` or `sources/v2/2c9180835d2e5168015d32f890ca1581/provisioning-policies`. Use whichever version the endpoint has. A leading slash is optional. Slashes separate path segments, and the SDK URL-encodes each segment, so pass the segments unencoded. Anything after a `?` is sent as query parameters, for example `accounts/v1?detailLevel=SLIM`.
+        $XSailPointExperimental = "true" # String | Set this header to `true` to call an experimental API. The SDK configuration must also enable experimental APIs. (optional)
+        
+        # Generic DELETE request
+        
+        try {
+            Invoke-GenericDelete -Path $Path 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-GenericDelete -Path $Path -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-GenericDelete"
+            Write-Host $_.ErrorDetails
+        }
+- path: /{path}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/generic/methods/generic#generic-get
+      source: |
+        $Path = "accounts/v1" # String | API path relative to the tenant base URL, including the API version, for example `accounts/v1`, `sources/v1/2c9180835d2e5168015d32f890ca1581` or `sources/v2/2c9180835d2e5168015d32f890ca1581/provisioning-policies`. Use whichever version the endpoint has. A leading slash is optional. Slashes separate path segments, and the SDK URL-encodes each segment, so pass the segments unencoded. Anything after a `?` is sent as query parameters, for example `accounts/v1?detailLevel=SLIM`.
+        $Limit = 250 # Int32 | Max number of results to return. See [Standard Collection Parameters](https://developer.sailpoint.com/docs/standard-collection-parameters) for more information. (optional)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored. (optional)
+        $Filters = "name eq "Example"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard-collection-parameters#filtering-results). (optional)
+        $Sorters = "name,-created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard-collection-parameters#sorting-results). (optional)
+        $XSailPointExperimental = "true" # String | Set this header to `true` to call an experimental API. The SDK configuration must also enable experimental APIs. (optional)
+        
+        # Generic GET request
+        
+        try {
+            Invoke-GenericGet -Path $Path 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-GenericGet -Path $Path -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-GenericGet"
+            Write-Host $_.ErrorDetails
+        }
+- path: /{path}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/generic/methods/generic#generic-patch
+      source: |
+        $Path = "accounts/v1" # String | API path relative to the tenant base URL, including the API version, for example `accounts/v1`, `sources/v1/2c9180835d2e5168015d32f890ca1581` or `sources/v2/2c9180835d2e5168015d32f890ca1581/provisioning-policies`. Use whichever version the endpoint has. A leading slash is optional. Slashes separate path segments, and the SDK URL-encodes each segment, so pass the segments unencoded. Anything after a `?` is sent as query parameters, for example `accounts/v1?detailLevel=SLIM`.
+        $XSailPointExperimental = "true" # String | Set this header to `true` to call an experimental API. The SDK configuration must also enable experimental APIs. (optional)
+        $RequestBody =  # AnyType |  (optional)
+        
+        # Generic PATCH request
+        
+        try {
+            Invoke-GenericPatch -Path $Path 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-GenericPatch -Path $Path -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-GenericPatch"
+            Write-Host $_.ErrorDetails
+        }
+- path: /{path}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/generic/methods/generic#generic-post
+      source: |
+        $Path = "accounts/v1" # String | API path relative to the tenant base URL, including the API version, for example `accounts/v1`, `sources/v1/2c9180835d2e5168015d32f890ca1581` or `sources/v2/2c9180835d2e5168015d32f890ca1581/provisioning-policies`. Use whichever version the endpoint has. A leading slash is optional. Slashes separate path segments, and the SDK URL-encodes each segment, so pass the segments unencoded. Anything after a `?` is sent as query parameters, for example `accounts/v1?detailLevel=SLIM`.
+        $XSailPointExperimental = "true" # String | Set this header to `true` to call an experimental API. The SDK configuration must also enable experimental APIs. (optional)
+        $RequestBody =  # AnyType |  (optional)
+        
+        # Generic POST request
+        
+        try {
+            Invoke-GenericPost -Path $Path 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-GenericPost -Path $Path -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-GenericPost"
+            Write-Host $_.ErrorDetails
+        }
+- path: /{path}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/generic/methods/generic#generic-put
+      source: |
+        $Path = "accounts/v1" # String | API path relative to the tenant base URL, including the API version, for example `accounts/v1`, `sources/v1/2c9180835d2e5168015d32f890ca1581` or `sources/v2/2c9180835d2e5168015d32f890ca1581/provisioning-policies`. Use whichever version the endpoint has. A leading slash is optional. Slashes separate path segments, and the SDK URL-encodes each segment, so pass the segments unencoded. Anything after a `?` is sent as query parameters, for example `accounts/v1?detailLevel=SLIM`.
+        $XSailPointExperimental = "true" # String | Set this header to `true` to call an experimental API. The SDK configuration must also enable experimental APIs. (optional)
+        $RequestBody =  # AnyType |  (optional)
+        
+        # Generic PUT request
+        
+        try {
+            Invoke-GenericPut -Path $Path 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-GenericPut -Path $Path -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-GenericPut"
+            Write-Host $_.ErrorDetails
+        }

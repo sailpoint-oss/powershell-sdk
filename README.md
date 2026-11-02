@@ -7,6 +7,24 @@ The PowerShell SDK allows you to use PowerShell to interact with the SailPoint A
 
 To get started with the PowerShell SDK and learn about its various functionalities, refer to the [documentation](https://developer.sailpoint.com/idn/tools/sdk/powershell) on https://developer.sailpoint.com. 
 
+## Calling any API with the generic client
+
+The generic client calls any SailPoint versioned API by its path, including APIs
+that do not have a resource-specific client or documentation yet. The path
+includes the API version, for example `accounts/v1`. The client uses the same
+configuration, authentication and retries as the other clients.
+
+- Each path segment is URL-encoded. Pass the segments unencoded.
+- Anything after a `?` in the path is sent as query parameters.
+- A PATCH body is a JSON Patch list, sent as `application/json-patch+json`.
+
+```powershell
+$Accounts = Invoke-GenericGet -Path 'accounts/v1' -Limit 10 -Filters 'sourceId eq "2c91808a"'
+
+$Patch = @(@{ op = 'replace'; path = '/attributes/input'; value = 'lower' })
+Invoke-GenericPatch -Path 'transforms/v1/2c91808a' -RequestBody $Patch
+```
+
 ## Examples
 
 In addition to the examples shown in the [documentation](https://developer.sailpoint.com/idn/tools/sdk/powershell), you can find more uses of the PowerShell SDK in the [examples](./example/).

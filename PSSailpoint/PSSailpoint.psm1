@@ -76,6 +76,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'devices' 'src' 'PSSailpoint.Device
 Import-Module -Name (Join-Path $PSScriptRoot 'dimensions' 'src' 'PSSailpoint.Dimensions') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'entitlement-connections' 'src' 'PSSailpoint.EntitlementConnections') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'entitlements' 'src' 'PSSailpoint.Entitlements') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'generic' 'src' 'PSSailpoint.Generic') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'generic-request-approval-config' 'src' 'PSSailpoint.GenericRequestApprovalConfig') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'global-tenant-security-settings' 'src' 'PSSailpoint.GlobalTenantSecuritySettings') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'gov-certification' 'src' 'PSSailpoint.GovCertification') -Force -Global

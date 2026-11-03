@@ -1053,6 +1053,139 @@ function Get-AccountsV1 {
 <#
 .SYNOPSIS
 
+List accounts (search)
+
+.DESCRIPTION
+
+List accounts from the accounts search index.  Use standard collection parameters for paging (`limit`, `offset`, `count`). Default page size is 25 when no collection parameters are sent. Maximum `limit` is 250. Requests that specify a larger `limit` are capped at 250. `offset + limit` cannot exceed 10,000. To page beyond that window, use `searchAfter` instead of a large offset. `searchAfter` cannot be combined with `offset`. Always include `id` in `sorters` when using `searchAfter`. Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER Limit
+Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER SearchAfter
+Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to page beyond the offset limit of 10,000 records by shifting the search window to begin at this value.  `searchAfter` cannot be combined with `offset`. When `searchAfter` is provided, `id` must be included in `sorters`.  It is recommended that you always include the ID of the object in addition to any other sort fields in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging.
+
+.PARAMETER Filters
+Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw, isnull, pr*  **uuid**: *eq, in, sw, isnull, pr*  **nativeIdentity**: *eq, in, sw, isnull, pr*  **description**: *eq, in, sw, isnull, pr*  **type**: *eq, ne*  **recommendation.type**: *eq, in, sw, isnull, pr*  **recommendation.method**: *eq, in, sw, isnull, pr*  **locked**: *eq*  **disabled**: *eq*  **hasEntitlements**: *eq*  **manuallyCorrelated**: *eq*  **privilegeLevel.effective**: *eq, in, isnull, pr*  **correlated**: *eq*  **classificationMethod**: *eq, ne, in, sw, isnull, pr*  **subType**: *eq, ne, in, sw, isnull, pr*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*  **synced**: *eq, ge, gt, le, lt*  **owner.id**: *eq, in, sw*  **owner.name**: *eq, in, sw, isnull, pr*  **owner.state**: *eq, in, sw, isnull, pr*  **correlatedIdentity.id**: *eq, in, sw*  **correlatedIdentity.name**: *eq, in, sw, isnull, pr*  **correlatedIdentity.state**: *eq, in, sw, isnull, pr*  **source.id**: *eq, in, sw*  **source.name**: *eq, in, sw*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in, isnull, pr*  **origin**: *eq, in*  Filter values are case-insensitive for **name, description, type, origin, source.name, source.connectionType, owner.name, correlatedIdentity.name, correlatedIdentity.state, privilegeLevel.effective, recommendation.type, recommendation.method, classificationMethod, subType**.  Filter values remain case-sensitive for the identifier fields **id, uuid, nativeIdentity, source.id, owner.id, correlatedIdentity.id**.
+
+.PARAMETER Sorters
+Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, uuid, nativeIdentity, created, modified, manuallyCorrelated, description, type, recommendation.type, recommendation.method, locked, disabled, correlated, hasEntitlements, origin, privilegeLevel.effective, classificationMethod, subType, owner.id, owner.name, owner.state, correlatedIdentity.id, correlatedIdentity.name, correlatedIdentity.state, source.id, source.name, source.authoritative, source.connectionType, synced**  Sorting on the following fields is case-insensitive: **name, description, type, origin, source.name, source.connectionType, owner.name, correlatedIdentity.name, correlatedIdentity.state, privilegeLevel.effective, recommendation.type, recommendation.method, classificationMethod, subType**. Identifier fields such as **id, uuid, nativeIdentity, source.id, owner.id,** and **correlatedIdentity.id** remain case-sensitive.  Default sort is **created** when no collection parameters are sent.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+AccountV2[]
+#>
+function Get-AccountsV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SearchAfter},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-AccountsV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/accounts/v2'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling listAccountsV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if ($SearchAfter) {
+            $LocalVarQueryParameters['searchAfter'] = $SearchAfter
+        }
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "AccountV2[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Update account
 
 .DESCRIPTION

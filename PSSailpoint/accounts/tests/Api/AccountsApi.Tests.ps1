@@ -102,6 +102,14 @@ Describe -tag 'PSSailpoint.Accounts' -name 'AccountsApi' {
         }
     }
 
+    Context 'Get-AccountsV2' {
+        It 'Test Get-AccountsV2' {
+            #$TestResult = Get-AccountsV2 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -SearchAfter "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Send-AccountV1' {
         It 'Test Send-AccountV1' {
             #$TestResult = Send-AccountV1 -Id "TEST_VALUE" -AccountAttributes "TEST_VALUE"

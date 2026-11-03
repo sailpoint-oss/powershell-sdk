@@ -1,0 +1,41 @@
+---
+id: account-v2-owner
+title: AccountV2Owner
+pagination_label: AccountV2Owner
+sidebar_label: AccountV2Owner
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccountV2Owner', 'AccountV2Owner'] 
+slug: /tools/sdk/powershell/accounts/models/account-v2-owner
+tags: ['SDK', 'Software Development Kit', 'AccountV2Owner', 'AccountV2Owner']
+---
+
+
+# AccountV2Owner
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **String** | The unique ID of the identity. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | The DTO type of the identity. | [optional] 
+**Name** | **String** | The display name of the identity. | [optional] 
+**State** | **String** | The identity state. | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$AccountV2Owner = Initialize-AccountV2Owner  -Id 2c918084660f45d6016617daa9210584 `
+ -Type IDENTITY `
+ -Name John Doe `
+ -State ACTIVE
+```
+
+- Convert the resource to JSON
+```powershell
+$AccountV2Owner | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

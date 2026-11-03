@@ -270,6 +270,31 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccountsV1"
             Write-Host $_.ErrorDetails
         }
+- path: /accounts/v2
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#list-accounts-v2
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $SearchAfter = "Account Payable,2c91808375d8e80a0175e1f88a575221" # String | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to page beyond the offset limit of 10,000 records by shifting the search window to begin at this value.  `searchAfter` cannot be combined with `offset`. When `searchAfter` is provided, `id` must be included in `sorters`.  It is recommended that you always include the ID of the object in addition to any other sort fields in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. (optional)
+        $Filters = "name sw "test"" # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw, isnull, pr*  **uuid**: *eq, in, sw, isnull, pr*  **nativeIdentity**: *eq, in, sw, isnull, pr*  **description**: *eq, in, sw, isnull, pr*  **type**: *eq, ne*  **recommendation.type**: *eq, in, sw, isnull, pr*  **recommendation.method**: *eq, in, sw, isnull, pr*  **locked**: *eq*  **disabled**: *eq*  **hasEntitlements**: *eq*  **manuallyCorrelated**: *eq*  **privilegeLevel.effective**: *eq, in, isnull, pr*  **correlated**: *eq*  **classificationMethod**: *eq, ne, in, sw, isnull, pr*  **subType**: *eq, ne, in, sw, isnull, pr*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*  **synced**: *eq, ge, gt, le, lt*  **owner.id**: *eq, in, sw*  **owner.name**: *eq, in, sw, isnull, pr*  **owner.state**: *eq, in, sw, isnull, pr*  **correlatedIdentity.id**: *eq, in, sw*  **correlatedIdentity.name**: *eq, in, sw, isnull, pr*  **correlatedIdentity.state**: *eq, in, sw, isnull, pr*  **source.id**: *eq, in, sw*  **source.name**: *eq, in, sw*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in, isnull, pr*  **origin**: *eq, in*  Filter values are case-insensitive for **name, description, type, origin, source.name, source.connectionType, owner.name, correlatedIdentity.name, correlatedIdentity.state, privilegeLevel.effective, recommendation.type, recommendation.method, classificationMethod, subType**.  Filter values remain case-sensitive for the identifier fields **id, uuid, nativeIdentity, source.id, owner.id, correlatedIdentity.id**. (optional)
+        $Sorters = "name,id" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, uuid, nativeIdentity, created, modified, manuallyCorrelated, description, type, recommendation.type, recommendation.method, locked, disabled, correlated, hasEntitlements, origin, privilegeLevel.effective, classificationMethod, subType, owner.id, owner.name, owner.state, correlatedIdentity.id, correlatedIdentity.name, correlatedIdentity.state, source.id, source.name, source.authoritative, source.connectionType, synced**  Sorting on the following fields is case-insensitive: **name, description, type, origin, source.name, source.connectionType, owner.name, correlatedIdentity.name, correlatedIdentity.state, privilegeLevel.effective, recommendation.type, recommendation.method, classificationMethod, subType**. Identifier fields such as **id, uuid, nativeIdentity, source.id, owner.id,** and **correlatedIdentity.id** remain case-sensitive.  Default sort is **created** when no collection parameters are sent. (optional)
+        
+        # List accounts (search)
+        
+        try {
+            Get-AccountsV2 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccountsV2 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -SearchAfter $SearchAfter -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccountsV2"
+            Write-Host $_.ErrorDetails
+        }
 - path: /accounts/v1/{id}
   method: PUT
   xCodeSample:

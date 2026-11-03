@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.PersonalAccessTokens - the PowerShell module for SailPoint Identity Security API - Personal Access Tokens'
 
-    ModuleVersion = '2.1.72'
+    ModuleVersion = '2.1.73'
 
     RootModule = 'PSSailpoint.PersonalAccessTokens.psm1'
     Guid = '92595CE6-5371-14D1-E198-4F8FAD3ACF2E' # Has to be static, otherwise each new build will be considered different module

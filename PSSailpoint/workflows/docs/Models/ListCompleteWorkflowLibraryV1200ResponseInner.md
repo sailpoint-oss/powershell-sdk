@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **IsDynamicSchema** | **Boolean** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
 **OutputSchema** | **SystemCollectionsHashtable** | Example output schema | [optional] 
 **InputExample** | **SystemCollectionsHashtable** | Example trigger payload if applicable | [optional] 
+**FilterMode** | **[]String** | Modes that the trigger uses, however no filterMode means the trigger is not filtered | [optional] 
 
 ## Examples
 
@@ -46,7 +47,8 @@ $ListCompleteWorkflowLibraryV1200ResponseInner = Initialize-ListCompleteWorkflow
  -IsSimulationEnabled null `
  -IsDynamicSchema false `
  -OutputSchema {} `
- -InputExample {changes=[{attribute=department, newValue=marketing, oldValue=sales}, {attribute=manager, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}}, {attribute=email, newValue=john.doe@gmail.com, oldValue=john.doe@hotmail.com}], identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}}
+ -InputExample {changes=[{attribute=department, newValue=marketing, oldValue=sales}, {attribute=manager, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}}, {attribute=email, newValue=john.doe@gmail.com, oldValue=john.doe@hotmail.com}], identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}} `
+ -FilterMode [basic, advanced]
 ```
 
 - Convert the resource to JSON

@@ -10,6 +10,9 @@ docs/CreateWorkflowV1Request.md
 docs/ErrorMessageDto.md
 docs/ErrorResponseDto.md
 docs/EventAttributes.md
+docs/EventAttributesFilterDefinition.md
+docs/EventAttributesFilterDefinitionConditionsInner.md
+docs/EventAttributesFilterDefinitionConditionsInnerValue.md
 docs/ExternalAttributes.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
@@ -51,6 +54,9 @@ src/PSSailpoint.Workflows/Model/CreateWorkflowV1Request.ps1
 src/PSSailpoint.Workflows/Model/ErrorMessageDto.ps1
 src/PSSailpoint.Workflows/Model/ErrorResponseDto.ps1
 src/PSSailpoint.Workflows/Model/EventAttributes.ps1
+src/PSSailpoint.Workflows/Model/EventAttributesFilterDefinition.ps1
+src/PSSailpoint.Workflows/Model/EventAttributesFilterDefinitionConditionsInner.ps1
+src/PSSailpoint.Workflows/Model/EventAttributesFilterDefinitionConditionsInnerValue.ps1
 src/PSSailpoint.Workflows/Model/ExternalAttributes.ps1
 src/PSSailpoint.Workflows/Model/JsonPatchOperation.ps1
 src/PSSailpoint.Workflows/Model/JsonPatchOperationValue.ps1
@@ -95,6 +101,9 @@ tests/Model/CreateWorkflowV1Request.Tests.ps1
 tests/Model/ErrorMessageDto.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
 tests/Model/EventAttributes.Tests.ps1
+tests/Model/EventAttributesFilterDefinition.Tests.ps1
+tests/Model/EventAttributesFilterDefinitionConditionsInner.Tests.ps1
+tests/Model/EventAttributesFilterDefinitionConditionsInnerValue.Tests.ps1
 tests/Model/ExternalAttributes.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1

@@ -17,13 +17,19 @@ Attributes related to an IdentityNow ETS event
 .PARAMETER Id
 The unique ID of the trigger
 .PARAMETER VarFilter
-JSON path expression that will limit which events the trigger will fire on
+JSON path expression that will limit which events the trigger will fire on. When the trigger's `mode` is `basic`, this must match the expression compiled from `filterDefinition`.
+.PARAMETER FilterDefinition
+No description available.
 .PARAMETER Description
 Description of the event trigger
 .PARAMETER AttributeToFilter
-The attribute to filter on
+For the `sp:form-submitted` trigger, the name of the form element to filter on. Use it with `operatorValue` and `attributeValue`. For other event triggers this is a legacy field from the earlier trigger filter picker; use `filterDefinition` with `mode` set to `basic` instead. Create and update requests that set this field for the `idn:identity-attributes-changed` or `idn:identity-created` trigger are rejected.
+.PARAMETER OperatorValue
+For the `sp:form-submitted` trigger, the operator that compares the `attributeToFilter` form element with `attributeValue`, such as `StringEquals`, `StringContains`, `StringStartsWith`, `NumericGreaterThan`, `BooleanEquals` or `ArrayAnyOf`. Create and update requests that set this field for the `idn:identity-created` trigger are rejected.
+.PARAMETER AttributeValue
+For the `sp:form-submitted` trigger, the value the `attributeToFilter` form element is compared with. For `ArrayAnyOf`, use a list such as `['HR', 'IT']`. Create and update requests that set this field for the `idn:identity-created` trigger are rejected.
 .PARAMETER FormDefinitionId
-Form definition's unique identifier.
+For the `sp:form-submitted` trigger, the ID of the form whose submission starts the workflow. Required when `filter.$` is not set. When `filter.$` is not set, the trigger filter is built from this ID, narrowed by `attributeToFilter`, `operatorValue` and `attributeValue` when all three are set.
 .OUTPUTS
 
 EventAttributes<PSCustomObject>
@@ -39,11 +45,20 @@ function Initialize-EventAttributes {
         [String]
         ${VarFilter},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${FilterDefinition},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AttributeToFilter},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${OperatorValue},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${AttributeValue},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FormDefinitionId}
@@ -57,8 +72,11 @@ function Initialize-EventAttributes {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "filter.$" = ${VarFilter}
+            "filterDefinition" = ${FilterDefinition}
             "description" = ${Description}
             "attributeToFilter" = ${AttributeToFilter}
+            "operatorValue" = ${OperatorValue}
+            "attributeValue" = ${AttributeValue}
             "formDefinitionId" = ${FormDefinitionId}
         }
 
@@ -96,7 +114,7 @@ function ConvertFrom-JsonToEventAttributes {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in EventAttributes
-        $AllProperties = ("id", "filter.$", "description", "attributeToFilter", "formDefinitionId")
+        $AllProperties = ("id", "filter.$", "filterDefinition", "description", "attributeToFilter", "operatorValue", "attributeValue", "formDefinitionId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -119,6 +137,12 @@ function ConvertFrom-JsonToEventAttributes {
             $VarFilter = $JsonParameters.PSobject.Properties["filter.$"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "filterDefinition"))) { #optional property not found
+            $FilterDefinition = $null
+        } else {
+            $FilterDefinition = $JsonParameters.PSobject.Properties["filterDefinition"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
@@ -131,6 +155,18 @@ function ConvertFrom-JsonToEventAttributes {
             $AttributeToFilter = $JsonParameters.PSobject.Properties["attributeToFilter"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "operatorValue"))) { #optional property not found
+            $OperatorValue = $null
+        } else {
+            $OperatorValue = $JsonParameters.PSobject.Properties["operatorValue"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributeValue"))) { #optional property not found
+            $AttributeValue = $null
+        } else {
+            $AttributeValue = $JsonParameters.PSobject.Properties["attributeValue"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "formDefinitionId"))) { #optional property not found
             $FormDefinitionId = $null
         } else {
@@ -140,8 +176,11 @@ function ConvertFrom-JsonToEventAttributes {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "filter.$" = ${VarFilter}
+            "filterDefinition" = ${FilterDefinition}
             "description" = ${Description}
             "attributeToFilter" = ${AttributeToFilter}
+            "operatorValue" = ${OperatorValue}
+            "attributeValue" = ${AttributeValue}
             "formDefinitionId" = ${FormDefinitionId}
         }
 

@@ -10,13 +10,13 @@ tags: ['SDK', 'Software Development Kit', 'MachineIdentityLifecycleActions', 'Ma
 ---
 
 # MachineIdentityLifecycleActions
-  Experimental APIs for machine identity lifecycle requests (&#x60;ACTIVATE&#x60;, &#x60;DEACTIVATE&#x60;), including
-approval and provisioning status. Pass the &#x60;X-SailPoint-Experimental&#x60; header on every request.
+  Use this API to implement machine identity lifecycle action functionality.
+With this functionality in place, administrators and machine identity owners can activate or deactivate machine identities, track the approval and provisioning status of each request, and cancel requests before provisioning starts.
 
-Read and cancel by &#x60;requestId&#x60; return **403** for authorization denials
-(&#x60;FORBIDDEN.lifecycle-request-access-denied&#x60;) and non-&#x60;AI_AGENT&#x60; rows
-(&#x60;FORBIDDEN.unsupported-type&#x60;). Unknown ids and target-type mismatches return **404**
-(&#x60;NOT_FOUND.detailed&#x60;).
+A lifecycle action is a request to change whether a machine identity is active.
+For example, an administrator may deactivate an agent while a security review is in progress, and then activate it again once the review is complete.
+
+Lifecycle actions are currently supported only for machine identities of type Agent.
  
   
 
@@ -250,6 +250,8 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Creates a lifecycle request for the target machine identity and returns the created lifecycle
 snapshot.
+
+**Note:** Lifecycle actions are currently supported only for machine identities of type **Agent**.
 
 The response includes the generated `requestId`, which is used by
 https://developer.sailpoint.com/docs/api/list-machine-identity-lifecycle-actions-v-1,

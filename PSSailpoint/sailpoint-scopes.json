@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.73",
+  "sdkVersion": "2.1.74",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -1940,7 +1940,10 @@
       "userAuth": [
         "sp:workflow:manage"
       ],
-      "applicationAuth": null
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
     },
     "createWorkgroupV1": {
       "resource": "governance-groups",
@@ -11883,7 +11886,10 @@
         "sp:workflow:read",
         "sp:workflow:manage"
       ],
-      "applicationAuth": null
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
     },
     "listWorkgroupMembersV1": {
       "resource": "governance-groups",

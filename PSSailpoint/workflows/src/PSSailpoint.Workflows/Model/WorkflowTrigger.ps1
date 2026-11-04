@@ -18,6 +18,8 @@ The trigger that starts the workflow
 The trigger type
 .PARAMETER DisplayName
 The trigger display name
+.PARAMETER Mode
+Mode used by the trigger.
 .PARAMETER Attributes
 No description available.
 .OUTPUTS
@@ -36,6 +38,10 @@ function Initialize-WorkflowTrigger {
         [String]
         ${DisplayName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("basic", "advanced")]
+        [String]
+        ${Mode},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes}
     )
@@ -52,6 +58,7 @@ function Initialize-WorkflowTrigger {
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "displayName" = ${DisplayName}
+            "mode" = ${Mode}
             "attributes" = ${Attributes}
         }
 
@@ -89,7 +96,7 @@ function ConvertFrom-JsonToWorkflowTrigger {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in WorkflowTrigger
-        $AllProperties = ("type", "displayName", "attributes")
+        $AllProperties = ("type", "displayName", "mode", "attributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -118,9 +125,16 @@ function ConvertFrom-JsonToWorkflowTrigger {
             $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "mode"))) { #optional property not found
+            $Mode = $null
+        } else {
+            $Mode = $JsonParameters.PSobject.Properties["mode"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "displayName" = ${DisplayName}
+            "mode" = ${Mode}
             "attributes" = ${Attributes}
         }
 

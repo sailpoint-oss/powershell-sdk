@@ -206,7 +206,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$CreateWorkflowV1Request = @"{"name":"Send Email","owner":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"},"description":"Send an email to the identity who's attributes changed.","definition":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}},"enabled":false,"trigger":{"type":"EVENT","attributes":{"id":"idn:identity-attributes-changed","filter":"$.changes[?(@.attribute == 'manager')]"}}}"@
+$CreateWorkflowV1Request = @"{"name":"Send Email","owner":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"},"description":"Send an email to the identity who's attributes changed.","definition":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}},"enabled":false,"trigger":{"type":"EVENT","mode":"advanced","attributes":{"id":"idn:identity-attributes-changed","filter.$":"$.changes[?(@.attribute == 'manager')]"}}}"@
 
 # Create workflow
 
@@ -717,6 +717,8 @@ List all workflows in the tenant.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**Workflow[]**](../models/workflow)
@@ -737,6 +739,8 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
 # List workflows
 
@@ -744,7 +748,7 @@ try {
     Get-WorkflowsV1 
     
     # Below is a request that includes all optional parameters
-    # Get-WorkflowsV1  
+    # Get-WorkflowsV1 -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowsV1"
     Write-Host $_.ErrorDetails
@@ -865,13 +869,46 @@ $WorkflowBody = @"{
     }
   },
   "trigger" : {
+    "mode" : "advanced",
     "displayName" : "displayName",
     "attributes" : {
+      "attributeValue" : "IT",
       "description" : "Triggered when an identity's manager attribute changes",
-      "formDefinitionId" : "Admin_Access_Request_Form",
-      "attributeToFilter" : "LifecycleState",
+      "formDefinitionId" : "49841cb8-00a5-4fbd-9888-8bbb28d48331",
+      "attributeToFilter" : "department",
       "id" : "idn:identity-attributes-changed",
-      "filter.$" : "$.changes[?(@.attribute == 'manager')]"
+      "filter.$" : "$.changes[?(@.attribute == \"manager\")]",
+      "filterDefinition" : {
+        "path" : "changes",
+        "logic" : "and",
+        "conditions" : [ {
+          "path" : "attribute",
+          "type" : "string",
+          "value" : "manager",
+          "operator" : "=="
+        }, {
+          "path" : "attribute",
+          "type" : "string",
+          "value" : "manager",
+          "operator" : "=="
+        }, {
+          "path" : "attribute",
+          "type" : "string",
+          "value" : "manager",
+          "operator" : "=="
+        }, {
+          "path" : "attribute",
+          "type" : "string",
+          "value" : "manager",
+          "operator" : "=="
+        }, {
+          "path" : "attribute",
+          "type" : "string",
+          "value" : "manager",
+          "operator" : "=="
+        } ]
+      },
+      "operatorValue" : "StringEquals"
     },
     "type" : "EVENT"
   },

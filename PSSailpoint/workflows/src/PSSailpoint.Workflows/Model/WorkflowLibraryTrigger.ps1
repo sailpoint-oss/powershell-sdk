@@ -36,6 +36,8 @@ Determines whether the dynamic output schema is returned in place of the action'
 Example trigger payload if applicable
 .PARAMETER FormFields
 One or more inputs that the trigger accepts
+.PARAMETER FilterMode
+Modes that the trigger uses, however no filterMode means the trigger is not filtered
 .OUTPUTS
 
 WorkflowLibraryTrigger<PSCustomObject>
@@ -77,7 +79,11 @@ function Initialize-WorkflowLibraryTrigger {
         ${InputExample},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${FormFields}
+        ${FormFields},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("basic", "advanced")]
+        [String[]]
+        ${FilterMode}
     )
 
     Process {
@@ -97,6 +103,7 @@ function Initialize-WorkflowLibraryTrigger {
             "isDynamicSchema" = ${IsDynamicSchema}
             "inputExample" = ${InputExample}
             "formFields" = ${FormFields}
+            "filterMode" = ${FilterMode}
         }
 
         return $PSO
@@ -133,7 +140,7 @@ function ConvertFrom-JsonToWorkflowLibraryTrigger {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in WorkflowLibraryTrigger
-        $AllProperties = ("id", "type", "deprecated", "deprecatedBy", "isSimulationEnabled", "outputSchema", "name", "description", "isDynamicSchema", "inputExample", "formFields")
+        $AllProperties = ("id", "type", "deprecated", "deprecatedBy", "isSimulationEnabled", "outputSchema", "name", "description", "isDynamicSchema", "inputExample", "formFields", "filterMode")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -206,6 +213,12 @@ function ConvertFrom-JsonToWorkflowLibraryTrigger {
             $FormFields = $JsonParameters.PSobject.Properties["formFields"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "filterMode"))) { #optional property not found
+            $FilterMode = $null
+        } else {
+            $FilterMode = $JsonParameters.PSobject.Properties["filterMode"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "type" = ${Type}
@@ -218,6 +231,7 @@ function ConvertFrom-JsonToWorkflowLibraryTrigger {
             "isDynamicSchema" = ${IsDynamicSchema}
             "inputExample" = ${InputExample}
             "formFields" = ${FormFields}
+            "filterMode" = ${FilterMode}
         }
 
         return $PSO

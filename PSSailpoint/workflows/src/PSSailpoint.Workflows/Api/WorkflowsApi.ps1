@@ -1150,6 +1150,12 @@ List workflows
 
 List all workflows in the tenant.
 
+.PARAMETER Limit
+Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1161,6 +1167,12 @@ Workflow[]
 function Get-WorkflowsV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
         [Switch]
         $WithHttpInfo
     )
@@ -1182,6 +1194,14 @@ function Get-WorkflowsV1 {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/workflows/v1'
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `

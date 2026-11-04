@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** |  **Enum** [  "EVENT",    "EXTERNAL",    "SCHEDULED",    "" ] | The trigger type | [required]
 **DisplayName** | **String** | The trigger display name | [optional] 
+**Mode** |  **Enum** [  "basic",    "advanced" ] | Mode used by the trigger. | [optional] 
 **Attributes** | [**WorkflowTriggerAttributes**](workflow-trigger-attributes) |  | [required]
 
 ## Examples
@@ -26,6 +27,7 @@ Name | Type | Description | Notes
 ```powershell
 $WorkflowTrigger = Initialize-WorkflowTrigger  -Type EVENT `
  -DisplayName null `
+ -Mode advanced `
  -Attributes null
 ```
 

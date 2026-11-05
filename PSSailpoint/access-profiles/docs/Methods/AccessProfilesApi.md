@@ -52,15 +52,24 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-AccessProfileV1**](#create-access-profile-v1) | **POST** `/access-profiles/v1` | Create access profile
+[**New-AccessProfileV2**](#create-access-profile-v2) | **POST** `/access-profiles/v2` | Create access profile
 [**Remove-AccessProfileV1**](#delete-access-profile-v1) | **DELETE** `/access-profiles/v1/{id}` | Delete the specified access profile
+[**Remove-AccessProfileV2**](#delete-access-profile-v2) | **DELETE** `/access-profiles/v2/{id}` | Delete the specified access profile
 [**Remove-AccessProfilesInBulkV1**](#delete-access-profiles-in-bulk-v1) | **POST** `/access-profiles/v1/bulk-delete` | Delete access profile(s)
+[**Remove-AccessProfilesInBulkV2**](#delete-access-profiles-in-bulk-v2) | **POST** `/access-profiles/v2/bulk-delete` | Delete access profile(s)
 [**Remove-MetadataFromAccessProfileByKeyAndValueV1**](#delete-metadata-from-access-profile-by-key-and-value-v1) | **DELETE** `/access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from access profile
 [**Get-AccessProfileEntitlementsV1**](#get-access-profile-entitlements-v1) | **GET** `/access-profiles/v1/{id}/entitlements` | List access profile&#39;s entitlements
+[**Get-AccessProfileEntitlementsV2**](#get-access-profile-entitlements-v2) | **GET** `/access-profiles/v2/{id}/entitlements` | List access profile&#39;s entitlements
 [**Get-AccessProfileV1**](#get-access-profile-v1) | **GET** `/access-profiles/v1/{id}` | Get an access profile
+[**Get-AccessProfileV2**](#get-access-profile-v2) | **GET** `/access-profiles/v2/{id}` | Get an access profile
 [**Get-AccessProfilesV1**](#list-access-profiles-v1) | **GET** `/access-profiles/v1` | List access profiles
+[**Get-AccessProfilesV2**](#list-access-profiles-v2) | **GET** `/access-profiles/v2` | List access profiles
 [**Update-AccessProfileV1**](#patch-access-profile-v1) | **PATCH** `/access-profiles/v1/{id}` | Patch a specified access profile
+[**Update-AccessProfileV2**](#patch-access-profile-v2) | **PATCH** `/access-profiles/v2/{id}` | Patch a specified access profile
 [**Search-AccessProfilesByFilterV1**](#search-access-profiles-by-filter-v1) | **POST** `/access-profiles/v1/filter` | Filter access profiles by metadata
+[**Search-AccessProfilesByFilterV2**](#search-access-profiles-by-filter-v2) | **POST** `/access-profiles/v2/filter` | List access profiles by filter
 [**Update-AccessProfilesInBulkV1**](#update-access-profiles-in-bulk-v1) | **POST** `/access-profiles/v1/bulk-update-requestable` | Update access profile(s) requestable field.
+[**Update-AccessProfilesInBulkV2**](#update-access-profiles-in-bulk-v2) | **POST** `/access-profiles/v2/bulk-update-requestable` | Update access profile(s) requestable field.
 [**Update-AccessProfilesMetadataByFilterV1**](#update-access-profiles-metadata-by-filter-v1) | **POST** `/access-profiles/v1/access-model-metadata/bulk-update/filter` | Bulk-update metadata by filter
 [**Update-AccessProfilesMetadataByIdsV1**](#update-access-profiles-metadata-by-ids-v1) | **POST** `/access-profiles/v1/access-model-metadata/bulk-update/ids` | Bulk-update metadata by ids
 [**Update-AccessProfilesMetadataByQueryV1**](#update-access-profiles-metadata-by-query-v1) | **POST** `/access-profiles/v1/access-model-metadata/bulk-update/query` | Bulk-update metadata by query
@@ -233,6 +242,184 @@ try {
 ```
 [[Back to top]](#) 
 
+## create-access-profile-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Create an access profile.
+
+This version accepts the same request body and applies the same validation as [Create Access Profile V1](https://developer.sailpoint.com/docs/api/create-access-profile-v-1). It returns the v2 access profile shape, which adds the read-only `privilegeLevel` field.
+
+A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile's source.
+The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+>**Note:** To use this endpoint, you need all the listed scopes.
+>**Note:** `privilegeLevel` is read-only and is ignored if supplied in the request body. It is calculated asynchronously from the access profile's entitlements, so it is typically absent from the create response.
+
+[API Spec](https://developer.sailpoint.com/docs/api/create-access-profile-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | Accessprofilev2 | [**Accessprofilev2**](../models/accessprofilev2) | True  | 
+
+### Return type
+[**Accessprofilev2**](../models/accessprofilev2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+201 | Access profile created. | Accessprofilev2
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Accessprofilev2 = @"{
+  "owner" : {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "entitlements" : [ {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  }, {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  } ],
+  "privilegeLevel" : {
+    "effective" : "MEDIUM"
+  },
+  "created" : "2021-03-01T22:32:58.104Z",
+  "description" : "Collection of entitlements to read/write the employee database",
+  "source" : {
+    "name" : "ODS-AD-SOURCE",
+    "id" : "2c91809773dee3610173fdb0b6061ef4",
+    "type" : "SOURCE"
+  },
+  "enabled" : true,
+  "additionalOwners" : [ {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  }, {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  } ],
+  "revocationRequestConfig" : {
+    "approvalSchemes" : [ {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ]
+  },
+  "segments" : [ "f7b1b8a3-5fed-4fd4-ad29-82014e137e19", "29cb6c06-1da8-43ea-8be4-b3125f248f2a" ],
+  "accessRequestConfig" : {
+    "commentsRequired" : true,
+    "reauthorizationRequired" : true,
+    "approvalSchemes" : [ {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "formDefinitionId" : "78258e80-e9e2-4e1a-a11f-ce0b7c62f25d",
+    "denialCommentsRequired" : true,
+    "requireEndDate" : true,
+    "maxPermittedAccessDuration" : {
+      "value" : 6,
+      "timeUnit" : "MONTHS"
+    }
+  },
+  "name" : "Employee-database-read-write",
+  "provisioningCriteria" : {
+    "children" : [ {
+      "children" : [ {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      }, {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      } ],
+      "attribute" : "email",
+      "operation" : "EQUALS",
+      "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+    }, {
+      "children" : [ {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      }, {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      } ],
+      "attribute" : "email",
+      "operation" : "EQUALS",
+      "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+    } ],
+    "attribute" : "email",
+    "operation" : "EQUALS",
+    "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+  },
+  "modified" : "2021-03-02T20:22:28.104Z",
+  "accessModelMetadata" : {
+    "attributes" : [ {
+      "key" : "iscPrivacy",
+      "name" : "Privacy",
+      "multiselect" : false,
+      "status" : "active",
+      "type" : "governance",
+      "objectTypes" : [ "all" ],
+      "description" : "Specifies the level of privacy associated with an access item.",
+      "values" : [ {
+        "value" : "public",
+        "name" : "Public",
+        "status" : "active"
+      } ]
+    } ]
+  },
+  "id" : "2c91808a7190d06e01719938fcd20792",
+  "requestable" : true
+}"@
+
+# Create access profile
+
+try {
+    $Result = ConvertFrom-JsonToAccessprofilev2 -Json $Accessprofilev2
+    New-AccessProfileV2 -XSailPointExperimental $XSailPointExperimental -Accessprofilev2 $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-AccessProfileV2 -XSailPointExperimental $XSailPointExperimental -Accessprofilev2 $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessProfileV2"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## delete-access-profile-v1
 This API deletes an existing Access Profile.
 
@@ -277,6 +464,63 @@ try {
     # Remove-AccessProfileV1 -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessProfileV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-access-profile-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API deletes an existing Access Profile.
+
+This version behaves identically to [Delete the Specified Access Profile V1](https://developer.sailpoint.com/docs/api/delete-access-profile-v-1).
+
+The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.
+
+A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-profile-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+Path   | Id | **String** | True  | ID of the Access Profile to delete
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
+400 | Returned when an access profile cannot be deleted as it&#39;s being used. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to delete
+
+# Delete the specified access profile
+
+try {
+    Remove-AccessProfileV2 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-AccessProfileV2 -XSailPointExperimental $XSailPointExperimental -Id $Id  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessProfileV2"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -331,6 +575,69 @@ try {
     # Remove-AccessProfilesInBulkV1 -AccessProfileBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessProfilesInBulkV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-access-profiles-in-bulk-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint initiates a bulk deletion of one or more access profiles.
+
+This version behaves identically to [Delete Access Profile(s) V1](https://developer.sailpoint.com/docs/api/delete-access-profiles-in-bulk-v-1).
+
+When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result's status and information. 
+This endpoint can only bulk delete up to a limit of 50 access profiles per request. 
+By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted.
+A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they're able to administer.
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-profiles-in-bulk-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | AccessProfileBulkDeleteRequest | [**AccessProfileBulkDeleteRequest**](../models/access-profile-bulk-delete-request) | True  | 
+
+### Return type
+[**AccessProfileBulkDeleteResponse**](../models/access-profile-bulk-delete-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Returned only if **bestEffortOnly** is **false**, and one or more Access Profiles are in use. | AccessProfileBulkDeleteResponse
+202 | Returned if at least one deletion will be performed. | AccessProfileBulkDeleteResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$AccessProfileBulkDeleteRequest = @"{
+  "accessProfileIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ],
+  "bestEffortOnly" : true
+}"@
+
+# Delete access profile(s)
+
+try {
+    $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
+    Remove-AccessProfilesInBulkV2 -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkDeleteRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-AccessProfilesInBulkV2 -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkDeleteRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessProfilesInBulkV2"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -443,6 +750,73 @@ try {
 ```
 [[Back to top]](#) 
 
+## get-access-profile-entitlements-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get a list of an access profile's entitlements.
+
+This version reads from Search Lite and returns a superset of the entitlement returned by [List Access Profile's Entitlements V1](https://developer.sailpoint.com/docs/api/get-access-profile-entitlements-v-1), adding the entitlement's `tags` and calculated `privilegeLevel`. It also supports opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.
+
+A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile.
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-profile-entitlements-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+Path   | Id | **String** | True  | ID of the access profile containing the entitlements.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a `cursor`, and `offset` plus `limit` must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co*  **attribute**: *eq, co*  **value**: *eq, co*  **created**: *lt, le, gt, ge*  **modified**: *lt, le, gt, ge*  **privilegeLevel.effective**: *eq, in*  Results are automatically scoped to entitlements belonging to the access profile.
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+  Query | Cursor | **String** |   (optional) | Opaque cursor taken from the `X-Next-Cursor` header of a previous response, used to retrieve the next page of results. When you supply a cursor, `offset` must be 0.
+
+### Return type
+[**Accessprofileentitlementv2[]**](../models/accessprofileentitlementv2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of entitlements. | Accessprofileentitlementv2[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Id = "2c91808a7813090a017814121919ecca" # String | ID of the access profile containing the entitlements.
+$Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a `cursor`, and `offset` plus `limit` must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co*  **attribute**: *eq, co*  **value**: *eq, co*  **created**: *lt, le, gt, ge*  **modified**: *lt, le, gt, ge*  **privilegeLevel.effective**: *eq, in*  Results are automatically scoped to entitlements belonging to the access profile. (optional)
+$Sorters = "name,-id" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted. (optional)
+$Cursor = "W3sic29ydCI6ImNyZWF0ZWQiLCJ2YWx1ZSI6IjIwMjEtMDMtMDFUMjI6MzI6NTguMTA0WiJ9LHsic29ydCI6ImlkIiwidmFsdWUiOiIyYzkxODA4YTcxOTBkMDZlMDE3MTk5MzhmY2QyMDc5MiJ9XQ" # String | Opaque cursor taken from the `X-Next-Cursor` header of a previous response, used to retrieve the next page of results. When you supply a cursor, `offset` must be 0. (optional)
+
+# List access profile's entitlements
+
+try {
+    Get-AccessProfileEntitlementsV2 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Get-AccessProfileEntitlementsV2 -XSailPointExperimental $XSailPointExperimental -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -Cursor $Cursor  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessProfileEntitlementsV2"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## get-access-profile-v1
 This API returns an Access Profile by its ID.
 The `accessRequestConfig.formDefinitionId` field associates an optional custom form with access profile access requests.
@@ -484,6 +858,59 @@ try {
     # Get-AccessProfileV1 -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessProfileV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-access-profile-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get an access profile by its ID.
+
+This version reads from Search Lite and returns the same access profile shape as [Get Access Profile V1](https://developer.sailpoint.com/docs/api/get-access-profile-v-1), with the calculated `privilegeLevel` field added.
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-profile-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+Path   | Id | **String** | True  | ID of the Access Profile
+
+### Return type
+[**Accessprofilev2**](../models/accessprofilev2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | An AccessProfile | Accessprofilev2
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
+
+# Get an access profile
+
+try {
+    Get-AccessProfileV2 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Get-AccessProfileV2 -XSailPointExperimental $XSailPointExperimental -Id $Id  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessProfileV2"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -544,6 +971,79 @@ try {
     # Get-AccessProfilesV1 -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessProfilesV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## list-access-profiles-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get a list of access profiles.
+
+This version reads from Search Lite and returns the same access profile shape as [List Access Profiles V1](https://developer.sailpoint.com/docs/api/list-access-profiles-v-1), with two additions: the calculated `privilegeLevel` field, and opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.
+
+>**Note:** When you omit `sorters`, results are sorted by `created` ascending. For deterministic ordering across pages, always specify explicit sorters. When you use cursor pagination, include `id` in `sorters`; the service appends it automatically if you omit it.
+
+>**Note:** `offset` and `cursor` are mutually exclusive. Use `offset=0` along with a cursor value taken from a prior response's `X-Next-Cursor` header.
+
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-profiles-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+  Query | ForSubadmin | **String** |   (optional) | Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity's ID.  If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error.
+  Query | Limit | **Int32** |   (optional) (default to 50) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a `cursor`, and `offset` plus `limit` must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co*  **created**: *lt, le, gt, ge*  **modified**: *lt, le, gt, ge*  **requestable**: *eq*  **source.id**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **dimensional**: *eq*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+  Query | ForSegmentIds | **String** |   (optional) | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
+  Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error.
+  Query | Cursor | **String** |   (optional) | Opaque cursor taken from the `X-Next-Cursor` header of a previous response, used to retrieve the next page of results. When you supply a cursor, `offset` must be 0.
+
+### Return type
+[**Accessprofilev2[]**](../models/accessprofilev2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of access profiles. | Accessprofilev2[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$ForSubadmin = "8c190e6787aa4ed9a90bd9d5344523fb" # String | Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity's ID.  If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error. (optional)
+$Limit = 50 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 50)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a `cursor`, and `offset` plus `limit` must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Filters = 'name co "Developer"' # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co*  **created**: *lt, le, gt, ge*  **modified**: *lt, le, gt, ge*  **requestable**: *eq*  **source.id**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **dimensional**: *eq*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or* (optional)
+$Sorters = "name,-id" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted. (optional)
+$ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
+$IncludeUnsegmented = $false # Boolean | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error. (optional) (default to $true)
+$Cursor = "W3sic29ydCI6ImNyZWF0ZWQiLCJ2YWx1ZSI6IjIwMjEtMDMtMDFUMjI6MzI6NTguMTA0WiJ9LHsic29ydCI6ImlkIiwidmFsdWUiOiIyYzkxODA4YTcxOTBkMDZlMDE3MTk5MzhmY2QyMDc5MiJ9XQ" # String | Opaque cursor taken from the `X-Next-Cursor` header of a previous response, used to retrieve the next page of results. When you supply a cursor, `offset` must be 0. (optional)
+
+# List access profiles
+
+try {
+    Get-AccessProfilesV2 -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-AccessProfilesV2 -XSailPointExperimental $XSailPointExperimental -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Cursor $Cursor  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessProfilesV2"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -635,6 +1135,102 @@ try {
 ```
 [[Back to top]](#) 
 
+## patch-access-profile-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API updates an existing Access Profile.
+
+This version patches the same fields as [Patch a Specified Access Profile V1](https://developer.sailpoint.com/docs/api/patch-access-profile-v-1). It returns the v2 access profile shape, which adds the read-only `privilegeLevel` field.
+
+The following fields are patchable:
+
+**name**
+
+**description**
+
+**enabled**
+
+**owner**
+
+**additionalOwners**
+
+**requestable**
+
+**accessRequestConfig**
+
+**revocationRequestConfig**
+
+**segments**
+
+**entitlements**
+
+**provisioningCriteria**
+
+**source** (must be updated with entitlements belonging to new source in the same API call)
+
+If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example "Replace Source" in the examples dropdown.
+
+A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer.
+>  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
+
+> You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile's source.
+
+>**Note:** `privilegeLevel` is read-only and cannot be patched. Changing the access profile's entitlements recalculates it asynchronously, so the patch response may still show the previous value.
+
+[API Spec](https://developer.sailpoint.com/docs/api/patch-access-profile-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+Path   | Id | **String** | True  | ID of the Access Profile to patch
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
+
+### Return type
+[**Accessprofilev2**](../models/accessprofilev2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Responds with the Access Profile as updated. | Accessprofilev2
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to patch
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | 
+ 
+
+# Patch a specified access profile
+
+try {
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-AccessProfileV2 -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatchOperation $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-AccessProfileV2 -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatchOperation $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfileV2"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## search-access-profiles-by-filter-v1
 Get a list of access profiles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together.
 
@@ -701,6 +1297,82 @@ try {
 ```
 [[Back to top]](#) 
 
+## search-access-profiles-by-filter-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get a list of access profiles, supplying the filter criteria and access model metadata key/values in the request body rather than as query parameters.
+
+Use this endpoint when you need to filter by access model metadata, or when your filter expression is too long to pass as a query parameter. Pagination, sorting, subadmin scoping, and segment scoping behave the same as [List Access Profiles V2](https://developer.sailpoint.com/docs/api/list-access-profiles-v-2), including opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.
+
+[API Spec](https://developer.sailpoint.com/docs/api/search-access-profiles-by-filter-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | AccessProfileListFilterV2 | [**AccessProfileListFilterV2**](../models/access-profile-list-filter-v2) | True  | 
+  Query | ForSubadmin | **String** |   (optional) | Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity's ID.  If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error.
+  Query | Limit | **Int32** |   (optional) (default to 50) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a `cursor`, and `offset` plus `limit` must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+  Query | ForSegmentIds | **String** |   (optional) | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
+  Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error.
+  Query | Cursor | **String** |   (optional) | Opaque cursor taken from the `X-Next-Cursor` header of a previous response, used to retrieve the next page of results. When you supply a cursor, `offset` must be 0.
+
+### Return type
+[**Accessprofilev2[]**](../models/accessprofilev2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of access profiles. | Accessprofilev2[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$AccessProfileListFilterV2 = @"{
+  "ammKeyValues" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "secret" ]
+  } ],
+  "filters" : "privilegeLevel.effective eq \"HIGH\""
+}"@
+$ForSubadmin = "8c190e6787aa4ed9a90bd9d5344523fb" # String | Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity's ID.  If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error. (optional)
+$Limit = 50 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 50)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a `cursor`, and `offset` plus `limit` must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Sorters = "name,-id" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted. (optional)
+$ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
+$IncludeUnsegmented = $false # Boolean | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error. (optional) (default to $true)
+$Cursor = "W3sic29ydCI6ImNyZWF0ZWQiLCJ2YWx1ZSI6IjIwMjEtMDMtMDFUMjI6MzI6NTguMTA0WiJ9LHsic29ydCI6ImlkIiwidmFsdWUiOiIyYzkxODA4YTcxOTBkMDZlMDE3MTk5MzhmY2QyMDc5MiJ9XQ" # String | Opaque cursor taken from the `X-Next-Cursor` header of a previous response, used to retrieve the next page of results. When you supply a cursor, `offset` must be 0. (optional)
+
+# List access profiles by filter
+
+try {
+    $Result = ConvertFrom-JsonToAccessProfileListFilterV2 -Json $AccessProfileListFilterV2
+    Search-AccessProfilesByFilterV2 -XSailPointExperimental $XSailPointExperimental -AccessProfileListFilterV2 $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Search-AccessProfilesByFilterV2 -XSailPointExperimental $XSailPointExperimental -AccessProfileListFilterV2 $Result -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Cursor $Cursor  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-AccessProfilesByFilterV2"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## update-access-profiles-in-bulk-v1
 This API initiates a bulk update of field requestable for one or more Access Profiles.
 
@@ -750,6 +1422,68 @@ try {
     # Update-AccessProfilesInBulkV1 -AccessProfileBulkUpdateRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesInBulkV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-access-profiles-in-bulk-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API initiates a bulk update of field requestable for one or more Access Profiles.
+
+This version behaves identically to [Update Access Profile(s) Requestable Field V1](https://developer.sailpoint.com/docs/api/update-access-profiles-in-bulk-v-1).
+
+>  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**
+    list of the response.Requestable field of these Access Profiles marked as **true** or **false**.
+
+>  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.
+ A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-profiles-in-bulk-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | AccessProfileBulkUpdateRequestInner | [**[]AccessProfileBulkUpdateRequestInner**](../models/access-profile-bulk-update-request-inner) | True  | 
+
+### Return type
+[**AccessProfileUpdateItem[]**](../models/access-profile-update-item)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+207 | List of updated and not updated Access Profiles. | AccessProfileUpdateItem[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfilesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+412 | Precondition Failed - Returned in response if API/Feature not enabled for an organization. | UpdateAccessProfilesInBulkV1412Response
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfilesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+ $AccessProfileBulkUpdateRequestInner = @"[{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]"@ # AccessProfileBulkUpdateRequestInner[] | 
+ 
+
+# Update access profile(s) requestable field.
+
+try {
+    $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
+    Update-AccessProfilesInBulkV2 -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-AccessProfilesInBulkV2 -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesInBulkV2"
     Write-Host $_.ErrorDetails
 }
 ```

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.74",
+  "sdkVersion": "2.1.75",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -460,6 +460,27 @@
       "sdkName": "New-AccessProfileV1",
       "httpMethod": "POST",
       "path": "/access-profiles/v1",
+      "userAuth": [
+        "idn:access-profile:manage",
+        "idn:entitlement:read",
+        "idn:identity:read",
+        "idn:sources:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
+    "createAccessProfileV2": {
+      "resource": "access-profiles",
+      "tag": "Access Profiles",
+      "sdkName": "New-AccessProfileV2",
+      "httpMethod": "POST",
+      "path": "/access-profiles/v2",
       "userAuth": [
         "idn:access-profile:manage",
         "idn:entitlement:read",
@@ -2023,6 +2044,22 @@
         "SOURCE_SUBADMIN"
       ]
     },
+    "deleteAccessProfileV2": {
+      "resource": "access-profiles",
+      "tag": "Access Profiles",
+      "sdkName": "Remove-AccessProfileV2",
+      "httpMethod": "DELETE",
+      "path": "/access-profiles/v2/{id}",
+      "userAuth": [
+        "idn:access-profile:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
     "deleteAccessProfilesFromSourceAppByBulkV1": {
       "resource": "apps",
       "tag": "Apps",
@@ -2040,6 +2077,22 @@
       "sdkName": "Remove-AccessProfilesInBulkV1",
       "httpMethod": "POST",
       "path": "/access-profiles/v1/bulk-delete",
+      "userAuth": [
+        "idn:access-profile:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
+    "deleteAccessProfilesInBulkV2": {
+      "resource": "access-profiles",
+      "tag": "Access Profiles",
+      "sdkName": "Remove-AccessProfilesInBulkV2",
+      "httpMethod": "POST",
+      "path": "/access-profiles/v2/bulk-delete",
       "userAuth": [
         "idn:access-profile:manage"
       ],
@@ -4162,12 +4215,46 @@
         "SOURCE_SUBADMIN"
       ]
     },
+    "getAccessProfileEntitlementsV2": {
+      "resource": "access-profiles",
+      "tag": "Access Profiles",
+      "sdkName": "Get-AccessProfileEntitlementsV2",
+      "httpMethod": "GET",
+      "path": "/access-profiles/v2/{id}/entitlements",
+      "userAuth": [
+        "idn:access-profile:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
     "getAccessProfileV1": {
       "resource": "access-profiles",
       "tag": "Access Profiles",
       "sdkName": "Get-AccessProfileV1",
       "httpMethod": "GET",
       "path": "/access-profiles/v1/{id}",
+      "userAuth": [
+        "idn:access-profile:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
+    "getAccessProfileV2": {
+      "resource": "access-profiles",
+      "tag": "Access Profiles",
+      "sdkName": "Get-AccessProfileV2",
+      "httpMethod": "GET",
+      "path": "/access-profiles/v2/{id}",
       "userAuth": [
         "idn:access-profile:read"
       ],
@@ -9471,14 +9558,11 @@
       "httpMethod": "GET",
       "path": "/workflow-executions/v1/{id}/history",
       "userAuth": [
-        "sp:workflow-execution:read",
-        "sp:workflow:manage"
+        "sp:workflow-execution:read"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "ORG_ADMIN",
-        "SOURCE_SUBADMIN",
-        "SOURCE_ADMIN"
+        "ORG_ADMIN"
       ]
     },
     "getWorkflowExecutionHistoryV2ForV1": {
@@ -9488,14 +9572,11 @@
       "httpMethod": "GET",
       "path": "/workflow-executions/v1/{id}/history-v2",
       "userAuth": [
-        "sp:workflow-execution:read",
-        "sp:workflow:manage"
+        "sp:workflow-execution:read"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "ORG_ADMIN",
-        "SOURCE_SUBADMIN",
-        "SOURCE_ADMIN"
+        "ORG_ADMIN"
       ]
     },
     "getWorkflowExecutionV1": {
@@ -9505,8 +9586,7 @@
       "httpMethod": "GET",
       "path": "/workflow-executions/v1/{id}",
       "userAuth": [
-        "sp:workflow-execution:read",
-        "sp:workflow:manage"
+        "sp:workflow-execution:read"
       ],
       "applicationAuth": null,
       "userLevels": [
@@ -9520,14 +9600,11 @@
       "httpMethod": "GET",
       "path": "/workflows/v1/{id}/executions",
       "userAuth": [
-        "sp:workflow-execution:read",
-        "sp:workflow:manage"
+        "sp:workflow-execution:read"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "ORG_ADMIN",
-        "SOURCE_SUBADMIN",
-        "SOURCE_ADMIN"
+        "ORG_ADMIN"
       ]
     },
     "getWorkflowV1": {
@@ -9804,6 +9881,24 @@
       "sdkName": "Get-AccessProfilesV1",
       "httpMethod": "GET",
       "path": "/access-profiles/v1",
+      "userAuth": [
+        "idn:access-profile:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
+    "listAccessProfilesV2": {
+      "resource": "access-profiles",
+      "tag": "Access Profiles",
+      "sdkName": "Get-AccessProfilesV2",
+      "httpMethod": "GET",
+      "path": "/access-profiles/v2",
       "userAuth": [
         "idn:access-profile:read"
       ],
@@ -12079,6 +12174,22 @@
         "SOURCE_SUBADMIN"
       ]
     },
+    "patchAccessProfileV2": {
+      "resource": "access-profiles",
+      "tag": "Access Profiles",
+      "sdkName": "Update-AccessProfileV2",
+      "httpMethod": "PATCH",
+      "path": "/access-profiles/v2/{id}",
+      "userAuth": [
+        "idn:access-profile:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
     "patchAuthOrgLockoutConfigV1": {
       "resource": "global-tenant-security-settings",
       "tag": "Global Tenant Security Settings",
@@ -13620,6 +13731,24 @@
       "userAuth": [
         "idn:access-profile:read",
         "idn:access-profile-checked:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
+    "searchAccessProfilesByFilterV2": {
+      "resource": "access-profiles",
+      "tag": "Access Profiles",
+      "sdkName": "Search-AccessProfilesByFilterV2",
+      "httpMethod": "POST",
+      "path": "/access-profiles/v2/filter",
+      "userAuth": [
+        "idn:access-profile:read"
       ],
       "applicationAuth": null,
       "userLevels": [
@@ -15271,6 +15400,22 @@
       "sdkName": "Update-AccessProfilesInBulkV1",
       "httpMethod": "POST",
       "path": "/access-profiles/v1/bulk-update-requestable",
+      "userAuth": [
+        "idn:access-profile:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
+    "updateAccessProfilesInBulkV2": {
+      "resource": "access-profiles",
+      "tag": "Access Profiles",
+      "sdkName": "Update-AccessProfilesInBulkV2",
+      "httpMethod": "POST",
+      "path": "/access-profiles/v2/bulk-update-requestable",
       "userAuth": [
         "idn:access-profile:manage"
       ],

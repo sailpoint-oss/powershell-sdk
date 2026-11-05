@@ -14,6 +14,14 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
         }
     }
 
+    Context 'New-AccessProfileV2' {
+        It 'Test New-AccessProfileV2' {
+            #$TestResult = New-AccessProfileV2 -XSailPointExperimental "TEST_VALUE" -Accessprofilev2 "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-AccessProfileV1' {
         It 'Test Remove-AccessProfileV1' {
             #$TestResult = Remove-AccessProfileV1 -Id "TEST_VALUE"
@@ -22,9 +30,25 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
         }
     }
 
+    Context 'Remove-AccessProfileV2' {
+        It 'Test Remove-AccessProfileV2' {
+            #$TestResult = Remove-AccessProfileV2 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-AccessProfilesInBulkV1' {
         It 'Test Remove-AccessProfilesInBulkV1' {
             #$TestResult = Remove-AccessProfilesInBulkV1 -AccessProfileBulkDeleteRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-AccessProfilesInBulkV2' {
+        It 'Test Remove-AccessProfilesInBulkV2' {
+            #$TestResult = Remove-AccessProfilesInBulkV2 -XSailPointExperimental "TEST_VALUE" -AccessProfileBulkDeleteRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -46,9 +70,25 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
         }
     }
 
+    Context 'Get-AccessProfileEntitlementsV2' {
+        It 'Test Get-AccessProfileEntitlementsV2' {
+            #$TestResult = Get-AccessProfileEntitlementsV2 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Cursor "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-AccessProfileV1' {
         It 'Test Get-AccessProfileV1' {
             #$TestResult = Get-AccessProfileV1 -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-AccessProfileV2' {
+        It 'Test Get-AccessProfileV2' {
+            #$TestResult = Get-AccessProfileV2 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -62,9 +102,25 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
         }
     }
 
+    Context 'Get-AccessProfilesV2' {
+        It 'Test Get-AccessProfilesV2' {
+            #$TestResult = Get-AccessProfilesV2 -XSailPointExperimental "TEST_VALUE" -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -Cursor "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-AccessProfileV1' {
         It 'Test Update-AccessProfileV1' {
             #$TestResult = Update-AccessProfileV1 -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-AccessProfileV2' {
+        It 'Test Update-AccessProfileV2' {
+            #$TestResult = Update-AccessProfileV2 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -78,9 +134,25 @@ Describe -tag 'PSSailpoint.AccessProfiles' -name 'AccessProfilesApi' {
         }
     }
 
+    Context 'Search-AccessProfilesByFilterV2' {
+        It 'Test Search-AccessProfilesByFilterV2' {
+            #$TestResult = Search-AccessProfilesByFilterV2 -XSailPointExperimental "TEST_VALUE" -AccessProfileListFilterV2 "TEST_VALUE" -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -Cursor "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-AccessProfilesInBulkV1' {
         It 'Test Update-AccessProfilesInBulkV1' {
             #$TestResult = Update-AccessProfilesInBulkV1 -AccessProfileBulkUpdateRequestInner "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-AccessProfilesInBulkV2' {
+        It 'Test Update-AccessProfilesInBulkV2' {
+            #$TestResult = Update-AccessProfilesInBulkV2 -XSailPointExperimental "TEST_VALUE" -AccessProfileBulkUpdateRequestInner "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

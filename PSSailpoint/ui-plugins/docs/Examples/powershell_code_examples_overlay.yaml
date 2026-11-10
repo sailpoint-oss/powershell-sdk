@@ -1,0 +1,347 @@
+- path: /ui-plugins/v1/{pluginInstanceId}/asset-bundles
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#create-ui-plugin-asset-bundle-v1
+      source: |
+        $PluginInstanceId = "2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c" # String | UUID of the plugin instance
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $File =  # System.IO.FileInfo[] | Repeatable form field. Send one part per file; use the part filename for the bundle-relative path (e.g. `assets/app.js`).
+        
+        $File = @"/path/to/file.txt"@
+        
+        # Create a plugin asset bundle
+        
+        try {
+            New-UiPluginAssetBundleV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental -File $File 
+    
+            # Below is a request that includes all optional parameters
+            # New-UiPluginAssetBundleV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental -File $File   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-UiPluginAssetBundleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-plugins/v1/{pluginInstanceId}/link
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#create-ui-plugin-link-v1
+      source: |
+        $PluginInstanceId = "2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c" # String | UUID of the plugin instance
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $LinkUIPluginRequest = @"
+        {
+          "port" : 4200
+        }
+        "@
+        
+        # Create a plugin dev link
+        
+        try {
+            $Result = ConvertFrom-JsonToLinkUIPluginRequest -Json $LinkUIPluginRequest
+            New-UiPluginLinkV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental -LinkUIPluginRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-UiPluginLinkV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental -LinkUIPluginRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-UiPluginLinkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-plugins/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#create-ui-plugin-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CreateUIPluginRequest = @"
+        {
+          "apiScopes" : [ "idn:account:read" ],
+          "iframeSandbox" : "",
+          "slots" : [ {
+            "slotId" : "full-page",
+            "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+            "requiredCapabilities" : [ "ORG_ADMIN" ]
+          }, {
+            "slotId" : "full-page",
+            "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+            "requiredCapabilities" : [ "ORG_ADMIN" ]
+          }, {
+            "slotId" : "full-page",
+            "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+            "requiredCapabilities" : [ "ORG_ADMIN" ]
+          }, {
+            "slotId" : "full-page",
+            "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+            "requiredCapabilities" : [ "ORG_ADMIN" ]
+          }, {
+            "slotId" : "full-page",
+            "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+            "requiredCapabilities" : [ "ORG_ADMIN" ]
+          } ],
+          "iframeAllow" : {
+            "default-src" : [ "'self'" ]
+          },
+          "name" : {
+            "en" : "Example text",
+            "fr" : "Texte d'exemple"
+          },
+          "alias" : "my-custom-plugin",
+          "description" : {
+            "en" : "Example text",
+            "fr" : "Texte d'exemple"
+          },
+          "permissionPolicy" : {
+            "default-src" : [ "'self'" ]
+          },
+          "contentSecurityPolicies" : {
+            "default-src" : [ "'self'" ]
+          }
+        }
+        "@
+        
+        # Create a plugin instance
+        
+        try {
+            $Result = ConvertFrom-JsonToCreateUIPluginRequest -Json $CreateUIPluginRequest
+            New-UiPluginV1 -XSailPointExperimental $XSailPointExperimental -CreateUIPluginRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-UiPluginV1 -XSailPointExperimental $XSailPointExperimental -CreateUIPluginRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-UiPluginV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-plugins/v1/{pluginInstanceId}/link
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#delete-ui-plugin-link-v1
+      source: |
+        $PluginInstanceId = "2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c" # String | UUID of the plugin instance
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete a plugin dev link
+        
+        try {
+            Remove-UiPluginLinkV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-UiPluginLinkV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-UiPluginLinkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-plugins/v1/{pluginInstanceId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#delete-ui-plugin-v1
+      source: |
+        $PluginInstanceId = "2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c" # String | UUID of the plugin instance
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete a plugin instance
+        
+        try {
+            Remove-UiPluginV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-UiPluginV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-UiPluginV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-plugins/v1/resolve-alias
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#get-ui-plugin-by-alias-v1
+      source: |
+        $Alias = "my-custom-plugin" # String | Alias to resolve within the caller's tenant
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get plugin by alias
+        
+        try {
+            Get-UiPluginByAliasV1 -Alias $Alias -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-UiPluginByAliasV1 -Alias $Alias -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-UiPluginByAliasV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-plugins/v1/{pluginInstanceId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#get-ui-plugin-v1
+      source: |
+        $PluginInstanceId = "2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c" # String | UUID of the plugin instance
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get a plugin instance
+        
+        try {
+            Get-UiPluginV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-UiPluginV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-UiPluginV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-plugins/v1/{pluginInstanceId}/asset-bundles
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#list-ui-plugin-asset-bundles-v1
+      source: |
+        $PluginInstanceId = "2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c" # String | UUID of the plugin instance
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List plugin asset bundles
+        
+        try {
+            Get-UiPluginAssetBundlesV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-UiPluginAssetBundlesV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-UiPluginAssetBundlesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-plugin-slots/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#list-ui-plugin-slots-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "state eq "active"" # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **state**: *eq* (optional)
+        $AllLangs = $false # Boolean | When `true`, `name` and `description` are returned as full locale maps instead of a single translated string. (optional) (default to $false)
+        
+        # List UI plugin slots
+        
+        try {
+            Get-UiPluginSlotsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-UiPluginSlotsV1 -XSailPointExperimental $XSailPointExperimental -Filters $Filters -AllLangs $AllLangs   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-UiPluginSlotsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-plugins/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#list-ui-plugins-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List plugin instances
+        
+        try {
+            Get-UiPluginsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-UiPluginsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-UiPluginsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-plugins/v1/validate-alias
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#test-ui-plugin-alias-v1
+      source: |
+        $Alias = "my-custom-plugin" # String | Alias to validate (3-63 chars; letters, numbers, dashes; no leading/trailing/consecutive dashes)
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Test plugin alias availability
+        
+        try {
+            Test-UiPluginAliasV1 -Alias $Alias -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Test-UiPluginAliasV1 -Alias $Alias -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-UiPluginAliasV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-plugins/v1/{pluginInstanceId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uiplugins/methods/ui-plugins#update-ui-plugin-v1
+      source: |
+        $PluginInstanceId = "2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c" # String | UUID of the plugin instance
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $UpdateUIPluginRequest = @"
+        {
+          "apiScopes" : [ "idn:account:read" ],
+          "iframeSandbox" : "",
+          "slots" : [ {
+            "slotId" : "full-page",
+            "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+            "requiredCapabilities" : [ "ORG_ADMIN" ]
+          }, {
+            "slotId" : "full-page",
+            "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+            "requiredCapabilities" : [ "ORG_ADMIN" ]
+          }, {
+            "slotId" : "full-page",
+            "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+            "requiredCapabilities" : [ "ORG_ADMIN" ]
+          }, {
+            "slotId" : "full-page",
+            "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+            "requiredCapabilities" : [ "ORG_ADMIN" ]
+          }, {
+            "slotId" : "full-page",
+            "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+            "requiredCapabilities" : [ "ORG_ADMIN" ]
+          } ],
+          "iframeAllow" : {
+            "default-src" : [ "'self'" ]
+          },
+          "name" : {
+            "en" : "Example text",
+            "fr" : "Texte d'exemple"
+          },
+          "alias" : "my-custom-plugin",
+          "description" : {
+            "en" : "Example text",
+            "fr" : "Texte d'exemple"
+          },
+          "permissionPolicy" : {
+            "default-src" : [ "'self'" ]
+          },
+          "state" : "ENABLED",
+          "contentSecurityPolicies" : {
+            "default-src" : [ "'self'" ]
+          }
+        }
+        "@
+        
+        # Partially update a plugin instance
+        
+        try {
+            $Result = ConvertFrom-JsonToUpdateUIPluginRequest -Json $UpdateUIPluginRequest
+            Update-UiPluginV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental -UpdateUIPluginRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-UiPluginV1 -PluginInstanceId $PluginInstanceId -XSailPointExperimental $XSailPointExperimental -UpdateUIPluginRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-UiPluginV1"
+            Write-Host $_.ErrorDetails
+        }

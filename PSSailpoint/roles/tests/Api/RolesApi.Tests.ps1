@@ -70,6 +70,14 @@ Describe -tag 'PSSailpoint.Roles' -name 'RolesApi' {
         }
     }
 
+    Context 'Get-RoleEntitlementsV2' {
+        It 'Test Get-RoleEntitlementsV2' {
+            #$TestResult = Get-RoleEntitlementsV2 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Cursor "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -SegmentedForIdentity "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-RoleV1' {
         It 'Test Get-RoleV1' {
             #$TestResult = Get-RoleV1 -Id "TEST_VALUE"
@@ -78,9 +86,25 @@ Describe -tag 'PSSailpoint.Roles' -name 'RolesApi' {
         }
     }
 
+    Context 'Get-RoleV2' {
+        It 'Test Get-RoleV2' {
+            #$TestResult = Get-RoleV2 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-RolesV1' {
         It 'Test Get-RolesV1' {
             #$TestResult = Get-RolesV1 -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-RolesV2' {
+        It 'Test Get-RolesV2' {
+            #$TestResult = Get-RolesV2 -XSailPointExperimental "TEST_VALUE" -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Cursor "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -97,6 +121,14 @@ Describe -tag 'PSSailpoint.Roles' -name 'RolesApi' {
     Context 'Search-RolesByFilterV1' {
         It 'Test Search-RolesByFilterV1' {
             #$TestResult = Search-RolesByFilterV1 -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -RoleListFilterDTO "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Search-RolesByFilterV2' {
+        It 'Test Search-RolesByFilterV2' {
+            #$TestResult = Search-RolesByFilterV2 -XSailPointExperimental "TEST_VALUE" -Rolelistfilterdtov2 "TEST_VALUE" -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Cursor "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

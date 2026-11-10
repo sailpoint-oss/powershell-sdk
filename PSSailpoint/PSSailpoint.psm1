@@ -160,6 +160,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'tenant-context' 'src' 'PSSailpoint
 Import-Module -Name (Join-Path $PSScriptRoot 'transforms' 'src' 'PSSailpoint.Transforms') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'triggers' 'src' 'PSSailpoint.Triggers') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'ui-metadata' 'src' 'PSSailpoint.UiMetadata') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'ui-plugins' 'src' 'PSSailpoint.UiPlugins') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'work-items' 'src' 'PSSailpoint.WorkItems') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'work-reassignment' 'src' 'PSSailpoint.WorkReassignment') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'workflows' 'src' 'PSSailpoint.Workflows') -Force -Global

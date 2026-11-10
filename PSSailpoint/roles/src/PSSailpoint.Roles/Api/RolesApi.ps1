@@ -726,6 +726,179 @@ function Get-RoleEntitlementsV1 {
 <#
 .SYNOPSIS
 
+List role's entitlements
+
+.DESCRIPTION
+
+Get a list of entitlements assigned directly to a specified Role. Each entitlement includes its privilege level in `privilegeLevel`, with the direct, inherited, and effective levels.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. You can't use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can't be greater than 10,000.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER Id
+Containing role's ID.
+
+.PARAMETER Limit
+Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Cursor
+Opaque cursor returned in the `x-next-cursor` response header of the previous page. Pass it with the same `sorters` to get the next page of results. Can't be used with an *offset* greater than 0.
+
+.PARAMETER Filters
+Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **attribute**: *eq, sw, co*  **value**: *eq, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **privilegeLevel.effective**: *eq, in*
+
+.PARAMETER Sorters
+Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, attribute, value, created, modified, privilegeLevel.effective**  The default sort is **created**. **id** is always added as the final sort field so that cursor pagination is stable.
+
+.PARAMETER ForSegmentIds
+If present and not empty, filters entitlements to those assigned to the segment(s) with the specified IDs. Can't be used with *segmented-for-identity*.
+
+.PARAMETER SegmentedForIdentity
+If present, filters entitlements to those in the segments visible to the specified identity. The value must be the calling identity's ID or the special value **me**. Can't be used with *for-segment-ids*.
+
+.PARAMETER IncludeUnsegmented
+Whether the response list should contain unsegmented entitlements. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EntitlementV2[]
+#>
+function Get-RoleEntitlementsV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Cursor},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ForSegmentIds},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SegmentedForIdentity},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${IncludeUnsegmented},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-RoleEntitlementsV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/roles/v2/{id}/entitlements'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getRoleEntitlementsV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getRoleEntitlementsV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if ($Cursor) {
+            $LocalVarQueryParameters['cursor'] = $Cursor
+        }
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
+        if ($ForSegmentIds) {
+            $LocalVarQueryParameters['for-segment-ids'] = $ForSegmentIds
+        }
+
+        if ($SegmentedForIdentity) {
+            $LocalVarQueryParameters['segmented-for-identity'] = $SegmentedForIdentity
+        }
+
+        if ($IncludeUnsegmented) {
+            $LocalVarQueryParameters['include-unsegmented'] = $IncludeUnsegmented
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EntitlementV2[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get a role
 
 .DESCRIPTION
@@ -785,6 +958,89 @@ function Get-RoleV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "Role" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get a role
+
+.DESCRIPTION
+
+This API returns a Role by its ID. The response includes the Role's effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role's access profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER Id
+ID of the Role
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+RoleV2
+#>
+function Get-RoleV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-RoleV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/roles/v2/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getRoleV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getRoleV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "RoleV2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -927,6 +1183,169 @@ function Get-RolesV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "Role[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+List roles
+
+.DESCRIPTION
+
+This API returns a list of Roles. Each Role includes its effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role's access profiles.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same `sorters`, to get the next page. You can't use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can't be greater than 10,000. Use cursor pagination to page beyond 10,000 results.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER ForSubadmin
+If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+
+.PARAMETER Limit
+Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Cursor
+Opaque cursor returned in the `x-next-cursor` response header of the previous page. Pass it with the same `sorters` to get the next page of results. Can't be used with an *offset* greater than 0.
+
+.PARAMETER Filters
+Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **type**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, sw, co*  **accessProfile.id**: *eq, in*  **accessProfile.name**: *eq, sw, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or*
+
+.PARAMETER Sorters
+Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable.
+
+.PARAMETER ForSegmentIds
+If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+
+.PARAMETER IncludeUnsegmented
+Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+RoleV2[]
+#>
+function Get-RolesV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ForSubadmin},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Cursor},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ForSegmentIds},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${IncludeUnsegmented},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-RolesV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/roles/v2'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling listRolesV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if ($ForSubadmin) {
+            $LocalVarQueryParameters['for-subadmin'] = $ForSubadmin
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if ($Cursor) {
+            $LocalVarQueryParameters['cursor'] = $Cursor
+        }
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
+        if ($ForSegmentIds) {
+            $LocalVarQueryParameters['for-segment-ids'] = $ForSegmentIds
+        }
+
+        if ($IncludeUnsegmented) {
+            $LocalVarQueryParameters['include-unsegmented'] = $IncludeUnsegmented
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "RoleV2[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1179,6 +1598,185 @@ function Search-RolesByFilterV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "Role[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Filter roles by metadata
+
+.DESCRIPTION
+
+This API returns a list of Roles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together. Each Role includes its effective privilege level in `privilegeLevel.effective`.  The `filters` expression in the request body supports the same fields and operators as the `filters` query parameter of [List roles](#operation/listRolesV2), including **privilegeLevel.effective**: *eq, in*.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same request body and `sorters`, to get the next page. You can't use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can't be greater than 10,000.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER Rolelistfilterdtov2
+No description available.
+
+.PARAMETER ForSubadmin
+If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+
+.PARAMETER Limit
+Max number of results to return See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Cursor
+Opaque cursor returned in the `x-next-cursor` response header of the previous page. Pass it with the same request body and `sorters` to get the next page of results. Can't be used with an *offset* greater than 0.
+
+.PARAMETER Sorters
+Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable.
+
+.PARAMETER ForSegmentIds
+If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+
+.PARAMETER IncludeUnsegmented
+Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+RoleV2[]
+#>
+function Search-RolesByFilterV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Rolelistfilterdtov2},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ForSubadmin},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Cursor},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ForSegmentIds},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${IncludeUnsegmented},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Search-RolesByFilterV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/roles/v2/filter'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling searchRolesByFilterV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if ($ForSubadmin) {
+            $LocalVarQueryParameters['for-subadmin'] = $ForSubadmin
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if ($Cursor) {
+            $LocalVarQueryParameters['cursor'] = $Cursor
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
+        if ($ForSegmentIds) {
+            $LocalVarQueryParameters['for-segment-ids'] = $ForSegmentIds
+        }
+
+        if ($IncludeUnsegmented) {
+            $LocalVarQueryParameters['include-unsegmented'] = $IncludeUnsegmented
+        }
+
+        if (!$Rolelistfilterdtov2) {
+            throw "Error! The required parameter `Rolelistfilterdtov2` missing when calling searchRolesByFilterV2."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Rolelistfilterdtov2 -is [array])) {
+            $LocalVarBodyParameter = $Rolelistfilterdtov2 | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Rolelistfilterdtov2 | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "RoleV2[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

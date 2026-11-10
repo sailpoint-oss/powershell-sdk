@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.76",
+  "sdkVersion": "2.1.77",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -1916,6 +1916,54 @@
         "ORG_ADMIN"
       ]
     },
+    "createUiPluginAssetBundleV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "New-UiPluginAssetBundleV1",
+      "httpMethod": "POST",
+      "path": "/ui-plugins/v1/{pluginInstanceId}/asset-bundles",
+      "userAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "createUiPluginLinkV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "New-UiPluginLinkV1",
+      "httpMethod": "POST",
+      "path": "/ui-plugins/v1/{pluginInstanceId}/link",
+      "userAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "createUiPluginV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "New-UiPluginV1",
+      "httpMethod": "POST",
+      "path": "/ui-plugins/v1",
+      "userAuth": [
+        "idn:plugins-ui:create"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:create"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
     "createUploadedConfigurationV1": {
       "resource": "configuration-hub",
       "tag": "Configuration Hub",
@@ -3667,6 +3715,38 @@
       ],
       "applicationAuth": [
         "idn:transform:manage"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "deleteUiPluginLinkV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "Remove-UiPluginLinkV1",
+      "httpMethod": "DELETE",
+      "path": "/ui-plugins/v1/{pluginInstanceId}/link",
+      "userAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "deleteUiPluginV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "Remove-UiPluginV1",
+      "httpMethod": "DELETE",
+      "path": "/ui-plugins/v1/{pluginInstanceId}",
+      "userAuth": [
+        "idn:plugins-ui:delete"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:delete"
       ],
       "userLevels": [
         "ORG_ADMIN"
@@ -8127,6 +8207,25 @@
         "ROLE_SUBADMIN"
       ]
     },
+    "getRoleEntitlementsV2": {
+      "resource": "roles",
+      "tag": "Roles",
+      "sdkName": "Get-RoleEntitlementsV2",
+      "httpMethod": "GET",
+      "path": "/roles/v2/{id}/entitlements",
+      "userAuth": [
+        "idn:role-unchecked:read",
+        "idn:role-unchecked:manage",
+        "idn:role-checked:manage",
+        "idn:role-checked:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN"
+      ]
+    },
     "getRoleInsightV1": {
       "resource": "role-insights",
       "tag": "Role Insights",
@@ -8316,6 +8415,25 @@
       "sdkName": "Get-RoleV1",
       "httpMethod": "GET",
       "path": "/roles/v1/{id}",
+      "userAuth": [
+        "idn:role-unchecked:read",
+        "idn:role-unchecked:manage",
+        "idn:role-checked:manage",
+        "idn:role-checked:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN"
+      ]
+    },
+    "getRoleV2": {
+      "resource": "roles",
+      "tag": "Roles",
+      "sdkName": "Get-RoleV2",
+      "httpMethod": "GET",
+      "path": "/roles/v2/{id}",
       "userAuth": [
         "idn:role-unchecked:read",
         "idn:role-unchecked:manage",
@@ -9424,6 +9542,38 @@
       "applicationAuth": [
         "idn:transform:read",
         "idn:transform:manage"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "getUiPluginByAliasV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "Get-UiPluginByAliasV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugins/v1/resolve-alias",
+      "userAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "getUiPluginV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "Get-UiPluginV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugins/v1/{pluginInstanceId}",
+      "userAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:read"
       ],
       "userLevels": [
         "ORG_ADMIN"
@@ -11541,6 +11691,25 @@
         "ROLE_SUBADMIN"
       ]
     },
+    "listRolesV2": {
+      "resource": "roles",
+      "tag": "Roles",
+      "sdkName": "Get-RolesV2",
+      "httpMethod": "GET",
+      "path": "/roles/v2",
+      "userAuth": [
+        "idn:role-unchecked:read",
+        "idn:role-unchecked:manage",
+        "idn:role-checked:manage",
+        "idn:role-checked:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN"
+      ]
+    },
     "listSavedSearchesV1": {
       "resource": "saved-search",
       "tag": "Saved Search",
@@ -11858,6 +12027,54 @@
       ],
       "applicationAuth": [
         "sp:trigger-service-subscriptions:read"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "listUiPluginAssetBundlesV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "Get-UiPluginAssetBundlesV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugins/v1/{pluginInstanceId}/asset-bundles",
+      "userAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "listUiPluginSlotsV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "Get-UiPluginSlotsV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugin-slots/v1",
+      "userAuth": [
+        "idn:plugins-ui-slots:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui-slots:read"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "listUiPluginsV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "Get-UiPluginsV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugins/v1",
+      "userAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:read"
       ],
       "userLevels": [
         "ORG_ADMIN"
@@ -14003,6 +14220,25 @@
       ],
       "applicationAuth": null
     },
+    "searchRolesByFilterV2": {
+      "resource": "roles",
+      "tag": "Roles",
+      "sdkName": "Search-RolesByFilterV2",
+      "httpMethod": "POST",
+      "path": "/roles/v2/filter",
+      "userAuth": [
+        "idn:role-unchecked:read",
+        "idn:role-unchecked:manage",
+        "idn:role-checked:manage",
+        "idn:role-checked:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN"
+      ]
+    },
     "searchSubjectSummariesV1": {
       "resource": "gov-certification",
       "tag": "Next Generation Certification Campaigns",
@@ -15235,6 +15471,22 @@
       ],
       "applicationAuth": [
         "sp:trigger-service-subscriptions:manage"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "testUiPluginAliasV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "Test-UiPluginAliasV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugins/v1/validate-alias",
+      "userAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:read"
       ],
       "userLevels": [
         "ORG_ADMIN"
@@ -16484,6 +16736,22 @@
       ],
       "applicationAuth": [
         "idn:transform:manage"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "updateUiPluginV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "Update-UiPluginV1",
+      "httpMethod": "PATCH",
+      "path": "/ui-plugins/v1/{pluginInstanceId}",
+      "userAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:update"
       ],
       "userLevels": [
         "ORG_ADMIN"

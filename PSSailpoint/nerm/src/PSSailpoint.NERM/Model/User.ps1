@@ -37,7 +37,7 @@ The locale the user prefers to use
 .PARAMETER GroupStrings
 Group strings configured on the customer's Active Directory configuration, provided by the IDP at the moment on authentication.
 .PARAMETER SailpointIdentityId
-The identity ID of the user in ISC
+The identity ID of the user in SailPoint Identity Security
 .OUTPUTS
 
 User<PSCustomObject>

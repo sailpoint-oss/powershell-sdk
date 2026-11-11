@@ -30,7 +30,7 @@ CompanyName = 'SailPoint Technologies'
 Copyright = '(c) OpenAPI Generator Team. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'PSSailpoint.UiPlugins - the PowerShell module for Identity Security Cloud API - UI Plugins'
+Description = 'PSSailpoint.UiPlugins - the PowerShell module for SailPoint Identity Security API - UI Plugins'
 
 # Minimum version of the PowerShell engine required by this module
 PowerShellVersion = '6.2'

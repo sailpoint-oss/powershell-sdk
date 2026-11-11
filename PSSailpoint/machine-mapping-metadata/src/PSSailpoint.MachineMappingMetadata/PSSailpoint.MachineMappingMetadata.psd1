@@ -30,7 +30,7 @@ CompanyName = 'SailPoint Technologies'
 Copyright = '(c) OpenAPI Generator Team. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'PSSailpoint.MachineMappingMetadata - the PowerShell module for Identity Security Cloud API - Machine Mapping Metadata'
+Description = 'PSSailpoint.MachineMappingMetadata - the PowerShell module for SailPoint Identity Security API - Machine Mapping Metadata'
 
 # Minimum version of the PowerShell engine required by this module
 PowerShellVersion = '6.2'

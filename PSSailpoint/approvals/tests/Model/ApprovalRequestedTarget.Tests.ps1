@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Approvals' -name 'ApprovalRequestedTarget' {
     Context 'ApprovalRequestedTarget' {
         It 'Initialize-ApprovalRequestedTarget' {
             # a simple test to create an object
-            #$NewObject = Initialize-ApprovalRequestedTarget -ForcedAuthSignature "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -ReauthRequired "TEST_VALUE" -RemovalDate "TEST_VALUE" -RequestType "TEST_VALUE" -TargetType "TEST_VALUE"
+            #$NewObject = Initialize-ApprovalRequestedTarget -Id "TEST_VALUE" -Ids "TEST_VALUE" -Name "TEST_VALUE" -Names "TEST_VALUE" -TargetType "TEST_VALUE" -TargetTypes "TEST_VALUE" -Description "TEST_VALUE" -EpLevelAtCreation "TEST_VALUE" -CurrentEPLevel "TEST_VALUE" -CurrentEPModifiedDate "TEST_VALUE" -RequestType "TEST_VALUE" -ForcedAuthSignature "TEST_VALUE" -ReauthRequired "TEST_VALUE" -StartDate "TEST_VALUE" -RemovalDate "TEST_VALUE" -ModifiedStartDate "TEST_VALUE" -ModifiedRemovalDate "TEST_VALUE"
             #$NewObject | Should -BeOfType ApprovalRequestedTarget
             #$NewObject.property | Should -Be 0
         }

@@ -19,19 +19,19 @@ Lifecycle request identifier.
 .PARAMETER TenantId
 Tenant identifier for the lifecycle request.
 .PARAMETER StatusType
-Generic request status type discriminator.
+Type of request. Always `LIFECYCLE_ACTIONS_REQUEST` for lifecycle action requests.
 .PARAMETER RequestedBy
-Identity id of the principal that submitted the request.
+ID of the identity that submitted the request.
 .PARAMETER TargetType
-Resource type targeted by the lifecycle request.
+Type of machine identity the request applies to.
 .PARAMETER TargetId
-Internal machine identity UUID for the lifecycle target.
+ID of the machine identity the request applies to.
 .PARAMETER OperationType
 No description available.
 .PARAMETER WorkflowId
-Temporal workflow identifier for the lifecycle request.
+Identifier of the workflow that processes the request.
 .PARAMETER Completed
-Indicates whether the lifecycle request has reached a terminal state.
+Indicates whether the request has finished. A request is finished when its status is `COMPLETED`, `REJECTED`, `FAILED`, or `CANCELED`.
 .PARAMETER Details
 No description available.
 .PARAMETER Created

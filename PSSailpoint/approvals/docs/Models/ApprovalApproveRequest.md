@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalApproveRequest', 'ApprovalApp
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdditionalAttributes** | **map[string]String** | Additional attributes as key-value pairs that are not part of the standard schema but can be included for custom data. | [optional] 
-**Comment** | **String** | Comment associated with the request. | [optional] 
-**OverrideApproverID** | **String** | Optional field for ServiceNow Administrators to specify which member of a governance group to override/approve on behalf of. | [optional] 
+**Comment** | **String** | Comment associated with the request. | [optional] [default to ""]
+**OverrideApproverID** | **String** | Optional field for ServiceNow Administrators to specify which member of a governance group to override/approve on behalf of. | [optional] [default to ""]
 
 ## Examples
 

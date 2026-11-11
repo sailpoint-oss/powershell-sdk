@@ -12,22 +12,42 @@ No summary available.
 
 .DESCRIPTION
 
-Represents a requested target in an approval process, including details such as ID, name, reauthentication requirements, and removal date.
+Specifies the actual object or target the approval request is for.
 
+.PARAMETER Id
+Target ID (for example a role ID or access profile ID).
+.PARAMETER Ids
+Target IDs when the approval request applies to multiple targets.
+.PARAMETER Name
+Target name (for example a role name or access profile name).
+.PARAMETER Names
+Target names when the approval request applies to multiple targets.
+.PARAMETER TargetType
+Target type (for example Role or Access Profile).
+.PARAMETER TargetTypes
+Target types when the approval request applies to multiple targets.
+.PARAMETER Description
+Optional description for the requested target.
+.PARAMETER EpLevelAtCreation
+Effective privilege (EP) level at approval creation.
+.PARAMETER CurrentEPLevel
+Current effective privilege (EP) level for the requested target.
+.PARAMETER CurrentEPModifiedDate
+Date and time when the current effective privilege level was last modified.
+.PARAMETER RequestType
+Access request type (for example GRANT_ACCESS or REVOKE_ACCESS).
 .PARAMETER ForcedAuthSignature
 Signature required for forced authentication.
-.PARAMETER Id
-ID of the requested target.
-.PARAMETER Name
-Name of the requested target.
 .PARAMETER ReauthRequired
-Indicates if reauthentication is required.
+Indicates whether forced reauthentication is required upon approval.
+.PARAMETER StartDate
+When temporary access will be granted, if applicable.
 .PARAMETER RemovalDate
-Date when the target will be removed.
-.PARAMETER RequestType
-Type of the request.
-.PARAMETER TargetType
-Type of the target.
+When temporary access will be removed, if applicable.
+.PARAMETER ModifiedStartDate
+Updated start date when startDate is edited during the approval request.
+.PARAMETER ModifiedRemovalDate
+Updated removal date when removalDate is edited during the approval request.
 .OUTPUTS
 
 ApprovalRequestedTarget<PSCustomObject>
@@ -38,25 +58,57 @@ function Initialize-ApprovalRequestedTarget {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ForcedAuthSignature},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${Ids},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${ReauthRequired} = $false,
+        [String[]]
+        ${Names},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${TargetType},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${TargetTypes},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("HIGH", "MEDIUM", "LOW", "NONE")]
+        [String]
+        ${EpLevelAtCreation},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("HIGH", "MEDIUM", "LOW", "NONE")]
+        [String]
+        ${CurrentEPLevel},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${RemovalDate},
+        ${CurrentEPModifiedDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TargetType}
+        ${ForcedAuthSignature},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${ReauthRequired} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${StartDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${RemovalDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${ModifiedStartDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${ModifiedRemovalDate}
     )
 
     Process {
@@ -65,13 +117,23 @@ function Initialize-ApprovalRequestedTarget {
 
 
         $PSO = [PSCustomObject]@{
-            "forcedAuthSignature" = ${ForcedAuthSignature}
             "id" = ${Id}
+            "ids" = ${Ids}
             "name" = ${Name}
-            "reauthRequired" = ${ReauthRequired}
-            "removalDate" = ${RemovalDate}
-            "requestType" = ${RequestType}
+            "names" = ${Names}
             "targetType" = ${TargetType}
+            "targetTypes" = ${TargetTypes}
+            "description" = ${Description}
+            "epLevelAtCreation" = ${EpLevelAtCreation}
+            "currentEPLevel" = ${CurrentEPLevel}
+            "currentEPModifiedDate" = ${CurrentEPModifiedDate}
+            "requestType" = ${RequestType}
+            "forcedAuthSignature" = ${ForcedAuthSignature}
+            "reauthRequired" = ${ReauthRequired}
+            "startDate" = ${StartDate}
+            "removalDate" = ${RemovalDate}
+            "modifiedStartDate" = ${ModifiedStartDate}
+            "modifiedRemovalDate" = ${ModifiedRemovalDate}
         }
 
         return $PSO
@@ -108,17 +170,11 @@ function ConvertFrom-JsonToApprovalRequestedTarget {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ApprovalRequestedTarget
-        $AllProperties = ("forcedAuthSignature", "id", "name", "reauthRequired", "removalDate", "requestType", "targetType")
+        $AllProperties = ("id", "ids", "name", "names", "targetType", "targetTypes", "description", "epLevelAtCreation", "currentEPLevel", "currentEPModifiedDate", "requestType", "forcedAuthSignature", "reauthRequired", "startDate", "removalDate", "modifiedStartDate", "modifiedRemovalDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forcedAuthSignature"))) { #optional property not found
-            $ForcedAuthSignature = $null
-        } else {
-            $ForcedAuthSignature = $JsonParameters.PSobject.Properties["forcedAuthSignature"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -127,28 +183,22 @@ function ConvertFrom-JsonToApprovalRequestedTarget {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ids"))) { #optional property not found
+            $Ids = $null
+        } else {
+            $Ids = $JsonParameters.PSobject.Properties["ids"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
             $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reauthRequired"))) { #optional property not found
-            $ReauthRequired = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "names"))) { #optional property not found
+            $Names = $null
         } else {
-            $ReauthRequired = $JsonParameters.PSobject.Properties["reauthRequired"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "removalDate"))) { #optional property not found
-            $RemovalDate = $null
-        } else {
-            $RemovalDate = $JsonParameters.PSobject.Properties["removalDate"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestType"))) { #optional property not found
-            $RequestType = $null
-        } else {
-            $RequestType = $JsonParameters.PSobject.Properties["requestType"].value
+            $Names = $JsonParameters.PSobject.Properties["names"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "targetType"))) { #optional property not found
@@ -157,14 +207,96 @@ function ConvertFrom-JsonToApprovalRequestedTarget {
             $TargetType = $JsonParameters.PSobject.Properties["targetType"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "targetTypes"))) { #optional property not found
+            $TargetTypes = $null
+        } else {
+            $TargetTypes = $JsonParameters.PSobject.Properties["targetTypes"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "epLevelAtCreation"))) { #optional property not found
+            $EpLevelAtCreation = $null
+        } else {
+            $EpLevelAtCreation = $JsonParameters.PSobject.Properties["epLevelAtCreation"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "currentEPLevel"))) { #optional property not found
+            $CurrentEPLevel = $null
+        } else {
+            $CurrentEPLevel = $JsonParameters.PSobject.Properties["currentEPLevel"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "currentEPModifiedDate"))) { #optional property not found
+            $CurrentEPModifiedDate = $null
+        } else {
+            $CurrentEPModifiedDate = $JsonParameters.PSobject.Properties["currentEPModifiedDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestType"))) { #optional property not found
+            $RequestType = $null
+        } else {
+            $RequestType = $JsonParameters.PSobject.Properties["requestType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forcedAuthSignature"))) { #optional property not found
+            $ForcedAuthSignature = $null
+        } else {
+            $ForcedAuthSignature = $JsonParameters.PSobject.Properties["forcedAuthSignature"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reauthRequired"))) { #optional property not found
+            $ReauthRequired = $null
+        } else {
+            $ReauthRequired = $JsonParameters.PSobject.Properties["reauthRequired"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "startDate"))) { #optional property not found
+            $StartDate = $null
+        } else {
+            $StartDate = $JsonParameters.PSobject.Properties["startDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "removalDate"))) { #optional property not found
+            $RemovalDate = $null
+        } else {
+            $RemovalDate = $JsonParameters.PSobject.Properties["removalDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modifiedStartDate"))) { #optional property not found
+            $ModifiedStartDate = $null
+        } else {
+            $ModifiedStartDate = $JsonParameters.PSobject.Properties["modifiedStartDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modifiedRemovalDate"))) { #optional property not found
+            $ModifiedRemovalDate = $null
+        } else {
+            $ModifiedRemovalDate = $JsonParameters.PSobject.Properties["modifiedRemovalDate"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "forcedAuthSignature" = ${ForcedAuthSignature}
             "id" = ${Id}
+            "ids" = ${Ids}
             "name" = ${Name}
-            "reauthRequired" = ${ReauthRequired}
-            "removalDate" = ${RemovalDate}
-            "requestType" = ${RequestType}
+            "names" = ${Names}
             "targetType" = ${TargetType}
+            "targetTypes" = ${TargetTypes}
+            "description" = ${Description}
+            "epLevelAtCreation" = ${EpLevelAtCreation}
+            "currentEPLevel" = ${CurrentEPLevel}
+            "currentEPModifiedDate" = ${CurrentEPModifiedDate}
+            "requestType" = ${RequestType}
+            "forcedAuthSignature" = ${ForcedAuthSignature}
+            "reauthRequired" = ${ReauthRequired}
+            "startDate" = ${StartDate}
+            "removalDate" = ${RemovalDate}
+            "modifiedStartDate" = ${ModifiedStartDate}
+            "modifiedRemovalDate" = ${ModifiedRemovalDate}
         }
 
         return $PSO

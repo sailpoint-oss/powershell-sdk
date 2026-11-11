@@ -12,7 +12,7 @@ Enum Lifecycleprovisioningstatus.
 
 .DESCRIPTION
 
-Provisioning execution status for the downstream workflow window.
+Status of provisioning the change to the machine identity's source.
 #>
 
 enum Lifecycleprovisioningstatus {

@@ -17,13 +17,13 @@ No description available.
 .PARAMETER RequestId
 Unique identifier for the created lifecycle request.
 .PARAMETER Status
-Initial lifecycle request status.
+No description available.
 .PARAMETER Action
 No description available.
 .PARAMETER TargetId
-Internal machine identity UUID for the lifecycle target.
+ID of the machine identity the request applies to.
 .PARAMETER ResourceId
-Connector resource id for the lifecycle target, when present.
+ID of the machine identity in its source system, when available.
 .PARAMETER CreatedAt
 Time when the lifecycle request was created (ISO-8601).
 .OUTPUTS
@@ -38,7 +38,8 @@ function Initialize-LifecycleActionSubmitResponse {
         [String]
         ${RequestId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [ValidateSet("RECEIVED", "PENDING_APPROVAL", "APPROVED", "REJECTED", "PROVISIONING", "COMPLETED", "FAILED", "CANCELING", "CANCELED")]
+        [PSCustomObject]
         ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("DEACTIVATE", "ACTIVATE")]

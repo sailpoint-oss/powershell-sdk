@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LifecycleComment = Initialize-LifecycleComment  -CommentId cmt-001 `
+$LifecycleComment = Initialize-LifecycleComment  -CommentId 9f3c2b7e-5a1d-4c8e-b6f0-2d4a7e9c1b53 `
  -Author null `
  -Comment Suspending agent until security review completes `
  -CreatedAt 2026-05-26T19:00Z

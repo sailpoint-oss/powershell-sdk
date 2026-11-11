@@ -23,15 +23,15 @@ Name | Type | Description | Notes
 **Canceller** | [**LifecycleRequesterReference**](lifecycle-requester-reference) |  | [optional] 
 **CanceledAt** | **System.DateTime** | Time when the request was canceled (ISO-8601). | [optional] 
 **CancelComment** | **String** | Comment provided when the request was canceled. | [optional] 
-**Comments** | [**[]LifecycleComment**](lifecycle-comment) | Append-only comment thread for the lifecycle request. | [optional] 
-**FailurePhase** | **String** | Workflow phase where the request failed, when applicable. | [optional] 
+**Comments** | [**[]LifecycleComment**](lifecycle-comment) | Comments on the lifecycle request, in the order they were added. | [optional] 
+**FailurePhase** | **String** | Stage where the request failed, when applicable. | [optional] 
 **FailureReason** | **String** | Failure reason for the lifecycle request, when applicable. | [optional] 
 **Resource** | [**LifecycleResourceSummary**](lifecycle-resource-summary) |  | [optional] 
-**ResourceOwners** | [**[]LifecycleOwnerReference**](lifecycle-owner-reference) | Cached resource owners for the lifecycle target. | [optional] 
+**ResourceOwners** | [**[]LifecycleOwnerReference**](lifecycle-owner-reference) | Owners of the machine identity at the time the request was submitted. | [optional] 
 **SourceOwner** | [**LifecycleOwnerReference**](lifecycle-owner-reference) |  | [optional] 
 **Requester** | [**LifecycleRequesterReference**](lifecycle-requester-reference) |  | [optional] 
-**ApprovalRequestId** | **String** | Approvals identifier when the request was submitted. | [optional] 
-**ApprovalSettingsId** | **String** | Approval settings identifier used for the request. | [optional] 
+**ApprovalRequestId** | **String** | ID of the approval request created for this lifecycle request. | [optional] 
+**ApprovalSettingsId** | **String** | ID of the approval settings used for the request. | [optional] 
 **Provisioning** | [**LifecycleProvisioning**](lifecycle-provisioning) |  | [optional] 
 
 ## Examples
@@ -53,7 +53,7 @@ $LifecycleActionRequestDetails = Initialize-LifecycleActionRequestDetails  -Stat
  -SourceOwner null `
  -Requester null `
  -ApprovalRequestId a0220198-4b01-444b-8ac3-7a8a147a3791 `
- -ApprovalSettingsId approval-settings-001 `
+ -ApprovalSettingsId 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa_aws:bedrock:agent-42 `
  -Provisioning null
 ```
 

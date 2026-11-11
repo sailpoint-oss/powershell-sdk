@@ -12,20 +12,20 @@ No summary available.
 
 .DESCRIPTION
 
-Cached resource context for the lifecycle target.
+Details of the machine identity at the time the request was submitted.
 
 .PARAMETER Id
-Internal machine identity UUID for the lifecycle target.
+ID of the machine identity.
 .PARAMETER ResourceId
-Connector resource id for the lifecycle target.
+ID of the machine identity in its source system.
 .PARAMETER Name
-Display name of the lifecycle target.
+Name of the machine identity.
 .PARAMETER SourceId
-Source identifier for the lifecycle target.
+ID of the source the machine identity belongs to.
 .PARAMETER SourceName
-Source name for the lifecycle target.
+Name of the source the machine identity belongs to.
 .PARAMETER Subtype
-Machine identity subtype for the lifecycle target.
+Type of machine identity.
 .OUTPUTS
 
 LifecycleResourceSummary<PSCustomObject>

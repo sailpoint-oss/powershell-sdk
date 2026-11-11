@@ -71,7 +71,7 @@ Field that can include any static additional info that may be needed by the serv
 .PARAMETER ModifiedDate
 Date/time that the approval request was last updated
 .PARAMETER RequestedTarget
-RequestedTarget used to specify the actual object or target the approval request is for
+No description available.
 .OUTPUTS
 
 Approval2<PSCustomObject>
@@ -93,10 +93,10 @@ function Initialize-Approval2 {
         [PSCustomObject[]]
         ${Approvers},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [System.Nullable[System.DateTime]]
         ${CreatedDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [System.Nullable[System.DateTime]]
         ${DueDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -146,7 +146,7 @@ function Initialize-Approval2 {
         [PSCustomObject[]]
         ${AssignedTo},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [System.Nullable[System.DateTime]]
         ${CompletedDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
@@ -167,7 +167,7 @@ function Initialize-Approval2 {
         [System.Nullable[System.DateTime]]
         ${ModifiedDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
+        [PSCustomObject]
         ${RequestedTarget}
     )
 

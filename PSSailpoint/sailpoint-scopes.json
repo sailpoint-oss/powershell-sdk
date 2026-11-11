@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.77",
+  "sdkVersion": "2.1.78",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -1450,6 +1450,20 @@
       "path": "/reassignment-configurations/v1",
       "userAuth": [
         "idn:reassignment-configuration:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "createReminderEscalationTenantConfigV1": {
+      "resource": "reminder-escalations",
+      "tag": "Reminder Escalations",
+      "sdkName": "New-ReminderEscalationTenantConfigV1",
+      "httpMethod": "POST",
+      "path": "/reminder-escalations/v1/config/tenants",
+      "userAuth": [
+        "idn:reminder-escalation-config:manage"
       ],
       "applicationAuth": null,
       "userLevels": [
@@ -3292,6 +3306,20 @@
         "idn:reassignment-configuration:manage"
       ],
       "applicationAuth": null
+    },
+    "deleteReminderEscalationTenantConfigV1": {
+      "resource": "reminder-escalations",
+      "tag": "Reminder Escalations",
+      "sdkName": "Remove-ReminderEscalationTenantConfigV1",
+      "httpMethod": "DELETE",
+      "path": "/reminder-escalations/v1/config/tenants/{domainObjectType}",
+      "userAuth": [
+        "idn:reminder-escalation-config:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
     },
     "deleteRoleV1": {
       "resource": "roles",
@@ -8090,6 +8118,20 @@
       "applicationAuth": null,
       "userLevels": [
         "Any"
+      ]
+    },
+    "getReminderEscalationTenantConfigV1": {
+      "resource": "reminder-escalations",
+      "tag": "Reminder Escalations",
+      "sdkName": "Get-ReminderEscalationTenantConfigV1",
+      "httpMethod": "GET",
+      "path": "/reminder-escalations/v1/config/tenants/{domainObjectType}",
+      "userAuth": [
+        "idn:reminder-escalation-config:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
       ]
     },
     "getReportResultV1": {
@@ -13567,6 +13609,20 @@
         "idn:reassignment-configuration:manage"
       ],
       "applicationAuth": null
+    },
+    "putReminderEscalationTenantConfigV1": {
+      "resource": "reminder-escalations",
+      "tag": "Reminder Escalations",
+      "sdkName": "Send-ReminderEscalationTenantConfigV1",
+      "httpMethod": "PUT",
+      "path": "/reminder-escalations/v1/config/tenants/{domainObjectType}",
+      "userAuth": [
+        "idn:reminder-escalation-config:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
     },
     "putSIMIntegrationV1": {
       "resource": "sim-integrations",

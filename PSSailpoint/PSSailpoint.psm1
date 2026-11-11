@@ -132,6 +132,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'privilege-criteria-configuration' 
 Import-Module -Name (Join-Path $PSScriptRoot 'public-identities' 'src' 'PSSailpoint.PublicIdentities') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'public-identities-config' 'src' 'PSSailpoint.PublicIdentitiesConfig') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'public-machine-identities' 'src' 'PSSailpoint.PublicMachineIdentities') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'reminder-escalations' 'src' 'PSSailpoint.ReminderEscalations') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'reports-data-extraction' 'src' 'PSSailpoint.ReportsDataExtraction') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'requestable-objects' 'src' 'PSSailpoint.RequestableObjects') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'role-insights' 'src' 'PSSailpoint.RoleInsights') -Force -Global

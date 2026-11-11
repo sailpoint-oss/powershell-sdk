@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-Provisioning execution window for the lifecycle request.
+Provisioning status for the lifecycle request, with when provisioning started and ended.
 
 .PARAMETER Status
 No description available.

@@ -37,7 +37,7 @@ function Initialize-ApprovalComment3 {
         [String]
         ${Comment},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [System.Nullable[System.DateTime]]
         ${CreatedDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]

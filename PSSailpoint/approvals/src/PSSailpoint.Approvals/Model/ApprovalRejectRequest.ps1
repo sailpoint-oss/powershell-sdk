@@ -28,10 +28,10 @@ function Initialize-ApprovalRejectRequest {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Comment},
+        ${Comment} = "",
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${OverrideApproverID}
+        ${OverrideApproverID} = ""
     )
 
     Process {

@@ -12,7 +12,7 @@ Enum Lifecyclestatus.
 
 .DESCRIPTION
 
-Detailed lifecycle request status stored on the lifecycle action request.
+Status of the lifecycle action request.
 #>
 
 enum Lifecyclestatus {

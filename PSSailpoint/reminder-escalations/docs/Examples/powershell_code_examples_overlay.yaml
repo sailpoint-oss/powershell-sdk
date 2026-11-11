@@ -1,0 +1,215 @@
+- path: /reminder-escalations/v1/config/tenants
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/reminderescalations/methods/reminder-escalations#create-reminder-escalation-tenant-config-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Reminderescalationtenantconfigcreate = @"
+        {
+          "domainObjectType" : "CERTIFICATION",
+          "rules" : {
+            "reminders" : [ {
+              "cron" : "0 9 * * *",
+              "template" : "cert-reminder-daily",
+              "maxFirings" : 5,
+              "beforeDeadLine" : "P7D",
+              "activeAfter" : "P14D"
+            }, {
+              "cron" : "0 9 * * *",
+              "template" : "cert-reminder-daily",
+              "maxFirings" : 5,
+              "beforeDeadLine" : "P7D",
+              "activeAfter" : "P14D"
+            } ],
+            "escalations" : [ {
+              "template" : "cert-escalation-mgr",
+              "trigger" : {
+                "cron" : "0 9 * * 1",
+                "delay" : "PT12H",
+                "maxFirings" : 3,
+                "beforeDeadLine" : "P7D",
+                "count" : 3,
+                "triggerType" : "AFTER_REMINDER_COUNT",
+                "activeAfter" : "P14D"
+              },
+              "targets" : [ {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              }, {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              } ]
+            }, {
+              "template" : "cert-escalation-mgr",
+              "trigger" : {
+                "cron" : "0 9 * * 1",
+                "delay" : "PT12H",
+                "maxFirings" : 3,
+                "beforeDeadLine" : "P7D",
+                "count" : 3,
+                "triggerType" : "AFTER_REMINDER_COUNT",
+                "activeAfter" : "P14D"
+              },
+              "targets" : [ {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              }, {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              } ]
+            } ],
+            "fallback" : {
+              "template" : "cert-escalation-fallback-admin",
+              "targets" : [ {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              }, {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              } ]
+            }
+          }
+        }
+        "@
+        
+        # Create Reminder Escalation Tenant Config
+        
+        try {
+            $Result = ConvertFrom-JsonToReminderescalationtenantconfigcreate -Json $Reminderescalationtenantconfigcreate
+            New-ReminderEscalationTenantConfigV1 -XSailPointExperimental $XSailPointExperimental -Reminderescalationtenantconfigcreate $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ReminderEscalationTenantConfigV1 -XSailPointExperimental $XSailPointExperimental -Reminderescalationtenantconfigcreate $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ReminderEscalationTenantConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reminder-escalations/v1/config/tenants/{domainObjectType}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/reminderescalations/methods/reminder-escalations#delete-reminder-escalation-tenant-config-v1
+      source: |
+        $DomainObjectType = "PERSONAL_ACCESS_TOKEN" # String | Domain object type key.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete Reminder Escalation Tenant Config
+        
+        try {
+            Remove-ReminderEscalationTenantConfigV1 -DomainObjectType $DomainObjectType -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ReminderEscalationTenantConfigV1 -DomainObjectType $DomainObjectType -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ReminderEscalationTenantConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reminder-escalations/v1/config/tenants/{domainObjectType}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/reminderescalations/methods/reminder-escalations#get-reminder-escalation-tenant-config-v1
+      source: |
+        $DomainObjectType = "PERSONAL_ACCESS_TOKEN" # String | Domain object type key.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get Reminder Escalation Tenant Config
+        
+        try {
+            Get-ReminderEscalationTenantConfigV1 -DomainObjectType $DomainObjectType -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ReminderEscalationTenantConfigV1 -DomainObjectType $DomainObjectType -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ReminderEscalationTenantConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reminder-escalations/v1/config/tenants/{domainObjectType}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/reminderescalations/methods/reminder-escalations#put-reminder-escalation-tenant-config-v1
+      source: |
+        $DomainObjectType = "PERSONAL_ACCESS_TOKEN" # String | Domain object type key.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Reminderescalationtenantconfigupdate = @"
+        {
+          "rules" : {
+            "reminders" : [ {
+              "cron" : "0 9 * * *",
+              "template" : "cert-reminder-daily",
+              "maxFirings" : 5,
+              "beforeDeadLine" : "P7D",
+              "activeAfter" : "P14D"
+            }, {
+              "cron" : "0 9 * * *",
+              "template" : "cert-reminder-daily",
+              "maxFirings" : 5,
+              "beforeDeadLine" : "P7D",
+              "activeAfter" : "P14D"
+            } ],
+            "escalations" : [ {
+              "template" : "cert-escalation-mgr",
+              "trigger" : {
+                "cron" : "0 9 * * 1",
+                "delay" : "PT12H",
+                "maxFirings" : 3,
+                "beforeDeadLine" : "P7D",
+                "count" : 3,
+                "triggerType" : "AFTER_REMINDER_COUNT",
+                "activeAfter" : "P14D"
+              },
+              "targets" : [ {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              }, {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              } ]
+            }, {
+              "template" : "cert-escalation-mgr",
+              "trigger" : {
+                "cron" : "0 9 * * 1",
+                "delay" : "PT12H",
+                "maxFirings" : 3,
+                "beforeDeadLine" : "P7D",
+                "count" : 3,
+                "triggerType" : "AFTER_REMINDER_COUNT",
+                "activeAfter" : "P14D"
+              },
+              "targets" : [ {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              }, {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              } ]
+            } ],
+            "fallback" : {
+              "template" : "cert-escalation-fallback-admin",
+              "targets" : [ {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              }, {
+                "identityId" : "id-admin-99",
+                "targetType" : "MANAGER_OF"
+              } ]
+            }
+          },
+          "revision" : 1
+        }
+        "@
+        
+        # Update Reminder Escalation Tenant Config
+        
+        try {
+            $Result = ConvertFrom-JsonToReminderescalationtenantconfigupdate -Json $Reminderescalationtenantconfigupdate
+            Send-ReminderEscalationTenantConfigV1 -DomainObjectType $DomainObjectType -XSailPointExperimental $XSailPointExperimental -Reminderescalationtenantconfigupdate $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ReminderEscalationTenantConfigV1 -DomainObjectType $DomainObjectType -XSailPointExperimental $XSailPointExperimental -Reminderescalationtenantconfigupdate $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ReminderEscalationTenantConfigV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-Nested lifecycle execution context stored on the lifecycle request.
+Details of the lifecycle request, including its status, approval, comments, and provisioning.
 
 .PARAMETER Status
 No description available.
@@ -29,23 +29,23 @@ Time when the request was canceled (ISO-8601).
 .PARAMETER CancelComment
 Comment provided when the request was canceled.
 .PARAMETER Comments
-Append-only comment thread for the lifecycle request.
+Comments on the lifecycle request, in the order they were added.
 .PARAMETER FailurePhase
-Workflow phase where the request failed, when applicable.
+Stage where the request failed, when applicable.
 .PARAMETER FailureReason
 Failure reason for the lifecycle request, when applicable.
 .PARAMETER Resource
 No description available.
 .PARAMETER ResourceOwners
-Cached resource owners for the lifecycle target.
+Owners of the machine identity at the time the request was submitted.
 .PARAMETER SourceOwner
 No description available.
 .PARAMETER Requester
 No description available.
 .PARAMETER ApprovalRequestId
-Approvals identifier when the request was submitted.
+ID of the approval request created for this lifecycle request.
 .PARAMETER ApprovalSettingsId
-Approval settings identifier used for the request.
+ID of the approval settings used for the request.
 .PARAMETER Provisioning
 No description available.
 .OUTPUTS

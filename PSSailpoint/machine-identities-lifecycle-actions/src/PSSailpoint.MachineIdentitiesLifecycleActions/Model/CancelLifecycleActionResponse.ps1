@@ -17,13 +17,13 @@ No description available.
 .PARAMETER RequestId
 Lifecycle request identifier.
 .PARAMETER Status
-Updated lifecycle request status after cancel acceptance.
+Status of the request after the cancel is accepted. Always `CANCELING`.
 .PARAMETER Action
 No description available.
 .PARAMETER TargetId
-Internal machine identity UUID for the lifecycle target.
+ID of the machine identity the request applies to.
 .PARAMETER ResourceId
-Connector resource id for the lifecycle target, when present.
+ID of the machine identity in its source system, when available.
 .OUTPUTS
 
 CancelLifecycleActionResponse<PSCustomObject>
@@ -36,6 +36,7 @@ function Initialize-CancelLifecycleActionResponse {
         [String]
         ${RequestId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CANCELING")]
         [String]
         ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

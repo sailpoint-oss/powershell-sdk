@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'LifecycleResourceSummary', 'Lifecycle
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | Internal machine identity UUID for the lifecycle target. | [optional] 
-**ResourceId** | **String** | Connector resource id for the lifecycle target. | [optional] 
-**Name** | **String** | Display name of the lifecycle target. | [optional] 
-**SourceId** | **String** | Source identifier for the lifecycle target. | [optional] 
-**SourceName** | **String** | Source name for the lifecycle target. | [optional] 
-**Subtype** | **String** | Machine identity subtype for the lifecycle target. | [optional] 
+**Id** | **String** | ID of the machine identity. | [optional] 
+**ResourceId** | **String** | ID of the machine identity in its source system. | [optional] 
+**Name** | **String** | Name of the machine identity. | [optional] 
+**SourceId** | **String** | ID of the source the machine identity belongs to. | [optional] 
+**SourceName** | **String** | Name of the source the machine identity belongs to. | [optional] 
+**Subtype** | **String** | Type of machine identity. | [optional] 
 
 ## Examples
 

@@ -45,7 +45,7 @@ function Get-FunctionsToExport {
 }
 
 $ScriptDir = Split-Path $script:MyInvocation.MyCommand.Path
-$FunctionPath = "$PSScriptRoot/src/PSSailpoint.Generic/Api", "$PSScriptRoot/src/PSSailpoint.Generic/Client","$PSScriptRoot/src/PSSailpoint.Generic/Model" | ForEach-Object { $_ }
+$FunctionPath = "$PSScriptRoot/src/PSSailpoint.Generic/Api", "$PSScriptRoot/src/PSSailpoint.Generic/Client" | ForEach-Object { $_ }
 
 
 $Manifest = @{

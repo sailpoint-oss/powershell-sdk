@@ -78,6 +78,36 @@ runs:
         # Build root barrel module manifest
         ./PSSailpoint/Build.ps1
 
+    # Import the module from an installed package, the way customers get it.
+    # Packaging can drop files that the git checkout has, for example files
+    # whose names start with a dot. The publish goes to a local folder on the
+    # runner only. Nothing goes to the PowerShell Gallery.
+    - name: Test Installed Package
+      shell: pwsh
+      run: |
+        $ErrorActionPreference = 'Stop'
+        $Repo = Join-Path $env:RUNNER_TEMP 'local-psrepo'
+        $Installed = Join-Path $env:RUNNER_TEMP 'installed-modules'
+        New-Item -ItemType Directory -Force -Path $Repo, $Installed | Out-Null
+        Register-PSResourceRepository -Name LocalPackageTest -Uri $Repo -Trusted
+        try {
+          Publish-PSResource -Path ./PSSailpoint -Repository LocalPackageTest
+          Save-PSResource -Name PSSailpoint -Repository LocalPackageTest -Path $Installed -TrustRepository
+        } finally {
+          Unregister-PSResourceRepository -Name LocalPackageTest
+        }
+        # Expect one loaded module for each partition that the barrel module imports.
+        $Expected = (Select-String -Path ./PSSailpoint/PSSailpoint.psm1 -Pattern '^Import-Module ').Count
+        $Root = Join-Path $Installed 'PSSailpoint'
+        pwsh -NoProfile -Command "
+          `$ErrorActionPreference = 'Stop'
+          Import-Module '$Root'
+          `$Loaded = (Get-Module -Name 'PSSailpoint.*').Count
+          if (`$Loaded -ne $Expected) { throw `"Expected $Expected partition modules, loaded `$Loaded`" }
+          `"Installed package loaded `$Loaded partition modules`"
+        "
+        if ($LASTEXITCODE -ne 0) { throw 'The installed PSSailpoint package failed to load.' }
+
     - name: Import Modules and Run Tests
       shell: pwsh
       run: |

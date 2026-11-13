@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.ReminderEscalations - the PowerShell module for SailPoint Identity Security API - Reminder Escalations'
 
-    ModuleVersion = '2.1.79'
+    ModuleVersion = '2.1.80'
 
     RootModule = 'PSSailpoint.ReminderEscalations.psm1'
     Guid = 'B47C248C-8BEB-4367-1FBE-D7E0714B2CA4' # Has to be static, otherwise each new build will be considered different module

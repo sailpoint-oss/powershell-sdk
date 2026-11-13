@@ -51,7 +51,7 @@ const POSTSCRIPT   = path.join(__dirname, "postscript.js");
 const TEMPLATE_DIR = path.join(__dirname, "resources");
 
 const API_VERSION     = "v1";
-const PACKAGE_VERSION = "2.1.79";
+const PACKAGE_VERSION = "2.1.80";
 const COMMON_VERBS    = "Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select";
 
 // The generic API is built from a standalone spec in sdk-resources/, not from a

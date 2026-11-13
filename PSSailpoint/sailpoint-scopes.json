@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.79",
+  "sdkVersion": "2.1.80",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",

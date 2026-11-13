@@ -77,7 +77,7 @@ function Invoke-NERMApiClient {
     }
 
     # Build User-Agent header
-    $UserAgent = "SailPoint-SDK-PowerShell/2.1.79"
+    $UserAgent = "SailPoint-SDK-PowerShell/2.1.80"
     if ($Configuration["ConsumerIdentifier"] -and $Configuration["ConsumerVersion"]) {
         $UserAgent = "$UserAgent ($($Configuration["ConsumerIdentifier"])/$($Configuration["ConsumerVersion"]))"
     }

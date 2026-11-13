@@ -23,7 +23,7 @@ $Script:Configuration = [System.Collections.HashTable]@{}
 
 $Script:CmdletBindingParameters = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
 
-'Api', 'Model', 'Client', 'Private' | Get-ChildItem -Path {
+'Api', 'Client', 'Private' | Get-ChildItem -Path {
     Join-Path $PSScriptRoot $_
 } -Filter '*.ps1' | ForEach-Object {
     Write-Debug "Importing file: $($_.BaseName)"

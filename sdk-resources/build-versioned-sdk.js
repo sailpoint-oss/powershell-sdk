@@ -557,10 +557,30 @@ function patchGenericCmdlets(outputDir) {
   const helperPath = path.join(outputDir, "src", "PSSailpoint.Generic", "Private", "ConvertTo-GenericRequestPath.ps1");
   fs.writeFileSync(helperPath, GENERIC_PATH_HELPER.trimStart(), "utf8");
 
-  // The spec defines no models, but the module loader and Build.ps1 read Model/.
-  const modelDir = path.join(outputDir, "src", "PSSailpoint.Generic", "Model");
-  fs.mkdirSync(modelDir, { recursive: true });
-  fs.writeFileSync(path.join(modelDir, ".gitkeep"), "", "utf8");
+  // The spec defines no models, so the generator makes no Model/ folder.
+  // Remove Model/ from the module loader and from Build.ps1, which both read it.
+  // Do not add an empty Model/ folder instead: the install drops its placeholder
+  // file, the folder is then missing, and the module fails to load.
+  const modelReferences = [
+    {
+      filePath: path.join(outputDir, "src", "PSSailpoint.Generic", "PSSailpoint.Generic.psm1"),
+      pattern: /'Api', 'Model', 'Client', 'Private' \|/g,
+      replace: "'Api', 'Client', 'Private' |",
+    },
+    {
+      filePath: path.join(outputDir, "Build.ps1"),
+      pattern: /,\s*"\$PSScriptRoot\/src\/PSSailpoint\.Generic\/Model"/g,
+      replace: "",
+    },
+  ];
+  for (const { filePath, pattern, replace } of modelReferences) {
+    const text = readFileSafe(filePath);
+    if (!pattern.test(text)) {
+      throw new Error(`no Model/ reference found in ${path.relative(SDK_ROOT, filePath)}`);
+    }
+    pattern.lastIndex = 0;
+    fs.writeFileSync(filePath, text.replace(pattern, replace), "utf8");
+  }
 
   return { patched: counts["path encoder"] };
 }

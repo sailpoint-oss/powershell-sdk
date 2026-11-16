@@ -12,16 +12,16 @@ No summary available.
 
 .DESCRIPTION
 
-An entitlement to request for the machine account, with optional comment and access dates.
+One entitlement to provision on the created machine account. `id` is the entitlement id. Comment and access dates are optional.
 
 .PARAMETER Id
-ID of the entitlement to request.
+Entitlement id to provision. Not required to be a UUID.
 .PARAMETER Comment
-Comment to include with the entitlement request.
+Justification stored with the entitlement request.
 .PARAMETER StartDate
-Date and time when access to the entitlement starts. Must be in the future and, when `removeDate` is also set, before `removeDate`.
+When access starts. Must be in the future and before `removeDate` when both are set.
 .PARAMETER RemoveDate
-Date and time when access to the entitlement is removed. Must be in the future.
+When access ends. Must be in the future and after `startDate` when both are set.
 .OUTPUTS
 
 MachineAccountCreateEntitlement<PSCustomObject>
@@ -35,7 +35,7 @@ function Initialize-MachineAccountCreateEntitlement {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Comment},
+        ${Comment} = "",
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${StartDate},

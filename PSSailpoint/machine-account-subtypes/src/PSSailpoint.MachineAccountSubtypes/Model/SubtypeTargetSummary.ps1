@@ -12,20 +12,18 @@ No summary available.
 
 .DESCRIPTION
 
-Summary of the subtypes defined for one target. There is one item per connector type for `CONNECTOR` targets, and one item per source subtype for `SOURCE` targets.
+One row per connector type (`CONNECTOR`) or per source-tier subtype (`SOURCE`) from `GET /source-subtypes/v2/targets`.
 
 .PARAMETER TargetType
-Tier of the target.
+No description available.
 .PARAMETER TargetId
-Connector type for a `CONNECTOR` target, or source ID for a `SOURCE` target.
+Scope key. Connector type for `CONNECTOR`. Source id for `SOURCE`.
 .PARAMETER TargetName
-Display name of the target. Falls back to `targetId` when no name is stored.
+Display label. Never null; falls back to `targetId`.
 .PARAMETER SubtypeCount
-Number of subtypes defined for the target.
+Number of subtypes in this target group.
 .PARAMETER SourceCount
-Number of sources the target's subtypes apply to.
-.PARAMETER LastModified
-Most recent modification time across the target's subtypes.
+Number of sources of this connector type for a `CONNECTOR` row. `1` on a `SOURCE` row. Sortable. Not filterable.
 .OUTPUTS
 
 SubtypeTargetSummary<PSCustomObject>
@@ -35,8 +33,8 @@ function Initialize-SubtypeTargetSummary {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SOURCE", "CONNECTOR")]
-        [String]
+        [ValidateSet("SOURCE", "CONNECTOR", "CONNECTOR_VARIANT")]
+        [PSCustomObject]
         ${TargetType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -49,10 +47,7 @@ function Initialize-SubtypeTargetSummary {
         ${SubtypeCount},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${SourceCount},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${LastModified}
+        ${SourceCount}
     )
 
     Process {
@@ -66,7 +61,6 @@ function Initialize-SubtypeTargetSummary {
             "targetName" = ${TargetName}
             "subtypeCount" = ${SubtypeCount}
             "sourceCount" = ${SourceCount}
-            "lastModified" = ${LastModified}
         }
 
         return $PSO

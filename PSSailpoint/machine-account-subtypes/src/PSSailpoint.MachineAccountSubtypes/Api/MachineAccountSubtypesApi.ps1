@@ -8,14 +8,14 @@
 <#
 .SYNOPSIS
 
-Override source connector subtype
+Create a source-tier override
 
 .DESCRIPTION
 
-Create a source subtype that overrides a connector subtype on one source. The new source subtype copies the connector subtype's machine account configuration and provisioning policy at the time of the request. Later changes to the connector subtype are not applied to the override.  The subtype identified by `id` must be a `CONNECTOR` subtype (otherwise `400`) that is in the source's effective subtypes. An unknown subtype or source returns `404`. The request is rejected if the tenant's subtype configuration cannot be changed this way.  The caller needs the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins. A caller without it receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+Creates a SOURCE-tier snapshot of a CONNECTOR-tier subtype for one source. The snapshot copies the parent display data, machine-account config, and authored provisioning policy. It does not add the connector's default account-creation fields, and later connector-tier edits do not propagate.  `subtypeId` must be a CONNECTOR-tier subtype UUID that is in the source effective set. The created row is an ordinary SOURCE subtype (`targetType=SOURCE`, new `id`, `origin=null`) and can be patched or deleted with the existing v2 subtype routes.  Requires `idn:source-subtypes:create`. A missing right, an unknown parent, or an unknown source returns **404**. A parent that is not CONNECTOR, a blank `sourceId`, a parent that is not effective on the source, a name collision, or a subtype cap returns **400**. A malformed `subtypeId` returns **400**.  When the experimental header is missing, or when the tiered subtype configuration is not enabled for the tenant, the endpoint returns **404**. 
 
 .PARAMETER Id
-The ID of the connector subtype to override.
+CONNECTOR-tier subtype to snapshot onto the source.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -29,7 +29,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SourceSubtypeV2
+SubtypeWithTarget
 #>
 function New-SourceSubtypeOverrideV2 {
     [CmdletBinding()]
@@ -103,7 +103,7 @@ function New-SourceSubtypeOverrideV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SourceSubtypeV2" `
+                                -ReturnType "SubtypeWithTarget" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -121,7 +121,7 @@ Create subtype provisioning policy
 
 .DESCRIPTION
 
-Create the machine account creation provisioning policy of a subtype of any tier. A subtype has at most one provisioning policy; the request is rejected if one already exists.  `id` and `subtypeId` must not be supplied (otherwise `400`). `usageType` must be `CREATE_MACHINE_ACCOUNT` or omitted. `name` defaults to the subtype's display name.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+Creates the machine account creation provisioning policy for a subtype. A subtype has at most one policy; the request is rejected if one already exists.  When `useDefaultFields` is `true` and the body has no `fields`, a `CONNECTOR` subtype's policy is created with the connector's default account-creation fields. `SOURCE` subtypes ignore `useDefaultFields`.  SOURCE-tier write requires `idn:source-subtypes:update`. CONNECTOR-tier write requires `idn:connector-subtypes:update`. A missing subtype or a missing right returns **404**.  When the experimental header is missing, or when the tiered subtype configuration is not enabled for the tenant, the endpoint returns **404**. 
 
 .PARAMETER Id
 The ID of the subtype.
@@ -129,11 +129,11 @@ The ID of the subtype.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER SubtypeProvisioningPolicy
+.PARAMETER ProvisioningPolicyDto
 No description available.
 
 .PARAMETER UseDefaultFields
-When `true` and the request body has no `fields`, a `CONNECTOR` subtype's policy is created with the connector's default account creation fields. Ignored for `SOURCE` subtypes.
+When `true` and the request body has no `fields`, a `CONNECTOR` subtype's policy is created with the connector's default account-creation fields. Ignored for `SOURCE` subtypes.
 
 .PARAMETER WithHttpInfo
 
@@ -141,7 +141,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SubtypeProvisioningPolicy
+ProvisioningPolicyDto
 #>
 function New-SourceSubtypeProvisioningPolicyV2 {
     [CmdletBinding()]
@@ -154,7 +154,7 @@ function New-SourceSubtypeProvisioningPolicyV2 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${SubtypeProvisioningPolicy},
+        ${ProvisioningPolicyDto},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${UseDefaultFields},
@@ -196,14 +196,14 @@ function New-SourceSubtypeProvisioningPolicyV2 {
             $LocalVarQueryParameters['useDefaultFields'] = $UseDefaultFields
         }
 
-        if (!$SubtypeProvisioningPolicy) {
-            throw "Error! The required parameter `SubtypeProvisioningPolicy` missing when calling createSourceSubtypeProvisioningPolicyV2."
+        if (!$ProvisioningPolicyDto) {
+            throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling createSourceSubtypeProvisioningPolicyV2."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SubtypeProvisioningPolicy -is [array])) {
-            $LocalVarBodyParameter = $SubtypeProvisioningPolicy | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ProvisioningPolicyDto -is [array])) {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $SubtypeProvisioningPolicy | ForEach-Object {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -222,7 +222,7 @@ function New-SourceSubtypeProvisioningPolicyV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SubtypeProvisioningPolicy" `
+                                -ReturnType "ProvisioningPolicyDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -335,16 +335,16 @@ function New-SourceSubtypeV1 {
 <#
 .SYNOPSIS
 
-Create subtype
+Create a tiered subtype
 
 .DESCRIPTION
 
-Create a machine account subtype at the source tier or the connector tier.  A `SOURCE` subtype applies to the one source identified by `targetId`. A `CONNECTOR` subtype applies to every source of the connector type identified by `targetId`, which must be a registered connector type. `targetType` defaults to `SOURCE`. `CONNECTOR_VARIANT` is not supported and returns `400`. `technicalName`, `displayName` and `description` are required, and the technical name and display name must be unique within the tier's scope.  Who can call this API depends on the requested tier:  * `SOURCE` (or omitted): requires the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:create` right, held by org admins.  A caller without the right for the requested tier receives `404`, not `403`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+Creates a machine account subtype at the tier declared on the request body.  `targetId` is required at every tier. `targetType` defaults to `SOURCE` when omitted. Do not supply `id` or `profile`; those fields are response-only. `systemManaged`, `created`, `modified`, and `origin` are ignored on input. CONNECTOR `targetName` is optional and is filled from the connector's display name.  SOURCE-tier create requires `idn:source-subtypes:create`. CONNECTOR-tier create requires `idn:connector-subtypes:create`. A missing right is returned as **404**, not **403**. `CONNECTOR_VARIANT` is not available and returns **400**.  Duplicate technical name or display name in the same tier scope returns **400**. Exceeding the organization subtype limit returns **400**. The create also stores a `CREATE_MACHINE_ACCOUNT` provisioning policy from the connector's default account-creation fields.  When the experimental header is missing, or when the tiered subtype configuration is not enabled for the tenant, the endpoint returns **404**. 
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER CreateSourceSubtypeV2Request
+.PARAMETER SourceSubtypeV2
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -353,7 +353,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SourceSubtypeV2
+SubtypeWithTarget
 #>
 function New-SourceSubtypeV2 {
     [CmdletBinding()]
@@ -363,7 +363,7 @@ function New-SourceSubtypeV2 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${CreateSourceSubtypeV2Request},
+        ${SourceSubtypeV2},
         [Switch]
         $WithHttpInfo
     )
@@ -394,14 +394,14 @@ function New-SourceSubtypeV2 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$CreateSourceSubtypeV2Request) {
-            throw "Error! The required parameter `CreateSourceSubtypeV2Request` missing when calling createSourceSubtypeV2."
+        if (!$SourceSubtypeV2) {
+            throw "Error! The required parameter `SourceSubtypeV2` missing when calling createSourceSubtypeV2."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreateSourceSubtypeV2Request -is [array])) {
-            $LocalVarBodyParameter = $CreateSourceSubtypeV2Request | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SourceSubtypeV2 -is [array])) {
+            $LocalVarBodyParameter = $SourceSubtypeV2 | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $CreateSourceSubtypeV2Request | ForEach-Object {
+            $LocalVarBodyParameter = $SourceSubtypeV2 | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -420,7 +420,7 @@ function New-SourceSubtypeV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SourceSubtypeV2" `
+                                -ReturnType "SubtypeWithTarget" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -517,11 +517,11 @@ function Remove-MachineAccountSubtypeV1 {
 <#
 .SYNOPSIS
 
-Delete subtype by ID
+Delete tiered subtype by ID
 
 .DESCRIPTION
 
-Delete a machine account subtype of any tier by subtype ID. System-managed subtypes, and subtypes still assigned to accounts, cannot be deleted and the request is rejected.  Who can call this API depends on the tier of the stored subtype:  * `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.  A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+Deletes a tiered subtype by id.  System-managed subtypes return **400**. A subtype that is still assigned to accounts returns **400**. A connector-tier response includes how many accounts and sources still use it.  SOURCE-tier delete requires `idn:source-subtypes:delete`. CONNECTOR-tier delete requires `idn:connector-subtypes:delete`. Unknown id and a denied tier are both returned as **404**. A malformed UUID returns **400**.  When the experimental header is missing, or when the tiered subtype configuration is not enabled for the tenant, the endpoint returns **404**. 
 
 .PARAMETER Id
 The ID of the subtype.
@@ -604,7 +604,7 @@ Delete subtype provisioning policy
 
 .DESCRIPTION
 
-Delete the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has no provisioning policy.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.  A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+Deletes the stored `CREATE_MACHINE_ACCOUNT` provisioning policy for a subtype.  SOURCE-tier delete requires `idn:source-subtypes:delete`. CONNECTOR-tier delete requires `idn:connector-subtypes:delete`. Missing subtype and missing right both return **404**.  When the experimental header is missing, or when the tiered subtype configuration is not enabled for the tenant, the endpoint returns **404**. 
 
 .PARAMETER Id
 The ID of the subtype.
@@ -849,11 +849,11 @@ function Get-SourceSubtypeByIdV1 {
 <#
 .SYNOPSIS
 
-Get subtype by ID
+Get tiered subtype by ID
 
 .DESCRIPTION
 
-Get a machine account subtype of any tier by subtype ID. The response may include `target.supportsProvisioning`.  The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+Returns one machine account subtype by id, including whether its target can provision accounts.  Unknown id returns **404**. A caller without the required right also receives **404**. If provisioning support cannot be determined, the API returns **503**. When the experimental header is missing, or when tiered subtype configuration is not enabled, the endpoint returns **404**. 
 
 .PARAMETER Id
 The ID of the subtype.
@@ -867,7 +867,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SourceSubtypeV2
+SubtypeWithTargetProvisioning
 #>
 function Get-SourceSubtypeByIdV2 {
     [CmdletBinding()]
@@ -918,7 +918,7 @@ function Get-SourceSubtypeByIdV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SourceSubtypeV2" `
+                                -ReturnType "SubtypeWithTargetProvisioning" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -936,7 +936,7 @@ Get subtype provisioning policy
 
 .DESCRIPTION
 
-Get the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has no provisioning policy.  The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+Returns the machine account creation provisioning policy for a subtype of any tier. Returns **404** when the subtype has no provisioning policy.  For a `SOURCE` subtype, pass `sourceId` so a policy stored on that source can be found.  The caller needs `idn:source-subtypes:read`. A malformed id returns **400**. When the experimental header is missing, or when tiered subtype configuration is not enabled, the endpoint returns **404**. 
 
 .PARAMETER Id
 The ID of the subtype.
@@ -953,7 +953,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SubtypeProvisioningPolicy
+ProvisioningPolicyDto
 #>
 function Get-SourceSubtypeProvisioningPolicyV2 {
     [CmdletBinding()]
@@ -1011,7 +1011,7 @@ function Get-SourceSubtypeProvisioningPolicyV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SubtypeProvisioningPolicy" `
+                                -ReturnType "ProvisioningPolicyDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1029,25 +1029,25 @@ List subtype targets
 
 .DESCRIPTION
 
-List the targets that have machine account subtypes, with subtype and source counts for each.  A `targetType` filter is required. `targetType eq ""CONNECTOR""` returns one item per connector type. `targetType eq ""SOURCE""` returns one item per source subtype. A missing or unsupported `targetType` filter returns `400`.  The caller needs the `idn:source-subtypes:read` right.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+Lists per-target subtype counts. Connector-tier rows are grouped by connector type. Source-tier rows are returned 1:1 with each source-tier subtype.  `filters` must include `targetType eq ""CONNECTOR""` or `targetType eq ""SOURCE""`. Missing or blank `targetType` returns **400**. `CONNECTOR_VARIANT` and unknown values return **400**. Filter and sort fields are independent of the subtype list API. Default sort is `targetName` ascending. `lastModified` is response-only and is not filterable or sortable.  When the experimental header is missing, or when the tiered subtype configuration is not enabled for the tenant, the endpoint returns **404**. 
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*  A `targetType` filter with the value `CONNECTOR` or `SOURCE` is required.
+Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
+
+.PARAMETER Sorters
+Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Default sort is targetName ascending.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
 
 .PARAMETER Limit
 Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
-
-.PARAMETER Count
-If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
-
-.PARAMETER Sorters
-Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Results are sorted by **targetName** ascending by default.
 
 .PARAMETER WithHttpInfo
 
@@ -1067,17 +1067,17 @@ function Get-SourceSubtypeTargetsV2 {
         [String]
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Limit},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Offset},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Boolean]]
-        ${Count},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
         [Switch]
         $WithHttpInfo
     )
@@ -1105,18 +1105,6 @@ function Get-SourceSubtypeTargetsV2 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if ($Limit) {
-            $LocalVarQueryParameters['limit'] = $Limit
-        }
-
-        if ($Offset) {
-            $LocalVarQueryParameters['offset'] = $Offset
-        }
-
-        if ($Count) {
-            $LocalVarQueryParameters['count'] = $Count
-        }
-
         if (!$Filters) {
             throw "Error! The required parameter `Filters` missing when calling listSourceSubtypeTargetsV2."
         }
@@ -1124,6 +1112,18 @@ function Get-SourceSubtypeTargetsV2 {
 
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
         }
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
@@ -1272,26 +1272,35 @@ function Get-SourceSubtypesV1 {
 <#
 .SYNOPSIS
 
-List subtypes
+Retrieve all tiered subtypes
 
 .DESCRIPTION
 
-List machine account subtypes defined at the source tier and the connector tier.  Without `sourceId`, the API lists every subtype in the tenant, and `filters` and `sorters` apply.  With `sourceId`, the API returns the source's effective subtypes: the subtypes defined for the source plus the subtypes defined for the source's connector type. When a source subtype has the same technical name as a connector subtype, only the source subtype is returned and its `origin` is `CONNECTOR`. `filters` cannot be used in this mode. Use `targetType` to return only one tier of the effective set. An unknown `sourceId` returns `404`.  With `sourceId` and `effectiveSet=false`, the API returns only the subtypes defined for that source, and `filters` apply.  The caller needs the `idn:source-subtypes:read` right.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+Lists machine account subtypes across SOURCE and CONNECTOR tiers.  `targetId` is the scope key at every tier (source id for `SOURCE`, connector type for `CONNECTOR`). Responses include a resolved `target` reference and do not include `sourceId`. List responses do not include `target.supportsProvisioning`.  With `sourceId`, omitted `effectiveSet` defaults to `true` and returns the effective set for that source (SOURCE overrides CONNECTOR by technical name). `effectiveSet=false` returns only that source's raw SOURCE-tier rows. `effectiveSet=true` without `sourceId` returns **400**. Combining `filters` with effective-set resolution returns **400**. Unknown `sourceId` returns **404**. Limit, offset, and `count` apply on both paths. There is no default sort.  Optional `targetType` applies only on the effective-set path. `CONNECTOR` keeps inherited connector winners. `SOURCE` keeps source-only winners and SOURCE overrides. Omitting it keeps the full winner set. A blank, unknown, or `CONNECTOR_VARIANT` value, or any `targetType` when `effectiveSet` is `false` or `sourceId` is omitted, returns **400**.  On the effective set, `origin` is `CONNECTOR` only when a SOURCE winner overrides a CONNECTOR parent of the same technical name. Connector-only and source-only winners have `origin=null`.  `includeConfigs` defaults to `false`. When `true`, each `MACHINE` subtype that has a stored machine-account-create config includes slim `config.machineAccountCreate.accountCreateEnabled`. A `MACHINE` row with no create config, and every non-`MACHINE` row, omits `config`. The list does not return the full machine-config document.  This API requires the Machine Identity Security product. When the experimental header is missing, or when the tiered subtype configuration is not enabled for the tenant, the endpoint returns **404**. 
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
+.PARAMETER Filters
+Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in*  **targetType**: *eq, in*  **targetId**: *eq, in*  **targetName**: *eq, sw*  **classification**: *eq, in*  **type**: *eq, in*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be combined with the effective set. That combination returns 400.
+
+.PARAMETER Sorters
+Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, displayName, technicalName, source.id, targetType, targetId, targetName, classification, type, created, modified**  When omitted, order is unspecified.
+
 .PARAMETER SourceId
-ID of a source. When supplied, the API returns subtypes for that source instead of the whole tenant.
+Source scope. When supplied, omitted `effectiveSet` defaults to `true`. Unknown source returns **404**. Empty means the parameter was omitted.
 
 .PARAMETER EffectiveSet
-Controls what is returned for `sourceId`. When `true`, which is the default when `sourceId` is supplied, the API returns the source's effective subtypes across both tiers. When `false`, the API returns only the subtypes defined for the source. Passing `effectiveSet=true` explicitly without `sourceId` returns `400`.
+When `true` with `sourceId`, return the effective subtype set for that source. When `false` with `sourceId`, return only that source's raw SOURCE-tier rows. `true` without `sourceId` returns **400**. Combining with `filters` returns **400**.
 
 .PARAMETER TargetType
-Returns only effective subtypes of this tier. Requires `sourceId`, and cannot be combined with `effectiveSet=false`; otherwise the API returns `400`.
+Winner-tier cut on the effective set only. `CONNECTOR` returns inherited connector winners. `SOURCE` returns source-only winners and SOURCE overrides. Omit it to keep the full winner set. Invalid when `effectiveSet` is `false` or `sourceId` is omitted.
 
 .PARAMETER IncludeConfigs
-When `true`, each item includes a summary of its machine account creation configuration in `config`.
+When `true`, each `MACHINE` subtype with a stored machine-account-create config includes slim `config.machineAccountCreate.accountCreateEnabled`. Default `false` omits `config`.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
 
 .PARAMETER Limit
 Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
@@ -1299,22 +1308,13 @@ Max number of results to return. See [API Standard Collection Parameters](https:
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
 
-.PARAMETER Count
-If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
-
-.PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **technicalName**: *eq, ne, in, sw, co*  **displayName**: *eq, ne, in, sw, co*  **source.id**: *eq, ne, in, sw, co*  **targetType**: *eq, ne, in, sw, co*  **targetId**: *eq, ne, in, sw, co*  **targetName**: *eq, ne, in, sw, co, isnull*  **classification**: *eq, ne, in, sw, co*  **type**: *eq, ne, in, sw, co*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be used with `sourceId` unless `effectiveSet=false`; otherwise the API returns `400`.
-
-.PARAMETER Sorters
-Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, technicalName, displayName, source.id, targetType, targetId, targetName, classification, type, created, modified**
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
 
 .OUTPUTS
 
-SourceSubtypeV2WithConfig[]
+SubtypeWithTargetAndConfig[]
 #>
 function Get-SourceSubtypesV2 {
     [CmdletBinding()]
@@ -1324,32 +1324,32 @@ function Get-SourceSubtypesV2 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${SourceId},
+        ${Filters},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${EffectiveSet},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [ValidateSet("SOURCE", "CONNECTOR")]
         [String]
         ${TargetType},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${IncludeConfigs},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Limit},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Offset},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Filters},
+        [System.Nullable[Int32]]
+        ${Limit},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Sorters},
+        [System.Nullable[Int32]]
+        ${Offset},
         [Switch]
         $WithHttpInfo
     )
@@ -1377,6 +1377,14 @@ function Get-SourceSubtypesV2 {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
         if ($SourceId) {
             $LocalVarQueryParameters['sourceId'] = $SourceId
         }
@@ -1393,24 +1401,16 @@ function Get-SourceSubtypesV2 {
             $LocalVarQueryParameters['includeConfigs'] = $IncludeConfigs
         }
 
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit
         }
 
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
-        }
-
-        if ($Count) {
-            $LocalVarQueryParameters['count'] = $Count
-        }
-
-        if ($Filters) {
-            $LocalVarQueryParameters['filters'] = $Filters
-        }
-
-        if ($Sorters) {
-            $LocalVarQueryParameters['sorters'] = $Sorters
         }
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
@@ -1422,7 +1422,7 @@ function Get-SourceSubtypesV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SourceSubtypeV2WithConfig[]" `
+                                -ReturnType "SubtypeWithTargetAndConfig[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1644,11 +1644,11 @@ function Update-MachineAccountSubtypeV1 {
 <#
 .SYNOPSIS
 
-Patch subtype by ID
+Patch tiered subtype by ID
 
 .DESCRIPTION
 
-Update a machine account subtype of any tier by subtype ID, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `displayName` and `description` are patchable, and both must remain present. Changing `targetType`, `targetId`, `profile`, `classification`, `type` or `technicalName` returns `400`; to move a subtype to another tier or target, delete it and create a new one.  Who can call this API depends on the tier of the stored subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+Applies an RFC 6902 JSON Patch to a tiered subtype.  Patchable fields are `displayName` and `description` only. Tier and identity fields (`technicalName`, `targetType`, `targetId`, `profile`, `classification`, `type`) are immutable; change them by deleting and recreating the subtype.  SOURCE-tier update requires `idn:source-subtypes:update`. CONNECTOR-tier update requires `idn:connector-subtypes:update`. Unknown id and a denied tier are both returned as **404**. A malformed UUID returns **400**. System-managed rows and a duplicate display name in the same tier scope return **400**.  When the experimental header is missing, or when the tiered subtype configuration is not enabled for the tenant, the endpoint returns **404**. 
 
 .PARAMETER Id
 The ID of the subtype.
@@ -1665,7 +1665,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SourceSubtypeV2
+SubtypeWithTarget
 #>
 function Update-MachineAccountSubtypeV2 {
     [CmdletBinding()]
@@ -1739,7 +1739,7 @@ function Update-MachineAccountSubtypeV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SourceSubtypeV2" `
+                                -ReturnType "SubtypeWithTarget" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1757,7 +1757,7 @@ Patch subtype provisioning policy
 
 .DESCRIPTION
 
-Update the machine account creation provisioning policy of a subtype of any tier, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Only `name`, `description` and `fields` are patchable. Returns `404` when the subtype has no provisioning policy.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+Patches the stored `CREATE_MACHINE_ACCOUNT` provisioning policy for a subtype using RFC 6902 JSON Patch.  SOURCE-tier write requires `idn:source-subtypes:update`. CONNECTOR-tier write requires `idn:connector-subtypes:update`. Missing subtype, missing policy, and missing right all return **404**.  When the experimental header is missing, or when the tiered subtype configuration is not enabled for the tenant, the endpoint returns **404**. 
 
 .PARAMETER Id
 The ID of the subtype.
@@ -1774,7 +1774,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SubtypeProvisioningPolicy
+ProvisioningPolicyDto
 #>
 function Update-SourceSubtypeProvisioningPolicyV2 {
     [CmdletBinding()]
@@ -1848,7 +1848,7 @@ function Update-SourceSubtypeProvisioningPolicyV2 {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SubtypeProvisioningPolicy" `
+                                -ReturnType "ProvisioningPolicyDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

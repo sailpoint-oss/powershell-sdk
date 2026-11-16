@@ -12,20 +12,20 @@ No summary available.
 
 .DESCRIPTION
 
-Connector variant profile. Reserved for future use and currently always `null`.
+Response-only connector-variant profile. Always `null` for `SOURCE` and `CONNECTOR` tiers in this release. Populated when the connector-variant tier is available.
 
 .PARAMETER Id
-Unique identifier for the connector variant profile.
+Unique identifier of the connector variant profile.
 .PARAMETER ConnectorType
-Connector type of the variant.
+Connector type of the variant profile, for example `JDBC`.
 .PARAMETER Variant
-Name of the connector variant.
+Variant name within the connector type, for example `MySql`.
 .OUTPUTS
 
-SourceSubtypeV2Profile<PSCustomObject>
+ConnectorVariantProfile<PSCustomObject>
 #>
 
-function Initialize-SourceSubtypeV2Profile {
+function Initialize-ConnectorVariantProfile {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -33,14 +33,14 @@ function Initialize-SourceSubtypeV2Profile {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ConnectorType},
+        ${ConnectorType} = "",
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Variant}
+        ${Variant} = ""
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountSubtypes => SourceSubtypeV2Profile' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccountSubtypes => ConnectorVariantProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -57,11 +57,11 @@ function Initialize-SourceSubtypeV2Profile {
 <#
 .SYNOPSIS
 
-Convert from JSON to SourceSubtypeV2Profile<PSCustomObject>
+Convert from JSON to ConnectorVariantProfile<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SourceSubtypeV2Profile<PSCustomObject>
+Convert from JSON to ConnectorVariantProfile<PSCustomObject>
 
 .PARAMETER Json
 
@@ -69,21 +69,21 @@ Json object
 
 .OUTPUTS
 
-SourceSubtypeV2Profile<PSCustomObject>
+ConnectorVariantProfile<PSCustomObject>
 #>
-function ConvertFrom-JsonToSourceSubtypeV2Profile {
+function ConvertFrom-JsonToConnectorVariantProfile {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountSubtypes => SourceSubtypeV2Profile' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountSubtypes => ConnectorVariantProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in SourceSubtypeV2Profile
+        # check if Json contains properties not defined in ConnectorVariantProfile
         $AllProperties = ("id", "connectorType", "variant")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

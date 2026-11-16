@@ -16,23 +16,23 @@ tags: ['SDK', 'Software Development Kit', 'SubtypeTargetSummary', 'SubtypeTarget
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TargetType** |  **Enum** [  "SOURCE",    "CONNECTOR" ] | Tier of the target. | [optional] 
-**TargetId** | **String** | Connector type for a `CONNECTOR` target, or source ID for a `SOURCE` target. | [optional] 
-**TargetName** | **String** | Display name of the target. Falls back to `targetId` when no name is stored. | [optional] 
-**SubtypeCount** | **Int32** | Number of subtypes defined for the target. | [optional] 
-**SourceCount** | **Int32** | Number of sources the target's subtypes apply to. | [optional] 
-**LastModified** | **System.DateTime** | Most recent modification time across the target's subtypes. | [optional] 
+**TargetType** | **SubtypeTargetType** |  | [optional] 
+**TargetId** | **String** | Scope key. Connector type for `CONNECTOR`. Source id for `SOURCE`. | [optional] 
+**TargetName** | **String** | Display label. Never null; falls back to `targetId`. | [optional] 
+**SubtypeCount** | **Int32** | Number of subtypes in this target group. | [optional] 
+**SourceCount** | **Int32** | Number of sources of this connector type for a `CONNECTOR` row. `1` on a `SOURCE` row. Sortable. Not filterable. | [optional] 
+**LastModified** | **System.DateTime** | Latest `modified` timestamp in the `targetId` group for `CONNECTOR`, or that subtype row's `modified` for `SOURCE`. Not filterable or sortable. | [optional] [readonly] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SubtypeTargetSummary = Initialize-SubtypeTargetSummary  -TargetType CONNECTOR `
- -TargetId active-directory `
- -TargetName Active Directory `
+$SubtypeTargetSummary = Initialize-SubtypeTargetSummary  -TargetType null `
+ -TargetId JDBC `
+ -TargetName JDBC `
  -SubtypeCount 3 `
  -SourceCount 12 `
- -LastModified 2026-07-28T16:13:42.750Z
+ -LastModified 2026-08-18T12:00Z
 ```
 
 - Convert the resource to JSON

@@ -12,35 +12,25 @@ No summary available.
 
 .DESCRIPTION
 
-A machine account subtype defined at the source tier or the connector tier.
+No description available.
 
-.PARAMETER Id
-Unique identifier for the subtype.
 .PARAMETER TechnicalName
-Technical name of the subtype.
+Technical name of the subtype. Unique within the target tier scope.
 .PARAMETER DisplayName
 Display name of the subtype.
 .PARAMETER Description
 Description of the subtype.
 .PARAMETER Type
-Entity type of the subtype.
+Entity type of the subtype. Defaults to `MACHINE` when omitted.
 .PARAMETER TargetType
-Tier the subtype is defined at. `SOURCE` subtypes apply to one source. `CONNECTOR` subtypes apply to every source of a connector type. `CONNECTOR_VARIANT` is reserved for future use.
-.PARAMETER TargetId
-Scope key of the subtype. The source ID for `SOURCE` subtypes, or the connector type for `CONNECTOR` subtypes.
-.PARAMETER TargetName
-Display name of the target source or connector.
-.PARAMETER Classification
-Classification of the subtype.
-.PARAMETER Origin
-Tier of the parent subtype this subtype overrides. Set to `CONNECTOR` when a source subtype replaces a connector subtype with the same technical name in a source's effective subtype list. Otherwise `null`.
-.PARAMETER VarProfile
 No description available.
-.PARAMETER Created
-Creation timestamp.
-.PARAMETER Modified
-Last modified timestamp.
-.PARAMETER Target
+.PARAMETER TargetId
+Scope key for the subtype. Source id when `targetType` is `SOURCE`. Connector type or connector specification id when `targetType` is `CONNECTOR`.
+.PARAMETER TargetName
+Human-readable target label. May be omitted on create; the service persists a display name.
+.PARAMETER Classification
+No description available.
+.PARAMETER VarProfile
 No description available.
 .OUTPUTS
 
@@ -52,9 +42,6 @@ function Initialize-SourceSubtypeV2 {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${TechnicalName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -64,46 +51,48 @@ function Initialize-SourceSubtypeV2 {
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Type},
+        ${Type} = "MACHINE",
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SOURCE", "CONNECTOR", "CONNECTOR_VARIANT")]
-        [String]
+        [PSCustomObject]
         ${TargetType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TargetId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TargetName},
+        ${TargetName} = "",
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("MACHINE")]
-        [String]
+        [PSCustomObject]
         ${Classification},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SOURCE", "CONNECTOR", "CONNECTOR_VARIANT")]
-        [String]
-        ${Origin},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${VarProfile},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Target}
+        ${VarProfile}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.MachineAccountSubtypes => SourceSubtypeV2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$TechnicalName) {
+            throw "invalid value for 'TechnicalName', 'TechnicalName' cannot be null."
+        }
+
+        if (!$DisplayName) {
+            throw "invalid value for 'DisplayName', 'DisplayName' cannot be null."
+        }
+
+        if (!$Description) {
+            throw "invalid value for 'Description', 'Description' cannot be null."
+        }
+
+        if (!$TargetId) {
+            throw "invalid value for 'TargetId', 'TargetId' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "technicalName" = ${TechnicalName}
             "displayName" = ${DisplayName}
             "description" = ${Description}
@@ -112,11 +101,7 @@ function Initialize-SourceSubtypeV2 {
             "targetId" = ${TargetId}
             "targetName" = ${TargetName}
             "classification" = ${Classification}
-            "origin" = ${Origin}
             "profile" = ${VarProfile}
-            "created" = ${Created}
-            "modified" = ${Modified}
-            "target" = ${Target}
         }
 
         return $PSO
@@ -153,35 +138,45 @@ function ConvertFrom-JsonToSourceSubtypeV2 {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SourceSubtypeV2
-        $AllProperties = ("id", "technicalName", "displayName", "description", "type", "targetType", "targetId", "targetName", "classification", "origin", "profile", "systemManaged", "created", "modified", "target")
+        $AllProperties = ("id", "technicalName", "displayName", "description", "type", "targetType", "targetId", "targetName", "classification", "origin", "profile", "systemManaged", "created", "modified")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'technicalName' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "technicalName"))) { #optional property not found
-            $TechnicalName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "technicalName"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'technicalName' missing."
         } else {
             $TechnicalName = $JsonParameters.PSobject.Properties["technicalName"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
-            $DisplayName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'displayName' missing."
         } else {
             $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
-            $Description = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'description' missing."
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "targetId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'targetId' missing."
+        } else {
+            $TargetId = $JsonParameters.PSobject.Properties["targetId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
@@ -194,12 +189,6 @@ function ConvertFrom-JsonToSourceSubtypeV2 {
             $TargetType = $null
         } else {
             $TargetType = $JsonParameters.PSobject.Properties["targetType"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "targetId"))) { #optional property not found
-            $TargetId = $null
-        } else {
-            $TargetId = $JsonParameters.PSobject.Properties["targetId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "targetName"))) { #optional property not found
@@ -244,12 +233,6 @@ function ConvertFrom-JsonToSourceSubtypeV2 {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "target"))) { #optional property not found
-            $Target = $null
-        } else {
-            $Target = $JsonParameters.PSobject.Properties["target"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "technicalName" = ${TechnicalName}
@@ -265,7 +248,6 @@ function ConvertFrom-JsonToSourceSubtypeV2 {
             "systemManaged" = ${SystemManaged}
             "created" = ${Created}
             "modified" = ${Modified}
-            "target" = ${Target}
         }
 
         return $PSO

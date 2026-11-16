@@ -16,41 +16,39 @@ tags: ['SDK', 'Software Development Kit', 'SourceSubtypeV2', 'SourceSubtypeV2']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | Unique identifier for the subtype. | [optional] 
-**TechnicalName** | **String** | Technical name of the subtype. | [optional] 
-**DisplayName** | **String** | Display name of the subtype. | [optional] 
-**Description** | **String** | Description of the subtype. | [optional] 
-**Type** | **String** | Entity type of the subtype. | [optional] 
-**TargetType** |  **Enum** [  "SOURCE",    "CONNECTOR",    "CONNECTOR_VARIANT" ] | Tier the subtype is defined at. `SOURCE` subtypes apply to one source. `CONNECTOR` subtypes apply to every source of a connector type. `CONNECTOR_VARIANT` is reserved for future use. | [optional] 
-**TargetId** | **String** | Scope key of the subtype. The source ID for `SOURCE` subtypes, or the connector type for `CONNECTOR` subtypes. | [optional] 
-**TargetName** | **String** | Display name of the target source or connector. | [optional] 
-**Classification** |  **Enum** [  "MACHINE" ] | Classification of the subtype. | [optional] 
-**Origin** |  **Enum** [  "SOURCE",    "CONNECTOR",    "CONNECTOR_VARIANT" ] | Tier of the parent subtype this subtype overrides. Set to `CONNECTOR` when a source subtype replaces a connector subtype with the same technical name in a source's effective subtype list. Otherwise `null`. | [optional] 
-**VarProfile** | [**SourceSubtypeV2Profile**](source-subtype-v2-profile) |  | [optional] 
-**SystemManaged** | **Boolean** | Indicates whether the subtype is managed by the system. | [optional] [readonly] [default to $false]
-**Created** | **System.DateTime** | Creation timestamp. | [optional] 
-**Modified** | **System.DateTime** | Last modified timestamp. | [optional] 
-**Target** | [**SubtypeTarget**](subtype-target) |  | [optional] 
+**Id** | **String** | Server-generated subtype identifier. Must not be supplied on create. | [optional] [readonly] 
+**TechnicalName** | **String** | Technical name of the subtype. Unique within the target tier scope. | [required]
+**DisplayName** | **String** | Display name of the subtype. | [required]
+**Description** | **String** | Description of the subtype. | [required]
+**Type** | **String** | Entity type of the subtype. Defaults to `MACHINE` when omitted. | [optional] [default to "MACHINE"]
+**TargetType** | **SubtypeTargetType** |  | [optional] 
+**TargetId** | **String** | Scope key for the subtype. Source id when `targetType` is `SOURCE`. Connector type or connector specification id when `targetType` is `CONNECTOR`. | [required]
+**TargetName** | **String** | Human-readable target label. May be omitted on create; the service persists a display name. | [optional] [default to ""]
+**Classification** | **SubtypeClassification** |  | [optional] 
+**Origin** |  **Enum** [  "SOURCE",    "CONNECTOR",    "CONNECTOR_VARIANT" ] | Response-only origin badge. Set on effective-set list reads: `CONNECTOR` when a SOURCE winner overrides a CONNECTOR parent of the same technical name. `null` on connector-only and source-only winners, and on plain CRUD list, create, patch, and get-by-id. | [optional] [readonly] 
+**VarProfile** | [**ConnectorVariantProfile**](connector-variant-profile) |  | [optional] 
+**SystemManaged** | **Boolean** | Server-set flag indicating the subtype is managed by the system. Incoming values are ignored. | [optional] [readonly] [default to $false]
+**Created** | **System.DateTime** | Creation timestamp. | [optional] [readonly] 
+**Modified** | **System.DateTime** | Last modified timestamp. | [optional] [readonly] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $SourceSubtypeV2 = Initialize-SourceSubtypeV2  -Id 43bdd144-4b17-4fce-a744-17c7fd3e717b `
- -TechnicalName service-account `
- -DisplayName Service Account `
- -Description Accounts used by automated services. `
+ -TechnicalName nonPersonal `
+ -DisplayName Non Personal `
+ -Description Machine accounts for JDBC connectors `
  -Type MACHINE `
- -TargetType CONNECTOR `
- -TargetId active-directory `
- -TargetName Active Directory `
- -Classification MACHINE `
- -Origin null `
+ -TargetType null `
+ -TargetId JDBC `
+ -TargetName JDBC `
+ -Classification null `
+ -Origin CONNECTOR `
  -VarProfile null `
  -SystemManaged false `
- -Created 2026-07-28T16:13:42.801Z `
- -Modified 2026-07-28T16:13:42.750Z `
- -Target null
+ -Created 2026-08-18T12:00Z `
+ -Modified 2026-08-18T12:00Z
 ```
 
 - Convert the resource to JSON

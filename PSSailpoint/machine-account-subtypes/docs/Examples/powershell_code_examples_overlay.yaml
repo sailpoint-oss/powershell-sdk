@@ -4,7 +4,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/machineaccountsubtypes/methods/machine-account-subtypes#create-source-subtype-override-v2
       source: |
-        $Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the connector subtype to override.
+        $Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | CONNECTOR-tier subtype to snapshot onto the source.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SourceSubtypeOverrideRequest = @"
         {
@@ -12,7 +12,7 @@
         }
         "@
         
-        # Override source connector subtype
+        # Create a source-tier override
         
         try {
             $Result = ConvertFrom-JsonToSourceSubtypeOverrideRequest -Json $SourceSubtypeOverrideRequest
@@ -32,11 +32,11 @@
       source: |
         $Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the subtype.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SubtypeProvisioningPolicy = @"
+        $ProvisioningPolicyDto = @"
         {
-          "name" : "Service Account",
-          "description" : "Fields collected when creating a service account.",
-          "id" : "d7ae9ea3-507f-4d00-9d4f-b4464b344b88",
+          "name" : "Create Machine Account",
+          "description" : "Fields used when creating a machine account for this subtype",
+          "id" : "54f626b4-c9d8-4f7e-b768-046c20583abb",
           "subtypeId" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
           "fields" : [ {
             "isRequired" : false,
@@ -49,7 +49,7 @@
             "isMultiValued" : false,
             "name" : "userName",
             "attributes" : {
-              "template" : "{firstname}.{lastname}{uniqueCounter}",
+              "template" : "firstname.lastname.uniqueCounter",
               "cloudMaxUniqueChecks" : "50",
               "cloudMaxSize" : "20",
               "cloudRequired" : "true"
@@ -66,7 +66,7 @@
             "isMultiValued" : false,
             "name" : "userName",
             "attributes" : {
-              "template" : "{firstname}.{lastname}{uniqueCounter}",
+              "template" : "firstname.lastname.uniqueCounter",
               "cloudMaxUniqueChecks" : "50",
               "cloudMaxSize" : "20",
               "cloudRequired" : "true"
@@ -76,16 +76,16 @@
           "usageType" : "CREATE_MACHINE_ACCOUNT"
         }
         "@
-        $UseDefaultFields = $true # Boolean | When `true` and the request body has no `fields`, a `CONNECTOR` subtype's policy is created with the connector's default account creation fields. Ignored for `SOURCE` subtypes. (optional) (default to $true)
+        $UseDefaultFields = $true # Boolean | When `true` and the request body has no `fields`, a `CONNECTOR` subtype's policy is created with the connector's default account-creation fields. Ignored for `SOURCE` subtypes. (optional) (default to $true)
         
         # Create subtype provisioning policy
         
         try {
-            $Result = ConvertFrom-JsonToSubtypeProvisioningPolicy -Json $SubtypeProvisioningPolicy
-            New-SourceSubtypeProvisioningPolicyV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -SubtypeProvisioningPolicy $Result 
+            $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+            New-SourceSubtypeProvisioningPolicyV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -ProvisioningPolicyDto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-SourceSubtypeProvisioningPolicyV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -SubtypeProvisioningPolicy $Result -UseDefaultFields $UseDefaultFields   
+            # New-SourceSubtypeProvisioningPolicyV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -ProvisioningPolicyDto $Result -UseDefaultFields $UseDefaultFields   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourceSubtypeProvisioningPolicyV2"
             Write-Host $_.ErrorDetails
@@ -120,27 +120,37 @@
       label: SDK_tools/sdk/powershell/machineaccountsubtypes/methods/machine-account-subtypes#create-source-subtype-v2
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $CreateSourceSubtypeV2Request = @"
+        $SourceSubtypeV2 = @"
         {
-          "targetName" : "Active Directory",
-          "targetId" : "active-directory",
-          "displayName" : "Service Account",
-          "description" : "Accounts used by automated services.",
+          "targetName" : "JDBC",
+          "targetId" : "JDBC",
+          "displayName" : "Non Personal",
+          "created" : "2026-08-18T12:00:00Z",
+          "origin" : "CONNECTOR",
+          "profile" : {
+            "connectorType" : "JDBC",
+            "variant" : "MySql",
+            "id" : "65de7634-d315-482c-aad4-7fdbd1e42056"
+          },
+          "systemManaged" : false,
+          "description" : "Machine accounts for JDBC connectors",
           "targetType" : "CONNECTOR",
           "type" : "MACHINE",
           "classification" : "MACHINE",
-          "technicalName" : "service-account"
+          "technicalName" : "nonPersonal",
+          "modified" : "2026-08-18T12:00:00Z",
+          "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b"
         }
         "@
         
-        # Create subtype
+        # Create a tiered subtype
         
         try {
-            $Result = ConvertFrom-JsonToCreateSourceSubtypeV2Request -Json $CreateSourceSubtypeV2Request
-            New-SourceSubtypeV2 -XSailPointExperimental $XSailPointExperimental -CreateSourceSubtypeV2Request $Result 
+            $Result = ConvertFrom-JsonToSourceSubtypeV2 -Json $SourceSubtypeV2
+            New-SourceSubtypeV2 -XSailPointExperimental $XSailPointExperimental -SourceSubtypeV2 $Result 
     
             # Below is a request that includes all optional parameters
-            # New-SourceSubtypeV2 -XSailPointExperimental $XSailPointExperimental -CreateSourceSubtypeV2Request $Result   
+            # New-SourceSubtypeV2 -XSailPointExperimental $XSailPointExperimental -SourceSubtypeV2 $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourceSubtypeV2"
             Write-Host $_.ErrorDetails
@@ -174,7 +184,7 @@
         $Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the subtype.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
-        # Delete subtype by ID
+        # Delete tiered subtype by ID
         
         try {
             Remove-MachineAccountSubtypeV2 -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -254,7 +264,7 @@
         $Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the subtype.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
-        # Get subtype by ID
+        # Get tiered subtype by ID
         
         try {
             Get-SourceSubtypeByIdV2 -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -273,7 +283,7 @@
       source: |
         $Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the subtype.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | ID of the source the subtype belongs to. Supply it for `SOURCE` subtypes so that a policy stored with the source can be found. (optional)
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | ID of the source the subtype belongs to. Supply it for `SOURCE` subtypes so that a policy stored with the source can be found. (optional) (default to "")
         
         # Get subtype provisioning policy
         
@@ -292,12 +302,12 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/machineaccountsubtypes/methods/machine-account-subtypes#list-source-subtype-targets-v2
       source: |
-        $Filters = "targetType eq "CONNECTOR"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*  A `targetType` filter with the value `CONNECTOR` or `SOURCE` is required.
+        $Filters = "targetType eq "CONNECTOR"" # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Sorters = "targetName" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Default sort is targetName ascending. (optional) (default to "targetName")
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
         $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Sorters = "-subtypeCount" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Results are sorted by **targetName** ascending by default. (optional)
         
         # List subtype targets
         
@@ -305,7 +315,7 @@
             Get-SourceSubtypeTargetsV2 -Filters $Filters -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-SourceSubtypeTargetsV2 -Filters $Filters -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters   
+            # Get-SourceSubtypeTargetsV2 -Filters $Filters -XSailPointExperimental $XSailPointExperimental -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceSubtypeTargetsV2"
             Write-Host $_.ErrorDetails
@@ -341,23 +351,23 @@
       label: SDK_tools/sdk/powershell/machineaccountsubtypes/methods/machine-account-subtypes#list-source-subtypes-v2
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | ID of a source. When supplied, the API returns subtypes for that source instead of the whole tenant. (optional)
-        $EffectiveSet = $true # Boolean | Controls what is returned for `sourceId`. When `true`, which is the default when `sourceId` is supplied, the API returns the source's effective subtypes across both tiers. When `false`, the API returns only the subtypes defined for the source. Passing `effectiveSet=true` explicitly without `sourceId` returns `400`. (optional) (default to $true)
-        $TargetType = "SOURCE" # String | Returns only effective subtypes of this tier. Requires `sourceId`, and cannot be combined with `effectiveSet=false`; otherwise the API returns `400`. (optional)
-        $IncludeConfigs = $false # Boolean | When `true`, each item includes a summary of its machine account creation configuration in `config`. (optional) (default to $false)
+        $Filters = "targetType eq "CONNECTOR"" # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in*  **targetType**: *eq, in*  **targetId**: *eq, in*  **targetName**: *eq, sw*  **classification**: *eq, in*  **type**: *eq, in*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be combined with the effective set. That combination returns 400. (optional)
+        $Sorters = "displayName" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, displayName, technicalName, source.id, targetType, targetId, targetName, classification, type, created, modified**  When omitted, order is unspecified. (optional) (default to "")
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | Source scope. When supplied, omitted `effectiveSet` defaults to `true`. Unknown source returns **404**. Empty means the parameter was omitted. (optional) (default to "")
+        $EffectiveSet = $true # Boolean | When `true` with `sourceId`, return the effective subtype set for that source. When `false` with `sourceId`, return only that source's raw SOURCE-tier rows. `true` without `sourceId` returns **400**. Combining with `filters` returns **400**. (optional) (default to $true)
+        $TargetType = "SOURCE" # String | Winner-tier cut on the effective set only. `CONNECTOR` returns inherited connector winners. `SOURCE` returns source-only winners and SOURCE overrides. Omit it to keep the full winner set. Invalid when `effectiveSet` is `false` or `sourceId` is omitted. (optional)
+        $IncludeConfigs = $false # Boolean | When `true`, each `MACHINE` subtype with a stored machine-account-create config includes slim `config.machineAccountCreate.accountCreateEnabled`. Default `false` omits `config`. (optional) (default to $false)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
         $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "targetType eq "CONNECTOR"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **technicalName**: *eq, ne, in, sw, co*  **displayName**: *eq, ne, in, sw, co*  **source.id**: *eq, ne, in, sw, co*  **targetType**: *eq, ne, in, sw, co*  **targetId**: *eq, ne, in, sw, co*  **targetName**: *eq, ne, in, sw, co, isnull*  **classification**: *eq, ne, in, sw, co*  **type**: *eq, ne, in, sw, co*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be used with `sourceId` unless `effectiveSet=false`; otherwise the API returns `400`. (optional)
-        $Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, technicalName, displayName, source.id, targetType, targetId, targetName, classification, type, created, modified** (optional)
         
-        # List subtypes
+        # Retrieve all tiered subtypes
         
         try {
             Get-SourceSubtypesV2 -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-SourceSubtypesV2 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -EffectiveSet $EffectiveSet -TargetType $TargetType -IncludeConfigs $IncludeConfigs -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+            # Get-SourceSubtypesV2 -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -SourceId $SourceId -EffectiveSet $EffectiveSet -TargetType $TargetType -IncludeConfigs $IncludeConfigs -Count $Count -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceSubtypesV2"
             Write-Host $_.ErrorDetails
@@ -424,7 +434,7 @@
         }"@ 
         
         
-        # Patch subtype by ID
+        # Patch tiered subtype by ID
         
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

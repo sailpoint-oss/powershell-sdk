@@ -12,24 +12,34 @@ No summary available.
 
 .DESCRIPTION
 
-The machine account creation provisioning policy of a subtype.
+CREATE_MACHINE_ACCOUNT provisioning policy stored on a source subtype. Field-compatible with source provisioning-policy documents.
 
+.PARAMETER Id
+Unique identifier of the stored provisioning policy.
+.PARAMETER SubtypeId
+Identifier of the subtype that owns this policy.
 .PARAMETER Name
-Name of the provisioning policy. Defaults to the subtype's display name when omitted or blank.
+Name of the provisioning policy.
 .PARAMETER Description
 Description of the provisioning policy.
 .PARAMETER UsageType
-Usage type of the provisioning policy. Only `CREATE_MACHINE_ACCOUNT` is supported.
+Usage type of the policy. This API stores only `CREATE_MACHINE_ACCOUNT`.
 .PARAMETER Fields
-Fields of the provisioning policy. Every field must have a non-blank `name`. When two fields share a name, only the first is kept.
+Fields in the provisioning policy. Field order is not semantically meaningful.
 .OUTPUTS
 
-SubtypeProvisioningPolicy<PSCustomObject>
+ProvisioningPolicyDto<PSCustomObject>
 #>
 
-function Initialize-SubtypeProvisioningPolicy {
+function Initialize-ProvisioningPolicyDto {
     [CmdletBinding()]
     Param (
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SubtypeId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
@@ -37,20 +47,21 @@ function Initialize-SubtypeProvisioningPolicy {
         [String]
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("CREATE_MACHINE_ACCOUNT")]
         [String]
-        ${UsageType} = "CREATE_MACHINE_ACCOUNT",
+        ${UsageType} = "",
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Fields}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountSubtypes => SubtypeProvisioningPolicy' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccountSubtypes => ProvisioningPolicyDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "subtypeId" = ${SubtypeId}
             "name" = ${Name}
             "description" = ${Description}
             "usageType" = ${UsageType}
@@ -64,11 +75,11 @@ function Initialize-SubtypeProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Convert from JSON to SubtypeProvisioningPolicy<PSCustomObject>
+Convert from JSON to ProvisioningPolicyDto<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SubtypeProvisioningPolicy<PSCustomObject>
+Convert from JSON to ProvisioningPolicyDto<PSCustomObject>
 
 .PARAMETER Json
 
@@ -76,21 +87,21 @@ Json object
 
 .OUTPUTS
 
-SubtypeProvisioningPolicy<PSCustomObject>
+ProvisioningPolicyDto<PSCustomObject>
 #>
-function ConvertFrom-JsonToSubtypeProvisioningPolicy {
+function ConvertFrom-JsonToProvisioningPolicyDto {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountSubtypes => SubtypeProvisioningPolicy' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountSubtypes => ProvisioningPolicyDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in SubtypeProvisioningPolicy
+        # check if Json contains properties not defined in ProvisioningPolicyDto
         $AllProperties = ("id", "subtypeId", "name", "description", "usageType", "fields")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

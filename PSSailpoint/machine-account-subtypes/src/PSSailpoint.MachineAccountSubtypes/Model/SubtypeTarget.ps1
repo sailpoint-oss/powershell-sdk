@@ -12,16 +12,16 @@ No summary available.
 
 .DESCRIPTION
 
-Reference to the source or connector the subtype is defined for.
+Resolved target of a tiered subtype on get-by-id. Extends the list/create/patch target reference with `supportsProvisioning`. Not accepted on create.
 
 .PARAMETER Type
-Type of the target.
+DTO type of the target. `SOURCE` for source-tier rows; `CONNECTOR` for connector-tier rows.
 .PARAMETER Id
-Source ID for a `SOURCE` target, or connector type for a `CONNECTOR` target.
+Target identifier. Source id for `SOURCE`. Connector specification id or connector type for `CONNECTOR`.
 .PARAMETER Name
-Name of the source or connector.
+Human-readable target name. Falls back to `id` when a display name is not available.
 .PARAMETER SupportsProvisioning
-Indicates whether the target supports provisioning. Only returned when you get a single subtype by ID.
+Whether the target can provision accounts. `false` when the target does not support provisioning.
 .OUTPUTS
 
 SubtypeTarget<PSCustomObject>

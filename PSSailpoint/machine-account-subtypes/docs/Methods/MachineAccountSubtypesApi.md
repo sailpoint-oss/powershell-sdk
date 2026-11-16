@@ -10,7 +10,8 @@ tags: ['SDK', 'Software Development Kit', 'MachineAccountSubtypes', 'MachineAcco
 ---
 
 # MachineAccountSubtypes
-  Use this API to get, update, and delete machine account subtype for sources.
+  Use this API to get, update, and delete machine account subtypes. V2 paths are experimental
+and require the &#x60;X-SailPoint-Experimental&#x60; header.
  
   
 
@@ -18,23 +19,23 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-SourceSubtypeOverrideV2**](#create-source-subtype-override-v2) | **POST** `/source-subtypes/v2/{id}/overrides` | Override source connector subtype
+[**New-SourceSubtypeOverrideV2**](#create-source-subtype-override-v2) | **POST** `/source-subtypes/v2/{id}/overrides` | Create a source-tier override
 [**New-SourceSubtypeProvisioningPolicyV2**](#create-source-subtype-provisioning-policy-v2) | **POST** `/source-subtypes/v2/{id}/provisioning-policy` | Create subtype provisioning policy
 [**New-SourceSubtypeV1**](#create-source-subtype-v1) | **POST** `/source-subtypes/v1` | Create subtype
-[**New-SourceSubtypeV2**](#create-source-subtype-v2) | **POST** `/source-subtypes/v2` | Create subtype
+[**New-SourceSubtypeV2**](#create-source-subtype-v2) | **POST** `/source-subtypes/v2` | Create a tiered subtype
 [**Remove-MachineAccountSubtypeV1**](#delete-machine-account-subtype-v1) | **DELETE** `/source-subtypes/v1/{subtypeId}` | Delete subtype by ID
-[**Remove-MachineAccountSubtypeV2**](#delete-machine-account-subtype-v2) | **DELETE** `/source-subtypes/v2/{id}` | Delete subtype by ID
+[**Remove-MachineAccountSubtypeV2**](#delete-machine-account-subtype-v2) | **DELETE** `/source-subtypes/v2/{id}` | Delete tiered subtype by ID
 [**Remove-SourceSubtypeProvisioningPolicyV2**](#delete-source-subtype-provisioning-policy-v2) | **DELETE** `/source-subtypes/v2/{id}/provisioning-policy` | Delete subtype provisioning policy
 [**Get-MachineAccountSubtypeApprovalConfigV1**](#get-machine-account-subtype-approval-config-v1) | **GET** `/source-subtypes/v1/{subtypeId}/machine-config` | Machine Subtype Approval Config
 [**Get-SourceSubtypeByIdV1**](#get-source-subtype-by-id-v1) | **GET** `/source-subtypes/v1/{subtypeId}` | Get subtype by ID
-[**Get-SourceSubtypeByIdV2**](#get-source-subtype-by-id-v2) | **GET** `/source-subtypes/v2/{id}` | Get subtype by ID
+[**Get-SourceSubtypeByIdV2**](#get-source-subtype-by-id-v2) | **GET** `/source-subtypes/v2/{id}` | Get tiered subtype by ID
 [**Get-SourceSubtypeProvisioningPolicyV2**](#get-source-subtype-provisioning-policy-v2) | **GET** `/source-subtypes/v2/{id}/provisioning-policy` | Get subtype provisioning policy
 [**Get-SourceSubtypeTargetsV2**](#list-source-subtype-targets-v2) | **GET** `/source-subtypes/v2/targets` | List subtype targets
 [**Get-SourceSubtypesV1**](#list-source-subtypes-v1) | **GET** `/source-subtypes/v1` | Retrieve all subtypes
-[**Get-SourceSubtypesV2**](#list-source-subtypes-v2) | **GET** `/source-subtypes/v2` | List subtypes
+[**Get-SourceSubtypesV2**](#list-source-subtypes-v2) | **GET** `/source-subtypes/v2` | Retrieve all tiered subtypes
 [**Invoke-LoadBulkSourceSubtypesV1**](#load-bulk-source-subtypes-v1) | **POST** `/source-subtypes/v1/bulk-retrieve` | Bulk Retrieve of Source Subtypes
 [**Update-MachineAccountSubtypeV1**](#patch-machine-account-subtype-v1) | **PATCH** `/source-subtypes/v1/{subtypeId}` | Patch subtype by ID
-[**Update-MachineAccountSubtypeV2**](#patch-machine-account-subtype-v2) | **PATCH** `/source-subtypes/v2/{id}` | Patch subtype by ID
+[**Update-MachineAccountSubtypeV2**](#patch-machine-account-subtype-v2) | **PATCH** `/source-subtypes/v2/{id}` | Patch tiered subtype by ID
 [**Update-SourceSubtypeProvisioningPolicyV2**](#patch-source-subtype-provisioning-policy-v2) | **PATCH** `/source-subtypes/v2/{id}/provisioning-policy` | Patch subtype provisioning policy
 [**Update-MachineAccountSubtypeApprovalConfigV1**](#update-machine-account-subtype-approval-config-v1) | **PATCH** `/source-subtypes/v1/{subtypeId}/machine-config` | Machine Subtype Approval Config
 
@@ -43,35 +44,39 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Create a source subtype that overrides a connector subtype on one source. The new source subtype copies the
-connector subtype's machine account configuration and provisioning policy at the time of the request. Later
-changes to the connector subtype are not applied to the override.
+Creates a SOURCE-tier snapshot of a CONNECTOR-tier subtype for one source. The snapshot copies
+the parent display data, machine-account config, and authored provisioning policy. It does not
+add the connector's default account-creation fields, and later connector-tier edits do not
+propagate.
 
-The subtype identified by `id` must be a `CONNECTOR` subtype (otherwise `400`) that is in the source's effective
-subtypes. An unknown subtype or source returns `404`. The request is rejected if the tenant's subtype
-configuration cannot be changed this way.
+`subtypeId` must be a CONNECTOR-tier subtype UUID that is in the source effective set. The
+created row is an ordinary SOURCE subtype (`targetType=SOURCE`, new `id`, `origin=null`) and
+can be patched or deleted with the existing v2 subtype routes.
 
-The caller needs the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins.
-A caller without it receives `404`, not `403`. A malformed ID returns `400`.
+Requires `idn:source-subtypes:create`. A missing right, an unknown parent, or an unknown source
+returns **404**. A parent that is not CONNECTOR, a blank `sourceId`, a parent that is not
+effective on the source, a name collision, or a subtype cap returns **400**. A malformed `subtypeId` returns **400**.
 
-This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+When the experimental header is missing, or when the tiered subtype configuration is not enabled
+for the tenant, the endpoint returns **404**.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-source-subtype-override-v-2)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The ID of the connector subtype to override.
+Path   | Id | **String** | True  | CONNECTOR-tier subtype to snapshot onto the source.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SourceSubtypeOverrideRequest | [**SourceSubtypeOverrideRequest**](../models/source-subtype-override-request) | True  | 
 
 ### Return type
-[**SourceSubtypeV2**](../models/source-subtype-v2)
+[**SubtypeWithTarget**](../models/subtype-with-target)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Created source subtype that overrides the connector subtype. | SourceSubtypeV2
+201 | Created SOURCE-tier override. | SubtypeWithTarget
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | LoadBulkSourceSubtypesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -85,13 +90,13 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the connector subtype to override.
+$Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | CONNECTOR-tier subtype to snapshot onto the source.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SourceSubtypeOverrideRequest = @"{
   "sourceId" : "6d0458373bec4b4b80460992b76016da"
 }"@
 
-# Override source connector subtype
+# Create a source-tier override
 
 try {
     $Result = ConvertFrom-JsonToSourceSubtypeOverrideRequest -Json $SourceSubtypeOverrideRequest
@@ -110,22 +115,19 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Create the machine account creation provisioning policy of a subtype of any tier. A subtype has at most one
-provisioning policy; the request is rejected if one already exists.
+Creates the machine account creation provisioning policy for a subtype. A subtype has at most
+one policy; the request is rejected if one already exists.
 
-`id` and `subtypeId` must not be supplied (otherwise `400`). `usageType` must be `CREATE_MACHINE_ACCOUNT` or
-omitted. `name` defaults to the subtype's display name.
+When `useDefaultFields` is `true` and the body has no `fields`, a `CONNECTOR` subtype's policy
+is created with the connector's default account-creation fields. `SOURCE` subtypes ignore
+`useDefaultFields`.
 
-Who can call this API depends on the tier of the subtype:
+SOURCE-tier write requires `idn:source-subtypes:update`. CONNECTOR-tier write requires
+`idn:connector-subtypes:update`. A missing subtype or a missing right returns **404**.
 
-* `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source
-sub-admins.
+When the experimental header is missing, or when the tiered subtype configuration is not enabled
+for the tenant, the endpoint returns **404**.
 
-* `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.
-
-A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.
-
-This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-source-subtype-provisioning-policy-v-2)
 
@@ -134,20 +136,21 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the subtype.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | SubtypeProvisioningPolicy | [**SubtypeProvisioningPolicy**](../models/subtype-provisioning-policy) | True  | 
-  Query | UseDefaultFields | **Boolean** |   (optional) (default to $true) | When `true` and the request body has no `fields`, a `CONNECTOR` subtype's policy is created with the connector's default account creation fields. Ignored for `SOURCE` subtypes.
+ Body  | ProvisioningPolicyDto | [**ProvisioningPolicyDto**](../models/provisioning-policy-dto) | True  | 
+  Query | UseDefaultFields | **Boolean** |   (optional) (default to $true) | When `true` and the request body has no `fields`, a `CONNECTOR` subtype's policy is created with the connector's default account-creation fields. Ignored for `SOURCE` subtypes.
 
 ### Return type
-[**SubtypeProvisioningPolicy**](../models/subtype-provisioning-policy)
+[**ProvisioningPolicyDto**](../models/provisioning-policy-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Created subtype provisioning policy. | SubtypeProvisioningPolicy
+201 | Stored CREATE_MACHINE_ACCOUNT provisioning policy. | ProvisioningPolicyDto
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | LoadBulkSourceSubtypesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+409 | Conflict - a provisioning policy is already stored for the subtype. | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | LoadBulkSourceSubtypesV1429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
@@ -159,10 +162,10 @@ Code | Description  | Data Type
 ```powershell
 $Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the subtype.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$SubtypeProvisioningPolicy = @"{
-  "name" : "Service Account",
-  "description" : "Fields collected when creating a service account.",
-  "id" : "d7ae9ea3-507f-4d00-9d4f-b4464b344b88",
+$ProvisioningPolicyDto = @"{
+  "name" : "Create Machine Account",
+  "description" : "Fields used when creating a machine account for this subtype",
+  "id" : "54f626b4-c9d8-4f7e-b768-046c20583abb",
   "subtypeId" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
   "fields" : [ {
     "isRequired" : false,
@@ -175,7 +178,7 @@ $SubtypeProvisioningPolicy = @"{
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "{firstname}.{lastname}{uniqueCounter}",
+      "template" : "firstname.lastname.uniqueCounter",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -192,7 +195,7 @@ $SubtypeProvisioningPolicy = @"{
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "{firstname}.{lastname}{uniqueCounter}",
+      "template" : "firstname.lastname.uniqueCounter",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -201,16 +204,16 @@ $SubtypeProvisioningPolicy = @"{
   } ],
   "usageType" : "CREATE_MACHINE_ACCOUNT"
 }"@
-$UseDefaultFields = $true # Boolean | When `true` and the request body has no `fields`, a `CONNECTOR` subtype's policy is created with the connector's default account creation fields. Ignored for `SOURCE` subtypes. (optional) (default to $true)
+$UseDefaultFields = $true # Boolean | When `true` and the request body has no `fields`, a `CONNECTOR` subtype's policy is created with the connector's default account-creation fields. Ignored for `SOURCE` subtypes. (optional) (default to $true)
 
 # Create subtype provisioning policy
 
 try {
-    $Result = ConvertFrom-JsonToSubtypeProvisioningPolicy -Json $SubtypeProvisioningPolicy
-    New-SourceSubtypeProvisioningPolicyV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -SubtypeProvisioningPolicy $Result 
+    $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+    New-SourceSubtypeProvisioningPolicyV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-SourceSubtypeProvisioningPolicyV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -SubtypeProvisioningPolicy $Result -UseDefaultFields $UseDefaultFields  
+    # New-SourceSubtypeProvisioningPolicyV2 -Id $Id -XSailPointExperimental $XSailPointExperimental -ProvisioningPolicyDto $Result -UseDefaultFields $UseDefaultFields  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourceSubtypeProvisioningPolicyV2"
     Write-Host $_.ErrorDetails
@@ -273,23 +276,24 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Create a machine account subtype at the source tier or the connector tier.
+Creates a machine account subtype at the tier declared on the request body.
 
-A `SOURCE` subtype applies to the one source identified by `targetId`. A `CONNECTOR` subtype applies to every
-source of the connector type identified by `targetId`, which must be a registered connector type. `targetType`
-defaults to `SOURCE`. `CONNECTOR_VARIANT` is not supported and returns `400`. `technicalName`, `displayName` and
-`description` are required, and the technical name and display name must be unique within the tier's scope.
+`targetId` is required at every tier. `targetType` defaults to `SOURCE` when omitted. Do not
+supply `id` or `profile`; those fields are response-only. `systemManaged`, `created`,
+`modified`, and `origin` are ignored on input. CONNECTOR `targetName` is optional and is filled
+from the connector's display name.
 
-Who can call this API depends on the requested tier:
+SOURCE-tier create requires `idn:source-subtypes:create`. CONNECTOR-tier create requires
+`idn:connector-subtypes:create`. A missing right is returned as **404**, not **403**.
+`CONNECTOR_VARIANT` is not available and returns **400**.
 
-* `SOURCE` (or omitted): requires the `idn:source-subtypes:create` right, held by org admins, source admins and
-source sub-admins.
+Duplicate technical name or display name in the same tier scope returns **400**. Exceeding the
+organization subtype limit returns **400**. The create also stores a `CREATE_MACHINE_ACCOUNT`
+provisioning policy from the connector's default account-creation fields.
 
-* `CONNECTOR`: requires the `idn:connector-subtypes:create` right, held by org admins.
+When the experimental header is missing, or when the tiered subtype configuration is not enabled
+for the tenant, the endpoint returns **404**.
 
-A caller without the right for the requested tier receives `404`, not `403`.
-
-This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-source-subtype-v-2)
 
@@ -297,15 +301,15 @@ This API returns `404` when Machine Identity Security or tiered subtype configur
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | CreateSourceSubtypeV2Request | [**CreateSourceSubtypeV2Request**](../models/create-source-subtype-v2-request) | True  | 
+ Body  | SourceSubtypeV2 | [**SourceSubtypeV2**](../models/source-subtype-v2) | True  | 
 
 ### Return type
-[**SourceSubtypeV2**](../models/source-subtype-v2)
+[**SubtypeWithTarget**](../models/subtype-with-target)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | Created machine account subtype. | SourceSubtypeV2
+201 | Created tiered machine account subtype. | SubtypeWithTarget
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | LoadBulkSourceSubtypesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -320,25 +324,35 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$CreateSourceSubtypeV2Request = @"{
-  "targetName" : "Active Directory",
-  "targetId" : "active-directory",
-  "displayName" : "Service Account",
-  "description" : "Accounts used by automated services.",
+$SourceSubtypeV2 = @"{
+  "targetName" : "JDBC",
+  "targetId" : "JDBC",
+  "displayName" : "Non Personal",
+  "created" : "2026-08-18T12:00:00Z",
+  "origin" : "CONNECTOR",
+  "profile" : {
+    "connectorType" : "JDBC",
+    "variant" : "MySql",
+    "id" : "65de7634-d315-482c-aad4-7fdbd1e42056"
+  },
+  "systemManaged" : false,
+  "description" : "Machine accounts for JDBC connectors",
   "targetType" : "CONNECTOR",
   "type" : "MACHINE",
   "classification" : "MACHINE",
-  "technicalName" : "service-account"
+  "technicalName" : "nonPersonal",
+  "modified" : "2026-08-18T12:00:00Z",
+  "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b"
 }"@
 
-# Create subtype
+# Create a tiered subtype
 
 try {
-    $Result = ConvertFrom-JsonToCreateSourceSubtypeV2Request -Json $CreateSourceSubtypeV2Request
-    New-SourceSubtypeV2 -XSailPointExperimental $XSailPointExperimental -CreateSourceSubtypeV2Request $Result 
+    $Result = ConvertFrom-JsonToSourceSubtypeV2 -Json $SourceSubtypeV2
+    New-SourceSubtypeV2 -XSailPointExperimental $XSailPointExperimental -SourceSubtypeV2 $Result 
     
     # Below is a request that includes all optional parameters
-    # New-SourceSubtypeV2 -XSailPointExperimental $XSailPointExperimental -CreateSourceSubtypeV2Request $Result  
+    # New-SourceSubtypeV2 -XSailPointExperimental $XSailPointExperimental -SourceSubtypeV2 $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourceSubtypeV2"
     Write-Host $_.ErrorDetails
@@ -402,19 +416,18 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Delete a machine account subtype of any tier by subtype ID. System-managed subtypes, and subtypes still assigned
-to accounts, cannot be deleted and the request is rejected.
+Deletes a tiered subtype by id.
 
-Who can call this API depends on the tier of the stored subtype:
+System-managed subtypes return **400**. A subtype that is still assigned to accounts returns
+**400**. A connector-tier response includes how many accounts and sources still use it.
 
-* `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source
-sub-admins.
+SOURCE-tier delete requires `idn:source-subtypes:delete`. CONNECTOR-tier delete requires
+`idn:connector-subtypes:delete`. Unknown id and a denied tier are both returned as **404**. A
+malformed UUID returns **400**.
 
-* `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.
+When the experimental header is missing, or when the tiered subtype configuration is not enabled
+for the tenant, the endpoint returns **404**.
 
-A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.
-
-This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/delete-machine-account-subtype-v-2)
 
@@ -430,7 +443,7 @@ Path   | Id | **String** | True  | The ID of the subtype.
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-204 | Subtype deleted successfully. | 
+204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | LoadBulkSourceSubtypesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -447,7 +460,7 @@ Code | Description  | Data Type
 $Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the subtype.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Delete subtype by ID
+# Delete tiered subtype by ID
 
 try {
     Remove-MachineAccountSubtypeV2 -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -465,19 +478,14 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Delete the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype
-has no provisioning policy.
+Deletes the stored `CREATE_MACHINE_ACCOUNT` provisioning policy for a subtype.
 
-Who can call this API depends on the tier of the subtype:
+SOURCE-tier delete requires `idn:source-subtypes:delete`. CONNECTOR-tier delete requires
+`idn:connector-subtypes:delete`. Missing subtype and missing right both return **404**.
 
-* `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source
-sub-admins.
+When the experimental header is missing, or when the tiered subtype configuration is not enabled
+for the tenant, the endpoint returns **404**.
 
-* `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.
-
-A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.
-
-This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/delete-source-subtype-provisioning-policy-v-2)
 
@@ -493,7 +501,7 @@ Path   | Id | **String** | True  | The ID of the subtype.
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-204 | Provisioning policy deleted successfully. | 
+204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | LoadBulkSourceSubtypesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -630,11 +638,13 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Get a machine account subtype of any tier by subtype ID. The response may include `target.supportsProvisioning`.
+Returns one machine account subtype by id, including whether its target can provision accounts.
 
-The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.
+Unknown id returns **404**. A caller without the required right also receives **404**. If
+provisioning support cannot be determined, the API returns **503**. When the experimental
+header is missing, or when tiered subtype configuration is not enabled, the endpoint returns
+**404**.
 
-This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-source-subtype-by-id-v-2)
 
@@ -645,18 +655,19 @@ Path   | Id | **String** | True  | The ID of the subtype.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**SourceSubtypeV2**](../models/source-subtype-v2)
+[**SubtypeWithTargetProvisioning**](../models/subtype-with-target-provisioning)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Machine account subtype. | SourceSubtypeV2
+200 | Tiered machine account subtype, including &#x60;target.supportsProvisioning&#x60;. | SubtypeWithTargetProvisioning
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | LoadBulkSourceSubtypesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | LoadBulkSourceSubtypesV1429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+503 | Connector catalogue timeout, HTTP error, or unparseable payload while resolving &#x60;supportsProvisioning&#x60; for a CONNECTOR target. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -667,7 +678,7 @@ Code | Description  | Data Type
 $Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the subtype.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get subtype by ID
+# Get tiered subtype by ID
 
 try {
     Get-SourceSubtypeByIdV2 -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -685,12 +696,15 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Get the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has
-no provisioning policy.
+Returns the machine account creation provisioning policy for a subtype of any tier. Returns
+**404** when the subtype has no provisioning policy.
 
-The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.
+For a `SOURCE` subtype, pass `sourceId` so a policy stored on that source can be found.
 
-This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+The caller needs `idn:source-subtypes:read`. A malformed id returns **400**. When the
+experimental header is missing, or when tiered subtype configuration is not enabled, the
+endpoint returns **404**.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-source-subtype-provisioning-policy-v-2)
 
@@ -699,15 +713,15 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the subtype.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-  Query | SourceId | **String** |   (optional) | ID of the source the subtype belongs to. Supply it for `SOURCE` subtypes so that a policy stored with the source can be found.
+  Query | SourceId | **String** |   (optional) (default to "") | ID of the source the subtype belongs to. Supply it for `SOURCE` subtypes so that a policy stored with the source can be found.
 
 ### Return type
-[**SubtypeProvisioningPolicy**](../models/subtype-provisioning-policy)
+[**ProvisioningPolicyDto**](../models/provisioning-policy-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Subtype provisioning policy. | SubtypeProvisioningPolicy
+200 | CREATE_MACHINE_ACCOUNT provisioning policy for the subtype. | ProvisioningPolicyDto
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | LoadBulkSourceSubtypesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -723,7 +737,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the subtype.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$SourceId = "6d0458373bec4b4b80460992b76016da" # String | ID of the source the subtype belongs to. Supply it for `SOURCE` subtypes so that a policy stored with the source can be found. (optional)
+$SourceId = "6d0458373bec4b4b80460992b76016da" # String | ID of the source the subtype belongs to. Supply it for `SOURCE` subtypes so that a policy stored with the source can be found. (optional) (default to "")
 
 # Get subtype provisioning policy
 
@@ -743,27 +757,29 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-List the targets that have machine account subtypes, with subtype and source counts for each.
+Lists per-target subtype counts. Connector-tier rows are grouped by connector type.
+Source-tier rows are returned 1:1 with each source-tier subtype.
 
-A `targetType` filter is required. `targetType eq "CONNECTOR"` returns one item per connector type.
-`targetType eq "SOURCE"` returns one item per source subtype. A missing or unsupported `targetType` filter returns
-`400`.
+`filters` must include `targetType eq "CONNECTOR"` or `targetType eq "SOURCE"`. Missing or
+blank `targetType` returns **400**. `CONNECTOR_VARIANT` and unknown values return **400**.
+Filter and sort fields are independent of the subtype list API. Default sort is `targetName`
+ascending. `lastModified` is response-only and is not filterable or sortable.
 
-The caller needs the `idn:source-subtypes:read` right.
+When the experimental header is missing, or when the tiered subtype configuration is not enabled
+for the tenant, the endpoint returns **404**.
 
-This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-source-subtype-targets-v-2)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Filters | **String** | True  | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*  A `targetType` filter with the value `CONNECTOR` or `SOURCE` is required.
+  Query | Filters | **String** | True  | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+  Query | Sorters | **String** |   (optional) (default to "targetName") | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Default sort is targetName ascending.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
-  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
-  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Results are sorted by **targetName** ascending by default.
 
 ### Return type
 [**SubtypeTargetSummary[]**](../models/subtype-target-summary)
@@ -771,7 +787,7 @@ Param Type | Name | Data Type | Required  | Description
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of subtype targets. The &#x60;X-Total-Count&#x60; header is returned when &#x60;count&#x3D;true&#x60;. | SubtypeTargetSummary[]
+200 | List of subtype target summaries. | SubtypeTargetSummary[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | LoadBulkSourceSubtypesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -785,12 +801,12 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = 'targetType eq "CONNECTOR"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*  A `targetType` filter with the value `CONNECTOR` or `SOURCE` is required.
+$Filters = 'targetType eq "CONNECTOR"' # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Sorters = "targetName" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Default sort is targetName ascending. (optional) (default to "targetName")
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Sorters = "-subtypeCount" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Results are sorted by **targetName** ascending by default. (optional)
 
 # List subtype targets
 
@@ -798,7 +814,7 @@ try {
     Get-SourceSubtypeTargetsV2 -Filters $Filters -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-SourceSubtypeTargetsV2 -Filters $Filters -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters  
+    # Get-SourceSubtypeTargetsV2 -Filters $Filters -XSailPointExperimental $XSailPointExperimental -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceSubtypeTargetsV2"
     Write-Host $_.ErrorDetails
@@ -868,21 +884,35 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-List machine account subtypes defined at the source tier and the connector tier.
+Lists machine account subtypes across SOURCE and CONNECTOR tiers.
 
-Without `sourceId`, the API lists every subtype in the tenant, and `filters` and `sorters` apply.
+`targetId` is the scope key at every tier (source id for `SOURCE`, connector type for
+`CONNECTOR`). Responses include a resolved `target` reference and do not include `sourceId`.
+List responses do not include `target.supportsProvisioning`.
 
-With `sourceId`, the API returns the source's effective subtypes: the subtypes defined for the source plus the
-subtypes defined for the source's connector type. When a source subtype has the same technical name as a connector
-subtype, only the source subtype is returned and its `origin` is `CONNECTOR`. `filters` cannot be used in this mode.
-Use `targetType` to return only one tier of the effective set. An unknown `sourceId` returns `404`.
+With `sourceId`, omitted `effectiveSet` defaults to `true` and returns the effective set for
+that source (SOURCE overrides CONNECTOR by technical name). `effectiveSet=false` returns only
+that source's raw SOURCE-tier rows. `effectiveSet=true` without `sourceId` returns **400**.
+Combining `filters` with effective-set resolution returns **400**. Unknown `sourceId` returns
+**404**. Limit, offset, and `count` apply on both paths. There is no default sort.
 
-With `sourceId` and `effectiveSet=false`, the API returns only the subtypes defined for that source, and `filters`
-apply.
+Optional `targetType` applies only on the effective-set path. `CONNECTOR` keeps inherited
+connector winners. `SOURCE` keeps source-only winners and SOURCE overrides. Omitting it keeps
+the full winner set. A blank, unknown, or `CONNECTOR_VARIANT` value, or any `targetType` when
+`effectiveSet` is `false` or `sourceId` is omitted, returns **400**.
 
-The caller needs the `idn:source-subtypes:read` right.
+On the effective set, `origin` is `CONNECTOR` only when a SOURCE winner overrides a CONNECTOR
+parent of the same technical name. Connector-only and source-only winners have `origin=null`.
 
-This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+`includeConfigs` defaults to `false`. When `true`, each `MACHINE` subtype that has a stored
+machine-account-create config includes slim `config.machineAccountCreate.accountCreateEnabled`.
+A `MACHINE` row with no create config, and every non-`MACHINE` row, omits `config`. The list
+does not return the full machine-config document.
+
+This API requires the Machine Identity Security product. When the experimental header is
+missing, or when the tiered subtype configuration is not enabled for the tenant, the endpoint
+returns **404**.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-source-subtypes-v-2)
 
@@ -890,23 +920,23 @@ This API returns `404` when Machine Identity Security or tiered subtype configur
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-  Query | SourceId | **String** |   (optional) | ID of a source. When supplied, the API returns subtypes for that source instead of the whole tenant.
-  Query | EffectiveSet | **Boolean** |   (optional) (default to $true) | Controls what is returned for `sourceId`. When `true`, which is the default when `sourceId` is supplied, the API returns the source's effective subtypes across both tiers. When `false`, the API returns only the subtypes defined for the source. Passing `effectiveSet=true` explicitly without `sourceId` returns `400`.
-  Query | TargetType | **String** |   (optional) | Returns only effective subtypes of this tier. Requires `sourceId`, and cannot be combined with `effectiveSet=false`; otherwise the API returns `400`.
-  Query | IncludeConfigs | **Boolean** |   (optional) (default to $false) | When `true`, each item includes a summary of its machine account creation configuration in `config`.
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in*  **targetType**: *eq, in*  **targetId**: *eq, in*  **targetName**: *eq, sw*  **classification**: *eq, in*  **type**: *eq, in*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be combined with the effective set. That combination returns 400.
+  Query | Sorters | **String** |   (optional) (default to "") | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, displayName, technicalName, source.id, targetType, targetId, targetName, classification, type, created, modified**  When omitted, order is unspecified.
+  Query | SourceId | **String** |   (optional) (default to "") | Source scope. When supplied, omitted `effectiveSet` defaults to `true`. Unknown source returns **404**. Empty means the parameter was omitted.
+  Query | EffectiveSet | **Boolean** |   (optional) (default to $true) | When `true` with `sourceId`, return the effective subtype set for that source. When `false` with `sourceId`, return only that source's raw SOURCE-tier rows. `true` without `sourceId` returns **400**. Combining with `filters` returns **400**.
+  Query | TargetType | **String** |   (optional) | Winner-tier cut on the effective set only. `CONNECTOR` returns inherited connector winners. `SOURCE` returns source-only winners and SOURCE overrides. Omit it to keep the full winner set. Invalid when `effectiveSet` is `false` or `sourceId` is omitted.
+  Query | IncludeConfigs | **Boolean** |   (optional) (default to $false) | When `true`, each `MACHINE` subtype with a stored machine-account-create config includes slim `config.machineAccountCreate.accountCreateEnabled`. Default `false` omits `config`.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
-  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **technicalName**: *eq, ne, in, sw, co*  **displayName**: *eq, ne, in, sw, co*  **source.id**: *eq, ne, in, sw, co*  **targetType**: *eq, ne, in, sw, co*  **targetId**: *eq, ne, in, sw, co*  **targetName**: *eq, ne, in, sw, co, isnull*  **classification**: *eq, ne, in, sw, co*  **type**: *eq, ne, in, sw, co*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be used with `sourceId` unless `effectiveSet=false`; otherwise the API returns `400`.
-  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, technicalName, displayName, source.id, targetType, targetId, targetName, classification, type, created, modified**
 
 ### Return type
-[**SourceSubtypeV2WithConfig[]**](../models/source-subtype-v2-with-config)
+[**SubtypeWithTargetAndConfig[]**](../models/subtype-with-target-and-config)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of machine account subtypes. Items include &#x60;config&#x60; when &#x60;includeConfigs&#x3D;true&#x60;. The &#x60;X-Total-Count&#x60; header is returned when &#x60;count&#x3D;true&#x60;. | SourceSubtypeV2WithConfig[]
+200 | List of tiered machine account subtypes. | SubtypeWithTargetAndConfig[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | LoadBulkSourceSubtypesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -921,23 +951,23 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$SourceId = "6d0458373bec4b4b80460992b76016da" # String | ID of a source. When supplied, the API returns subtypes for that source instead of the whole tenant. (optional)
-$EffectiveSet = $true # Boolean | Controls what is returned for `sourceId`. When `true`, which is the default when `sourceId` is supplied, the API returns the source's effective subtypes across both tiers. When `false`, the API returns only the subtypes defined for the source. Passing `effectiveSet=true` explicitly without `sourceId` returns `400`. (optional) (default to $true)
-$TargetType = "SOURCE" # String | Returns only effective subtypes of this tier. Requires `sourceId`, and cannot be combined with `effectiveSet=false`; otherwise the API returns `400`. (optional)
-$IncludeConfigs = $false # Boolean | When `true`, each item includes a summary of its machine account creation configuration in `config`. (optional) (default to $false)
+$Filters = 'targetType eq "CONNECTOR"' # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in*  **targetType**: *eq, in*  **targetId**: *eq, in*  **targetName**: *eq, sw*  **classification**: *eq, in*  **type**: *eq, in*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be combined with the effective set. That combination returns 400. (optional)
+$Sorters = "displayName" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, displayName, technicalName, source.id, targetType, targetId, targetName, classification, type, created, modified**  When omitted, order is unspecified. (optional) (default to "")
+$SourceId = "6d0458373bec4b4b80460992b76016da" # String | Source scope. When supplied, omitted `effectiveSet` defaults to `true`. Unknown source returns **404**. Empty means the parameter was omitted. (optional) (default to "")
+$EffectiveSet = $true # Boolean | When `true` with `sourceId`, return the effective subtype set for that source. When `false` with `sourceId`, return only that source's raw SOURCE-tier rows. `true` without `sourceId` returns **400**. Combining with `filters` returns **400**. (optional) (default to $true)
+$TargetType = "SOURCE" # String | Winner-tier cut on the effective set only. `CONNECTOR` returns inherited connector winners. `SOURCE` returns source-only winners and SOURCE overrides. Omit it to keep the full winner set. Invalid when `effectiveSet` is `false` or `sourceId` is omitted. (optional)
+$IncludeConfigs = $false # Boolean | When `true`, each `MACHINE` subtype with a stored machine-account-create config includes slim `config.machineAccountCreate.accountCreateEnabled`. Default `false` omits `config`. (optional) (default to $false)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = 'targetType eq "CONNECTOR"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **technicalName**: *eq, ne, in, sw, co*  **displayName**: *eq, ne, in, sw, co*  **source.id**: *eq, ne, in, sw, co*  **targetType**: *eq, ne, in, sw, co*  **targetId**: *eq, ne, in, sw, co*  **targetName**: *eq, ne, in, sw, co, isnull*  **classification**: *eq, ne, in, sw, co*  **type**: *eq, ne, in, sw, co*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be used with `sourceId` unless `effectiveSet=false`; otherwise the API returns `400`. (optional)
-$Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, technicalName, displayName, source.id, targetType, targetId, targetName, classification, type, created, modified** (optional)
 
-# List subtypes
+# Retrieve all tiered subtypes
 
 try {
     Get-SourceSubtypesV2 -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-SourceSubtypesV2 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -EffectiveSet $EffectiveSet -TargetType $TargetType -IncludeConfigs $IncludeConfigs -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
+    # Get-SourceSubtypesV2 -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -SourceId $SourceId -EffectiveSet $EffectiveSet -TargetType $TargetType -IncludeConfigs $IncludeConfigs -Count $Count -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceSubtypesV2"
     Write-Host $_.ErrorDetails
@@ -1059,23 +1089,20 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Update a machine account subtype of any tier by subtype ID, using the [JSON
-Patch](https://tools.ietf.org/html/rfc6902) standard.
+Applies an RFC 6902 JSON Patch to a tiered subtype.
 
-Only `displayName` and `description` are patchable, and both must remain present. Changing `targetType`,
-`targetId`, `profile`, `classification`, `type` or `technicalName` returns `400`; to move a subtype to another
-tier or target, delete it and create a new one.
+Patchable fields are `displayName` and `description` only. Tier and identity fields
+(`technicalName`, `targetType`, `targetId`, `profile`, `classification`, `type`) are immutable;
+change them by deleting and recreating the subtype.
 
-Who can call this API depends on the tier of the stored subtype:
+SOURCE-tier update requires `idn:source-subtypes:update`. CONNECTOR-tier update requires
+`idn:connector-subtypes:update`. Unknown id and a denied tier are both returned as **404**. A
+malformed UUID returns **400**. System-managed rows and a duplicate display name in the same
+tier scope return **400**.
 
-* `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source
-sub-admins.
+When the experimental header is missing, or when the tiered subtype configuration is not enabled
+for the tenant, the endpoint returns **404**.
 
-* `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.
-
-A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.
-
-This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/patch-machine-account-subtype-v-2)
 
@@ -1087,12 +1114,12 @@ Path   | Id | **String** | True  | The ID of the subtype.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of subtype update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-[**SourceSubtypeV2**](../models/source-subtype-v2)
+[**SubtypeWithTarget**](../models/subtype-with-target)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated machine account subtype. | SourceSubtypeV2
+200 | Updated tiered machine account subtype. | SubtypeWithTarget
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | LoadBulkSourceSubtypesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -1115,7 +1142,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # JsonPatchOperation[] | A list of subtype update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Patch subtype by ID
+# Patch tiered subtype by ID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -1134,20 +1161,16 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Update the machine account creation provisioning policy of a subtype of any tier, using the [JSON
-Patch](https://tools.ietf.org/html/rfc6902) standard. Only `name`, `description` and `fields` are patchable.
-Returns `404` when the subtype has no provisioning policy.
+Patches the stored `CREATE_MACHINE_ACCOUNT` provisioning policy for a subtype using RFC 6902
+JSON Patch.
 
-Who can call this API depends on the tier of the subtype:
+SOURCE-tier write requires `idn:source-subtypes:update`. CONNECTOR-tier write requires
+`idn:connector-subtypes:update`. Missing subtype, missing policy, and missing right all return
+**404**.
 
-* `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source
-sub-admins.
+When the experimental header is missing, or when the tiered subtype configuration is not enabled
+for the tenant, the endpoint returns **404**.
 
-* `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.
-
-A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.
-
-This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/patch-source-subtype-provisioning-policy-v-2)
 
@@ -1159,12 +1182,12 @@ Path   | Id | **String** | True  | The ID of the subtype.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-[**SubtypeProvisioningPolicy**](../models/subtype-provisioning-policy)
+[**ProvisioningPolicyDto**](../models/provisioning-policy-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Updated subtype provisioning policy. | SubtypeProvisioningPolicy
+200 | Updated CREATE_MACHINE_ACCOUNT provisioning policy. | ProvisioningPolicyDto
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | LoadBulkSourceSubtypesV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

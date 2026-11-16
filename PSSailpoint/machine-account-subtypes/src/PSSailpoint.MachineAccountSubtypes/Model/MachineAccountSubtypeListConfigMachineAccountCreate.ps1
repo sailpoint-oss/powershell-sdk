@@ -12,16 +12,16 @@ No summary available.
 
 .DESCRIPTION
 
-Machine account creation settings.
+Stored create flag for this subtype. Omitted when no create config exists.
 
 .PARAMETER AccountCreateEnabled
-Indicates whether machine account creation is enabled for the subtype.
+Whether machine account creation is enabled for this subtype.
 .OUTPUTS
 
-SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate<PSCustomObject>
+MachineAccountSubtypeListConfigMachineAccountCreate<PSCustomObject>
 #>
 
-function Initialize-SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate {
+function Initialize-MachineAccountSubtypeListConfigMachineAccountCreate {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountSubtypes => SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccountSubtypes => MachineAccountSubtypeListConfigMachineAccountCreate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -45,11 +45,11 @@ function Initialize-SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate {
 <#
 .SYNOPSIS
 
-Convert from JSON to SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate<PSCustomObject>
+Convert from JSON to MachineAccountSubtypeListConfigMachineAccountCreate<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate<PSCustomObject>
+Convert from JSON to MachineAccountSubtypeListConfigMachineAccountCreate<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,21 +57,21 @@ Json object
 
 .OUTPUTS
 
-SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate<PSCustomObject>
+MachineAccountSubtypeListConfigMachineAccountCreate<PSCustomObject>
 #>
-function ConvertFrom-JsonToSourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate {
+function ConvertFrom-JsonToMachineAccountSubtypeListConfigMachineAccountCreate {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountSubtypes => SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountSubtypes => MachineAccountSubtypeListConfigMachineAccountCreate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate
+        # check if Json contains properties not defined in MachineAccountSubtypeListConfigMachineAccountCreate
         $AllProperties = ("accountCreateEnabled")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

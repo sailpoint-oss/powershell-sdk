@@ -12,55 +12,51 @@ No summary available.
 
 .DESCRIPTION
 
-One field of a subtype provisioning policy.
+No description available.
 
 .PARAMETER Name
-Name of the attribute.
+The name of the attribute.
 .PARAMETER Transform
-Transform to apply to the field.
+The transform to apply to the field.
 .PARAMETER Attributes
 Attributes required for the transform.
 .PARAMETER IsRequired
-Indicates whether the attribute is required.
+Flag indicating whether or not the attribute is required.
 .PARAMETER Type
-Type of the attribute.
+The type of the attribute.
 .PARAMETER IsMultiValued
-Indicates whether the attribute is multi-valued.
+Flag indicating whether or not the attribute is multi-valued.
 .OUTPUTS
 
-SubtypeProvisioningPolicyField<PSCustomObject>
+FieldDetailsDto<PSCustomObject>
 #>
 
-function Initialize-SubtypeProvisioningPolicyField {
+function Initialize-FieldDetailsDto {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
+        ${Name} = "",
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Collections.Hashtable]
+        [PSCustomObject]
         ${Transform},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Collections.Hashtable]
+        [PSCustomObject]
         ${Attributes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsRequired} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Type},
+        ${Type} = "string",
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsMultiValued} = $false
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountSubtypes => SubtypeProvisioningPolicyField' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccountSubtypes => FieldDetailsDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
 
 
         $PSO = [PSCustomObject]@{
@@ -79,11 +75,11 @@ function Initialize-SubtypeProvisioningPolicyField {
 <#
 .SYNOPSIS
 
-Convert from JSON to SubtypeProvisioningPolicyField<PSCustomObject>
+Convert from JSON to FieldDetailsDto<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SubtypeProvisioningPolicyField<PSCustomObject>
+Convert from JSON to FieldDetailsDto<PSCustomObject>
 
 .PARAMETER Json
 
@@ -91,21 +87,21 @@ Json object
 
 .OUTPUTS
 
-SubtypeProvisioningPolicyField<PSCustomObject>
+FieldDetailsDto<PSCustomObject>
 #>
-function ConvertFrom-JsonToSubtypeProvisioningPolicyField {
+function ConvertFrom-JsonToFieldDetailsDto {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountSubtypes => SubtypeProvisioningPolicyField' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountSubtypes => FieldDetailsDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in SubtypeProvisioningPolicyField
+        # check if Json contains properties not defined in FieldDetailsDto
         $AllProperties = ("name", "transform", "attributes", "isRequired", "type", "isMultiValued")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
@@ -113,12 +109,8 @@ function ConvertFrom-JsonToSubtypeProvisioningPolicyField {
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }

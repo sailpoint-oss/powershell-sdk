@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SourceSubtypeOverrideRequest', 'Sourc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SourceId** | **String** | ID of the source to create the overriding source subtype on. | [required]
+**SourceId** | **String** | Source that receives the override. | [required]
 
 ## Examples
 

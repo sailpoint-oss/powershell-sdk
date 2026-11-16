@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.MachineAccountSubtypes' -name 'MachineAccountSubtypes
 
     Context 'New-SourceSubtypeProvisioningPolicyV2' {
         It 'Test New-SourceSubtypeProvisioningPolicyV2' {
-            #$TestResult = New-SourceSubtypeProvisioningPolicyV2 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SubtypeProvisioningPolicy "TEST_VALUE" -UseDefaultFields "TEST_VALUE"
+            #$TestResult = New-SourceSubtypeProvisioningPolicyV2 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE" -UseDefaultFields "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.MachineAccountSubtypes' -name 'MachineAccountSubtypes
 
     Context 'New-SourceSubtypeV2' {
         It 'Test New-SourceSubtypeV2' {
-            #$TestResult = New-SourceSubtypeV2 -XSailPointExperimental "TEST_VALUE" -CreateSourceSubtypeV2Request "TEST_VALUE"
+            #$TestResult = New-SourceSubtypeV2 -XSailPointExperimental "TEST_VALUE" -SourceSubtypeV2 "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.MachineAccountSubtypes' -name 'MachineAccountSubtypes
 
     Context 'Get-SourceSubtypeTargetsV2' {
         It 'Test Get-SourceSubtypeTargetsV2' {
-            #$TestResult = Get-SourceSubtypeTargetsV2 -Filters "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-SourceSubtypeTargetsV2 -Filters "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.MachineAccountSubtypes' -name 'MachineAccountSubtypes
 
     Context 'Get-SourceSubtypesV2' {
         It 'Test Get-SourceSubtypesV2' {
-            #$TestResult = Get-SourceSubtypesV2 -XSailPointExperimental "TEST_VALUE" -SourceId "TEST_VALUE" -EffectiveSet "TEST_VALUE" -TargetType "TEST_VALUE" -IncludeConfigs "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-SourceSubtypesV2 -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -SourceId "TEST_VALUE" -EffectiveSet "TEST_VALUE" -TargetType "TEST_VALUE" -IncludeConfigs "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

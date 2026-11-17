@@ -174,14 +174,6 @@ Describe -tag 'PSSailpoint.MachineAccounts' -name 'MachineAccountsApi' {
         }
     }
 
-    Context 'Invoke-ReloadMachineAccountsInBulkV1' {
-        It 'Test Invoke-ReloadMachineAccountsInBulkV1' {
-            #$TestResult = Invoke-ReloadMachineAccountsInBulkV1 -XSailPointExperimental "TEST_VALUE" -MachineAccountBulkRequest "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Unlock-MachineAccountV1' {
         It 'Test Unlock-MachineAccountV1' {
             #$TestResult = Unlock-MachineAccountV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"

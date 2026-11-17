@@ -1968,7 +1968,7 @@ function Invoke-ReloadMachineAccountV1 {
 <#
 .SYNOPSIS
 
-Bulk reload machine accounts asynchronously
+Reload machine accounts in bulk
 
 .DESCRIPTION
 
@@ -2054,105 +2054,6 @@ function Invoke-ReloadMachineAccountsInBulkAsyncV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "MachineAccountRequestAsyncResult" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Reload machine accounts in bulk
-
-.DESCRIPTION
-
-Use this API to reload up to 100 machine accounts from their sources. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the reload was queued, or an error status such as `400`, `404` or `500`.  To track the whole reload with a single task instead, use the asynchronous bulk reload API.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can reload them. Other callers need the **idn:mis-account:reload** right. For a caller without the right, machine accounts they do not own get a result with status `404`.  When this capability is not enabled for the tenant, this API returns `403`. 
-
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
-.PARAMETER MachineAccountBulkRequest
-No description available.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-MachineAccountBulkResult[]
-#>
-function Invoke-ReloadMachineAccountsInBulkV1 {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${MachineAccountBulkRequest},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Invoke-ReloadMachineAccountsInBulkV1' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json')
-
-        $LocalVarUri = '/machine-accounts/v1/bulk-reload'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling reloadMachineAccountsInBulkV1."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
-
-        if (!$MachineAccountBulkRequest) {
-            throw "Error! The required parameter `MachineAccountBulkRequest` missing when calling reloadMachineAccountsInBulkV1."
-        }
-
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MachineAccountBulkRequest -is [array])) {
-            $LocalVarBodyParameter = $MachineAccountBulkRequest | ConvertTo-Json -AsArray -Depth 100
-        } else {
-            $LocalVarBodyParameter = $MachineAccountBulkRequest | ForEach-Object {
-            # Get array of names of object properties that can be cast to boolean TRUE
-            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
-            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
-        
-            # Convert object to JSON with only non-empty properties
-            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
-            }
-        }
-
-        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "MachineAccountBulkResult[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2471,7 +2372,7 @@ Update machine accounts in bulk
 
 .DESCRIPTION
 
-Use this API to apply the same [JSON Patch](https://tools.ietf.org/html/rfc6902) to up to 100 machine accounts. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the update succeeded, or an error status such as `400` or `404`.  Each patch operation must target one of these top-level fields:   * description   * subtype   * environment   * machineIdentity   * ownerIdentity   * manuallyEdited  The request fails with `400` when `ids` is empty or has more than 100 entries, when `jsonPatch` is missing, or when a patch operation targets any other field. A patch that changes `subtype` must only include machine accounts from one source; otherwise every result has status `400`.  A caller who owns the machine accounts can update them. Other callers need the **idn:mis-account:update** right. For a caller without the right, machine accounts they do not own get a result with status `404`.  When this capability is not enabled for the tenant, this API returns `403`. 
+Use this API to apply the same [JSON Patch](https://tools.ietf.org/html/rfc6902) to up to 100 machine accounts. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the update succeeded, `404` when the account was not found or is not accessible to the caller, `409` when the same ID appears more than once in the batch, or `400` when that row cannot be updated.  Each patch operation must target one of these top-level fields:   * description   * subtype   * environment   * machineIdentity   * ownerIdentity   * owners   * manuallyEdited  `owners` is accepted only when expanded machine account ownership is enabled for the tenant. When it is not, a patch that targets `owners` fails with `400`. `owners` may only be replaced at `/owners`, `/owners/primary`, or `/owners/secondary`. A request that patches both `ownerIdentity` and `owners` fails with `400`.  The request fails with `400` when `ids` is empty or has more than 100 entries, when `jsonPatch` is missing, or when a patch operation targets any other field. A patch that changes `subtype` must only include machine accounts from one source; otherwise every result has status `400`.  A caller who owns the machine accounts can update them. Other callers need the **idn:mis-account:update** right. For a caller without the right, machine accounts they do not own get a result with status `404`.  When this capability is not enabled for the tenant, this API returns `403`. 
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.

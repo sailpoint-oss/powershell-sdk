@@ -10,7 +10,8 @@ tags: ['SDK', 'Software Development Kit', 'MachineAccounts', 'MachineAccounts']
 ---
 
 # MachineAccounts
-   
+  Use this API to list, view, and update machine accounts, the accounts on connected sources that belong to a machine rather than a person. You can also enable, disable, reload, unlock, and remove machine accounts, and manage the machine account subtypes of a source. Update, enable, disable, and reload are also available in bulk.
+ 
   
 
 All URIs are relative to *https://sailpoint.api.identitynow.com*
@@ -37,8 +38,7 @@ Method | HTTP request | Description
 [**Get-MachineAccountsV2**](#list-machine-accounts-v2) | **GET** `/machine-accounts/v2` | List machine accounts
 [**Update-MachineAccountSubtypeByTechnicalNameV1**](#patch-machine-account-subtype-by-technical-name-v1) | **PATCH** `/sources/v1/{sourceId}/subtypes/{technicalName}` | Patch subtype
 [**Invoke-ReloadMachineAccountV1**](#reload-machine-account-v1) | **POST** `/machine-accounts/v1/{id}/reload` | Reload machine account
-[**Invoke-ReloadMachineAccountsInBulkAsyncV1**](#reload-machine-accounts-in-bulk-async-v1) | **POST** `/machine-accounts/v1/bulk-reload-async` | Bulk reload machine accounts asynchronously
-[**Invoke-ReloadMachineAccountsInBulkV1**](#reload-machine-accounts-in-bulk-v1) | **POST** `/machine-accounts/v1/bulk-reload` | Reload machine accounts in bulk
+[**Invoke-ReloadMachineAccountsInBulkAsyncV1**](#reload-machine-accounts-in-bulk-async-v1) | **POST** `/machine-accounts/v1/bulk-reload-async` | Reload machine accounts in bulk
 [**Unlock-MachineAccountV1**](#unlock-machine-account-v1) | **POST** `/machine-accounts/v1/{id}/unlock` | Unlock machine account
 [**Update-MachineAccountV1**](#update-machine-account-v1) | **PATCH** `/machine-accounts/v1/{id}` | Update machine account details
 [**Update-MachineAccountV2**](#update-machine-account-v2) | **PATCH** `/machine-accounts/v2/{id}` | Update machine account details
@@ -1247,7 +1247,7 @@ $MachineAccountBulkRequest = @"{
   "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c9180835d2e5168015d32f890ca1581" ]
 }"@
 
-# Bulk reload machine accounts asynchronously
+# Reload machine accounts in bulk
 
 try {
     $Result = ConvertFrom-JsonToMachineAccountBulkRequest -Json $MachineAccountBulkRequest
@@ -1257,69 +1257,6 @@ try {
     # Invoke-ReloadMachineAccountsInBulkAsyncV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReloadMachineAccountsInBulkAsyncV1"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## reload-machine-accounts-in-bulk-v1
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Use this API to reload up to 100 machine accounts from their sources. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the reload was queued, or an error status such as `400`, `404` or `500`.
-
-To track the whole reload with a single task instead, use the asynchronous bulk reload API.
-
-The request fails with `400` when `ids` is empty or has more than 100 entries.
-
-A caller who owns the machine accounts can reload them. Other callers need the **idn:mis-account:reload** right. For a caller without the right, machine accounts they do not own get a result with status `404`.
-
-When this capability is not enabled for the tenant, this API returns `403`.
-
-
-[API Spec](https://developer.sailpoint.com/docs/api/reload-machine-accounts-in-bulk-v-1)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | MachineAccountBulkRequest | [**MachineAccountBulkRequest**](../models/machine-account-bulk-request) | True  | 
-
-### Return type
-[**MachineAccountBulkResult[]**](../models/machine-account-bulk-result)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-207 | One result per requested machine account. | MachineAccountBulkResult[]
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$MachineAccountBulkRequest = @"{
-  "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c9180835d2e5168015d32f890ca1581" ]
-}"@
-
-# Reload machine accounts in bulk
-
-try {
-    $Result = ConvertFrom-JsonToMachineAccountBulkRequest -Json $MachineAccountBulkRequest
-    Invoke-ReloadMachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Invoke-ReloadMachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReloadMachineAccountsInBulkV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -1508,7 +1445,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to apply the same [JSON Patch](https://tools.ietf.org/html/rfc6902) to up to 100 machine accounts. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the update succeeded, or an error status such as `400` or `404`.
+Use this API to apply the same [JSON Patch](https://tools.ietf.org/html/rfc6902) to up to 100 machine accounts. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the update succeeded, `404` when the account was not found or is not accessible to the caller, `409` when the same ID appears more than once in the batch, or `400` when that row cannot be updated.
 
 Each patch operation must target one of these top-level fields:
   * description
@@ -1516,7 +1453,10 @@ Each patch operation must target one of these top-level fields:
   * environment
   * machineIdentity
   * ownerIdentity
+  * owners
   * manuallyEdited
+
+`owners` is accepted only when expanded machine account ownership is enabled for the tenant. When it is not, a patch that targets `owners` fails with `400`. `owners` may only be replaced at `/owners`, `/owners/primary`, or `/owners/secondary`. A request that patches both `ownerIdentity` and `owners` fails with `400`.
 
 The request fails with `400` when `ids` is empty or has more than 100 entries, when `jsonPatch` is missing, or when a patch operation targets any other field. A patch that changes `subtype` must only include machine accounts from one source; otherwise every result has status `400`.
 

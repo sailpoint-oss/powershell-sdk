@@ -454,7 +454,7 @@
         }
         "@
         
-        # Bulk reload machine accounts asynchronously
+        # Reload machine accounts in bulk
         
         try {
             $Result = ConvertFrom-JsonToMachineAccountBulkRequest -Json $MachineAccountBulkRequest
@@ -464,31 +464,6 @@
             # Invoke-ReloadMachineAccountsInBulkAsyncV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReloadMachineAccountsInBulkAsyncV1"
-            Write-Host $_.ErrorDetails
-        }
-- path: /machine-accounts/v1/bulk-reload
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineaccounts/methods/machine-accounts#reload-machine-accounts-in-bulk-v1
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $MachineAccountBulkRequest = @"
-        {
-          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c9180835d2e5168015d32f890ca1581" ]
-        }
-        "@
-        
-        # Reload machine accounts in bulk
-        
-        try {
-            $Result = ConvertFrom-JsonToMachineAccountBulkRequest -Json $MachineAccountBulkRequest
-            Invoke-ReloadMachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Invoke-ReloadMachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -MachineAccountBulkRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReloadMachineAccountsInBulkV1"
             Write-Host $_.ErrorDetails
         }
 - path: /machine-accounts/v1/{id}/unlock

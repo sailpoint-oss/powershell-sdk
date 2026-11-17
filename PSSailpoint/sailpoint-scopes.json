@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.81",
+  "sdkVersion": "2.1.82",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -13922,24 +13922,6 @@
       "sdkName": "Invoke-ReloadMachineAccountsInBulkAsyncV1",
       "httpMethod": "POST",
       "path": "/machine-accounts/v1/bulk-reload-async",
-      "userAuth": [
-        "idn:mis-account-state:manage"
-      ],
-      "applicationAuth": [
-        "idn:mis-account-state:manage"
-      ],
-      "userLevels": [
-        "ORG_ADMIN",
-        "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
-      ]
-    },
-    "reloadMachineAccountsInBulkV1": {
-      "resource": "machine-accounts",
-      "tag": "Machine Accounts",
-      "sdkName": "Invoke-ReloadMachineAccountsInBulkV1",
-      "httpMethod": "POST",
-      "path": "/machine-accounts/v1/bulk-reload",
       "userAuth": [
         "idn:mis-account-state:manage"
       ],

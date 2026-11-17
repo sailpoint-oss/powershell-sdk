@@ -35,7 +35,7 @@ function Initialize-MachineClassificationCriteriaLevel3 {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("EQUALS", "NOT_EQUALS", "STARTS_WITH", "ENDS_WITH", "CONTAINS", "AND", "OR")]
+        [ValidateSet("EQUALS", "NOT_EQUALS", "STARTS_WITH", "ENDS_WITH", "CONTAINS", "NOT_CONTAINS", "AND", "OR", "EXISTS", "NOT_EXISTS", "EMPTY", "NOT_EMPTY")]
         [PSCustomObject]
         ${Operation},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

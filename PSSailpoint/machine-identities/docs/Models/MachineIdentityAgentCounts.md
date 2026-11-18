@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AgentCount** | **Int64** | Total number of AI agents. | [optional] 
 **UnsanctionedAgentCount** | **Int64** | Number of AI agents that are not sanctioned. | [optional] 
-**Discovered** | [**MachineIdentityDiscoveredCounts**](machine-identity-discovered-counts) |  | [optional] 
+**Discovered** | [**Machineidentityagentdiscoveredcounts**](machineidentityagentdiscoveredcounts) |  | [optional] 
 **RiskSeverity** | [**MachineIdentityRiskSeverityCounts**](machine-identity-risk-severity-counts) |  | [optional] 
 **Ownership** | [**MachineIdentityAgentCountsOwnership**](machine-identity-agent-counts-ownership) |  | [optional] 
 

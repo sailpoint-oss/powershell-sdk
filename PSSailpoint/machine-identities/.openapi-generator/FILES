@@ -61,6 +61,7 @@ docs/MachineIdentityUserEntitlementResponseEntitlement.md
 docs/MachineIdentityUserEntitlementResponseSource.md
 docs/MachineIdentityV2Risk.md
 docs/MachineIdentityV2Source.md
+docs/Machineidentityagentdiscoveredcounts.md
 docs/Machineidentitycapability.md
 docs/Machineidentityentitlement.md
 docs/Machineidentityv2.md
@@ -134,6 +135,7 @@ src/PSSailpoint.MachineIdentities/Model/MachineIdentityUserEntitlementResponseEn
 src/PSSailpoint.MachineIdentities/Model/MachineIdentityUserEntitlementResponseSource.ps1
 src/PSSailpoint.MachineIdentities/Model/MachineIdentityV2Risk.ps1
 src/PSSailpoint.MachineIdentities/Model/MachineIdentityV2Source.ps1
+src/PSSailpoint.MachineIdentities/Model/Machineidentityagentdiscoveredcounts.ps1
 src/PSSailpoint.MachineIdentities/Model/Machineidentitycapability.ps1
 src/PSSailpoint.MachineIdentities/Model/Machineidentityentitlement.ps1
 src/PSSailpoint.MachineIdentities/Model/Machineidentityv2.ps1
@@ -212,6 +214,7 @@ tests/Model/MachineIdentityUserEntitlementResponseEntitlement.Tests.ps1
 tests/Model/MachineIdentityUserEntitlementResponseSource.Tests.ps1
 tests/Model/MachineIdentityV2Risk.Tests.ps1
 tests/Model/MachineIdentityV2Source.Tests.ps1
+tests/Model/Machineidentityagentdiscoveredcounts.Tests.ps1
 tests/Model/Machineidentitycapability.Tests.ps1
 tests/Model/Machineidentityentitlement.Tests.ps1
 tests/Model/Machineidentityv2.Tests.ps1

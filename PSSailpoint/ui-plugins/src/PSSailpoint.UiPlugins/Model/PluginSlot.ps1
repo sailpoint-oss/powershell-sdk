@@ -17,7 +17,7 @@ No description available.
 .PARAMETER SlotId
 Identifier referencing an entry in the slot registry
 .PARAMETER RequiredCapabilities
-ISC capabilities the user must hold (AND logic) to see this plugin in the slot. Empty means unrestricted.
+SailPoint Identity Security capabilities the user must hold (AND logic) to see this plugin in the slot. Empty means unrestricted.
 .PARAMETER RestrictToUsers
 User GUIDs (32-char hex) limiting visibility during development. Empty means no user restriction.
 .OUTPUTS

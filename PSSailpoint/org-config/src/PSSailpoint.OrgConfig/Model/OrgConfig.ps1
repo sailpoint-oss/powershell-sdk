@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-DTO class for OrgConfig data accessible by customer external org admin (""ORG_ADMIN"") users
+OrgConfig settings accessible to external customer org admins (`ORG_ADMIN`).  ### Provisioning setting precedence  1. **Source value:** used first when set. When the request spans more than one source, the largest value among those sources wins. 2. **OrgConfig value:** used when no source value is set. 3. **Default:** used when neither is set.  A value outside the allowed range is ignored, and the next level is used.  ### Defaults  * **Retries:** 3 * **Retry interval:** 60 minutes. The actual wait varies by up to 10 percent above or below the interval, so requests that fail together do not retry at the same time. * **Status check interval:** 240 minutes * **Status check limit:** 180 checks  ### Scope  * **Retry count and retry interval:** account enable, disable, unlock, or delete; lifecycle changes that provision accounts; access requests; and RSA token PIN resets. * **Not affected by these settings:** password changes, which use a fixed retry schedule. * **Status check interval and status check limit:** queued provisioning requests. 
 
 .PARAMETER OrgName
 The name of the org.
@@ -34,6 +34,14 @@ ARM SSO URL
 Flag to determine whether IAI Certification Recommendations are enabled for the current org
 .PARAMETER AiAgentDeleteRequestEnabled
 Org opt-in flag that enables AI Agent delete-at-source lifecycle requests for the current org.
+.PARAMETER ProvisioningMaxRetries
+The number of times a provisioning request is retried.
+.PARAMETER ProvisioningRetryThreshold
+The number of minutes between provisioning retries.
+.PARAMETER ProvisioningStatusCheckInterval
+The number of minutes between status checks of a queued provisioning request.
+.PARAMETER ProvisioningMaxStatusChecks
+The number of status checks that run before a queued provisioning request times out.
 .PARAMETER SodReportConfigs
 No description available.
 .OUTPUTS
@@ -57,7 +65,7 @@ function Initialize-OrgConfig {
         [String]
         ${ArmCustomerId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject[]]
         ${ArmSapSystemIdMappings},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -75,6 +83,18 @@ function Initialize-OrgConfig {
         [System.Nullable[Boolean]]
         ${AiAgentDeleteRequestEnabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${ProvisioningMaxRetries},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${ProvisioningRetryThreshold},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${ProvisioningStatusCheckInterval},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${ProvisioningMaxStatusChecks},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${SodReportConfigs}
     )
@@ -82,6 +102,38 @@ function Initialize-OrgConfig {
     Process {
         'Creating PSCustomObject: PSSailpoint.OrgConfig => OrgConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if ($ProvisioningMaxRetries -and $ProvisioningMaxRetries -gt 24) {
+          throw "invalid value for 'ProvisioningMaxRetries', must be smaller than or equal to 24."
+        }
+
+        if ($ProvisioningMaxRetries -and $ProvisioningMaxRetries -lt 0) {
+          throw "invalid value for 'ProvisioningMaxRetries', must be greater than or equal to 0."
+        }
+
+        if ($ProvisioningRetryThreshold -and $ProvisioningRetryThreshold -gt 1440) {
+          throw "invalid value for 'ProvisioningRetryThreshold', must be smaller than or equal to 1440."
+        }
+
+        if ($ProvisioningRetryThreshold -and $ProvisioningRetryThreshold -lt 1) {
+          throw "invalid value for 'ProvisioningRetryThreshold', must be greater than or equal to 1."
+        }
+
+        if ($ProvisioningStatusCheckInterval -and $ProvisioningStatusCheckInterval -gt 1440) {
+          throw "invalid value for 'ProvisioningStatusCheckInterval', must be smaller than or equal to 1440."
+        }
+
+        if ($ProvisioningStatusCheckInterval -and $ProvisioningStatusCheckInterval -lt 1) {
+          throw "invalid value for 'ProvisioningStatusCheckInterval', must be greater than or equal to 1."
+        }
+
+        if ($ProvisioningMaxStatusChecks -and $ProvisioningMaxStatusChecks -gt 1000) {
+          throw "invalid value for 'ProvisioningMaxStatusChecks', must be smaller than or equal to 1000."
+        }
+
+        if ($ProvisioningMaxStatusChecks -and $ProvisioningMaxStatusChecks -lt 1) {
+          throw "invalid value for 'ProvisioningMaxStatusChecks', must be greater than or equal to 1."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -95,6 +147,10 @@ function Initialize-OrgConfig {
             "armSsoUrl" = ${ArmSsoUrl}
             "iaiEnableCertificationRecommendations" = ${IaiEnableCertificationRecommendations}
             "aiAgentDeleteRequestEnabled" = ${AiAgentDeleteRequestEnabled}
+            "provisioningMaxRetries" = ${ProvisioningMaxRetries}
+            "provisioningRetryThreshold" = ${ProvisioningRetryThreshold}
+            "provisioningStatusCheckInterval" = ${ProvisioningStatusCheckInterval}
+            "provisioningMaxStatusChecks" = ${ProvisioningMaxStatusChecks}
             "sodReportConfigs" = ${SodReportConfigs}
         }
 
@@ -132,7 +188,7 @@ function ConvertFrom-JsonToOrgConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in OrgConfig
-        $AllProperties = ("orgName", "timeZone", "lcsChangeHonorsSourceEnableFeature", "armCustomerId", "armSapSystemIdMappings", "armAuth", "armDb", "armSsoUrl", "iaiEnableCertificationRecommendations", "aiAgentDeleteRequestEnabled", "sodReportConfigs")
+        $AllProperties = ("orgName", "timeZone", "lcsChangeHonorsSourceEnableFeature", "armCustomerId", "armSapSystemIdMappings", "armAuth", "armDb", "armSsoUrl", "iaiEnableCertificationRecommendations", "aiAgentDeleteRequestEnabled", "provisioningMaxRetries", "provisioningRetryThreshold", "provisioningStatusCheckInterval", "provisioningMaxStatusChecks", "sodReportConfigs")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -199,6 +255,30 @@ function ConvertFrom-JsonToOrgConfig {
             $AiAgentDeleteRequestEnabled = $JsonParameters.PSobject.Properties["aiAgentDeleteRequestEnabled"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "provisioningMaxRetries"))) { #optional property not found
+            $ProvisioningMaxRetries = $null
+        } else {
+            $ProvisioningMaxRetries = $JsonParameters.PSobject.Properties["provisioningMaxRetries"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "provisioningRetryThreshold"))) { #optional property not found
+            $ProvisioningRetryThreshold = $null
+        } else {
+            $ProvisioningRetryThreshold = $JsonParameters.PSobject.Properties["provisioningRetryThreshold"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "provisioningStatusCheckInterval"))) { #optional property not found
+            $ProvisioningStatusCheckInterval = $null
+        } else {
+            $ProvisioningStatusCheckInterval = $JsonParameters.PSobject.Properties["provisioningStatusCheckInterval"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "provisioningMaxStatusChecks"))) { #optional property not found
+            $ProvisioningMaxStatusChecks = $null
+        } else {
+            $ProvisioningMaxStatusChecks = $JsonParameters.PSobject.Properties["provisioningMaxStatusChecks"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "sodReportConfigs"))) { #optional property not found
             $SodReportConfigs = $null
         } else {
@@ -216,6 +296,10 @@ function ConvertFrom-JsonToOrgConfig {
             "armSsoUrl" = ${ArmSsoUrl}
             "iaiEnableCertificationRecommendations" = ${IaiEnableCertificationRecommendations}
             "aiAgentDeleteRequestEnabled" = ${AiAgentDeleteRequestEnabled}
+            "provisioningMaxRetries" = ${ProvisioningMaxRetries}
+            "provisioningRetryThreshold" = ${ProvisioningRetryThreshold}
+            "provisioningStatusCheckInterval" = ${ProvisioningStatusCheckInterval}
+            "provisioningMaxStatusChecks" = ${ProvisioningMaxStatusChecks}
             "sodReportConfigs" = ${SodReportConfigs}
         }
 

@@ -155,7 +155,7 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineIdentityV2"
             Write-Host $_.ErrorDetails
         }
-- path: /machine-identities/v2/bulk-delete
+- path: /machine-identities/v1/bulk-delete
   method: POST
   xCodeSample:
     - lang: PowerShell
@@ -750,7 +750,7 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-MachineIdentityAggregationV1"
             Write-Host $_.ErrorDetails
         }
-- path: /machine-identities/v2/bulk-update
+- path: /machine-identities/v1/bulk-update
   method: POST
   xCodeSample:
     - lang: PowerShell

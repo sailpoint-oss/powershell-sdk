@@ -10,7 +10,8 @@ tags: ['SDK', 'Software Development Kit', 'MachineIdentities', 'MachineIdentitie
 ---
 
 # MachineIdentities
-   
+  Use this API to list, view, create, update, and delete machine identities, the non-human identities that own machine accounts. You can also review their accounts, entitlements, and anomalies, and update or delete machine identities in bulk.
+ 
   
 
 All URIs are relative to *https://sailpoint.api.identitynow.com*
@@ -19,7 +20,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-MachineIdentityV1**](#create-machine-identity-v1) | **POST** `/machine-identities/v1` | Create machine identity
 [**New-MachineIdentityV2**](#create-machine-identity-v2) | **POST** `/machine-identities/v2` | Create machine identity
-[**Remove-MachineIdentitiesInBulkV2**](#delete-machine-identities-in-bulk-v2) | **POST** `/machine-identities/v2/bulk-delete` | Bulk delete machine identities
+[**Remove-MachineIdentitiesInBulkV2**](#delete-machine-identities-in-bulk-v2) | **POST** `/machine-identities/v1/bulk-delete` | Bulk delete machine identities
 [**Remove-MachineIdentityAsyncV1**](#delete-machine-identity-async-v1) | **DELETE** `/machine-identities/v1/{id}/delete-async` | Delete AI agent asynchronously
 [**Remove-MachineIdentityAsyncV2**](#delete-machine-identity-async-v2) | **DELETE** `/machine-identities/v2/{id}/delete-async` | Delete AI agent asynchronously
 [**Remove-MachineIdentityV1**](#delete-machine-identity-v1) | **DELETE** `/machine-identities/v1/{id}` | Delete machine identity
@@ -46,7 +47,7 @@ Method | HTTP request | Description
 [**Get-OwnershipCorrelationConfigsV1**](#list-ownership-correlation-configs-v1) | **GET** `/sources/v1/{sourceId}/resources/{resourceId}/correlation-configs` | List ownership correlation configs
 [**Update-OwnershipCorrelationConfigV1**](#patch-ownership-correlation-config-v1) | **PATCH** `/sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}` | Patch ownership correlation config
 [**Start-MachineIdentityAggregationV1**](#start-machine-identity-aggregation-v1) | **POST** `/sources/v1/{sourceId}/aggregate-agents` | Start machine identity aggregation
-[**Update-MachineIdentitiesInBulkV2**](#update-machine-identities-in-bulk-v2) | **POST** `/machine-identities/v2/bulk-update` | Bulk update machine identities
+[**Update-MachineIdentitiesInBulkV2**](#update-machine-identities-in-bulk-v2) | **POST** `/machine-identities/v1/bulk-update` | Bulk update machine identities
 [**Update-MachineIdentityV1**](#update-machine-identity-v1) | **PATCH** `/machine-identities/v1/{id}` | Update machine identity details
 [**Update-MachineIdentityV2**](#update-machine-identity-v2) | **PATCH** `/machine-identities/v2/{id}` | Partial update of machine identity
 

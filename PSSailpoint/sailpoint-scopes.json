@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.83",
+  "sdkVersion": "2.1.84",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -1102,24 +1102,6 @@
       "applicationAuth": null,
       "userLevels": [
         "USER"
-      ]
-    },
-    "createMachineAccountSubtypeV1": {
-      "resource": "machine-accounts",
-      "tag": "Machine Accounts",
-      "sdkName": "New-MachineAccountSubtypeV1",
-      "httpMethod": "POST",
-      "path": "/sources/v1/{sourceId}/subtypes",
-      "userAuth": [
-        "idn:sources:manage"
-      ],
-      "applicationAuth": [
-        "idn:sources:manage"
-      ],
-      "userLevels": [
-        "ORG_ADMIN",
-        "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
       ]
     },
     "createMachineAccountV2": {
@@ -2780,24 +2762,6 @@
         "SOURCE_SUBADMIN"
       ]
     },
-    "deleteMachineAccountSubtypeByTechnicalNameV1": {
-      "resource": "machine-accounts",
-      "tag": "Machine Accounts",
-      "sdkName": "Remove-MachineAccountSubtypeByTechnicalNameV1",
-      "httpMethod": "DELETE",
-      "path": "/sources/v1/{sourceId}/subtypes/{technicalName}",
-      "userAuth": [
-        "idn:sources:manage"
-      ],
-      "applicationAuth": [
-        "idn:sources:manage"
-      ],
-      "userLevels": [
-        "ORG_ADMIN",
-        "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
-      ]
-    },
     "deleteMachineAccountSubtypeV1": {
       "resource": "machine-account-subtypes",
       "tag": "Machine Account Subtypes",
@@ -2877,7 +2841,7 @@
       "tag": "Machine Identities",
       "sdkName": "Remove-MachineIdentitiesInBulkV2",
       "httpMethod": "POST",
-      "path": "/machine-identities/v2/bulk-delete",
+      "path": "/machine-identities/v1/bulk-delete",
       "userAuth": [
         "idn:mis-identity:manage"
       ],
@@ -6630,6 +6594,21 @@
         "ORG_ADMIN"
       ]
     },
+    "getMFAClear1ConfigV1": {
+      "resource": "mfa-configuration",
+      "tag": "MFA Configuration",
+      "sdkName": "Get-MFAClear1ConfigV1",
+      "httpMethod": "GET",
+      "path": "/mfa/v1/clear1/config",
+      "userAuth": [
+        "idn:mfa-configuration:read",
+        "idn:mfa-configuration:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
     "getMFADuoConfigV1": {
       "resource": "mfa-configuration",
       "tag": "MFA Configuration",
@@ -6759,46 +6738,6 @@
         "SOURCE_ADMIN",
         "SOURCE_SUBADMIN",
         "API"
-      ]
-    },
-    "getMachineAccountSubtypeByIdV1": {
-      "resource": "machine-accounts",
-      "tag": "Machine Accounts",
-      "sdkName": "Get-MachineAccountSubtypeByIdV1",
-      "httpMethod": "GET",
-      "path": "/sources/v1/subtypes/{subtypeId}",
-      "userAuth": [
-        "idn:sources:read",
-        "idn:sources:manage"
-      ],
-      "applicationAuth": [
-        "idn:sources:read",
-        "idn:sources:manage"
-      ],
-      "userLevels": [
-        "ORG_ADMIN",
-        "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
-      ]
-    },
-    "getMachineAccountSubtypeByTechnicalNameV1": {
-      "resource": "machine-accounts",
-      "tag": "Machine Accounts",
-      "sdkName": "Get-MachineAccountSubtypeByTechnicalNameV1",
-      "httpMethod": "GET",
-      "path": "/sources/v1/{sourceId}/subtypes/{technicalName}",
-      "userAuth": [
-        "idn:sources:read",
-        "idn:sources:manage"
-      ],
-      "applicationAuth": [
-        "idn:sources:read",
-        "idn:sources:manage"
-      ],
-      "userLevels": [
-        "ORG_ADMIN",
-        "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
       ]
     },
     "getMachineAccountV1": {
@@ -11023,26 +10962,6 @@
         "SOURCE_SUBADMIN"
       ]
     },
-    "listMachineAccountSubtypesV1": {
-      "resource": "machine-accounts",
-      "tag": "Machine Accounts",
-      "sdkName": "Get-MachineAccountSubtypesV1",
-      "httpMethod": "GET",
-      "path": "/sources/v1/{sourceId}/subtypes",
-      "userAuth": [
-        "idn:sources:read",
-        "idn:sources:manage"
-      ],
-      "applicationAuth": [
-        "idn:sources:read",
-        "idn:sources:manage"
-      ],
-      "userLevels": [
-        "ORG_ADMIN",
-        "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
-      ]
-    },
     "listMachineAccountsV1": {
       "resource": "machine-accounts",
       "tag": "Machine Accounts",
@@ -12692,24 +12611,6 @@
       "applicationAuth": null,
       "userLevels": [
         "USER"
-      ]
-    },
-    "patchMachineAccountSubtypeByTechnicalNameV1": {
-      "resource": "machine-accounts",
-      "tag": "Machine Accounts",
-      "sdkName": "Update-MachineAccountSubtypeByTechnicalNameV1",
-      "httpMethod": "PATCH",
-      "path": "/sources/v1/{sourceId}/subtypes/{technicalName}",
-      "userAuth": [
-        "idn:sources:manage"
-      ],
-      "applicationAuth": [
-        "idn:sources:manage"
-      ],
-      "userLevels": [
-        "ORG_ADMIN",
-        "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
       ]
     },
     "patchMachineAccountSubtypeV1": {
@@ -14529,6 +14430,20 @@
         "ORG_ADMIN"
       ]
     },
+    "setMFAClear1ConfigV1": {
+      "resource": "mfa-configuration",
+      "tag": "MFA Configuration",
+      "sdkName": "Set-MFAClear1ConfigV1",
+      "httpMethod": "PUT",
+      "path": "/mfa/v1/clear1/config",
+      "userAuth": [
+        "idn:mfa-configuration:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
     "setMFADuoConfigV1": {
       "resource": "mfa-configuration",
       "tag": "MFA Configuration",
@@ -16239,7 +16154,7 @@
       "tag": "Machine Identities",
       "sdkName": "Update-MachineIdentitiesInBulkV2",
       "httpMethod": "POST",
-      "path": "/machine-identities/v2/bulk-update",
+      "path": "/machine-identities/v1/bulk-update",
       "userAuth": [
         "idn:mis-identity:manage"
       ],

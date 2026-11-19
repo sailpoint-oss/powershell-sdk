@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpoint.MfaConfiguration' -name 'MFAConfigurationApi' {
+    Context 'Get-MFAClear1ConfigV1' {
+        It 'Test Get-MFAClear1ConfigV1' {
+            #$TestResult = Get-MFAClear1ConfigV1
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-MFADuoConfigV1' {
         It 'Test Get-MFADuoConfigV1' {
             #$TestResult = Get-MFADuoConfigV1
@@ -25,6 +33,14 @@ Describe -tag 'PSSailpoint.MfaConfiguration' -name 'MFAConfigurationApi' {
     Context 'Get-MFAOktaConfigV1' {
         It 'Test Get-MFAOktaConfigV1' {
             #$TestResult = Get-MFAOktaConfigV1
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Set-MFAClear1ConfigV1' {
+        It 'Test Set-MFAClear1ConfigV1' {
+            #$TestResult = Set-MFAClear1ConfigV1 -MfaClear1Config "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

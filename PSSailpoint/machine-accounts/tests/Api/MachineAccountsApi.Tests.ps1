@@ -6,25 +6,9 @@
 #
 
 Describe -tag 'PSSailpoint.MachineAccounts' -name 'MachineAccountsApi' {
-    Context 'New-MachineAccountSubtypeV1' {
-        It 'Test New-MachineAccountSubtypeV1' {
-            #$TestResult = New-MachineAccountSubtypeV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -CreateMachineAccountSubtypeV1Request "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Remove-MachineAccountAsyncV1' {
         It 'Test Remove-MachineAccountAsyncV1' {
             #$TestResult = Remove-MachineAccountAsyncV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Remove-MachineAccountSubtypeByTechnicalNameV1' {
-        It 'Test Remove-MachineAccountSubtypeByTechnicalNameV1' {
-            #$TestResult = Remove-MachineAccountSubtypeByTechnicalNameV1 -SourceId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -78,22 +62,6 @@ Describe -tag 'PSSailpoint.MachineAccounts' -name 'MachineAccountsApi' {
         }
     }
 
-    Context 'Get-MachineAccountSubtypeByIdV1' {
-        It 'Test Get-MachineAccountSubtypeByIdV1' {
-            #$TestResult = Get-MachineAccountSubtypeByIdV1 -SubtypeId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-MachineAccountSubtypeByTechnicalNameV1' {
-        It 'Test Get-MachineAccountSubtypeByTechnicalNameV1' {
-            #$TestResult = Get-MachineAccountSubtypeByTechnicalNameV1 -SourceId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-MachineAccountV1' {
         It 'Test Get-MachineAccountV1' {
             #$TestResult = Get-MachineAccountV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
@@ -126,14 +94,6 @@ Describe -tag 'PSSailpoint.MachineAccounts' -name 'MachineAccountsApi' {
         }
     }
 
-    Context 'Get-MachineAccountSubtypesV1' {
-        It 'Test Get-MachineAccountSubtypesV1' {
-            #$TestResult = Get-MachineAccountSubtypesV1 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-MachineAccountsV1' {
         It 'Test Get-MachineAccountsV1' {
             #$TestResult = Get-MachineAccountsV1 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
@@ -145,14 +105,6 @@ Describe -tag 'PSSailpoint.MachineAccounts' -name 'MachineAccountsApi' {
     Context 'Get-MachineAccountsV2' {
         It 'Test Get-MachineAccountsV2' {
             #$TestResult = Get-MachineAccountsV2 -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -OwnerIdentity "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Update-MachineAccountSubtypeByTechnicalNameV1' {
-        It 'Test Update-MachineAccountSubtypeByTechnicalNameV1' {
-            #$TestResult = Update-MachineAccountSubtypeByTechnicalNameV1 -SourceId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

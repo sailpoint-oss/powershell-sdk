@@ -18,25 +18,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-MachineAccountSubtypeV1**](#create-machine-account-subtype-v1) | **POST** `/sources/v1/{sourceId}/subtypes` | Create subtype
 [**Remove-MachineAccountAsyncV1**](#delete-machine-account-async-v1) | **POST** `/machine-accounts/v1/{id}/remove` | Remove machine account
-[**Remove-MachineAccountSubtypeByTechnicalNameV1**](#delete-machine-account-subtype-by-technical-name-v1) | **DELETE** `/sources/v1/{sourceId}/subtypes/{technicalName}` | Delete subtype
 [**Remove-MachineAccountV1**](#delete-machine-account-v1) | **POST** `/machine-accounts/v1/{id}/delete` | Delete machine account
 [**Disable-MachineAccountV1**](#disable-machine-account-v1) | **POST** `/machine-accounts/v1/{id}/disable` | Disable machine account
 [**Disable-MachineAccountsInBulkV1**](#disable-machine-accounts-in-bulk-v1) | **POST** `/machine-accounts/v1/bulk-disable` | Disable machine accounts in bulk
 [**Enable-MachineAccountV1**](#enable-machine-account-v1) | **POST** `/machine-accounts/v1/{id}/enable` | Enable machine account
 [**Enable-MachineAccountsInBulkV1**](#enable-machine-accounts-in-bulk-v1) | **POST** `/machine-accounts/v1/bulk-enable` | Enable machine accounts in bulk
 [**Get-MachineAccountEntitlementsV1**](#get-machine-account-entitlements-v1) | **GET** `/machine-accounts/v1/{id}/entitlements` | List machine account entitlements
-[**Get-MachineAccountSubtypeByIdV1**](#get-machine-account-subtype-by-id-v1) | **GET** `/sources/v1/subtypes/{subtypeId}` | Retrieve subtype by subtype id
-[**Get-MachineAccountSubtypeByTechnicalNameV1**](#get-machine-account-subtype-by-technical-name-v1) | **GET** `/sources/v1/{sourceId}/subtypes/{technicalName}` | Retrieve subtype by source and technicalName
 [**Get-MachineAccountV1**](#get-machine-account-v1) | **GET** `/machine-accounts/v1/{id}` | Get machine account details
 [**Get-MachineAccountV2**](#get-machine-account-v2) | **GET** `/machine-accounts/v2/{id}` | Get machine account details
 [**Get-MachineAccountsSummaryV1**](#get-machine-accounts-summary-v1) | **GET** `/machine-accounts/v1/machine-accounts-summary` | Get machine account candidate summary
 [**Get-MachineAccountMachineIdentitiesV1**](#list-machine-account-machine-identities-v1) | **GET** `/machine-accounts/v1/{id}/machine-identities` | List linked machine identities
-[**Get-MachineAccountSubtypesV1**](#list-machine-account-subtypes-v1) | **GET** `/sources/v1/{sourceId}/subtypes` | Retrieve all subtypes by source
 [**Get-MachineAccountsV1**](#list-machine-accounts-v1) | **GET** `/machine-accounts/v1` | List machine accounts
 [**Get-MachineAccountsV2**](#list-machine-accounts-v2) | **GET** `/machine-accounts/v2` | List machine accounts
-[**Update-MachineAccountSubtypeByTechnicalNameV1**](#patch-machine-account-subtype-by-technical-name-v1) | **PATCH** `/sources/v1/{sourceId}/subtypes/{technicalName}` | Patch subtype
 [**Invoke-ReloadMachineAccountV1**](#reload-machine-account-v1) | **POST** `/machine-accounts/v1/{id}/reload` | Reload machine account
 [**Invoke-ReloadMachineAccountsInBulkAsyncV1**](#reload-machine-accounts-in-bulk-async-v1) | **POST** `/machine-accounts/v1/bulk-reload-async` | Reload machine accounts in bulk
 [**Unlock-MachineAccountV1**](#unlock-machine-account-v1) | **POST** `/machine-accounts/v1/{id}/unlock` | Unlock machine account
@@ -44,62 +38,6 @@ Method | HTTP request | Description
 [**Update-MachineAccountV2**](#update-machine-account-v2) | **PATCH** `/machine-accounts/v2/{id}` | Update machine account details
 [**Update-MachineAccountsInBulkV1**](#update-machine-accounts-in-bulk-v1) | **POST** `/machine-accounts/v1/bulk-update` | Update machine accounts in bulk
 
-
-## create-machine-account-subtype-v1
-:::caution deprecated 
-This endpoint has been deprecated and may be replaced or removed in future versions of the API.
-:::
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Create a new machine account subtype for a source.
-
-[API Spec](https://developer.sailpoint.com/docs/api/create-machine-account-subtype-v-1)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | SourceId | **String** | True  | The ID of the source.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | CreateMachineAccountSubtypeV1Request | [**CreateMachineAccountSubtypeV1Request**](../models/create-machine-account-subtype-v1-request) | True  | 
-
-### Return type
-[**SourceSubtype**](../models/source-subtype)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-201 | Created machine account subtype. | SourceSubtype
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-```powershell
-$SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$CreateMachineAccountSubtypeV1Request = @"{"technicalName":"foo","displayName":"Mr Foo","description":"fighters","type":"MACHINE"}"@
-
-# Create subtype
-
-try {
-    $Result = ConvertFrom-JsonToCreateMachineAccountSubtypeV1Request -Json $CreateMachineAccountSubtypeV1Request
-    New-MachineAccountSubtypeV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -CreateMachineAccountSubtypeV1Request $Result 
-    
-    # Below is a request that includes all optional parameters
-    # New-MachineAccountSubtypeV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -CreateMachineAccountSubtypeV1Request $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountSubtypeV1"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
 
 ## delete-machine-account-async-v1
 :::warning experimental 
@@ -158,61 +96,6 @@ try {
     # Remove-MachineAccountAsyncV1 -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountAsyncV1"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## delete-machine-account-subtype-by-technical-name-v1
-:::caution deprecated 
-This endpoint has been deprecated and may be replaced or removed in future versions of the API.
-:::
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Delete a machine account subtype by source ID and technical name.
-
-[API Spec](https://developer.sailpoint.com/docs/api/delete-machine-account-subtype-by-technical-name-v-1)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | SourceId | **String** | True  | The ID of the source.
-Path   | TechnicalName | **String** | True  | The technical name of the subtype.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-
-### Return type
- (empty response body)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-204 | Subtype deleted successfully. | 
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### Example
-```powershell
-$SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
-$TechnicalName = "foo" # String | The technical name of the subtype.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-
-# Delete subtype
-
-try {
-    Remove-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental 
-    
-    # Below is a request that includes all optional parameters
-    # Remove-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountSubtypeByTechnicalNameV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -569,114 +452,6 @@ try {
 ```
 [[Back to top]](#) 
 
-## get-machine-account-subtype-by-id-v1
-:::caution deprecated 
-This endpoint has been deprecated and may be replaced or removed in future versions of the API.
-:::
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Get a machine account subtype by its unique ID.
-
-[API Spec](https://developer.sailpoint.com/docs/api/get-machine-account-subtype-by-id-v-1)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | SubtypeId | **String** | True  | The ID of the machine account subtype.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-
-### Return type
-[**SourceSubtype**](../models/source-subtype)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | Machine account subtype object. | SourceSubtype
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### Example
-```powershell
-$SubtypeId = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the machine account subtype.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-
-# Retrieve subtype by subtype id
-
-try {
-    Get-MachineAccountSubtypeByIdV1 -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental 
-    
-    # Below is a request that includes all optional parameters
-    # Get-MachineAccountSubtypeByIdV1 -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountSubtypeByIdV1"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## get-machine-account-subtype-by-technical-name-v1
-:::caution deprecated 
-This endpoint has been deprecated and may be replaced or removed in future versions of the API.
-:::
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Get a machine account subtype by source ID and technical name.
-
-[API Spec](https://developer.sailpoint.com/docs/api/get-machine-account-subtype-by-technical-name-v-1)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | SourceId | **String** | True  | The ID of the source.
-Path   | TechnicalName | **String** | True  | The technical name of the subtype.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-
-### Return type
-[**SourceSubtype**](../models/source-subtype)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | Machine account subtype object. | SourceSubtype
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### Example
-```powershell
-$SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
-$TechnicalName = "foo" # String | The technical name of the subtype.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-
-# Retrieve subtype by source and technicalName
-
-try {
-    Get-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental 
-    
-    # Below is a request that includes all optional parameters
-    # Get-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountSubtypeByTechnicalNameV1"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
 ## get-machine-account-v1
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
@@ -896,69 +671,6 @@ try {
 ```
 [[Back to top]](#) 
 
-## list-machine-account-subtypes-v1
-:::caution deprecated 
-This endpoint has been deprecated and may be replaced or removed in future versions of the API.
-:::
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Get all machine account subtypes for a given source.
-
-[API Spec](https://developer.sailpoint.com/docs/api/list-machine-account-subtypes-v-1)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | SourceId | **String** | True  | The ID of the source.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw*
-  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
-  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
-  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
-  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
-
-### Return type
-[**SourceSubtype[]**](../models/source-subtype)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | List of machine account subtypes. | SourceSubtype[]
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### Example
-```powershell
-$SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Filters = 'displayName eq "sail"' # String | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional)
-$Sorters = "displayName" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
-
-# Retrieve all subtypes by source
-
-try {
-    Get-MachineAccountSubtypesV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
-    
-    # Below is a request that includes all optional parameters
-    # Get-MachineAccountSubtypesV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountSubtypesV1"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
 ## list-machine-accounts-v1
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
@@ -1081,67 +793,6 @@ try {
     # Get-MachineAccountsV2 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -OwnerIdentity $OwnerIdentity -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountsV2"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## patch-machine-account-subtype-by-technical-name-v1
-:::caution deprecated 
-This endpoint has been deprecated and may be replaced or removed in future versions of the API.
-:::
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Update fields of a machine account subtype by source ID and technical name.
-Patchable fields include: `displayName`, `description`.
-
-[API Spec](https://developer.sailpoint.com/docs/api/patch-machine-account-subtype-by-technical-name-v-1)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | SourceId | **String** | True  | The ID of the source.
-Path   | TechnicalName | **String** | True  | The technical name of the subtype.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | RequestBody | [**[]SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) | True  | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-
-### Return type
-[**SourceSubtype**](../models/source-subtype)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | Updated machine account subtype. | SourceSubtype
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListMachineAccountsV1401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListMachineAccountsV1429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json-patch+json
-- **Accept**: application/json
-
-### Example
-```powershell
-$SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
-$TechnicalName = "foo" # String | The technical name of the subtype.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
- $RequestBody = @"[{"op":"replace","path":"/displayName","value":"Test New DisplayName"}]"@ # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
- 
-
-# Patch subtype
-
-try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Update-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountSubtypeByTechnicalNameV1"
     Write-Host $_.ErrorDetails
 }
 ```

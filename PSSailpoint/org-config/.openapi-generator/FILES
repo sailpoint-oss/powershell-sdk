@@ -8,6 +8,7 @@ docs/ErrorMessageDto.md
 docs/ErrorResponseDto.md
 docs/GetOrgConfigV1401Response.md
 docs/GetOrgConfigV1429Response.md
+docs/IdnSourceToArmSystem.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
 docs/LocaleOrigin.md
@@ -23,6 +24,7 @@ src/PSSailpoint.OrgConfig/Model/ErrorMessageDto.ps1
 src/PSSailpoint.OrgConfig/Model/ErrorResponseDto.ps1
 src/PSSailpoint.OrgConfig/Model/GetOrgConfigV1401Response.ps1
 src/PSSailpoint.OrgConfig/Model/GetOrgConfigV1429Response.ps1
+src/PSSailpoint.OrgConfig/Model/IdnSourceToArmSystem.ps1
 src/PSSailpoint.OrgConfig/Model/JsonPatchOperation.ps1
 src/PSSailpoint.OrgConfig/Model/JsonPatchOperationValue.ps1
 src/PSSailpoint.OrgConfig/Model/LocaleOrigin.ps1
@@ -41,6 +43,7 @@ tests/Model/ErrorMessageDto.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
 tests/Model/GetOrgConfigV1401Response.Tests.ps1
 tests/Model/GetOrgConfigV1429Response.Tests.ps1
+tests/Model/IdnSourceToArmSystem.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1

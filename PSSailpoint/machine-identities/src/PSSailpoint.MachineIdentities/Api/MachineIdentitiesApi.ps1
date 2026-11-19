@@ -258,7 +258,7 @@ function Remove-MachineIdentitiesInBulkV2 {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/machine-identities/v2/bulk-delete'
+        $LocalVarUri = '/machine-identities/v1/bulk-delete'
 
         if (!$XSailPointExperimental) {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteMachineIdentitiesInBulkV2."
@@ -2930,7 +2930,7 @@ function Update-MachineIdentitiesInBulkV2 {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/machine-identities/v2/bulk-update'
+        $LocalVarUri = '/machine-identities/v1/bulk-update'
 
         if (!$XSailPointExperimental) {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling updateMachineIdentitiesInBulkV2."

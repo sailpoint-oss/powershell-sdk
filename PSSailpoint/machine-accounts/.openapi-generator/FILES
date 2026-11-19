@@ -6,7 +6,6 @@ appveyor.yml
 docs/ArrayInner.md
 docs/BaseCommonDto.md
 docs/BaseReferenceDto.md
-docs/CreateMachineAccountSubtypeV1Request.md
 docs/DtoType.md
 docs/ErrorMessageDto.md
 docs/ErrorResponseDto.md
@@ -41,13 +40,11 @@ docs/MachineAccountsApideveloperSite_code_examples.yaml
 docs/MachineAccountsAsyncResult.md
 docs/MachineAccountsSummary.md
 docs/Methods/Index.md
-docs/SourceSubtype.md
 src/PSSailpoint.MachineAccounts/Api/MachineAccountsApi.ps1
 src/PSSailpoint.MachineAccounts/Client/Configuration.ps1
 src/PSSailpoint.MachineAccounts/Model/ArrayInner.ps1
 src/PSSailpoint.MachineAccounts/Model/BaseCommonDto.ps1
 src/PSSailpoint.MachineAccounts/Model/BaseReferenceDto.ps1
-src/PSSailpoint.MachineAccounts/Model/CreateMachineAccountSubtypeV1Request.ps1
 src/PSSailpoint.MachineAccounts/Model/DtoType.ps1
 src/PSSailpoint.MachineAccounts/Model/ErrorMessageDto.ps1
 src/PSSailpoint.MachineAccounts/Model/ErrorResponseDto.ps1
@@ -79,7 +76,6 @@ src/PSSailpoint.MachineAccounts/Model/MachineAccountV2AllOfRisk.ps1
 src/PSSailpoint.MachineAccounts/Model/MachineAccountV2AllOfSubtype.ps1
 src/PSSailpoint.MachineAccounts/Model/MachineAccountsAsyncResult.ps1
 src/PSSailpoint.MachineAccounts/Model/MachineAccountsSummary.ps1
-src/PSSailpoint.MachineAccounts/Model/SourceSubtype.ps1
 src/PSSailpoint.MachineAccounts/PSSailpoint.MachineAccounts.psm1
 src/PSSailpoint.MachineAccounts/Private/ApiClient.ps1
 src/PSSailpoint.MachineAccounts/Private/Get-CommonParameters.ps1
@@ -91,7 +87,6 @@ tests/Api/MachineAccountsApi.Tests.ps1
 tests/Model/ArrayInner.Tests.ps1
 tests/Model/BaseCommonDto.Tests.ps1
 tests/Model/BaseReferenceDto.Tests.ps1
-tests/Model/CreateMachineAccountSubtypeV1Request.Tests.ps1
 tests/Model/DtoType.Tests.ps1
 tests/Model/ErrorMessageDto.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
@@ -123,4 +118,3 @@ tests/Model/MachineAccountV2AllOfRisk.Tests.ps1
 tests/Model/MachineAccountV2AllOfSubtype.Tests.ps1
 tests/Model/MachineAccountsAsyncResult.Tests.ps1
 tests/Model/MachineAccountsSummary.Tests.ps1
-tests/Model/SourceSubtype.Tests.ps1

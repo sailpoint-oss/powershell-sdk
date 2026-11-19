@@ -1,3 +1,21 @@
+- path: /mfa/v1/clear1/config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/mfaconfiguration/methods/mfa-configuration#get-mfa-clear1-config-v1
+      source: |
+        
+        # Configuration of CLEAR1 mfa method
+        
+        try {
+            Get-MFAClear1ConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MFAClear1ConfigV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MFAClear1ConfigV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /mfa/v1/duo-web/config
   method: GET
   xCodeSample:
@@ -51,6 +69,54 @@
             # Get-MFAOktaConfigV1   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MFAOktaConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/v1/clear1/config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/mfaconfiguration/methods/mfa-configuration#set-mfa-clear1-config-v1
+      source: |
+        $MfaClear1Config = @"
+        {
+          "knownUserKeyFlowConfig" : {
+            "projectId" : "projectId",
+            "enabled" : true,
+            "identityAttribute" : "identityAttribute"
+          },
+          "apiKey" : "sk123Y3QlA5UqocYpdU3rEkzrK2D497O",
+          "mfaMethod" : "clear1",
+          "enabled" : true,
+          "establishedIdentityFlowConfig" : {
+            "projectId" : "projectId",
+            "enabled" : true,
+            "userProfileMatchingAttributes" : {
+              "country" : "country",
+              "phone" : "phone",
+              "city" : "city",
+              "dob" : "dob",
+              "last_name" : "last_name",
+              "state" : "state",
+              "postal_code" : "postal_code",
+              "first_name" : "first_name",
+              "line2" : "line2",
+              "email" : "email",
+              "line1" : "line1"
+            }
+          }
+        }
+        "@
+        
+        # Set CLEAR1 mfa configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToMfaClear1Config -Json $MfaClear1Config
+            Set-MFAClear1ConfigV1 -MfaClear1Config $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-MFAClear1ConfigV1 -MfaClear1Config $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MFAClear1ConfigV1"
             Write-Host $_.ErrorDetails
         }
 - path: /mfa/v1/duo-web/config
@@ -143,7 +209,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/mfaconfiguration/methods/mfa-configuration#test-mfa-config-v1
       source: |
-        $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
+        $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify', 'duo-web', and 'clear1'.
         
         # Mfa method's test configuration
         

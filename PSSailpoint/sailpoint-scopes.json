@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.84",
+  "sdkVersion": "2.1.85",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -2494,6 +2494,22 @@
         "idn:data-segment:manage"
       ],
       "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "deleteDefaultBrandingV1": {
+      "resource": "branding",
+      "tag": "Branding",
+      "sdkName": "Remove-DefaultBrandingV1",
+      "httpMethod": "DELETE",
+      "path": "/brandings/v1/default",
+      "userAuth": [
+        "idn:branding:manage"
+      ],
+      "applicationAuth": [
+        "idn:branding:manage"
+      ],
       "userLevels": [
         "ORG_ADMIN"
       ]

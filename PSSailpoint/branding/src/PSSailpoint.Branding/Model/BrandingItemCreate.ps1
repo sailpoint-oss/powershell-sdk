@@ -20,16 +20,24 @@ name of branding item
 product name
 .PARAMETER ActionButtonColor
 hex value of color for action button
+.PARAMETER DarkActionButtonColor
+hex value of color for action button in dark mode
 .PARAMETER ActiveLinkColor
 hex value of color for link
+.PARAMETER DarkActiveLinkColor
+hex value of color for link in dark mode
 .PARAMETER NavigationColor
 hex value of color for navigation bar
+.PARAMETER DarkNavigationColor
+hex value of color for navigation bar in dark mode
 .PARAMETER EmailFromAddress
 email from address
 .PARAMETER LoginInformationalMessage
 login information message
 .PARAMETER FileStandard
-png file with logo
+png file with logo. To remove an existing logo, delete the branding item and create it again. Omitting this field on update keeps the current logo.
+.PARAMETER DarkFileStandard
+png file with dark-mode logo. To remove an existing dark-mode logo, delete the branding item and create it again. Omitting this field on update keeps the current dark-mode logo.
 .OUTPUTS
 
 BrandingItemCreate<PSCustomObject>
@@ -49,10 +57,19 @@ function Initialize-BrandingItemCreate {
         ${ActionButtonColor},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${DarkActionButtonColor},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${ActiveLinkColor},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${DarkActiveLinkColor},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${NavigationColor},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DarkNavigationColor},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${EmailFromAddress},
@@ -61,7 +78,10 @@ function Initialize-BrandingItemCreate {
         ${LoginInformationalMessage},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
-        ${FileStandard}
+        ${FileStandard},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.IO.FileInfo]
+        ${DarkFileStandard}
     )
 
     Process {
@@ -77,11 +97,15 @@ function Initialize-BrandingItemCreate {
             "name" = ${Name}
             "productName" = ${ProductName}
             "actionButtonColor" = ${ActionButtonColor}
+            "darkActionButtonColor" = ${DarkActionButtonColor}
             "activeLinkColor" = ${ActiveLinkColor}
+            "darkActiveLinkColor" = ${DarkActiveLinkColor}
             "navigationColor" = ${NavigationColor}
+            "darkNavigationColor" = ${DarkNavigationColor}
             "emailFromAddress" = ${EmailFromAddress}
             "loginInformationalMessage" = ${LoginInformationalMessage}
             "fileStandard" = ${FileStandard}
+            "darkFileStandard" = ${DarkFileStandard}
         }
 
         return $PSO
@@ -118,7 +142,7 @@ function ConvertFrom-JsonToBrandingItemCreate {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BrandingItemCreate
-        $AllProperties = ("name", "productName", "actionButtonColor", "activeLinkColor", "navigationColor", "emailFromAddress", "loginInformationalMessage", "fileStandard")
+        $AllProperties = ("name", "productName", "actionButtonColor", "darkActionButtonColor", "activeLinkColor", "darkActiveLinkColor", "navigationColor", "darkNavigationColor", "emailFromAddress", "loginInformationalMessage", "fileStandard", "darkFileStandard")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -147,16 +171,34 @@ function ConvertFrom-JsonToBrandingItemCreate {
             $ActionButtonColor = $JsonParameters.PSobject.Properties["actionButtonColor"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "darkActionButtonColor"))) { #optional property not found
+            $DarkActionButtonColor = $null
+        } else {
+            $DarkActionButtonColor = $JsonParameters.PSobject.Properties["darkActionButtonColor"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "activeLinkColor"))) { #optional property not found
             $ActiveLinkColor = $null
         } else {
             $ActiveLinkColor = $JsonParameters.PSobject.Properties["activeLinkColor"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "darkActiveLinkColor"))) { #optional property not found
+            $DarkActiveLinkColor = $null
+        } else {
+            $DarkActiveLinkColor = $JsonParameters.PSobject.Properties["darkActiveLinkColor"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "navigationColor"))) { #optional property not found
             $NavigationColor = $null
         } else {
             $NavigationColor = $JsonParameters.PSobject.Properties["navigationColor"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "darkNavigationColor"))) { #optional property not found
+            $DarkNavigationColor = $null
+        } else {
+            $DarkNavigationColor = $JsonParameters.PSobject.Properties["darkNavigationColor"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "emailFromAddress"))) { #optional property not found
@@ -177,15 +219,25 @@ function ConvertFrom-JsonToBrandingItemCreate {
             $FileStandard = $JsonParameters.PSobject.Properties["fileStandard"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "darkFileStandard"))) { #optional property not found
+            $DarkFileStandard = $null
+        } else {
+            $DarkFileStandard = $JsonParameters.PSobject.Properties["darkFileStandard"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "productName" = ${ProductName}
             "actionButtonColor" = ${ActionButtonColor}
+            "darkActionButtonColor" = ${DarkActionButtonColor}
             "activeLinkColor" = ${ActiveLinkColor}
+            "darkActiveLinkColor" = ${DarkActiveLinkColor}
             "navigationColor" = ${NavigationColor}
+            "darkNavigationColor" = ${DarkNavigationColor}
             "emailFromAddress" = ${EmailFromAddress}
             "loginInformationalMessage" = ${LoginInformationalMessage}
             "fileStandard" = ${FileStandard}
+            "darkFileStandard" = ${DarkFileStandard}
         }
 
         return $PSO

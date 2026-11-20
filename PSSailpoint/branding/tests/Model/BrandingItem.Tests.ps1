@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Branding' -name 'BrandingItem' {
     Context 'BrandingItem' {
         It 'Initialize-BrandingItem' {
             # a simple test to create an object
-            #$NewObject = Initialize-BrandingItem -Name "TEST_VALUE" -ProductName "TEST_VALUE" -ActionButtonColor "TEST_VALUE" -ActiveLinkColor "TEST_VALUE" -NavigationColor "TEST_VALUE" -EmailFromAddress "TEST_VALUE" -StandardLogoURL "TEST_VALUE" -LoginInformationalMessage "TEST_VALUE"
+            #$NewObject = Initialize-BrandingItem -Name "TEST_VALUE" -ProductName "TEST_VALUE" -ActionButtonColor "TEST_VALUE" -DarkActionButtonColor "TEST_VALUE" -ActiveLinkColor "TEST_VALUE" -DarkActiveLinkColor "TEST_VALUE" -NavigationColor "TEST_VALUE" -DarkNavigationColor "TEST_VALUE" -EmailFromAddress "TEST_VALUE" -StandardLogoURL "TEST_VALUE" -DarkStandardLogoURL "TEST_VALUE" -LoginInformationalMessage "TEST_VALUE"
             #$NewObject | Should -BeOfType BrandingItem
             #$NewObject.property | Should -Be 0
         }

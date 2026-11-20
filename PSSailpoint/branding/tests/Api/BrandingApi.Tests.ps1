@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.Branding' -name 'BrandingApi' {
     Context 'New-BrandingItemV1' {
         It 'Test New-BrandingItemV1' {
-            #$TestResult = New-BrandingItemV1 -Name "TEST_VALUE" -ProductName "TEST_VALUE" -ActionButtonColor "TEST_VALUE" -ActiveLinkColor "TEST_VALUE" -NavigationColor "TEST_VALUE" -EmailFromAddress "TEST_VALUE" -LoginInformationalMessage "TEST_VALUE" -FileStandard "TEST_VALUE"
+            #$TestResult = New-BrandingItemV1 -Name "TEST_VALUE" -ProductName "TEST_VALUE" -ActionButtonColor "TEST_VALUE" -DarkActionButtonColor "TEST_VALUE" -ActiveLinkColor "TEST_VALUE" -DarkActiveLinkColor "TEST_VALUE" -NavigationColor "TEST_VALUE" -DarkNavigationColor "TEST_VALUE" -EmailFromAddress "TEST_VALUE" -LoginInformationalMessage "TEST_VALUE" -FileStandard "TEST_VALUE" -DarkFileStandard "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -17,6 +17,14 @@ Describe -tag 'PSSailpoint.Branding' -name 'BrandingApi' {
     Context 'Remove-BrandingV1' {
         It 'Test Remove-BrandingV1' {
             #$TestResult = Remove-BrandingV1 -Name "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-DefaultBrandingV1' {
+        It 'Test Remove-DefaultBrandingV1' {
+            #$TestResult = Remove-DefaultBrandingV1
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +48,7 @@ Describe -tag 'PSSailpoint.Branding' -name 'BrandingApi' {
 
     Context 'Set-BrandingItemV1' {
         It 'Test Set-BrandingItemV1' {
-            #$TestResult = Set-BrandingItemV1 -Name "TEST_VALUE" -Name2 "TEST_VALUE" -ProductName "TEST_VALUE" -ActionButtonColor "TEST_VALUE" -ActiveLinkColor "TEST_VALUE" -NavigationColor "TEST_VALUE" -EmailFromAddress "TEST_VALUE" -LoginInformationalMessage "TEST_VALUE" -FileStandard "TEST_VALUE"
+            #$TestResult = Set-BrandingItemV1 -Name "TEST_VALUE" -Name2 "TEST_VALUE" -ProductName "TEST_VALUE" -ActionButtonColor "TEST_VALUE" -DarkActionButtonColor "TEST_VALUE" -ActiveLinkColor "TEST_VALUE" -DarkActiveLinkColor "TEST_VALUE" -NavigationColor "TEST_VALUE" -DarkNavigationColor "TEST_VALUE" -EmailFromAddress "TEST_VALUE" -LoginInformationalMessage "TEST_VALUE" -FileStandard "TEST_VALUE" -DarkFileStandard "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -20,14 +20,22 @@ name of branding item
 product name
 .PARAMETER ActionButtonColor
 hex value of color for action button
+.PARAMETER DarkActionButtonColor
+hex value of color for action button in dark mode
 .PARAMETER ActiveLinkColor
 hex value of color for link
+.PARAMETER DarkActiveLinkColor
+hex value of color for link in dark mode
 .PARAMETER NavigationColor
 hex value of color for navigation bar
+.PARAMETER DarkNavigationColor
+hex value of color for navigation bar in dark mode
 .PARAMETER EmailFromAddress
 email from address
 .PARAMETER StandardLogoURL
 url to standard logo
+.PARAMETER DarkStandardLogoURL
+url to dark-mode logo
 .PARAMETER LoginInformationalMessage
 login information message
 .OUTPUTS
@@ -49,16 +57,28 @@ function Initialize-BrandingItem {
         ${ActionButtonColor},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${DarkActionButtonColor},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${ActiveLinkColor},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${DarkActiveLinkColor},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${NavigationColor},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DarkNavigationColor},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${EmailFromAddress},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${StandardLogoURL},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DarkStandardLogoURL},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${LoginInformationalMessage}
@@ -73,10 +93,14 @@ function Initialize-BrandingItem {
             "name" = ${Name}
             "productName" = ${ProductName}
             "actionButtonColor" = ${ActionButtonColor}
+            "darkActionButtonColor" = ${DarkActionButtonColor}
             "activeLinkColor" = ${ActiveLinkColor}
+            "darkActiveLinkColor" = ${DarkActiveLinkColor}
             "navigationColor" = ${NavigationColor}
+            "darkNavigationColor" = ${DarkNavigationColor}
             "emailFromAddress" = ${EmailFromAddress}
             "standardLogoURL" = ${StandardLogoURL}
+            "darkStandardLogoURL" = ${DarkStandardLogoURL}
             "loginInformationalMessage" = ${LoginInformationalMessage}
         }
 
@@ -114,7 +138,7 @@ function ConvertFrom-JsonToBrandingItem {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BrandingItem
-        $AllProperties = ("name", "productName", "actionButtonColor", "activeLinkColor", "navigationColor", "emailFromAddress", "standardLogoURL", "loginInformationalMessage")
+        $AllProperties = ("name", "productName", "actionButtonColor", "darkActionButtonColor", "activeLinkColor", "darkActiveLinkColor", "navigationColor", "darkNavigationColor", "emailFromAddress", "standardLogoURL", "darkStandardLogoURL", "loginInformationalMessage")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -139,16 +163,34 @@ function ConvertFrom-JsonToBrandingItem {
             $ActionButtonColor = $JsonParameters.PSobject.Properties["actionButtonColor"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "darkActionButtonColor"))) { #optional property not found
+            $DarkActionButtonColor = $null
+        } else {
+            $DarkActionButtonColor = $JsonParameters.PSobject.Properties["darkActionButtonColor"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "activeLinkColor"))) { #optional property not found
             $ActiveLinkColor = $null
         } else {
             $ActiveLinkColor = $JsonParameters.PSobject.Properties["activeLinkColor"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "darkActiveLinkColor"))) { #optional property not found
+            $DarkActiveLinkColor = $null
+        } else {
+            $DarkActiveLinkColor = $JsonParameters.PSobject.Properties["darkActiveLinkColor"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "navigationColor"))) { #optional property not found
             $NavigationColor = $null
         } else {
             $NavigationColor = $JsonParameters.PSobject.Properties["navigationColor"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "darkNavigationColor"))) { #optional property not found
+            $DarkNavigationColor = $null
+        } else {
+            $DarkNavigationColor = $JsonParameters.PSobject.Properties["darkNavigationColor"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "emailFromAddress"))) { #optional property not found
@@ -163,6 +205,12 @@ function ConvertFrom-JsonToBrandingItem {
             $StandardLogoURL = $JsonParameters.PSobject.Properties["standardLogoURL"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "darkStandardLogoURL"))) { #optional property not found
+            $DarkStandardLogoURL = $null
+        } else {
+            $DarkStandardLogoURL = $JsonParameters.PSobject.Properties["darkStandardLogoURL"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "loginInformationalMessage"))) { #optional property not found
             $LoginInformationalMessage = $null
         } else {
@@ -173,10 +221,14 @@ function ConvertFrom-JsonToBrandingItem {
             "name" = ${Name}
             "productName" = ${ProductName}
             "actionButtonColor" = ${ActionButtonColor}
+            "darkActionButtonColor" = ${DarkActionButtonColor}
             "activeLinkColor" = ${ActiveLinkColor}
+            "darkActiveLinkColor" = ${DarkActiveLinkColor}
             "navigationColor" = ${NavigationColor}
+            "darkNavigationColor" = ${DarkNavigationColor}
             "emailFromAddress" = ${EmailFromAddress}
             "standardLogoURL" = ${StandardLogoURL}
+            "darkStandardLogoURL" = ${DarkStandardLogoURL}
             "loginInformationalMessage" = ${LoginInformationalMessage}
         }
 

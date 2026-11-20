@@ -7,11 +7,15 @@
         $Name = "MyName" # String | name of branding item
         $ProductName = "MyProductName" # String | product name
         $ActionButtonColor = "MyActionButtonColor" # String | hex value of color for action button (optional)
+        $DarkActionButtonColor = "MyDarkActionButtonColor" # String | hex value of color for action button in dark mode (optional)
         $ActiveLinkColor = "MyActiveLinkColor" # String | hex value of color for link (optional)
+        $DarkActiveLinkColor = "MyDarkActiveLinkColor" # String | hex value of color for link in dark mode (optional)
         $NavigationColor = "MyNavigationColor" # String | hex value of color for navigation bar (optional)
+        $DarkNavigationColor = "MyDarkNavigationColor" # String | hex value of color for navigation bar in dark mode (optional)
         $EmailFromAddress = "MyEmailFromAddress" # String | email from address (optional)
         $LoginInformationalMessage = "MyLoginInformationalMessage" # String | login information message (optional)
-        $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
+        $FileStandard =  # System.IO.FileInfo | png file with logo. To remove an existing logo, delete the branding item and create it again. Omitting this field on update keeps the current logo. (optional)
+        $DarkFileStandard =  # System.IO.FileInfo | png file with dark-mode logo. To remove an existing dark-mode logo, delete the branding item and create it again. Omitting this field on update keeps the current dark-mode logo. (optional)
         
         # Create a branding item
         
@@ -19,7 +23,7 @@
             New-BrandingItemV1 -Name $Name -ProductName $ProductName 
     
             # Below is a request that includes all optional parameters
-            # New-BrandingItemV1 -Name $Name -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard   
+            # New-BrandingItemV1 -Name $Name -ProductName $ProductName -ActionButtonColor $ActionButtonColor -DarkActionButtonColor $DarkActionButtonColor -ActiveLinkColor $ActiveLinkColor -DarkActiveLinkColor $DarkActiveLinkColor -NavigationColor $NavigationColor -DarkNavigationColor $DarkNavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard -DarkFileStandard $DarkFileStandard   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BrandingItemV1"
             Write-Host $_.ErrorDetails
@@ -41,6 +45,24 @@
             # Remove-BrandingV1 -Name $Name   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BrandingV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /brandings/v1/default
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/branding/methods/branding#delete-default-branding-v1
+      source: |
+        
+        # Clear the default branding item
+        
+        try {
+            Remove-DefaultBrandingV1 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-DefaultBrandingV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-DefaultBrandingV1"
             Write-Host $_.ErrorDetails
         }
 - path: /brandings/v1
@@ -90,11 +112,15 @@
         $Name2 = "Name_example" # String | name of branding item
         $ProductName = "MyProductName" # String | product name
         $ActionButtonColor = "MyActionButtonColor" # String | hex value of color for action button (optional)
+        $DarkActionButtonColor = "MyDarkActionButtonColor" # String | hex value of color for action button in dark mode (optional)
         $ActiveLinkColor = "MyActiveLinkColor" # String | hex value of color for link (optional)
+        $DarkActiveLinkColor = "MyDarkActiveLinkColor" # String | hex value of color for link in dark mode (optional)
         $NavigationColor = "MyNavigationColor" # String | hex value of color for navigation bar (optional)
+        $DarkNavigationColor = "MyDarkNavigationColor" # String | hex value of color for navigation bar in dark mode (optional)
         $EmailFromAddress = "MyEmailFromAddress" # String | email from address (optional)
         $LoginInformationalMessage = "MyLoginInformationalMessage" # String | login information message (optional)
-        $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
+        $FileStandard =  # System.IO.FileInfo | png file with logo. To remove an existing logo, delete the branding item and create it again. Omitting this field on update keeps the current logo. (optional)
+        $DarkFileStandard =  # System.IO.FileInfo | png file with dark-mode logo. To remove an existing dark-mode logo, delete the branding item and create it again. Omitting this field on update keeps the current dark-mode logo. (optional)
         
         # Update a branding item
         
@@ -102,7 +128,7 @@
             Set-BrandingItemV1 -Name $Name -Name2 $Name2 -ProductName $ProductName 
     
             # Below is a request that includes all optional parameters
-            # Set-BrandingItemV1 -Name $Name -Name2 $Name2 -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard   
+            # Set-BrandingItemV1 -Name $Name -Name2 $Name2 -ProductName $ProductName -ActionButtonColor $ActionButtonColor -DarkActionButtonColor $DarkActionButtonColor -ActiveLinkColor $ActiveLinkColor -DarkActiveLinkColor $DarkActiveLinkColor -NavigationColor $NavigationColor -DarkNavigationColor $DarkNavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard -DarkFileStandard $DarkFileStandard   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BrandingItemV1"
             Write-Host $_.ErrorDetails

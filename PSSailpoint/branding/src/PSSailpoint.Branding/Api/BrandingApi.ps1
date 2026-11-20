@@ -23,11 +23,20 @@ product name
 .PARAMETER ActionButtonColor
 hex value of color for action button
 
+.PARAMETER DarkActionButtonColor
+hex value of color for action button in dark mode
+
 .PARAMETER ActiveLinkColor
 hex value of color for link
 
+.PARAMETER DarkActiveLinkColor
+hex value of color for link in dark mode
+
 .PARAMETER NavigationColor
 hex value of color for navigation bar
+
+.PARAMETER DarkNavigationColor
+hex value of color for navigation bar in dark mode
 
 .PARAMETER EmailFromAddress
 email from address
@@ -36,7 +45,10 @@ email from address
 login information message
 
 .PARAMETER FileStandard
-png file with logo
+png file with logo. To remove an existing logo, delete the branding item and create it again. Omitting this field on update keeps the current logo.
+
+.PARAMETER DarkFileStandard
+png file with dark-mode logo. To remove an existing dark-mode logo, delete the branding item and create it again. Omitting this field on update keeps the current dark-mode logo.
 
 .PARAMETER WithHttpInfo
 
@@ -60,19 +72,31 @@ function New-BrandingItemV1 {
         ${ActionButtonColor},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${ActiveLinkColor},
+        ${DarkActionButtonColor},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${NavigationColor},
+        ${ActiveLinkColor},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${EmailFromAddress},
+        ${DarkActiveLinkColor},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${LoginInformationalMessage},
+        ${NavigationColor},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${DarkNavigationColor},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${EmailFromAddress},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${LoginInformationalMessage},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
         ${FileStandard},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.IO.FileInfo]
+        ${DarkFileStandard},
         [Switch]
         $WithHttpInfo
     )
@@ -107,12 +131,24 @@ function New-BrandingItemV1 {
             $LocalVarFormParameters['actionButtonColor'] = $ActionButtonColor
         }
 
+        if ($DarkActionButtonColor) {
+            $LocalVarFormParameters['darkActionButtonColor'] = $DarkActionButtonColor
+        }
+
         if ($ActiveLinkColor) {
             $LocalVarFormParameters['activeLinkColor'] = $ActiveLinkColor
         }
 
+        if ($DarkActiveLinkColor) {
+            $LocalVarFormParameters['darkActiveLinkColor'] = $DarkActiveLinkColor
+        }
+
         if ($NavigationColor) {
             $LocalVarFormParameters['navigationColor'] = $NavigationColor
+        }
+
+        if ($DarkNavigationColor) {
+            $LocalVarFormParameters['darkNavigationColor'] = $DarkNavigationColor
         }
 
         if ($EmailFromAddress) {
@@ -125,6 +161,10 @@ function New-BrandingItemV1 {
 
         if ($FileStandard) {
             $LocalVarFormParameters['fileStandard'] = $FileStandard | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
+        }
+
+        if ($DarkFileStandard) {
+            $LocalVarFormParameters['darkFileStandard'] = $DarkFileStandard | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
         $LocalVarResult = Invoke-ApiClient -Method 'POST' `
@@ -198,6 +238,68 @@ function Remove-BrandingV1 {
             throw "Error! The required parameter `Name` missing when calling deleteBrandingV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{name}', [System.Web.HTTPUtility]::UrlEncode($Name))
+
+        $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Clear the default branding item
+
+.DESCRIPTION
+
+This API endpoint clears the customizable properties of the default branding item. The default item is kept.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+None
+#>
+function Remove-DefaultBrandingV1 {
+    [CmdletBinding()]
+    Param (
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Remove-DefaultBrandingV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/brandings/v1/default'
 
         $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
@@ -374,11 +476,20 @@ product name
 .PARAMETER ActionButtonColor
 hex value of color for action button
 
+.PARAMETER DarkActionButtonColor
+hex value of color for action button in dark mode
+
 .PARAMETER ActiveLinkColor
 hex value of color for link
 
+.PARAMETER DarkActiveLinkColor
+hex value of color for link in dark mode
+
 .PARAMETER NavigationColor
 hex value of color for navigation bar
+
+.PARAMETER DarkNavigationColor
+hex value of color for navigation bar in dark mode
 
 .PARAMETER EmailFromAddress
 email from address
@@ -387,7 +498,10 @@ email from address
 login information message
 
 .PARAMETER FileStandard
-png file with logo
+png file with logo. To remove an existing logo, delete the branding item and create it again. Omitting this field on update keeps the current logo.
+
+.PARAMETER DarkFileStandard
+png file with dark-mode logo. To remove an existing dark-mode logo, delete the branding item and create it again. Omitting this field on update keeps the current dark-mode logo.
 
 .PARAMETER WithHttpInfo
 
@@ -414,19 +528,31 @@ function Set-BrandingItemV1 {
         ${ActionButtonColor},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${ActiveLinkColor},
+        ${DarkActionButtonColor},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${NavigationColor},
+        ${ActiveLinkColor},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${EmailFromAddress},
+        ${DarkActiveLinkColor},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${LoginInformationalMessage},
+        ${NavigationColor},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${DarkNavigationColor},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${EmailFromAddress},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${LoginInformationalMessage},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
         ${FileStandard},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.IO.FileInfo]
+        ${DarkFileStandard},
         [Switch]
         $WithHttpInfo
     )
@@ -465,12 +591,24 @@ function Set-BrandingItemV1 {
             $LocalVarFormParameters['actionButtonColor'] = $ActionButtonColor
         }
 
+        if ($DarkActionButtonColor) {
+            $LocalVarFormParameters['darkActionButtonColor'] = $DarkActionButtonColor
+        }
+
         if ($ActiveLinkColor) {
             $LocalVarFormParameters['activeLinkColor'] = $ActiveLinkColor
         }
 
+        if ($DarkActiveLinkColor) {
+            $LocalVarFormParameters['darkActiveLinkColor'] = $DarkActiveLinkColor
+        }
+
         if ($NavigationColor) {
             $LocalVarFormParameters['navigationColor'] = $NavigationColor
+        }
+
+        if ($DarkNavigationColor) {
+            $LocalVarFormParameters['darkNavigationColor'] = $DarkNavigationColor
         }
 
         if ($EmailFromAddress) {
@@ -483,6 +621,10 @@ function Set-BrandingItemV1 {
 
         if ($FileStandard) {
             $LocalVarFormParameters['fileStandard'] = $FileStandard | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
+        }
+
+        if ($DarkFileStandard) {
+            $LocalVarFormParameters['darkFileStandard'] = $DarkFileStandard | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
         $LocalVarResult = Invoke-ApiClient -Method 'PUT' `

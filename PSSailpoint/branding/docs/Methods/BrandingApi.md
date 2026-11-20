@@ -24,6 +24,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BrandingItemV1**](#create-branding-item-v1) | **POST** `/brandings/v1` | Create a branding item
 [**Remove-BrandingV1**](#delete-branding-v1) | **DELETE** `/brandings/v1/{name}` | Delete a branding item
+[**Remove-DefaultBrandingV1**](#delete-default-branding-v1) | **DELETE** `/brandings/v1/default` | Clear the default branding item
 [**Get-BrandingListV1**](#get-branding-list-v1) | **GET** `/brandings/v1` | List of branding items
 [**Get-BrandingV1**](#get-branding-v1) | **GET** `/brandings/v1/{name}` | Get a branding item
 [**Set-BrandingItemV1**](#set-branding-item-v1) | **PUT** `/brandings/v1/{name}` | Update a branding item
@@ -40,11 +41,15 @@ Param Type | Name | Data Type | Required  | Description
    | Name | **String** | True  | name of branding item
    | ProductName | **String** | True  | product name
    | ActionButtonColor | **String** |   (optional) | hex value of color for action button
+   | DarkActionButtonColor | **String** |   (optional) | hex value of color for action button in dark mode
    | ActiveLinkColor | **String** |   (optional) | hex value of color for link
+   | DarkActiveLinkColor | **String** |   (optional) | hex value of color for link in dark mode
    | NavigationColor | **String** |   (optional) | hex value of color for navigation bar
+   | DarkNavigationColor | **String** |   (optional) | hex value of color for navigation bar in dark mode
    | EmailFromAddress | **String** |   (optional) | email from address
    | LoginInformationalMessage | **String** |   (optional) | login information message
-   | FileStandard | **System.IO.FileInfo** |   (optional) | png file with logo
+   | FileStandard | **System.IO.FileInfo** |   (optional) | png file with logo. To remove an existing logo, delete the branding item and create it again. Omitting this field on update keeps the current logo.
+   | DarkFileStandard | **System.IO.FileInfo** |   (optional) | png file with dark-mode logo. To remove an existing dark-mode logo, delete the branding item and create it again. Omitting this field on update keeps the current dark-mode logo.
 
 ### Return type
 [**BrandingItem**](../models/branding-item)
@@ -68,11 +73,15 @@ Code | Description  | Data Type
 $Name = "MyName" # String | name of branding item
 $ProductName = "MyProductName" # String | product name
 $ActionButtonColor = "MyActionButtonColor" # String | hex value of color for action button (optional)
+$DarkActionButtonColor = "MyDarkActionButtonColor" # String | hex value of color for action button in dark mode (optional)
 $ActiveLinkColor = "MyActiveLinkColor" # String | hex value of color for link (optional)
+$DarkActiveLinkColor = "MyDarkActiveLinkColor" # String | hex value of color for link in dark mode (optional)
 $NavigationColor = "MyNavigationColor" # String | hex value of color for navigation bar (optional)
+$DarkNavigationColor = "MyDarkNavigationColor" # String | hex value of color for navigation bar in dark mode (optional)
 $EmailFromAddress = "MyEmailFromAddress" # String | email from address (optional)
 $LoginInformationalMessage = "MyLoginInformationalMessage" # String | login information message (optional)
-$FileStandard =  # System.IO.FileInfo | png file with logo (optional)
+$FileStandard =  # System.IO.FileInfo | png file with logo. To remove an existing logo, delete the branding item and create it again. Omitting this field on update keeps the current logo. (optional)
+$DarkFileStandard =  # System.IO.FileInfo | png file with dark-mode logo. To remove an existing dark-mode logo, delete the branding item and create it again. Omitting this field on update keeps the current dark-mode logo. (optional)
 
 # Create a branding item
 
@@ -80,7 +89,7 @@ try {
     New-BrandingItemV1 -Name $Name -ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
-    # New-BrandingItemV1 -Name $Name -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard  
+    # New-BrandingItemV1 -Name $Name -ProductName $ProductName -ActionButtonColor $ActionButtonColor -DarkActionButtonColor $DarkActionButtonColor -ActiveLinkColor $ActiveLinkColor -DarkActiveLinkColor $DarkActiveLinkColor -NavigationColor $NavigationColor -DarkNavigationColor $DarkNavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard -DarkFileStandard $DarkFileStandard  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BrandingItemV1"
     Write-Host $_.ErrorDetails
@@ -129,6 +138,49 @@ try {
     # Remove-BrandingV1 -Name $Name  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BrandingV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-default-branding-v1
+This API endpoint clears the customizable properties of the default branding item. The default item is kept.
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-default-branding-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetBrandingListV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetBrandingListV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+
+# Clear the default branding item
+
+try {
+    Remove-DefaultBrandingV1 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-DefaultBrandingV1  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-DefaultBrandingV1"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -235,11 +287,15 @@ Path   | Name | **String** | True  | The name of the branding item to be retriev
    | Name2 | **String** | True  | name of branding item
    | ProductName | **String** | True  | product name
    | ActionButtonColor | **String** |   (optional) | hex value of color for action button
+   | DarkActionButtonColor | **String** |   (optional) | hex value of color for action button in dark mode
    | ActiveLinkColor | **String** |   (optional) | hex value of color for link
+   | DarkActiveLinkColor | **String** |   (optional) | hex value of color for link in dark mode
    | NavigationColor | **String** |   (optional) | hex value of color for navigation bar
+   | DarkNavigationColor | **String** |   (optional) | hex value of color for navigation bar in dark mode
    | EmailFromAddress | **String** |   (optional) | email from address
    | LoginInformationalMessage | **String** |   (optional) | login information message
-   | FileStandard | **System.IO.FileInfo** |   (optional) | png file with logo
+   | FileStandard | **System.IO.FileInfo** |   (optional) | png file with logo. To remove an existing logo, delete the branding item and create it again. Omitting this field on update keeps the current logo.
+   | DarkFileStandard | **System.IO.FileInfo** |   (optional) | png file with dark-mode logo. To remove an existing dark-mode logo, delete the branding item and create it again. Omitting this field on update keeps the current dark-mode logo.
 
 ### Return type
 [**BrandingItem**](../models/branding-item)
@@ -265,11 +321,15 @@ $Name = "default" # String | The name of the branding item to be retrieved
 $Name2 = "Name_example" # String | name of branding item
 $ProductName = "MyProductName" # String | product name
 $ActionButtonColor = "MyActionButtonColor" # String | hex value of color for action button (optional)
+$DarkActionButtonColor = "MyDarkActionButtonColor" # String | hex value of color for action button in dark mode (optional)
 $ActiveLinkColor = "MyActiveLinkColor" # String | hex value of color for link (optional)
+$DarkActiveLinkColor = "MyDarkActiveLinkColor" # String | hex value of color for link in dark mode (optional)
 $NavigationColor = "MyNavigationColor" # String | hex value of color for navigation bar (optional)
+$DarkNavigationColor = "MyDarkNavigationColor" # String | hex value of color for navigation bar in dark mode (optional)
 $EmailFromAddress = "MyEmailFromAddress" # String | email from address (optional)
 $LoginInformationalMessage = "MyLoginInformationalMessage" # String | login information message (optional)
-$FileStandard =  # System.IO.FileInfo | png file with logo (optional)
+$FileStandard =  # System.IO.FileInfo | png file with logo. To remove an existing logo, delete the branding item and create it again. Omitting this field on update keeps the current logo. (optional)
+$DarkFileStandard =  # System.IO.FileInfo | png file with dark-mode logo. To remove an existing dark-mode logo, delete the branding item and create it again. Omitting this field on update keeps the current dark-mode logo. (optional)
 
 # Update a branding item
 
@@ -277,7 +337,7 @@ try {
     Set-BrandingItemV1 -Name $Name -Name2 $Name2 -ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
-    # Set-BrandingItemV1 -Name $Name -Name2 $Name2 -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard  
+    # Set-BrandingItemV1 -Name $Name -Name2 $Name2 -ProductName $ProductName -ActionButtonColor $ActionButtonColor -DarkActionButtonColor $DarkActionButtonColor -ActiveLinkColor $ActiveLinkColor -DarkActiveLinkColor $DarkActiveLinkColor -NavigationColor $NavigationColor -DarkNavigationColor $DarkNavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard -DarkFileStandard $DarkFileStandard  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BrandingItemV1"
     Write-Host $_.ErrorDetails

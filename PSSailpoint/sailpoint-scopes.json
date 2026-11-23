@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.85",
+  "sdkVersion": "2.1.86",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -4957,6 +4957,23 @@
         "idn:campaign-filter:read"
       ],
       "applicationAuth": null
+    },
+    "getCampaignReportDownloadUrlV1": {
+      "resource": "certification-campaigns",
+      "tag": "Certification Campaigns",
+      "sdkName": "Get-CampaignReportDownloadUrlV1",
+      "httpMethod": "GET",
+      "path": "/campaigns/v1/{id}/reports/{taskResultId}/download-url/{reportFormat}",
+      "userAuth": [
+        "idn:campaign-report:read",
+        "idn:campaign-report:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "CERT_ADMIN",
+        "REPORT_ADMIN"
+      ]
     },
     "getCampaignReportsConfigV1": {
       "resource": "certification-campaigns",

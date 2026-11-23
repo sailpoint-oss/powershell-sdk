@@ -62,6 +62,14 @@ Describe -tag 'PSSailpoint.CertificationCampaigns' -name 'CertificationCampaigns
         }
     }
 
+    Context 'Get-CampaignReportDownloadUrlV1' {
+        It 'Test Get-CampaignReportDownloadUrlV1' {
+            #$TestResult = Get-CampaignReportDownloadUrlV1 -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -TaskResultId "TEST_VALUE" -ReportFormat "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-CampaignReportsConfigV1' {
         It 'Test Get-CampaignReportsConfigV1' {
             #$TestResult = Get-CampaignReportsConfigV1

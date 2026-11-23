@@ -633,6 +633,110 @@ function Get-ActiveCampaignsV1 {
 <#
 .SYNOPSIS
 
+Get campaign report download URL
+
+.DESCRIPTION
+
+Use this API to get a URL for downloading a certification campaign report. 
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER Id
+ID of the campaign whose report is being downloaded.
+
+.PARAMETER TaskResultId
+ID of the campaign task that generated the report.
+
+.PARAMETER ReportFormat
+File format of the report to download.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+CampaignReportDownload
+#>
+function Get-CampaignReportDownloadUrlV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${TaskResultId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("PDF", "CSV")]
+        [String]
+        ${ReportFormat},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-CampaignReportDownloadUrlV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/campaigns/v1/{id}/reports/{taskResultId}/download-url/{reportFormat}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getCampaignReportDownloadUrlV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        if (!$TaskResultId) {
+            throw "Error! The required parameter `TaskResultId` missing when calling getCampaignReportDownloadUrlV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{taskResultId}', [System.Web.HTTPUtility]::UrlEncode($TaskResultId))
+        if (!$ReportFormat) {
+            throw "Error! The required parameter `ReportFormat` missing when calling getCampaignReportDownloadUrlV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{reportFormat}', [System.Web.HTTPUtility]::UrlEncode($ReportFormat))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getCampaignReportDownloadUrlV1."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "CampaignReportDownload" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get campaign reports configuration
 
 .DESCRIPTION

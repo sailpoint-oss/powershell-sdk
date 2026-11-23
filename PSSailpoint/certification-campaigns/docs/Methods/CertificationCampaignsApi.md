@@ -89,6 +89,7 @@ Method | HTTP request | Description
 [**Remove-CampaignTemplateV1**](#delete-campaign-template-v1) | **DELETE** `/campaign-templates/v1/{id}` | Delete a campaign template
 [**Remove-CampaignsV1**](#delete-campaigns-v1) | **POST** `/campaigns/v1/delete` | Delete campaigns
 [**Get-ActiveCampaignsV1**](#get-active-campaigns-v1) | **GET** `/campaigns/v1` | List campaigns
+[**Get-CampaignReportDownloadUrlV1**](#get-campaign-report-download-url-v1) | **GET** `/campaigns/v1/{id}/reports/{taskResultId}/download-url/{reportFormat}` | Get campaign report download URL
 [**Get-CampaignReportsConfigV1**](#get-campaign-reports-config-v1) | **GET** `/campaigns/v1/reports-configuration` | Get campaign reports configuration
 [**Get-CampaignReportsV1**](#get-campaign-reports-v1) | **GET** `/campaigns/v1/{id}/reports` | Get campaign reports
 [**Get-CampaignTemplateScheduleV1**](#get-campaign-template-schedule-v1) | **GET** `/campaign-templates/v1/{id}/schedule` | Get campaign template schedule
@@ -582,6 +583,62 @@ try {
     # Get-ActiveCampaignsV1 -Detail $Detail -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ActiveCampaignsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-campaign-report-download-url-v1
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to get a URL for downloading a certification campaign report.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-campaign-report-download-url-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+Path   | Id | **String** | True  | ID of the campaign whose report is being downloaded.
+Path   | TaskResultId | **String** | True  | ID of the campaign task that generated the report.
+Path   | ReportFormat | **String** | True  | File format of the report to download.
+
+### Return type
+[**CampaignReportDownload**](../models/campaign-report-download)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The information to download the campaign report. | CampaignReportDownload
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetActiveCampaignsV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetActiveCampaignsV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose report is being downloaded.
+$TaskResultId = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign task that generated the report.
+$ReportFormat = "PDF" # String | File format of the report to download.
+
+# Get campaign report download URL
+
+try {
+    Get-CampaignReportDownloadUrlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -TaskResultId $TaskResultId -ReportFormat $ReportFormat 
+    
+    # Below is a request that includes all optional parameters
+    # Get-CampaignReportDownloadUrlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -TaskResultId $TaskResultId -ReportFormat $ReportFormat  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CampaignReportDownloadUrlV1"
     Write-Host $_.ErrorDetails
 }
 ```

@@ -22,6 +22,7 @@ docs/CampaignAlert.md
 docs/CampaignCompleteOptions.md
 docs/CampaignReference.md
 docs/CampaignReport.md
+docs/CampaignReportDownload.md
 docs/CampaignReportsConfig.md
 docs/CampaignTemplate.md
 docs/CampaignTemplateOwnerRef.md
@@ -69,6 +70,7 @@ src/PSSailpoint.CertificationCampaigns/Model/CampaignAlert.ps1
 src/PSSailpoint.CertificationCampaigns/Model/CampaignCompleteOptions.ps1
 src/PSSailpoint.CertificationCampaigns/Model/CampaignReference.ps1
 src/PSSailpoint.CertificationCampaigns/Model/CampaignReport.ps1
+src/PSSailpoint.CertificationCampaigns/Model/CampaignReportDownload.ps1
 src/PSSailpoint.CertificationCampaigns/Model/CampaignReportsConfig.ps1
 src/PSSailpoint.CertificationCampaigns/Model/CampaignTemplate.ps1
 src/PSSailpoint.CertificationCampaigns/Model/CampaignTemplateOwnerRef.ps1
@@ -119,6 +121,7 @@ tests/Model/CampaignAlert.Tests.ps1
 tests/Model/CampaignCompleteOptions.Tests.ps1
 tests/Model/CampaignReference.Tests.ps1
 tests/Model/CampaignReport.Tests.ps1
+tests/Model/CampaignReportDownload.Tests.ps1
 tests/Model/CampaignReportsConfig.Tests.ps1
 tests/Model/CampaignTemplate.Tests.ps1
 tests/Model/CampaignTemplateOwnerRef.Tests.ps1

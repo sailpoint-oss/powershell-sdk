@@ -276,6 +276,28 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ActiveCampaignsV1"
             Write-Host $_.ErrorDetails
         }
+- path: /campaigns/v1/{id}/reports/{taskResultId}/download-url/{reportFormat}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-report-download-url-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose report is being downloaded.
+        $TaskResultId = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign task that generated the report.
+        $ReportFormat = "PDF" # String | File format of the report to download.
+        
+        # Get campaign report download URL
+        
+        try {
+            Get-CampaignReportDownloadUrlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -TaskResultId $TaskResultId -ReportFormat $ReportFormat 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CampaignReportDownloadUrlV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -TaskResultId $TaskResultId -ReportFormat $ReportFormat   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CampaignReportDownloadUrlV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /campaigns/v1/reports-configuration
   method: GET
   xCodeSample:

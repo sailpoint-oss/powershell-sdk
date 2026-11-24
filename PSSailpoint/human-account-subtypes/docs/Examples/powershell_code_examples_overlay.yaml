@@ -1,0 +1,170 @@
+- path: /accounts/v2/sources/{sourceId}/subtypes
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/humanaccountsubtypes/methods/human-account-subtypes#create-human-account-subtype-v2
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | ID of the source.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $HumanAccountSubtypeCreateRequest = @"
+        {
+          "default" : false,
+          "displayName" : "Contractor",
+          "description" : "Contractors with a limited account lifecycle",
+          "technicalName" : "contractor"
+        }
+        "@
+        
+        # Create a human account subtype
+        
+        try {
+            $Result = ConvertFrom-JsonToHumanAccountSubtypeCreateRequest -Json $HumanAccountSubtypeCreateRequest
+            New-HumanAccountSubtypeV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -HumanAccountSubtypeCreateRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-HumanAccountSubtypeV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -HumanAccountSubtypeCreateRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-HumanAccountSubtypeV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v2/sources/{sourceId}/subtypes/{subtypeId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/humanaccountsubtypes/methods/human-account-subtypes#delete-human-account-subtype-v2
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | ID of the source.
+        $SubtypeId = "38453251-6be2-5f8f-df93-5ce19e295838" # String | ID of the human account subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete a human account subtype
+        
+        try {
+            Remove-HumanAccountSubtypeV2 -SourceId $SourceId -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-HumanAccountSubtypeV2 -SourceId $SourceId -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-HumanAccountSubtypeV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v2/source-subtypes/{subtypeId}/human-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/humanaccountsubtypes/methods/human-account-subtypes#get-human-account-subtype-config-v2
+      source: |
+        $SubtypeId = "38453251-6be2-5f8f-df93-5ce19e295838" # String | ID of the human account subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get human subtype config
+        
+        try {
+            Get-HumanAccountSubtypeConfigV2 -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-HumanAccountSubtypeConfigV2 -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-HumanAccountSubtypeConfigV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v2/sources/{sourceId}/subtypes/{subtypeId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/humanaccountsubtypes/methods/human-account-subtypes#get-human-account-subtype-v2
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | ID of the source.
+        $SubtypeId = "38453251-6be2-5f8f-df93-5ce19e295838" # String | ID of the human account subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get a human account subtype
+        
+        try {
+            Get-HumanAccountSubtypeV2 -SourceId $SourceId -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-HumanAccountSubtypeV2 -SourceId $SourceId -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-HumanAccountSubtypeV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v2/sources/{sourceId}/subtypes
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/humanaccountsubtypes/methods/human-account-subtypes#list-human-account-subtypes-v2
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | ID of the source.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Sorters = "sourceId" # String | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **sourceId** (optional) (default to "")
+        
+        # List human account subtypes
+        
+        try {
+            Get-HumanAccountSubtypesV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-HumanAccountSubtypesV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Count $Count -Limit $Limit -Offset $Offset -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-HumanAccountSubtypesV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v2/source-subtypes/{subtypeId}/human-config
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/humanaccountsubtypes/methods/human-account-subtypes#update-human-account-subtype-config-v2
+      source: |
+        $SubtypeId = "38453251-6be2-5f8f-df93-5ce19e295838" # String | ID of the human account subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update human subtype config
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-HumanAccountSubtypeConfigV2 -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-HumanAccountSubtypeConfigV2 -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-HumanAccountSubtypeConfigV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v2/sources/{sourceId}/subtypes/{subtypeId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/humanaccountsubtypes/methods/human-account-subtypes#update-human-account-subtype-v2
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | ID of the source.
+        $SubtypeId = "38453251-6be2-5f8f-df93-5ce19e295838" # String | ID of the human account subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update a human account subtype
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-HumanAccountSubtypeV2 -SourceId $SourceId -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-HumanAccountSubtypeV2 -SourceId $SourceId -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-HumanAccountSubtypeV2"
+            Write-Host $_.ErrorDetails
+        }

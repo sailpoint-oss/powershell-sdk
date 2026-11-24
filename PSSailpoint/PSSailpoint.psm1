@@ -81,6 +81,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'generic-request-approval-config' '
 Import-Module -Name (Join-Path $PSScriptRoot 'global-tenant-security-settings' 'src' 'PSSailpoint.GlobalTenantSecuritySettings') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'gov-certification' 'src' 'PSSailpoint.GovCertification') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'governance-groups' 'src' 'PSSailpoint.GovernanceGroups') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'human-account-subtypes' 'src' 'PSSailpoint.HumanAccountSubtypes') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'iai-access-request-recommendations' 'src' 'PSSailpoint.IaiAccessRequestRecommendations') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'iai-common-access' 'src' 'PSSailpoint.IaiCommonAccess') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'iai-outliers' 'src' 'PSSailpoint.IaiOutliers') -Force -Global

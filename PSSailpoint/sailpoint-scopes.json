@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.86",
+  "sdkVersion": "2.1.87",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -982,6 +982,24 @@
       "userLevels": [
         "ORG_ADMIN",
         "CERT_ADMIN"
+      ]
+    },
+    "createHumanAccountSubtypeV2": {
+      "resource": "human-account-subtypes",
+      "tag": "Human Account Subtypes",
+      "sdkName": "New-HumanAccountSubtypeV2",
+      "httpMethod": "POST",
+      "path": "/accounts/v2/sources/{sourceId}/subtypes",
+      "userAuth": [
+        "idn:source-subtypes:create"
+      ],
+      "applicationAuth": [
+        "idn:source-subtypes:create"
+      ],
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
       ]
     },
     "createIdentityAttributeV1": {
@@ -2612,6 +2630,24 @@
       "userLevels": [
         "ORG_ADMIN",
         "CERT_ADMIN"
+      ]
+    },
+    "deleteHumanAccountSubtypeV2": {
+      "resource": "human-account-subtypes",
+      "tag": "Human Account Subtypes",
+      "sdkName": "Remove-HumanAccountSubtypeV2",
+      "httpMethod": "DELETE",
+      "path": "/accounts/v2/sources/{sourceId}/subtypes/{subtypeId}",
+      "userAuth": [
+        "idn:source-subtypes:delete"
+      ],
+      "applicationAuth": [
+        "idn:source-subtypes:delete"
+      ],
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
       ]
     },
     "deleteIconV1": {
@@ -6108,6 +6144,42 @@
       "applicationAuth": [
         "idn:identity-history:read",
         "idn:identity-history:manage"
+      ]
+    },
+    "getHumanAccountSubtypeConfigV2": {
+      "resource": "human-account-subtypes",
+      "tag": "Human Account Subtypes",
+      "sdkName": "Get-HumanAccountSubtypeConfigV2",
+      "httpMethod": "GET",
+      "path": "/accounts/v2/source-subtypes/{subtypeId}/human-config",
+      "userAuth": [
+        "idn:source-subtypes:read"
+      ],
+      "applicationAuth": [
+        "idn:source-subtypes:read"
+      ],
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
+    "getHumanAccountSubtypeV2": {
+      "resource": "human-account-subtypes",
+      "tag": "Human Account Subtypes",
+      "sdkName": "Get-HumanAccountSubtypeV2",
+      "httpMethod": "GET",
+      "path": "/accounts/v2/sources/{sourceId}/subtypes/{subtypeId}",
+      "userAuth": [
+        "idn:source-subtypes:read"
+      ],
+      "applicationAuth": [
+        "idn:source-subtypes:read"
+      ],
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
       ]
     },
     "getIdentitiesPotentialRoleV1": {
@@ -10748,6 +10820,24 @@
       "applicationAuth": [
         "idn:identity-history:read",
         "idn:identity-history:manage"
+      ]
+    },
+    "listHumanAccountSubtypesV2": {
+      "resource": "human-account-subtypes",
+      "tag": "Human Account Subtypes",
+      "sdkName": "Get-HumanAccountSubtypesV2",
+      "httpMethod": "GET",
+      "path": "/accounts/v2/sources/{sourceId}/subtypes",
+      "userAuth": [
+        "idn:source-subtypes:read"
+      ],
+      "applicationAuth": [
+        "idn:source-subtypes:read"
+      ],
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
       ]
     },
     "listIdentitiesV1": {
@@ -16052,6 +16142,42 @@
       ],
       "applicationAuth": [
         "idn:generic-request-approval-config:manage"
+      ],
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
+    "updateHumanAccountSubtypeConfigV2": {
+      "resource": "human-account-subtypes",
+      "tag": "Human Account Subtypes",
+      "sdkName": "Update-HumanAccountSubtypeConfigV2",
+      "httpMethod": "PATCH",
+      "path": "/accounts/v2/source-subtypes/{subtypeId}/human-config",
+      "userAuth": [
+        "idn:source-subtypes:update"
+      ],
+      "applicationAuth": [
+        "idn:source-subtypes:update"
+      ],
+      "userLevels": [
+        "ORG_ADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN"
+      ]
+    },
+    "updateHumanAccountSubtypeV2": {
+      "resource": "human-account-subtypes",
+      "tag": "Human Account Subtypes",
+      "sdkName": "Update-HumanAccountSubtypeV2",
+      "httpMethod": "PATCH",
+      "path": "/accounts/v2/sources/{sourceId}/subtypes/{subtypeId}",
+      "userAuth": [
+        "idn:source-subtypes:update"
+      ],
+      "applicationAuth": [
+        "idn:source-subtypes:update"
       ],
       "userLevels": [
         "ORG_ADMIN",

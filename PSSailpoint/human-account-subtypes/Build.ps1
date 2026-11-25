@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.HumanAccountSubtypes - the PowerShell module for SailPoint Identity Security API - Human Account Subtypes'
 
-    ModuleVersion = '2.1.87'
+    ModuleVersion = '2.1.88'
 
     RootModule = 'PSSailpoint.HumanAccountSubtypes.psm1'
     Guid = '2AA11A85-9DFF-835C-C4E3-0A1EE3E865BC' # Has to be static, otherwise each new build will be considered different module

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalCancelRequest', 'ApprovalCanc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** | **String** | Optional comment associated with the cancel request. | [optional] 
+**Comment** | **String** | Required comment associated with the cancel request. | [required]
 
 ## Examples
 

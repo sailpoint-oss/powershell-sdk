@@ -15,7 +15,7 @@ No summary available.
 Request body for cancelling a single approval request.
 
 .PARAMETER Comment
-Optional comment associated with the cancel request.
+Required comment associated with the cancel request.
 .OUTPUTS
 
 ApprovalCancelRequest<PSCustomObject>
@@ -32,6 +32,14 @@ function Initialize-ApprovalCancelRequest {
     Process {
         'Creating PSCustomObject: PSSailpoint.Approvals => ApprovalCancelRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$Comment) {
+            throw "invalid value for 'Comment', 'Comment' cannot be null."
+        }
+
+        if ($Comment.length -lt 1) {
+            throw "invalid value for 'Comment', the character length must be great than or equal to 1."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -79,8 +87,12 @@ function ConvertFrom-JsonToApprovalCancelRequest {
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "comment"))) { #optional property not found
-            $Comment = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'comment' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "comment"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'comment' missing."
         } else {
             $Comment = $JsonParameters.PSobject.Properties["comment"].value
         }

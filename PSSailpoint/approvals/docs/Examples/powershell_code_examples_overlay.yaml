@@ -73,7 +73,8 @@
         # Post Approval Cancel
         
         try {
-            Suspend-ApprovalByIdV1 -Id $Id 
+            $Result = ConvertFrom-JsonToApprovalCancelRequest -Json $ApprovalCancelRequest
+            Suspend-ApprovalByIdV1 -Id $Id -ApprovalCancelRequest $Result 
     
             # Below is a request that includes all optional parameters
             # Suspend-ApprovalByIdV1 -Id $Id -ApprovalCancelRequest $Result   

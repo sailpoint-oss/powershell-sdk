@@ -93,7 +93,7 @@ try {
 
 ## approve-approval-v1
 Approves a specified approval request on behalf of the caller. The approval request must be in a state that allows it to be approved. This endpoint does not support access request IDs.
-If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
+If called by an admin and the admin is not listed as an approver, the approval request will be reassigned either from overrideApproverID or from a random approver to the admin user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/approve-approval-v-1)
 
@@ -150,8 +150,7 @@ try {
 
 ## cancel-approval-by-id-v1
 Cancels a specified approval requests on behalf of the caller. 
-Note: This endpoint does not support access request IDs. To cancel access request approvals, please use the following:
-/access-requests/cancel
+Note: This endpoint does not support cancelling Access Request Approvals or accessRequestIDs. To cancel an Access Request Approval, please use: [Cancel Access Request endpoint](https://developer.sailpoint.com/docs/api/cancel-access-request-v-1).
 
 [API Spec](https://developer.sailpoint.com/docs/api/cancel-approval-by-id-v-1)
 
@@ -159,7 +158,7 @@ Note: This endpoint does not support access request IDs. To cancel access reques
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the approval request to cancel.
- Body  | ApprovalCancelRequest | [**ApprovalCancelRequest**](../models/approval-cancel-request) |   (optional) | 
+ Body  | ApprovalCancelRequest | [**ApprovalCancelRequest**](../models/approval-cancel-request) | True  | 
 
 ### Return type
  (empty response body)
@@ -189,7 +188,8 @@ $ApprovalCancelRequest = @"{
 # Post Approval Cancel
 
 try {
-    Suspend-ApprovalByIdV1 -Id $Id 
+    $Result = ConvertFrom-JsonToApprovalCancelRequest -Json $ApprovalCancelRequest
+    Suspend-ApprovalByIdV1 -Id $Id -ApprovalCancelRequest $Result 
     
     # Below is a request that includes all optional parameters
     # Suspend-ApprovalByIdV1 -Id $Id -ApprovalCancelRequest $Result  
@@ -671,7 +671,7 @@ try {
 
 ## reject-approval-v1
 Rejects a specified approval request on behalf of the caller. This endpoint does not support access request IDs.
-If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user and approved.
+If called by an admin and the admin is not listed as an approver, the approval request will be reassigned either from overrideApproverID or from a random approver to the admin user and rejected.
 
 [API Spec](https://developer.sailpoint.com/docs/api/reject-approval-v-1)
 

@@ -100,7 +100,7 @@ Post Approvals Approve
 
 .DESCRIPTION
 
-Approves a specified approval request on behalf of the caller. The approval request must be in a state that allows it to be approved. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
+Approves a specified approval request on behalf of the caller. The approval request must be in a state that allows it to be approved. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned either from overrideApproverID or from a random approver to the admin user.
 
 .PARAMETER Id
 Approval ID that correlates to an existing approval request that a user wants to approve.
@@ -194,7 +194,7 @@ Post Approval Cancel
 
 .DESCRIPTION
 
-Cancels a specified approval requests on behalf of the caller.  Note: This endpoint does not support access request IDs. To cancel access request approvals, please use the following: /access-requests/cancel
+Cancels a specified approval requests on behalf of the caller.  Note: This endpoint does not support cancelling Access Request Approvals or accessRequestIDs. To cancel an Access Request Approval, please use: [Cancel Access Request endpoint](https://developer.sailpoint.com/docs/api/cancel-access-request-v-1).
 
 .PARAMETER Id
 ID of the approval request to cancel.
@@ -247,6 +247,10 @@ function Suspend-ApprovalByIdV1 {
             throw "Error! The required parameter `Id` missing when calling cancelApprovalByIdV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$ApprovalCancelRequest) {
+            throw "Error! The required parameter `ApprovalCancelRequest` missing when calling cancelApprovalByIdV1."
+        }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApprovalCancelRequest -is [array])) {
             $LocalVarBodyParameter = $ApprovalCancelRequest | ConvertTo-Json -AsArray -Depth 100
@@ -1080,7 +1084,7 @@ Post Approvals Reject
 
 .DESCRIPTION
 
-Rejects a specified approval request on behalf of the caller. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user and approved.
+Rejects a specified approval request on behalf of the caller. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned either from overrideApproverID or from a random approver to the admin user and rejected.
 
 .PARAMETER Id
 Approval ID that correlates to an existing approval request that a user wants to reject.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.88",
+  "sdkVersion": "2.1.89",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -93,11 +93,13 @@
       "httpMethod": "POST",
       "path": "/generic-approvals/v1/bulk-approve",
       "userAuth": [
-        "sp:approvals:write"
+        "sp:generic-approval-management:write"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "ORG_ADMIN"
+        "ORG_ADMIN",
+        "API",
+        "idn:access-request-administrator"
       ]
     },
     "approveApprovalItemV1": {
@@ -131,11 +133,11 @@
       "httpMethod": "POST",
       "path": "/generic-approvals/v1/{id}/approve",
       "userAuth": [
-        "idn:access-request-approvals:manage"
+        "sp:generic-approval:approve"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "APPROVAL_OWNER"
+        "Any"
       ]
     },
     "approveBulkAccessRequestV1": {
@@ -216,11 +218,11 @@
       "httpMethod": "POST",
       "path": "/generic-approvals/v1/{id}/cancel",
       "userAuth": [
-        "sp:approvals:write"
+        "sp:generic-approval:cancel"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "ORG_ADMIN"
+        "Any"
       ]
     },
     "cancelApprovalV1": {
@@ -230,11 +232,13 @@
       "httpMethod": "POST",
       "path": "/generic-approvals/v1/bulk-cancel",
       "userAuth": [
-        "sp:approvals:write"
+        "sp:generic-approval-management:write"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "ORG_ADMIN"
+        "ORG_ADMIN",
+        "API",
+        "idn:access-request-administrator"
       ]
     },
     "cancelMachineIdentityLifecycleActionV1": {
@@ -2257,11 +2261,17 @@
       "httpMethod": "DELETE",
       "path": "/generic-approvals/v1/config/{id}/{scope}",
       "userAuth": [
-        "sp:approvals:write"
+        "sp:generic-approval-config:write"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "ORG_ADMIN"
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN",
+        "API",
+        "idn:access-request-administrator"
       ]
     },
     "deleteBackupV1": {
@@ -4773,13 +4783,11 @@
       "httpMethod": "GET",
       "path": "/generic-approvals/v1/{id}",
       "userAuth": [
-        "idn:access-request-approvals:read",
-        "idn:access-request-administration:read",
-        "idn:access-request-approvals:manage"
+        "sp:generic-approval:read"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "APPROVAL_OWNER"
+        "Any"
       ]
     },
     "getApprovalsConfigV1": {
@@ -4789,11 +4797,19 @@
       "httpMethod": "GET",
       "path": "/generic-approvals/v1/config/{id}",
       "userAuth": [
-        "sp:approvals:read"
+        "sp:generic-approval-config:read"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "APPROVAL_OWNER"
+        "ORG_ADMIN",
+        "ORG_ADMIN_READ_ONLY",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN",
+        "API",
+        "idn:access-request-administrator",
+        "idn:access-request-administrator-read"
       ]
     },
     "getApprovalsV1": {
@@ -4803,13 +4819,11 @@
       "httpMethod": "GET",
       "path": "/generic-approvals/v1",
       "userAuth": [
-        "idn:access-request-approvals:read",
-        "idn:access-request-administration:read",
-        "idn:access-request-approvals:manage"
+        "sp:generic-approval:read"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "APPROVAL_OWNER"
+        "Any"
       ]
     },
     "getAttestationDocumentV1": {
@@ -12362,11 +12376,13 @@
       "httpMethod": "POST",
       "path": "/generic-approvals/v1/bulk-reassign",
       "userAuth": [
-        "sp:approvals:write"
+        "sp:generic-approval-management:write"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "ORG_ADMIN"
+        "ORG_ADMIN",
+        "API",
+        "idn:access-request-administrator"
       ]
     },
     "moveCertificationsV1": {
@@ -13251,11 +13267,17 @@
       "httpMethod": "PUT",
       "path": "/generic-approvals/v1/config/{id}/{scope}",
       "userAuth": [
-        "sp:approvals:write"
+        "sp:generic-approval-config:write"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "ORG_ADMIN"
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN",
+        "SOURCE_ADMIN",
+        "SOURCE_SUBADMIN",
+        "API",
+        "idn:access-request-administrator"
       ]
     },
     "putCampaignFilterV1": {
@@ -13866,11 +13888,13 @@
       "httpMethod": "POST",
       "path": "/generic-approvals/v1/bulk-reject",
       "userAuth": [
-        "sp:approvals:write"
+        "sp:generic-approval-management:write"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "ORG_ADMIN"
+        "ORG_ADMIN",
+        "API",
+        "idn:access-request-administrator"
       ]
     },
     "rejectApprovalItemV1": {
@@ -13904,11 +13928,11 @@
       "httpMethod": "POST",
       "path": "/generic-approvals/v1/{id}/reject",
       "userAuth": [
-        "idn:access-request-approvals:manage"
+        "sp:generic-approval:reject"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "APPROVAL_OWNER"
+        "Any"
       ]
     },
     "rejectNonEmployeeRequestV1": {
@@ -15834,11 +15858,11 @@
       "httpMethod": "POST",
       "path": "/generic-approvals/v1/{id}/attributes",
       "userAuth": [
-        "idn:access-request-approvals:manage"
+        "sp:generic-approval:update"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "APPROVAL_OWNER"
+        "Any"
       ]
     },
     "updateApprovalsCommentsV1": {
@@ -15848,11 +15872,11 @@
       "httpMethod": "POST",
       "path": "/generic-approvals/v1/{id}/comments",
       "userAuth": [
-        "idn:access-request-approvals:manage"
+        "sp:generic-approval:update"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "APPROVAL_OWNER"
+        "Any"
       ]
     },
     "updateApprovalsReassignV1": {
@@ -15862,11 +15886,11 @@
       "httpMethod": "POST",
       "path": "/generic-approvals/v1/{id}/reassign",
       "userAuth": [
-        "idn:access-request-approvals:manage"
+        "sp:generic-approval:reassign"
       ],
       "applicationAuth": null,
       "userLevels": [
-        "APPROVAL_OWNER"
+        "Any"
       ]
     },
     "updateAttributeKeyAndValueToAccessProfileV1": {

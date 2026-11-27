@@ -12,7 +12,7 @@ Create a response action
 
 .DESCRIPTION
 
-Requires tenant license idn:response-and-remediation.  Creates a response action: the request is validated, a requestId (the correlation id) is minted, the action is recorded as SUBMITTED, and an event is published that triggers the correlated workflow(s).  Returns HTTP 202 with the requestId, an initial SUBMITTED status, and a statusUrl. Poll GET /intelligence/v1/response-actions/{requestId}/status for progress. 
+Creates a response action: the request is validated, a requestId (the correlation id) is minted, the action is recorded as SUBMITTED, and an event is published that starts processing.  Human Actions (`DISABLE_IDENTITY`, `DISABLE_ACCOUNT` with `identityType` HUMAN) require tenant license idn:response-and-remediation.  Deactivating a NHI (`DEACTIVATE_AGENT` with `identityType` NHI) requires idn:response-and-remediation-saf.  Returns HTTP 202 with the requestId, an initial SUBMITTED status, and a statusUrl. Poll [Get response action status](https://developer.sailpoint.com/docs/api/v1/get-response-action-status-v1) for progress. 
 
 .PARAMETER Responseactioncreaterequest
 No description available.
@@ -389,6 +389,120 @@ function Get-IntelIdentityAccountsV1 {
 <#
 .SYNOPSIS
 
+List NHI capabilities
+
+.DESCRIPTION
+
+Requires tenant license idn:response-and-remediation.  Lists linked capabilities for one non-human identity (NHI). Required query parameter `type` selects the kind: `mcp`, `tool`, or `skill`. Do not send `isNHI`.  Returns one page of capabilities as a JSON array. Each element includes the capability id, display name, kind (`MCP`, `TOOL`, or `SKILL`), and source name. An empty array is a valid page.  Send `count=true` to receive the `x-total-count` response header (including `0` on empty pages).  Returns **404** when the identity is unknown or linked capabilities are not available for this identity. 
+
+.PARAMETER Id
+Non-empty identity id path segment for Intelligence sub-resources.
+
+.PARAMETER Type
+Which kind of linked capability to list. Must be `mcp`, `tool`, or `skill`.
+
+.PARAMETER Limit
+Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Intelnhicapabilitywire[]
+#>
+function Get-IntelIdentityCapabilitiesV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("mcp", "tool", "skill")]
+        [String]
+        ${Type},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-IntelIdentityCapabilitiesV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/intelligence/v1/identities/{id}/capabilities'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getIntelIdentityCapabilitiesV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if (!$Type) {
+            throw "Error! The required parameter `Type` missing when calling getIntelIdentityCapabilitiesV1."
+        }
+        $LocalVarQueryParameters['type'] = $Type
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Intelnhicapabilitywire[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 List identity certification history
 
 .DESCRIPTION
@@ -717,11 +831,113 @@ function Get-IntelIdentityRareAccessV1 {
 <#
 .SYNOPSIS
 
+List non-human identity risk factors
+
+.DESCRIPTION
+
+Requires tenant license idn:response-and-remediation.  Lists risk factors for one non-human identity (NHI). Do not send `isNHI`.  Returns one page of risk factors as a JSON array, ordered strongest factor first. Each element describes a factor (id, name, description, severity, status, and when it was last observed) that contributes to the identity risk posture. An empty array is a valid page.  Send `count=true` to receive the `x-total-count` response header (including `0` on empty pages).  Returns **404** when the identity is unknown or risk information is not available for this identity. 
+
+.PARAMETER Id
+Non-empty identity id path segment for Intelligence sub-resources.
+
+.PARAMETER Limit
+Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Intelnhirisksignalwire[]
+#>
+function Get-IntelIdentityRiskSignalsV1 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-IntelIdentityRiskSignalsV1' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/intelligence/v1/identities/{id}/risk-signals'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getIntelIdentityRiskSignalsV1."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Intelnhirisksignalwire[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get response action status
 
 .DESCRIPTION
 
-Requires tenant license idn:response-and-remediation.  Returns the current aggregate status of a previously submitted response action, identified by the requestId returned from POST /intelligence/v1/response-actions.  Supported actionType values: DISABLE_IDENTITY, DISABLE_ACCOUNT. 
+Returns the current aggregate status of a previously submitted response action, identified by the requestId returned from [Create a response action](https://developer.sailpoint.com/docs/api/v1/create-response-action-v1).  Supported actionType values: DISABLE_IDENTITY, DISABLE_ACCOUNT, DEACTIVATE_AGENT. License requirements match the action submitted on create. 
 
 .PARAMETER Id
 The requestId of the response action to look up.

@@ -38,6 +38,14 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelligenceApi' {
         }
     }
 
+    Context 'Get-IntelIdentityCapabilitiesV1' {
+        It 'Test Get-IntelIdentityCapabilitiesV1' {
+            #$TestResult = Get-IntelIdentityCapabilitiesV1 -Id "TEST_VALUE" -Type "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-IntelIdentityCertificationHistoryV1' {
         It 'Test Get-IntelIdentityCertificationHistoryV1' {
             #$TestResult = Get-IntelIdentityCertificationHistoryV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
@@ -57,6 +65,14 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'IntelligenceApi' {
     Context 'Get-IntelIdentityRareAccessV1' {
         It 'Test Get-IntelIdentityRareAccessV1' {
             #$TestResult = Get-IntelIdentityRareAccessV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-IntelIdentityRiskSignalsV1' {
+        It 'Test Get-IntelIdentityRiskSignalsV1' {
+            #$TestResult = Get-IntelIdentityRiskSignalsV1 -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

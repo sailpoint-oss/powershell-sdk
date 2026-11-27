@@ -17,12 +17,14 @@ tags: ['SDK', 'Software Development Kit', 'ResponseactioncreaterequestOneOf', 'R
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ActionType** |  **Enum** [  "DISABLE_IDENTITY" ] |  | [optional] 
+**IdentityType** |  **Enum** [  "HUMAN" ] |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ResponseactioncreaterequestOneOf = Initialize-ResponseactioncreaterequestOneOf  -ActionType null
+$ResponseactioncreaterequestOneOf = Initialize-ResponseactioncreaterequestOneOf  -ActionType null `
+ -IdentityType null
 ```
 
 - Convert the resource to JSON

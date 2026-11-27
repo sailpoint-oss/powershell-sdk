@@ -34,6 +34,12 @@ Match quality for opaque prefix resolution; omitted for direct id eq and exact o
 Omitted when the tenant lacks the idg:base license.
 .PARAMETER Accounts
 No description available.
+.PARAMETER Capabilities
+No description available.
+.PARAMETER Risk
+No description available.
+.PARAMETER RiskSignals
+No description available.
 .PARAMETER NativeIdentity
 Native identifier on the source system.
 .PARAMETER DatasetId
@@ -95,6 +101,15 @@ function Initialize-Intelidentitymachineaggregate {
         [PSCustomObject]
         ${Accounts},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Capabilities},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Risk},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${RiskSignals},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${NativeIdentity},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -142,6 +157,14 @@ function Initialize-Intelidentitymachineaggregate {
             throw "invalid value for 'Accounts', 'Accounts' cannot be null."
         }
 
+        if (!$Capabilities) {
+            throw "invalid value for 'Capabilities', 'Capabilities' cannot be null."
+        }
+
+        if (!$RiskSignals) {
+            throw "invalid value for 'RiskSignals', 'RiskSignals' cannot be null."
+        }
+
         if (!$NativeIdentity) {
             throw "invalid value for 'NativeIdentity', 'NativeIdentity' cannot be null."
         }
@@ -170,6 +193,9 @@ function Initialize-Intelidentitymachineaggregate {
             "matchConfidence" = ${MatchConfidence}
             "identityGraph" = ${IdentityGraph}
             "accounts" = ${Accounts}
+            "capabilities" = ${Capabilities}
+            "risk" = ${Risk}
+            "riskSignals" = ${RiskSignals}
             "nativeIdentity" = ${NativeIdentity}
             "datasetId" = ${DatasetId}
             "source" = ${Source}
@@ -216,7 +242,7 @@ function ConvertFrom-JsonToIntelidentitymachineaggregate {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Intelidentitymachineaggregate
-        $AllProperties = ("id", "type", "displayName", "description", "subtype", "created", "modified", "matchConfidence", "identityGraph", "accounts", "nativeIdentity", "datasetId", "source", "existsOnSource", "manuallyEdited", "manuallyCreated", "owners", "userEntitlements", "attributes", "derived")
+        $AllProperties = ("id", "type", "displayName", "description", "subtype", "created", "modified", "matchConfidence", "identityGraph", "accounts", "capabilities", "risk", "riskSignals", "nativeIdentity", "datasetId", "source", "existsOnSource", "manuallyEdited", "manuallyCreated", "owners", "userEntitlements", "attributes", "derived")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -243,6 +269,18 @@ function ConvertFrom-JsonToIntelidentitymachineaggregate {
             throw "Error! JSON cannot be serialized due to the required property 'accounts' missing."
         } else {
             $Accounts = $JsonParameters.PSobject.Properties["accounts"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "capabilities"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'capabilities' missing."
+        } else {
+            $Capabilities = $JsonParameters.PSobject.Properties["capabilities"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "riskSignals"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'riskSignals' missing."
+        } else {
+            $RiskSignals = $JsonParameters.PSobject.Properties["riskSignals"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "nativeIdentity"))) {
@@ -311,6 +349,12 @@ function ConvertFrom-JsonToIntelidentitymachineaggregate {
             $IdentityGraph = $JsonParameters.PSobject.Properties["identityGraph"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "risk"))) { #optional property not found
+            $Risk = $null
+        } else {
+            $Risk = $JsonParameters.PSobject.Properties["risk"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "datasetId"))) { #optional property not found
             $DatasetId = $null
         } else {
@@ -358,6 +402,9 @@ function ConvertFrom-JsonToIntelidentitymachineaggregate {
             "matchConfidence" = ${MatchConfidence}
             "identityGraph" = ${IdentityGraph}
             "accounts" = ${Accounts}
+            "capabilities" = ${Capabilities}
+            "risk" = ${Risk}
+            "riskSignals" = ${RiskSignals}
             "nativeIdentity" = ${NativeIdentity}
             "datasetId" = ${DatasetId}
             "source" = ${Source}

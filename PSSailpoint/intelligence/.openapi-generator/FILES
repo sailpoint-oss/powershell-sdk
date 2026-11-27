@@ -25,6 +25,7 @@ docs/IntelPrivilegedAccessItemWireSource.md
 docs/IntelPrivilegedAccessSlice.md
 docs/IntelRareAccessSlice.md
 docs/Intelblastradiussummary.md
+docs/Intelenrichmentfailurereason.md
 docs/Intelidentityambiguousbody.md
 docs/Intelidentityambiguouscandidate.md
 docs/Intelidentityenvelope.md
@@ -39,6 +40,12 @@ docs/Intelmachineentityref.md
 docs/Intelmachineidentityowners.md
 docs/Intelmachinesourcewire.md
 docs/Intelmachineuserentitlement.md
+docs/Intelnhicapabilities.md
+docs/Intelnhicapabilitybucket.md
+docs/Intelnhicapabilitywire.md
+docs/Intelnhirisk.md
+docs/Intelnhirisksignals.md
+docs/Intelnhirisksignalwire.md
 docs/Intelnonhumanidentityownedslice.md
 docs/Intelnonhumanidentityownership.md
 docs/Intelnonhumanidentityownershipcategory.md
@@ -51,6 +58,7 @@ docs/Responseactioncontext.md
 docs/Responseactioncreaterequest.md
 docs/ResponseactioncreaterequestOneOf.md
 docs/ResponseactioncreaterequestOneOf1.md
+docs/ResponseactioncreaterequestOneOf2.md
 docs/Responseactionstatus.md
 src/PSSailpoint.Intelligence/Api/IntelligenceApi.ps1
 src/PSSailpoint.Intelligence/Client/Configuration.ps1
@@ -76,6 +84,7 @@ src/PSSailpoint.Intelligence/Model/IntelPrivilegedAccessItemWireSource.ps1
 src/PSSailpoint.Intelligence/Model/IntelPrivilegedAccessSlice.ps1
 src/PSSailpoint.Intelligence/Model/IntelRareAccessSlice.ps1
 src/PSSailpoint.Intelligence/Model/Intelblastradiussummary.ps1
+src/PSSailpoint.Intelligence/Model/Intelenrichmentfailurereason.ps1
 src/PSSailpoint.Intelligence/Model/Intelidentityambiguousbody.ps1
 src/PSSailpoint.Intelligence/Model/Intelidentityambiguouscandidate.ps1
 src/PSSailpoint.Intelligence/Model/Intelidentityenvelope.ps1
@@ -88,6 +97,12 @@ src/PSSailpoint.Intelligence/Model/Intelmachineentityref.ps1
 src/PSSailpoint.Intelligence/Model/Intelmachineidentityowners.ps1
 src/PSSailpoint.Intelligence/Model/Intelmachinesourcewire.ps1
 src/PSSailpoint.Intelligence/Model/Intelmachineuserentitlement.ps1
+src/PSSailpoint.Intelligence/Model/Intelnhicapabilities.ps1
+src/PSSailpoint.Intelligence/Model/Intelnhicapabilitybucket.ps1
+src/PSSailpoint.Intelligence/Model/Intelnhicapabilitywire.ps1
+src/PSSailpoint.Intelligence/Model/Intelnhirisk.ps1
+src/PSSailpoint.Intelligence/Model/Intelnhirisksignals.ps1
+src/PSSailpoint.Intelligence/Model/Intelnhirisksignalwire.ps1
 src/PSSailpoint.Intelligence/Model/Intelnonhumanidentityownedslice.ps1
 src/PSSailpoint.Intelligence/Model/Intelnonhumanidentityownership.ps1
 src/PSSailpoint.Intelligence/Model/Intelnonhumanidentityownershipcategory.ps1
@@ -99,6 +114,7 @@ src/PSSailpoint.Intelligence/Model/Responseactioncontext.ps1
 src/PSSailpoint.Intelligence/Model/Responseactioncreaterequest.ps1
 src/PSSailpoint.Intelligence/Model/ResponseactioncreaterequestOneOf.ps1
 src/PSSailpoint.Intelligence/Model/ResponseactioncreaterequestOneOf1.ps1
+src/PSSailpoint.Intelligence/Model/ResponseactioncreaterequestOneOf2.ps1
 src/PSSailpoint.Intelligence/Model/Responseactionstatus.ps1
 src/PSSailpoint.Intelligence/PSSailpoint.Intelligence.psm1
 src/PSSailpoint.Intelligence/Private/ApiClient.ps1
@@ -130,6 +146,7 @@ tests/Model/IntelPrivilegedAccessItemWireSource.Tests.ps1
 tests/Model/IntelPrivilegedAccessSlice.Tests.ps1
 tests/Model/IntelRareAccessSlice.Tests.ps1
 tests/Model/Intelblastradiussummary.Tests.ps1
+tests/Model/Intelenrichmentfailurereason.Tests.ps1
 tests/Model/Intelidentityambiguousbody.Tests.ps1
 tests/Model/Intelidentityambiguouscandidate.Tests.ps1
 tests/Model/Intelidentityenvelope.Tests.ps1
@@ -142,6 +159,12 @@ tests/Model/Intelmachineentityref.Tests.ps1
 tests/Model/Intelmachineidentityowners.Tests.ps1
 tests/Model/Intelmachinesourcewire.Tests.ps1
 tests/Model/Intelmachineuserentitlement.Tests.ps1
+tests/Model/Intelnhicapabilities.Tests.ps1
+tests/Model/Intelnhicapabilitybucket.Tests.ps1
+tests/Model/Intelnhicapabilitywire.Tests.ps1
+tests/Model/Intelnhirisk.Tests.ps1
+tests/Model/Intelnhirisksignals.Tests.ps1
+tests/Model/Intelnhirisksignalwire.Tests.ps1
 tests/Model/Intelnonhumanidentityownedslice.Tests.ps1
 tests/Model/Intelnonhumanidentityownership.Tests.ps1
 tests/Model/Intelnonhumanidentityownershipcategory.Tests.ps1
@@ -153,4 +176,5 @@ tests/Model/Responseactioncontext.Tests.ps1
 tests/Model/Responseactioncreaterequest.Tests.ps1
 tests/Model/ResponseactioncreaterequestOneOf.Tests.ps1
 tests/Model/ResponseactioncreaterequestOneOf1.Tests.ps1
+tests/Model/ResponseactioncreaterequestOneOf2.Tests.ps1
 tests/Model/Responseactionstatus.Tests.ps1

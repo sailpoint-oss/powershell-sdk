@@ -53,21 +53,25 @@ Method | HTTP request | Description
 [**Get-IdentityIntelligenceV1**](#get-identity-intelligence-v1) | **GET** `/intelligence/v1/identities` | Get identity by filter
 [**Get-IntelIdentityAccessItemHistoryV1**](#get-intel-identity-access-item-history-v1) | **GET** `/intelligence/v1/identities/{id}/access-history/access-items` | List identity access item history
 [**Get-IntelIdentityAccountsV1**](#get-intel-identity-accounts-v1) | **GET** `/intelligence/v1/identities/{id}/accounts` | List identity accounts
+[**Get-IntelIdentityCapabilitiesV1**](#get-intel-identity-capabilities-v1) | **GET** `/intelligence/v1/identities/{id}/capabilities` | List NHI capabilities
 [**Get-IntelIdentityCertificationHistoryV1**](#get-intel-identity-certification-history-v1) | **GET** `/intelligence/v1/identities/{id}/access-history/certifications` | List identity certification history
 [**Get-IntelIdentityNonHumanIdentityOwnershipV1**](#get-intel-identity-non-human-identity-ownership-v1) | **GET** `/intelligence/v1/identities/{id}/non-human-identity-ownership/{category}` | List owned NHI identities
 [**Get-IntelIdentityRareAccessV1**](#get-intel-identity-rare-access-v1) | **GET** `/intelligence/v1/identities/{id}/outliers/rare-access` | List identity rare access
+[**Get-IntelIdentityRiskSignalsV1**](#get-intel-identity-risk-signals-v1) | **GET** `/intelligence/v1/identities/{id}/risk-signals` | List non-human identity risk factors
 [**Get-ResponseActionStatusV1**](#get-response-action-status-v1) | **GET** `/intelligence/v1/response-actions/{id}/status` | Get response action status
 
 
 ## create-response-action-v1
-Requires tenant license idn:response-and-remediation.
-
 Creates a response action: the request is validated, a requestId (the correlation id) is
-minted, the action is recorded as SUBMITTED, and an event is published that triggers the
-correlated workflow(s).
+minted, the action is recorded as SUBMITTED, and an event is published that starts processing.
+
+Human Actions (`DISABLE_IDENTITY`, `DISABLE_ACCOUNT` with `identityType` HUMAN) require tenant
+license idn:response-and-remediation. 
+Deactivating a NHI (`DEACTIVATE_AGENT` with `identityType` NHI) requires idn:response-and-remediation-saf.
 
 Returns HTTP 202 with the requestId, an initial SUBMITTED status, and a statusUrl. Poll
-GET /intelligence/v1/response-actions/{requestId}/status for progress.
+[Get response action status](https://developer.sailpoint.com/docs/api/v1/get-response-action-status-v1)
+for progress.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-response-action-v-1)
@@ -296,6 +300,71 @@ try {
 ```
 [[Back to top]](#) 
 
+## get-intel-identity-capabilities-v1
+Requires tenant license idn:response-and-remediation.
+
+Lists linked capabilities for one non-human identity (NHI). Required query parameter `type`
+selects the kind: `mcp`, `tool`, or `skill`. Do not send `isNHI`.
+
+Returns one page of capabilities as a JSON array. Each element includes the capability id,
+display name, kind (`MCP`, `TOOL`, or `SKILL`), and source name. An empty array is a valid page.
+
+Send `count=true` to receive the `x-total-count` response header (including `0` on empty pages).
+
+Returns **404** when the identity is unknown or linked capabilities are not available for this identity.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-intel-identity-capabilities-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Non-empty identity id path segment for Intelligence sub-resources.
+  Query | Type | **String** | True  | Which kind of linked capability to list. Must be `mcp`, `tool`, or `skill`.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+### Return type
+[**Intelnhicapabilitywire[]**](../models/intelnhicapabilitywire)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | One page of linked capabilities for the requested kind. | Intelnhicapabilitywire[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence sub-resources.
+$Type = "mcp" # String | Which kind of linked capability to list. Must be `mcp`, `tool`, or `skill`.
+$Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
+# List NHI capabilities
+
+try {
+    Get-IntelIdentityCapabilitiesV1 -Id $Id -Type $Type 
+    
+    # Below is a request that includes all optional parameters
+    # Get-IntelIdentityCapabilitiesV1 -Id $Id -Type $Type -Limit $Limit -Offset $Offset -Count $Count  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityCapabilitiesV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## get-intel-identity-certification-history-v1
 Continuation endpoint for the parent response's `accessHistory.certifications.next` link.
 Returns one page of certification history events for the supplied limit and offset values.
@@ -483,13 +552,75 @@ try {
 ```
 [[Back to top]](#) 
 
-## get-response-action-status-v1
+## get-intel-identity-risk-signals-v1
 Requires tenant license idn:response-and-remediation.
 
-Returns the current aggregate status of a previously submitted response action, identified by
-the requestId returned from POST /intelligence/v1/response-actions.
+Lists risk factors for one non-human identity (NHI). Do not send `isNHI`.
 
-Supported actionType values: DISABLE_IDENTITY, DISABLE_ACCOUNT.
+Returns one page of risk factors as a JSON array, ordered strongest factor first. Each element
+describes a factor (id, name, description, severity, status, and when it was last observed) that
+contributes to the identity risk posture. An empty array is a valid page.
+
+Send `count=true` to receive the `x-total-count` response header (including `0` on empty pages).
+
+Returns **404** when the identity is unknown or risk information is not available for this identity.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-intel-identity-risk-signals-v-1)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Non-empty identity id path segment for Intelligence sub-resources.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+
+### Return type
+[**Intelnhirisksignalwire[]**](../models/intelnhirisksignalwire)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | One page of risk factors. | Intelnhirisksignalwire[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence sub-resources.
+$Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
+# List non-human identity risk factors
+
+try {
+    Get-IntelIdentityRiskSignalsV1 -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Get-IntelIdentityRiskSignalsV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityRiskSignalsV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-response-action-status-v1
+Returns the current aggregate status of a previously submitted response action, identified by
+the requestId returned from [Create a response action](https://developer.sailpoint.com/docs/api/v1/create-response-action-v1).
+
+Supported actionType values: DISABLE_IDENTITY, DISABLE_ACCOUNT, DEACTIVATE_AGENT.
+License requirements match the action submitted on create.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-response-action-status-v-1)

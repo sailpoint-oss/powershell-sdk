@@ -26,6 +26,9 @@ Name | Type | Description | Notes
 **MatchConfidence** |  **Enum** [  "exact",    "partial" ] | Match quality for opaque prefix resolution; omitted for direct id eq and exact opaque matches. | [optional] 
 **IdentityGraph** | [**Intelidentitygraphlink**](intelidentitygraphlink) | Omitted when the tenant lacks the idg:base license. | [optional] 
 **Accounts** | [**Intelmachineaccountsslice**](intelmachineaccountsslice) |  | [required]
+**Capabilities** | [**Intelnhicapabilities**](intelnhicapabilities) |  | [required]
+**Risk** | [**Intelnhirisk**](intelnhirisk) |  | [optional] 
+**RiskSignals** | [**Intelnhirisksignals**](intelnhirisksignals) |  | [required]
 **NativeIdentity** | **String** | Native identifier on the source system. | [required]
 **DatasetId** | **String** | Dataset identifier from upstream machine-identity services when present. | [optional] 
 **Source** | [**Intelmachinesourcewire**](intelmachinesourcewire) | Source metadata for the machine identity when present upstream. | [optional] 
@@ -51,6 +54,9 @@ $Intelidentitymachineaggregate = Initialize-Intelidentitymachineaggregate  -Id e
  -MatchConfidence exact `
  -IdentityGraph null `
  -Accounts null `
+ -Capabilities null `
+ -Risk null `
+ -RiskSignals null `
  -NativeIdentity arn:aws:bedrock:us-east-1:336721:agent/ABCDEFGHI `
  -DatasetId dataset-001 `
  -Source null `

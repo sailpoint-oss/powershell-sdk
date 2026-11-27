@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "powershell",
-  "sdkVersion": "2.1.89",
+  "sdkVersion": "2.1.90",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -3976,7 +3976,8 @@
       "userLevels": [
         "ORG_ADMIN",
         "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
+        "SOURCE_SUBADMIN",
+        "HELPDESK"
       ]
     },
     "disableMachineAccountsInBulkV1": {
@@ -3994,7 +3995,8 @@
       "userLevels": [
         "ORG_ADMIN",
         "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
+        "SOURCE_SUBADMIN",
+        "HELPDESK"
       ]
     },
     "downloadRoleInsightsEntitlementsChangesV1": {
@@ -4093,7 +4095,8 @@
       "userLevels": [
         "ORG_ADMIN",
         "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
+        "SOURCE_SUBADMIN",
+        "HELPDESK"
       ]
     },
     "enableMachineAccountsInBulkV1": {
@@ -4111,7 +4114,8 @@
       "userLevels": [
         "ORG_ADMIN",
         "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
+        "SOURCE_SUBADMIN",
+        "HELPDESK"
       ]
     },
     "executeSavedSearchV1": {
@@ -6544,6 +6548,22 @@
         "Any"
       ]
     },
+    "getIntelIdentityCapabilitiesV1": {
+      "resource": "intelligence",
+      "tag": "Intelligence",
+      "sdkName": "Get-IntelIdentityCapabilitiesV1",
+      "httpMethod": "GET",
+      "path": "/intelligence/v1/identities/{id}/capabilities",
+      "userAuth": [
+        "sp:identity-sec-intel:read"
+      ],
+      "applicationAuth": [
+        "sp:identity-sec-intel:read"
+      ],
+      "userLevels": [
+        "Any"
+      ]
+    },
     "getIntelIdentityCertificationHistoryV1": {
       "resource": "intelligence",
       "tag": "Intelligence",
@@ -6582,6 +6602,22 @@
       "sdkName": "Get-IntelIdentityRareAccessV1",
       "httpMethod": "GET",
       "path": "/intelligence/v1/identities/{id}/outliers/rare-access",
+      "userAuth": [
+        "sp:identity-sec-intel:read"
+      ],
+      "applicationAuth": [
+        "sp:identity-sec-intel:read"
+      ],
+      "userLevels": [
+        "Any"
+      ]
+    },
+    "getIntelIdentityRiskSignalsV1": {
+      "resource": "intelligence",
+      "tag": "Intelligence",
+      "sdkName": "Get-IntelIdentityRiskSignalsV1",
+      "httpMethod": "GET",
+      "path": "/intelligence/v1/identities/{id}/risk-signals",
       "userAuth": [
         "sp:identity-sec-intel:read"
       ],
@@ -15641,7 +15677,8 @@
       "userLevels": [
         "ORG_ADMIN",
         "SOURCE_ADMIN",
-        "SOURCE_SUBADMIN"
+        "SOURCE_SUBADMIN",
+        "HELPDESK"
       ]
     },
     "unsubscribeScheduledSearchV1": {

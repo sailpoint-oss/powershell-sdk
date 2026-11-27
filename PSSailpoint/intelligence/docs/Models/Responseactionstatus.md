@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Responseactionstatus', 'Responseactio
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RequestId** | **String** | Tracking handle and correlation id for the response action. | [required]
-**ActionType** |  **Enum** [  "DISABLE_IDENTITY",    "DISABLE_ACCOUNT" ] | The action that was requested. | [required]
+**ActionType** |  **Enum** [  "DISABLE_IDENTITY",    "DISABLE_ACCOUNT",    "DEACTIVATE_AGENT" ] | The action that was requested. | [required]
 **Status** |  **Enum** [  "SUBMITTED",    "IN_PROGRESS",    "COMPLETED",    "FAILED" ] | Aggregate status across the correlated workflow execution(s): SUBMITTED (registered, no execution yet), IN_PROGRESS (any still non-terminal), COMPLETED (all terminal and at least one succeeded), or FAILED (all terminal and none succeeded).  | [required]
 **SubmittedAt** | **System.DateTime** | When the response action was accepted. | [required]
 **UpdatedAt** | **System.DateTime** | When the response action status last changed. | [required]

@@ -95,6 +95,29 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityAccountsV1"
             Write-Host $_.ErrorDetails
         }
+- path: /intelligence/v1/identities/{id}/capabilities
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligence/methods/intelligence#get-intel-identity-capabilities-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence sub-resources.
+        $Type = "mcp" # String | Which kind of linked capability to list. Must be `mcp`, `tool`, or `skill`.
+        $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List NHI capabilities
+        
+        try {
+            Get-IntelIdentityCapabilitiesV1 -Id $Id -Type $Type 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IntelIdentityCapabilitiesV1 -Id $Id -Type $Type -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityCapabilitiesV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /intelligence/v1/identities/{id}/access-history/certifications
   method: GET
   xCodeSample:
@@ -161,6 +184,28 @@
             # Get-IntelIdentityRareAccessV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityRareAccessV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /intelligence/v1/identities/{id}/risk-signals
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligence/methods/intelligence#get-intel-identity-risk-signals-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence sub-resources.
+        $Limit = 250 # Int32 | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List non-human identity risk factors
+        
+        try {
+            Get-IntelIdentityRiskSignalsV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IntelIdentityRiskSignalsV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityRiskSignalsV1"
             Write-Host $_.ErrorDetails
         }
 - path: /intelligence/v1/response-actions/{id}/status

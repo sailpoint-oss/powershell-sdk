@@ -66,16 +66,32 @@ function ConvertFrom-JsonToResponseactioncreaterequest {
             Write-Debug "Failed to match 'ResponseactioncreaterequestOneOf1' defined in oneOf (Responseactioncreaterequest). Proceeding to the next one if any."
         }
 
+        # try to match ResponseactioncreaterequestOneOf2 defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-JsonToResponseactioncreaterequestOneOf2 $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "ResponseactioncreaterequestOneOf2"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'ResponseactioncreaterequestOneOf2' defined in oneOf (Responseactioncreaterequest). Proceeding to the next one if any."
+        }
+
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([ResponseactioncreaterequestOneOf, ResponseactioncreaterequestOneOf1]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([ResponseactioncreaterequestOneOf, ResponseactioncreaterequestOneOf1, ResponseactioncreaterequestOneOf2]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("ResponseactioncreaterequestOneOf", "ResponseactioncreaterequestOneOf1")
+                "OneOfSchemas" = @("ResponseactioncreaterequestOneOf", "ResponseactioncreaterequestOneOf1", "ResponseactioncreaterequestOneOf2")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([ResponseactioncreaterequestOneOf, ResponseactioncreaterequestOneOf1]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([ResponseactioncreaterequestOneOf, ResponseactioncreaterequestOneOf1, ResponseactioncreaterequestOneOf2]). JSON Payload: $($Json)"
         }
     }
 }

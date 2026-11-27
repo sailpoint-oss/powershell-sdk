@@ -16,6 +16,8 @@ No description available.
 
 .PARAMETER ActionType
 No description available.
+.PARAMETER IdentityType
+No description available.
 .OUTPUTS
 
 ResponseactioncreaterequestOneOf<PSCustomObject>
@@ -27,7 +29,11 @@ function Initialize-ResponseactioncreaterequestOneOf {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("DISABLE_IDENTITY")]
         [String]
-        ${ActionType}
+        ${ActionType},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("HUMAN")]
+        [String]
+        ${IdentityType}
     )
 
     Process {
@@ -37,6 +43,7 @@ function Initialize-ResponseactioncreaterequestOneOf {
 
         $PSO = [PSCustomObject]@{
             "actionType" = ${ActionType}
+            "identityType" = ${IdentityType}
         }
 
         return $PSO
@@ -73,7 +80,7 @@ function ConvertFrom-JsonToResponseactioncreaterequestOneOf {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ResponseactioncreaterequestOneOf
-        $AllProperties = ("actionType")
+        $AllProperties = ("actionType", "identityType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -86,8 +93,15 @@ function ConvertFrom-JsonToResponseactioncreaterequestOneOf {
             $ActionType = $JsonParameters.PSobject.Properties["actionType"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityType"))) { #optional property not found
+            $IdentityType = $null
+        } else {
+            $IdentityType = $JsonParameters.PSobject.Properties["identityType"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "actionType" = ${ActionType}
+            "identityType" = ${IdentityType}
         }
 
         return $PSO

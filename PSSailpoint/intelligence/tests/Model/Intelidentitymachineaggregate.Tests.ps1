@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'Intelidentitymachineaggregate' {
     Context 'Intelidentitymachineaggregate' {
         It 'Initialize-Intelidentitymachineaggregate' {
             # a simple test to create an object
-            #$NewObject = Initialize-Intelidentitymachineaggregate -Id "TEST_VALUE" -Type "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE" -Subtype "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -MatchConfidence "TEST_VALUE" -IdentityGraph "TEST_VALUE" -Accounts "TEST_VALUE" -NativeIdentity "TEST_VALUE" -DatasetId "TEST_VALUE" -Source "TEST_VALUE" -ExistsOnSource "TEST_VALUE" -ManuallyEdited "TEST_VALUE" -ManuallyCreated "TEST_VALUE" -Owners "TEST_VALUE" -UserEntitlements "TEST_VALUE" -Attributes "TEST_VALUE" -Derived "TEST_VALUE"
+            #$NewObject = Initialize-Intelidentitymachineaggregate -Id "TEST_VALUE" -Type "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE" -Subtype "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -MatchConfidence "TEST_VALUE" -IdentityGraph "TEST_VALUE" -Accounts "TEST_VALUE" -Capabilities "TEST_VALUE" -Risk "TEST_VALUE" -RiskSignals "TEST_VALUE" -NativeIdentity "TEST_VALUE" -DatasetId "TEST_VALUE" -Source "TEST_VALUE" -ExistsOnSource "TEST_VALUE" -ManuallyEdited "TEST_VALUE" -ManuallyCreated "TEST_VALUE" -Owners "TEST_VALUE" -UserEntitlements "TEST_VALUE" -Attributes "TEST_VALUE" -Derived "TEST_VALUE"
             #$NewObject | Should -BeOfType Intelidentitymachineaggregate
             #$NewObject.property | Should -Be 0
         }

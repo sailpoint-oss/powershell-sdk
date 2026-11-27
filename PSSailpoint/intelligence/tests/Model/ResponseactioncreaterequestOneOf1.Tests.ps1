@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Intelligence' -name 'ResponseactioncreaterequestOneOf
     Context 'ResponseactioncreaterequestOneOf1' {
         It 'Initialize-ResponseactioncreaterequestOneOf1' {
             # a simple test to create an object
-            #$NewObject = Initialize-ResponseactioncreaterequestOneOf1 -ActionType "TEST_VALUE"
+            #$NewObject = Initialize-ResponseactioncreaterequestOneOf1 -ActionType "TEST_VALUE" -IdentityType "TEST_VALUE"
             #$NewObject | Should -BeOfType ResponseactioncreaterequestOneOf1
             #$NewObject.property | Should -Be 0
         }

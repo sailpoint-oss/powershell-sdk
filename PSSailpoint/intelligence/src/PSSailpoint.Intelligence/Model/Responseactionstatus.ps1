@@ -36,7 +36,7 @@ function Initialize-Responseactionstatus {
         [String]
         ${RequestId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("DISABLE_IDENTITY", "DISABLE_ACCOUNT")]
+        [ValidateSet("DISABLE_IDENTITY", "DISABLE_ACCOUNT", "DEACTIVATE_AGENT")]
         [String]
         ${ActionType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **PreferredLanguage** | **String** | The locale the user prefers to use | [optional] 
 **Locale** | **String** | The locale the user prefers to use | [optional] 
 **GroupStrings** | **String** | Group strings configured on the customer's Active Directory configuration, provided by the IDP at the moment on authentication. | [optional] 
-**SailpointIdentityId** | **String** | The identity ID of the user in ISC | [optional] 
+**SailpointIdentityId** | **String** | The identity ID of the user in SailPoint Identity Security | [optional] 
 
 ## Examples
 
